@@ -1,0 +1,1875 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CHPT_eTraining" Class="dcTrainingDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=192.168.1.24;Initial Catalog=CHPT_eTraining;Persist Security Info=True;User ID=jb" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="eLearningConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.trClassroom" Member="trClassroom">
+    <Type Name="trClassroom">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sAddr" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="trClassroom_trAttendClassPlace" Member="trAttendClassPlace" ThisKey="sCode" OtherKey="sPlaceCode" Type="trAttendClassPlace" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTrainingWorkItem" Member="trTrainingWorkItem">
+    <Type Name="trTrainingWorkItem">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="iTriggerDay" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="trTriggerType_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tsTitle" Member="tsTitle">
+    <Type Name="tsTitle">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tsTitleM_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="iMin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iMax" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tsTitleM" Member="tsTitleM">
+    <Type Name="tsTitleM">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tsEaxmination" Member="tsEaxmination">
+    <Type Name="tsEaxmination">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="lnCategoryS_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="tsCategory_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sContent" Type="System.String" DbType="NVarChar(2000) NOT NULL" CanBeNull="false" />
+      <Column Name="iAnswer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tsQuestionsM" Member="tsQuestionsM">
+    <Type Name="tsQuestionsM">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="sysRole_iKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tsTitleM_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="iScope" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iMax" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iMinute" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iRepeat" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sRespondMode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="bRandomEaxm" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="bRandomChoose" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="dDateA" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="dDateD" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="sHeader" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sNotice" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sFooter" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tsBaseM" Member="tsBaseM">
+    <Type Name="tsBaseM">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tsQuestionsM_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sGuid" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="iMinute" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sNobr" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sPW" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="dAmountDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="dWriteDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="iFraction" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tsTitle_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trCourseTeacherRel" Member="trCourseTeacherRel">
+    <Type Name="trCourseTeacherRel">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="trTeacher_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trCourse_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sKey" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTrainingDetailT" Member="trTrainingDetailT">
+    <Type Name="trTrainingDetailT">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="dDateTimeA" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="iSession" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="trCourse_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sKey" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trTeacher_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTrainingStudentD" Member="trTrainingStudentD">
+    <Type Name="trTrainingStudentD">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="iYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sJoblCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sDeptCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sNobr" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trRequirementTemplate" Member="trRequirementTemplate">
+    <Type Name="trRequirementTemplate">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="trRequirementTemplate_trRequirementTemplateCourse" Member="trRequirementTemplateCourse" ThisKey="sCode" OtherKey="RT_Code" Type="trRequirementTemplateCourse" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trRequirementTemplateCatDetail" Member="trRequirementTemplateCatDetail">
+    <Type Name="trRequirementTemplateCatDetail">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Rt_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Rtc_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trCourse_sCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="false" />
+      <Column Name="iOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sKey" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trRequirementTemplateDetail" Member="trRequirementTemplateDetail">
+    <Type Name="trRequirementTemplateDetail">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Rt_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Rtc_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="iOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="trRequirementTemplateDetail_QuestDeptDetail" Member="QuestDeptDetail" ThisKey="iAutoKey" OtherKey="trRequirementTemplateDetailId" Type="QuestDeptDetail" />
+      <Association Name="trRequirementTemplateCat_trRequirementTemplateDetail" Member="trRequirementTemplateCat" ThisKey="Rtc_sCode" OtherKey="sCode" Type="trRequirementTemplateCat" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTrainingQuest" Member="trTrainingQuest">
+    <Type Name="trTrainingQuest">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="iYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iSession" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sJobCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sJobsCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sJoblCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sDeptCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sNobr" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sManage" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="trCourse_sCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sKey" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="iDemandIntensityP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iDemandIntensityM" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iDemandIntensityPdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="iDemandIntensityMdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trCategoryCourse" Member="trCategoryCourse">
+    <Type Name="trCategoryCourse">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sysRole_iKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sCateCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sCourseCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="iOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="trCourse_trCategoryCourse" Member="trCourse" ThisKey="sCourseCode" OtherKey="sCode" Type="trCourse" IsForeignKey="true" />
+      <Association Name="trCategory_trCategoryCourse" Member="trCategory" ThisKey="sCateCode" OtherKey="sCode" Type="trCategory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trSerialCourse" Member="trSerialCourse">
+    <Type Name="trSerialCourse">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sSerialCourseCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sCourseCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="iOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trCourse" Member="trCourse">
+    <Type Name="trCourse">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sysRole_iKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="sContent" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="trTrainingMethod_sCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="trTrainingType_sCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="trTeachingMethod_sCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="iCourseTime" Type="System.Int32" DbType="int NOT NULL" CanBeNull="false" />
+      <Column Name="bIsSerialCourse" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="iJobScore" Type="System.Int32" DbType="int NOT NULL" CanBeNull="false" />
+      <Column Name="iEdition" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iValidityDay" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iLeftDay" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dDateA" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="dDateD" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="trCourse_trCategoryCourse" Member="trCategoryCourse" ThisKey="sCode" OtherKey="sCourseCode" Type="trCategoryCourse" />
+      <Association Name="trCourse_trTrainingPlanDetail" Member="trTrainingPlanDetail" ThisKey="sCode" OtherKey="trCourse_sCode" Type="trTrainingPlanDetail" />
+      <Association Name="trCourse_trOJTStudentD" Member="trOJTStudentD" ThisKey="sCode" OtherKey="trCourse_sCode" Type="trOJTStudentD" />
+      <Association Name="trCourse_trTrainingDetailM" Member="trTrainingDetailM" ThisKey="sCode" OtherKey="trCourse_sCode" Type="trTrainingDetailM" />
+      <Association Name="trCourse_trRequirementTemplateCourse" Member="trRequirementTemplateCourse" ThisKey="sCode" OtherKey="CourseCode" Type="trRequirementTemplateCourse" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trCategory" Member="trCategory">
+    <Type Name="trCategory">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sysRole_iKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="iOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sParentCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="false" />
+      <Column Name="dDateA" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="dDateD" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="trCategory_trCategoryCourse" Member="trCategoryCourse" ThisKey="sCode" OtherKey="sCateCode" Type="trCategoryCourse" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTrainingPlanDetailManager" Member="trTrainingPlanDetailManager">
+    <Type Name="trTrainingPlanDetailManager">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sPersonInCharge" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="iPlanDetailAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trRequirementTemplateRecord" Member="trRequirementTemplateRecord">
+    <Type Name="trRequirementTemplateRecord">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Rt_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="iYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="bIsClosed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="dClosedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trMailTemplate" Member="trMailTemplate">
+    <Type Name="trMailTemplate">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sMailSubject" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sMailContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="dKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="trMailTemplate_MailLog" Member="MailLog" ThisKey="iAutoKey" OtherKey="MailTemplate" Type="MailLog" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTrainingQuestCustom" Member="trTrainingQuestCustom">
+    <Type Name="trTrainingQuestCustom">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="iYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iSession" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sCourseName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="sJobCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sJobsCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sJoblCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sDeptCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sNobr" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sManage" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="iDemandIntensityP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iDemandIntensityM" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iDemandIntensityPdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="iDemandIntensityMdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTrainingPlanRequiredUnit" Member="trTrainingPlanRequiredUnit">
+    <Type Name="trTrainingPlanRequiredUnit">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="planAutoKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iSession" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sMode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="dept_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="job_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="jobL_sCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trNotifyTemplate" Member="trNotifyTemplate">
+    <Type Name="trNotifyTemplate">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trProcessNotify" Member="trProcessNotify">
+    <Type Name="trProcessNotify">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NotifyItem_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trCourse_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trCategory_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="iTimespan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dNotifyDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTeachingMaterialDetail_TeachingMethod" Member="trTeachingMaterialDetail_TeachingMethod">
+    <Type Name="trTeachingMaterialDetail_TeachingMethod">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MaterialDetailAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="trTeachingMethod_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTeachingMaterialDetail_TeachingResource" Member="trTeachingMaterialDetail_TeachingResource">
+    <Type Name="trTeachingMaterialDetail_TeachingResource">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MaterialDetailAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="trTeachingResourceCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTeachingResource" Member="trTeachingResource">
+    <Type Name="trTeachingResource">
+      <Column Name="ResourceCode" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ResourceName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="trTeachingResource_CoursePlanDetail_TeachingResource" Member="CoursePlanDetail_TeachingResource" ThisKey="ResourceCode" OtherKey="trTeachingResourceCode" Type="CoursePlanDetail_TeachingResource" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTeachingMaterialDetail" Member="trTeachingMaterialDetail">
+    <Type Name="trTeachingMaterialDetail">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MaterialAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ParentiAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sOutline" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="iTimeMin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sNote" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trNotifyItem" Member="trNotifyItem">
+    <Type Name="trNotifyItem">
+      <Column Name="iAutokey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="iTimespan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trCostItem" Member="trCostItem">
+    <Type Name="trCostItem">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="trCostItemCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trCostItemName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trKnotTeaches" Member="trKnotTeaches">
+    <Type Name="trKnotTeaches">
+      <Column Name="KnotTeachesCode" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="KnotTeachesName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="trKnotTeaches_QuestDeptDetail3" Member="QuestDeptDetail3" ThisKey="KnotTeachesCode" OtherKey="SuggestionPassItem" Type="QuestDeptDetail3" />
+      <Association Name="trKnotTeaches_QuestDeptCustom3" Member="QuestDeptCustom3" ThisKey="KnotTeachesCode" OtherKey="SuggestionPassItem" Type="QuestDeptCustom3" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTeachingMethod" Member="trTeachingMethod">
+    <Type Name="trTeachingMethod">
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="trTeachingMethod_CoursePlanDetail_TeachingMethod" Member="CoursePlanDetail_TeachingMethod" ThisKey="sCode" OtherKey="trTeachingMethod_sCode" Type="CoursePlanDetail_TeachingMethod" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTrainingEstimateCost" Member="trTrainingEstimateCost">
+    <Type Name="trTrainingEstimateCost">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="iClassAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="trCostItem_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="iAmt" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dPayDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTrainingActualCost" Member="trTrainingActualCost">
+    <Type Name="trTrainingActualCost">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="iClassAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="trCostItem_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="iAmt" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dPayDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trJoinType" Member="trJoinType">
+    <Type Name="trJoinType">
+      <Column Name="iAutokey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="trJoinType_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trJoinType_sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="trJoinType_trTrainingStudentM" Member="trTrainingStudentM" ThisKey="trJoinType_sCode" OtherKey="trJoinType_sCode" Type="trTrainingStudentM" />
+    </Type>
+  </Table>
+  <Table Name="dbo.qQuestionaryS" Member="qQuestionaryS">
+    <Type Name="qQuestionaryS">
+      <Column Name="iAutokey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="qCastM_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="iOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.qType" Member="qType">
+    <Type Name="qType">
+      <Column Name="iAutokey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="qQuestionary_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="qQuestionary_sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="dDateB" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="dDateE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="iTotalFraction" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.qBaseS" Member="qBaseS">
+    <Type Name="qBaseS">
+      <Column Name="iAutokey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="qBase_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="qQuestionary_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="qCast_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="qCate_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="qTheme_sCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="iFraction" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sFraction" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.qTitle" Member="qTitle">
+    <Type Name="qTitle">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sFraction1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sFraction2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sFraction3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sFraction4" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sFraction5" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sFraction6" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sFraction7" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sFraction8" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sFraction9" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sFraction10" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.qTheme" Member="qTheme">
+    <Type Name="qTheme">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sContent" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="qTitle_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="iOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.qCastS" Member="qCastS">
+    <Type Name="qCastS">
+      <Column Name="iAutokey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="qTheme_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="iOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UPLOAD" Member="UPLOAD">
+    <Type Name="UPLOAD">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FileSize" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FileCategory" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FileCategoryKey" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FileOriginName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="FileNameExt" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="FileStoredName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FileStoredPath" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="FileNote" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="FileKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FileKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FileDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FileDeletedMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FileDeletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trAttendClassDate" Member="trAttendClassDate">
+    <Type Name="trAttendClassDate">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="iClassAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dClassDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="dClassDateA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dClassDateD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="iAttendMins" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="trAttendClassDate_trAttendClassPlace" Member="trAttendClassPlace" ThisKey="iClassAutoKey,dClassDate" OtherKey="iClassAutoKey,dClassDate" Type="trAttendClassPlace" Cardinality="One" />
+      <Association Name="trTrainingDetailM_trAttendClassDate" Member="trTrainingDetailM" ThisKey="iClassAutoKey" OtherKey="iAutoKey" Type="trTrainingDetailM" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trAttendClassPlace" Member="trAttendClassPlace">
+    <Type Name="trAttendClassPlace">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="iClassAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dClassDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="sPlaceCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="trAttendClassDate_trAttendClassPlace" Member="trAttendClassDate" ThisKey="iClassAutoKey,dClassDate" OtherKey="iClassAutoKey,dClassDate" Type="trAttendClassDate" IsForeignKey="true" />
+      <Association Name="trClassroom_trAttendClassPlace" Member="trClassroom" ThisKey="sPlaceCode" OtherKey="sCode" Type="trClassroom" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trAttendClassTeacher" Member="trAttendClassTeacher">
+    <Type Name="trAttendClassTeacher">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="iClassAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dClassDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="sTeacherCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="trTrainingDetailM_trAttendClassTeacher" Member="trTrainingDetailM" ThisKey="iClassAutoKey" OtherKey="iAutoKey" Type="trTrainingDetailM" IsForeignKey="true" />
+      <Association Name="trTeacher_trAttendClassTeacher" Member="trTeacher" ThisKey="sTeacherCode" OtherKey="sCode" Type="trTeacher" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trOJTTemplateDetail" Member="trOJTTemplateDetail">
+    <Type Name="trOJTTemplateDetail">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OJT_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trCourse_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTrainingDetailS" Member="trTrainingDetailS">
+    <Type Name="trTrainingDetailS">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="iClassAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="trKnotTeaches_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTrainingStudentS" Member="trTrainingStudentS">
+    <Type Name="trTrainingStudentS">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="trTrainingStudentM_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iClassAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="trKnotTeaches_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="bPass" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTrainingStudentPresence" Member="trTrainingStudentPresence">
+    <Type Name="trTrainingStudentPresence">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="trTrainingStudentM_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iClassAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AttendClassDateID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="bPresence" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTeachingMaterial" Member="trTeachingMaterial">
+    <Type Name="trTeachingMaterial">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="trCourse_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sVersion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sCoursePolicy" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sContent" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="dTeachingTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sCourseExpect" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="FileStoredName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bSaved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.qCastM" Member="qCastM">
+    <Type Name="qCastM">
+      <Column Name="iAutokey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sContent" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="iOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="qCate_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trClassNotify" Member="trClassNotify">
+    <Type Name="trClassNotify">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="iClassAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iNotifyItemAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iTimespan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dNotifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dCompletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sCompletedMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.qTheme_Category" Member="qTheme_Category">
+    <Type Name="qTheme_Category">
+      <Column Name="iAutokey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTrainingPlanDetail" Member="trTrainingPlanDetail">
+    <Type Name="trTrainingPlanDetail">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="iYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iSession" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iMonth" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="trCourse_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sKey" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="iMins" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iNumOfPeople" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iAmt" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iClassAutoKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CourseType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="trTrainingDetailM_trTrainingPlanDetail" Member="trTrainingDetailM" ThisKey="iClassAutoKey" OtherKey="iAutoKey" Type="trTrainingDetailM" IsForeignKey="true" />
+      <Association Name="trCourse_trTrainingPlanDetail" Member="trCourse" ThisKey="trCourse_sCode" OtherKey="sCode" Type="trCourse" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTrainingStudentScore" Member="trTrainingStudentScore">
+    <Type Name="trTrainingStudentScore">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="trTrainingStudentM_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iClassAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sPerformance" Type="System.String" DbType="NVarChar(2000) NOT NULL" CanBeNull="false" />
+      <Column Name="iScore" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trOJTStudentM" Member="trOJTStudentM">
+    <Type Name="trOJTStudentM">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sNobr" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OJT_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="trOJTStudentM_trOJTStudentD" Member="trOJTStudentD" ThisKey="sNobr,OJT_sCode" OtherKey="sNobr,OJT_sCode" Type="trOJTStudentD" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OjtVerificationUnit" Member="OjtVerificationUnit">
+    <Type Name="OjtVerificationUnit">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VerificationUnit" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OjtUnit" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="dDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trNotifyTemplateDetail" Member="trNotifyTemplateDetail">
+    <Type Name="trNotifyTemplateDetail">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NotifyItem_iAutokey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iTimespanT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTrainingMethod" Member="trTrainingMethod">
+    <Type Name="trTrainingMethod">
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="trTrainingMethod_trTrainingDetailM" Member="trTrainingDetailM" ThisKey="sCode" OtherKey="trTrainingMethod_sCode" Type="trTrainingDetailM" />
+      <Association Name="trTrainingMethod_QuestDeptDetail3" Member="QuestDeptDetail3" ThisKey="sCode" OtherKey="TrainingMethodCode" Type="QuestDeptDetail3" />
+      <Association Name="trTrainingMethod_QuestDeptCustom3" Member="QuestDeptCustom3" ThisKey="sCode" OtherKey="TrainingMethodCode" Type="QuestDeptCustom3" />
+    </Type>
+  </Table>
+  <Table Name="dbo.JobSkill" Member="JobSkill">
+    <Type Name="JobSkill">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trOJTStudentD" Member="trOJTStudentD">
+    <Type Name="trOJTStudentD">
+      <Column Name="iAutokey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sNobr" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OJT_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trCourse_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sTeacher" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dTeacherKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="bPass" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="dCheckDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sCheckMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dFinalCheckDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sFinalCheckMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dOJT_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="iJobScore" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="iLevel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dCreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sCreateMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="BASETTS_trOJTStudentD" Member="BASETTS" ThisKey="sNobr" OtherKey="NOBR" Type="BASETTS" IsForeignKey="true" />
+      <Association Name="trCourse_trOJTStudentD" Member="trCourse" ThisKey="trCourse_sCode" OtherKey="sCode" Type="trCourse" IsForeignKey="true" />
+      <Association Name="trOJTStudentM_trOJTStudentD" Member="trOJTStudentM" ThisKey="sNobr,OJT_sCode" OtherKey="sNobr,OJT_sCode" Type="trOJTStudentM" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trRequirementTemplateCat" Member="trRequirementTemplateCat">
+    <Type Name="trRequirementTemplateCat">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="iFillMaxNum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="trRequirementTemplateCat_trRequirementTemplateDetail" Member="trRequirementTemplateDetail" ThisKey="sCode" OtherKey="Rtc_sCode" Type="trRequirementTemplateDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.qQuestionaryM" Member="qQuestionaryM">
+    <Type Name="qQuestionaryM">
+      <Column Name="iAutokey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sContent" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sHeader" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sFooter" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="FillerCategory" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="FillFormSpan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsTeacherGrade" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="qQuestionaryM_qBaseM" Member="qBaseM" ThisKey="sCode" OtherKey="qQuestionary_sCode" Type="qBaseM" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTrainingDetailM" Member="trTrainingDetailM">
+    <Type Name="trTrainingDetailM">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="iYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dDateTimeA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dDateTimeD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dDateA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dDateD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sTimeA" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sTimeD" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="iSession" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="trCourse_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sKey" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trTeacher_sCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="trClassroom_sCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bWebJoin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="dWebJoinDateB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dWebJoinDateE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="iUpLimitP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iLowLimitP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iStudentNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bIsPublished" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="iYearPlanAutoKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sMaterialSelector" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="iMaterialAutoKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sMaterialKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dMaterialKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="iEstimateAMT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iActualAMT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iCourseTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iJobScore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dExpiryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="trTrainingMethod_sCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="trTeacherType_sCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bIsNeedClassRpt" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="iClassRptDateSpan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dClassRptDeadline" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CourseType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bIsNeedStudentScore" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="iStudentScoreDateSpan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dStudentScoreDeadline" Type="System.DateTime" DbType="Datetime" CanBeNull="true" />
+      <Column Name="sCourseGoal" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sCourseSummary" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="IsTeacherFinishClassScore" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsManagerScoreStudentClassReport" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="sCourseGoal2" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="PlanRequirement" Type="System.String" DbType="NVarChar(Max)" CanBeNull="true" />
+      <Column Name="PlanStudentQualification" Type="System.String" DbType="NVarChar(Max)" CanBeNull="true" />
+      <Column Name="PlanTrainingMethod" Type="System.String" DbType="NVarChar(Max)" CanBeNull="true" />
+      <Column Name="PlanComment" Type="System.String" DbType="NVarChar(Max)" CanBeNull="true" />
+      <Association Name="trTrainingDetailM_trAttendClassDate" Member="trAttendClassDate" ThisKey="iAutoKey" OtherKey="iClassAutoKey" Type="trAttendClassDate" />
+      <Association Name="trTrainingDetailM_trAttendClassTeacher" Member="trAttendClassTeacher" ThisKey="iAutoKey" OtherKey="iClassAutoKey" Type="trAttendClassTeacher" />
+      <Association Name="trTrainingDetailM_trTrainingPlanDetail" Member="trTrainingPlanDetail" ThisKey="iAutoKey" OtherKey="iClassAutoKey" Type="trTrainingPlanDetail" />
+      <Association Name="trTrainingDetailM_trTrainingStudentM" Member="trTrainingStudentM" ThisKey="iAutoKey" OtherKey="iClassAutoKey" Type="trTrainingStudentM" />
+      <Association Name="trTrainingDetailM_ClassQuestionnaire" Member="ClassQuestionnaire" ThisKey="iAutoKey" OtherKey="iClassAutoKey" Type="ClassQuestionnaire" />
+      <Association Name="trTrainingDetailM_qBaseM" Member="qBaseM" ThisKey="iAutoKey" OtherKey="iClassAutoKey" Type="qBaseM" />
+      <Association Name="trTrainingDetailM_ClassTeacher" Member="ClassTeacher" ThisKey="iAutoKey" OtherKey="iClassAutoKey" Type="ClassTeacher" />
+      <Association Name="trTrainingDetailM_QAMaster" Member="QAMaster" ThisKey="iAutoKey" OtherKey="ClassAutoKey" Type="QAMaster" />
+      <Association Name="trTrainingDetailM_CoursePlanDetail" Member="CoursePlanDetail" ThisKey="iAutoKey" OtherKey="ClassAutoKey" Type="CoursePlanDetail" />
+      <Association Name="trCourse_trTrainingDetailM" Member="trCourse" ThisKey="trCourse_sCode" OtherKey="sCode" Type="trCourse" IsForeignKey="true" />
+      <Association Name="trTrainingMethod_trTrainingDetailM" Member="trTrainingMethod" ThisKey="trTrainingMethod_sCode" OtherKey="sCode" Type="trTrainingMethod" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DefectItem" Member="DefectItem">
+    <Type Name="DefectItem">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTrainingStudentM" Member="trTrainingStudentM">
+    <Type Name="trTrainingStudentM">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="iClassAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sJobCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sJobsCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sJoblCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sDeptCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sNobr" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="trJoinType_sCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bPresence" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="sAbsenceNote" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sNote1" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="iScore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dTeacherKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sTeacherCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bPass" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="sPassNote" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sNote2" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="dNote2KeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="iNote2Score" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dNote2ScoreKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sNote3" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sNote4" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sNote5" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DefectItem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="trTrainingStudentM_QAMaster" Member="QAMaster" ThisKey="iClassAutoKey,sNobr" OtherKey="ClassAutoKey,Nobr" Type="QAMaster" />
+      <Association Name="BASE_trTrainingStudentM" Member="BASE" ThisKey="sNobr" OtherKey="NOBR" Type="BASE" IsForeignKey="true" />
+      <Association Name="trTrainingDetailM_trTrainingStudentM" Member="trTrainingDetailM" ThisKey="iClassAutoKey" OtherKey="iAutoKey" Type="trTrainingDetailM" IsForeignKey="true" />
+      <Association Name="JOB_trTrainingStudentM" Member="JOB" ThisKey="sJobCode" OtherKey="JOB1" Type="JOB" IsForeignKey="true" />
+      <Association Name="DEPT_trTrainingStudentM" Member="DEPT" ThisKey="sDeptCode" OtherKey="D_NO" Type="DEPT" IsForeignKey="true" />
+      <Association Name="BASE_trTrainingStudentM1" Member="BASE1" ThisKey="sKeyMan" OtherKey="NOBR" Type="BASE" IsForeignKey="true" />
+      <Association Name="JOBL_trTrainingStudentM" Member="JOBL" ThisKey="sJoblCode" OtherKey="JOBL1" Type="JOBL" IsForeignKey="true" />
+      <Association Name="trJoinType_trTrainingStudentM" Member="trJoinType" ThisKey="trJoinType_sCode" OtherKey="trJoinType_sCode" Type="trJoinType" IsForeignKey="true" />
+      <Association Name="BASETTS_trTrainingStudentM" Member="BASETTS" ThisKey="sNobr" OtherKey="NOBR" Type="BASETTS" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trOJTTemplate" Member="trOJTTemplate">
+    <Type Name="trOJTTemplate">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ExpirationDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsValid" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="trOJTTemplate_OjtUnitCard" Member="OjtUnitCard" ThisKey="sCode" OtherKey="OjtCard" Type="OjtUnitCard" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ClassQuestionnaire" Member="ClassQuestionnaire">
+    <Type Name="ClassQuestionnaire">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="iClassAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="qQuestionaryM" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="qTypeCode" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="dDeadLine" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="QTpl_ClassQuestionnaire" Member="QTpl" ThisKey="qQuestionaryM" OtherKey="Code" Type="QTpl" IsForeignKey="true" />
+      <Association Name="trTrainingDetailM_ClassQuestionnaire" Member="trTrainingDetailM" ThisKey="iClassAutoKey" OtherKey="iAutoKey" Type="trTrainingDetailM" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.qBaseM" Member="qBaseM">
+    <Type Name="qBaseM">
+      <Column Name="iAutokey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="qQuestionary_sCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="qType_sCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FillerCategory" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="sNobr" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="trTeacher_sCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sysRole" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sPW" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sDeptCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sDeptName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dAmountDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="dWriteDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dSchoolDateB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dSchoolDateE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dFillFormDatetimeB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dFillFormDatetimeE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dTeacherCheckedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dTRCheckedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="iYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iSession" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iClassAutoKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="trCourse_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trCourse_sName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="iTotalFraction" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="trTrainingDetailM_qBaseM" Member="trTrainingDetailM" ThisKey="iClassAutoKey" OtherKey="iAutoKey" Type="trTrainingDetailM" IsForeignKey="true" />
+      <Association Name="qQuestionaryM_qBaseM" Member="qQuestionaryM" ThisKey="qQuestionary_sCode" OtherKey="sCode" Type="qQuestionaryM" IsForeignKey="true" />
+      <Association Name="BASE_qBaseM" Member="BASE" ThisKey="sNobr" OtherKey="NOBR" Type="BASE" IsForeignKey="true" />
+      <Association Name="trTeacher_qBaseM" Member="trTeacher" ThisKey="trTeacher_sCode" OtherKey="sCode" Type="trTeacher" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trStudentError" Member="trStudentError">
+    <Type Name="trStudentError">
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trClassStudentError" Member="trClassStudentError">
+    <Type Name="trClassStudentError">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="iClassAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sNobr" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TrainingStudentM_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StudentErrorCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTrainingCardGoal" Member="trTrainingCardGoal">
+    <Type Name="trTrainingCardGoal">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="iOJTTemplateCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="iYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iMonth1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iMonth2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iMonth3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iMonth4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iMonth5" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iMonth6" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iMonth7" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iMonth8" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iMonth9" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iMonth10" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iMonth11" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iMonth12" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iAvg" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ClassQuestionnaireCU" Member="ClassQuestionnaireCU">
+    <Type Name="ClassQuestionnaireCU">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="iClassAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="qQuestionaryM" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Nobr" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTeacher" Member="trTeacher">
+    <Type Name="trTeacher">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="bEntTeacherType" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="sTeacherID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sSex" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sEmail" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="sTel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sFax" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sCellPhone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sAddr" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="sNote1" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sNote2" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sNote3" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sNote4" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sNote5" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sNobr" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sTeacherPWD" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sCompanyID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sWorkExp" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sTeachExp" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sOuterTeacherId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompanyName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ContactPerson" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ContactPhoneNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="trTeacher_trAttendClassTeacher" Member="trAttendClassTeacher" ThisKey="sCode" OtherKey="sTeacherCode" Type="trAttendClassTeacher" />
+      <Association Name="trTeacher_qBaseM" Member="qBaseM" ThisKey="sCode" OtherKey="trTeacher_sCode" Type="qBaseM" />
+      <Association Name="trTeacher_ClassTeacher" Member="ClassTeacher" ThisKey="sCode" OtherKey="sTeacherCode" Type="ClassTeacher" />
+      <Association Name="trTeacher_QAMaster" Member="QAMaster" ThisKey="sCode" OtherKey="TeacherCode" Type="QAMaster" />
+      <Association Name="BASE_trTeacher" Member="BASE" ThisKey="sNobr" OtherKey="NOBR" Type="BASE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.mtCode" Member="mtCode">
+    <Type Name="mtCode">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sCategory" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="sContent" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="s1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="s2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="s3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="i1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="i2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="i3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="d1" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="d2" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="d3" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="b1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="b2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="b3" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="iOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="bDisplay" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="bSystem" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sysUserRole" Member="sysUserRole">
+    <Type Name="sysUserRole">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOBR" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="iRoleKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iRoleAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="BASE_sysUserRole" Member="BASE" ThisKey="NOBR" OtherKey="NOBR" Type="BASE" IsForeignKey="true" />
+      <Association Name="sysRole_sysUserRole" Member="sysRole" ThisKey="iRoleKey" OtherKey="iKey" Type="sysRole" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BASE" Member="BASE">
+    <Type Name="BASE">
+      <Column Name="NOBR" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAME_C" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NAME_E" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NAME_P" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SEX" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BIRDT" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ADDR1" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="ADDR2" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="TEL1" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TEL2" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BBCALL" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EMAIL" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="GSM" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IDNO" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CONT_MAN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CONT_TEL" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CONT_GSM" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CONT_MAN2" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CONT_TEL2" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CONT_GSM2" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BLOOD" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PASSWORD" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="POSTCODE1" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="POSTCODE2" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BANK_CODE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BANKNO" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ACCOUNT_NO" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ACCOUNT_NA" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MARRY" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="COUNTRY" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="COUNT_MA" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ARMY" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PRO_MAN1" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PRO_ADDR1" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PRO_ID1" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PRO_TEL1" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PRO_MAN2" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PRO_ADDR2" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="PRO_ID2" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PRO_TEL2" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ARMY_TYPE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="N_NOBR" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NOBR_B" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PROVINCE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BORN_ADDR" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TAXCNT" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="KEY_MAN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="KEY_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ID_TYPE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TAXNO" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PRETAX" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="CONT_REL1" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CONT_REL2" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ACCOUNT_MA" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MATNO" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SUBTEL" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BASECD" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NAME_AD" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="BASE_trTrainingStudentM" Member="trTrainingStudentM" ThisKey="NOBR" OtherKey="sNobr" Type="trTrainingStudentM" />
+      <Association Name="BASE_trTrainingStudentM1" Member="trTrainingStudentM1" ThisKey="NOBR" OtherKey="sKeyMan" Type="trTrainingStudentM" />
+      <Association Name="BASE_qBaseM" Member="qBaseM" ThisKey="NOBR" OtherKey="sNobr" Type="qBaseM" />
+      <Association Name="BASE_trTeacher" Member="trTeacher" ThisKey="NOBR" OtherKey="sNobr" Type="trTeacher" />
+      <Association Name="BASE_sysUserRole" Member="sysUserRole" ThisKey="NOBR" OtherKey="NOBR" Type="sysUserRole" />
+      <Association Name="BASE_BASETTS" Member="BASETTS" ThisKey="NOBR" OtherKey="NOBR" Type="BASETTS" />
+      <Association Name="BASE_DEPT" Member="DEPT" ThisKey="NOBR" OtherKey="NOBR" Type="DEPT" />
+      <Association Name="BASE_QAMaster" Member="QAMaster" ThisKey="NOBR" OtherKey="Nobr" Type="QAMaster" />
+      <Association Name="BASE_QuestDeptDetail3" Member="QuestDeptDetail3" ThisKey="NOBR" OtherKey="Rejecter" Type="QuestDeptDetail3" />
+      <Association Name="BASE_QuestDeptCustom3" Member="QuestDeptCustom3" ThisKey="NOBR" OtherKey="Rejecter" Type="QuestDeptCustom3" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BASETTS" Member="BASETTS">
+    <Type Name="BASETTS">
+      <Column Name="NOBR" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ADATE" Type="System.DateTime" DbType="DateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TTSCODE" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="INDT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CINDT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OUDT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="STDT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="STINDT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="STOUDT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="COMP" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DEPT" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DEPTS" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="JOB" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="JOBL" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CARD" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ROTET" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DI" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="KEY_MAN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="KEY_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MANG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="YR_DAYS" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="WK_YRS" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="SALTP" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="JOBS" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="WORKCD" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CARCD" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EMPCD" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OUTCD" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CALABS" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CALOT" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FULATT" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="NOTER" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="NOWEL" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="NORET" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="NOTLATE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HOLI_CODE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NOOT" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="NOSPEC" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="NOCARD" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="NOEAT" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="APGRPCD" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DEPTM" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TTSCD" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MENO" Type="System.String" DbType="NVarChar(180) NOT NULL" CanBeNull="false" />
+      <Column Name="SALADR" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NOWAGE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MANGE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RETRATE" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="RETDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RETCHOO" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RETDATE1" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ONLYONTIME" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="JOBO" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="COUNT_PASS" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PASS_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MANG1" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AP_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="GRP_AMT" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="TAX_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NOSPAMT" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FIXRATE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TAX_EDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IS_SELFOUT" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="INSG_TYPE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="BASETTS_trOJTStudentD" Member="trOJTStudentD" ThisKey="NOBR" OtherKey="sNobr" Type="trOJTStudentD" />
+      <Association Name="BASETTS_trTrainingStudentM" Member="trTrainingStudentM" ThisKey="NOBR" OtherKey="sNobr" Type="trTrainingStudentM" />
+      <Association Name="DEPT_BASETTS" Member="DEPT1" ThisKey="DEPT" OtherKey="D_NO" Type="DEPT" IsForeignKey="true" />
+      <Association Name="JOB_BASETTS" Member="JOB1" ThisKey="JOB" OtherKey="JOB1" Type="JOB" IsForeignKey="true" />
+      <Association Name="BASE_BASETTS" Member="BASE" ThisKey="NOBR" OtherKey="NOBR" Type="BASE" IsForeignKey="true" />
+      <Association Name="JOBL_BASETTS" Member="JOBL1" ThisKey="JOBL" OtherKey="JOBL1" Type="JOBL" IsForeignKey="true" />
+      <Association Name="DEPTA_BASETTS" Member="DEPTA" ThisKey="DEPTM" OtherKey="D_NO" Type="DEPTA" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DEPT" Member="DEPT">
+    <Type Name="DEPT">
+      <Column Name="D_NO" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="D_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="D_ENAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PNS" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DEPT_TREE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="KEY_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="KEY_MAN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OLD_DEPT" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NEW_DEPT" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ADATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DDATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DEPT_GROUP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NOBR" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="DEPT_trTrainingStudentM" Member="trTrainingStudentM" ThisKey="D_NO" OtherKey="sDeptCode" Type="trTrainingStudentM" />
+      <Association Name="DEPT_BASETTS" Member="BASETTS" ThisKey="D_NO" OtherKey="DEPT" Type="BASETTS" />
+      <Association Name="DEPT_OjtCheckUnit" Member="OjtCheckUnit" ThisKey="D_NO" OtherKey="CheckUnit" Type="OjtCheckUnit" />
+      <Association Name="DEPT_OjtCheckUnit1" Member="OjtCheckUnit1" ThisKey="D_NO" OtherKey="OjtUnit" Type="OjtCheckUnit" />
+      <Association Name="DEPT_OjtUnitCard" Member="OjtUnitCard" ThisKey="D_NO" OtherKey="OjtUnit" Type="OjtUnitCard" />
+      <Association Name="DEPT_QuestDept" Member="QuestDept" ThisKey="D_NO" OtherKey="DeptCode" Type="QuestDept" />
+      <Association Name="DEPT_QuestDeptCustom3" Member="QuestDeptCustom3" ThisKey="D_NO" OtherKey="DeptCode" Type="QuestDeptCustom3" />
+      <Association Name="BASE_DEPT" Member="BASE" ThisKey="NOBR" OtherKey="NOBR" Type="BASE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.JOB" Member="JOB">
+    <Type Name="JOB">
+      <Column Name="JOB" Member="JOB1" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="JOB_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="JOB_ENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="KEY_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="KEY_MAN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="JOB_TREE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="JOBL" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="JOBLB" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="JOBLE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OLD_JOB" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="WORKAMT" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="JOB_trTrainingStudentM" Member="trTrainingStudentM" ThisKey="JOB1" OtherKey="sJobCode" Type="trTrainingStudentM" />
+      <Association Name="JOB_BASETTS" Member="BASETTS" ThisKey="JOB1" OtherKey="JOB" Type="BASETTS" />
+    </Type>
+  </Table>
+  <Table Name="dbo.JOBL" Member="JOBL">
+    <Type Name="JOBL">
+      <Column Name="JOBL" Member="JOBL1" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="JOB_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="B_SAL" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="E_SAL" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="KEY_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="KEY_MAN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OLD_JOBL" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="B_SAL1" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="B_SAL2" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="E_SAL1" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="E_SAL2" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="JOBL_GRUP" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="JOBL_trTrainingStudentM" Member="trTrainingStudentM" ThisKey="JOBL1" OtherKey="sJoblCode" Type="trTrainingStudentM" />
+      <Association Name="JOBL_BASETTS" Member="BASETTS" ThisKey="JOBL1" OtherKey="JOBL" Type="BASETTS" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sysFileStructure" Member="sysFileStructure">
+    <Type Name="sysFileStructure">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sKey" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sCat" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sPath" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="sFileName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="sFileTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sDescription" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="sysRole_iKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sParentKey" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="iOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dDateA" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="dDateD" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sIconPath" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="sIconName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="sysFileStructure_FileStructureRole" Member="FileStructureRole" ThisKey="sKey" OtherKey="FileStructureKey" Type="FileStructureRole" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sysRole" Member="sysRole">
+    <Type Name="sysRole">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="iKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="dDateA" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="dDateD" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsAdminRole" Type="System.Boolean" DbType="Bit" CanBeNull="false" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit" CanBeNull="false" />
+      <Association Name="sysRole_sysUserRole" Member="sysUserRole" ThisKey="iKey" OtherKey="iRoleKey" Type="sysUserRole" />
+      <Association Name="sysRole_FileStructureRole" Member="FileStructureRole" ThisKey="iKey" OtherKey="RoleKey" Type="FileStructureRole" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sysLoginUser" Member="sysLoginUser">
+    <Type Name="sysLoginUser">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sUserID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sUserPW" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sLeadPW" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sysRole_iKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dRegDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="bFirstChange" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="iDayChange" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iPwLen" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iPwChange" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iPwLock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="iLockTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="bPwLock" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="bAccessible" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="sNameC" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="sEmail" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sysLoginTime" Member="sysLoginTime">
+    <Type Name="sysLoginTime">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sysLoginUser_sUserID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sLoginIP" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="bLoginSuccess" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="dLoginTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dLogoutTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OjtCheckUnit" Member="OjtCheckUnit">
+    <Type Name="OjtCheckUnit">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CheckUnit" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OjtUnit" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="DEPT_OjtCheckUnit" Member="CheckDEPT" ThisKey="CheckUnit" OtherKey="D_NO" Type="DEPT" IsForeignKey="true" />
+      <Association Name="DEPT_OjtCheckUnit1" Member="OjtDEPT" ThisKey="OjtUnit" OtherKey="D_NO" Type="DEPT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OjtUnitCard" Member="OjtUnitCard">
+    <Type Name="OjtUnitCard">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OjtCard" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OjtUnit" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="trOJTTemplate_OjtUnitCard" Member="trOJTTemplate" ThisKey="OjtCard" OtherKey="sCode" Type="trOJTTemplate" IsForeignKey="true" />
+      <Association Name="DEPT_OjtUnitCard" Member="DEPT" ThisKey="OjtUnit" OtherKey="D_NO" Type="DEPT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CourseType" Member="CourseType">
+    <Type Name="CourseType">
+      <Column Name="sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="sName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trErrorNotify" Member="trErrorNotify">
+    <Type Name="trErrorNotify">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ErrorMsg" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TargetNobr" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TargetRole" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NotifyDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="dCompletedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sCompletedMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OjtCardGrantedRecord" Member="OjtCardGrantedRecord">
+    <Type Name="OjtCardGrantedRecord">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OjtCard" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sNobr" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="bSystemGrant" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trTrainingPlan" Member="trTrainingPlan">
+    <Type Name="trTrainingPlan">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="iYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sPolicy" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sProspect" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sGoal" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sNote" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="bEditable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MailLog" Member="MailLog">
+    <Type Name="MailLog">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MailTemplate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MailSubject" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="MailContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="MailAddressee" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ErrorMsg" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="trMailTemplate_MailLog" Member="trMailTemplate" ThisKey="MailTemplate" OtherKey="iAutoKey" Type="trMailTemplate" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ClassTeacher" Member="ClassTeacher">
+    <Type Name="ClassTeacher">
+      <Column Name="iAutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="iClassAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sTeacherCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Charge" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sKeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dKeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Minutes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="trTrainingDetailM_ClassTeacher" Member="trTrainingDetailM" ThisKey="iClassAutoKey" OtherKey="iAutoKey" Type="trTrainingDetailM" IsForeignKey="true" />
+      <Association Name="trTeacher_ClassTeacher" Member="trTeacher" ThisKey="sTeacherCode" OtherKey="sCode" Type="trTeacher" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OjtClassMapping" Member="OjtClassMapping">
+    <Type Name="OjtClassMapping">
+      <Column Name="OjtClass_Old" Type="System.String" DbType="NVarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OjtClass_new" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PA9_11" Member="PA9_11">
+    <Type Name="PA9_11">
+      <Column Name="EMPNO" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ABLYMD" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ABLNO" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ABLTYPE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ABLKIND" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ABLHR" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ABLSCORE" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ABLCHK" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CHKEND" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NotifyCustomVariable" Member="NotifyCustomVariable">
+    <Type Name="NotifyCustomVariable">
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FileStructureRole" Member="FileStructureRole">
+    <Type Name="FileStructureRole">
+      <Column Name="AutoKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FileStructureKey" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RoleKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="sysFileStructure_FileStructureRole" Member="sysFileStructure" ThisKey="FileStructureKey" OtherKey="sKey" Type="sysFileStructure" IsForeignKey="true" />
+      <Association Name="sysRole_FileStructureRole" Member="sysRole" ThisKey="RoleKey" OtherKey="iKey" Type="sysRole" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DEPTA" Member="DEPTA">
+    <Type Name="DEPTA">
+      <Column Name="D_NO" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="D_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="D_ENAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="KEY_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="KEY_MAN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OLD_DEPT" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DEPT_GROUP" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DEPT_TREE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MANAGER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ADATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DEPT_CATE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="DEPTA_BASETTS" Member="BASETTS" ThisKey="D_NO" OtherKey="DEPTM" Type="BASETTS" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NotifyMsgAttachment" Member="NotifyMsgAttachment">
+    <Type Name="NotifyMsgAttachment">
+      <Column Name="NotifyMsgGuid" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Guid" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="FileStream" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="NotifyMsg_NotifyMsgAttachment" Member="NotifyMsg" ThisKey="NotifyMsgGuid" OtherKey="Guid" Type="NotifyMsg" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NotifyMsg" Member="NotifyMsg">
+    <Type Name="NotifyMsg">
+      <Column Name="Guid" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SystemEventGuid" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NotifyMsgTplGuid" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SourceSystem" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SourceProgram" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="NotifyAdate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="NotifyDdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsProcessed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="NeedCheckBbs" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsTemplate" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="NotifyMsg_NotifyMsgAttachment" Member="NotifyMsgAttachment" ThisKey="Guid" OtherKey="NotifyMsgGuid" Type="NotifyMsgAttachment" />
+      <Association Name="NotifyMsg_NotifyMsgDetail" Member="NotifyMsgDetail" ThisKey="Guid" OtherKey="NotifyMsgGuid" Type="NotifyMsgDetail" />
+      <Association Name="NotifyMsg_NotifyMsgTarget" Member="NotifyMsgTarget" ThisKey="Guid" OtherKey="NotifyMsgGuid" Type="NotifyMsgTarget" />
+      <Association Name="JBSystemEventTriggerMsg_NotifyMsg" Member="JBSystemEventTriggerMsg" ThisKey="SystemEventGuid" OtherKey="Guid" Type="JBSystemEventTriggerMsg" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NotifyMsgDetail" Member="NotifyMsgDetail">
+    <Type Name="NotifyMsgDetail">
+      <Column Name="Guid" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NotifyMsgGuid" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NotifyTarget" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NotifyTargetType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NotifyTypeCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MailTo" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="IsMailSent" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ErrorMsg" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="NotifyAdate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="NotifyDdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsBbsChecked" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="NotifyMsg_NotifyMsgDetail" Member="NotifyMsg" ThisKey="NotifyMsgGuid" OtherKey="Guid" Type="NotifyMsg" IsForeignKey="true" />
+      <Association Name="NotifyTargetType_NotifyMsgDetail" Member="NotifyTargetType1" ThisKey="NotifyTargetType" OtherKey="NotifyTargetTypeCode" Type="NotifyTargetType" IsForeignKey="true" />
+      <Association Name="NotifyType_NotifyMsgDetail" Member="NotifyType" ThisKey="NotifyTypeCode" OtherKey="NotifyTypeCode" Type="NotifyType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NotifyMsgTarget" Member="NotifyMsgTarget">
+    <Type Name="NotifyMsgTarget">
+      <Column Name="Guid" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NotifyMsgGuid" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NotifyTargetTypeCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NotifyTarget" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="NotifyMsgTarget_NotifyMsgTargetType" Member="NotifyMsgTargetType" ThisKey="Guid" OtherKey="NotifyMsgTargetGuid" Type="NotifyMsgTargetType" />
+      <Association Name="NotifyMsg_NotifyMsgTarget" Member="NotifyMsg" ThisKey="NotifyMsgGuid" OtherKey="Guid" Type="NotifyMsg" IsForeignKey="true" />
+      <Association Name="NotifyTargetType_NotifyMsgTarget" Member="NotifyTargetType" ThisKey="NotifyTargetTypeCode" OtherKey="NotifyTargetTypeCode" Type="NotifyTargetType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NotifyMsgTargetType" Member="NotifyMsgTargetType">
+    <Type Name="NotifyMsgTargetType">
+      <Column Name="Guid" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NotifyMsgTargetGuid" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NotifyTypeCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="NotifyMsgTarget_NotifyMsgTargetType" Member="NotifyMsgTarget" ThisKey="NotifyMsgTargetGuid" OtherKey="Guid" Type="NotifyMsgTarget" IsForeignKey="true" />
+      <Association Name="NotifyType_NotifyMsgTargetType" Member="NotifyType" ThisKey="NotifyTypeCode" OtherKey="NotifyTypeCode" Type="NotifyType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NotifyTargetType" Member="NotifyTargetType">
+    <Type Name="NotifyTargetType">
+      <Column Name="NotifyTargetTypeCode" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NotifyTargetTypeDescription" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="NotifyTargetType_NotifyMsgDetail" Member="NotifyMsgDetail" ThisKey="NotifyTargetTypeCode" OtherKey="NotifyTargetType" Type="NotifyMsgDetail" />
+      <Association Name="NotifyTargetType_NotifyMsgTarget" Member="NotifyMsgTarget" ThisKey="NotifyTargetTypeCode" OtherKey="NotifyTargetTypeCode" Type="NotifyMsgTarget" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NotifyType" Member="NotifyType">
+    <Type Name="NotifyType">
+      <Column Name="NotifyTypeCode" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NotifyTypeDescription" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="NotifyType_NotifyMsgDetail" Member="NotifyMsgDetail" ThisKey="NotifyTypeCode" OtherKey="NotifyTypeCode" Type="NotifyMsgDetail" />
+      <Association Name="NotifyType_NotifyMsgTargetType" Member="NotifyMsgTargetType" ThisKey="NotifyTypeCode" OtherKey="NotifyTypeCode" Type="NotifyMsgTargetType" />
+    </Type>
+  </Table>
+  <Table Name="dbo.JBSystem" Member="JBSystem">
+    <Type Name="JBSystem">
+      <Column Name="Guid" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SystemCode" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="JBSystem_JBSystemEvent" Member="JBSystemEvent" ThisKey="SystemCode" OtherKey="SystemCode" Type="JBSystemEvent" />
+    </Type>
+  </Table>
+  <Table Name="dbo.JBSystemEvent" Member="JBSystemEvent">
+    <Type Name="JBSystemEvent">
+      <Column Name="Guid" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SystemCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="JBSystemEvent_JBSystemEventTriggerMsg" Member="JBSystemEventTriggerMsg" ThisKey="Guid" OtherKey="SystemEventGuid" Type="JBSystemEventTriggerMsg" />
+      <Association Name="JBSystem_JBSystemEvent" Member="JBSystem" ThisKey="SystemCode" OtherKey="SystemCode" Type="JBSystem" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.JBSystemEventTriggerMsg" Member="JBSystemEventTriggerMsg">
+    <Type Name="JBSystemEventTriggerMsg">
+      <Column Name="Guid" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SystemEventGuid" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NotifyMsgTplGuid" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Enable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="JBSystemEventTriggerMsg_NotifyMsg" Member="NotifyMsg" ThisKey="Guid" OtherKey="SystemEventGuid" Type="NotifyMsg" />
+      <Association Name="JBSystemEventTriggerMsg_JBSystemEventTriggerMsg" Member="JBSystemEventTriggerMsg2" ThisKey="Guid" OtherKey="Guid" Type="JBSystemEventTriggerMsg" Cardinality="One" />
+      <Association Name="JBSystemEventTriggerMsg_JBSystemEventTriggerMsg" Member="JBSystemEventTriggerMsg1" ThisKey="Guid" OtherKey="Guid" Type="JBSystemEventTriggerMsg" IsForeignKey="true" />
+      <Association Name="JBSystemEvent_JBSystemEventTriggerMsg" Member="JBSystemEvent" ThisKey="SystemEventGuid" OtherKey="Guid" Type="JBSystemEvent" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QCategory" Member="QCategory">
+    <Type Name="QCategory">
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="QCategory_QTplCategory" Member="QTplCategory" ThisKey="Code" OtherKey="QCategoryCode" Type="QTplCategory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QQType" Member="QQType">
+    <Type Name="QQType">
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="QQType_QQItem" Member="QQItem" ThisKey="Code" OtherKey="TypeCode" Type="QQItem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QDetail" Member="QDetail">
+    <Type Name="QDetail">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QTplCategoryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QQItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Sequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsRequired" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="QTplCategory_QDetail" Member="QTplCategory" ThisKey="QTplCategoryId" OtherKey="Id" Type="QTplCategory" IsForeignKey="true" />
+      <Association Name="QQItem_QDetail" Member="QQItem" ThisKey="QQItemId" OtherKey="Id" Type="QQItem" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QQItem" Member="QQItem">
+    <Type Name="QQItem">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QuestionText" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="TypeCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="McqId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="McqDisplayHorizontal" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="QQItem_QDetail" Member="QDetail" ThisKey="Id" OtherKey="QQItemId" Type="QDetail" />
+      <Association Name="QQItem_QADetail" Member="QADetail" ThisKey="Id" OtherKey="QQItemId" Type="QADetail" />
+      <Association Name="QQType_QQItem" Member="QQType" ThisKey="TypeCode" OtherKey="Code" Type="QQType" IsForeignKey="true" />
+      <Association Name="QQMcq_QQItem" Member="QQMcq" ThisKey="McqId" OtherKey="Id" Type="QQMcq" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QQMcq" Member="QQMcq">
+    <Type Name="QQMcq">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsValueInt" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="QQMcq_QQItem" Member="QQItem" ThisKey="Id" OtherKey="McqId" Type="QQItem" />
+      <Association Name="QQMcq_QQMcqDetail" Member="QQMcqDetail" ThisKey="Id" OtherKey="QQMcqId" Type="QQMcqDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QQMcqDetail" Member="QQMcqDetail">
+    <Type Name="QQMcqDetail">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QQMcqId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Sequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StringValue" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IntValue" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="QQMcq_QQMcqDetail" Member="QQMcq" ThisKey="QQMcqId" OtherKey="Id" Type="QQMcq" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QTpl" Member="QTpl">
+    <Type Name="QTpl">
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FillerCategory" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="IsTeacherGrade" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FillFormSpan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KeyMan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="KeyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BeenUsed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="QTpl_ClassQuestionnaire" Member="ClassQuestionnaire" ThisKey="Code" OtherKey="qQuestionaryM" Type="ClassQuestionnaire" />
+      <Association Name="QTpl_QTplCategory" Member="QTplCategory" ThisKey="Code" OtherKey="QTplCode" Type="QTplCategory" />
+      <Association Name="QTpl_QAMaster" Member="QAMaster" ThisKey="Code" OtherKey="QTplCode" Type="QAMaster" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QTplCategory" Member="QTplCategory">
+    <Type Name="QTplCategory">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QTplCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="QCategoryCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Sequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="QTplCategory_QDetail" Member="QDetail" ThisKey="Id" OtherKey="QTplCategoryId" Type="QDetail" />
+      <Association Name="QTpl_QTplCategory" Member="QTpl" ThisKey="QTplCode" OtherKey="Code" Type="QTpl" IsForeignKey="true" />
+      <Association Name="QCategory_QTplCategory" Member="QCategory" ThisKey="QCategoryCode" OtherKey="Code" Type="QCategory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QAMaster" Member="QAMaster">
+    <Type Name="QAMaster">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClassAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QTplCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Nobr" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sysRole" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TeacherCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FillerCategory" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DeptCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="WriteDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FillFormDatetimeB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FillFormDatetimeE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TeacherCheckedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TRCheckedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TotalScore" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="QAMaster_QADetail" Member="QADetail" ThisKey="Id" OtherKey="QAMasterId" Type="QADetail" />
+      <Association Name="QTpl_QAMaster" Member="QTpl" ThisKey="QTplCode" OtherKey="Code" Type="QTpl" IsForeignKey="true" />
+      <Association Name="trTeacher_QAMaster" Member="trTeacher" ThisKey="TeacherCode" OtherKey="sCode" Type="trTeacher" IsForeignKey="true" />
+      <Association Name="BASE_QAMaster" Member="BASE" ThisKey="Nobr" OtherKey="NOBR" Type="BASE" IsForeignKey="true" />
+      <Association Name="trTrainingDetailM_QAMaster" Member="trTrainingDetailM" ThisKey="ClassAutoKey" OtherKey="iAutoKey" Type="trTrainingDetailM" IsForeignKey="true" />
+      <Association Name="trTrainingStudentM_QAMaster" Member="trTrainingStudentM" ThisKey="ClassAutoKey,Nobr" OtherKey="iClassAutoKey,sNobr" Type="trTrainingStudentM" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QADetail" Member="QADetail">
+    <Type Name="QADetail">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QAMasterId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QQItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="McqIntValue" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="McqStringValue" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TfqValue" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SaqValue" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Association Name="QAMaster_QADetail" Member="QAMaster" ThisKey="QAMasterId" OtherKey="Id" Type="QAMaster" IsForeignKey="true" />
+      <Association Name="QQItem_QADetail" Member="QQItem" ThisKey="QQItemId" OtherKey="Id" Type="QQItem" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QQMcqDetailTpl" Member="QQMcqDetailTpl">
+    <Type Name="QQMcqDetailTpl">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GroupCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Sequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StringValue" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IntValue" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ImportInnerTeacher" Member="ImportInnerTeacher">
+    <Type Name="ImportInnerTeacher">
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Nobr" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="School" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="WorkExp" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="Skill" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ImportCourse" Member="ImportCourse">
+    <Type Name="ImportCourse">
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QuestDept" Member="QuestDept">
+    <Type Name="QuestDept">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Year" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DeptCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="WriteDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WritedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Amt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="QuestDept_QuestDeptDetail" Member="QuestDeptDetail" ThisKey="Id" OtherKey="QuestDeptId" Type="QuestDeptDetail" />
+      <Association Name="QuestDept_QuestDeptDetail3" Member="QuestDeptDetail3" ThisKey="Id" OtherKey="QuestDeptId" Type="QuestDeptDetail3" />
+      <Association Name="DEPT_QuestDept" Member="DEPT" ThisKey="DeptCode" OtherKey="D_NO" Type="DEPT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QuestDeptDetail" Member="QuestDeptDetail">
+    <Type Name="QuestDeptDetail">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QuestDeptId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="trRequirementTemplateDetailId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DemandIntensity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="QuestDept_QuestDeptDetail" Member="QuestDept" ThisKey="QuestDeptId" OtherKey="Id" Type="QuestDept" IsForeignKey="true" />
+      <Association Name="trRequirementTemplateDetail_QuestDeptDetail" Member="trRequirementTemplateDetail" ThisKey="trRequirementTemplateDetailId" OtherKey="iAutoKey" Type="trRequirementTemplateDetail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QuestDeptCustom" Member="QuestDeptCustom">
+    <Type Name="QuestDeptCustom">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Year" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CourseName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="DeptCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DemandIntensity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CoursePlanDetail" Member="CoursePlanDetail">
+    <Type Name="CoursePlanDetail">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClassAutoKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PlanDetailOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PlanDetailName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="PlanDetailOutline" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="PlanDetailTimeMin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PlanDetailNote" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="CoursePlanDetail_CoursePlanDetail_TeachingMethod" Member="CoursePlanDetail_TeachingMethod" ThisKey="Id" OtherKey="CoursePlanDetailId" Type="CoursePlanDetail_TeachingMethod" />
+      <Association Name="CoursePlanDetail_CoursePlanDetail_TeachingResource" Member="CoursePlanDetail_TeachingResource" ThisKey="Id" OtherKey="CoursePlanDetailId" Type="CoursePlanDetail_TeachingResource" />
+      <Association Name="trTrainingDetailM_CoursePlanDetail" Member="trTrainingDetailM" ThisKey="ClassAutoKey" OtherKey="iAutoKey" Type="trTrainingDetailM" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CoursePlanDetail_TeachingMethod" Member="CoursePlanDetail_TeachingMethod">
+    <Type Name="CoursePlanDetail_TeachingMethod">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CoursePlanDetailId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="trTeachingMethod_sCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="CoursePlanDetail_CoursePlanDetail_TeachingMethod" Member="CoursePlanDetail" ThisKey="CoursePlanDetailId" OtherKey="Id" Type="CoursePlanDetail" IsForeignKey="true" />
+      <Association Name="trTeachingMethod_CoursePlanDetail_TeachingMethod" Member="trTeachingMethod" ThisKey="trTeachingMethod_sCode" OtherKey="sCode" Type="trTeachingMethod" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CoursePlanDetail_TeachingResource" Member="CoursePlanDetail_TeachingResource">
+    <Type Name="CoursePlanDetail_TeachingResource">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CoursePlanDetailId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="trTeachingResourceCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="CoursePlanDetail_CoursePlanDetail_TeachingResource" Member="CoursePlanDetail" ThisKey="CoursePlanDetailId" OtherKey="Id" Type="CoursePlanDetail" IsForeignKey="true" />
+      <Association Name="trTeachingResource_CoursePlanDetail_TeachingResource" Member="trTeachingResource" ThisKey="trTeachingResourceCode" OtherKey="ResourceCode" Type="trTeachingResource" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trRequirementTemplateCourse" Member="trRequirementTemplateCourse">
+    <Type Name="trRequirementTemplateCourse">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RT_Code" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CourseCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Sequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Budget" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="trRequirementTemplateCourse_QuestDeptDetail3" Member="QuestDeptDetail3" ThisKey="Id" OtherKey="trRequirementTemplateCourseId" Type="QuestDeptDetail3" />
+      <Association Name="trCourse_trRequirementTemplateCourse" Member="trCourse" ThisKey="CourseCode" OtherKey="sCode" Type="trCourse" IsForeignKey="true" />
+      <Association Name="trRequirementTemplate_trRequirementTemplateCourse" Member="trRequirementTemplate" ThisKey="RT_Code" OtherKey="sCode" Type="trRequirementTemplate" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QuestDeptDetail3" Member="QuestDeptDetail3">
+    <Type Name="QuestDeptDetail3">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QuestDeptId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="trRequirementTemplateCourseId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsRequired" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TrainingMethodCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Amt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StudentNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Month" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Minutes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsRejection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Rejecter" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DeptReject" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SuggestionPassItem" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RequestReason" Type="System.String" DbType="NVarChar(Max)" CanBeNull="true" />
+      <Association Name="QuestDept_QuestDeptDetail3" Member="QuestDept" ThisKey="QuestDeptId" OtherKey="Id" Type="QuestDept" IsForeignKey="true" />
+      <Association Name="trRequirementTemplateCourse_QuestDeptDetail3" Member="trRequirementTemplateCourse" ThisKey="trRequirementTemplateCourseId" OtherKey="Id" Type="trRequirementTemplateCourse" IsForeignKey="true" />
+      <Association Name="trTrainingMethod_QuestDeptDetail3" Member="trTrainingMethod" ThisKey="TrainingMethodCode" OtherKey="sCode" Type="trTrainingMethod" IsForeignKey="true" />
+      <Association Name="trKnotTeaches_QuestDeptDetail3" Member="trKnotTeaches" ThisKey="SuggestionPassItem" OtherKey="KnotTeachesCode" Type="trKnotTeaches" IsForeignKey="true" />
+      <Association Name="BASE_QuestDeptDetail3" Member="BASE" ThisKey="Rejecter" OtherKey="NOBR" Type="BASE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QuestDeptCustom3" Member="QuestDeptCustom3">
+    <Type Name="QuestDeptCustom3">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Year" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CourseName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DeptCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TrainingMethodCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Amt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StudentNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Month" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Minutes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsRejection" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Rejecter" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DeptReject" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SuggestionPassItem" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsRequired" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RequestReason" Type="System.String" DbType="NVarChar(Max)" CanBeNull="true" />
+      <Association Name="trKnotTeaches_QuestDeptCustom3" Member="trKnotTeaches" ThisKey="SuggestionPassItem" OtherKey="KnotTeachesCode" Type="trKnotTeaches" IsForeignKey="true" />
+      <Association Name="BASE_QuestDeptCustom3" Member="BASE" ThisKey="Rejecter" OtherKey="NOBR" Type="BASE" IsForeignKey="true" />
+      <Association Name="DEPT_QuestDeptCustom3" Member="DEPT" ThisKey="DeptCode" OtherKey="D_NO" Type="DEPT" IsForeignKey="true" />
+      <Association Name="trTrainingMethod_QuestDeptCustom3" Member="trTrainingMethod" ThisKey="TrainingMethodCode" OtherKey="sCode" Type="trTrainingMethod" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

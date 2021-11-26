@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace JBHRIS.Api.Dto.Employee.View
+{
+    public class AllPassTypeDto
+    {
+        public string Code { get; set; }
+        public string Name { get; set; }
+        public int Sort { get; set; }
+        public bool? Display { get; set; }
+    }
+}

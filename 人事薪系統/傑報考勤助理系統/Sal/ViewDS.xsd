@@ -1,0 +1,1022 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ViewDS" targetNamespace="http://tempuri.org/ViewDS.xsd" xmlns:mstns="http://tempuri.org/ViewDS.xsd" xmlns="http://tempuri.org/ViewDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="JBHRConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="JBHRConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.JBHR.Properties.Settings.GlobalReference.Default.JBHRConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="waferhrConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="waferhrConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.JBHR.Properties.Settings.GlobalReference.Default.waferhrConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="YRFOMATTableAdapter" GeneratorDataComponentClassName="YRFOMATTableAdapter" Name="YRFOMAT" UserDataComponentName="YRFOMATTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="waferhr.dbo.YRFOMAT" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT CODE,NAME FROM YRFOMAT</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CODE" DataSetColumn="CODE" />
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="INSUR_TYPETableAdapter" GeneratorDataComponentClassName="INSUR_TYPETableAdapter" Name="INSUR_TYPE" UserDataComponentName="INSUR_TYPETableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="waferhr.dbo.INSUR_TYPE" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select * from INSUR_TYPE</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CODE" DataSetColumn="CODE" />
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+              <Mapping SourceColumn="SORT" DataSetColumn="SORT" />
+              <Mapping SourceColumn="DISPLAY" DataSetColumn="DISPLAY" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ENRICHTableAdapter" GeneratorDataComponentClassName="ENRICHTableAdapter" Name="ENRICH" UserDataComponentName="ENRICHTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="waferhr.dbo.ENRICH" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [enrich] WHERE (([NOBR] = @Original_NOBR) AND ([YYMM] = @Original_YYMM) AND ([SEQ] = @Original_SEQ) AND ([SAL_CODE] = @Original_SAL_CODE) AND ([AMT] = @Original_AMT) AND ([KEY_MAN] = @Original_KEY_MAN) AND ([KEY_DATE] = @Original_KEY_DATE) AND ([MEMO] = @Original_MEMO) AND ([FA_IDNO] = @Original_FA_IDNO) AND ([IMPORT] = @Original_IMPORT))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_NOBR" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NOBR" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_YYMM" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="YYMM" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SEQ" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SEQ" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SAL_CODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SAL_CODE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_AMT" Precision="16" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="AMT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KEY_MAN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KEY_MAN" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_KEY_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="KEY_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MEMO" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MEMO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_FA_IDNO" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="FA_IDNO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_IMPORT" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="IMPORT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [enrich] ([NOBR], [YYMM], [SEQ], [SAL_CODE], [AMT], [KEY_MAN], [KEY_DATE], [MEMO], [FA_IDNO], [IMPORT]) VALUES (@NOBR, @YYMM, @SEQ, @SAL_CODE, @AMT, @KEY_MAN, @KEY_DATE, @MEMO, @FA_IDNO, @IMPORT);
+SELECT NOBR, YYMM, SEQ, SAL_CODE, AMT, KEY_MAN, KEY_DATE, MEMO, FA_IDNO, IMPORT FROM ENRICH WHERE (NOBR = @NOBR) AND (SAL_CODE = @SAL_CODE) AND (SEQ = @SEQ) AND (YYMM = @YYMM)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NOBR" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NOBR" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@YYMM" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="YYMM" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SEQ" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SEQ" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SAL_CODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SAL_CODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@AMT" Precision="16" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="AMT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KEY_MAN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KEY_MAN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@KEY_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="KEY_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MEMO" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MEMO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@FA_IDNO" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="FA_IDNO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@IMPORT" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="IMPORT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select * from enrich</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [enrich] SET [NOBR] = @NOBR, [YYMM] = @YYMM, [SEQ] = @SEQ, [SAL_CODE] = @SAL_CODE, [AMT] = @AMT, [KEY_MAN] = @KEY_MAN, [KEY_DATE] = @KEY_DATE, [MEMO] = @MEMO, [FA_IDNO] = @FA_IDNO, [IMPORT] = @IMPORT WHERE (([NOBR] = @Original_NOBR) AND ([YYMM] = @Original_YYMM) AND ([SEQ] = @Original_SEQ) AND ([SAL_CODE] = @Original_SAL_CODE) AND ([AMT] = @Original_AMT) AND ([KEY_MAN] = @Original_KEY_MAN) AND ([KEY_DATE] = @Original_KEY_DATE) AND ([MEMO] = @Original_MEMO) AND ([FA_IDNO] = @Original_FA_IDNO) AND ([IMPORT] = @Original_IMPORT));
+SELECT NOBR, YYMM, SEQ, SAL_CODE, AMT, KEY_MAN, KEY_DATE, MEMO, FA_IDNO, IMPORT FROM ENRICH WHERE (NOBR = @NOBR) AND (SAL_CODE = @SAL_CODE) AND (SEQ = @SEQ) AND (YYMM = @YYMM)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NOBR" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NOBR" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@YYMM" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="YYMM" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SEQ" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SEQ" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SAL_CODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SAL_CODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@AMT" Precision="16" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="AMT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KEY_MAN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KEY_MAN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@KEY_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="KEY_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MEMO" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MEMO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@FA_IDNO" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="FA_IDNO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@IMPORT" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="IMPORT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_NOBR" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NOBR" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_YYMM" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="YYMM" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SEQ" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SEQ" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SAL_CODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SAL_CODE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_AMT" Precision="16" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="AMT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KEY_MAN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KEY_MAN" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_KEY_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="KEY_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MEMO" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MEMO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_FA_IDNO" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="FA_IDNO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_IMPORT" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="IMPORT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NOBR" DataSetColumn="NOBR" />
+              <Mapping SourceColumn="YYMM" DataSetColumn="YYMM" />
+              <Mapping SourceColumn="SEQ" DataSetColumn="SEQ" />
+              <Mapping SourceColumn="SAL_CODE" DataSetColumn="SAL_CODE" />
+              <Mapping SourceColumn="AMT" DataSetColumn="AMT" />
+              <Mapping SourceColumn="KEY_MAN" DataSetColumn="KEY_MAN" />
+              <Mapping SourceColumn="KEY_DATE" DataSetColumn="KEY_DATE" />
+              <Mapping SourceColumn="MEMO" DataSetColumn="MEMO" />
+              <Mapping SourceColumn="FA_IDNO" DataSetColumn="FA_IDNO" />
+              <Mapping SourceColumn="IMPORT" DataSetColumn="IMPORT" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ACCCDATTRTableAdapter" GeneratorDataComponentClassName="ACCCDATTRTableAdapter" Name="ACCCDATTR" UserDataComponentName="ACCCDATTRTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="waferhr.dbo.ACCCDATTR" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM ACCCDATTR</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CATEGORY" DataSetColumn="CATEGORY" />
+              <Mapping SourceColumn="CODE" DataSetColumn="CODE" />
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+              <Mapping SourceColumn="SORT" DataSetColumn="SORT" />
+              <Mapping SourceColumn="DISPLAY" DataSetColumn="DISPLAY" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SALTYCD_DIVTableAdapter" GeneratorDataComponentClassName="SALTYCD_DIVTableAdapter" Name="SALTYCD_DIV" UserDataComponentName="SALTYCD_DIVTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="waferhr.dbo.SALTYCD_DIV" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM SALTYCD_DIV</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CATEGORY" DataSetColumn="CATEGORY" />
+              <Mapping SourceColumn="CODE" DataSetColumn="CODE" />
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+              <Mapping SourceColumn="SORT" DataSetColumn="SORT" />
+              <Mapping SourceColumn="DISPLAY" DataSetColumn="DISPLAY" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SALTYCD_DAYSTableAdapter" GeneratorDataComponentClassName="SALTYCD_DAYSTableAdapter" Name="SALTYCD_DAYS" UserDataComponentName="SALTYCD_DAYSTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="waferhr.dbo.SALTYCD_DAYS" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM SALTYCD_DAYS</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CATEGORY" DataSetColumn="CATEGORY" />
+              <Mapping SourceColumn="CODE" DataSetColumn="CODE" />
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+              <Mapping SourceColumn="SORT" DataSetColumn="SORT" />
+              <Mapping SourceColumn="DISPLAY" DataSetColumn="DISPLAY" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SALTYCD_HOURSTableAdapter" GeneratorDataComponentClassName="SALTYCD_HOURSTableAdapter" Name="SALTYCD_HOURS" UserDataComponentName="SALTYCD_HOURSTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="waferhr.dbo.SALTYCD_HOURS" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  * FROM SALTYCD_HOURS</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CATEGORY" DataSetColumn="CATEGORY" />
+              <Mapping SourceColumn="CODE" DataSetColumn="CODE" />
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+              <Mapping SourceColumn="SORT" DataSetColumn="SORT" />
+              <Mapping SourceColumn="DISPLAY" DataSetColumn="DISPLAY" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SOS_IDTableAdapter" GeneratorDataComponentClassName="SOS_IDTableAdapter" Name="SOS_ID" UserDataComponentName="SOS_IDTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="waferhr.dbo.SOS_ID" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM SOS_ID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CATEGORY" DataSetColumn="CATEGORY" />
+              <Mapping SourceColumn="CODE" DataSetColumn="CODE" />
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+              <Mapping SourceColumn="SORT" DataSetColumn="SORT" />
+              <Mapping SourceColumn="DISPLAY" DataSetColumn="DISPLAY" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CAL_TYPETableAdapter" GeneratorDataComponentClassName="CAL_TYPETableAdapter" Name="CAL_TYPE" UserDataComponentName="CAL_TYPETableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="waferhr.dbo.CAL_TYPE" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM CAL_TYPE</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CATEGORY" DataSetColumn="CATEGORY" />
+              <Mapping SourceColumn="CODE" DataSetColumn="CODE" />
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+              <Mapping SourceColumn="SORT" DataSetColumn="SORT" />
+              <Mapping SourceColumn="DISPLAY" DataSetColumn="DISPLAY" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CAL_FREQTableAdapter" GeneratorDataComponentClassName="CAL_FREQTableAdapter" Name="CAL_FREQ" UserDataComponentName="CAL_FREQTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="waferhr.dbo.CAL_FREQ" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM CAL_FREQ</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CATEGORY" DataSetColumn="CATEGORY" />
+              <Mapping SourceColumn="CODE" DataSetColumn="CODE" />
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+              <Mapping SourceColumn="SORT" DataSetColumn="SORT" />
+              <Mapping SourceColumn="DISPLAY" DataSetColumn="DISPLAY" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MONTH_TYPETableAdapter" GeneratorDataComponentClassName="MONTH_TYPETableAdapter" Name="MONTH_TYPE" UserDataComponentName="MONTH_TYPETableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="waferhr.dbo.MONTH_TYPE" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM MONTH_TYPE</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CATEGORY" DataSetColumn="CATEGORY" />
+              <Mapping SourceColumn="CODE" DataSetColumn="CODE" />
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+              <Mapping SourceColumn="SORT" DataSetColumn="SORT" />
+              <Mapping SourceColumn="DISPLAY" DataSetColumn="DISPLAY" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SALCODE_DAYSTableAdapter" GeneratorDataComponentClassName="SALCODE_DAYSTableAdapter" Name="SALCODE_DAYS" UserDataComponentName="SALCODE_DAYSTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>
+SELECT * FROM SALCODE_DAYS</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FRM4P_PRINTTYPETableAdapter" GeneratorDataComponentClassName="FRM4P_PRINTTYPETableAdapter" Name="FRM4P_PRINTTYPE" UserDataComponentName="FRM4P_PRINTTYPETableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="waferhr.dbo.FRM4P_PRINTTYPE" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          CATEGORY, CODE, NAME, SORT, DISPLAY
+FROM              FRM4P_PRINTTYPE</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CATEGORY" DataSetColumn="CATEGORY" />
+              <Mapping SourceColumn="CODE" DataSetColumn="CODE" />
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+              <Mapping SourceColumn="SORT" DataSetColumn="SORT" />
+              <Mapping SourceColumn="DISPLAY" DataSetColumn="DISPLAY" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FRM4ITYPETableAdapter" GeneratorDataComponentClassName="FRM4ITYPETableAdapter" Name="FRM4ITYPE" UserDataComponentName="FRM4ITYPETableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="waferhr.dbo.FRM4ITYPE" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          CODE, NAME
+FROM              FRM4ITYPE</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CODE" DataSetColumn="CODE" />
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FRM219D_TYPE1TableAdapter" GeneratorDataComponentClassName="FRM219D_TYPE1TableAdapter" Name="FRM219D_TYPE1" UserDataComponentName="FRM219D_TYPE1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="FEFCHR_D.dbo.FRM219D_TYPE1" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          CODE, NAME
+FROM              FRM219D_TYPE1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CODE" DataSetColumn="CODE" />
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FRM219D_TYPE2TableAdapter" GeneratorDataComponentClassName="FRM219D_TYPE2TableAdapter" Name="FRM219D_TYPE2" UserDataComponentName="FRM219D_TYPE2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="FEFCHR_D.dbo.FRM219D_TYPE2" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          CODE, NAME
+FROM              FRM219D_TYPE2</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CODE" DataSetColumn="CODE" />
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="IMPORT_TYPETableAdapter" GeneratorDataComponentClassName="IMPORT_TYPETableAdapter" Name="IMPORT_TYPE" UserDataComponentName="IMPORT_TYPETableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="FEFCHR_T.dbo.IMPORT_TYPE" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          CODE, NAME
+FROM              IMPORT_TYPE</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CODE" DataSetColumn="CODE" />
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ViewDS" msdata:IsDataSet="true" msdata:Locale="zh-TW" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ViewDS" msprop:Generator_UserDSName="ViewDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="YRFOMAT" msprop:Generator_UserTableName="YRFOMAT" msprop:Generator_RowEvArgName="YRFOMATRowChangeEvent" msprop:Generator_TableVarName="tableYRFOMAT" msprop:Generator_TablePropName="YRFOMAT" msprop:Generator_RowDeletingName="YRFOMATRowDeleting" msprop:Generator_RowChangingName="YRFOMATRowChanging" msprop:Generator_RowDeletedName="YRFOMATRowDeleted" msprop:Generator_TableClassName="YRFOMATDataTable" msprop:Generator_RowChangedName="YRFOMATRowChanged" msprop:Generator_RowEvHandlerName="YRFOMATRowChangeEventHandler" msprop:Generator_RowClassName="YRFOMATRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CODE" msprop:Generator_ColumnVarNameInTable="columnCODE" msprop:Generator_ColumnPropNameInRow="CODE" msprop:Generator_ColumnPropNameInTable="CODEColumn" msprop:Generator_UserColumnName="CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="INSUR_TYPE" msprop:Generator_UserTableName="INSUR_TYPE" msprop:Generator_RowEvArgName="INSUR_TYPERowChangeEvent" msprop:Generator_TableVarName="tableINSUR_TYPE" msprop:Generator_TablePropName="INSUR_TYPE" msprop:Generator_RowDeletingName="INSUR_TYPERowDeleting" msprop:Generator_RowChangingName="INSUR_TYPERowChanging" msprop:Generator_RowDeletedName="INSUR_TYPERowDeleted" msprop:Generator_TableClassName="INSUR_TYPEDataTable" msprop:Generator_RowChangedName="INSUR_TYPERowChanged" msprop:Generator_RowEvHandlerName="INSUR_TYPERowChangeEventHandler" msprop:Generator_RowClassName="INSUR_TYPERow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CODE" msprop:Generator_ColumnVarNameInTable="columnCODE" msprop:Generator_ColumnPropNameInRow="CODE" msprop:Generator_ColumnPropNameInTable="CODEColumn" msprop:Generator_UserColumnName="CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SORT" msprop:Generator_ColumnVarNameInTable="columnSORT" msprop:Generator_ColumnPropNameInRow="SORT" msprop:Generator_ColumnPropNameInTable="SORTColumn" msprop:Generator_UserColumnName="SORT" type="xs:int" />
+              <xs:element name="DISPLAY" msprop:Generator_ColumnVarNameInTable="columnDISPLAY" msprop:Generator_ColumnPropNameInRow="DISPLAY" msprop:Generator_ColumnPropNameInTable="DISPLAYColumn" msprop:Generator_UserColumnName="DISPLAY" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ENRICH" msprop:Generator_UserTableName="ENRICH" msprop:Generator_RowEvArgName="ENRICHRowChangeEvent" msprop:Generator_TableVarName="tableENRICH" msprop:Generator_TablePropName="ENRICH" msprop:Generator_RowDeletingName="ENRICHRowDeleting" msprop:Generator_RowChangingName="ENRICHRowChanging" msprop:Generator_RowDeletedName="ENRICHRowDeleted" msprop:Generator_TableClassName="ENRICHDataTable" msprop:Generator_RowChangedName="ENRICHRowChanged" msprop:Generator_RowEvHandlerName="ENRICHRowChangeEventHandler" msprop:Generator_RowClassName="ENRICHRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NOBR" msprop:Generator_ColumnVarNameInTable="columnNOBR" msprop:Generator_ColumnPropNameInRow="NOBR" msprop:Generator_ColumnPropNameInTable="NOBRColumn" msprop:Generator_UserColumnName="NOBR">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="YYMM" msprop:Generator_ColumnVarNameInTable="columnYYMM" msprop:Generator_ColumnPropNameInRow="YYMM" msprop:Generator_ColumnPropNameInTable="YYMMColumn" msprop:Generator_UserColumnName="YYMM">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SEQ" msprop:Generator_ColumnVarNameInTable="columnSEQ" msprop:Generator_ColumnPropNameInRow="SEQ" msprop:Generator_ColumnPropNameInTable="SEQColumn" msprop:Generator_UserColumnName="SEQ">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SAL_CODE" msprop:Generator_ColumnVarNameInTable="columnSAL_CODE" msprop:Generator_ColumnPropNameInRow="SAL_CODE" msprop:Generator_ColumnPropNameInTable="SAL_CODEColumn" msprop:Generator_UserColumnName="SAL_CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AMT" msprop:Generator_ColumnVarNameInTable="columnAMT" msprop:Generator_ColumnPropNameInRow="AMT" msprop:Generator_ColumnPropNameInTable="AMTColumn" msprop:Generator_UserColumnName="AMT" type="xs:decimal" />
+              <xs:element name="KEY_MAN" msprop:Generator_ColumnVarNameInTable="columnKEY_MAN" msprop:Generator_ColumnPropNameInRow="KEY_MAN" msprop:Generator_ColumnPropNameInTable="KEY_MANColumn" msprop:Generator_UserColumnName="KEY_MAN">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KEY_DATE" msprop:Generator_ColumnVarNameInTable="columnKEY_DATE" msprop:Generator_ColumnPropNameInRow="KEY_DATE" msprop:Generator_ColumnPropNameInTable="KEY_DATEColumn" msprop:Generator_UserColumnName="KEY_DATE" type="xs:dateTime" />
+              <xs:element name="MEMO" msprop:Generator_ColumnVarNameInTable="columnMEMO" msprop:Generator_ColumnPropNameInRow="MEMO" msprop:Generator_ColumnPropNameInTable="MEMOColumn" msprop:Generator_UserColumnName="MEMO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FA_IDNO" msprop:Generator_ColumnVarNameInTable="columnFA_IDNO" msprop:Generator_ColumnPropNameInRow="FA_IDNO" msprop:Generator_ColumnPropNameInTable="FA_IDNOColumn" msprop:Generator_UserColumnName="FA_IDNO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IMPORT" msprop:Generator_ColumnVarNameInTable="columnIMPORT" msprop:Generator_ColumnPropNameInRow="IMPORT" msprop:Generator_ColumnPropNameInTable="IMPORTColumn" msprop:Generator_UserColumnName="IMPORT" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ACCCDATTR" msprop:Generator_UserTableName="ACCCDATTR" msprop:Generator_RowEvArgName="ACCCDATTRRowChangeEvent" msprop:Generator_TableVarName="tableACCCDATTR" msprop:Generator_TablePropName="ACCCDATTR" msprop:Generator_RowDeletingName="ACCCDATTRRowDeleting" msprop:Generator_RowChangingName="ACCCDATTRRowChanging" msprop:Generator_RowDeletedName="ACCCDATTRRowDeleted" msprop:Generator_TableClassName="ACCCDATTRDataTable" msprop:Generator_RowChangedName="ACCCDATTRRowChanged" msprop:Generator_RowEvHandlerName="ACCCDATTRRowChangeEventHandler" msprop:Generator_RowClassName="ACCCDATTRRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CATEGORY" msprop:Generator_ColumnVarNameInTable="columnCATEGORY" msprop:Generator_ColumnPropNameInRow="CATEGORY" msprop:Generator_ColumnPropNameInTable="CATEGORYColumn" msprop:Generator_UserColumnName="CATEGORY">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODE" msprop:Generator_ColumnVarNameInTable="columnCODE" msprop:Generator_ColumnPropNameInRow="CODE" msprop:Generator_ColumnPropNameInTable="CODEColumn" msprop:Generator_UserColumnName="CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SORT" msprop:Generator_ColumnVarNameInTable="columnSORT" msprop:Generator_ColumnPropNameInRow="SORT" msprop:Generator_ColumnPropNameInTable="SORTColumn" msprop:Generator_UserColumnName="SORT" type="xs:int" />
+              <xs:element name="DISPLAY" msprop:Generator_ColumnVarNameInTable="columnDISPLAY" msprop:Generator_ColumnPropNameInRow="DISPLAY" msprop:Generator_ColumnPropNameInTable="DISPLAYColumn" msprop:Generator_UserColumnName="DISPLAY" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SALTYCD_DIV" msprop:Generator_UserTableName="SALTYCD_DIV" msprop:Generator_RowEvArgName="SALTYCD_DIVRowChangeEvent" msprop:Generator_TableVarName="tableSALTYCD_DIV" msprop:Generator_TablePropName="SALTYCD_DIV" msprop:Generator_RowDeletingName="SALTYCD_DIVRowDeleting" msprop:Generator_RowChangingName="SALTYCD_DIVRowChanging" msprop:Generator_RowDeletedName="SALTYCD_DIVRowDeleted" msprop:Generator_TableClassName="SALTYCD_DIVDataTable" msprop:Generator_RowChangedName="SALTYCD_DIVRowChanged" msprop:Generator_RowEvHandlerName="SALTYCD_DIVRowChangeEventHandler" msprop:Generator_RowClassName="SALTYCD_DIVRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CATEGORY" msprop:Generator_ColumnVarNameInTable="columnCATEGORY" msprop:Generator_ColumnPropNameInRow="CATEGORY" msprop:Generator_ColumnPropNameInTable="CATEGORYColumn" msprop:Generator_UserColumnName="CATEGORY">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODE" msprop:Generator_ColumnVarNameInTable="columnCODE" msprop:Generator_ColumnPropNameInRow="CODE" msprop:Generator_ColumnPropNameInTable="CODEColumn" msprop:Generator_UserColumnName="CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SORT" msprop:Generator_ColumnVarNameInTable="columnSORT" msprop:Generator_ColumnPropNameInRow="SORT" msprop:Generator_ColumnPropNameInTable="SORTColumn" msprop:Generator_UserColumnName="SORT" type="xs:int" />
+              <xs:element name="DISPLAY" msprop:Generator_ColumnVarNameInTable="columnDISPLAY" msprop:Generator_ColumnPropNameInRow="DISPLAY" msprop:Generator_ColumnPropNameInTable="DISPLAYColumn" msprop:Generator_UserColumnName="DISPLAY" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SALTYCD_DAYS" msprop:Generator_UserTableName="SALTYCD_DAYS" msprop:Generator_RowEvArgName="SALTYCD_DAYSRowChangeEvent" msprop:Generator_TableVarName="tableSALTYCD_DAYS" msprop:Generator_TablePropName="SALTYCD_DAYS" msprop:Generator_RowDeletingName="SALTYCD_DAYSRowDeleting" msprop:Generator_RowChangingName="SALTYCD_DAYSRowChanging" msprop:Generator_RowDeletedName="SALTYCD_DAYSRowDeleted" msprop:Generator_TableClassName="SALTYCD_DAYSDataTable" msprop:Generator_RowChangedName="SALTYCD_DAYSRowChanged" msprop:Generator_RowEvHandlerName="SALTYCD_DAYSRowChangeEventHandler" msprop:Generator_RowClassName="SALTYCD_DAYSRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CATEGORY" msprop:Generator_ColumnVarNameInTable="columnCATEGORY" msprop:Generator_ColumnPropNameInRow="CATEGORY" msprop:Generator_ColumnPropNameInTable="CATEGORYColumn" msprop:Generator_UserColumnName="CATEGORY">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODE" msprop:Generator_ColumnVarNameInTable="columnCODE" msprop:Generator_ColumnPropNameInRow="CODE" msprop:Generator_ColumnPropNameInTable="CODEColumn" msprop:Generator_UserColumnName="CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SORT" msprop:Generator_ColumnVarNameInTable="columnSORT" msprop:Generator_ColumnPropNameInRow="SORT" msprop:Generator_ColumnPropNameInTable="SORTColumn" msprop:Generator_UserColumnName="SORT" type="xs:int" />
+              <xs:element name="DISPLAY" msprop:Generator_ColumnVarNameInTable="columnDISPLAY" msprop:Generator_ColumnPropNameInRow="DISPLAY" msprop:Generator_ColumnPropNameInTable="DISPLAYColumn" msprop:Generator_UserColumnName="DISPLAY" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SALTYCD_HOURS" msprop:Generator_UserTableName="SALTYCD_HOURS" msprop:Generator_RowEvArgName="SALTYCD_HOURSRowChangeEvent" msprop:Generator_TableVarName="tableSALTYCD_HOURS" msprop:Generator_TablePropName="SALTYCD_HOURS" msprop:Generator_RowDeletingName="SALTYCD_HOURSRowDeleting" msprop:Generator_RowChangingName="SALTYCD_HOURSRowChanging" msprop:Generator_RowDeletedName="SALTYCD_HOURSRowDeleted" msprop:Generator_TableClassName="SALTYCD_HOURSDataTable" msprop:Generator_RowChangedName="SALTYCD_HOURSRowChanged" msprop:Generator_RowEvHandlerName="SALTYCD_HOURSRowChangeEventHandler" msprop:Generator_RowClassName="SALTYCD_HOURSRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CATEGORY" msprop:Generator_ColumnVarNameInTable="columnCATEGORY" msprop:Generator_ColumnPropNameInRow="CATEGORY" msprop:Generator_ColumnPropNameInTable="CATEGORYColumn" msprop:Generator_UserColumnName="CATEGORY">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODE" msprop:Generator_ColumnVarNameInTable="columnCODE" msprop:Generator_ColumnPropNameInRow="CODE" msprop:Generator_ColumnPropNameInTable="CODEColumn" msprop:Generator_UserColumnName="CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SORT" msprop:Generator_ColumnVarNameInTable="columnSORT" msprop:Generator_ColumnPropNameInRow="SORT" msprop:Generator_ColumnPropNameInTable="SORTColumn" msprop:Generator_UserColumnName="SORT" type="xs:int" />
+              <xs:element name="DISPLAY" msprop:Generator_ColumnVarNameInTable="columnDISPLAY" msprop:Generator_ColumnPropNameInRow="DISPLAY" msprop:Generator_ColumnPropNameInTable="DISPLAYColumn" msprop:Generator_UserColumnName="DISPLAY" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SOS_ID" msprop:Generator_UserTableName="SOS_ID" msprop:Generator_RowEvArgName="SOS_IDRowChangeEvent" msprop:Generator_TableVarName="tableSOS_ID" msprop:Generator_TablePropName="SOS_ID" msprop:Generator_RowDeletingName="SOS_IDRowDeleting" msprop:Generator_RowChangingName="SOS_IDRowChanging" msprop:Generator_RowDeletedName="SOS_IDRowDeleted" msprop:Generator_TableClassName="SOS_IDDataTable" msprop:Generator_RowChangedName="SOS_IDRowChanged" msprop:Generator_RowEvHandlerName="SOS_IDRowChangeEventHandler" msprop:Generator_RowClassName="SOS_IDRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CATEGORY" msprop:Generator_ColumnVarNameInTable="columnCATEGORY" msprop:Generator_ColumnPropNameInRow="CATEGORY" msprop:Generator_ColumnPropNameInTable="CATEGORYColumn" msprop:Generator_UserColumnName="CATEGORY">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODE" msprop:Generator_ColumnVarNameInTable="columnCODE" msprop:Generator_ColumnPropNameInRow="CODE" msprop:Generator_ColumnPropNameInTable="CODEColumn" msprop:Generator_UserColumnName="CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SORT" msprop:Generator_ColumnVarNameInTable="columnSORT" msprop:Generator_ColumnPropNameInRow="SORT" msprop:Generator_ColumnPropNameInTable="SORTColumn" msprop:Generator_UserColumnName="SORT" type="xs:int" />
+              <xs:element name="DISPLAY" msprop:Generator_ColumnVarNameInTable="columnDISPLAY" msprop:Generator_ColumnPropNameInRow="DISPLAY" msprop:Generator_ColumnPropNameInTable="DISPLAYColumn" msprop:Generator_UserColumnName="DISPLAY" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CAL_TYPE" msprop:Generator_UserTableName="CAL_TYPE" msprop:Generator_RowEvArgName="CAL_TYPERowChangeEvent" msprop:Generator_TableVarName="tableCAL_TYPE" msprop:Generator_TablePropName="CAL_TYPE" msprop:Generator_RowDeletingName="CAL_TYPERowDeleting" msprop:Generator_RowChangingName="CAL_TYPERowChanging" msprop:Generator_RowDeletedName="CAL_TYPERowDeleted" msprop:Generator_TableClassName="CAL_TYPEDataTable" msprop:Generator_RowChangedName="CAL_TYPERowChanged" msprop:Generator_RowEvHandlerName="CAL_TYPERowChangeEventHandler" msprop:Generator_RowClassName="CAL_TYPERow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CATEGORY" msprop:Generator_ColumnVarNameInTable="columnCATEGORY" msprop:Generator_ColumnPropNameInRow="CATEGORY" msprop:Generator_ColumnPropNameInTable="CATEGORYColumn" msprop:Generator_UserColumnName="CATEGORY">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODE" msprop:Generator_ColumnVarNameInTable="columnCODE" msprop:Generator_ColumnPropNameInRow="CODE" msprop:Generator_ColumnPropNameInTable="CODEColumn" msprop:Generator_UserColumnName="CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SORT" msprop:Generator_ColumnVarNameInTable="columnSORT" msprop:Generator_ColumnPropNameInRow="SORT" msprop:Generator_ColumnPropNameInTable="SORTColumn" msprop:Generator_UserColumnName="SORT" type="xs:int" />
+              <xs:element name="DISPLAY" msprop:Generator_ColumnVarNameInTable="columnDISPLAY" msprop:Generator_ColumnPropNameInRow="DISPLAY" msprop:Generator_ColumnPropNameInTable="DISPLAYColumn" msprop:Generator_UserColumnName="DISPLAY" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CAL_FREQ" msprop:Generator_UserTableName="CAL_FREQ" msprop:Generator_RowEvArgName="CAL_FREQRowChangeEvent" msprop:Generator_TableVarName="tableCAL_FREQ" msprop:Generator_TablePropName="CAL_FREQ" msprop:Generator_RowDeletingName="CAL_FREQRowDeleting" msprop:Generator_RowChangingName="CAL_FREQRowChanging" msprop:Generator_RowDeletedName="CAL_FREQRowDeleted" msprop:Generator_TableClassName="CAL_FREQDataTable" msprop:Generator_RowChangedName="CAL_FREQRowChanged" msprop:Generator_RowEvHandlerName="CAL_FREQRowChangeEventHandler" msprop:Generator_RowClassName="CAL_FREQRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CATEGORY" msprop:Generator_ColumnVarNameInTable="columnCATEGORY" msprop:Generator_ColumnPropNameInRow="CATEGORY" msprop:Generator_ColumnPropNameInTable="CATEGORYColumn" msprop:Generator_UserColumnName="CATEGORY">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODE" msprop:Generator_ColumnVarNameInTable="columnCODE" msprop:Generator_ColumnPropNameInRow="CODE" msprop:Generator_ColumnPropNameInTable="CODEColumn" msprop:Generator_UserColumnName="CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SORT" msprop:Generator_ColumnVarNameInTable="columnSORT" msprop:Generator_ColumnPropNameInRow="SORT" msprop:Generator_ColumnPropNameInTable="SORTColumn" msprop:Generator_UserColumnName="SORT" type="xs:int" />
+              <xs:element name="DISPLAY" msprop:Generator_ColumnVarNameInTable="columnDISPLAY" msprop:Generator_ColumnPropNameInRow="DISPLAY" msprop:Generator_ColumnPropNameInTable="DISPLAYColumn" msprop:Generator_UserColumnName="DISPLAY" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MONTH_TYPE" msprop:Generator_UserTableName="MONTH_TYPE" msprop:Generator_RowEvArgName="MONTH_TYPERowChangeEvent" msprop:Generator_TableVarName="tableMONTH_TYPE" msprop:Generator_TablePropName="MONTH_TYPE" msprop:Generator_RowDeletingName="MONTH_TYPERowDeleting" msprop:Generator_RowChangingName="MONTH_TYPERowChanging" msprop:Generator_RowDeletedName="MONTH_TYPERowDeleted" msprop:Generator_TableClassName="MONTH_TYPEDataTable" msprop:Generator_RowChangedName="MONTH_TYPERowChanged" msprop:Generator_RowEvHandlerName="MONTH_TYPERowChangeEventHandler" msprop:Generator_RowClassName="MONTH_TYPERow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CATEGORY" msprop:Generator_ColumnVarNameInTable="columnCATEGORY" msprop:Generator_ColumnPropNameInRow="CATEGORY" msprop:Generator_ColumnPropNameInTable="CATEGORYColumn" msprop:Generator_UserColumnName="CATEGORY">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODE" msprop:Generator_ColumnVarNameInTable="columnCODE" msprop:Generator_ColumnPropNameInRow="CODE" msprop:Generator_ColumnPropNameInTable="CODEColumn" msprop:Generator_UserColumnName="CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SORT" msprop:Generator_ColumnVarNameInTable="columnSORT" msprop:Generator_ColumnPropNameInRow="SORT" msprop:Generator_ColumnPropNameInTable="SORTColumn" msprop:Generator_UserColumnName="SORT" type="xs:int" />
+              <xs:element name="DISPLAY" msprop:Generator_ColumnVarNameInTable="columnDISPLAY" msprop:Generator_ColumnPropNameInRow="DISPLAY" msprop:Generator_ColumnPropNameInTable="DISPLAYColumn" msprop:Generator_UserColumnName="DISPLAY" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SALCODE_DAYS" msprop:Generator_UserTableName="SALCODE_DAYS" msprop:Generator_RowEvArgName="SALCODE_DAYSRowChangeEvent" msprop:Generator_TableVarName="tableSALCODE_DAYS" msprop:Generator_TablePropName="SALCODE_DAYS" msprop:Generator_RowDeletingName="SALCODE_DAYSRowDeleting" msprop:Generator_RowChangingName="SALCODE_DAYSRowChanging" msprop:Generator_RowDeletedName="SALCODE_DAYSRowDeleted" msprop:Generator_TableClassName="SALCODE_DAYSDataTable" msprop:Generator_RowChangedName="SALCODE_DAYSRowChanged" msprop:Generator_RowEvHandlerName="SALCODE_DAYSRowChangeEventHandler" msprop:Generator_RowClassName="SALCODE_DAYSRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FRM4P_PRINTTYPE" msprop:Generator_UserTableName="FRM4P_PRINTTYPE" msprop:Generator_RowEvArgName="FRM4P_PRINTTYPERowChangeEvent" msprop:Generator_TableVarName="tableFRM4P_PRINTTYPE" msprop:Generator_TablePropName="FRM4P_PRINTTYPE" msprop:Generator_RowDeletingName="FRM4P_PRINTTYPERowDeleting" msprop:Generator_RowChangingName="FRM4P_PRINTTYPERowChanging" msprop:Generator_RowDeletedName="FRM4P_PRINTTYPERowDeleted" msprop:Generator_TableClassName="FRM4P_PRINTTYPEDataTable" msprop:Generator_RowChangedName="FRM4P_PRINTTYPERowChanged" msprop:Generator_RowEvHandlerName="FRM4P_PRINTTYPERowChangeEventHandler" msprop:Generator_RowClassName="FRM4P_PRINTTYPERow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CATEGORY" msprop:Generator_ColumnVarNameInTable="columnCATEGORY" msprop:Generator_ColumnPropNameInRow="CATEGORY" msprop:Generator_ColumnPropNameInTable="CATEGORYColumn" msprop:Generator_UserColumnName="CATEGORY">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODE" msprop:Generator_ColumnVarNameInTable="columnCODE" msprop:Generator_ColumnPropNameInRow="CODE" msprop:Generator_ColumnPropNameInTable="CODEColumn" msprop:Generator_UserColumnName="CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SORT" msprop:Generator_ColumnVarNameInTable="columnSORT" msprop:Generator_ColumnPropNameInRow="SORT" msprop:Generator_ColumnPropNameInTable="SORTColumn" msprop:Generator_UserColumnName="SORT" type="xs:int" />
+              <xs:element name="DISPLAY" msprop:Generator_ColumnVarNameInTable="columnDISPLAY" msprop:Generator_ColumnPropNameInRow="DISPLAY" msprop:Generator_ColumnPropNameInTable="DISPLAYColumn" msprop:Generator_UserColumnName="DISPLAY" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblFRM4Orpt" msprop:Generator_UserTableName="tblFRM4Orpt" msprop:Generator_RowEvArgName="tblFRM4OrptRowChangeEvent" msprop:Generator_TableVarName="tabletblFRM4Orpt" msprop:Generator_TablePropName="tblFRM4Orpt" msprop:Generator_RowDeletingName="tblFRM4OrptRowDeleting" msprop:Generator_RowChangingName="tblFRM4OrptRowChanging" msprop:Generator_RowDeletedName="tblFRM4OrptRowDeleted" msprop:Generator_TableClassName="tblFRM4OrptDataTable" msprop:Generator_RowChangedName="tblFRM4OrptRowChanged" msprop:Generator_RowEvHandlerName="tblFRM4OrptRowChangeEventHandler" msprop:Generator_RowClassName="tblFRM4OrptRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NOBR" msdata:Caption="工號" msprop:Generator_ColumnVarNameInTable="columnNOBR" msprop:Generator_ColumnPropNameInRow="NOBR" msprop:Generator_ColumnPropNameInTable="NOBRColumn" msprop:Generator_UserColumnName="NOBR" type="xs:string" minOccurs="0" />
+              <xs:element name="NAME_C" msdata:Caption="員工姓名" msprop:Generator_ColumnVarNameInTable="columnNAME_C" msprop:Generator_ColumnPropNameInRow="NAME_C" msprop:Generator_ColumnPropNameInTable="NAME_CColumn" msprop:Generator_UserColumnName="NAME_C" type="xs:string" minOccurs="0" />
+              <xs:element name="NAME_E" msdata:Caption="英文姓名" msprop:Generator_ColumnVarNameInTable="columnNAME_E" msprop:Generator_ColumnPropNameInRow="NAME_E" msprop:Generator_ColumnPropNameInTable="NAME_EColumn" msprop:Generator_UserColumnName="NAME_E" type="xs:string" minOccurs="0" />
+              <xs:element name="INDT" msdata:Caption="到職日期" msprop:Generator_ColumnVarNameInTable="columnINDT" msprop:Generator_ColumnPropNameInRow="INDT" msprop:Generator_ColumnPropNameInTable="INDTColumn" msprop:Generator_UserColumnName="INDT" type="xs:string" minOccurs="0" />
+              <xs:element name="BACKDT" msdata:Caption="復職日期" msprop:Generator_ColumnVarNameInTable="columnBACKDT" msprop:Generator_ColumnPropNameInRow="BACKDT" msprop:Generator_ColumnPropNameInTable="BACKDTColumn" msprop:Generator_UserColumnName="BACKDT" type="xs:string" minOccurs="0" />
+              <xs:element name="OUDT" msdata:Caption="離職日期" msprop:Generator_ColumnVarNameInTable="columnOUDT" msprop:Generator_ColumnPropNameInRow="OUDT" msprop:Generator_ColumnPropNameInTable="OUDTColumn" msprop:Generator_UserColumnName="OUDT" type="xs:string" minOccurs="0" />
+              <xs:element name="GET_HOURS" msdata:Caption="得假時數" msprop:Generator_ColumnVarNameInTable="columnGET_HOURS" msprop:Generator_ColumnPropNameInRow="GET_HOURS" msprop:Generator_ColumnPropNameInTable="GET_HOURSColumn" msprop:Generator_UserColumnName="GET_HOURS" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ABS_HOURS" msdata:Caption="請假時數" msprop:Generator_ColumnVarNameInTable="columnABS_HOURS" msprop:Generator_ColumnPropNameInRow="ABS_HOURS" msprop:Generator_ColumnPropNameInTable="ABS_HOURSColumn" msprop:Generator_UserColumnName="ABS_HOURS" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TOL_HOURS" msdata:Caption="剩餘天數" msprop:Generator_ColumnVarNameInTable="columnTOL_HOURS" msprop:Generator_ColumnPropNameInRow="TOL_HOURS" msprop:Generator_ColumnPropNameInTable="TOL_HOURSColumn" msprop:Generator_UserColumnName="TOL_HOURS" type="xs:decimal" minOccurs="0" />
+              <xs:element name="SALARY" msdata:Caption="薪資" msprop:Generator_ColumnVarNameInTable="columnSALARY" msprop:Generator_ColumnPropNameInRow="SALARY" msprop:Generator_ColumnPropNameInTable="SALARYColumn" msprop:Generator_UserColumnName="SALARY" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AMT" msdata:Caption="代金" msprop:Generator_ColumnVarNameInTable="columnAMT" msprop:Generator_ColumnPropNameInRow="AMT" msprop:Generator_ColumnPropNameInTable="AMTColumn" msprop:Generator_UserColumnName="AMT" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FRM4ITYPE" msprop:Generator_UserTableName="FRM4ITYPE" msprop:Generator_RowEvArgName="FRM4ITYPERowChangeEvent" msprop:Generator_TableVarName="tableFRM4ITYPE" msprop:Generator_TablePropName="FRM4ITYPE" msprop:Generator_RowDeletingName="FRM4ITYPERowDeleting" msprop:Generator_RowChangingName="FRM4ITYPERowChanging" msprop:Generator_RowDeletedName="FRM4ITYPERowDeleted" msprop:Generator_TableClassName="FRM4ITYPEDataTable" msprop:Generator_RowChangedName="FRM4ITYPERowChanged" msprop:Generator_RowEvHandlerName="FRM4ITYPERowChangeEventHandler" msprop:Generator_RowClassName="FRM4ITYPERow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CODE" msprop:Generator_ColumnVarNameInTable="columnCODE" msprop:Generator_ColumnPropNameInRow="CODE" msprop:Generator_ColumnPropNameInTable="CODEColumn" msprop:Generator_UserColumnName="CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FRM219D_TYPE1" msprop:Generator_UserTableName="FRM219D_TYPE1" msprop:Generator_RowEvArgName="FRM219D_TYPE1RowChangeEvent" msprop:Generator_TableVarName="tableFRM219D_TYPE1" msprop:Generator_TablePropName="FRM219D_TYPE1" msprop:Generator_RowDeletingName="FRM219D_TYPE1RowDeleting" msprop:Generator_RowChangingName="FRM219D_TYPE1RowChanging" msprop:Generator_RowDeletedName="FRM219D_TYPE1RowDeleted" msprop:Generator_TableClassName="FRM219D_TYPE1DataTable" msprop:Generator_RowChangedName="FRM219D_TYPE1RowChanged" msprop:Generator_RowEvHandlerName="FRM219D_TYPE1RowChangeEventHandler" msprop:Generator_RowClassName="FRM219D_TYPE1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CODE" msprop:Generator_ColumnVarNameInTable="columnCODE" msprop:Generator_ColumnPropNameInRow="CODE" msprop:Generator_ColumnPropNameInTable="CODEColumn" msprop:Generator_UserColumnName="CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FRM219D_TYPE2" msprop:Generator_UserTableName="FRM219D_TYPE2" msprop:Generator_RowEvArgName="FRM219D_TYPE2RowChangeEvent" msprop:Generator_TableVarName="tableFRM219D_TYPE2" msprop:Generator_TablePropName="FRM219D_TYPE2" msprop:Generator_RowDeletingName="FRM219D_TYPE2RowDeleting" msprop:Generator_RowChangingName="FRM219D_TYPE2RowChanging" msprop:Generator_RowDeletedName="FRM219D_TYPE2RowDeleted" msprop:Generator_TableClassName="FRM219D_TYPE2DataTable" msprop:Generator_RowChangedName="FRM219D_TYPE2RowChanged" msprop:Generator_RowEvHandlerName="FRM219D_TYPE2RowChangeEventHandler" msprop:Generator_RowClassName="FRM219D_TYPE2Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CODE" msprop:Generator_ColumnVarNameInTable="columnCODE" msprop:Generator_ColumnPropNameInRow="CODE" msprop:Generator_ColumnPropNameInTable="CODEColumn" msprop:Generator_UserColumnName="CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="IMPORT_TYPE" msprop:Generator_UserTableName="IMPORT_TYPE" msprop:Generator_RowEvArgName="IMPORT_TYPERowChangeEvent" msprop:Generator_TableVarName="tableIMPORT_TYPE" msprop:Generator_TablePropName="IMPORT_TYPE" msprop:Generator_RowDeletingName="IMPORT_TYPERowDeleting" msprop:Generator_RowChangingName="IMPORT_TYPERowChanging" msprop:Generator_RowDeletedName="IMPORT_TYPERowDeleted" msprop:Generator_TableClassName="IMPORT_TYPEDataTable" msprop:Generator_RowChangedName="IMPORT_TYPERowChanged" msprop:Generator_RowEvHandlerName="IMPORT_TYPERowChangeEventHandler" msprop:Generator_RowClassName="IMPORT_TYPERow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CODE" msprop:Generator_ColumnVarNameInTable="columnCODE" msprop:Generator_ColumnPropNameInRow="CODE" msprop:Generator_ColumnPropNameInTable="CODEColumn" msprop:Generator_UserColumnName="CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="WAGE_COMPARE" msprop:Generator_UserTableName="WAGE_COMPARE" msprop:Generator_RowEvArgName="WAGE_COMPARERowChangeEvent" msprop:Generator_TableVarName="tableWAGE_COMPARE" msprop:Generator_TablePropName="WAGE_COMPARE" msprop:Generator_RowDeletingName="WAGE_COMPARERowDeleting" msprop:Generator_RowChangingName="WAGE_COMPARERowChanging" msprop:Generator_RowDeletedName="WAGE_COMPARERowDeleted" msprop:Generator_TableClassName="WAGE_COMPAREDataTable" msprop:Generator_RowChangedName="WAGE_COMPARERowChanged" msprop:Generator_RowEvHandlerName="WAGE_COMPARERowChangeEventHandler" msprop:Generator_RowClassName="WAGE_COMPARERow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NOBR" msdata:Caption="工號" msprop:Generator_ColumnVarNameInTable="columnNOBR" msprop:Generator_ColumnPropNameInRow="NOBR" msprop:Generator_ColumnPropNameInTable="NOBRColumn" msprop:Generator_UserColumnName="NOBR" type="xs:string" />
+              <xs:element name="NAME_C" msdata:Caption="姓名" msprop:Generator_ColumnVarNameInTable="columnNAME_C" msprop:Generator_ColumnPropNameInRow="NAME_C" msprop:Generator_ColumnPropNameInTable="NAME_CColumn" msprop:Generator_UserColumnName="NAME_C" type="xs:string" minOccurs="0" />
+              <xs:element name="YYMM" msdata:Caption="計薪年月" msprop:Generator_ColumnVarNameInTable="columnYYMM" msprop:Generator_ColumnPropNameInRow="YYMM" msprop:Generator_ColumnPropNameInTable="YYMMColumn" msprop:Generator_UserColumnName="YYMM" type="xs:string" minOccurs="0" />
+              <xs:element name="SEQ" msdata:Caption="期數" msprop:Generator_ColumnVarNameInTable="columnSEQ" msprop:Generator_ColumnPropNameInRow="SEQ" msprop:Generator_ColumnPropNameInTable="SEQColumn" msprop:Generator_UserColumnName="SEQ" type="xs:string" minOccurs="0" />
+              <xs:element name="SAL_CODE" msdata:Caption="薪資代碼" msprop:Generator_ColumnVarNameInTable="columnSAL_CODE" msprop:Generator_ColumnPropNameInRow="SAL_CODE" msprop:Generator_ColumnPropNameInTable="SAL_CODEColumn" msprop:Generator_UserColumnName="SAL_CODE" type="xs:string" />
+              <xs:element name="AMT" msdata:Caption="金額" msprop:Generator_ColumnVarNameInTable="columnAMT" msprop:Generator_ColumnPropNameInRow="AMT" msprop:Generator_ColumnPropNameInTable="AMTColumn" msprop:Generator_UserColumnName="AMT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="YYMM1" msdata:Caption="比較計薪年月" msprop:Generator_ColumnVarNameInTable="columnYYMM1" msprop:Generator_ColumnPropNameInRow="YYMM1" msprop:Generator_ColumnPropNameInTable="YYMM1Column" msprop:Generator_UserColumnName="YYMM1" type="xs:string" minOccurs="0" />
+              <xs:element name="SEQ1" msdata:Caption="比較期數" msprop:Generator_ColumnVarNameInTable="columnSEQ1" msprop:Generator_ColumnPropNameInRow="SEQ1" msprop:Generator_ColumnPropNameInTable="SEQ1Column" msprop:Generator_UserColumnName="SEQ1" type="xs:string" minOccurs="0" />
+              <xs:element name="AMT1" msdata:Caption="比較金額" msprop:Generator_ColumnVarNameInTable="columnAMT1" msprop:Generator_ColumnPropNameInRow="AMT1" msprop:Generator_ColumnPropNameInTable="AMT1Column" msprop:Generator_UserColumnName="AMT1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="SAL_NAME" msdata:Caption="薪資名稱" msprop:Generator_ColumnVarNameInTable="columnSAL_NAME" msprop:Generator_ColumnPropNameInRow="SAL_NAME" msprop:Generator_ColumnPropNameInTable="SAL_NAMEColumn" msprop:Generator_UserColumnName="SAL_NAME" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FRM2I_RPT" msprop:Generator_UserTableName="FRM2I_RPT" msprop:Generator_RowEvArgName="FRM2I_RPTRowChangeEvent" msprop:Generator_TableVarName="tableFRM2I_RPT" msprop:Generator_TablePropName="FRM2I_RPT" msprop:Generator_RowDeletingName="FRM2I_RPTRowDeleting" msprop:Generator_RowChangingName="FRM2I_RPTRowChanging" msprop:Generator_RowDeletedName="FRM2I_RPTRowDeleted" msprop:Generator_TableClassName="FRM2I_RPTDataTable" msprop:Generator_RowChangedName="FRM2I_RPTRowChanged" msprop:Generator_RowEvHandlerName="FRM2I_RPTRowChangeEventHandler" msprop:Generator_RowClassName="FRM2I_RPTRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NOBR" msprop:Generator_ColumnVarNameInTable="columnNOBR" msprop:Generator_ColumnPropNameInRow="NOBR" msprop:Generator_ColumnPropNameInTable="NOBRColumn" msprop:Generator_UserColumnName="NOBR" type="xs:string" minOccurs="0" />
+              <xs:element name="NAME_C" msprop:Generator_ColumnVarNameInTable="columnNAME_C" msprop:Generator_ColumnPropNameInRow="NAME_C" msprop:Generator_ColumnPropNameInTable="NAME_CColumn" msprop:Generator_UserColumnName="NAME_C" type="xs:string" minOccurs="0" />
+              <xs:element name="NAME_E" msprop:Generator_ColumnVarNameInTable="columnNAME_E" msprop:Generator_ColumnPropNameInRow="NAME_E" msprop:Generator_ColumnPropNameInTable="NAME_EColumn" msprop:Generator_UserColumnName="NAME_E" type="xs:string" minOccurs="0" />
+              <xs:element name="INDT" msprop:Generator_ColumnVarNameInTable="columnINDT" msprop:Generator_ColumnPropNameInRow="INDT" msprop:Generator_ColumnPropNameInTable="INDTColumn" msprop:Generator_UserColumnName="INDT" type="xs:string" minOccurs="0" />
+              <xs:element name="STINDT" msprop:Generator_ColumnVarNameInTable="columnSTINDT" msprop:Generator_ColumnPropNameInRow="STINDT" msprop:Generator_ColumnPropNameInTable="STINDTColumn" msprop:Generator_UserColumnName="STINDT" type="xs:string" minOccurs="0" />
+              <xs:element name="OUDT" msprop:Generator_ColumnVarNameInTable="columnOUDT" msprop:Generator_ColumnPropNameInRow="OUDT" msprop:Generator_ColumnPropNameInTable="OUDTColumn" msprop:Generator_UserColumnName="OUDT" type="xs:string" minOccurs="0" />
+              <xs:element name="ST_DAYS" msprop:Generator_ColumnVarNameInTable="columnST_DAYS" msprop:Generator_ColumnPropNameInRow="ST_DAYS" msprop:Generator_ColumnPropNameInTable="ST_DAYSColumn" msprop:Generator_UserColumnName="ST_DAYS" type="xs:string" minOccurs="0" />
+              <xs:element name="ST_YRS" msprop:Generator_ColumnVarNameInTable="columnST_YRS" msprop:Generator_ColumnPropNameInRow="ST_YRS" msprop:Generator_ColumnPropNameInTable="ST_YRSColumn" msprop:Generator_UserColumnName="ST_YRS" type="xs:string" minOccurs="0" />
+              <xs:element name="WK_YRS" msprop:Generator_ColumnVarNameInTable="columnWK_YRS" msprop:Generator_ColumnPropNameInRow="WK_YRS" msprop:Generator_ColumnPropNameInTable="WK_YRSColumn" msprop:Generator_UserColumnName="WK_YRS" type="xs:string" minOccurs="0" />
+              <xs:element name="TOL_HRS" msprop:Generator_ColumnVarNameInTable="columnTOL_HRS" msprop:Generator_ColumnPropNameInRow="TOL_HRS" msprop:Generator_ColumnPropNameInTable="TOL_HRSColumn" msprop:Generator_UserColumnName="TOL_HRS" type="xs:string" minOccurs="0" />
+              <xs:element name="TOL_DAYS" msprop:Generator_ColumnVarNameInTable="columnTOL_DAYS" msprop:Generator_ColumnPropNameInRow="TOL_DAYS" msprop:Generator_ColumnPropNameInTable="TOL_DAYSColumn" msprop:Generator_UserColumnName="TOL_DAYS" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OT_RPT" msprop:Generator_UserTableName="OT_RPT" msprop:Generator_RowEvArgName="OT_RPTRowChangeEvent" msprop:Generator_TableVarName="tableOT_RPT" msprop:Generator_TablePropName="OT_RPT" msprop:Generator_RowDeletingName="OT_RPTRowDeleting" msprop:Generator_RowChangingName="OT_RPTRowChanging" msprop:Generator_RowDeletedName="OT_RPTRowDeleted" msprop:Generator_TableClassName="OT_RPTDataTable" msprop:Generator_RowChangedName="OT_RPTRowChanged" msprop:Generator_RowEvHandlerName="OT_RPTRowChangeEventHandler" msprop:Generator_RowClassName="OT_RPTRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NOBR" msprop:Generator_ColumnVarNameInTable="columnNOBR" msprop:Generator_ColumnPropNameInRow="NOBR" msprop:Generator_ColumnPropNameInTable="NOBRColumn" msprop:Generator_UserColumnName="NOBR" type="xs:string" minOccurs="0" />
+              <xs:element name="YYMM" msprop:Generator_ColumnVarNameInTable="columnYYMM" msprop:Generator_ColumnPropNameInRow="YYMM" msprop:Generator_ColumnPropNameInTable="YYMMColumn" msprop:Generator_UserColumnName="YYMM" type="xs:string" minOccurs="0" />
+              <xs:element name="OT_133" msprop:Generator_ColumnVarNameInTable="columnOT_133" msprop:Generator_ColumnPropNameInRow="OT_133" msprop:Generator_ColumnPropNameInTable="OT_133Column" msprop:Generator_UserColumnName="OT_133" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OT_166" msprop:Generator_ColumnVarNameInTable="columnOT_166" msprop:Generator_ColumnPropNameInRow="OT_166" msprop:Generator_ColumnPropNameInTable="OT_166Column" msprop:Generator_UserColumnName="OT_166" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OT_HOL" msprop:Generator_ColumnVarNameInTable="columnOT_HOL" msprop:Generator_ColumnPropNameInRow="OT_HOL" msprop:Generator_ColumnPropNameInTable="OT_HOLColumn" msprop:Generator_UserColumnName="OT_HOL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OT_HOL1" msprop:Generator_ColumnVarNameInTable="columnOT_HOL1" msprop:Generator_ColumnPropNameInRow="OT_HOL1" msprop:Generator_ColumnPropNameInTable="OT_HOL1Column" msprop:Generator_UserColumnName="OT_HOL1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OT_133AMT" msprop:Generator_ColumnVarNameInTable="columnOT_133AMT" msprop:Generator_ColumnPropNameInRow="OT_133AMT" msprop:Generator_ColumnPropNameInTable="OT_133AMTColumn" msprop:Generator_UserColumnName="OT_133AMT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OT_166AMT" msprop:Generator_ColumnVarNameInTable="columnOT_166AMT" msprop:Generator_ColumnPropNameInRow="OT_166AMT" msprop:Generator_ColumnPropNameInTable="OT_166AMTColumn" msprop:Generator_UserColumnName="OT_166AMT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OT_HOLAMT" msprop:Generator_ColumnVarNameInTable="columnOT_HOLAMT" msprop:Generator_ColumnPropNameInRow="OT_HOLAMT" msprop:Generator_ColumnPropNameInTable="OT_HOLAMTColumn" msprop:Generator_UserColumnName="OT_HOLAMT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OT_HOL1AMT" msprop:Generator_ColumnVarNameInTable="columnOT_HOL1AMT" msprop:Generator_ColumnPropNameInRow="OT_HOL1AMT" msprop:Generator_ColumnPropNameInTable="OT_HOL1AMTColumn" msprop:Generator_UserColumnName="OT_HOL1AMT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TOTAL_DAILY" msprop:Generator_ColumnVarNameInTable="columnTOTAL_DAILY" msprop:Generator_ColumnPropNameInRow="TOTAL_DAILY" msprop:Generator_ColumnPropNameInTable="TOTAL_DAILYColumn" msprop:Generator_UserColumnName="TOTAL_DAILY" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TOTAL_HOLIDAY" msprop:Generator_ColumnVarNameInTable="columnTOTAL_HOLIDAY" msprop:Generator_ColumnPropNameInRow="TOTAL_HOLIDAY" msprop:Generator_ColumnPropNameInTable="TOTAL_HOLIDAYColumn" msprop:Generator_UserColumnName="TOTAL_HOLIDAY" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TOTAL_DAILY_AMT" msprop:Generator_ColumnVarNameInTable="columnTOTAL_DAILY_AMT" msprop:Generator_ColumnPropNameInRow="TOTAL_DAILY_AMT" msprop:Generator_ColumnPropNameInTable="TOTAL_DAILY_AMTColumn" msprop:Generator_UserColumnName="TOTAL_DAILY_AMT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TOTAL_HOLIDAY_AMT" msprop:Generator_ColumnVarNameInTable="columnTOTAL_HOLIDAY_AMT" msprop:Generator_ColumnPropNameInRow="TOTAL_HOLIDAY_AMT" msprop:Generator_ColumnPropNameInTable="TOTAL_HOLIDAY_AMTColumn" msprop:Generator_UserColumnName="TOTAL_HOLIDAY_AMT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="REST_HRS" msprop:Generator_ColumnVarNameInTable="columnREST_HRS" msprop:Generator_ColumnPropNameInRow="REST_HRS" msprop:Generator_ColumnPropNameInTable="REST_HRSColumn" msprop:Generator_UserColumnName="REST_HRS" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="YearAward" msprop:Generator_UserTableName="YearAward" msprop:Generator_RowEvArgName="YearAwardRowChangeEvent" msprop:Generator_TableVarName="tableYearAward" msprop:Generator_TablePropName="YearAward" msprop:Generator_RowDeletingName="YearAwardRowDeleting" msprop:Generator_RowChangingName="YearAwardRowChanging" msprop:Generator_RowDeletedName="YearAwardRowDeleted" msprop:Generator_TableClassName="YearAwardDataTable" msprop:Generator_RowChangedName="YearAwardRowChanged" msprop:Generator_RowEvHandlerName="YearAwardRowChangeEventHandler" msprop:Generator_RowClassName="YearAwardRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NOBR" msprop:Generator_ColumnVarNameInTable="columnNOBR" msprop:Generator_ColumnPropNameInRow="NOBR" msprop:Generator_ColumnPropNameInTable="NOBRColumn" msprop:Generator_UserColumnName="NOBR" type="xs:string" minOccurs="0" />
+              <xs:element name="YYMM" msprop:Generator_ColumnVarNameInTable="columnYYMM" msprop:Generator_ColumnPropNameInRow="YYMM" msprop:Generator_ColumnPropNameInTable="YYMMColumn" msprop:Generator_UserColumnName="YYMM" type="xs:string" minOccurs="0" />
+              <xs:element name="TOTAL_DAYS" msprop:Generator_ColumnVarNameInTable="columnTOTAL_DAYS" msprop:Generator_ColumnPropNameInRow="TOTAL_DAYS" msprop:Generator_ColumnPropNameInTable="TOTAL_DAYSColumn" msprop:Generator_UserColumnName="TOTAL_DAYS" type="xs:string" minOccurs="0" />
+              <xs:element name="DataColumn1" msprop:Generator_ColumnVarNameInTable="columnDataColumn1" msprop:Generator_ColumnPropNameInRow="DataColumn1" msprop:Generator_ColumnPropNameInTable="DataColumn1Column" msprop:Generator_UserColumnName="DataColumn1" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="YEAR_AWARD" msprop:Generator_TableClassName="YEAR_AWARDDataTable" msprop:Generator_RowEvArgName="YEAR_AWARDRowChangeEvent" msprop:Generator_TableVarName="tableYEAR_AWARD" msprop:Generator_TablePropName="YEAR_AWARD" msprop:Generator_RowDeletingName="YEAR_AWARDRowDeleting" msprop:Generator_UserTableName="YEAR_AWARD" msprop:Generator_RowChangingName="YEAR_AWARDRowChanging" msprop:Generator_RowDeletedName="YEAR_AWARDRowDeleted" msprop:Generator_RowChangedName="YEAR_AWARDRowChanged" msprop:Generator_RowEvHandlerName="YEAR_AWARDRowChangeEventHandler" msprop:Generator_RowClassName="YEAR_AWARDRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NOBR" msdata:Caption="工號" msprop:Generator_ColumnVarNameInTable="columnNOBR" msprop:Generator_ColumnPropNameInRow="NOBR" msprop:Generator_ColumnPropNameInTable="NOBRColumn" msprop:Generator_UserColumnName="NOBR" type="xs:string" />
+              <xs:element name="NAME_C" msdata:Caption="姓名" msprop:Generator_ColumnVarNameInTable="columnNAME_C" msprop:Generator_ColumnPropNameInRow="NAME_C" msprop:Generator_ColumnPropNameInTable="NAME_CColumn" msprop:Generator_UserColumnName="NAME_C" type="xs:string" minOccurs="0" />
+              <xs:element name="DEPTS" msdata:Caption="成本代碼" msprop:Generator_ColumnVarNameInTable="columnDEPTS" msprop:Generator_ColumnPropNameInRow="DEPTS" msprop:Generator_ColumnPropNameInTable="DEPTSColumn" msprop:Generator_UserColumnName="DEPTS" type="xs:string" minOccurs="0" />
+              <xs:element name="DEPTS_NAME" msdata:Caption="成本部門" msprop:Generator_ColumnVarNameInTable="columnDEPTS_NAME" msprop:Generator_ColumnPropNameInRow="DEPTS_NAME" msprop:Generator_ColumnPropNameInTable="DEPTS_NAMEColumn" msprop:Generator_UserColumnName="DEPTS_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="YYMM" msdata:Caption="計薪年月" msprop:Generator_ColumnVarNameInTable="columnYYMM" msprop:Generator_ColumnPropNameInRow="YYMM" msprop:Generator_ColumnPropNameInTable="YYMMColumn" msprop:Generator_UserColumnName="YYMM" type="xs:string" minOccurs="0" />
+              <xs:element name="SAL_CODE" msdata:Caption="薪資代碼" msprop:Generator_ColumnVarNameInTable="columnSAL_CODE" msprop:Generator_ColumnPropNameInRow="SAL_CODE" msprop:Generator_ColumnPropNameInTable="SAL_CODEColumn" msprop:Generator_UserColumnName="SAL_CODE" type="xs:string" minOccurs="0" />
+              <xs:element name="SAL_NAME" msdata:Caption="薪資名稱" msprop:Generator_ColumnVarNameInTable="columnSAL_NAME" msprop:Generator_ColumnPropNameInRow="SAL_NAME" msprop:Generator_ColumnPropNameInTable="SAL_NAMEColumn" msprop:Generator_UserColumnName="SAL_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="RATE" msdata:Caption="基數" msprop:Generator_ColumnVarNameInTable="columnRATE" msprop:Generator_ColumnPropNameInRow="RATE" msprop:Generator_ColumnPropNameInTable="RATEColumn" msprop:Generator_UserColumnName="RATE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TOTAL_DAYS" msdata:Caption="總天數" msprop:Generator_ColumnVarNameInTable="columnTOTAL_DAYS" msprop:Generator_ColumnPropNameInRow="TOTAL_DAYS" msprop:Generator_ColumnPropNameInTable="TOTAL_DAYSColumn" msprop:Generator_UserColumnName="TOTAL_DAYS" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WORK_DAYS" msdata:Caption="實際在職天數" msprop:Generator_ColumnVarNameInTable="columnWORK_DAYS" msprop:Generator_ColumnPropNameInRow="WORK_DAYS" msprop:Generator_ColumnPropNameInTable="WORK_DAYSColumn" msprop:Generator_UserColumnName="WORK_DAYS" type="xs:decimal" minOccurs="0" />
+              <xs:element name="SALARY" msdata:Caption="薪資" msprop:Generator_ColumnVarNameInTable="columnSALARY" msprop:Generator_ColumnPropNameInRow="SALARY" msprop:Generator_ColumnPropNameInTable="SALARYColumn" msprop:Generator_UserColumnName="SALARY" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PAMT" msdata:Caption="應發獎金" msprop:Generator_ColumnVarNameInTable="columnPAMT" msprop:Generator_ColumnPropNameInRow="PAMT" msprop:Generator_ColumnPropNameInTable="PAMTColumn" msprop:Generator_UserColumnName="PAMT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DISCOUNT" msdata:Caption="已領獎金" msprop:Generator_ColumnVarNameInTable="columnDISCOUNT" msprop:Generator_ColumnPropNameInRow="DISCOUNT" msprop:Generator_ColumnPropNameInTable="DISCOUNTColumn" msprop:Generator_UserColumnName="DISCOUNT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AMT" msdata:Caption="獎金金額" msprop:Generator_ColumnVarNameInTable="columnAMT" msprop:Generator_ColumnPropNameInRow="AMT" msprop:Generator_ColumnPropNameInTable="AMTColumn" msprop:Generator_UserColumnName="AMT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TAX_AMT" msdata:Caption="所得稅" msprop:Generator_ColumnVarNameInTable="columnTAX_AMT" msprop:Generator_ColumnPropNameInRow="TAX_AMT" msprop:Generator_ColumnPropNameInTable="TAX_AMTColumn" msprop:Generator_UserColumnName="TAX_AMT" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ENRICH" />
+      <xs:field xpath="mstns:NOBR" />
+      <xs:field xpath="mstns:YYMM" />
+      <xs:field xpath="mstns:SEQ" />
+      <xs:field xpath="mstns:SAL_CODE" />
+    </xs:unique>
+    <xs:unique name="ACCCDATTR_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ACCCDATTR" />
+      <xs:field xpath="mstns:CATEGORY" />
+      <xs:field xpath="mstns:CODE" />
+    </xs:unique>
+    <xs:unique name="SALTYCD_DIV_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SALTYCD_DIV" />
+      <xs:field xpath="mstns:CATEGORY" />
+      <xs:field xpath="mstns:CODE" />
+    </xs:unique>
+    <xs:unique name="SALTYCD_DAYS_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SALTYCD_DAYS" />
+      <xs:field xpath="mstns:CATEGORY" />
+      <xs:field xpath="mstns:CODE" />
+    </xs:unique>
+    <xs:unique name="SALTYCD_HOURS_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SALTYCD_HOURS" />
+      <xs:field xpath="mstns:CATEGORY" />
+      <xs:field xpath="mstns:CODE" />
+    </xs:unique>
+    <xs:unique name="SOS_ID_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SOS_ID" />
+      <xs:field xpath="mstns:CATEGORY" />
+      <xs:field xpath="mstns:CODE" />
+    </xs:unique>
+    <xs:unique name="CAL_TYPE_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:CAL_TYPE" />
+      <xs:field xpath="mstns:CATEGORY" />
+      <xs:field xpath="mstns:CODE" />
+    </xs:unique>
+    <xs:unique name="CAL_FREQ_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:CAL_FREQ" />
+      <xs:field xpath="mstns:CATEGORY" />
+      <xs:field xpath="mstns:CODE" />
+    </xs:unique>
+    <xs:unique name="MONTH_TYPE_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:MONTH_TYPE" />
+      <xs:field xpath="mstns:CATEGORY" />
+      <xs:field xpath="mstns:CODE" />
+    </xs:unique>
+    <xs:unique name="FRM4P_PRINTTYPE_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:FRM4P_PRINTTYPE" />
+      <xs:field xpath="mstns:CATEGORY" />
+      <xs:field xpath="mstns:CODE" />
+    </xs:unique>
+    <xs:unique name="WAGE_COMPARE_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:WAGE_COMPARE" />
+      <xs:field xpath="mstns:NOBR" />
+      <xs:field xpath="mstns:SAL_CODE" />
+    </xs:unique>
+    <xs:unique name="YEAR_AWARD_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:YEAR_AWARD" />
+      <xs:field xpath="mstns:NOBR" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

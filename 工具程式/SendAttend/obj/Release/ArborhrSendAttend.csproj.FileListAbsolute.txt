@@ -1,0 +1,9 @@
+D:\c#.net\ARBOR\ArborhrSendAttend\bin\Release\sendAttendMail.exe.config
+D:\c#.net\ARBOR\ArborhrSendAttend\bin\Release\sendAttendMail.exe
+D:\c#.net\ARBOR\ArborhrSendAttend\bin\Release\sendAttendMail.pdb
+D:\c#.net\ARBOR\ArborhrSendAttend\obj\Release\ResolveAssemblyReference.cache
+D:\c#.net\ARBOR\ArborhrSendAttend\obj\Release\sendAttendMail.exe
+D:\c#.net\ARBOR\ArborhrSendAttend\obj\Release\sendAttendMail.pdb
+D:\c#.net\HOLYSTONE\HolyStoneSendAttend\bin\Release\sendAttendMail.exe.config
+D:\c#.net\HOLYSTONE\HolyStoneSendAttend\obj\Release\sendAttendMail.exe
+D:\c#.net\HOLYSTONE\HolyStoneSendAttend\obj\Release\sendAttendMail.pdb

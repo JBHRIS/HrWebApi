@@ -1,0 +1,15 @@
+D:\ezFlow35\Tools Source\ezAdmin\ezAdmin\bin\Debug\ezAdmin.exe.config
+D:\ezFlow35\Tools Source\ezAdmin\ezAdmin\obj\Debug\ezAdmin.exe
+D:\ezFlow35\Tools Source\ezAdmin\ezAdmin\obj\Debug\ezAdmin.pdb
+D:\ezFlow35\Tools Source\ezAdmin\ezAdmin\obj\Debug\ResolveAssemblyReference.cache
+D:\ezFlow35\Tools Source\ezAdmin\ezAdmin\obj\Debug\ezAdmin.fmEmpSelector.resources
+D:\ezFlow35\Tools Source\ezAdmin\ezAdmin\obj\Debug\ezAdmin.fmMain.resources
+D:\ezFlow35\Tools Source\ezAdmin\ezAdmin\obj\Debug\ezAdmin.fmOrgSelector.resources
+D:\ezFlow35\Tools Source\ezAdmin\ezAdmin\obj\Debug\ezAdmin.Properties.Resources.resources
+D:\ezFlow35\Tools Source\ezAdmin\ezAdmin\obj\Debug\ezAdmin.csproj.GenerateResource.Cache
+D:\ezFlow35\Tools Source\ezAdmin\ezAdmin\bin\Debug\ezAdmin.exe.manifest
+D:\ezFlow35\Tools Source\ezAdmin\ezAdmin\bin\Debug\ezAdmin.application
+D:\ezFlow35\Tools Source\ezAdmin\ezAdmin\bin\Debug\ezAdmin.exe
+D:\ezFlow35\Tools Source\ezAdmin\ezAdmin\bin\Debug\ezAdmin.pdb
+D:\ezFlow35\Tools Source\ezAdmin\ezAdmin\obj\Debug\ezAdmin.exe.manifest
+D:\ezFlow35\Tools Source\ezAdmin\ezAdmin\obj\Debug\ezAdmin.application

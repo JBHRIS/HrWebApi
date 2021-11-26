@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dal</name>
+    </assembly>
+    <members>
+        <member name="T:Dal.Dao.Att.TransCardDao">
+            <summary>
+            TransCardDao
+            </summary>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.#ctor(System.Data.IDbConnection)">
+            <summary>
+            刷卡轉出勤
+            </summary>
+            <param name="conn">連接字串 沒有等於預設</param>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.GetBaseByNobr(Bll.Att.Vdb.TransCardCondition)">
+            <summary>
+            取得員工基本判斷資料
+            </summary>
+            <param name="Cond">TransCardCondition</param>
+            <returns>BaseTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.GetRote(System.String[])">
+            <summary>
+            取得班表資料
+            </summary>
+            <param name="arrRoteCode">null = 全部</param>
+            <returns>RoteTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.GetRoteRes(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            休息時間
+            </summary>
+            <param name="sResB1">休息時間</param>
+            <param name="sResE1">休息時間</param>
+            <param name="sResB2">休息時間</param>
+            <param name="sResE2">休息時間</param>
+            <param name="sResB3">休息時間</param>
+            <param name="sResE3">休息時間</param>
+            <param name="sResB4">休息時間</param>
+            <param name="sResE4">休息時間</param>
+            <param name="sResB5">休息時間</param>
+            <param name="sResE5">休息時間</param>
+            <returns>RoteResTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.GetAbs(Bll.Att.Vdb.TransCardCondition)">
+            <summary>
+            取得請假資料
+            </summary>
+            <param name="Cond">TransCardCondition</param>
+            <returns>AbsTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.GetOt(Bll.Att.Vdb.TransCardCondition)">
+            <summary>
+            取得加班資料
+            </summary>
+            <param name="Cond">TransCardCondition</param>
+            <returns>OtTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.GetCard(Bll.Att.Vdb.TransCardCondition)">
+            <summary>
+            取得刷卡資料
+            </summary>
+            <param name="Cond">TransCardCondition</param>
+            <returns>CardTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.GetAttCard(Bll.Att.Vdb.TransCardCondition)">
+            <summary>
+            取得出勤資料
+            </summary>
+            <param name="Cond">TransCardCondition</param>
+            <returns>AttCardTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.TransCard(System.String,System.String,System.String,System.String,System.DateTime,System.DateTime,System.String,System.Boolean,System.Boolean,System.Boolean,System.String,System.String,System.Boolean,System.Int32)">
+            <summary>
+            刷卡轉出勤 及 判斷異常
+            </summary>
+            <param name="sNobrB">開始工號</param>
+            <param name="sNobrE">結束工號</param>
+            <param name="sDeptB">開始部門</param>
+            <param name="sDeptE">結束部門</param>
+            <param name="dDateB">開始日期</param>
+            <param name="dDateE">結束日期</param>
+            <param name="sKeyMan">登錄者</param>
+            <param name="bAttCard">轉換刷卡時間</param>
+            <param name="bAttEnd">判斷異常</param>
+            <param name="bEzAttCard">簡單轉換True = 簡單(一天多筆的情況，才需要複雜的判斷)</param>
+            <param name="sUserID">登入者工號</param>
+            <param name="sComp">公司別</param>
+            <param name="bAdmin">是否管理權限</param>
+            <param name="ThreadCount">啟用多少個執行緒(預設是2)</param>
+            <returns>int</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.TransCard(Bll.Att.Vdb.TransCardCondition)">
+            <summary>
+            刷卡轉出勤 及 判斷異常
+            </summary>
+            <param name="oCond">TransCardCondition</param>
+            <returns>int</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.GetRoteCode(System.Collections.Generic.List{Dal.Entity.ATTEND},System.String,System.DateTime,System.String)">
+            <summary>
+            尋找客制班別
+            </summary>
+            <param name="rsATTEND">ATTEND</param>
+            <param name="Nobr">工號</param>
+            <param name="Date">日期</param>
+            <param name="RoteCode">班別</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.dcSubmitChanges(Dal.Entity.dcHrDataContext)">
+            <summary>
+            
+            </summary>
+            <param name="dc">dcAttDataContext</param>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.TransCardPools.GetRoteCode(System.Collections.Generic.List{Dal.Entity.ATTEND},System.String,System.DateTime,System.String)">
+            <summary>
+            尋找客制班別
+            </summary>
+            <param name="rsATTEND">ATTEND</param>
+            <param name="Nobr">工號</param>
+            <param name="Date">日期</param>
+            <param name="RoteCode">班別</param>
+            <returns>string</returns>
+        </member>
+    </members>
+</doc>

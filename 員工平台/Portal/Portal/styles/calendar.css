@@ -1,0 +1,296 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+
+.RadCalendar{
+	
+    display: block!important;
+ 
+}
+
+.RadCalendar .rcRow td{
+	
+	background-color:#fcfcfc;
+}
+
+
+.RadCalendar .rcWeek th{
+
+	width:14%;
+	text-align:center !important;
+}
+
+.kdate{
+	
+	height:125px;
+
+}
+
+.kdate p{
+	
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+ 	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+	margin:0.125rem 0;
+	padding:2px;
+}
+
+	/*@media screen and (min-width:320px)and (max-width:412px){
+		.kdate p{
+				margin:0.1rem;
+			}
+		}*/
+
+
+.kdate .kdateNum{
+	
+	text-align:center;
+	font-size:1.25em;
+}
+
+
+	@media screen and (max-width:320px) {
+ 
+		.kdate .kdateNum{
+			font-size:0.25em;
+		}
+
+
+	}
+
+.RadCalendar .rcRow td{
+
+	border-bottom: 1px solid #e7e6e6 !important;
+	background-color:#fcfcfc;
+
+}
+
+	@media (min-width:320px) and (max-width:1680px){
+		.RadCalendar .rcRow th+td, .RadCalendar .rcRow td:first-child{
+			padding-left:0 !important;
+			}
+		.RadCalendar .rcRow td:last-child{
+			padding-right:0 !important;
+			}
+	}
+	
+	
+	@media (min-width:320px)and (max-width:412px){
+	
+		#calendar .ibox-content{
+			padding:0 !important;
+			}
+			
+		#calendar2 .col-lg-12{
+            padding-right:0 !important;
+            padding-left:0 !important;
+			}
+	}
+	
+
+
+/* 打卡標籤 */
+.blue{	
+	width:45%;
+	border-radius:2.5px;
+	float:left;
+	color:#FFF;	
+}
+	
+	@media screen and (max-width:420px){
+		.blue{
+			width:30%;
+			}
+		}
+
+
+/* 加班標籤 */
+.orange{	
+	width:46%;
+	background-color:#f8ac59;
+	border-radius:2.5px;
+	color:#FFF;
+}
+
+	@media (min-width:768px) and (max-width:1024px){
+		.orange{
+			width:44%;
+			}
+		}
+
+	
+	@media (min-width:541px) and (max-width:1050px){
+		.orange{
+			width:44%;
+			}
+		}
+		
+	@media screen and (max-width:540px){
+		.orange{
+			width:40%;
+			}
+		}
+	
+	@media screen and (max-width:420px){
+		.orange{
+			width:34%;
+			}
+		}
+		
+	@media screen and (max-width:360px){
+		.orange{
+			width:33%;
+			}
+		}
+
+	@media screen and (max-width:320px){
+		.orange{
+			width:32%;
+			}
+		}
+
+
+/* 異常標籤 */
+.red{	
+	width:46%;
+	background-color:#ed5565;
+	border-radius:2.5px;
+	color:#FFF;
+}
+
+	@media (min-width:768px) and (max-width:1024px){
+		.red{
+			width:44%;
+			}
+		}
+		
+	@media (min-width:541px) and (max-width:1050px){
+		.red{
+			width:44%;
+			}
+		}
+		
+	@media screen and (max-width:540px){
+		.red{
+			width:40%;
+			}
+		}
+	
+	@media screen and (max-width:420px){
+		.red{
+			width:34%;
+			}
+		}
+		
+	@media screen and (max-width:360px){
+		.red{
+			width:33%;
+			}
+		}
+			
+	@media screen and (max-width:320px){
+		.red{
+			width:32%;
+			}
+		}
+
+
+
+/* 請假標籤 */
+.green{	
+	width:46%;
+	background-color:#1ab394;
+	border-radius:2.5px;
+	color:#FFF;
+}
+
+
+	@media (min-width:768px) and (max-width:1024px){
+		.green{
+			width:44%;
+			}
+		}
+	@media (min-width:541px) and (max-width:1050px){
+		.green{
+			width:44%;
+			}
+		}
+		
+
+	@media screen and (max-width:540px){
+		.green{
+			width:40%;
+			}
+		}
+
+	@media screen and (max-width:420px){
+		.green{
+			width:34%;
+			}
+		}
+		
+	@media screen and (max-width:360px){
+		.green{
+			width:33%;
+			}
+		}
+		
+		
+	@media screen and (max-width:320px){
+		.green{
+			width:32%;
+			}
+		}
+		
+		
+/* 分流班別標籤 */
+.purple{	
+	width:46%;
+	background-color:#A06CD5;
+	border-radius:2.5px;
+	color:#FFF;
+}
+
+
+	@media (min-width:768px) and (max-width:1024px){
+		.purple{
+			width:44%;
+			}
+		}
+	@media (min-width:541px) and (max-width:1050px){
+		.purple{
+			width:44%;
+			}
+		}
+		
+
+	@media screen and (max-width:540px){
+		.purple{
+			width:40%;
+			}
+		}
+
+	@media screen and (max-width:420px){
+		.purple{
+			width:34%;
+			}
+		}
+		
+	@media screen and (max-width:360px){
+		.purple{
+			width:33%;
+			}
+		}
+		
+		
+	@media screen and (max-width:320px){
+		.green{
+			width:32%;
+			}
+		}
+
+
+
+

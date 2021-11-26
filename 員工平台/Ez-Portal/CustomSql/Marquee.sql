@@ -1,0 +1,25 @@
+USE [CHPTHR]
+GO
+
+/****** Object:  Table [dbo].[Marquee]    Script Date: 2014/4/2 下午 05:40:30 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Marquee](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[DisplayText] [nvarchar](1000) NOT NULL,
+	[Enable] [bit] NOT NULL,
+ CONSTRAINT [PK_Marquee] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[Marquee] ADD  CONSTRAINT [DF_Marquee_Enable]  DEFAULT ((1)) FOR [Enable]
+GO
+

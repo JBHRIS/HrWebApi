@@ -1,0 +1,103 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="appsettings.Development.json" />
+    <None Remove="appsettings.json" />
+    <None Remove="TestData\Birthday\10月壽星名單.txt" />
+    <None Remove="TestData\Birthday\11月壽星名單.txt" />
+    <None Remove="TestData\Birthday\12月壽星名單.txt" />
+    <None Remove="TestData\Birthday\1月壽星名單.txt" />
+    <None Remove="TestData\Birthday\2月壽星名單.txt" />
+    <None Remove="TestData\Birthday\3月壽星名單.txt" />
+    <None Remove="TestData\Birthday\4月壽星名單.txt" />
+    <None Remove="TestData\Birthday\5月壽星名單.txt" />
+    <None Remove="TestData\Birthday\6月壽星名單.txt" />
+    <None Remove="TestData\Birthday\7月壽星名單.txt" />
+    <None Remove="TestData\Birthday\8月壽星名單.txt" />
+    <None Remove="TestData\Birthday\9月壽星名單.txt" />
+    <None Remove="TestData\Birthday\在職人員名單.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="appsettings.Development.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="TestData\Birthday\10月壽星名單.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Birthday\11月壽星名單.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Birthday\12月壽星名單.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Birthday\1月壽星名單.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Birthday\2月壽星名單.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Birthday\3月壽星名單.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Birthday\4月壽星名單.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Birthday\5月壽星名單.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Birthday\6月壽星名單.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Birthday\7月壽星名單.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Birthday\8月壽星名單.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Birthday\9月壽星名單.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Birthday\在職人員名單.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.4" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.0.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.0.0" />
+    <PackageReference Include="coverlet.collector" Version="1.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JBHRIS.Api.Bll\JBHRIS.Api.Bll.csproj" />
+    <ProjectReference Include="..\JBHRIS.Api.Dal.JBHR\JBHRIS.Api.Dal.JBHR.csproj" />
+    <ProjectReference Include="..\JBHRIS.Api.Dal\JBHRIS.Api.Dal.csproj" />
+    <ProjectReference Include="..\JBHRIS.Api.Dto\JBHRIS.Api.Dto.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="TestData\Entity\Base.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\Entity\Dept.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

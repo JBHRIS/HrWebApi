@@ -1,0 +1,3 @@
+﻿namespace JBHR.Dividend.HunyaCustom
+{
+}

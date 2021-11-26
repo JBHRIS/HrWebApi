@@ -1,0 +1,161 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="mpStd0990111.master.cs"
+    Inherits="mpStd0990111" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="EXPIRES" content="0">
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+    <title></title>
+    <link href="./css/StyleSheet.css" rel="stylesheet" type="text/css" />
+    <link href="./css/cssUpdateProgress.css" rel="stylesheet" type="text/css" />
+    <link href="./css/Main.css" rel="stylesheet" type="text/css" />
+    <asp:Literal ID="ltModalProgress" runat="server"></asp:Literal>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .return
+        {
+            display: inline-block;
+            background: #603;
+            padding: 5px 10px 5px 10px;
+            border-radius: 4px;
+            color: #fff;
+            font-family: 微軟正黑體;
+            font-weight: bold;
+            font-size: 14px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <script type="text/javascript" src="../js/jsUpdateProgress.js"></script>
+        <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" CombineScripts="false"
+            EnableScriptLocalization="true" EnableScriptGlobalization="true">
+        </asp:ToolkitScriptManager>
+        <asp:UpdateProgress ID="UpdateProgress1" runat="server">
+            <ProgressTemplate>
+                <asp:Panel ID="panelUpdateProgress" runat="server">
+                    <div id="loader" style="position: relative; text-align: center; top: 0px; left: 0px;">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td>
+                                    <p>
+                                        <img src="../img/loading.gif" style="vertical-align: middle; margin-top: 0px;" alt="請稍後" /><strong>請稍後,資料連接中
+                                            ...</strong></p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </asp:Panel>
+            </ProgressTemplate>
+        </asp:UpdateProgress>
+        <asp:ModalPopupExtender ID="ModalProgress" runat="server" TargetControlID="panelUpdateProgress"
+            BackgroundCssClass="modalBackground" PopupControlID="panelUpdateProgress" />
+        <table width="100%">
+            <tr>
+                <td align="left">
+                    <asp:Button ID="btnReturn" runat="server" OnClick="btnReturn_Click" Text="回首頁" CssClass="return" />
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <asp:Label ID="lblTitle" runat="server" Font-Bold="True" Font-Size="Large"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%" class="TableFullBorder">
+                        <tr>
+                            <td>
+                                <asp:FormView ID="fvAppM" runat="server" DataSourceID="sdsAppM" Width="100%">
+                                    <ItemTemplate>
+                                        <table width="100%">
+                                            <tr>
+                                                <th colspan="8">
+                                                    申請人基本資料
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    工號
+                                                </th>
+                                                <td>
+                                                    <asp:Label ID="Emp_idLabel" runat="server" Text='<%# Bind("Emp_id") %>' />
+                                                </td>
+                                                <th>
+                                                    姓名
+                                                </th>
+                                                <td>
+                                                    <asp:Label ID="Emp_nameLabel" runat="server" Text='<%# Bind("Emp_name") %>' />
+                                                </td>
+                                                <th>
+                                                    部門
+                                                </th>
+                                                <td>
+                                                    <asp:Label ID="Dept_nameLabel" runat="server" Text='<%# Bind("Dept_name") %>' />
+                                                </td>
+                                                <th>
+                                                    職稱
+                                                </th>
+                                                <td>
+                                                    <asp:Label ID="Pos_nameLabel" runat="server" Text='<%# Bind("Pos_name") %>' />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </ItemTemplate>
+                                </asp:FormView>
+                                <asp:SqlDataSource ID="sdsAppM" runat="server" ConnectionString="<%$ ConnectionStrings:Flow %>"
+                                    SelectCommand="SELECT Role.Emp_id, Emp.name AS Emp_name, Role.Dept_id, Dept.name AS Dept_name, Role.Pos_id, Pos.name AS Pos_name FROM Emp INNER JOIN Role INNER JOIN Dept ON Role.Dept_id = Dept.id INNER JOIN Pos ON Role.Pos_id = Pos.id ON Emp.id = Role.Emp_id WHERE (Role.Emp_id = @Emp_id)">
+                                    <SelectParameters>
+                                        <asp:ControlParameter ControlID="lblNobrAppM" Name="Emp_id" PropertyName="Text" />
+                                    </SelectParameters>
+                                </asp:SqlDataSource>
+                                <asp:Label ID="lblNobrAppM" runat="server" Visible="False"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table width="100%">
+                                    <tr>
+                                        <td>
+                                            <table width="100%">
+                                                <tr>
+                                                    <th>
+                                                        申請備註
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <asp:Label ID="lblNote" runat="server" Text="無"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8CA51909-C65D-4042-9E3E-69821B495B3E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OldBll</RootNamespace>
+    <AssemblyName>OldBll</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\OldBll.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Att\Abs.cs" />
+    <Compile Include="Att\Rote.cs" />
+    <Compile Include="Att\TransCard.cs" />
+    <Compile Include="Att\Vdb\AbsVdb.cs" />
+    <Compile Include="Att\Vdb\AttcardVdb.cs" />
+    <Compile Include="Att\Vdb\AttElasticityVdb.cs" />
+    <Compile Include="Att\Vdb\AttendVdb.cs" />
+    <Compile Include="Att\Vdb\CardVdb.cs" />
+    <Compile Include="Att\Vdb\HcodeVdb.cs" />
+    <Compile Include="Att\Vdb\HoliVdb.cs" />
+    <Compile Include="Att\Vdb\OtVdb.cs" />
+    <Compile Include="Att\Vdb\RoteVdb.cs" />
+    <Compile Include="Att\Vdb\TransCardVdb.cs" />
+    <Compile Include="Att\Ot.cs" />
+    <Compile Include="Att\Vdb\RotetVdb.cs" />
+    <Compile Include="Att\Vdb\HolicdVdb.cs" />
+    <Compile Include="Att\Vdb\OtRatecdVdb.cs" />
+    <Compile Include="Att\Vdb\CardLosdVdb.cs" />
+    <Compile Include="Att\Vdb\RotechgVdb.cs" />
+    <Compile Include="Bas\Dept.cs" />
+    <Compile Include="Bas\Vdb\BasVdb.cs" />
+    <Compile Include="Bas\Vdb\CompVdb.cs" />
+    <Compile Include="Bas\Vdb\DataGroupVdb.cs" />
+    <Compile Include="Bas\Vdb\DeptVdb.cs" />
+    <Compile Include="Bas\Vdb\IpControlVdb.cs" />
+    <Compile Include="Bas\Vdb\JobVdb.cs" />
+    <Compile Include="Bas\Vdb\PayDocVdb.cs" />
+    <Compile Include="Bas\Vdb\WorkVdb.cs" />
+    <Compile Include="Bas\Vdb\AssessCatVdb.cs" />
+    <Compile Include="Bas\Vdb\AssessVdb.cs" />
+    <Compile Include="Bas\Vdb\JoblVdb.cs" />
+    <Compile Include="Bas\Vdb\JoboVdb.cs" />
+    <Compile Include="Bas\Vdb\TtscdVdb.cs" />
+    <Compile Include="Flow\Vdb\FlowFormsVdb.cs" />
+    <Compile Include="Flow\Vdb\MainVdb.cs" />
+    <Compile Include="MT\mtEnum.cs" />
+    <Compile Include="MT\Vdb\mtVdb.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sal\SalaryEncode.cs" />
+    <Compile Include="Sal\Vdb\SalaryLockVdb.cs" />
+    <Compile Include="Sal\Vdb\SalCodeVdb.cs" />
+    <Compile Include="Sal\Vdb\SalBasdVdb.cs" />
+    <Compile Include="Tools\DataTrans.cs" />
+    <Compile Include="Tools\DateTools.cs" />
+    <Compile Include="Tools\Decryption.cs" />
+    <Compile Include="Tools\DefaultData.cs" />
+    <Compile Include="Tools\SendMail.cs" />
+    <Compile Include="Tools\StringMethodExtensions.cs" />
+    <Compile Include="Tools\StringTrans.cs" />
+    <Compile Include="Tools\ThreadPools.cs" />
+    <Compile Include="Tools\TimeTrans.cs" />
+    <Compile Include="Tools\ToDataTable.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Bll.dll" />
+    <Content Include="bin\Debug\Bll.pdb" />
+    <Content Include="bin\Release\Bll.dll" />
+    <Content Include="bin\Release\Bll.pdb" />
+    <Content Include="bin\Release\Bll.XML" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

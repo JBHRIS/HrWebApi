@@ -1,0 +1,5 @@
+=====中華精測=====
+連上 SSL-VPN
+     網址：https://sslvpn.cht-pt.com.tw
+     帳號：jbadmin
+     密碼：JBadmin  (有分大小寫)

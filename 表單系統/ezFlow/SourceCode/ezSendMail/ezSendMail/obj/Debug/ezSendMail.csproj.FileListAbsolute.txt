@@ -1,0 +1,9 @@
+D:\Source\ezFlow_EFAST\Tools Source\ezSendMail\ezSendMail\bin\Debug\ezSendMail.exe.config
+D:\Source\ezFlow_EFAST\Tools Source\ezSendMail\ezSendMail\obj\Debug\ezSendMail.exe
+D:\Source\ezFlow_EFAST\Tools Source\ezSendMail\ezSendMail\obj\Debug\ezSendMail.pdb
+D:\Source\ezFlow_EFAST\Tools Source\ezSendMail\ezSendMail\bin\Debug\ezSendMail.exe
+D:\Source\ezFlow_EFAST\Tools Source\ezSendMail\ezSendMail\bin\Debug\ezSendMail.pdb
+D:\Source\ezFlow_EFAST\Tools Source\ezSendMail\ezSendMail\obj\Debug\ResolveAssemblyReference.cache
+D:\Source\ezFlow_EFAST\Tools Source\ezSendMail\ezSendMail\obj\Debug\ezSendMail.Form1.resources
+D:\Source\ezFlow_EFAST\Tools Source\ezSendMail\ezSendMail\obj\Debug\ezSendMail.Properties.Resources.resources
+D:\Source\ezFlow_EFAST\Tools Source\ezSendMail\ezSendMail\obj\Debug\ezSendMail.csproj.GenerateResource.Cache

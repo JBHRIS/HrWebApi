@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace JBAppService.Api.Dal.Models.EEPContent
+{
+    public partial class View_HRD_SCORE_FUNCTION_GROUPSUM
+    {
+        public int FORM_ID { get; set; }
+        public int FUNCTION_ID { get; set; }
+        public string FUNCTION_NAME { get; set; }
+        public int? WEIGHT_SEQ { get; set; }
+        public string RELATION_NAME { get; set; }
+        public int? SCORE_COUNT { get; set; }
+        public int? P_COUNT { get; set; }
+        public int? FUNCTION_SEQ { get; set; }
+        public string IS_SELF { get; set; }
+    }
+}

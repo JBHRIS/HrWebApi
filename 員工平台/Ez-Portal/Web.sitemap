@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" enableLocalization="true">
+  <siteMapNode title="e-HR">
+    <siteMapNode resourceKey="Home" url="~/Default.aspx" roles="AA01LTD,AA01LTI,AA01LTIT,AA01LZD,AA01LZI,AA01TP,AA04TP,AA08TP"></siteMapNode>
+    <siteMapNode resourceKey="Personnel_Information" roles="AA01LTD,AA01LTI,AA01LTIT,AA01LZD,AA01LZI,AA01TP,AA04TP,AA08TP">
+      <siteMapNode resourceKey="Manager_Function" roles="manage">
+        <siteMapNode resourceKey="Until_Staff_Quit_Calendar" url="~/Mang/MangTtsList.aspx" roles="manage" />
+        <siteMapNode resourceKey="Personal_Data of_Department" url="~/Mang/EmpSelect.aspx" roles="manage" />
+        <siteMapNode resourceKey="Staff_Reward_and_Punishment_Data" url="~/Mang/MangAward.aspx" roles="manage" />
+      </siteMapNode>
+      <siteMapNode resourceKey="Personal_Data" url="~/Employee/EmpInfo.aspx" roles="AA01LZD,AA01LTIT,AA01LTI,AA01LTD,AA01LZI,AA01TP,AA04TP,AA08TP" />
+      <siteMapNode resourceKey="Reward_and_Punishment_Data" url="~/Employee/EmpAward.aspx" roles="AA01LZI,AA01LZD,AA01LTI,AA01LTD" />
+      <siteMapNode resourceKey="Update_Personal_Data" url="~/Employee/UpBaseCon.aspx" roles="NOBODY" />
+      <siteMapNode resourceKey="Update_Personal_Data1" url="~/Employee/ApplyUpdateBase.aspx" roles="AA01LTD,AA01LTI,AA01LTIT,AA01LZD,AA01LZI,AA01TP,AA04TP,AA08TP" />
+    </siteMapNode>
+    <siteMapNode resourceKey="Shift_Calendar" roles="AA01LTD,AA01LTI,AA01LTIT,AA01LZD,AA01LZI,AA01TP,AA04TP,AA08TP">
+      <siteMapNode resourceKey="Manager_Function" roles="manage">
+        <!--<siteMapNode    resourceKey="Overtime_Department_Data_Query" url="~/Mang/MangSelectOt.aspx" roles="manage,secretary" />-->
+        <!--<siteMapNode    resourceKey="Import_Schedule.title" url="~/Attendance/ImportRote.aspx"  roles="manage,secretary" />-->
+        <siteMapNode resourceKey="Shift_Calendar" url="~/Mang/MangAbsOtList.aspx" roles="manage" />
+        <siteMapNode resourceKey="Staff_Shift_Query" url="~/Mang/MangExportRote.aspx" roles="manage" />
+        <siteMapNode resourceKey="Staff_Attendance_Query" url="~/Mang/EmpAttendSelect.aspx" roles="manage" />
+        <siteMapNode resourceKey="Staff_Swipe_Card_Query" url="~/Mang/MangCard.aspx" roles="NOBODY" />
+        <siteMapNode resourceKey="Staff_Leaving_Query" url="~/Mang/EmpAbsSelect.aspx" roles="manage" />
+        <siteMapNode resourceKey="Staff_Overtime_Query" url="~/Mang/EmpOtSelect.aspx" roles="manage" />
+        <siteMapNode resourceKey="Staff_Overtime_Summury_Query" url="~/Mang/EmpOtSummurySelect.aspx" roles="manage" />
+        <siteMapNode title="員工補休查詢" url="~/HR/ABS1List2.aspx" roles="manage" />
+	<siteMapNode resourceKey="Staff_Annual_Leave_Query" url="~/Mang/EmpAnnualLeave.aspx" roles="manage" />
+        <siteMapNode    resourceKey="Staff_ABS1_Query" url="~/Mang/EmpAbs1Select_mang.aspx" roles="manage,secretary" />
+        <siteMapNode resourceKey="Staff_AttendanceList_Query" url="~/Mang/EmpAttendList.aspx" roles="manage" />
+        <siteMapNode title="員工忘刷卡統計" url="~/Mang/EmpAttendForgetCard.aspx" roles="manage" />
+        <siteMapNode title="員工遲到統計" url="~/Mang/EmpAttendLate.aspx" roles="manage" />
+        <siteMapNode title="員工超時統計" url="~/Mang/EmpOtSelect1.aspx" roles="manage" />
+        <siteMapNode title="員工休假統計" url="~/Mang/EmpAbsStatistics.aspx" roles="manage" />
+        <siteMapNode resourceKey="Staff_CardReason_Query" url="~/Mang/EmpCardLostReasonSelect.aspx" roles="manage" />
+      </siteMapNode>
+      <siteMapNode resourceKey="Attendance_Data_Query" url="~/Attendance/AttendSelect.aspx" roles="AA01LTD,AA01LTI,AA01LTIT,AA01LZD,AA01LZI,AA01TP,AA04TP,AA08TP" />
+      <siteMapNode resourceKey="Swipe_Card_Query" url="~/Attendance/EmpCard.aspx" roles="NOBODY" />
+      <siteMapNode resourceKey="Leave_Query" url="~/Attendance/AbsSelect.aspx" roles="AA01LTD,AA01LTI,AA01LTIT,AA01LZD,AA01LZI,AA01TP,AA04TP,AA08TP" />
+      <siteMapNode resourceKey="Overtime_Query" url="~/Attendance/OtSelect.aspx" roles="AA01LTD,AA01LTI,AA01LZD,AA01LZI,AA04TP" />
+      <siteMapNode resourceKey="Make-up_Holiday_Query" url="~/Attendance/EmpAbs.aspx" roles="AA01LTD,AA01LTI,AA01LZD,AA01LZI,AA04TP" />
+      <siteMapNode resourceKey="Special_Leave_Query" url="~/Attendance/EmpAbs2.aspx" roles="AA01LTD,AA01LTI,AA01LZD,AA01LZI" />
+      <siteMapNode    resourceKey="ABS1_Query" url="~/Attendance/Abs1Select.aspx" />
+      <siteMapNode title="出勤清單查詢" url="~/Employee/EmpAttendList.aspx" />
+      <siteMapNode title="忘刷卡統計" url="~/Employee/EmpAttendForgetCard.aspx" />
+      <siteMapNode title="遲到統計" url="~/Employee/EmpAttendLate.aspx" />
+      <siteMapNode title="超時統計" url="~/Employee/EmpOtSelect1.aspx" />
+      <siteMapNode title="休假統計" url="~/Attendance/EmpAbsStatistics.aspx" />
+    </siteMapNode>
+    <siteMapNode resourceKey="Announcement_of_HR" url="~/PublicNews.aspx" roles="NOBODY" />
+    <siteMapNode resourceKey="Personal_Settings" roles="AA01LTD,AA01LTI,AA01LTIT,AA01LZD,AA01LZI,AA01TP,AA04TP,AA08TP">
+      <siteMapNode resourceKey="Change_Password" url="~/Account/ChangPWD.aspx" roles="AA01LTD,AA01LTI,AA01LTIT,AA01LZD,AA01LZI,AA01TP,AA04TP,AA08TP" />
+    </siteMapNode>
+    <siteMapNode resourceKey="Flow_System" url="RedirectToFlow.aspx" roles="AA08TP,AA04TP,AA01TP,AA01LZI,AA01LZD,AA01LTIT,AA01LTI,AA01LTD" />
+    <siteMapNode title="HR" roles="HR">
+      <siteMapNode resourceKey="Personnel_Attendance_Data_Query" roles="HR">
+        <siteMapNode resourceKey="Shift_Calendar" url="~/HR/Mang/MangAbsOtList_hr.aspx" roles="HR" />
+        <siteMapNode resourceKey="Until_Staff_Quit_Calendar" url="~/HR/Mang/MangTtsList_hr.aspx" roles="HR" />
+        <siteMapNode resourceKey="Personal_Data_of_Department" url="~/HR/Mang/EmpSelect_hr.aspx" roles="HR" />
+        <siteMapNode resourceKey="Import_Schedule" url="~/Attendance/ImportRote.aspx?hr=hiyeshr" roles="HR" />
+        <siteMapNode resourceKey="Export_Department's_Schedule" url="~/HR/Mang//EmpExportRote_hr.aspx" roles="HR" />
+        <siteMapNode title="員工工時查詢" url="~/HR/Mang/EmpWorkHours_hr.aspx" rotes="Finance,HR" roles="HR" />
+        <siteMapNode resourceKey="Staff_Forget_to_Swipe_Card_Query" url="~/Attendance/AttendCardLost_hr.aspx" rotes="Finance,HR" roles="HR" />
+        <siteMapNode    resourceKey="Staff_ABS1_Query" url="~/HR/Mang/EmpAbs1Select_hr.aspx" roles="HR,Finance"  />
+        <siteMapNode resourceKey="Staff_Attendance_Query" url="~/HR/Mang/EmpAttendSelect_hr.aspx" roles="HR" />
+        <siteMapNode resourceKey="Staff_AttendanceList_Query" url="~/HR/Mang/EmpAttendList_hr.aspx" roles="HR" />
+        <siteMapNode resourceKey="Staff_AttendanceUnusual_Query" url="~/HR/Mang/EmpAttendUnusual_hr.aspx" roles="HR" />
+        <siteMapNode resourceKey="Staff_OtAmt_Query" url="~/HR/Mang/EmpOtAmt_hr.aspx" roles="HR" />
+        <siteMapNode resourceKey="Staff_Leaving_Query" url="~/HR/Mang/EmpAbsSelect_hr.aspx" roles="HR" />
+        <siteMapNode resourceKey="Staff_Overtime_Query" url="~/HR/Mang/EmpOtSelect_hr.aspx" roles="HR" />
+        <siteMapNode resourceKey="Staff_CardReason_Query" url="~/HR/Mang/EmpCardLostReasonSelect_hr.aspx" roles="HR" />
+	<siteMapNode resourceKey="Staff_Special_Leave_Query" url="~/HR/Mang/EmpAnnualLeave_hr.aspx" roles="HR" />
+        <siteMapNode title="員工忘刷卡統計" url="~/HR/Mang/EmpAttendForgetCard_hr.aspx" roles="HR" />
+        <siteMapNode title="員工遲到統計" url="~/HR/Mang/EmpAttendLate_hr.aspx" roles="HR" />
+        <siteMapNode title="員工超時查詢" url="~/HR/Mang/EmpOtSelect1_hr.aspx" roles="HR" />
+        <siteMapNode title="員工休假統計" url="~/HR/Mang/EmpAbsStatistics_hr.aspx" roles="HR" />
+        <siteMapNode resourceKey="Staff_Swipe_Card_Query" url="~/HR/Mang/MangCard_hr.aspx" roles="HR" />
+        <!--  <siteMapNode    resourceKey="Overtime_Manage" url="~/BW/Flows.aspx?Action=ManageOt" /> -->
+        <!--                <siteMapNode    resourceKey="Leave_Manage" url="~/BW/Flows.aspx?Action=ManageAbs" />-->
+      </siteMapNode>
+      <siteMapNode resourceKey="Published_Information" url="~/HR/News.aspx" roles="HR" />
+      <!--<siteMapNode resourceKey="Staff_Modify_Communication_Data_Query" url="~/HR/SelectUpBase.aspx" roles="HR" />-->
+      <siteMapNode resourceKey="Staff_Modify_Communication_Data_Query" url="~/HR/Mang/EmpApplyUpdateBase_hr.aspx" roles="HR" />
+      <!--<siteMapNode resourceKey="Salary_Permission" url="~/HR/MangUser.aspx" roles="HR,Finance" />-->
+      <!-- <siteMapNode resourceKey="Account_Password_Policy" url="~/HR/PwRole.aspx" roles="HR,Finance" />-->
+      <siteMapNode resourceKey="Online_Current_Number" url="~/HR/OnlineListUser.aspx" roles="HR" />
+      <siteMapNode title="編制部門主管排除設定" url="~/HR/Mang/DeptSupervisorSetting.aspx" roles="HR" />
+      <siteMapNode title="簽核部門主管排除設定" url="~/HR/Mang/DeptaSupervisorSetting.aspx" roles="HR" />
+      <siteMapNode title="System" roles="ADMIN">
+        <siteMapNode title="角色設定" url="~/HR/Mang/RoleConfig.aspx" roles="ADMIN" />
+        <siteMapNode title="SiteMap角色設定" url="~/HR/Mang/SiteMapConfig.aspx" roles="ADMIN" />
+        <siteMapNode title="SiteMap資料群組設定" url="~/HR/Mang/SiteMapSALADRConfig.aspx" roles="ADMIN" />
+      </siteMapNode>
+      <!--            <siteMapNode resourceKey="Delete_Salary_Password" url="~/Salary/DelSalaryPW.aspx" roles="HR,Finance"  />-->
+    </siteMapNode>
+    <!--
+  <siteMapNode  title="員工餐費彙總表查詢" url="~/HR/Mang/MangMealMoney_hr.aspx" rotes="Finance,HR" />			
+  	<siteMapNode title="上傳照片" url="~/Account/UpPicture.aspx" />
+   <siteMapNode title="?湔???孵?" url="~/Employee/UpBaseCon.aspx"  />
+<siteMapNode    title="匯入班表" url="~/Attendance/ImportRote.aspx"  roles="manage" />
+	 <siteMapNode title="上傳個人照片" url="~/Account/UpPicture.aspx" />
+	<siteMapNode    title="線上簽到" url="~/Attendance/onlineSing.aspx"  />
+	 <siteMapNode title="電子表單">
+		  <siteMapNode title="表單申請" url="~/Flow/DoWork.aspx"></siteMapNode>
+		  <siteMapNode title="流程查詢" url="~/Flow/FlowMonitor.aspx"></siteMapNode>
+		  <siteMapNode title="代理設定" url="~/Flow/Agent.aspx"></siteMapNode>
+
+
+	  </siteMapNode>
+    <siteMapNode title="EzFlow">
+      <siteMapNode title="表單申請" url="~/Flow/DoWork.aspx"></siteMapNode>
+      <siteMapNode title="表單審核" url="~/Flow/DoWork1.aspx"></siteMapNode>
+    </siteMapNode>
+    -->
+  </siteMapNode>
+</siteMap>

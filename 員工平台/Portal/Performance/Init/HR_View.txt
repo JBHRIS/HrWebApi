@@ -1,0 +1,145 @@
+--------.Net
+/****** Object:  View [dbo].[ViewDept]    Script Date: 2021/3/10 上午 09:07:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[ViewDept]
+AS
+SELECT  D_NO AS Code, D_NO_DISP AS DisplayCode, D_NAME AS Name, DEPT_TREE AS DeptTree, 
+                   DEPT_GROUP AS ParentCode, NOBR AS ManagerEmpId
+FROM      dbo.DEPTA
+UNION
+SELECT  '*' AS Code, '*' AS DisplayCode, '全部(由檢視表產生)' AS Name, 99 AS DeptTree, ' ' ParentCode, ' ' AS ManagerEmpId
+GO
+/****** Object:  View [dbo].[ViewDeptTree]    Script Date: 2021/3/10 上午 09:07:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[ViewDeptTree]
+AS
+SELECT  TOP (100) PERCENT CODE AS Code, NAME AS Name
+FROM      dbo.MTCODE
+WHERE   (CATEGORY = 'DEPTA_LEVEL')
+ORDER BY SORT, CODE
+GO
+/****** Object:  View [dbo].[ViewEmp]    Script Date: 2021/3/10 上午 09:07:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[ViewEmp]
+AS
+SELECT          dbo.BASE.NOBR AS Code, dbo.BASE.NAME_C AS Name, dbo.BASETTS.DEPTM AS DeptCode, 
+                            dbo.BASETTS.JOB AS JobCode, dbo.BASETTS.JOBL AS JoblCode, RTRIM(dbo.BASE.PASSWORD) AS Password, 
+                            dbo.BASETTS.ADATE AS DateA, dbo.BASETTS.DDATE AS DateD, RTRIM(dbo.BASE.EMAIL) AS Email, 
+                            dbo.BASETTS.TTSCODE, dbo.BASETTS.COMP AS CompCode
+FROM              dbo.BASE INNER JOIN
+                            dbo.BASETTS ON dbo.BASE.NOBR = dbo.BASETTS.NOBR
+WHERE          (GETDATE() BETWEEN dbo.BASETTS.ADATE AND dbo.BASETTS.DDATE) AND 
+                            (dbo.BASETTS.TTSCODE IN (1, 4, 6))
+GO
+/****** Object:  View [dbo].[ViewJob]    Script Date: 2021/3/10 上午 09:07:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[ViewJob]
+AS
+SELECT  JOB AS Code, JOB_DISP AS DisplayCode, JOB_NAME AS Name
+FROM      dbo.JOB
+UNION
+SELECT  '*' AS Code,   '*' AS DisplayCode, '全部(由檢視表產生)' AS Name
+GO
+/****** Object:  View [dbo].[ViewJobl]    Script Date: 2021/3/10 上午 09:07:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[ViewJobl]
+AS
+SELECT  JOBL AS Code, JOBL_DISP AS DisplayCode, JOB_NAME AS Name, '01' AS EmpCategoryCode
+FROM      dbo.JOBL
+GO
+
+
+
+
+
+
+
+
+
+
+
+--------EEPHR
+/****** Object:  View [dbo].[ViewEmp]    Script Date: 2021/3/10 上午 09:10:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[ViewEmp]
+AS
+SELECT  USERID AS Code, USERNAME AS Name, ISNULL(EMAIL, '') AS Email, ISNULL
+                       ((SELECT  TOP (1) ISNULL(o.ORG_NO, r.ORG_NO) AS DeptCode
+                         FROM       dbo.USERGROUPS AS s LEFT OUTER JOIN
+                                            dbo.GROUPS AS g ON s.GROUPID = g.GROUPID LEFT OUTER JOIN
+                                            dbo.SYS_ORG AS o ON g.GROUPID = o.ORG_MAN LEFT OUTER JOIN
+                                            dbo.SYS_ORGROLES AS r ON r.ROLE_ID = g.GROUPID
+                         WHERE    (s.USERID = u.USERID)
+                         ORDER BY o.ORG_NO DESC), '') AS DeptCode, ISNULL
+                       ((SELECT  TOP (1) GROUPID
+                         FROM       dbo.USERGROUPS AS JobCode
+                         WHERE    (USERID = u.USERID)), '') AS JobCode, '-' AS JoblCode, PWD AS Password, CONVERT(datetime, '1900/1/1', 111) 
+                   AS DateA, CONVERT(datetime, '2099/12/31', 111) AS DateD, '1' AS Ttscode, ' ' AS CompCode
+FROM      dbo.USERS AS u
+WHERE   (DESCRIPTION = 'JB')
+GO
+/****** Object:  View [dbo].[ViewDept]    Script Date: 2021/3/10 上午 09:10:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[ViewDept]
+AS
+SELECT  ORG_NO AS Code,ORG_NO as DisplayCode, ORG_DESC AS Name, LEVEL_NO AS DeptTree, UPPER_ORG AS ParentCode, isnull(e.Code, '') 
+                   AS ManagerEmpId
+FROM      dbo.SYS_ORG o LEFT JOIN
+                   ViewEmp e ON o.ORG_MAN = e.JobCode
+UNION
+SELECT  '*' AS Code,'*' AS DisplayCode , '全部(由檢視表產生)' AS Name, 9 AS DeptTree, ' ' ParentCode, ' ' AS ManagerEmpId
+GO
+/****** Object:  View [dbo].[ViewDeptTree]    Script Date: 2021/3/10 上午 09:10:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create VIEW [dbo].[ViewDeptTree]
+AS
+
+select LEVEL_NO as Code,LEVEL_DESC as Name from SYS_ORGLEVEL
+
+GO
+/****** Object:  View [dbo].[ViewJob]    Script Date: 2021/3/10 上午 09:10:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[ViewJob]
+AS
+SELECT  GROUPID AS Code, GROUPID AS DisplayCode, GROUPNAME AS Name
+FROM      dbo.GROUPS
+UNION
+SELECT  '*' AS Code,'*' as DisplayCode, '全部(由檢視表產生)' AS Name
+GO
+/****** Object:  View [dbo].[ViewJobl]    Script Date: 2021/3/10 上午 09:10:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[ViewJobl]
+AS
+SELECT  '-' AS Code, '-' AS DisplayCode, '無' AS Name, ' ' AS EmpCategoryCode
+GO
+

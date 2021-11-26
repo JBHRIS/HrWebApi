@@ -1,0 +1,3 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HOLYHRDB" Class="ATTDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=61.222.40.11;Initial Catalog=HOLYHRDB;User ID=jb" SettingsObjectName="sendAttendMail.Properties.Settings" SettingsPropertyName="HOLYHRDBConnectionString" Provider="System.Data.SqlClient" />
+</Database>

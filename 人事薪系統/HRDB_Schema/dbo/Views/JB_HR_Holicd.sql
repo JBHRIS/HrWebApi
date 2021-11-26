@@ -1,0 +1,4 @@
+﻿CREATE VIEW [dbo].[JB_HR_Holicd]
+AS
+SELECT     RTRIM(HOLI_CODE) AS sHoliCode, RTRIM(HOLI_NAME) AS sHoliName, NOSET AS bNoSet, RTRIM(DATE_CODE) AS sDateCode
+FROM         dbo.HOLICD

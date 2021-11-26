@@ -1,0 +1,380 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Telerik.Web.UI;
+using Bll.CardView.Vdb;
+using Dal.Dao.CardView;
+using System.Text;
+using Bll;
+using Bll.Employee.Vdb;
+using Dal.Dao.Employee;
+using Dal.Dao.Salary;
+using Bll.Salary.Vdb;
+using Dal;
+using Dal.Dao.Attendance;
+using Bll.Attendance.Vdb;
+using Dal.Dao.Flow;
+using Bll.Flow.Vdb;
+using System.Security.Cryptography;
+using System.IO;
+using Newtonsoft.Json;
+
+namespace Portal
+{
+    public partial class FormEmployApproveChk : WebPageBase
+    {
+
+        private dcFlowDataContext dcFlow = new dcFlowDataContext();
+        private bool isView = false;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (CompanySetting != null)
+            {
+                dcFlow.Connection.ConnectionString = CompanySetting.ConnFlow;
+            }
+            if (UnobtrusiveSession.Session["RequestName"].ToString() == "View")
+                isView = true;
+            if (!this.IsPostBack)
+            {
+                ContentPlaceHolder content = (ContentPlaceHolder)Master.Master.FindControl("ContentPlaceHolder1");
+                var btnCheck = content.FindControl("btnCheck") as RadRadioButtonList;
+                if (Request.QueryString["ProcessApParmAuto"] != null)
+                {
+                    int RequestValue = 0;
+                    RequestValue = Convert.ToInt32(UnobtrusiveSession.Session["ProcessApParmAuto"].ToString());
+
+                    var rsProcessFlowID = (from c in dcFlow.ProcessApParm
+                                           where c.auto == RequestValue
+                                           select c).FirstOrDefault();
+
+                    if (rsProcessFlowID != null)
+                        lblProcessID.Text = rsProcessFlowID.ProcessFlow_id.ToString();
+
+                    var CheckButtonVisible = (from c in dcFlow.FormsExtend
+                                              where c.FormsCode == "EmployApprove" && c.Code == "CheckButtonVisible" && c.Active == true
+                                              select c).FirstOrDefault();
+                    if (CheckButtonVisible != null && btnCheck != null)
+                    {
+                        btnCheck.Visible = true;
+                    }
+                    _DataBind();
+                    LoadData();
+                }
+                else if (Request.QueryString["ProcessApViewAuto"] != null)
+                {
+                    int RequestValue = 0;
+                    RequestValue = Convert.ToInt32(UnobtrusiveSession.Session["ProcessApViewAuto"].ToString());
+
+                    var rsProcessFlowID = (from c in dcFlow.ProcessApView
+                                           where c.auto == RequestValue
+                                           select c).FirstOrDefault();
+
+                    if (rsProcessFlowID != null)
+                        lblProcessID.Text = rsProcessFlowID.ProcessFlow_id.ToString();
+
+                    var CheckButtonVisible = (from c in dcFlow.FormsExtend
+                                              where c.FormsCode == "EmployApprove" && c.Code == "CheckButtonVisible" && c.Active == true
+                                              select c).FirstOrDefault();
+                    if (CheckButtonVisible != null && isView && btnCheck != null)
+                    {
+                        btnCheck.Visible = true;
+                    }
+                    _DataBind();
+                    LoadData();
+                }
+            }
+            if(isView)
+            {
+                btnCheck.Visible = false;
+                txtPerformance1.Enabled = false;
+                txtPerformance2.Enabled = false;
+                txtPerformance3.Enabled = false;
+                lvSalary.Enabled = false;
+                ddlResult.Enabled = false;
+                ddlDept.Enabled = false;
+                ddlDepta.Enabled = false;
+                ddlJob.Enabled = false;
+                ddlJobl.Enabled = false;
+            }
+        }
+
+        
+
+        public void LoadData()
+        {
+            var oFormAppEmployDao = new FormsAppEmployByProcessIdDao();
+            var FormAppEmployCond = new FormsAppEmployByProcessIdConditions();
+
+            FormAppEmployCond.AccessToken = _User.AccessToken;
+            FormAppEmployCond.RefreshToken = _User.RefreshToken;
+            FormAppEmployCond.CompanySetting = CompanySetting;
+            FormAppEmployCond.ProcessFlowID = lblProcessID.Text;
+            FormAppEmployCond.Sign = true;
+            FormAppEmployCond.SignState = "";
+            FormAppEmployCond.Status = UnobtrusiveSession.Session["RequestName"].ToString() == "View" ? "" : "1";
+
+            var rsFormAppEmploy = oFormAppEmployDao.GetData(FormAppEmployCond);
+            var rFormAppEmploy = new FormsAppEmployByProcessIdRow();
+            if (rsFormAppEmploy.Status)
+            {
+                if (rsFormAppEmploy.Data != null)
+                {
+                    rFormAppEmploy = rsFormAppEmploy.Data as FormsAppEmployByProcessIdRow;
+                    if (rFormAppEmploy != null)
+                    {
+                        lblName.Text = rFormAppEmploy.EmpName + "," + rFormAppEmploy.EmpID;
+                        lblNameAppM.Text = rFormAppEmploy.EmpID;
+                        lblSex.Text = rFormAppEmploy.Sex;
+                        lblAge.Text = (DateTime.Now.Year - rFormAppEmploy.Birthday.Year).ToString();
+                        lblBirth.Text = rFormAppEmploy.Birthday.ToString("yyyy/MM/dd");
+                        lblEducation.Text = rFormAppEmploy.SchoolName;
+                        lblExperienced.Text = rFormAppEmploy.WorkExperience;
+                        lblTrialDateB.Text = rFormAppEmploy.DateA.ToString("yyyy/MM/dd");
+                        lblTrialDateE.Text = rFormAppEmploy.DateD.ToString("yyyy/MM/dd");
+                        lblTrialDept.Text = rFormAppEmploy.DeptName;
+                        lblTrialDeptm.Text = rFormAppEmploy.DeptmName;
+                        lblTrialJob.Text = rFormAppEmploy.JobName;
+                        lblTrialJobl.Text = rFormAppEmploy.JoblName;
+                        var AbsData = JsonConvert.DeserializeObject<List<TextValueRow>>(rFormAppEmploy.AttendContent);
+                        lblPersonalLeave.Text = AbsData.Where(p => p.Text == "事假").Select(p => p.Value).FirstOrDefault();
+                        lblSickLeave.Text = AbsData.Where(p => p.Text == "病假").Select(p => p.Value).FirstOrDefault();
+                        lblAbsenteeism.Text = AbsData.Where(p => p.Text == "曠職").Select(p => p.Value).FirstOrDefault();
+                        lblLate.Text = AbsData.Where(p => p.Text == "遲到").Select(p => p.Value).FirstOrDefault();
+                        lblEarlyOut.Text = AbsData.Where(p => p.Text == "早退").Select(p => p.Value).FirstOrDefault();
+                        var SalaryData = JsonConvert.DeserializeObject<List<TextValueRow>>(rFormAppEmploy.ChangeLogs.Last().SalaryContent);
+                        lblCode.Text = rFormAppEmploy.ChangeLogs.Last().EmployCode;
+                        foreach (var Salary in SalaryData)
+                        {
+                            Salary.Value = AccessData.DESDecrypt(Salary.Value, "JBSalary", lblCode.Text.Substring(0, 8));
+                        }
+                        lvSalary.DataSource = SalaryData;
+                        lvSalary.DataBind();
+                        var lsLog = rFormAppEmploy.ChangeLogs;
+                        lsLog.Remove(lsLog.First());
+                        lvPerformanceLog.DataSource = lsLog;
+                        lvPerformanceLog.DataBind();
+                        if (ddlResult.FindItemByValue(rFormAppEmploy.ResultAreaCode) != null)
+                        {
+                            ddlResult.FindItemByValue(rFormAppEmploy.ResultAreaCode).Selected = true;
+                            if (ddlResult.SelectedValue == "03")
+                            {
+                                plExtend.Visible = true;
+                                ddlExtend.FindItemByValue(rFormAppEmploy.ExtendMonth.ToString()).Selected = true;
+                            }
+                        }
+                        if (ddlDept.FindItemByValue(rFormAppEmploy.DeptCodeChange) != null)
+                            ddlDept.FindItemByValue(rFormAppEmploy.DeptCodeChange).Selected = true;
+                        else if(ddlDept.FindItemByValue(rFormAppEmploy.DeptCode) != null)
+                            ddlDept.FindItemByValue(rFormAppEmploy.DeptCode).Selected = true;
+                        if (ddlDepta.FindItemByValue(rFormAppEmploy.DeptmCodeChange) != null)
+                            ddlDepta.FindItemByValue(rFormAppEmploy.DeptmCodeChange).Selected = true;
+                        else if (ddlDepta.FindItemByValue(rFormAppEmploy.DeptmCode) != null)
+                            ddlDepta.FindItemByValue(rFormAppEmploy.DeptmCode).Selected = true;
+                        if (ddlJob.FindItemByValue(rFormAppEmploy.JobCodeChange) != null)
+                            ddlJob.FindItemByValue(rFormAppEmploy.JobCodeChange).Selected = true;
+                        else if (ddlJob.FindItemByValue(rFormAppEmploy.JobCode) != null)
+                            ddlJob.FindItemByValue(rFormAppEmploy.JobCode).Selected = true;
+                        if (ddlJobl.FindItemByValue(rFormAppEmploy.JoblCodeChange) != null)
+                            ddlJobl.FindItemByValue(rFormAppEmploy.JoblCodeChange).Selected = true;
+                        else if (ddlJobl.FindItemByValue(rFormAppEmploy.JoblCode) != null)
+                            ddlJobl.FindItemByValue(rFormAppEmploy.JoblCode).Selected = true;
+                        txtEmployDate.SelectedDate = rFormAppEmploy.DateAppoint;
+                    }
+                }
+            }
+        }
+        public void _DataBind()
+        {
+            var oDept = new DeptDao();
+            var DeptCond = new DeptConditions();
+            DeptCond.AccessToken = _User.AccessToken;
+            DeptCond.RefreshToken = _User.RefreshToken;
+            DeptCond.CompanySetting = CompanySetting;
+            var DeptResult = oDept.GetData(DeptCond);
+            if (DeptResult.Status && DeptResult.Data != null)
+            {
+                var rsDept = DeptResult.Data as List<DeptRow>;
+                if (rsDept != null)
+                {
+                    ddlDept.DataSource = rsDept;
+                    ddlDept.DataTextField = "DeptName";
+                    ddlDept.DataValueField = "DeptCode";
+                    ddlDept.DataBind();
+                }
+            }
+            var oDepta = new DeptaDao();
+            var DeptaCond = new DeptaConditions();
+            DeptaCond.AccessToken = _User.AccessToken;
+            DeptaCond.RefreshToken = _User.RefreshToken;
+            DeptaCond.CompanySetting = CompanySetting;
+            var DeptaResult = oDepta.GetData(DeptaCond);
+            if (DeptaResult.Status && DeptaResult.Data != null)
+            {
+                var rsDepta = DeptaResult.Data as List<DeptaRow>;
+                if (rsDepta != null)
+                {
+                    ddlDepta.DataSource = rsDepta;
+                    ddlDepta.DataTextField = "DeptaName";
+                    ddlDepta.DataValueField = "DeptaCode";
+                    ddlDepta.DataBind();
+                }
+            }
+            var oJob = new JobDao();
+            var JobCond = new JobConditions();
+            JobCond.AccessToken = _User.AccessToken;
+            JobCond.RefreshToken = _User.RefreshToken;
+            JobCond.CompanySetting = CompanySetting;
+            var JobResult = oJob.GetData(JobCond);
+            if (JobResult.Status && JobResult.Data != null)
+            {
+                var rsJob = JobResult.Data as List<JobRow>;
+                if (rsJob != null)
+                {
+                    ddlJob.DataSource = rsJob;
+                    ddlJob.DataTextField = "JobName";
+                    ddlJob.DataValueField = "JobCode";
+                    ddlJob.DataBind();
+                }
+            }
+            var oJobl = new JoblDao();
+            var JoblCond = new JoblConditions();
+            JoblCond.AccessToken = _User.AccessToken;
+            JoblCond.RefreshToken = _User.RefreshToken;
+            JoblCond.CompanySetting = CompanySetting;
+            var JoblResult = oJobl.GetData(JoblCond);
+            if (JoblResult.Status && JoblResult.Data != null)
+            {
+                var rsJobl = JoblResult.Data as List<JoblRow>;
+                if (rsJobl != null)
+                {
+                    ddlJobl.DataSource = rsJobl;
+                    ddlJobl.DataTextField = "JoblName";
+                    ddlJobl.DataValueField = "JoblCode";
+                    ddlJobl.DataBind();
+                }
+            }
+            var oAllPassType = new AllPassTypeDao();
+            var AllPassTypeCond = new AllPassTypeConditions();
+            AllPassTypeCond.AccessToken = _User.AccessToken;
+            AllPassTypeCond.RefreshToken = _User.RefreshToken;
+            AllPassTypeCond.CompanySetting = CompanySetting;
+            var AllPassTypeResult = oAllPassType.GetData(AllPassTypeCond);
+            if (AllPassTypeResult.Status && AllPassTypeResult.Data != null)
+            {
+                var rsAllPassType = AllPassTypeResult.Data as List<AllPassTypeRow>;
+                if (rsAllPassType != null)
+                {
+                    ddlResult.DataSource = rsAllPassType;
+                    ddlResult.DataTextField = "AllPassTypeName";
+                    ddlResult.DataValueField = "AllPassTypeCode";
+                    ddlResult.DataBind();
+                }
+            }
+        }
+
+        protected void lvSalary_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
+        {
+
+        }
+        protected void ddlResult_TextChanged(object sender, EventArgs e)
+        {
+
+            if (ddlResult.SelectedValue == "03")
+                plExtend.Visible = true;
+            else
+                plExtend.Visible = false;
+        }
+
+        protected void btnCheck_Click(object sender, EventArgs e)
+        {
+            var LsSalaryData = new List<TextValueRow>();
+            //if (txtPerformance1.Text == "" || txtPerformance2.Text == "" || txtPerformance3.Text == "")
+            //{
+            //    lblError.Text = "請填寫主管評核";
+            //    lblError.CssClass = "badge badge-danger";
+            //    return;
+            //}
+            //if (ddlResult.SelectedItem.Text == "" || ddlResult.SelectedValue == "00")
+            //{
+            //    lblError.Text = "請選擇結果";
+            //    lblError.CssClass = "badge badge-danger";
+            //    return;
+            //}
+            //if (!txtEmployDate.SelectedDate.HasValue || ddlDept.Text == "" || ddlDepta.Text == "" || ddlJob.Text == "" || ddlJobl.Text == "")
+            //{
+            //    lblError.Text = "請確認資料是否輸入正確";
+            //    lblError.CssClass = "badge badge-danger";
+            //    return;
+            //}
+            foreach (var r in lvSalary.Items)
+            {
+                //var Salary = r.FindControl("Salary") as RadTextBox;
+                var SalaryCode = r.FindControl("SalaryCode") as RadLabel;
+                var Amount = r.FindControl("Amount") as RadLabel;
+                var SalaryName = r.FindControl("SalaryName") as RadLabel;
+                
+                var SalaryData = new TextValueRow();
+                SalaryData.Text = SalaryName.Text;
+                SalaryData.Value = AccessData.DESEncrypt(Amount.Text, "JBSalary", lblCode.Text.Substring(0, 8));
+                SalaryData.Column1 = SalaryCode.Text;
+                SalaryData.Column2 = Amount.Text;
+                LsSalaryData.Add(SalaryData);
+            }
+            var oEmployChangeLog = new FormsAppEmployChangeLog();
+            oEmployChangeLog.EmployCode = lblCode.Text;
+            oEmployChangeLog.DateAppoint = txtEmployDate.SelectedDate.GetValueOrDefault();
+            oEmployChangeLog.DeptCodeChange = ddlDept.SelectedValue;
+            oEmployChangeLog.DeptNameChange = ddlDept.Text;
+            oEmployChangeLog.DeptmCodeChange = ddlDepta.SelectedValue;
+            oEmployChangeLog.DeptmNameChange = ddlDepta.Text;
+            oEmployChangeLog.JobCodeChange = ddlJob.SelectedValue;
+            oEmployChangeLog.JobNameChange = ddlJob.Text;
+            oEmployChangeLog.JoblCodeChange = ddlJobl.SelectedValue;
+            oEmployChangeLog.JoblNameChange = ddlJobl.Text;
+            oEmployChangeLog.ResultAreaCode = ddlResult.SelectedValue;
+            oEmployChangeLog.ResultAreaName = ddlResult.Text;
+            oEmployChangeLog.ExtendMonth = ddlResult.SelectedValue == "03"? Convert.ToInt32(ddlExtend.SelectedValue) : 0;
+            oEmployChangeLog.SalaryContent = JsonConvert.SerializeObject(LsSalaryData);
+            oEmployChangeLog.Performance01 = txtPerformance1.Text;
+            oEmployChangeLog.Performance02 = txtPerformance2.Text;
+            oEmployChangeLog.Performance03 = txtPerformance3.Text;
+            oEmployChangeLog.Performance04 = "";
+            oEmployChangeLog.Performance05 = "";
+            oEmployChangeLog.Note = "";
+            oEmployChangeLog.Status = "1";
+            oEmployChangeLog.InsertMan = _User.EmpName;
+            oEmployChangeLog.InsertDate = DateTime.Now.Date;
+            oEmployChangeLog.UpdateMan = _User.EmpName;
+            oEmployChangeLog.UpdateDate = DateTime.Now.Date;
+            UnobtrusiveSession.Session["EmployChangeLog"] = oEmployChangeLog;
+            UnobtrusiveSession.Session["LsSalaryData"] = LsSalaryData;
+            lblError.Text = "確認成功";
+            lblError.CssClass = "badge badge-primary";
+            
+        }
+
+        protected void lvSalaryLog_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
+        {
+            var lsSalaryLog = (from c in dcFlow.FormsAppEmploySalary
+                               where c.EmployCode == lblCode.Text
+                               select c).ToList();
+            var gSalaryLog = lsSalaryLog.GroupBy(p => p.InsertMan).ToList();
+            var rsSalaryLog = new List<SalaryLog>();
+            foreach (var r in gSalaryLog)
+            {
+                var rSalaryLog = new SalaryLog();
+                rSalaryLog.InsertMan = r.Key;
+                foreach (var Data in r)
+                {
+                    rSalaryLog.SalaryData += Data.SalaryName + ":" + AccessData.DESDecrypt(Data.Note, "JBSalary", lblCode.Text.Substring(0, 8)) + ";";
+                    rSalaryLog.InsertDate = Data.InsertDate.GetValueOrDefault();
+                }
+                rsSalaryLog.Add(rSalaryLog);
+            }
+            lvSalaryLog.DataSource = rsSalaryLog;
+        }
+    }
+}

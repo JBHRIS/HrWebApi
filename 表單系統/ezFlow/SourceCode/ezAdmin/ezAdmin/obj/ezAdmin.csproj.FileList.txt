@@ -1,0 +1,15 @@
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\ezAdmin.fmEmpSelector.resources
+obj\Debug\ezAdmin.fmMain.resources
+obj\Debug\ezAdmin.fmOrgSelector.resources
+obj\Debug\ezAdmin.Properties.Resources.resources
+obj\Debug\ezAdmin.csproj.GenerateResource.Cache
+bin\Debug\ezAdmin.exe.config
+bin\Debug\ezAdmin.exe
+bin\Debug\ezAdmin.pdb
+obj\Debug\ezAdmin.exe
+obj\Debug\ezAdmin.pdb
+bin\Debug\ezAdmin.exe.manifest
+bin\Debug\ezAdmin.application
+obj\Debug\ezAdmin.exe.manifest
+obj\Debug\ezAdmin.application

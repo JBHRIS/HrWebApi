@@ -1,0 +1,565 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SalaryTransferDataSet" targetNamespace="http://tempuri.org/chpthrDataSet.xsd" xmlns:mstns="http://tempuri.org/chpthrDataSet.xsd" xmlns="http://tempuri.org/chpthrDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="JBHRConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="JBHRConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.JBHR.Properties.Settings.GlobalReference.Default.JBHRConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BPBFHR_Test_ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BPBFHR_Test_ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.JBHR.Properties.Settings.GlobalReference.Default.BPBFHR_Test_ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BankCodeTableAdapter" GeneratorDataComponentClassName="BankCodeTableAdapter" Name="BankCode" UserDataComponentName="BankCodeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="CHPTHR.dbo.BankCode" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          BankName, CODE_DISP
+FROM              BankCode</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="BankName" DataSetColumn="BankName" />
+              <Mapping SourceColumn="CODE_DISP" DataSetColumn="CODE_DISP" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SalaryTransferTableAdapter" GeneratorDataComponentClassName="SalaryTransferTableAdapter" Name="SalaryTransfer" UserDataComponentName="SalaryTransferTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="CHPTHR.dbo.SalaryTransfer" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [SalaryTransfer] WHERE (([AUTO] = @Original_AUTO) AND ([BANKCODE] = @Original_BANKCODE) AND ([CLASSIFY] = @Original_CLASSIFY) AND ([NO] = @Original_NO) AND ([CODE] = @Original_CODE) AND ([NAME] = @Original_NAME) AND ([LOCATION] = @Original_LOCATION) AND ([LENGTH] = @Original_LENGTH) AND ([TYPE] = @Original_TYPE) AND ([SIDE] = @Original_SIDE) AND ([FILLED] = @Original_FILLED) AND ((@IsNull_YEARTYPE = 1 AND [YEARTYPE] IS NULL) OR ([YEARTYPE] = @Original_YEARTYPE)) AND ((@IsNull_DATEFORMAT = 1 AND [DATEFORMAT] IS NULL) OR ([DATEFORMAT] = @Original_DATEFORMAT)) AND ((@IsNull_FIXEDCONTENT = 1 AND [FIXEDCONTENT] IS NULL) OR ([FIXEDCONTENT] = @Original_FIXEDCONTENT)) AND ([KEY_MAN] = @Original_KEY_MAN) AND ([KEY_DATE] = @Original_KEY_DATE))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_AUTO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AUTO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BANKCODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BANKCODE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_CLASSIFY" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CLASSIFY" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_NO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_CODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CODE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_NAME" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NAME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_LOCATION" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LOCATION" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_LENGTH" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LENGTH" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TYPE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TYPE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SIDE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SIDE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Original_FILLED" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="FILLED" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_YEARTYPE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="YEARTYPE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_YEARTYPE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="YEARTYPE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DATEFORMAT" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DATEFORMAT" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_DATEFORMAT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DATEFORMAT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_FIXEDCONTENT" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="FIXEDCONTENT" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_FIXEDCONTENT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="FIXEDCONTENT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KEY_MAN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KEY_MAN" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_KEY_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="KEY_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [SalaryTransfer] ([BANKCODE], [CLASSIFY], [NO], [CODE], [NAME], [LOCATION], [LENGTH], [TYPE], [SIDE], [FILLED], [YEARTYPE], [DATEFORMAT], [FIXEDCONTENT], [KEY_MAN], [KEY_DATE]) VALUES (@BANKCODE, @CLASSIFY, @NO, @CODE, @NAME, @LOCATION, @LENGTH, @TYPE, @SIDE, @FILLED, @YEARTYPE, @DATEFORMAT, @FIXEDCONTENT, @KEY_MAN, @KEY_DATE);
+SELECT AUTO, BANKCODE, CLASSIFY, NO, CODE, NAME, LOCATION, LENGTH, TYPE, SIDE, FILLED, YEARTYPE, DATEFORMAT, FIXEDCONTENT, KEY_MAN, KEY_DATE FROM SalaryTransfer WHERE (AUTO = SCOPE_IDENTITY()) ORDER BY NO</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BANKCODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BANKCODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CLASSIFY" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CLASSIFY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@NO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NAME" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@LOCATION" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LOCATION" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@LENGTH" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LENGTH" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TYPE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TYPE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SIDE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SIDE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@FILLED" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="FILLED" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@YEARTYPE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="YEARTYPE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@DATEFORMAT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DATEFORMAT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@FIXEDCONTENT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="FIXEDCONTENT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KEY_MAN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KEY_MAN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@KEY_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="KEY_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          AUTO, BANKCODE, CLASSIFY, NO, CODE, NAME, LOCATION, LENGTH, TYPE, SIDE, FILLED, YEARTYPE, 
+                            DATEFORMAT, FIXEDCONTENT, KEY_MAN, KEY_DATE
+FROM              SalaryTransfer
+WHERE          (BANKCODE = @BANKCODE) AND (CLASSIFY = @CLASSIFY)
+ORDER BY   NO</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="BANKCODE" ColumnName="BANKCODE" DataSourceName="CHPTHR.dbo.SalaryTransfer" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@BANKCODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="BANKCODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="CLASSIFY" ColumnName="CLASSIFY" DataSourceName="CHPTHR.dbo.SalaryTransfer" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@CLASSIFY" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="CLASSIFY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [SalaryTransfer] SET [BANKCODE] = @BANKCODE, [CLASSIFY] = @CLASSIFY, [NO] = @NO, [CODE] = @CODE, [NAME] = @NAME, [LOCATION] = @LOCATION, [LENGTH] = @LENGTH, [TYPE] = @TYPE, [SIDE] = @SIDE, [FILLED] = @FILLED, [YEARTYPE] = @YEARTYPE, [DATEFORMAT] = @DATEFORMAT, [FIXEDCONTENT] = @FIXEDCONTENT, [KEY_MAN] = @KEY_MAN, [KEY_DATE] = @KEY_DATE WHERE (([AUTO] = @Original_AUTO) AND ([BANKCODE] = @Original_BANKCODE) AND ([CLASSIFY] = @Original_CLASSIFY) AND ([NO] = @Original_NO) AND ([CODE] = @Original_CODE) AND ([NAME] = @Original_NAME) AND ([LOCATION] = @Original_LOCATION) AND ([LENGTH] = @Original_LENGTH) AND ([TYPE] = @Original_TYPE) AND ([SIDE] = @Original_SIDE) AND ([FILLED] = @Original_FILLED) AND ((@IsNull_YEARTYPE = 1 AND [YEARTYPE] IS NULL) OR ([YEARTYPE] = @Original_YEARTYPE)) AND ((@IsNull_DATEFORMAT = 1 AND [DATEFORMAT] IS NULL) OR ([DATEFORMAT] = @Original_DATEFORMAT)) AND ((@IsNull_FIXEDCONTENT = 1 AND [FIXEDCONTENT] IS NULL) OR ([FIXEDCONTENT] = @Original_FIXEDCONTENT)) AND ([KEY_MAN] = @Original_KEY_MAN) AND ([KEY_DATE] = @Original_KEY_DATE));
+SELECT AUTO, BANKCODE, CLASSIFY, NO, CODE, NAME, LOCATION, LENGTH, TYPE, SIDE, FILLED, YEARTYPE, DATEFORMAT, FIXEDCONTENT, KEY_MAN, KEY_DATE FROM SalaryTransfer WHERE (AUTO = @AUTO) ORDER BY NO</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BANKCODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BANKCODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CLASSIFY" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CLASSIFY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@NO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NAME" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@LOCATION" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LOCATION" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@LENGTH" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LENGTH" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TYPE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TYPE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SIDE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SIDE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@FILLED" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="FILLED" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@YEARTYPE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="YEARTYPE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@DATEFORMAT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DATEFORMAT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@FIXEDCONTENT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="FIXEDCONTENT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KEY_MAN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KEY_MAN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@KEY_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="KEY_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_AUTO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AUTO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BANKCODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BANKCODE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_CLASSIFY" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CLASSIFY" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_NO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_CODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CODE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_NAME" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NAME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_LOCATION" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LOCATION" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_LENGTH" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LENGTH" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TYPE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TYPE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SIDE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SIDE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@Original_FILLED" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="FILLED" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_YEARTYPE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="YEARTYPE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_YEARTYPE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="YEARTYPE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DATEFORMAT" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DATEFORMAT" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_DATEFORMAT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DATEFORMAT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_FIXEDCONTENT" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="FIXEDCONTENT" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_FIXEDCONTENT" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="FIXEDCONTENT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KEY_MAN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KEY_MAN" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_KEY_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="KEY_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="AUTO" ColumnName="AUTO" DataSourceName="CHPTHR.dbo.SalaryTransfer" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@AUTO" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="AUTO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="AUTO" DataSetColumn="AUTO" />
+              <Mapping SourceColumn="BANKCODE" DataSetColumn="BANKCODE" />
+              <Mapping SourceColumn="CLASSIFY" DataSetColumn="CLASSIFY" />
+              <Mapping SourceColumn="NO" DataSetColumn="NO" />
+              <Mapping SourceColumn="CODE" DataSetColumn="CODE" />
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+              <Mapping SourceColumn="LOCATION" DataSetColumn="LOCATION" />
+              <Mapping SourceColumn="LENGTH" DataSetColumn="LENGTH" />
+              <Mapping SourceColumn="TYPE" DataSetColumn="TYPE" />
+              <Mapping SourceColumn="SIDE" DataSetColumn="SIDE" />
+              <Mapping SourceColumn="FILLED" DataSetColumn="FILLED" />
+              <Mapping SourceColumn="YEARTYPE" DataSetColumn="YEARTYPE" />
+              <Mapping SourceColumn="DATEFORMAT" DataSetColumn="DATEFORMAT" />
+              <Mapping SourceColumn="FIXEDCONTENT" DataSetColumn="FIXEDCONTENT" />
+              <Mapping SourceColumn="KEY_MAN" DataSetColumn="KEY_MAN" />
+              <Mapping SourceColumn="KEY_DATE" DataSetColumn="KEY_DATE" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="CHPTHR.dbo.SalaryTransfer" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByNO" GetMethodModifier="Public" GetMethodName="GetDataByNO" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByNO" UserSourceName="GetDataByNO">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          AUTO, CLASSIFY, CODE, DATEFORMAT, FILLED, FIXEDCONTENT, KEY_DATE, KEY_MAN, LENGTH, LOCATION, NAME, 
+                            NO, SIDE, TYPE, YEARTYPE, BANKCODE
+FROM              SalaryTransfer
+WHERE          (BANKCODE = @BANKCODE) AND (CLASSIFY = @CLASSIFY) AND (NO = @NO)
+ORDER BY   NO</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="BANKCODE" ColumnName="BANKCODE" DataSourceName="CHPTHR.dbo.SalaryTransfer" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@BANKCODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="BANKCODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="CLASSIFY" ColumnName="CLASSIFY" DataSourceName="CHPTHR.dbo.SalaryTransfer" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@CLASSIFY" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="CLASSIFY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="NO" ColumnName="NO" DataSourceName="CHPTHR.dbo.SalaryTransfer" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@NO" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="NO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="CHPTHR.dbo.SalaryTransfer" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetLength" Modifier="Public" Name="GetLength" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="GetLength">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          LENGTH
+FROM              SalaryTransfer
+WHERE          (BANKCODE = @BANKCODE) AND (CLASSIFY = @CLASSIFY) AND (NO = @NO)
+ORDER BY   NO</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="BANKCODE" ColumnName="BANKCODE" DataSourceName="CHPTHR.dbo.SalaryTransfer" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@BANKCODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="BANKCODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="CLASSIFY" ColumnName="CLASSIFY" DataSourceName="CHPTHR.dbo.SalaryTransfer" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@CLASSIFY" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="CLASSIFY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="NO" ColumnName="NO" DataSourceName="CHPTHR.dbo.SalaryTransfer" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@NO" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="NO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="CHPTHR.dbo.SalaryTransfer" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetLocation" Modifier="Public" Name="GetLocation" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="GetLocation">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          LOCATION
+FROM              SalaryTransfer
+WHERE          (BANKCODE = @BANKCODE) AND (CLASSIFY = @CLASSIFY) AND (NO = @NO)
+ORDER BY   NO</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="BANKCODE" ColumnName="BANKCODE" DataSourceName="CHPTHR.dbo.SalaryTransfer" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@BANKCODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="BANKCODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="CLASSIFY" ColumnName="CLASSIFY" DataSourceName="CHPTHR.dbo.SalaryTransfer" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@CLASSIFY" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="CLASSIFY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="NO" ColumnName="NO" DataSourceName="CHPTHR.dbo.SalaryTransfer" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@NO" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="NO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateQuery">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE          SalaryTransfer
+SET                   LOCATION = @LOCATION, NO = @newNO
+WHERE          (NO = @NO) AND (CLASSIFY = @CLASSIFY) AND (BANKCODE = @BANKCODE)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="LOCATION" ColumnName="LOCATION" DataSourceName="CHPTHR.dbo.SalaryTransfer" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@LOCATION" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="LOCATION" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="newNO" ColumnName="NO" DataSourceName="CHPTHR.dbo.SalaryTransfer" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@newNO" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="NO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="NO" ColumnName="NO" DataSourceName="CHPTHR.dbo.SalaryTransfer" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@NO" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="NO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="CLASSIFY" ColumnName="CLASSIFY" DataSourceName="CHPTHR.dbo.SalaryTransfer" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@CLASSIFY" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="CLASSIFY" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="BANKCODE" ColumnName="BANKCODE" DataSourceName="CHPTHR.dbo.SalaryTransfer" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@BANKCODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="BANKCODE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateSeq" Modifier="Public" Name="UpdateSeq" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateSeq">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE          SalaryTransfer
+SET                   NO = @newNO, LOCATION = @newLocation
+WHERE          (AUTO = @AUTO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="newNO" ColumnName="NO" DataSourceName="CHPTHR.dbo.SalaryTransfer" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@newNO" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="NO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="newLocation" ColumnName="LOCATION" DataSourceName="CHPTHR.dbo.SalaryTransfer" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@newLocation" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="LOCATION" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="AUTO" ColumnName="AUTO" DataSourceName="CHPTHR.dbo.SalaryTransfer" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@AUTO" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="AUTO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SalaryTransferBankTableAdapter" GeneratorDataComponentClassName="SalaryTransferBankTableAdapter" Name="SalaryTransferBank" UserDataComponentName="SalaryTransferBankTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BPBFHR_Test_ConnectionString (Settings)" DbObjectName="[BPBFHR(Test)].dbo.SalaryTransferBank" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[SalaryTransferBank] WHERE (([AUTO] = @Original_AUTO) AND ([COMPANY_BANK_LENGTH] = @Original_COMPANY_BANK_LENGTH) AND ([COMP_HAS_HEADER] = @Original_COMP_HAS_HEADER) AND ([COMP_HAS_FOOTER] = @Original_COMP_HAS_FOOTER) AND ([KEY_MAN] = @Original_KEY_MAN) AND ([KEY_DATE] = @Original_KEY_DATE) AND ((@IsNull_GUID = 1 AND [GUID] IS NULL) OR ([GUID] = @Original_GUID)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_AUTO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AUTO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_COMPANY_BANK_LENGTH" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="COMPANY_BANK_LENGTH" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_COMP_HAS_HEADER" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="COMP_HAS_HEADER" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_COMP_HAS_FOOTER" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="COMP_HAS_FOOTER" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KEY_MAN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KEY_MAN" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_KEY_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="KEY_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GUID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="GUID" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_GUID" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="GUID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[SalaryTransferBank] ([COMP_ID], [COMP_NO], [COMP_NAME], [COMPANY_BANK_AC], [COMPANY_BANK_NO], [COMPANY_BANK_NAME], [COMPANY_BANK_ID], [COMPANY_BANK_USER], [COMPANY_BRANCH_CODE], [COMPANY_BANK_LENGTH], [COMP_HAS_HEADER], [COMP_HAS_FOOTER], [COMP_DATE_TYPE], [KEY_MAN], [KEY_DATE], [GUID]) VALUES (@COMP_ID, @COMP_NO, @COMP_NAME, @COMPANY_BANK_AC, @COMPANY_BANK_NO, @COMPANY_BANK_NAME, @COMPANY_BANK_ID, @COMPANY_BANK_USER, @COMPANY_BRANCH_CODE, @COMPANY_BANK_LENGTH, @COMP_HAS_HEADER, @COMP_HAS_FOOTER, @COMP_DATE_TYPE, @KEY_MAN, @KEY_DATE, @GUID);
+SELECT AUTO, COMP_ID, COMP_NO, COMP_NAME, COMPANY_BANK_AC, COMPANY_BANK_NO, COMPANY_BANK_NAME, COMPANY_BANK_ID, COMPANY_BANK_USER, COMPANY_BRANCH_CODE, COMPANY_BANK_LENGTH, COMP_HAS_HEADER, COMP_HAS_FOOTER, COMP_DATE_TYPE, KEY_MAN, KEY_DATE, GUID FROM SalaryTransferBank WHERE (AUTO = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@COMP_ID" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="COMP_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@COMP_NO" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="COMP_NO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@COMP_NAME" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="COMP_NAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@COMPANY_BANK_AC" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="COMPANY_BANK_AC" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@COMPANY_BANK_NO" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="COMPANY_BANK_NO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@COMPANY_BANK_NAME" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="COMPANY_BANK_NAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@COMPANY_BANK_ID" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="COMPANY_BANK_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@COMPANY_BANK_USER" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="COMPANY_BANK_USER" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@COMPANY_BRANCH_CODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="COMPANY_BRANCH_CODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@COMPANY_BANK_LENGTH" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="COMPANY_BANK_LENGTH" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@COMP_HAS_HEADER" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="COMP_HAS_HEADER" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@COMP_HAS_FOOTER" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="COMP_HAS_FOOTER" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@COMP_DATE_TYPE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="COMP_DATE_TYPE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KEY_MAN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KEY_MAN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@KEY_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="KEY_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@GUID" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="GUID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT AUTO, COMP_ID, COMP_NO, COMP_NAME, COMPANY_BANK_AC, COMPANY_BANK_NO, COMPANY_BANK_NAME, COMPANY_BANK_ID, COMPANY_BANK_USER, COMPANY_BRANCH_CODE, COMPANY_BANK_LENGTH, COMP_HAS_HEADER, COMP_HAS_FOOTER, COMP_DATE_TYPE, KEY_MAN, KEY_DATE, GUID FROM dbo.SalaryTransferBank
+where COMPANY_BANK_NO = @COMPANY_BANK_NO</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="COMPANY_BANK_NO" ColumnName="COMPANY_BANK_NO" DataSourceName="[BPBFHR(Test)].dbo.SalaryTransferBank" DataTypeServer="nvarchar(MAX)" DbType="String" Direction="Input" ParameterName="@COMPANY_BANK_NO" Precision="0" ProviderType="NVarChar" Scale="0" Size="2147483647" SourceColumn="COMPANY_BANK_NO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[SalaryTransferBank] SET [COMP_ID] = @COMP_ID, [COMP_NO] = @COMP_NO, [COMP_NAME] = @COMP_NAME, [COMPANY_BANK_AC] = @COMPANY_BANK_AC, [COMPANY_BANK_NO] = @COMPANY_BANK_NO, [COMPANY_BANK_NAME] = @COMPANY_BANK_NAME, [COMPANY_BANK_ID] = @COMPANY_BANK_ID, [COMPANY_BANK_USER] = @COMPANY_BANK_USER, [COMPANY_BRANCH_CODE] = @COMPANY_BRANCH_CODE, [COMPANY_BANK_LENGTH] = @COMPANY_BANK_LENGTH, [COMP_HAS_HEADER] = @COMP_HAS_HEADER, [COMP_HAS_FOOTER] = @COMP_HAS_FOOTER, [COMP_DATE_TYPE] = @COMP_DATE_TYPE, [KEY_MAN] = @KEY_MAN, [KEY_DATE] = @KEY_DATE, [GUID] = @GUID WHERE (([AUTO] = @Original_AUTO) AND ([COMPANY_BANK_LENGTH] = @Original_COMPANY_BANK_LENGTH) AND ([COMP_HAS_HEADER] = @Original_COMP_HAS_HEADER) AND ([COMP_HAS_FOOTER] = @Original_COMP_HAS_FOOTER) AND ([KEY_MAN] = @Original_KEY_MAN) AND ([KEY_DATE] = @Original_KEY_DATE) AND ((@IsNull_GUID = 1 AND [GUID] IS NULL) OR ([GUID] = @Original_GUID)));
+SELECT AUTO, COMP_ID, COMP_NO, COMP_NAME, COMPANY_BANK_AC, COMPANY_BANK_NO, COMPANY_BANK_NAME, COMPANY_BANK_ID, COMPANY_BANK_USER, COMPANY_BRANCH_CODE, COMPANY_BANK_LENGTH, COMP_HAS_HEADER, COMP_HAS_FOOTER, COMP_DATE_TYPE, KEY_MAN, KEY_DATE, GUID FROM SalaryTransferBank WHERE (AUTO = @AUTO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@COMP_ID" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="COMP_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@COMP_NO" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="COMP_NO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@COMP_NAME" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="COMP_NAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@COMPANY_BANK_AC" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="COMPANY_BANK_AC" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@COMPANY_BANK_NO" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="COMPANY_BANK_NO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@COMPANY_BANK_NAME" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="COMPANY_BANK_NAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@COMPANY_BANK_ID" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="COMPANY_BANK_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@COMPANY_BANK_USER" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="COMPANY_BANK_USER" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@COMPANY_BRANCH_CODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="COMPANY_BRANCH_CODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@COMPANY_BANK_LENGTH" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="COMPANY_BANK_LENGTH" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@COMP_HAS_HEADER" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="COMP_HAS_HEADER" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@COMP_HAS_FOOTER" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="COMP_HAS_FOOTER" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@COMP_DATE_TYPE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="COMP_DATE_TYPE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KEY_MAN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KEY_MAN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@KEY_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="KEY_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@GUID" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="GUID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_AUTO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AUTO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_COMPANY_BANK_LENGTH" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="COMPANY_BANK_LENGTH" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_COMP_HAS_HEADER" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="COMP_HAS_HEADER" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_COMP_HAS_FOOTER" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="COMP_HAS_FOOTER" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KEY_MAN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KEY_MAN" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_KEY_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="KEY_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GUID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="GUID" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_GUID" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="GUID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="AUTO" ColumnName="AUTO" DataSourceName="[BPBFHR(Test)].dbo.SalaryTransferBank" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@AUTO" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="AUTO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="AUTO" DataSetColumn="AUTO" />
+              <Mapping SourceColumn="COMP_ID" DataSetColumn="COMP_ID" />
+              <Mapping SourceColumn="COMP_NO" DataSetColumn="COMP_NO" />
+              <Mapping SourceColumn="COMP_NAME" DataSetColumn="COMP_NAME" />
+              <Mapping SourceColumn="COMPANY_BANK_AC" DataSetColumn="COMPANY_BANK_AC" />
+              <Mapping SourceColumn="COMPANY_BANK_NO" DataSetColumn="COMPANY_BANK_NO" />
+              <Mapping SourceColumn="COMPANY_BANK_NAME" DataSetColumn="COMPANY_BANK_NAME" />
+              <Mapping SourceColumn="COMPANY_BANK_ID" DataSetColumn="COMPANY_BANK_ID" />
+              <Mapping SourceColumn="COMPANY_BANK_USER" DataSetColumn="COMPANY_BANK_USER" />
+              <Mapping SourceColumn="COMPANY_BRANCH_CODE" DataSetColumn="COMPANY_BRANCH_CODE" />
+              <Mapping SourceColumn="COMPANY_BANK_LENGTH" DataSetColumn="COMPANY_BANK_LENGTH" />
+              <Mapping SourceColumn="COMP_HAS_HEADER" DataSetColumn="COMP_HAS_HEADER" />
+              <Mapping SourceColumn="COMP_HAS_FOOTER" DataSetColumn="COMP_HAS_FOOTER" />
+              <Mapping SourceColumn="COMP_DATE_TYPE" DataSetColumn="COMP_DATE_TYPE" />
+              <Mapping SourceColumn="KEY_MAN" DataSetColumn="KEY_MAN" />
+              <Mapping SourceColumn="KEY_DATE" DataSetColumn="KEY_DATE" />
+              <Mapping SourceColumn="GUID" DataSetColumn="GUID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SalaryTransferDataSet" msdata:IsDataSet="true" msdata:Locale="zh-TW" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="SalaryTransferDataSet" msprop:Generator_UserDSName="SalaryTransferDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BankCode" msprop:Generator_TableClassName="BankCodeDataTable" msprop:Generator_TableVarName="tableBankCode" msprop:Generator_TablePropName="BankCode" msprop:Generator_RowDeletingName="BankCodeRowDeleting" msprop:Generator_RowChangingName="BankCodeRowChanging" msprop:Generator_RowEvHandlerName="BankCodeRowChangeEventHandler" msprop:Generator_RowDeletedName="BankCodeRowDeleted" msprop:Generator_UserTableName="BankCode" msprop:Generator_RowChangedName="BankCodeRowChanged" msprop:Generator_RowEvArgName="BankCodeRowChangeEvent" msprop:Generator_RowClassName="BankCodeRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BankName" msdata:Caption="銀行名稱" msprop:Generator_ColumnVarNameInTable="columnBankName" msprop:Generator_ColumnPropNameInRow="BankName" msprop:Generator_ColumnPropNameInTable="BankNameColumn" msprop:Generator_UserColumnName="BankName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODE_DISP" msprop:Generator_ColumnVarNameInTable="columnCODE_DISP" msprop:Generator_ColumnPropNameInRow="CODE_DISP" msprop:Generator_ColumnPropNameInTable="CODE_DISPColumn" msprop:Generator_UserColumnName="CODE_DISP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SalaryTransfer" msprop:Generator_TableClassName="SalaryTransferDataTable" msprop:Generator_TableVarName="tableSalaryTransfer" msprop:Generator_RowChangedName="SalaryTransferRowChanged" msprop:Generator_TablePropName="SalaryTransfer" msprop:Generator_RowDeletingName="SalaryTransferRowDeleting" msprop:Generator_RowChangingName="SalaryTransferRowChanging" msprop:Generator_RowEvHandlerName="SalaryTransferRowChangeEventHandler" msprop:Generator_RowDeletedName="SalaryTransferRowDeleted" msprop:Generator_RowClassName="SalaryTransferRow" msprop:Generator_UserTableName="SalaryTransfer" msprop:Generator_RowEvArgName="SalaryTransferRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AUTO" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnAUTO" msprop:Generator_ColumnPropNameInRow="AUTO" msprop:Generator_ColumnPropNameInTable="AUTOColumn" msprop:Generator_UserColumnName="AUTO" type="xs:int" />
+              <xs:element name="BANKCODE" msprop:Generator_ColumnVarNameInTable="columnBANKCODE" msprop:Generator_ColumnPropNameInRow="BANKCODE" msprop:Generator_ColumnPropNameInTable="BANKCODEColumn" msprop:Generator_UserColumnName="BANKCODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CLASSIFY" msprop:Generator_ColumnVarNameInTable="columnCLASSIFY" msprop:Generator_ColumnPropNameInRow="CLASSIFY" msprop:Generator_ColumnPropNameInTable="CLASSIFYColumn" msprop:Generator_UserColumnName="CLASSIFY">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NO" msprop:Generator_ColumnVarNameInTable="columnNO" msprop:Generator_ColumnPropNameInRow="NO" msprop:Generator_ColumnPropNameInTable="NOColumn" msprop:Generator_UserColumnName="NO" type="xs:int" />
+              <xs:element name="CODE" msprop:Generator_ColumnVarNameInTable="columnCODE" msprop:Generator_ColumnPropNameInRow="CODE" msprop:Generator_ColumnPropNameInTable="CODEColumn" msprop:Generator_UserColumnName="CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LOCATION" msprop:Generator_ColumnVarNameInTable="columnLOCATION" msprop:Generator_ColumnPropNameInRow="LOCATION" msprop:Generator_ColumnPropNameInTable="LOCATIONColumn" msprop:Generator_UserColumnName="LOCATION" type="xs:int" />
+              <xs:element name="LENGTH" msprop:Generator_ColumnVarNameInTable="columnLENGTH" msprop:Generator_ColumnPropNameInRow="LENGTH" msprop:Generator_ColumnPropNameInTable="LENGTHColumn" msprop:Generator_UserColumnName="LENGTH" type="xs:int" />
+              <xs:element name="TYPE" msprop:Generator_ColumnVarNameInTable="columnTYPE" msprop:Generator_ColumnPropNameInRow="TYPE" msprop:Generator_ColumnPropNameInTable="TYPEColumn" msprop:Generator_UserColumnName="TYPE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SIDE" msprop:Generator_ColumnVarNameInTable="columnSIDE" msprop:Generator_ColumnPropNameInRow="SIDE" msprop:Generator_ColumnPropNameInTable="SIDEColumn" msprop:Generator_UserColumnName="SIDE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FILLED" msprop:Generator_ColumnVarNameInTable="columnFILLED" msprop:Generator_ColumnPropNameInRow="FILLED" msprop:Generator_ColumnPropNameInTable="FILLEDColumn" msprop:Generator_UserColumnName="FILLED">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="YEARTYPE" msprop:Generator_ColumnVarNameInTable="columnYEARTYPE" msprop:Generator_ColumnPropNameInRow="YEARTYPE" msprop:Generator_ColumnPropNameInTable="YEARTYPEColumn" msprop:Generator_UserColumnName="YEARTYPE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DATEFORMAT" msprop:Generator_ColumnVarNameInTable="columnDATEFORMAT" msprop:Generator_ColumnPropNameInRow="DATEFORMAT" msprop:Generator_ColumnPropNameInTable="DATEFORMATColumn" msprop:Generator_UserColumnName="DATEFORMAT" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FIXEDCONTENT" msprop:Generator_ColumnVarNameInTable="columnFIXEDCONTENT" msprop:Generator_ColumnPropNameInRow="FIXEDCONTENT" msprop:Generator_ColumnPropNameInTable="FIXEDCONTENTColumn" msprop:Generator_UserColumnName="FIXEDCONTENT" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KEY_MAN" msprop:Generator_ColumnVarNameInTable="columnKEY_MAN" msprop:Generator_ColumnPropNameInRow="KEY_MAN" msprop:Generator_ColumnPropNameInTable="KEY_MANColumn" msprop:Generator_UserColumnName="KEY_MAN">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KEY_DATE" msprop:Generator_ColumnVarNameInTable="columnKEY_DATE" msprop:Generator_ColumnPropNameInRow="KEY_DATE" msprop:Generator_ColumnPropNameInTable="KEY_DATEColumn" msprop:Generator_UserColumnName="KEY_DATE" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SalaryTransferBank" msprop:Generator_TableClassName="SalaryTransferBankDataTable" msprop:Generator_TableVarName="tableSalaryTransferBank" msprop:Generator_TablePropName="SalaryTransferBank" msprop:Generator_RowDeletingName="SalaryTransferBankRowDeleting" msprop:Generator_RowChangingName="SalaryTransferBankRowChanging" msprop:Generator_RowEvHandlerName="SalaryTransferBankRowChangeEventHandler" msprop:Generator_RowDeletedName="SalaryTransferBankRowDeleted" msprop:Generator_UserTableName="SalaryTransferBank" msprop:Generator_RowChangedName="SalaryTransferBankRowChanged" msprop:Generator_RowEvArgName="SalaryTransferBankRowChangeEvent" msprop:Generator_RowClassName="SalaryTransferBankRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AUTO" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnAUTO" msprop:Generator_ColumnPropNameInRow="AUTO" msprop:Generator_ColumnPropNameInTable="AUTOColumn" msprop:Generator_UserColumnName="AUTO" type="xs:int" />
+              <xs:element name="COMP_ID" msprop:Generator_ColumnVarNameInTable="columnCOMP_ID" msprop:Generator_ColumnPropNameInRow="COMP_ID" msprop:Generator_ColumnPropNameInTable="COMP_IDColumn" msprop:Generator_UserColumnName="COMP_ID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COMP_NO" msprop:Generator_ColumnVarNameInTable="columnCOMP_NO" msprop:Generator_ColumnPropNameInRow="COMP_NO" msprop:Generator_ColumnPropNameInTable="COMP_NOColumn" msprop:Generator_UserColumnName="COMP_NO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COMP_NAME" msprop:Generator_ColumnVarNameInTable="columnCOMP_NAME" msprop:Generator_ColumnPropNameInRow="COMP_NAME" msprop:Generator_ColumnPropNameInTable="COMP_NAMEColumn" msprop:Generator_UserColumnName="COMP_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COMPANY_BANK_AC" msprop:Generator_ColumnVarNameInTable="columnCOMPANY_BANK_AC" msprop:Generator_ColumnPropNameInRow="COMPANY_BANK_AC" msprop:Generator_ColumnPropNameInTable="COMPANY_BANK_ACColumn" msprop:Generator_UserColumnName="COMPANY_BANK_AC">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COMPANY_BANK_NO" msprop:Generator_ColumnVarNameInTable="columnCOMPANY_BANK_NO" msprop:Generator_ColumnPropNameInRow="COMPANY_BANK_NO" msprop:Generator_ColumnPropNameInTable="COMPANY_BANK_NOColumn" msprop:Generator_UserColumnName="COMPANY_BANK_NO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COMPANY_BANK_NAME" msprop:Generator_ColumnVarNameInTable="columnCOMPANY_BANK_NAME" msprop:Generator_ColumnPropNameInRow="COMPANY_BANK_NAME" msprop:Generator_ColumnPropNameInTable="COMPANY_BANK_NAMEColumn" msprop:Generator_UserColumnName="COMPANY_BANK_NAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COMPANY_BANK_ID" msprop:Generator_ColumnVarNameInTable="columnCOMPANY_BANK_ID" msprop:Generator_ColumnPropNameInRow="COMPANY_BANK_ID" msprop:Generator_ColumnPropNameInTable="COMPANY_BANK_IDColumn" msprop:Generator_UserColumnName="COMPANY_BANK_ID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COMPANY_BANK_USER" msprop:Generator_ColumnVarNameInTable="columnCOMPANY_BANK_USER" msprop:Generator_ColumnPropNameInRow="COMPANY_BANK_USER" msprop:Generator_ColumnPropNameInTable="COMPANY_BANK_USERColumn" msprop:Generator_UserColumnName="COMPANY_BANK_USER">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COMPANY_BRANCH_CODE" msprop:Generator_ColumnVarNameInTable="columnCOMPANY_BRANCH_CODE" msprop:Generator_ColumnPropNameInRow="COMPANY_BRANCH_CODE" msprop:Generator_ColumnPropNameInTable="COMPANY_BRANCH_CODEColumn" msprop:Generator_UserColumnName="COMPANY_BRANCH_CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COMPANY_BANK_LENGTH" msprop:Generator_ColumnVarNameInTable="columnCOMPANY_BANK_LENGTH" msprop:Generator_ColumnPropNameInRow="COMPANY_BANK_LENGTH" msprop:Generator_ColumnPropNameInTable="COMPANY_BANK_LENGTHColumn" msprop:Generator_UserColumnName="COMPANY_BANK_LENGTH" type="xs:int" />
+              <xs:element name="COMP_HAS_HEADER" msprop:Generator_ColumnVarNameInTable="columnCOMP_HAS_HEADER" msprop:Generator_ColumnPropNameInRow="COMP_HAS_HEADER" msprop:Generator_ColumnPropNameInTable="COMP_HAS_HEADERColumn" msprop:Generator_UserColumnName="COMP_HAS_HEADER" type="xs:boolean" />
+              <xs:element name="COMP_HAS_FOOTER" msprop:Generator_ColumnVarNameInTable="columnCOMP_HAS_FOOTER" msprop:Generator_ColumnPropNameInRow="COMP_HAS_FOOTER" msprop:Generator_ColumnPropNameInTable="COMP_HAS_FOOTERColumn" msprop:Generator_UserColumnName="COMP_HAS_FOOTER" type="xs:boolean" />
+              <xs:element name="COMP_DATE_TYPE" msprop:Generator_ColumnVarNameInTable="columnCOMP_DATE_TYPE" msprop:Generator_ColumnPropNameInRow="COMP_DATE_TYPE" msprop:Generator_ColumnPropNameInTable="COMP_DATE_TYPEColumn" msprop:Generator_UserColumnName="COMP_DATE_TYPE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KEY_MAN" msprop:Generator_ColumnVarNameInTable="columnKEY_MAN" msprop:Generator_ColumnPropNameInRow="KEY_MAN" msprop:Generator_ColumnPropNameInTable="KEY_MANColumn" msprop:Generator_UserColumnName="KEY_MAN">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KEY_DATE" msprop:Generator_ColumnVarNameInTable="columnKEY_DATE" msprop:Generator_ColumnPropNameInRow="KEY_DATE" msprop:Generator_ColumnPropNameInTable="KEY_DATEColumn" msprop:Generator_UserColumnName="KEY_DATE" type="xs:dateTime" />
+              <xs:element name="GUID" msprop:Generator_ColumnVarNameInTable="columnGUID" msprop:Generator_ColumnPropNameInRow="GUID" msprop:Generator_ColumnPropNameInTable="GUIDColumn" msprop:Generator_UserColumnName="GUID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SalaryTransfer" />
+      <xs:field xpath="mstns:AUTO" />
+    </xs:unique>
+    <xs:unique name="SalaryTransferBank_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SalaryTransferBank" />
+      <xs:field xpath="mstns:AUTO" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

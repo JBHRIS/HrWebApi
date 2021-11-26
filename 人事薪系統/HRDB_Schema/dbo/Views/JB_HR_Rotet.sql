@@ -1,0 +1,6 @@
+﻿CREATE VIEW [dbo].[JB_HR_Rotet]
+AS
+SELECT     RTRIM(ROTET) AS sRotet, RTRIM(ROTETNAME) AS sRotetName, RTRIM(R1) AS sR1, RTRIM(R2) AS sR2, RTRIM(R3) AS sR3, RTRIM(R4) AS sR4, RTRIM(R5) AS sR5, 
+                      RTRIM(R6) AS sR6, RTRIM(R7) AS sR7, RTRIM(R8) AS sR8, RTRIM(R9) AS sR9, RTRIM(R10) AS sR10, RTRIM(FREQ) AS sFreq, RTRIM(INHOLI) AS sInHoli, 
+                      SAL_HRS AS iSalHrs, FREQ_DATE AS iFreqDate, RTRIM(FREQ_START) AS sFreqStart, YRREST_HRS AS iYrrestHrs
+FROM         dbo.ROTET

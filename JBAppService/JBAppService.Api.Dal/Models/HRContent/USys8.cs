@@ -1,0 +1,105 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace JBAppService.Api.Dal.Models.HRContent
+{
+    public partial class USys8
+    {
+        public string Comp { get; set; }
+        public int? Specialcaltype { get; set; }
+        public decimal? Year11 { get; set; }
+        public decimal? Year12 { get; set; }
+        public decimal? Vacationdays01 { get; set; }
+        public decimal? Year21 { get; set; }
+        public decimal? Year22 { get; set; }
+        public decimal? Vacationdays02 { get; set; }
+        public decimal? Year31 { get; set; }
+        public decimal? Year32 { get; set; }
+        public decimal? Vacationdays03 { get; set; }
+        public decimal? Year41 { get; set; }
+        public decimal? Year42 { get; set; }
+        public decimal? Vacationdays04 { get; set; }
+        public decimal? Year51 { get; set; }
+        public decimal? Year52 { get; set; }
+        public decimal? Vacationdays05 { get; set; }
+        public decimal? Year61 { get; set; }
+        public decimal? Nextyearday { get; set; }
+        public int? Maxdays { get; set; }
+        public int? Yearbase { get; set; }
+        public int? Year0type1 { get; set; }
+        public decimal? Year01 { get; set; }
+        public int? Year0efftype1 { get; set; }
+        public decimal? Month01day1 { get; set; }
+        public decimal? Month02day1 { get; set; }
+        public decimal? Month03day1 { get; set; }
+        public decimal? Month04day1 { get; set; }
+        public decimal? Month05day1 { get; set; }
+        public decimal? Month06day1 { get; set; }
+        public decimal? Month07day1 { get; set; }
+        public decimal? Month08day1 { get; set; }
+        public decimal? Month09day1 { get; set; }
+        public decimal? Month10day1 { get; set; }
+        public decimal? Month11day1 { get; set; }
+        public decimal? Month12day1 { get; set; }
+        public int? Year0type2 { get; set; }
+        public decimal? Year02 { get; set; }
+        public int? Year0efftype2 { get; set; }
+        public decimal? Month01day2 { get; set; }
+        public decimal? Month02day2 { get; set; }
+        public decimal? Month03day2 { get; set; }
+        public decimal? Month04day2 { get; set; }
+        public decimal? Month05day2 { get; set; }
+        public decimal? Month06day2 { get; set; }
+        public decimal? Month07day2 { get; set; }
+        public decimal? Month08day2 { get; set; }
+        public decimal? Month09day2 { get; set; }
+        public decimal? Month10day2 { get; set; }
+        public decimal? Month11day2 { get; set; }
+        public decimal? Month12day2 { get; set; }
+        public int? Year0type3 { get; set; }
+        public decimal? Year03 { get; set; }
+        public int? Year0efftype3 { get; set; }
+        public decimal? Month01day3 { get; set; }
+        public decimal? Month02day3 { get; set; }
+        public decimal? Month03day3 { get; set; }
+        public decimal? Month04day3 { get; set; }
+        public decimal? Month05day3 { get; set; }
+        public decimal? Month06day3 { get; set; }
+        public decimal? Month07day3 { get; set; }
+        public decimal? Month08day3 { get; set; }
+        public decimal? Month09day3 { get; set; }
+        public decimal? Month10day3 { get; set; }
+        public decimal? Month11day3 { get; set; }
+        public decimal? Month12day3 { get; set; }
+        public int? Year0type4 { get; set; }
+        public decimal? Year04 { get; set; }
+        public int? Year0efftype4 { get; set; }
+        public decimal? Month01day4 { get; set; }
+        public decimal? Month02day4 { get; set; }
+        public decimal? Month03day4 { get; set; }
+        public decimal? Month04day4 { get; set; }
+        public decimal? Month05day4 { get; set; }
+        public decimal? Month06day4 { get; set; }
+        public decimal? Month07day4 { get; set; }
+        public decimal? Month08day4 { get; set; }
+        public decimal? Month09day4 { get; set; }
+        public decimal? Month10day4 { get; set; }
+        public decimal? Month11day4 { get; set; }
+        public decimal? Month12day4 { get; set; }
+        public decimal? Month01day5 { get; set; }
+        public decimal? Month02day5 { get; set; }
+        public decimal? Month03day5 { get; set; }
+        public decimal? Month04day5 { get; set; }
+        public decimal? Month05day5 { get; set; }
+        public decimal? Month06day5 { get; set; }
+        public decimal? Month07day5 { get; set; }
+        public decimal? Month08day5 { get; set; }
+        public decimal? Month09day5 { get; set; }
+        public decimal? Month10day5 { get; set; }
+        public decimal? Month11day5 { get; set; }
+        public decimal? Month12day5 { get; set; }
+        public int? Year0type5 { get; set; }
+        public decimal? Year05 { get; set; }
+        public int? Year0efftype5 { get; set; }
+    }
+}

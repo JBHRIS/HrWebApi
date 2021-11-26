@@ -1,0 +1,22 @@
+2011/8/19 下午 04:24:37	Error:並未將物件參考設定為物件的執行個體	   於 JBModule.Message.Mail.SendMail(String from_mail, String to_mail, String subject, String body) 於 D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\JBModule.Message\Mail.cs: 行 167
+   於 ezSendMail.Form1.SendMail(String toAddress, String toName, String subject, String body) 於 D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\ezSendMail\Form1.cs: 行 477	
+2011/8/19 下午 06:55:00	Error:並未將物件參考設定為物件的執行個體	   於 JBModule.Message.Mail.SendMail(String from_mail, String to_mail, String subject, String body) 於 D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\JBModule.Message\Mail.cs: 行 167
+   於 ezSendMail.Form1.SendMail(String toAddress, String toName, String subject, String body) 於 D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\ezSendMail\Form1.cs: 行 477	
+2011/8/19 下午 07:05:21	Error:並未將物件參考設定為物件的執行個體	   於 JBModule.Message.Mail.SendMail(String from_mail, String to_mail, String subject, String body) 於 D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\JBModule.Message\Mail.cs: 行 167
+   於 ezSendMail.Form1.SendMail(String toAddress, String toName, String subject, String body) 於 D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\ezSendMail\Form1.cs: 行 477	
+2011/8/19 下午 07:35:43	Error:並未將物件參考設定為物件的執行個體	   於 JBModule.Message.Mail.SendMail(String from_mail, String to_mail, String subject, String body) 於 D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\JBModule.Message\Mail.cs: 行 167
+   於 ezSendMail.Form1.SendMail(String toAddress, String toName, String subject, String body) 於 D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\ezSendMail\Form1.cs: 行 477	
+2011/8/19 下午 07:46:04	Error:並未將物件參考設定為物件的執行個體	   於 JBModule.Message.Mail.SendMail(String from_mail, String to_mail, String subject, String body) 於 D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\JBModule.Message\Mail.cs: 行 167
+   於 ezSendMail.Form1.SendMail(String toAddress, String toName, String subject, String body) 於 D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\ezSendMail\Form1.cs: 行 477	
+2011/8/19 下午 08:56:25	Error:並未將物件參考設定為物件的執行個體	   於 JBModule.Message.Mail.SendMail(String from_mail, String to_mail, String subject, String body) 於 D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\JBModule.Message\Mail.cs: 行 167
+   於 ezSendMail.Form1.SendMail(String toAddress, String toName, String subject, String body) 於 D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\ezSendMail\Form1.cs: 行 477	
+2011/8/19 下午 09:06:46	Error:並未將物件參考設定為物件的執行個體	   於 JBModule.Message.Mail.SendMail(String from_mail, String to_mail, String subject, String body) 於 D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\JBModule.Message\Mail.cs: 行 167
+   於 ezSendMail.Form1.SendMail(String toAddress, String toName, String subject, String body) 於 D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\ezSendMail\Form1.cs: 行 477	
+2011/8/19 下午 09:37:07	Error:並未將物件參考設定為物件的執行個體	   於 JBModule.Message.Mail.SendMail(String from_mail, String to_mail, String subject, String body) 於 D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\JBModule.Message\Mail.cs: 行 167
+   於 ezSendMail.Form1.SendMail(String toAddress, String toName, String subject, String body) 於 D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\ezSendMail\Form1.cs: 行 477	
+2011/8/19 下午 09:47:28	Error:並未將物件參考設定為物件的執行個體	   於 JBModule.Message.Mail.SendMail(String from_mail, String to_mail, String subject, String body) 於 D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\JBModule.Message\Mail.cs: 行 167
+   於 ezSendMail.Form1.SendMail(String toAddress, String toName, String subject, String body) 於 D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\ezSendMail\Form1.cs: 行 477	
+2011/8/19 下午 10:57:50	Error:並未將物件參考設定為物件的執行個體	   於 JBModule.Message.Mail.SendMail(String from_mail, String to_mail, String subject, String body) 於 D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\JBModule.Message\Mail.cs: 行 167
+   於 ezSendMail.Form1.SendMail(String toAddress, String toName, String subject, String body) 於 D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\ezSendMail\Form1.cs: 行 477	
+2011/8/19 下午 11:48:11	Error:並未將物件參考設定為物件的執行個體	   於 JBModule.Message.Mail.SendMail(String from_mail, String to_mail, String subject, String body) 於 D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\JBModule.Message\Mail.cs: 行 167
+   於 ezSendMail.Form1.SendMail(String toAddress, String toName, String subject, String body) 於 D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\ezSendMail\Form1.cs: 行 477	

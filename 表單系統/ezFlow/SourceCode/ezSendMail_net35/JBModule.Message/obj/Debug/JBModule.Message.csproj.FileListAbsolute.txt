@@ -1,0 +1,17 @@
+D:\程式專案\專案開發\JBHR\JBHR\JBModule.Message\obj\Debug\ResolveAssemblyReference.cache
+D:\程式專案\專案開發\JBHR\JBHR\JBModule.Message\bin\Debug\JBModule.Message.dll
+D:\程式專案\專案開發\JBHR\JBHR\JBModule.Message\bin\Debug\JBModule.Message.pdb
+D:\程式專案\專案開發\JBHR\JBHR\JBModule.Message\obj\Debug\JBModule.Message.dll
+D:\程式專案\專案開發\JBHR\JBHR\JBModule.Message\obj\Debug\JBModule.Message.pdb
+D:\程式專案\專案開發\JBHR\JBHR\JBModule.Message\obj\Debug\JBModule.Message.Properties.Resources.resources
+D:\程式專案\專案開發\JBHR\JBHR\JBModule.Message\obj\Debug\JBModule.Message.csproj.GenerateResource.Cache
+D:\程式專案\專案開發\JBHR\JBHR\JBModule.Message\bin\Debug\JBTools.dll
+D:\程式專案\專案開發\JBHR\JBHR\JBModule.Message\bin\Debug\JBTools.pdb
+D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\JBModule.Message\obj\Debug\ResolveAssemblyReference.cache
+D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\JBModule.Message\obj\Debug\JBModule.Message.Properties.Resources.resources
+D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\JBModule.Message\obj\Debug\JBModule.Message.csproj.GenerateResource.Cache
+D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\JBModule.Message\obj\Debug\JBModule.Message.dll
+D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\JBModule.Message\bin\Debug\JBModule.Message.dll
+D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\JBModule.Message\bin\Debug\JBModule.Message.pdb
+D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\JBModule.Message\obj\Debug\JBModule.Message.pdb
+D:\webroot\Nt2Root\ezFlow\WinApp\ezSendMail_net35\JBModule.Message\bin\Debug\JBTools.pdb

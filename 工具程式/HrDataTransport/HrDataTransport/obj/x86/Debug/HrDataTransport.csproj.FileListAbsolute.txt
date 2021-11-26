@@ -1,0 +1,45 @@
+c:\users\shingo\documents\visual studio 2010\Projects\HrDataTransport\HrDataTransport\bin\Debug\SQL\MailQueue.sql
+c:\users\shingo\documents\visual studio 2010\Projects\HrDataTransport\HrDataTransport\bin\Debug\SQL\PARAMETER.sql
+c:\users\shingo\documents\visual studio 2010\Projects\HrDataTransport\HrDataTransport\bin\Debug\SQL\PARAMETER_TREE.sql
+c:\users\shingo\documents\visual studio 2010\Projects\HrDataTransport\HrDataTransport\bin\Debug\SQL\SysLog.sql
+c:\users\shingo\documents\visual studio 2010\Projects\HrDataTransport\HrDataTransport\bin\Debug\HrDataTransport.exe
+c:\users\shingo\documents\visual studio 2010\Projects\HrDataTransport\HrDataTransport\bin\Debug\HrDataTransport.pdb
+c:\users\shingo\documents\visual studio 2010\Projects\HrDataTransport\HrDataTransport\bin\Debug\JBModule.Data.dll
+c:\users\shingo\documents\visual studio 2010\Projects\HrDataTransport\HrDataTransport\bin\Debug\JBModule.Message.dll
+c:\users\shingo\documents\visual studio 2010\Projects\HrDataTransport\HrDataTransport\bin\Debug\JBTools.dll
+c:\users\shingo\documents\visual studio 2010\Projects\HrDataTransport\HrDataTransport\bin\Debug\JBModule.Data.pdb
+c:\users\shingo\documents\visual studio 2010\Projects\HrDataTransport\HrDataTransport\bin\Debug\JBModule.Message.pdb
+c:\users\shingo\documents\visual studio 2010\Projects\HrDataTransport\HrDataTransport\bin\Debug\JBTools.pdb
+c:\users\shingo\documents\visual studio 2010\Projects\HrDataTransport\HrDataTransport\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\shingo\documents\visual studio 2010\Projects\HrDataTransport\HrDataTransport\obj\x86\Debug\HrDataTransport.Form1.resources
+c:\users\shingo\documents\visual studio 2010\Projects\HrDataTransport\HrDataTransport\obj\x86\Debug\HrDataTransport.Properties.Resources.resources
+c:\users\shingo\documents\visual studio 2010\Projects\HrDataTransport\HrDataTransport\obj\x86\Debug\HrDataTransport.exe
+c:\users\shingo\documents\visual studio 2010\Projects\HrDataTransport\HrDataTransport\obj\x86\Debug\HrDataTransport.pdb
+c:\users\shingo\documents\visual studio 2010\Projects\HrDataTransport\HrDataTransport\bin\Debug\HrDataTransport.exe.config
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\bin\Debug\HrDataTransport.exe.config
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\obj\x86\Debug\HrDataTransport.exe
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\obj\x86\Debug\HrDataTransport.pdb
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\bin\Debug\HrDataTransport.exe
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\bin\Debug\HrDataTransport.pdb
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\bin\Debug\JBModule.Data.dll
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\bin\Debug\JBModule.Message.dll
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\bin\Debug\JBTools.dll
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\bin\Debug\JBModule.Data.pdb
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\bin\Debug\JBModule.Message.pdb
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\bin\Debug\JBTools.pdb
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\obj\x86\Debug\HrDataTransport.Form1.resources
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\obj\x86\Debug\HrDataTransport.Properties.Resources.resources
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\bin\Debug\SQL\MailQueue.sql
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\bin\Debug\SQL\PARAMETER.sql
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\bin\Debug\SQL\PARAMETER_TREE.sql
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\bin\Debug\SQL\SysLog.sql
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\bin\Debug\JBHR.BLL.dll
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\bin\Debug\JBHR.Dll.dll
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\bin\Debug\Dal.dll
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\bin\Debug\Bll.dll
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\bin\Debug\JBHR.BLL.pdb
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\bin\Debug\JBHR.Dll.pdb
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\bin\Debug\JBHR.Dll.xml
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\bin\Debug\Dal.pdb
+C:\SVN\Customer\HOLYSTONE\工具程式\HrDataTransport\HrDataTransport\bin\Debug\Bll.pdb

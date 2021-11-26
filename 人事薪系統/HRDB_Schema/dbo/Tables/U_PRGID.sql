@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[U_PRGID] (
+    [USER_ID]  NVARCHAR (50) NOT NULL,
+    [PROG]     NVARCHAR (50) NOT NULL,
+    [ADD_]     BIT           NOT NULL,
+    [EDIT]     BIT           NOT NULL,
+    [DELE]     BIT           NOT NULL,
+    [PRINT_]   BIT           NOT NULL,
+    [SYSTEM]   NVARCHAR (50) NOT NULL,
+    [KEY_MAN]  NVARCHAR (50) NOT NULL,
+    [KEY_DATE] DATETIME      NOT NULL,
+    CONSTRAINT [PK_U_PRGID] PRIMARY KEY CLUSTERED ([USER_ID] ASC, [PROG] ASC, [SYSTEM] ASC)
+);
+

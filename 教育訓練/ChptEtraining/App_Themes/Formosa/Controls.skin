@@ -1,0 +1,26 @@
+﻿<%--<asp:TextBox BackColor="#FFFFEB" Runat="Server" />
+<asp:Label ForeColor="#666666" Runat="Server" />--%>
+<asp:Button SkinId="Btn1" BackColor="#FFFFEB" ForeColor="#FA8000" Runat="Server" />
+<asp:Button SkinId="Btn2" BackColor="#FFFFEB" ForeColor="#007AFA" Runat="Server" />
+
+<asp:Menu runat="server" SkinId="HeaderMenuSkin"
+BackColor="#FEC41A" DynamicHorizontalOffset="2" Font-Names="Calibri" 
+Font-Size="12px" Font-Bold="true" ForeColor="#FFFFFF" StaticSubMenuIndent="10px">
+<StaticSelectedStyle BackColor="#C9E26A" />
+<StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+<DynamicHoverStyle BackColor="#FEDB00" ForeColor="White" />
+<DynamicMenuStyle BackColor="#FEDB00" BorderStyle="Solid" BorderWidth="1px" BorderColor="#E3145C" />
+<DynamicSelectedStyle BackColor="#FEDB00" />
+<DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+<StaticHoverStyle BackColor="#E3145C" ForeColor="White" />
+</asp:Menu> 
+
+<%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
+<telerik:RadTextBox Runat="server" SkinId="TextBox1Skin" BackColor="#FCEEF5" CssClass="txtDateTime" />
+
+
+<asp:TextBox SkinId="Tbx1" runat="server" BackColor="#FFFFCC" CssClass="txtDateTime" />
+
+
+
+

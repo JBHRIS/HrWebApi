@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[RSSCHL] (
+    [EMPID]    NVARCHAR (50) NOT NULL,
+    [EDUCCODE] NVARCHAR (50) NOT NULL,
+    [ADATE]    DATETIME      NOT NULL,
+    [OK]       BIT           NOT NULL,
+    [SCHL]     NVARCHAR (50) NOT NULL,
+    [SUBJ]     NVARCHAR (50) NOT NULL,
+    [DATE_B]   DATETIME      NOT NULL,
+    [DATE_E]   DATETIME      NOT NULL,
+    [KEY_DATE] DATETIME      NOT NULL,
+    [KEY_MAN]  NVARCHAR (50) NOT NULL
+);
+

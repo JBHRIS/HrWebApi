@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EMC_HR" Class="dcMainDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=192.168.1.12;Initial Catalog=EMC_HR;Persist Security Info=True;User ID=jb" SettingsObjectName="MonitorShareMail.Properties.Settings" SettingsPropertyName="EMC_HRConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.MAILQUEUE" Member="MAILQUEUE">
+    <Type Name="MAILQUEUE">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GUID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FROM_ADDR" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FROM_NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TO_ADDR" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TO_NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SUBJECT" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="BODY" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="RETRY" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SUCCESS" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SUSPEND" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FREEZE_TIME" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="KEY_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="KEY_MAN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NOTE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NOTE1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NOTE2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NOTE3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NOTE4" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NOTE5" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

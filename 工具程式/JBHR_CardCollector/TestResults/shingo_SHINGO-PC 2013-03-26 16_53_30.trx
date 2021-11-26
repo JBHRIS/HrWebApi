@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="4d78bc3a-3322-4d5e-8fea-8e411a55847f" name="shingo@SHINGO-PC 2013-03-26 16:53:30" runUser="shingo-PC\shingo" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="本機" id="9f0738f3-28de-4c30-9774-93311bce5bff">
+    <Description>這些是本機測試回合的預設測試設定。</Description>
+    <Deployment enabled="false" runDeploymentRoot="shingo_SHINGO-PC 2013-03-26 16_53_30">
+      <DeploymentItem filename="C:\SVN\Standard\JBMODULE.MESSAGE\bin\Debug\JBModule.Message.dll" />
+      <DeploymentItem filename="C:\SVN\Customer\HOLYSTONE\元件\Dal\bin\Debug\Dal.dll" />
+      <DeploymentItem filename="C:\SVN\Customer\HOLYSTONE\元件\JBMODULE.DATA\JBModule.Data.Linq\bin\Debug\JBModule.Data.dll" />
+      <DeploymentItem filename="C:\SVN\Customer\HOLYSTONE\工具程式\JBHR_CardCollector\JBHR_CardCollector\bin\Debug\JBHR_CardCollector.exe" />
+      <DeploymentItem filename="C:\SVN\Standard\JBTools\bin\Debug\JBTools.dll" />
+      <DeploymentItem filename="C:\SVN\Standard\JBModule\JBModule\bin\Debug\JBModule.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-03-26T16:53:30.8571458+08:00" queuing="2013-03-26T16:53:32.9052629+08:00" start="2013-03-26T16:53:33.1322759+08:00" finish="2013-03-26T16:53:41.3817478+08:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="6" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="5" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="SHINGO-PC" outcome="Error" timestamp="2013-03-26T16:53:41.3807477+08:00">
+        <Text>測試主機處理序在未預期的情況下結束。</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="MonthTest" storage="c:\svn\customer\holystone\工具程式\jbhr_cardcollector\testproject1\bin\debug\testproject1.dll" id="e8c5fbd4-3477-30c5-d92e-822f9ae0059a">
+      <Execution id="9fcba92a-5a68-4f73-ba25-ebfbb47fe6d6" />
+      <TestMethod codeBase="C:/SVN/Customer/HOLYSTONE/工具程式/JBHR_CardCollector/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.CardReadTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="MonthTest" />
+    </UnitTest>
+    <UnitTest name="AtimeTest" storage="c:\svn\customer\holystone\工具程式\jbhr_cardcollector\testproject1\bin\debug\testproject1.dll" id="34de4c27-0558-c7fd-467a-0586c2939768">
+      <Execution id="69c0b0bc-821b-4160-a008-044539352d99" />
+      <TestMethod codeBase="C:/SVN/Customer/HOLYSTONE/工具程式/JBHR_CardCollector/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.CardReadTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AtimeTest" />
+    </UnitTest>
+    <UnitTest name="CardReadConstructorTest" storage="c:\svn\customer\holystone\工具程式\jbhr_cardcollector\testproject1\bin\debug\testproject1.dll" id="c76abb8a-d835-680a-fcbd-1e35cdec3c85">
+      <Execution id="2a8bfe91-5ca1-4bf7-81fd-174f7a579c99" />
+      <TestMethod codeBase="C:/SVN/Customer/HOLYSTONE/工具程式/JBHR_CardCollector/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.CardReadTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CardReadConstructorTest" />
+    </UnitTest>
+    <UnitTest name="DayTest" storage="c:\svn\customer\holystone\工具程式\jbhr_cardcollector\testproject1\bin\debug\testproject1.dll" id="7ea96eac-afb4-83ab-033b-f23506c577e1">
+      <Execution id="caae1738-725b-41a5-a607-d95001b67ee6" />
+      <TestMethod codeBase="C:/SVN/Customer/HOLYSTONE/工具程式/JBHR_CardCollector/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.CardReadTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DayTest" />
+    </UnitTest>
+    <UnitTest name="AdateTest" storage="c:\svn\customer\holystone\工具程式\jbhr_cardcollector\testproject1\bin\debug\testproject1.dll" id="1c811ed9-a130-afa0-0261-c0d4515cebc7">
+      <Execution id="63442c10-0a1a-4d3c-9747-53437ce0ae4c" />
+      <TestMethod codeBase="C:/SVN/Customer/HOLYSTONE/工具程式/JBHR_CardCollector/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.CardReadTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AdateTest" />
+    </UnitTest>
+    <UnitTest name="YearTest" storage="c:\svn\customer\holystone\工具程式\jbhr_cardcollector\testproject1\bin\debug\testproject1.dll" id="d8a536b9-d233-10ba-8129-77c4fcc11ed5">
+      <Execution id="d925f2b3-f20a-4d4e-ab1f-c39f4c5d3701" />
+      <TestMethod codeBase="C:/SVN/Customer/HOLYSTONE/工具程式/JBHR_CardCollector/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.CardReadTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="YearTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="不在清單中的結果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有載入的結果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="1c811ed9-a130-afa0-0261-c0d4515cebc7" executionId="63442c10-0a1a-4d3c-9747-53437ce0ae4c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="34de4c27-0558-c7fd-467a-0586c2939768" executionId="69c0b0bc-821b-4160-a008-044539352d99" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7ea96eac-afb4-83ab-033b-f23506c577e1" executionId="caae1738-725b-41a5-a607-d95001b67ee6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c76abb8a-d835-680a-fcbd-1e35cdec3c85" executionId="2a8bfe91-5ca1-4bf7-81fd-174f7a579c99" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d8a536b9-d233-10ba-8129-77c4fcc11ed5" executionId="d925f2b3-f20a-4d4e-ab1f-c39f4c5d3701" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e8c5fbd4-3477-30c5-d92e-822f9ae0059a" executionId="9fcba92a-5a68-4f73-ba25-ebfbb47fe6d6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="63442c10-0a1a-4d3c-9747-53437ce0ae4c" testId="1c811ed9-a130-afa0-0261-c0d4515cebc7" testName="AdateTest" computerName="SHINGO-PC" duration="00:00:08.0324595" startTime="2013-03-26T16:53:33.3492883+08:00" endTime="2013-03-26T16:53:41.3817478+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="63442c10-0a1a-4d3c-9747-53437ce0ae4c">
+    </UnitTestResult>
+    <UnitTestResult executionId="69c0b0bc-821b-4160-a008-044539352d99" testId="34de4c27-0558-c7fd-467a-0586c2939768" testName="AtimeTest" computerName="SHINGO-PC" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="69c0b0bc-821b-4160-a008-044539352d99">
+    </UnitTestResult>
+    <UnitTestResult executionId="caae1738-725b-41a5-a607-d95001b67ee6" testId="7ea96eac-afb4-83ab-033b-f23506c577e1" testName="DayTest" computerName="SHINGO-PC" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="caae1738-725b-41a5-a607-d95001b67ee6">
+    </UnitTestResult>
+    <UnitTestResult executionId="2a8bfe91-5ca1-4bf7-81fd-174f7a579c99" testId="c76abb8a-d835-680a-fcbd-1e35cdec3c85" testName="CardReadConstructorTest" computerName="SHINGO-PC" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2a8bfe91-5ca1-4bf7-81fd-174f7a579c99">
+    </UnitTestResult>
+    <UnitTestResult executionId="d925f2b3-f20a-4d4e-ab1f-c39f4c5d3701" testId="d8a536b9-d233-10ba-8129-77c4fcc11ed5" testName="YearTest" computerName="SHINGO-PC" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d925f2b3-f20a-4d4e-ab1f-c39f4c5d3701">
+    </UnitTestResult>
+    <UnitTestResult executionId="9fcba92a-5a68-4f73-ba25-ebfbb47fe6d6" testId="e8c5fbd4-3477-30c5-d92e-822f9ae0059a" testName="MonthTest" computerName="SHINGO-PC" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9fcba92a-5a68-4f73-ba25-ebfbb47fe6d6">
+    </UnitTestResult>
+  </Results>
+</TestRun>

@@ -1,0 +1,61 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="mpTrainingFront.master.cs"
+    Inherits="mpTrainingFront" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>eTraining</title>
+    <link rel="stylesheet" type="text/css" href="Css/eTraining.css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div style="width: 100%">
+        <div id="bb">
+            <div style="height: 140px" id="title">
+            </div>
+            <div id="menu">
+                <h4>
+                    代碼維護</h4>
+                <ul style="list-style-image: url('Images/eTraining/photo.png')">
+                    <li><a href="">教學方式</a></li>
+                    <li><a href="">講師資料</a></li>
+                    <li><a href="">訓練地點</a></li>
+                    <li><a href="">費用項目</a></li>
+                </ul>
+                <h4>
+                    訓練規劃</h4>
+                <ul style="list-style-image: url('Images/eTraining/file.png')">
+                    <li><a href="">訓練課程</a></li>
+                    <li><a href="">階層訓練</a></li>
+                    <li><a href="">門市訓練</a></li>
+                    <li><a href="">新進訓練</a></li>
+                </ul>
+                <h4>
+                    訓練計劃</h4>
+                <ul style="list-style-image: url('Images/eTraining/contact.png')">
+                    <li><a href="">訓練需求課程</a></li>
+                    <li><a href="">年度訓練需求調查資料</a></li>
+                    <li><a href="">個人年度需求強度資料</a></li>
+                    <li><a href="">年度訓練計劃</a></li>
+                </ul>
+                <h4>
+                    訓練執行</h4>
+                <ul style="list-style-image: url('Images/eTraining/box.png')">
+                    <li><a href="">開課資料維護</a></li>
+                    <li><a href="">檢視工作項目</a></li>
+                </ul>
+            </div>
+            <div id="mm">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div style="width: 770px; border: 1px gray solid; float: left">
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[OTRCD] (
+    [OTRCD]      NVARCHAR (50) NOT NULL,
+    [OTRNAME]    NVARCHAR (50) CONSTRAINT [DF_OTRCD_OTRNAME] DEFAULT ('') NOT NULL,
+    [KEY_DATE]   DATETIME      NOT NULL,
+    [KEY_MAN]    NVARCHAR (50) NOT NULL,
+    [CALLIN]     BIT           NULL,
+    [DISPLAY]    BIT           NULL,
+    [NOCALC]     BIT           NULL,
+    [NOFOOD]     BIT           NULL,
+    [SYS_OT]     BIT           NOT NULL,
+    [SORT]       INT           NULL,
+    [OTRCD_DISP] NVARCHAR (50) NULL,
+    CONSTRAINT [PK_OTRCD] PRIMARY KEY CLUSTERED ([OTRCD] ASC)
+);
+

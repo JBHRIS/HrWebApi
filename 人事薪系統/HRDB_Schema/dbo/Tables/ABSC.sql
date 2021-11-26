@@ -1,0 +1,21 @@
+﻿CREATE TABLE [dbo].[ABSC] (
+    [AK]        INT             IDENTITY (1, 1) NOT NULL,
+    [NOBR]      NVARCHAR (50)   NOT NULL,
+    [BDATE]     DATETIME        NOT NULL,
+    [EDATE]     DATETIME        NOT NULL,
+    [BTIME]     NVARCHAR (50)   NOT NULL,
+    [ETIME]     NVARCHAR (50)   NOT NULL,
+    [H_CODE]    NVARCHAR (50)   NOT NULL,
+    [TOL_HOURS] DECIMAL (16, 2) NOT NULL,
+    [KEY_MAN]   NVARCHAR (50)   NOT NULL,
+    [KEY_DATE]  DATETIME        NOT NULL,
+    [YYMM]      NVARCHAR (50)   NOT NULL,
+    [NOTE]      NVARCHAR (200)  NOT NULL,
+    [A_NAME]    NVARCHAR (50)   NOT NULL,
+    [SERNO]     NVARCHAR (50)   NOT NULL,
+    [GUID]      NVARCHAR (50)   NULL,
+    CONSTRAINT [PK_ABSC] PRIMARY KEY CLUSTERED ([AK] ASC)
+);
+
+
+

@@ -1,0 +1,3 @@
+2013/2/24 下午 04:49:00	Error:字串未被辨認為有效的 DateTime。	   於 System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   於 System.Convert.ToDateTime(String value)
+   於 JBHR_CardTextCollector.Program.Main(String[] args) 於 C:\SVN\Customer\HOLYSTONE\工具程式\JBHR_CardCollector\JBHR_CardCollector\Program.cs: 行 21	

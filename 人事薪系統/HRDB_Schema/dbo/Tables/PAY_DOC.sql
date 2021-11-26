@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[PAY_DOC] (
+    [AUTO]       INT           IDENTITY (1, 1) NOT NULL,
+    [NOBR]       NVARCHAR (50) NOT NULL,
+    [DOC_ITEM]   INT           NOT NULL,
+    [KEY_DATE]   DATETIME      NOT NULL,
+    [KEY_MAN]    NVARCHAR (50) NOT NULL,
+    [PAYED]      BIT           NOT NULL,
+    [PAY_DATE]   DATETIME      NULL,
+    [FINAL_DATE] DATETIME      NULL,
+    [MEMO]       NVARCHAR (50) NULL,
+    [NOTE1]      NVARCHAR (50) NULL,
+    [NOTE2]      NVARCHAR (50) NULL,
+    [NOTE3]      NVARCHAR (50) NULL,
+    CONSTRAINT [PK_PAY_DOC] PRIMARY KEY CLUSTERED ([AUTO] ASC)
+);
+

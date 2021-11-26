@@ -1,0 +1,69 @@
+表單中的必要欄位
+	ProcessID	
+	
+***	***	***	***	***	***	***	***	***	***
+
+ProcessApParm 流程中程式參數資料
+	auto
+	ProcessFlow_id
+	ProcessNode_auto
+	ProcessCheck_auto
+	Role_id						實際開啟簽單角色
+	Emp_id						實際開啟簽單工號
+	
+ProcessApView 流程中程式存放資料
+	auto
+	ProcessID
+	Role_id
+	Emp_id
+	tag1
+	tag2
+	tag3
+
+ProcessFlow 流程進行
+	id							流水號
+	ProcessNode_auto			會簽流程返回點
+	FlowTree_id					進行的流程樹
+	adate						發動日期
+	Role_id						起動流程角色參考
+	Emp_id						起動流程工號參考
+	isFinish					流程是否完成
+	isError						流程是否錯誤
+	isCancel					流程是否徹回
+
+ProcessFlowShare
+	auto
+	ProcessFlow_id				進行的流程
+	Role_id						共用流程角色
+	Emp_id						共用流程工號
+	isStarter					是否為啟動流程的人
+
+ProcessNode 關卡進度
+	auto
+	ProcessFlow_id				進行的流程
+	FlowNode_id					關卡
+	adate						關卡進入時間
+	isFinish					是否完成
+	isMulti						會簽點
+	
+ProcessCheck 簽核者
+	auto
+	ProcessNode_auto			進行的關卡
+	Role_idDefault				預定簽核角色
+	Emp_idDefault				預定簽核工號
+	Role_idAgent				預定簽核代理角色
+	Emp_idAgent					預定簽核代理工號
+	Role_idReal					實際簽核角色
+	Emp_idReal					實際簽核工號
+	adate						簽核時間
+	
+ProcessException 流程發生例外狀況
+	auto
+	ProcessFlow_id
+	ProcessNode_auto
+	ProcessCheck_auto
+	errorType					(1.Error 2.Cancel 3.Warning)
+	errorMsg					問題描述
+	adate						記錄時間
+	isOK						是否已解決
+	

@@ -1,0 +1,140 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Performance.Main" %>
+
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>績效獎金系統</title>
+
+    <link href="Templates/Inspinia/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Templates/Inspinia/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="Templates/Inspinia/css/animate.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/style.css" rel="stylesheet">
+
+    <link href="styles/Main.css" rel="stylesheet">
+
+    <link href="Images/favicon.ico" rel="shortcut icon">
+
+    <asp:ContentPlaceHolder ID="cphHead" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server" EnablePageMethods="true">
+        </telerik:RadScriptManager>
+        <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" DefaultLoadingPanelID="RadAjaxLoadingPanel1">
+            <AjaxSettings>
+                <telerik:AjaxSetting AjaxControlID="btnSearch">
+                    <UpdatedControls>
+                        <telerik:AjaxUpdatedControl ControlID="plMain" />
+                    </UpdatedControls>
+                </telerik:AjaxSetting>
+            </AjaxSettings>
+        </telerik:RadAjaxManager>
+        <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" runat="server" Skin="Default">
+        </telerik:RadAjaxLoadingPanel>
+
+        <div id="wrapper">
+            <nav class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav metismenu" id="side-menu">
+                        <li class="nav-header">
+                            <div class="dropdown profile-element">
+                                <asp:PlaceHolder ID="phUserImg" runat="server"></asp:PlaceHolder>
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                    <span class="block m-t-xs font-bold">
+                                        <telerik:RadLabel ID="lblUserName" runat="server" Text="曾昭明" />
+                                    </span>
+                                    <span class="text-muted text-xs block">
+                                        <telerik:RadLabel ID="lblUserUserGroupName" runat="server" Text="系統管理人員" />
+                                        <b class="caret"></b></span>
+                                </a>
+                                <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                    <li class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="Login.aspx?Param=Logout">登出</a></li>
+                                </ul>
+                            </div>
+                            <div class="logo-element">
+                                JB
+                            </div>
+                        </li>
+                        <!--左側 Menu 項目-->
+                        <asp:PlaceHolder ID="phMenu" runat="server"></asp:PlaceHolder>
+                    </ul>
+
+                </div>
+            </nav>
+
+            <div id="page-wrapper" class="gray-bg dashbard-1">
+                <div class="row border-bottom">
+                    <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                        <div class="navbar-header">
+                            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                            <div class="navbar-form-custom navbar">
+                                <div class="form-group">
+                                    <input type="text" placeholder="搜尋功能" class="form-control" name="top-search" id="top-search" />
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="nav navbar-top-links navbar-right">
+                            <li style="padding: 20px">
+                                <span class="m-r-sm text-muted welcome-message">請勿將密碼告知任何人</span>
+                            </li>
+
+
+                            <li>
+                                <a href="Login.aspx?Param=Logout">
+                                    <i class="fa fa-sign-out"></i>登出
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </nav>
+                </div>
+
+                <div class="row wrapper border-bottom white-bg page-heading">
+                    <div class="col-lg-10">
+                        <h2>
+                            <telerik:RadLabel ID="lblSiteMapName" runat="server" />
+                        </h2>
+                        <telerik:RadSiteMap ID="smBreadcrumb" runat="server" DataTextField="Text" DataNavigateUrlField="NavigateUrl" Skin="Silk">
+                            <DefaultLevelSettings ListLayout-RepeatDirection="Horizontal" SeparatorText="/" Layout="Flow" />
+                        </telerik:RadSiteMap>
+                    </div>
+                </div>
+
+                <asp:ContentPlaceHolder ID="cphMain" runat="server">
+                </asp:ContentPlaceHolder>
+
+                <div class="footer">
+                    <div class="float-right">
+                        Ver <strong>20201020</strong> 01
+                    </div>
+                    <div>
+                        <strong>Copyright</strong> 傑報 &copy; 2020
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mainly scripts -->
+        <script src="Templates/Inspinia/js/jquery-3.1.1.min.js"></script>
+        <script src="Templates/Inspinia/js/popper.min.js"></script>
+        <script src="Templates/Inspinia/js/bootstrap.js"></script>
+        <script src="Templates/Inspinia/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+        <script src="Templates/Inspinia/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+        <!-- Custom and plugin javascript -->
+        <script src="Templates/Inspinia/js/inspinia.js"></script>
+        <script src="Templates/Inspinia/js/plugins/pace/pace.min.js"></script>
+
+        <asp:ContentPlaceHolder ID="cphFooter" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

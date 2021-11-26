@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+   <configSections>
+      <sectionGroup name="applicationSettings" type="System.Configuration.ApplicationSettingsGroup, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+         <section name="ezSendMail.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+      </sectionGroup>
+   </configSections>
+   <connectionStrings>
+      <add name="ezSendMail.Properties.Settings.ezflowConnectionString" connectionString="uid=sa;data source=nt3;initial catalog=ezflow;pwd=jb4627;" providerName="System.Data.SqlClient" />
+   </connectionStrings>
+   <applicationSettings>
+      <ezSendMail.Properties.Settings>
+         <setting name="ezSendMail_localhost_Service" serializeAs="String">
+            <value></value>
+         </setting>
+      </ezSendMail.Properties.Settings>
+   </applicationSettings>
+</configuration>

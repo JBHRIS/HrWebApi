@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[YRERR] (
+    [ERR_NOTE] NVARCHAR (50) NOT NULL,
+    [DESCR]    NVARCHAR (50) NOT NULL
+);
+

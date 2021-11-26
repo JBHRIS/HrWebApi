@@ -1,0 +1,98 @@
+2013/5/21 と 03:00:46	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.Mail.SendMailWithQueue(MailAddress from, MailAddress to, String subject, String body)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\Mail.cs: ︽ 217	
+2013/5/21 と 03:00:46	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.DbLog.WriteToDB(String log, String note, String type, String source, Int32 pid, String key_man, String guid)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DbLog.cs: ︽ 61	
+2013/5/21 と 03:05:29	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.Mail.SendMailWithQueue(MailAddress from, MailAddress to, String subject, String body)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\Mail.cs: ︽ 217	
+2013/5/21 と 03:05:29	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.DbLog.WriteToDB(String log, String note, String type, String source, Int32 pid, String key_man, String guid)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DbLog.cs: ︽ 61	
+2013/5/21 と 03:05:29	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.Mail.SendMailWithQueue(MailAddress from, MailAddress to, String subject, String body)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\Mail.cs: ︽ 217	
+2013/5/21 と 03:05:29	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.DbLog.WriteToDB(String log, String note, String type, String source, Int32 pid, String key_man, String guid)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DbLog.cs: ︽ 61	
+2013/5/21 と 03:05:29	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.Mail.SendMailWithQueue(MailAddress from, MailAddress to, String subject, String body)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\Mail.cs: ︽ 217	
+2013/5/21 と 03:05:29	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.DbLog.WriteToDB(String log, String note, String type, String source, Int32 pid, String key_man, String guid)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DbLog.cs: ︽ 61	
+2013/5/21 と 03:05:29	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.Mail.SendMailWithQueue(MailAddress from, MailAddress to, String subject, String body)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\Mail.cs: ︽ 217	
+2013/5/21 と 03:05:29	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.DbLog.WriteToDB(String log, String note, String type, String source, Int32 pid, String key_man, String guid)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DbLog.cs: ︽ 61	
+2013/5/21 と 03:05:30	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.Mail.SendMailWithQueue(MailAddress from, MailAddress to, String subject, String body)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\Mail.cs: ︽ 217	
+2013/5/21 と 03:05:30	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.DbLog.WriteToDB(String log, String note, String type, String source, Int32 pid, String key_man, String guid)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DbLog.cs: ︽ 61	
+2013/5/21 と 03:05:30	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.Mail.SendMailWithQueue(MailAddress from, MailAddress to, String subject, String body)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\Mail.cs: ︽ 217	
+2013/5/21 と 03:05:30	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.DbLog.WriteToDB(String log, String note, String type, String source, Int32 pid, String key_man, String guid)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DbLog.cs: ︽ 61	
+2013/5/21 と 03:05:30	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.Mail.SendMailWithQueue(MailAddress from, MailAddress to, String subject, String body)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\Mail.cs: ︽ 217	
+2013/5/21 と 03:05:30	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.DbLog.WriteToDB(String log, String note, String type, String source, Int32 pid, String key_man, String guid)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DbLog.cs: ︽ 61	
+2013/5/21 と 03:05:30	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.Mail.SendMailWithQueue(MailAddress from, MailAddress to, String subject, String body)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\Mail.cs: ︽ 217	
+2013/5/21 と 03:05:30	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.DbLog.WriteToDB(String log, String note, String type, String source, Int32 pid, String key_man, String guid)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DbLog.cs: ︽ 61	
+2013/5/21 と 03:05:30	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.Mail.SendMailWithQueue(MailAddress from, MailAddress to, String subject, String body)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\Mail.cs: ︽ 217	
+2013/5/21 と 03:05:39	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.Mail.SendMailWithQueue(MailAddress from, MailAddress to, String subject, String body)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\Mail.cs: ︽ 217	
+2013/5/21 と 03:05:39	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.DbLog.WriteToDB(String log, String note, String type, String source, Int32 pid, String key_man, String guid)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DbLog.cs: ︽ 61	
+2013/5/21 と 03:13:10	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.Mail.SendMailWithQueue(MailAddress from, MailAddress to, String subject, String body)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\Mail.cs: ︽ 217	
+2013/5/21 と 03:13:10	Error:ぃ null
+把计嘿: fileOrServerOrConnection	    System.Data.Linq.DataContext..ctor(String fileOrServerOrConnection, MappingSource mapping)
+    JBModule.Message.DBDataContext..ctor()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DB.designer.cs: ︽ 47
+    JBModule.Message.DbLog.WriteToDB(String log, String note, String type, String source, Int32 pid, String key_man, String guid)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\DbLog.cs: ︽ 61	
+2013/5/21 と 03:14:33	Error:祇ネ岿粇叫浪琩AppSetting嘿JbMail.host琌	    ConfigSetting.AppSettingValue(String name)  D:\SVNJBHRProject\Standard\JBTools\ConfigSetting.cs: ︽ 115
+    JBModule.Message.Mail.get_HostName()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\Mail.cs: ︽ 30
+    JBModule.Message.Mail.SendMailWithQueue(MailAddress from, MailAddress to, String subject, String body)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\Mail.cs: ︽ 235	
+2013/5/21 と 03:16:10	Error:祇ネ岿粇叫浪琩AppSetting嘿JbMail.host琌	    ConfigSetting.AppSettingValue(String name)  D:\SVNJBHRProject\Standard\JBTools\ConfigSetting.cs: ︽ 115
+    JBModule.Message.Mail.get_HostName()  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\Mail.cs: ︽ 30
+    JBModule.Message.Mail.SendMailWithQueue(MailAddress from, MailAddress to, String subject, String body)  D:\SVNJBHRProject\Standard\JBMODULE.MESSAGE\Mail.cs: ︽ 235	

@@ -1,0 +1,38 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="LoginMasterPage.master.cs" Inherits="LoginMasterPage_MasterPage" %>
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>JB Ez-Portal</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+    </telerik:RadScriptManager>
+    <div id="mainLayout">
+        <div id="mainTitle">
+            <!--upperMenu-->
+            <div id="upperMenu">
+
+                <div class="expand">
+                </div>
+            </div>
+            <!--upperMenu end-->
+        </div>
+        <div>
+        </div>
+    
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+    </asp:ContentPlaceHolder>
+    <%--<div id="footerBlock">--%>
+    <%--    <div>
+        <p>
+            ©2013 Jye-Baw Human Resource Corp. All Rights Reserved.<br />
+            傑報人力資源服務集團 總公司：桃園市中正路1071號6樓之3 代表號：03-355-4436</p>
+    </div>--%>
+    </div>
+    </form>
+</body>
+</html>

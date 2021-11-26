@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[ROTE_BONUS] (
+    [AUTO]        INT             IDENTITY (1, 1) NOT NULL,
+    [ROTE]        NVARCHAR (50)   NOT NULL,
+    [SAL_CODE]    NVARCHAR (50)   NOT NULL,
+    [STR_B]       NVARCHAR (50)   NOT NULL,
+    [STR_E]       NVARCHAR (50)   NOT NULL,
+    [VALUE1]      DECIMAL (14, 4) NOT NULL,
+    [VALUE2]      DECIMAL (14, 4) NOT NULL,
+    [AMT]         DECIMAL (14, 4) NOT NULL,
+    [KEY_DATE]    DATETIME        NOT NULL,
+    [KEY_MAN]     NVARCHAR (50)   NOT NULL,
+    [CHECK1]      BIT             NOT NULL,
+    [CHECK2]      BIT             NOT NULL,
+    [CHECK3]      BIT             NOT NULL,
+    [CHECK4]      BIT             NOT NULL,
+    [CHECK5]      BIT             NOT NULL,
+    [CHECK6]      BIT             NOT NULL,
+    [SORT]        INT             NOT NULL,
+    [SALFUNCTION] NVARCHAR (50)   CONSTRAINT [DF_ROTE_BONUS_SALFUNCTION] DEFAULT ('') NULL,
+    CONSTRAINT [PK_ROTE_BONUS_1] PRIMARY KEY CLUSTERED ([AUTO] ASC),
+    CONSTRAINT [FK_ROTE_BONUS_ROTE] FOREIGN KEY ([ROTE]) REFERENCES [dbo].[ROTE] ([ROTE]),
+    CONSTRAINT [FK_ROTE_BONUS_SALCODE] FOREIGN KEY ([SAL_CODE]) REFERENCES [dbo].[SALCODE] ([SAL_CODE])
+);
+
+
+

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 14.625" name="FRM3UDataClasses">
+  <DataContextMoniker Name="/FRM3UDataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="5c613aaf-99d6-4cf2-a428-cf3f80ee061e" isExpanded="false" absoluteBounds="0.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/FRM3UDataClassesDataContext/BASE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="23941fd8-8b73-4ce7-907c-7265cd58ce06" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 10.771392822265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b930c583-42fd-4ce3-a5d8-cb0a1c3a00e0" isExpanded="false" absoluteBounds="5.625, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/FRM3UDataClassesDataContext/FAMILY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4010de13-0444-432e-afd3-8e3ce8959c32" absoluteBounds="5.6400000000000006, 0.96, 1.9700000000000002, 3.564422607421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="51ff1333-8c49-4daa-9f4a-3a68b585adde" isExpanded="false" absoluteBounds="3.125, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/FRM3UDataClassesDataContext/INSLAB" />
+      <nestedChildShapes>
+        <elementListCompartment Id="18e0460e-570c-4a88-ad1e-c26bb0b4e059" absoluteBounds="3.14, 0.96, 1.9700000000000002, 3.7492167154947915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 0.725); (3.125 : 0.725)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FRM3UDataClassesDataContext/BASE/BASE_INSLAB" />
+      <nodes>
+        <classShapeMoniker Id="5c613aaf-99d6-4cf2-a428-cf3f80ee061e" />
+        <classShapeMoniker Id="51ff1333-8c49-4daa-9f4a-3a68b585adde" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.125 : 0.725); (5.625 : 0.725)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FRM3UDataClassesDataContext/INSLAB/INSLAB_FAMILY" />
+      <nodes>
+        <classShapeMoniker Id="51ff1333-8c49-4daa-9f4a-3a68b585adde" />
+        <classShapeMoniker Id="b930c583-42fd-4ce3-a5d8-cb0a1c3a00e0" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="fcbb989c-cb69-498e-8a38-290f262f1a78" isExpanded="false" absoluteBounds="5.625, 1.625, 2, 0.45">
+      <DataClassMoniker Name="/FRM3UDataClassesDataContext/INSNAME" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e729a03e-6558-4f64-bba5-edf3301f3152" absoluteBounds="5.64, 2.085, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.125 : 0.95); (5.625 : 1.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FRM3UDataClassesDataContext/INSLAB/INSLAB_INSNAME" />
+      <nodes>
+        <classShapeMoniker Id="51ff1333-8c49-4daa-9f4a-3a68b585adde" />
+        <classShapeMoniker Id="fcbb989c-cb69-498e-8a38-290f262f1a78" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="197892bb-68fb-42a5-a243-cf9bbd9a715b" absoluteBounds="0.625, 1.625, 2, 12.809745686848958">
+      <DataClassMoniker Name="/FRM3UDataClassesDataContext/BASETTS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b2d0f364-dd68-41fa-a859-bfdbb697e1c4" absoluteBounds="0.64000000000000012, 2.085, 1.9700000000000002, 12.249745686848957" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5625 : 0.95); (1.5625 : 1.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FRM3UDataClassesDataContext/BASE/BASE_BASETTS" />
+      <nodes>
+        <classShapeMoniker Id="5c613aaf-99d6-4cf2-a428-cf3f80ee061e" />
+        <classShapeMoniker Id="197892bb-68fb-42a5-a243-cf9bbd9a715b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="922bb836-658d-45eb-9ed4-ac7f9c11cef5" absoluteBounds="4, 2.875, 2, 3.9396284993489576">
+      <DataClassMoniker Name="/FRM3UDataClassesDataContext/DEPT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2373825f-d072-448d-8948-77eaddd60482" absoluteBounds="4.015, 3.335, 1.9700000000000002, 3.379628499348958" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4 : 4.91425699869792); (2.625 : 4.91425699869792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FRM3UDataClassesDataContext/DEPT/DEPT_BASETTS" />
+      <nodes>
+        <classShapeMoniker Id="922bb836-658d-45eb-9ed4-ac7f9c11cef5" />
+        <classShapeMoniker Id="197892bb-68fb-42a5-a243-cf9bbd9a715b" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

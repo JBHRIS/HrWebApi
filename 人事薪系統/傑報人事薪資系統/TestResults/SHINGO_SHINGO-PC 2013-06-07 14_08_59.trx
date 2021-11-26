@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="4af55368-cf2e-45c1-b94f-bd4f091c15db" name="SHINGO@SHINGO-PC 2013-06-07 14:08:59" runUser="SHINGO-PC\SHINGO" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="追蹤及測試影響" id="5325b81d-ab78-4e9a-9572-9da61b0ffa3d">
+    <Description>這些是追蹤及測試影響的測試設定。</Description>
+    <Deployment userDeploymentRoot="D:\備份區\SVN\Customer\HOLYSTONE\人事薪系統\禾伸堂人事薪資系統\TestResults" useDefaultDeploymentRoot="false" runDeploymentRoot="SHINGO_SHINGO-PC 2013-06-07 14_08_59">
+      <DeploymentItem filename="D:\備份區\SVN\Customer\HOLYSTONE\元件\JBMODULE.DATA\JBModule.Data.Linq\bin\Debug\JBModule.Data.dll" />
+      <DeploymentItem filename="D:\備份區\SVN\Standard\JBMODULE.MESSAGE\bin\Debug\JBModule.Message.dll" />
+      <DeploymentItem filename="D:\備份區\SVN\Standard\JBModule\JBModule\bin\Debug\JBModule.dll" />
+      <DeploymentItem filename="D:\SVN\Standard\ThirdPartyLib\JSON\Net40\Newtonsoft.Json.dll" />
+      <DeploymentItem filename="D:\備份區\SVN\Standard\JBTools\bin\Debug\JBTools.dll" />
+      <DeploymentItem filename="D:\備份區\SVN\Standard\JBHR.BLL\Nylok-JBHR.BLL-Branch\bin\Debug\JBHR.BLL.dll" />
+      <DeploymentItem filename="D:\備份區\SVN\Customer\HOLYSTONE\元件\JBHR.DLL\bin\Debug\JBHR.Dll.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+        <DataCollectors>
+          <DataCollector uri="datacollector://microsoft/SystemInfo/1.0" assemblyQualifiedName="Microsoft.VisualStudio.TestTools.DataCollection.SystemInfo.SystemInfoDataCollector, Microsoft.VisualStudio.TestTools.DataCollection.SystemInfo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" friendlyName="系統資訊">
+          </DataCollector>
+          <DataCollector uri="datacollector://microsoft/ActionLog/1.0" assemblyQualifiedName="Microsoft.VisualStudio.TestTools.ManualTest.ActionLog.ActionLogPlugin, Microsoft.VisualStudio.TestTools.ManualTest.ActionLog, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" friendlyName="動作">
+          </DataCollector>
+          <DataCollector uri="datacollector://microsoft/HttpProxy/1.0" assemblyQualifiedName="Microsoft.VisualStudio.TraceCollector.HttpProxyCollector, Microsoft.VisualStudio.TraceCollector, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" friendlyName="用於 IntelliTrace 及測試影響的 ASP.NET 用戶端 Proxy">
+          </DataCollector>
+          <DataCollector uri="datacollector://microsoft/TestImpact/1.0" assemblyQualifiedName="Microsoft.VisualStudio.TraceCollector.TestImpactDataCollector, Microsoft.VisualStudio.TraceCollector, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" friendlyName="測試影響">
+          </DataCollector>
+          <DataCollector uri="datacollector://microsoft/TraceDebugger/1.0" assemblyQualifiedName="Microsoft.VisualStudio.TraceCollector.TraceDebuggerDataCollector, Microsoft.VisualStudio.TraceCollector, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" friendlyName="IntelliTrace">
+          </DataCollector>
+        </DataCollectors>
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-06-07T14:08:59.9194251+08:00" queuing="2013-06-07T14:09:00.4294543+08:00" start="2013-06-07T14:09:04.8627079+08:00" finish="2013-06-07T14:09:28.5660636+08:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <CollectorDataEntries>
+      <Collector agentName="SHINGO-PC" uri="datacollector://microsoft/SystemInfo/1.0" collectorDisplayName="系統資訊">
+        <UriAttachments>
+          <UriAttachment>
+            <A href="SHINGO-PC\SystemInformation.xml">SHINGO-PC 的系統資訊</A>
+          </UriAttachment>
+        </UriAttachments>
+      </Collector>
+    </CollectorDataEntries>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="CheckNotifyAutoTest1" storage="d:\備份區\svn\customer\holystone\人事薪系統\禾伸堂人事薪資系統\absrepo_testproject\bin\debug\absrepo_testproject.dll" id="5d7baa8b-5d2f-093a-c496-bc25072f3e4d">
+      <Execution id="3ef6f3d0-d3b5-4832-ae9c-650b2be84f85" />
+      <TestMethod codeBase="D:/備份區/SVN/Customer/HOLYSTONE/人事薪系統/禾伸堂人事薪資系統/AbsRepo_TestProject/bin/Debug/AbsRepo_TestProject.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AbsRepo_TestProject.NotifyServiceTest, AbsRepo_TestProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CheckNotifyAutoTest1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="不在清單中的結果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有載入的結果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="5d7baa8b-5d2f-093a-c496-bc25072f3e4d" executionId="3ef6f3d0-d3b5-4832-ae9c-650b2be84f85" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="3ef6f3d0-d3b5-4832-ae9c-650b2be84f85" testId="5d7baa8b-5d2f-093a-c496-bc25072f3e4d" testName="CheckNotifyAutoTest1" computerName="SHINGO-PC" duration="00:00:17.9796032" startTime="2013-06-07T14:09:05.4697426+08:00" endTime="2013-06-07T14:09:26.6429536+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3ef6f3d0-d3b5-4832-ae9c-650b2be84f85">
+      <Output>
+        <StdOut>2013/6/7 下午 02:09:17	傳送郵件到shingolin@gmail.com(linusliao@holystone.com.tw)	
+2013/6/7 下午 02:09:17	傳送郵件到shingolin@gmail.com(linusliao@holystone.com.tw)	
+2013/6/7 下午 02:09:17	傳送郵件到shingolin@gmail.com(linusliao@holystone.com.tw)	
+2013/6/7 下午 02:09:18	傳送郵件到shingolin@gmail.com(linusliao@holystone.com.tw)	
+2013/6/7 下午 02:09:18	傳送郵件到shingolin@gmail.com(linusliao@holystone.com.tw)	
+2013/6/7 下午 02:09:18	傳送郵件到shingolin@gmail.com(linusliao@holystone.com.tw)</StdOut>
+        <ErrorInfo>
+          <Message>Assert.AreEqual 失敗。預期: &lt;0&gt;。實際: &lt;6&gt;。</Message>
+          <StackTrace>   於 AbsRepo_TestProject.NotifyServiceTest.CheckNotifyAutoTest1() 於 D:\備份區\SVN\Customer\HOLYSTONE\人事薪系統\禾伸堂人事薪資系統\AbsRepo_TestProject\NotifyServiceTest.cs: 行 90
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+      <CollectorDataEntries>
+        <Collector agentName="SHINGO-PC" uri="datacollector://microsoft/SystemInfo/1.0" collectorDisplayName="系統資訊">
+          <UriAttachments>
+            <UriAttachment>
+              <A href="SHINGO-PC\SystemInformation.xml">SHINGO-PC 的系統資訊</A>
+            </UriAttachment>
+          </UriAttachments>
+        </Collector>
+        <Collector agentName="SHINGO-PC" uri="datacollector://microsoft/TraceDebugger/1.0" collectorDisplayName="IntelliTrace">
+          <UriAttachments>
+            <UriAttachment>
+              <A href="SHINGO-PC\IntelliTrace_130607_140926588_13484.iTrace">'IntelliTrace.exe' (13484) 的 IntelliTrace 檔案</A>
+            </UriAttachment>
+          </UriAttachments>
+        </Collector>
+      </CollectorDataEntries>
+    </UnitTestResult>
+  </Results>
+</TestRun>

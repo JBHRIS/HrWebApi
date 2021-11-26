@@ -1,0 +1,86 @@
+Dept 部門
+	id							部門代碼
+	idParent					父層部門
+	name						部門名稱
+	path						部門路徑
+	DeptLevel_id				等級
+	
+DeptLevel 部門等級
+	id							等級代碼
+	name						等級名稱
+	sorting						排序
+	
+Pos 職稱
+	id							職稱代碼
+	name						職稱名稱
+	PosLevel_id					等級
+	
+PosLevel 職務等級
+	id							等級代碼
+	name						等級名稱
+	sorting						排序
+	
+Role 角色
+	auto
+	id							角色代碼
+	idParent					主管角色
+	Dept_id						部門代碼
+	Pos_id						職稱代碼
+	dateB						生效日
+	dateE						失效日
+	Emp_id						扮演者工號
+	mgDefault					預設主管
+	deptMg						部門預設主管	
+	
+Emp	員工
+	id							工號
+	pw							密碼
+	name						姓名
+	login						登入帳號
+	email						電子郵件
+	sex							性別
+	isNeedAgent					是否轉代理人
+	dateB						轉代理起始日
+	dateE						轉代理結束日
+		
+WorkAgent 工作代理人
+	auto
+	Role_idSource				代理需求者
+	Emp_idSource				需求者工號
+	Role_idTarget				代理人
+	Emp_idTarget				代理人工號		
+	
+WorkAgentPower 流程代理人可啟動的流程
+	auto
+	WorkAgent_auto
+	FlowTree_id					可啟動的流程
+		
+CheckAgentDefault 預設簽核代理人
+	auto
+	Role_idSource				需求者
+	Emp_idSource				需求者工號
+	Role_idTarget1				代理人1
+	Emp_idTarget1				代理人工號1
+	Role_idTarget2				代理人2
+	Emp_idTarget2				代理人工號2
+	Role_idTarget3				代理人3
+	Emp_idTarget3				代理人工號3		
+
+CheckAgentAlways 常態簽核代理人
+	auto
+	Role_idSource				需求者
+	Emp_idSource				需求者工號
+	Role_idTarget				代理人
+	Emp_idTarget				代理人工號
+	
+CheckAgentPowerM 流程代理人可簽核的部門
+	auto
+	CheckAgentAlways_auto
+	Dept_id						可簽核的部門
+	isAllSub					是否包含整個子部門	
+	
+CheckAgentPowerD 規範可簽核的流程
+	auto
+	CheckAgentPowerM_auto
+	FlowTree_id					可簽核的流程
+		

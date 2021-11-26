@@ -1,0 +1,37 @@
+﻿
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+
+
+
+    
+    <div>@ViewData["Message"]</div>
+    <div id="divid"> </div>
+
+
+    @*<img src="@ViewBag.ImageUrl" height="400" width="400" />*@
+    <img src="~/Images/Code.png" height="400" width="400" />
+
+    @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+</div>
+
+
+<script type="text/javascript">
+    var divid = document.getElementById("divid");//獲取 div 標籤返回的對象 
+    setInterval("settime()", 1000); //創建一個定時器,一秒調用一次這個方法 
+    function settime() { 
+        
+        var m = new Date();
+        var dateString =
+            m.getFullYear() + "/" +
+            ("0" + (m.getMonth() + 1)).slice(-2) + "/" +
+            ("0" + m.getDate()).slice(-2) + " " +
+            ("0" + m.getHours()).slice(-2) + ":" +
+            ("0" + m.getMinutes()).slice(-2) + ":" +
+            ("0" + m.getSeconds()).slice(-2);
+
+        divid.innerHTML = dateString; 
+    }
+</script>
+

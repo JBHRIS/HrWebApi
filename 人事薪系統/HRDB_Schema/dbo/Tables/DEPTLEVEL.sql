@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[DEPTLEVEL] (
+    [ID]      NVARCHAR (50) NOT NULL,
+    [NAME]    NVARCHAR (50) NOT NULL,
+    [SORTING] INT           NOT NULL
+);
+

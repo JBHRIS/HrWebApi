@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 21.125, 24.25" name="SalaryMD">
+  <DataContextMoniker Name="/SalaryMDDataContext" />
+  <nestedChildShapes>
+    <classShape Id="1f7ff022-403c-4d9c-b37f-696e9ac4c974" absoluteBounds="0.75, 1.5, 2, 13.17933390299479">
+      <DataClassMoniker Name="/SalaryMDDataContext/BASE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="29cd4653-5ccf-45cf-9ca1-4c17a0ac17ef" absoluteBounds="0.76500000059604645, 1.9600000008940697, 1.9700000000000002, 12.619333902994791" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="387eca1b-13e5-4336-b0ab-6645ca7ae64c" isExpanded="false" absoluteBounds="3.5, 2.125, 2, 0.44999999925494194">
+      <DataClassMoniker Name="/SalaryMDDataContext/SALBASD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4f084a17-5aae-42fe-ab60-9bd8b033934b" absoluteBounds="3.5150000005960464, 2.5850000008940697, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.34999999962747); (3.5 : 2.34999999962747)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SalaryMDDataContext/BASE/BASE_SALBASD" />
+      <nodes>
+        <classShapeMoniker Id="1f7ff022-403c-4d9c-b37f-696e9ac4c974" />
+        <classShapeMoniker Id="387eca1b-13e5-4336-b0ab-6645ca7ae64c" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6a8afd9b-0c64-415b-87e2-d12e615367d1" isExpanded="false" absoluteBounds="3.75, 3.75, 2, 0.44999999925494194">
+      <DataClassMoniker Name="/SalaryMDDataContext/WAGED" />
+      <nestedChildShapes>
+        <elementListCompartment Id="08cbdfb1-015a-42b2-b764-fcde977f090a" absoluteBounds="3.7650000005960464, 4.21000000089407, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4668e5d2-0028-43b1-92b5-733d592b6163" isExpanded="false" absoluteBounds="0.75, 5.75, 2, 0.44999999925494194">
+      <DataClassMoniker Name="/SalaryMDDataContext/SALATTR" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8351b1b9-46d8-42b3-926c-43a1626eaebc" absoluteBounds="0.76500000059604645, 6.21000000089407, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b03be6d2-4d6f-4b1a-af9b-20eebee5107e" isExpanded="false" absoluteBounds="3.75, 5.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/SALBASTD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d91c4a66-c3de-4c9c-969f-98d123a65d3e" absoluteBounds="3.7650000000000006, 6.21, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0a94fb9f-a363-4470-a979-a00ba3de3099" absoluteBounds="6.75, 2.75, 2, 6.1571577962239576">
+      <DataClassMoniker Name="/SalaryMDDataContext/SALBASND" />
+      <nestedChildShapes>
+        <elementListCompartment Id="acbab6e7-32b2-498b-8ecf-e75742ade938" absoluteBounds="6.7650000000000006, 3.21, 1.9700000000000002, 5.597157796223958" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d9ff0b06-2753-4b05-8d4c-544b61ce254a" isExpanded="false" absoluteBounds="6.25, 0.875, 2, 0.44999999925494194">
+      <DataClassMoniker Name="/SalaryMDDataContext/TTSCODE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1ee50559-3edf-4415-bc12-35c2915ff099" absoluteBounds="6.2650000005960464, 1.3350000008940697, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="76fd9914-7082-4d6c-9861-f7a5a4caab77" isExpanded="false" absoluteBounds="6.75, 4.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/V_FRM46C" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3395ddbd-98ef-4ddd-b68c-70a12839994c" absoluteBounds="6.7650000000000006, 5.2100000000000009, 1.9700000000000002, 2.455657958984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1194d40d-50cb-4f69-a5c5-2eeded59929b" isExpanded="false" absoluteBounds="6.75, 6.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/V_FRM46B" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6fe2ed50-b09f-489e-a95c-ef8d6e7d2e00" absoluteBounds="6.7650000000000006, 7.2100000000000009, 1.9700000000000002, 6.151540120442708" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eea304ca-c453-4fa4-ac68-a002abc67673" isExpanded="false" absoluteBounds="0.75, 7.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/V_FRM47" />
+      <nestedChildShapes>
+        <elementListCompartment Id="19f29450-92cc-4d30-8eaf-5b2e208dd347" absoluteBounds="0.76500000000000057, 8.21, 1.9700000000000002, 14.097686767578125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e7a4f5d2-d926-4d55-849d-6f076bd00bbe" isExpanded="false" absoluteBounds="8.75, 0.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/ATTCARD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cad00408-24b1-43ed-a2e1-3d3c84ef8aeb" absoluteBounds="8.765, 1.2100000000000009, 1.9700000000000002, 3.010040283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bd82e2c9-7545-4416-ac8e-4ea2c3243de6" isExpanded="false" absoluteBounds="3.75, 8.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/V_FRM48" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8321ff1e-fab1-42cc-b037-c129f15810d5" absoluteBounds="3.7650000000000006, 9.21, 1.9700000000000002, 2.825246175130208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1f0144b1-cf6c-48a2-a824-06cf1a543e85" isExpanded="false" absoluteBounds="6.75, 8.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/FAMILY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1b6732e9-a0b8-4046-b5d6-763c5c251ada" absoluteBounds="6.7650000000000006, 9.21, 1.9700000000000002, 3.564422607421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="05523e8a-c91f-4004-aab5-911928523821" isExpanded="false" absoluteBounds="9.75, 2.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/HOLI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ada4508d-6ace-4793-a738-25b24f50b2b7" absoluteBounds="9.765, 3.2100000000000009, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ef9da131-6cbf-4f96-995a-fc3b7927cead" isExpanded="false" absoluteBounds="9.75, 6.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/ABS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2e510c92-46fa-4827-aa4f-b73443ffdcba" absoluteBounds="9.765, 7.2100000000000009, 1.9700000000000002, 3.1948343912760415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="01452475-3c92-46f5-9597-35458ebf57bd" isExpanded="false" absoluteBounds="9.75, 8.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/V_FRM46" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6321381d-1a71-4679-8f8b-08e97de2ab7e" absoluteBounds="9.765, 9.21, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e745f1e1-8dcd-4247-a79a-1d23b82c518d" isExpanded="false" absoluteBounds="0.75, 10.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/V_FRM4L" />
+      <nestedChildShapes>
+        <elementListCompartment Id="82dc30fe-3527-4f9c-a600-201c74cf1bc6" absoluteBounds="0.76500000000000057, 11.21, 1.9700000000000002, 2.455657958984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="10becc6b-1584-4a50-8af0-e3dee9d8143c" isExpanded="false" absoluteBounds="3.75, 10.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/V_FRM46A" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e4901af5-4b1b-40f9-ad1e-14ed3a8ec8ce" absoluteBounds="3.7650000000000006, 11.21, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c7b21a74-6799-40f1-a180-91e567fd5294" isExpanded="false" absoluteBounds="9.75, 10.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/INSURLV" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8acb1339-7cd7-4175-ad64-2f86b8cab213" absoluteBounds="9.765, 11.21, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3d85a3d0-5d82-40ad-896e-ee200820a435" isExpanded="false" absoluteBounds="11.75, 0.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/HCODE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9518d399-ba19-4881-bee3-8a28d663b6e1" absoluteBounds="11.765, 1.2100000000000009, 1.9700000000000002, 5.227569580078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="78004ee4-ed53-4062-beab-8eb8ae09cc55" isExpanded="false" absoluteBounds="0.75, 12.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/HCODES" />
+      <nestedChildShapes>
+        <elementListCompartment Id="935ff5c6-15b0-4ccd-b4bc-6dc33ea3605c" absoluteBounds="0.76500000000000057, 13.21, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0d0c75ac-0951-4d6f-abd9-a4efd5269e3c" isExpanded="false" absoluteBounds="12.75, 2.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/INSGLV" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bed1c233-2926-40c3-b5ef-f4b8246069a5" absoluteBounds="12.765, 3.2100000000000009, 1.9700000000000002, 5.227569580078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e05a2175-5a64-4fd3-8ab4-42e7a3a89748" isExpanded="false" absoluteBounds="3.5, 0.875, 2, 0.44999999925494194">
+      <DataClassMoniker Name="/SalaryMDDataContext/BASETTS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5d3c0ed5-83a9-4ac9-ac34-0c299256f209" absoluteBounds="3.5150000005960464, 1.3350000008940697, 1.9700000000000002, 12.249745686848957" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.5); (3.5 : 1.32499999925494)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SalaryMDDataContext/BASE/BASE_BASETTS" />
+      <nodes>
+        <classShapeMoniker Id="1f7ff022-403c-4d9c-b37f-696e9ac4c974" />
+        <classShapeMoniker Id="e05a2175-5a64-4fd3-8ab4-42e7a3a89748" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 1.09999999962747); (6.25 : 1.09999999962747)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SalaryMDDataContext/BASETTS/BASETTS_TTSCODE" />
+      <nodes>
+        <classShapeMoniker Id="e05a2175-5a64-4fd3-8ab4-42e7a3a89748" />
+        <classShapeMoniker Id="d9ff0b06-2753-4b05-8d4c-544b61ce254a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6b4641ed-53d0-4c4a-9744-b822be9a8dd3" isExpanded="false" absoluteBounds="3.75, 12.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/V_FRM27" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4305ed19-8042-4180-b5a9-7584998cc79b" absoluteBounds="3.7650000000000006, 13.21, 1.9700000000000002, 3.934010823567708" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2985e1a8-7205-4f60-adcd-378ebfdef493" isExpanded="false" absoluteBounds="12.75, 4.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/OT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7e546a43-5df6-4143-aebb-527d67fcf6e7" absoluteBounds="12.765, 5.2100000000000009, 1.9700000000000002, 14.097686767578125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6b8f3d6a-7781-4389-9092-57193b3047e9" isExpanded="false" absoluteBounds="12.75, 6.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/HOL_DAY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a8b1081b-b296-4220-b522-5ae80696f817" absoluteBounds="12.765, 7.2100000000000009, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c73635a8-5573-4b5a-952d-45218b389c99" isExpanded="false" absoluteBounds="6.75, 12.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/OTCALC" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d531810a-0fec-48f4-83a9-f90f2c4f4890" absoluteBounds="6.7650000000000006, 13.21, 1.9700000000000002, 14.836863199869791" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="637f09cc-0b4e-4555-9990-2cc7a9d5dece" isExpanded="false" absoluteBounds="12.75, 8.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/tblROTE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9e97fe89-1939-4e91-89b9-d474ea62f1e7" absoluteBounds="12.765, 9.21, 1.9700000000000002, 11.140981038411457" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4b3ba763-12f3-4ace-a2b7-39b06d8ac55f" isExpanded="false" absoluteBounds="9.75, 12.75, 2, 0.45000000000000284">
+      <DataClassMoniker Name="/SalaryMDDataContext/ATTBAK" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c874695f-9b11-492f-a757-6f5f9016d09b" absoluteBounds="9.765, 13.21, 1.9700000000000002, 0.97730509440104163" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="58df0972-9b9b-446a-b41d-742c85615736" isExpanded="false" absoluteBounds="12.75, 10.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/WAGEDD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="46c1e32e-a66f-487c-ab39-c555fa70d521" absoluteBounds="12.765, 11.21, 1.9700000000000002, 1.7164815266927083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ef810446-d1c6-47ca-9def-dd1c21042946" isExpanded="false" absoluteBounds="12.75, 12.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/salATTEND" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1a9dc047-8903-4337-9313-cb3c04d30c12" absoluteBounds="12.765, 13.21, 1.9700000000000002, 3.379628499348958" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ee52b24d-af16-49de-b5af-bed1b12d4f0f" isExpanded="false" absoluteBounds="14.75, 0.75, 2, 0.45000000000000284">
+      <DataClassMoniker Name="/SalaryMDDataContext/HOLICD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="88f07445-924c-4ea3-a8ae-aab60c6b8575" absoluteBounds="14.765, 1.2100000000000009, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fa16a82b-8ee7-43fe-b68a-4ad6a17feca3" isExpanded="false" absoluteBounds="0.625, 15.5, 2, 0.45000000000000284">
+      <DataClassMoniker Name="/SalaryMDDataContext/OTHCODE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d5dc172a-b8e0-4728-a3da-01bbb0363a85" absoluteBounds="0.64000000000000057, 15.96, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="907745c7-303c-4033-8539-1db922ebb8a8" isExpanded="false" absoluteBounds="3.75, 14.75, 2, 0.45000000000000284">
+      <DataClassMoniker Name="/SalaryMDDataContext/LOCK_WAGE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c94e1a77-6ed8-452a-88e7-ced83c9c51e4" absoluteBounds="3.7650000000000006, 15.21, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="36d847be-386b-41d5-ac35-b3bda74ed280" isExpanded="false" absoluteBounds="6.75, 14.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/OTRCD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="81f2c60c-efea-4170-b414-ce0167f70302" absoluteBounds="6.7650000000000006, 15.21, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e41fdc77-8683-4228-8f7e-8592b2b6f513" isExpanded="false" absoluteBounds="9.75, 14.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/DATA_PASS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="57b18f7f-1ee6-448e-814f-dc36704fe000" absoluteBounds="9.765, 15.21, 1.9700000000000002, 0.60771687825520826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e7a73c70-c6f5-4cb9-918c-39f5861e399d" isExpanded="false" absoluteBounds="12.75, 14.75, 2, 0.45000000000000284">
+      <DataClassMoniker Name="/SalaryMDDataContext/ENRICH" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1e5fada3-c8cf-4250-aa6f-3a2e55ca54ba" absoluteBounds="12.765, 15.21, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dec68684-0cdf-4b0f-8898-077dc84a2ba1" isExpanded="false" absoluteBounds="15.75, 2.75, 2, 0.44999999999999929">
+      <DataClassMoniker Name="/SalaryMDDataContext/TAXLVL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a2d19796-03f4-4803-8997-83b38c35ace5" absoluteBounds="15.765, 3.2100000000000009, 1.9700000000000002, 3.379628499348958" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="34c18b66-511a-41eb-9b35-f73e34aa2fdc" isExpanded="false" absoluteBounds="15.75, 6.75, 2, 0.45000000000000284">
+      <DataClassMoniker Name="/SalaryMDDataContext/DATA_PA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="99928c2b-07a1-41da-a12f-187ceb083843" absoluteBounds="15.765, 7.2100000000000009, 1.9700000000000002, 0.792510986328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1209410c-6196-4159-b3db-f52ad743f50c" isExpanded="false" absoluteBounds="15.75, 8.75, 2, 0.45000000000000284">
+      <DataClassMoniker Name="/SalaryMDDataContext/SALBASD1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8a220f6d-c6a2-406d-9c6f-1c9e8435d99f" absoluteBounds="15.765, 9.21, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1cc998fb-150b-4fcb-ab26-bbdb102a45c1" isExpanded="false" absoluteBounds="15.75, 12.75, 2, 0.45000000000000284">
+      <DataClassMoniker Name="/SalaryMDDataContext/V_FRM49" />
+      <nestedChildShapes>
+        <elementListCompartment Id="30b00be8-e315-47da-aeb8-1a95b9a05b84" absoluteBounds="15.765, 13.21, 1.9700000000000002, 3.934010823567708" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8c8d9445-24d8-4de7-b2e4-2392590afd80" isExpanded="false" absoluteBounds="15.75, 14.75, 2, 0.45000000000000284">
+      <DataClassMoniker Name="/SalaryMDDataContext/V_FRM43" />
+      <nestedChildShapes>
+        <elementListCompartment Id="79804f1c-7724-4b5c-bc93-5da8f53125af" absoluteBounds="15.765, 15.21, 1.9700000000000002, 6.151540120442708" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1f013e3d-30e9-4767-91a1-66e8a1b9265a" isExpanded="false" absoluteBounds="0.75, 16.75, 2, 0.45000000000000284">
+      <DataClassMoniker Name="/SalaryMDDataContext/DEPTS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5d4dbb85-858c-4d69-b8f7-99ba8281fb22" absoluteBounds="0.76500000000000057, 17.21, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0a2e4e4d-b95d-40e5-a785-8492a3796ae2" isExpanded="false" absoluteBounds="3.75, 16.75, 2, 0.45000000000000284">
+      <DataClassMoniker Name="/SalaryMDDataContext/ROTE_BONUS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f6a7790c-43b8-4541-970b-c6a7c9920d51" absoluteBounds="3.7650000000000006, 17.21, 1.9700000000000002, 3.1948343912760415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7a0a39b8-1e13-487f-ad26-541864a48345" isExpanded="false" absoluteBounds="6.75, 16.75, 2, 0.45000000000000284">
+      <DataClassMoniker Name="/SalaryMDDataContext/SALABS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5266d4fb-8961-4b22-bdac-9b2fb015caf4" absoluteBounds="6.7650000000000006, 17.21, 1.9700000000000002, 2.455657958984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ef99b05a-1eb6-4b42-aac3-ec6ced543ab3" isExpanded="false" absoluteBounds="9.75, 16.75, 2, 0.45000000000000284">
+      <DataClassMoniker Name="/SalaryMDDataContext/SALBASD_TMP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d1c16e6a-bf12-4da1-a1ae-8335833ac175" absoluteBounds="9.765, 17.21, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7812e6b0-0772-4bac-b621-627d2012ef80" isExpanded="false" absoluteBounds="12.75, 16.75, 2, 0.45000000000000284">
+      <DataClassMoniker Name="/SalaryMDDataContext/INSGRP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="221ffbb9-333e-49fc-ba12-b0dfd8ccccc5" absoluteBounds="12.765, 17.21, 1.9700000000000002, 5.9667460123697911" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1350c389-9adc-49ed-90a2-03fc4370f22a" absoluteBounds="15.75, 16.75, 2, 4.3092167154947951">
+      <DataClassMoniker Name="/SalaryMDDataContext/ATTEND" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1ba106ca-8b7d-4a8b-bcc3-90918877ec50" absoluteBounds="15.765, 17.21, 1.9700000000000002, 3.7492167154947915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e4e29f00-c6ee-49ae-8993-85c476b4b40a" isExpanded="false" absoluteBounds="17.75, 0.75, 2, 0.45000000000000284">
+      <DataClassMoniker Name="/SalaryMDDataContext/ACCCD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="260cbe12-1b85-4a60-8482-63d45d73fc55" absoluteBounds="17.765, 1.2100000000000009, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7bd29d28-5f92-470d-9ae1-650a0a7b9cd5" isExpanded="false" absoluteBounds="0.75, 18.75, 2, 0.45000000000000284">
+      <DataClassMoniker Name="/SalaryMDDataContext/ACCSAL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="65b734c2-1ab6-4975-9e06-90525e50cf97" absoluteBounds="0.76500000000000012, 19.21, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d760c057-86f1-47e0-9720-d38354b3ea04" isExpanded="false" absoluteBounds="18.75, 2.75, 2, 0.45000000000000284">
+      <DataClassMoniker Name="/SalaryMDDataContext/EXP_DEPT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d8de4814-8e4b-43a3-99c1-edca55b2275f" absoluteBounds="18.765, 3.2100000000000009, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b362c278-6d09-469e-bb6c-49f4fe9307bc" isExpanded="false" absoluteBounds="3.75, 18.75, 2, 0.45000000000000284">
+      <DataClassMoniker Name="/SalaryMDDataContext/ROTET" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2df58345-5e31-4418-8e98-7f5d7b509965" absoluteBounds="3.765, 19.21, 1.9700000000000002, 7.0755106608072911" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="90fe6ecb-9efd-4fd3-b671-47955fef2014" isExpanded="false" absoluteBounds="9.875, 4.75, 2, 0.45">
+      <DataClassMoniker Name="/SalaryMDDataContext/DEPT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="466819dc-0be3-4527-963f-e2c0fb5396a4" absoluteBounds="9.89, 5.21, 1.9700000000000002, 3.379628499348958" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1f2dcc14-6203-4431-bec4-91dde7594cf3" isExpanded="false" absoluteBounds="0.5, 3.75, 2, 0.45">
+      <DataClassMoniker Name="/SalaryMDDataContext/WAGE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="80bfacc1-1195-4237-be63-19d558162d09" absoluteBounds="0.51499999999999968, 4.21, 1.9700000000000002, 3.7492167154947915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8703c9a3-d50a-4440-8e69-a8b914f40e40" absoluteBounds="5, 7.375, 2, 3.7548343912760416">
+      <DataClassMoniker Name="/SalaryMDDataContext/EXPSUP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2952dfd2-58dc-4f3a-aa40-e0f96fa9ce9c" absoluteBounds="5.015, 7.835, 1.9700000000000002, 3.1948343912760415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="042d7d59-8f65-40a0-b376-c5a836b5bcee" isExpanded="false" absoluteBounds="4.75, 13.75, 2, 0.45">
+      <DataClassMoniker Name="/SalaryMDDataContext/BASECD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7ba6a3b2-988f-4fce-8454-4c2fb89467e6" absoluteBounds="4.765, 14.21, 1.9700000000000002, 0.97730509440104163" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="566864f0-447e-4640-925c-a5d9545b49e6" absoluteBounds="18.875, 12.75, 2, 2.2764815266927094">
+      <DataClassMoniker Name="/SalaryMDDataContext/YRFORMAT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2f6ff6d0-2e15-4726-b0c8-7a80711529d2" absoluteBounds="18.89, 13.21, 1.9700000000000002, 1.7164815266927083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c55e06f9-59d0-4746-959b-ee2f63cf12a1" isExpanded="false" absoluteBounds="3, 9.75, 2, 0.45">
+      <DataClassMoniker Name="/SalaryMDDataContext/INSCOMP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e04b7f34-e5d9-4be0-8f3a-06769c9dfda6" absoluteBounds="3.0149999999999997, 10.21, 1.9700000000000002, 3.1948343912760415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="60aaa6f5-528d-417f-a6d1-93bcbc4ec71c" absoluteBounds="18.375, 4.75, 2, 4.3092167154947916">
+      <DataClassMoniker Name="/SalaryMDDataContext/EXPLAB" />
+      <nestedChildShapes>
+        <elementListCompartment Id="45e0f232-3cd5-412c-9492-ecf3917ee2d6" absoluteBounds="18.39, 5.21, 1.9700000000000002, 3.749216715494792" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="02d91f3b-5a33-4b0c-9763-4d3ae20110dd" absoluteBounds="17.625, 9.75, 2, 8.0050988769531273">
+      <DataClassMoniker Name="/SalaryMDDataContext/SALCODE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6c1994ed-ddbe-4fed-8f15-c1dd1ec118bf" absoluteBounds="17.64, 10.21, 1.9700000000000002, 7.445098876953125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(17.625 : 13.7525494384766); (7 : 13.7525494384766); (7 : 14.5); (3.5 : 14.5); (3.5 : 16.375); (4.75 : 16.375); (4.75 : 16.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SalaryMDDataContext/SALCODE/SALCODE_ROTE_BONUS" />
+      <nodes>
+        <classShapeMoniker Id="02d91f3b-5a33-4b0c-9763-4d3ae20110dd" />
+        <classShapeMoniker Id="0a2e4e4d-b95d-40e5-a785-8492a3796ae2" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="7aa14c05-c63e-4543-868d-24f3492069be" absoluteBounds="6.375, 18.75, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/SalaryMDDataContext/WriteRuleNobrTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8f692b20-1302-4d1e-9180-4b9265a3373b" absoluteBounds="6.39, 19.21, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="787e19f8-db0c-403a-ace1-8e9cb26a2f82" absoluteBounds="9.375, 18.75, 2, 1.7220992024739594">
+      <DataClassMoniker Name="/SalaryMDDataContext/SALARYCALC" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ee21e4ca-7407-4875-972c-24d3060a5afa" absoluteBounds="9.39, 19.21, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d4b9633e-4dcf-4b8e-9681-6614dfa126c6" absoluteBounds="5.875, 1.75, 2, 2.6460697428385416">
+      <DataClassMoniker Name="/SalaryMDDataContext/SALENRICH" />
+      <nestedChildShapes>
+        <elementListCompartment Id="58d5aa75-5c02-4997-8f01-441739338527" absoluteBounds="5.89, 2.21, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="576b3bfa-42ac-4bff-8591-c6d66bb10485" absoluteBounds="12.375, 18.75, 2, 3.5700402832031273">
+      <DataClassMoniker Name="/SalaryMDDataContext/ABSC" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f541e4f5-f8c7-42c5-aac8-98580b71a239" absoluteBounds="12.39, 19.21, 1.9700000000000002, 3.010040283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2559f33d-2aff-4fbe-9587-c42e7c73b95d" isExpanded="false" absoluteBounds="7.875, 11.5, 2, 0.45">
+      <DataClassMoniker Name="/SalaryMDDataContext/INSLAB" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5a4164aa-7699-4378-8537-c57a4fe68d0c" absoluteBounds="7.89, 11.96, 1.9700000000000002, 3.934010823567708" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="57ff6c8c-a315-4764-8191-97e43250cd4f" absoluteBounds="18.375, 18.75, 2, 3.0156579589843773">
+      <DataClassMoniker Name="/SalaryMDDataContext/JOB" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f72182e0-f47a-4dec-a9a9-1b69670c23da" absoluteBounds="18.39, 19.21, 1.9700000000000002, 2.455657958984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6d597610-cb20-4e3b-a636-055a16564660" absoluteBounds="0.75, 20.75, 2, 3.2004520670572916">
+      <DataClassMoniker Name="/SalaryMDDataContext/JOBL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="00dc3eb4-bdf8-4115-9afe-ea27db075d32" absoluteBounds="0.765, 21.21, 1.9700000000000002, 2.6404520670572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

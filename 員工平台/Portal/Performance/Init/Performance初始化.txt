@@ -1,0 +1,8 @@
+TRUNCATE TABLE [dbo].[PerformanceBase]
+TRUNCATE TABLE [dbo].[PerformanceBaseLog]
+TRUNCATE TABLE [dbo].[PerformanceDept]
+TRUNCATE TABLE [dbo].[PerformanceDeptRating]
+TRUNCATE TABLE [dbo].[PerformanceFlow]
+TRUNCATE TABLE [dbo].[PerformanceFlowNode]
+TRUNCATE TABLE [dbo].[PerformanceJob]
+TRUNCATE TABLE [dbo].[PerformanceMain]

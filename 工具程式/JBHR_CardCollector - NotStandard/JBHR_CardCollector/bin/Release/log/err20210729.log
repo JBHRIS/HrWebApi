@@ -1,0 +1,6 @@
+2021/7/29 上午 09:06:45	Error:序列未包含項目	   於 System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   於 System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   於 System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   於 System.Data.Linq.DataQuery`1.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   於 System.Linq.Queryable.First[TSource](IQueryable`1 source)
+   於 JBHR_CardTextCollector.Program.Main(String[] args) 於 D:\SVN\customer\JBHR2\工具程式\JBHR_CardCollector\JBHR_CardCollector\Program.cs: 行 107	

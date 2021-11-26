@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 18, 26.25" name="JBHRModel">
+  <DataContextMoniker Name="/JBHRModelDataContext" />
+  <nestedChildShapes>
+    <classShape Id="2ba9c32c-4a6a-4f64-b686-4aece2bab91b" absoluteBounds="0.75, 0.75, 2, 3.5700402832031246">
+      <DataClassMoniker Name="/JBHRModelDataContext/ATTCARD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7903b911-e35b-46d7-a3d0-e5628d140091" absoluteBounds="0.765, 1.21, 1.9700000000000002, 3.010040283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="238f4e22-28f7-4c2a-a565-3aba254e68a6" absoluteBounds="3.75, 0.75, 2, 5.2331872558593746">
+      <DataClassMoniker Name="/JBHRModelDataContext/ATTEND" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a11388b8-ba68-4695-9870-046820e70508" absoluteBounds="3.765, 1.21, 1.9700000000000002, 4.673187255859375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fa713c63-2a43-4c1c-85fa-bb62bd49e6af" absoluteBounds="6.75, 0.75, 2, 14.842480875651038">
+      <DataClassMoniker Name="/JBHRModelDataContext/OT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="706d57a5-53cf-469d-a9a2-3624ed48c9b1" absoluteBounds="6.765, 1.21, 1.9700000000000002, 14.282480875651041" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5123bb6a-f3da-4710-accd-8e2c2f619ea5" absoluteBounds="0.75, 6.75, 2, 2.8308638509114568">
+      <DataClassMoniker Name="/JBHRModelDataContext/OTRCD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1c9223b4-1afc-4d35-898f-5d4fc3602071" absoluteBounds="0.76499999999999968, 7.21, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bd616ebb-d0ac-4773-a81c-33e19a09228e" absoluteBounds="9.75, 0.75, 2, 12.255363362630208">
+      <DataClassMoniker Name="/JBHRModelDataContext/ROTE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c583fc2f-2066-4148-a4ab-633ec903b0fd" absoluteBounds="9.765, 1.21, 1.9700000000000002, 11.695363362630207" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3d842f27-7183-4f84-8664-ae32698ac13b" absoluteBounds="0.75, 10.75, 2, 15.212069091796877">
+      <DataClassMoniker Name="/JBHRModelDataContext/BASE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="47b7dda6-63f4-4c00-9606-5bcbbc2d98bb" absoluteBounds="0.76500000000000057, 11.21, 1.9700000000000002, 14.652069091796875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="04a8d3f4-3463-4d38-be1b-b37789ca2250" absoluteBounds="12.75, 0.75, 2, 15.396863199869792">
+      <DataClassMoniker Name="/JBHRModelDataContext/BASETTS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="016c83fe-ef38-4bbf-833c-61a712bc0427" absoluteBounds="12.765, 1.21, 1.9700000000000002, 14.836863199869791" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4265ebd4-3788-4335-9185-f1cead50d43b" absoluteBounds="15.75, 0.75, 2, 3.9396284993489563">
+      <DataClassMoniker Name="/JBHRModelDataContext/ATTEND_ABNORMAL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b54bb391-36ce-4bc0-b8c5-2f81c93456ac" absoluteBounds="15.765, 1.2100000000000009, 1.9700000000000002, 3.379628499348958" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2aee0802-d7fd-4702-9866-d20989fafd19" absoluteBounds="3.375, 16.25, 2, 3.0156579589843751">
+      <DataClassMoniker Name="/JBHRModelDataContext/AppConfig" />
+      <nestedChildShapes>
+        <elementListCompartment Id="df863f90-8466-4520-bf3d-723b20085d12" absoluteBounds="3.3899999999999997, 16.71, 1.9700000000000002, 2.455657958984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

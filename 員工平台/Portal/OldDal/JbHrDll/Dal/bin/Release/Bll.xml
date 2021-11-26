@@ -1,0 +1,595 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bll</name>
+    </assembly>
+    <members>
+        <member name="T:Bll.Att.TransCard">
+            <summary>
+            刷卡轉出勤商業規則
+            </summary>
+        </member>
+        <member name="M:Bll.Att.TransCard.AttCardByOneDay(System.Collections.Generic.List{Bll.Att.Vdb.CardTable},System.DateTime,System.Boolean)">
+            <summary>
+            實際出勤資料 單天
+            </summary>
+            <param name="rsCard">刷卡資料</param>
+            <param name="Date">日期</param>
+            <param name="bEzAttCard">簡單轉換True = 簡單(一天多筆的情況，才需要複雜的判斷)</param>
+            <returns>AttCardTable</returns>
+        </member>
+        <member name="M:Bll.Att.TransCard.AttEndByOneDay(System.Collections.Generic.List{Bll.Att.Vdb.AttCardTable},Bll.Att.Vdb.RoteTable,System.Collections.Generic.List{Bll.Att.Vdb.AbsTable},System.DateTime)">
+            <summary>
+            判斷異常
+            </summary>
+            <param name="rsAttCard">出勤資料</param>
+            <param name="rRote">班別資料</param>
+            <param name="rsAbs">請假資料</param>
+            <param name="dDate">判斷日期</param>
+            <returns>AttEndTable</returns>
+        </member>
+        <member name="T:Bll.Att.Vdb.TransCardVdb">
+            <summary>
+            TransCardVdb
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardVdb.TransCardCond">
+            <summary>
+            刷卡轉出勤判斷條件
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardVdb.BaseData">
+            <summary>
+            基本資料
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardVdb.RoteData">
+            <summary>
+            班別資料
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardVdb.RoteDataDay">
+            <summary>
+            班別資料單天
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardVdb.RoteResData">
+            <summary>
+            休息時資料
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardVdb.AbsData">
+            <summary>
+            請假資料
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardVdb.AbsDataDay">
+            <summary>
+            請假資料 單天
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardVdb.OtData">
+            <summary>
+            加班資料
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardVdb.CardData">
+            <summary>
+            刷卡資料
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardVdb.CardDataDay">
+            <summary>
+            刷卡資料 單天
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardVdb.AttEndTempData">
+            <summary>
+            暫存專用的出勤資料
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardVdb.AttCardData">
+            <summary>
+            出勤刷卡資料 刷卡資料可以拼出許多同一天的出勤資料
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardVdb.AttCardDataDay">
+            <summary>
+            出勤刷卡資料 刷卡資料可以拼出許多同一天的出勤資料 單天
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardVdb.AttEndData">
+            <summary>
+            出勤班別資料
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardCondition.sNobrB">
+            <summary>
+            開始工號
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardCondition.sNobrE">
+            <summary>
+            結束工號
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardCondition.sDeptB">
+            <summary>
+            開始部門
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardCondition.sDeptE">
+            <summary>
+            結束部門
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardCondition.dDateB">
+            <summary>
+            開始日期
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardCondition.dDateE">
+            <summary>
+            結束日期
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardCondition.sKeyMan">
+            <summary>
+            登錄者
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardCondition.bAttCard">
+            <summary>
+            轉換刷卡時間
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardCondition.bAttEnd">
+            <summary>
+            判斷異常
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardCondition.bEzAttCard">
+            <summary>
+            簡單轉換True = 簡單(一天多筆的情況，才需要複雜的判斷)
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardCondition.sUserID">
+            <summary>
+            登入工號
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardCondition.sComp">
+            <summary>
+            公司別
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardCondition.bAdmin">
+            <summary>
+            是否管理權限
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.TransCardCondition.ThreadCount">
+            <summary>
+            執行緒數目
+            </summary>
+        </member>
+        <member name="T:Bll.Att.Vdb.BaseTable">
+            <summary>
+            基本判斷資料
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.BaseTable.Nobr">
+            <summary>
+            工號
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.BaseTable.DateA">
+            <summary>
+            生效日期
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.BaseTable.DateD">
+            <summary>
+            失效日期
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.BaseTable.NeedCard">
+            <summary>
+            需要刷卡 才需要判斷異常
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.BaseTable.NeedOnCard">
+            <summary>
+            需要上班卡
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.BaseTable.NeedOffCard">
+            <summary>
+            需要下班卡
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.BaseTable.NoTer">
+            <summary>
+            不判計算遲到跟早退
+            </summary>
+        </member>
+        <member name="T:Bll.Att.Vdb.RoteTable">
+            <summary>
+            班表
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.RoteTable.RoteCode">
+            <summary>
+            班別代碼
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.RoteTable.OnTime">
+            <summary>
+            表訂上班時間48
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.RoteTable.OffTime">
+            <summary>
+            表訂下班時間48
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.RoteTable.OffLastTime">
+            <summary>
+            最晚下班時間24
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.RoteTable.LatesMin">
+            <summary>
+            可遲到分鐘數
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.RoteTable.ElasticityMin">
+            <summary>
+            可彈性分鐘數
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.RoteTable.DayRes">
+            <summary>
+            休息時間
+            </summary>
+        </member>
+        <member name="T:Bll.Att.Vdb.RoteResTable">
+            <summary>
+            休息時間
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.RoteResTable.ResB">
+            <summary>
+            開始休息時間48
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.RoteResTable.ResE">
+            <summary>
+            結束休息時間48
+            </summary>
+        </member>
+        <member name="T:Bll.Att.Vdb.AbsTable">
+            <summary>
+            請假資料
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AbsTable.Nobr">
+            <summary>
+            工號
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AbsTable.Date">
+            <summary>
+            請假日期
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AbsTable.TimeB">
+            <summary>
+            開始時間
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AbsTable.TimeE">
+            <summary>
+            結束時間
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AbsTable.DateTimeB">
+            <summary>
+            請假開始日期時間
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AbsTable.DateTimeE">
+            <summary>
+            請假結束日期時間
+            </summary>
+        </member>
+        <member name="T:Bll.Att.Vdb.OtTable">
+            <summary>
+            加班資料
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.OtTable.Nobr">
+            <summary>
+            工號
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.OtTable.Date">
+            <summary>
+            加班日期
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.OtTable.RoteCode">
+            <summary>
+            加班班別
+            </summary>
+        </member>
+        <member name="T:Bll.Att.Vdb.CardTable">
+            <summary>
+            刷卡資料
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.CardTable.Nobr">
+            <summary>
+            工號
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.CardTable.CardDate">
+            <summary>
+            刷卡日期
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.CardTable.CardTime24">
+            <summary>
+            刷卡時間24
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.CardTable.CardTime48">
+            <summary>
+            刷卡時間48
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.CardTable.CardDateTime">
+            <summary>
+            完整日期及時間
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.CardTable.Los">
+            <summary>
+            是否忘刷
+            </summary>
+        </member>
+        <member name="T:Bll.Att.Vdb.AttEndType">
+            <summary>
+            出勤分類
+            </summary>
+        </member>
+        <member name="F:Bll.Att.Vdb.AttEndType.Att">
+            <summary>
+            出勤1
+            </summary>
+        </member>
+        <member name="F:Bll.Att.Vdb.AttEndType.Res">
+            <summary>
+            休息2
+            </summary>
+        </member>
+        <member name="F:Bll.Att.Vdb.AttEndType.Abs">
+            <summary>
+            請假3
+            </summary>
+        </member>
+        <member name="T:Bll.Att.Vdb.AttEndTempTable">
+            <summary>
+            暫存專用的出勤資料
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AttEndTempTable.DateTimeB">
+            <summary>
+            開始日期時間
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AttEndTempTable.DateTimeE">
+            <summary>
+            結束日期時間
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AttEndTempTable.Type">
+            <summary>
+            類別
+            </summary>
+        </member>
+        <member name="T:Bll.Att.Vdb.AttCardTable">
+            <summary>
+            出勤資料
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AttCardTable.Nobr">
+            <summary>
+            工號
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AttCardTable.Date">
+            <summary>
+            日期
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AttCardTable.NoTrans">
+            <summary>
+            不轉換
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AttCardTable.OnCardTime24">
+            <summary>
+            上班刷卡時間24
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AttCardTable.OffCardTime24">
+            <summary>
+            下班刷卡時間24
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AttCardTable.OnCardTime48">
+            <summary>
+            上班刷卡時間48
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AttCardTable.OffCardTime48">
+            <summary>
+            下班刷卡時間48
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AttCardTable.OnLos">
+            <summary>
+            上班忘刷
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AttCardTable.OffLos">
+            <summary>
+            下班忘刷
+            </summary>
+        </member>
+        <member name="T:Bll.Att.Vdb.AttEndTable">
+            <summary>
+            出勤班別資料
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AttEndTable.Nobr">
+            <summary>
+            工號
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AttEndTable.Date">
+            <summary>
+            日期
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AttEndTable.RoteCode">
+            <summary>
+            班別代碼
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AttEndTable.LatesMin">
+            <summary>
+            遲到
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AttEndTable.EarlierMin">
+            <summary>
+            早退
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AttEndTable.Abs">
+            <summary>
+            曠職
+            </summary>
+        </member>
+        <member name="P:Bll.Att.Vdb.AttEndTable.Card">
+            <summary>
+            忘刷
+            </summary>
+        </member>
+        <member name="M:Bll.Tools.TimeTrans.ConvertHhMmToMinutes(System.String)">
+            <summary>
+            轉換時間為分鐘數
+            </summary>
+            <param name="sTime">時間(為4為位之數值)</param>
+            <returns>int</returns>
+        </member>
+        <member name="M:Bll.Tools.TimeTrans.ConvertHhMmToMinutes(System.String,System.Boolean)">
+            <summary>
+            轉換時間為分鐘數
+            </summary>
+            <param name="sTime">時間(為4為位之數值)</param>
+            <param name="bStart">當轉換時間格式不正確時,預帶之轉換時間bStart = True = "0000"</param>
+            <returns>int</returns>
+        </member>
+        <member name="M:Bll.Tools.TimeTrans.ConvertMinutesToHhMm(System.Int32)">
+            <summary>
+            轉換分鐘為時間
+            </summary>
+            <param name="iMinutes">分鐘數</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:Bll.Tools.TimeTrans.SplitTimeToHhOrMm(System.String,System.Boolean)">
+            <summary>
+            分割時間字串為小時或分鐘
+            </summary>
+            <param name="sTime">時間(為4為位之數值,不足4位時會向前補零)</param>
+            <param name="bHour">bHour = True = 取得小時</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:Bll.Tools.TimeTrans.SplitTimeToHhMmSs(System.String)">
+            <summary>
+            分割時間字串為標準時間ex: 12 : 30 : 00
+            </summary>
+            <param name="sTime">時間(為4為位之數值,不足4位時會向前補零)</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:Bll.Tools.TimeTrans.SplitTimeToHhMm(System.DateTime)">
+            <summary>
+            將日期轉成HHMM
+            </summary>
+            <param name="dDate">日期</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:Bll.Tools.TimeTrans.DateOfStartOrEnd(System.DateTime,System.Boolean)">
+            <summary>
+            取得整月的開始日期或結束日期
+            </summary>
+            <param name="dDate">日期</param>
+            <param name="bStart">bStart = True = 開始日期</param>
+            <returns>DateTime</returns>
+        </member>
+        <member name="M:Bll.Tools.TimeTrans.DateOfStartOrEnd(System.String,System.Boolean)">
+            <summary>
+            取得整月的開始日期或結束日期
+            </summary>
+            <param name="sYYMM"></param>
+            <param name="bStart">bStart = True = 開始日期</param>
+            <returns>DateTime</returns>
+        </member>
+        <member name="M:Bll.Tools.TimeTrans.DateToYyMm(System.DateTime)">
+            <summary>
+            日期轉換成YYMM
+            </summary>
+            <param name="dDate">日期</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:Bll.Tools.TimeTrans.YyMnToDate(System.String,System.Int32)">
+            <summary>
+            YYMM轉換成日期
+            </summary>
+            <param name="sYYMM">YYMM</param>
+            <param name="iDay">日</param>
+            <returns>DateTime</returns>
+        </member>
+        <member name="M:Bll.Tools.TimeTrans.YyMmToDate(System.String,System.Int32)">
+            <summary>
+            YYMM轉換成日期
+            </summary>
+            <param name="sYYMM">YYMM</param>
+            <param name="iDay">日</param>
+            <returns>DateTime</returns>
+        </member>
+        <member name="M:Bll.Tools.DefaultData.SetRowDefaultValue(System.Data.DataRow)">
+            <summary>
+            填入所有預設資料
+            </summary>
+            <param name="row">Row</param>
+        </member>
+        <member name="M:Bll.Tools.DefaultData.SetRowDefaultValue(System.Object)">
+            <summary>
+            填入所有預設資料
+            </summary>
+            <param name="LinqObj">object</param>
+        </member>
+        <member name="M:Bll.Tools.DefaultData.CloneProperties``1(``0,``0)">
+            <summary>
+            資料複制
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="origin"></param>
+            <param name="destination"></param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,2 @@
+ALTER TABLE LARCODE ADD NODISASTER bit not null default 0
+GO

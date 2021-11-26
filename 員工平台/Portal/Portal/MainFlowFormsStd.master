@@ -1,0 +1,339 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="MainFlowFormsStd.master.cs" Inherits="Portal.MainFlowFormsStd" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="cphHead" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="Templates/Inspinia/css/plugins/footable/footable.core.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/plugins/steps/jquery.steps.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/plugins/clockpicker/clockpicker.css" rel="stylesheet">
+
+    <link href="Templates/Inspinia/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/animate.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/style.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/plugins/colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/plugins/dropzone/basic.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/plugins/dropzone/dropzone.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/plugins/select2/select2-bootstrap4.min.css" rel="stylesheet">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style type="text/css">
+        .titlexxlarge {
+            font-weight: bold;
+            font-size: xx-large
+        }
+
+        .titlelarge {
+            font-weight: bold;
+            font-size: large
+        }
+
+        .form-control[type=file]:not(:disabled):not([readonly]) {
+            cursor: pointer;
+            padding: 0;
+            height: 30px;
+        }
+
+        .form-control[type=file] {
+            overflow: hidden;
+        }
+
+        .form-control:disabled, .form-control[readonly] {
+            background-color: #e8f6f3;
+            opacity: 1;
+        }
+
+        /*form_icon*/
+        .form_icon {
+            color: #1ab394;
+        }
+
+        /*Select2 */
+        .select2-container--bootstrap4 .select2-selection {
+            border-radius: 0;
+            border: 1px solid #e5e6e7;
+        }
+
+        .select2-container--bootstrap4.select2-container--focus .select2-selection {
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            border-color: #1ab394;
+        }
+
+        .select2-container--bootstrap4 .select2-selection--single .select2-selection__arrow b {
+            border-color: #1ab394 transparent transparent;
+        }
+
+        .select2-container--bootstrap4 .select2-results__option--highlighted, .select2-container--bootstrap4 .select2-results__option--highlighted.select2-results__option[aria-selected=true] {
+            background-color: #1ab394;
+        }
+
+        .keyin {
+            padding: .75rem 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+        }
+
+        .keyin-border {
+            color: #676A6C;
+            background-color: #FFFFFF;
+            border-color: #e7eaec;
+            box-shadow: #e8f6f3 3px 3px 1px;
+        }
+
+        @media only screen and (min-width: 375px) and (max-width:480px) {
+            .col {
+                padding-right: 0 !important;
+            }
+        }
+    </style>
+    <telerik:RadAjaxManagerProxy ID="RadAjaxManagerProxyFlowFormsStd" runat="server">
+        <AjaxSettings>
+            <telerik:AjaxSetting AjaxControlID="btnAdd">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="plInfo" />
+                    <telerik:AjaxUpdatedControl ControlID="plAppM" />
+                    <telerik:AjaxUpdatedControl ControlID="plAppS" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            <telerik:AjaxSetting AjaxControlID="btnSubmit">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="plInfo" />
+                    <telerik:AjaxUpdatedControl ControlID="plAppM" />
+                    <telerik:AjaxUpdatedControl ControlID="gvAppS" />
+                    <telerik:AjaxUpdatedControl ControlID="lblErrorMsg" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            
+        </AjaxSettings>
+    </telerik:RadAjaxManagerProxy>
+    <div style="padding: 20px 0px 30px 0px">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>申請人資訊</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <telerik:RadAjaxPanel ID="plAppM" runat="server">
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label class=" col-form-label">員工姓名</label>
+                                    <telerik:RadLabel runat="server" ID="lblEmpName" CssClass="form-control" Text="許名瑤,A0550" Enabled="false"></telerik:RadLabel>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class=" col-form-label">部門</label>
+                                    <telerik:RadLabel runat="server" ID="lblDept" CssClass="form-control" Text="許名瑤,A0550" Enabled="false"></telerik:RadLabel>
+                                </div>
+                            </div>
+                        </telerik:RadAjaxPanel>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <telerik:RadAjaxPanel ID="plSubmit" runat="server">
+
+            <asp:ContentPlaceHolder ID="cphCondition" runat="server">
+            </asp:ContentPlaceHolder>
+        </telerik:RadAjaxPanel>
+        <div class="ibox">
+            <div class="ibox-title">
+                <h5>新增申請人員</h5>
+                <div class="ibox-tools" style="top: 10px; right: 20px;">
+                    <telerik:RadButton ID="btnSubmit" runat="server" Text="送出" CssClass="btn btn-primary" OnClick="btnSubmit_Click" OnClientClicking="Clicking" />
+                   
+                     <h3>
+                        <telerik:RadLabel ID="lblErrorMsg" runat="server" Text="" Style="color: red;"></telerik:RadLabel>
+                    </h3>
+                </div>
+            </div>
+            <asp:ContentPlaceHolder ID="cphMain" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+
+    <!-- Custom and plugin javascript -->
+
+    <!-- Steps -->
+    <script src="Templates/Inspinia/js/plugins/steps/jquery.steps.min.js"></script>
+
+    <!-- Jquery Validate -->
+    <script src="Templates/Inspinia/js/plugins/validate/jquery.validate.min.js"></script>
+
+    <!-- Input Mask-->
+    <script src="Templates/Inspinia/js/plugins/jasny/jasny-bootstrap.min.js"></script>
+
+    <!-- Data picker -->
+    <script src="Templates/Inspinia/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+    <!-- Tags Input -->
+    <script src="Templates/Inspinia/js/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+    <script src="Templates/Inspinia/js/plugins/clockpicker/clockpicker.js"></script>
+    <script src="Templates/Inspinia/js/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+
+    <!-- Select2 -->
+    <script src="Templates/Inspinia/js/plugins/select2/select2.full.min.js"></script>
+
+    <script type="text/javascript">
+        function Clicking(sender, args) {
+            args.set_cancel(!window.confirm("確定執行嗎?"));
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#wizard").steps();
+            $("#form").steps({
+                bodyTag: "fieldset",
+                onStepChanging: function (event, currentIndex, newIndex) {
+                    // Always allow going backward even if the current step contains invalid fields!
+                    if (currentIndex > newIndex) {
+                        return true;
+                    }
+
+                    // Forbid suppressing "Warning" step if the user is to young
+                    if (newIndex === 3 && Number($("#age").val()) < 18) {
+                        return false;
+                    }
+
+                    var form = $(this);
+
+                    // Clean up if user went backward before
+                    if (currentIndex < newIndex) {
+                        // To remove error styles
+                        $(".body:eq(" + newIndex + ") label.error", form).remove();
+                        $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+                    }
+
+                    // Disable validation on fields that are disabled or hidden.
+                    form.validate().settings.ignore = ":disabled,:hidden";
+
+                    // Start validation; Prevent going forward if false
+                    return form.valid();
+                },
+                onStepChanged: function (event, currentIndex, priorIndex) {
+                    // Suppress (skip) "Warning" step if the user is old enough.
+                    if (currentIndex === 2 && Number($("#age").val()) >= 18) {
+                        $(this).steps("next");
+                    }
+
+                    // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
+                    if (currentIndex === 2 && priorIndex === 3) {
+                        $(this).steps("previous");
+                    }
+                },
+                onFinishing: function (event, currentIndex) {
+                    var form = $(this);
+
+                    // Disable validation on fields that are disabled.
+                    // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
+                    form.validate().settings.ignore = ":disabled";
+
+                    // Start validation; Prevent form submission if false
+                    return form.valid();
+                },
+                onFinished: function (event, currentIndex) {
+                    var form = $(this);
+
+                    // Submit form input
+                    form.submit();
+                }
+            }).validate({
+                errorPlacement: function (error, element) {
+                    element.before(error);
+                },
+                rules: {
+                    confirm: {
+                        equalTo: "#password"
+                    }
+                }
+            });
+        });
+
+        var mem = $('#data_1 .input-group.date').datepicker({
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
+
+        var yearsAgo = new Date();
+        yearsAgo.setFullYear(yearsAgo.getFullYear() - 20);
+
+        $('.clockpicker').clockpicker();
+
+        $(".select2_demo_1").select2({
+            theme: 'bootstrap4',
+        });
+
+        $('#selector').datepicker('setDate', yearsAgo);
+
+        var mem = $('#data_2 .input-group.date').datepicker({
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
+
+        var yearsAgo = new Date();
+        yearsAgo.setFullYear(yearsAgo.getFullYear() - 20);
+
+        $('#selector').datepicker('setDate', yearsAgo);
+
+    </script>
+    <script src="Templates/Inspinia/js/plugins/dropzone/dropzone.js"></script>
+    <script type="text/javascript">
+        DropzoneInit();
+
+        function DropzoneInit(sender, eventArgs) {
+            Dropzone.autoDiscover = false;
+            //Simple Dropzonejs 
+            $("#dZUpload").dropzone({
+                //指定上传图片的路径
+                url: "HandlerFileUploadDropzone.ashx",
+                //method: "post",
+                //添加上传取消和删除预览图片的链接，默认不添加
+                addRemoveLinks: true,
+                //关闭自动上传功能，默认会true会自动上传
+                //也就是添加一张图片向服务器发送一次请求
+                autoProcessQueue: true,
+                //允许上传多个照片
+                uploadMultiple: false,
+                //每次上传的最多文件数，经测试默认为2，坑啊
+                //记得修改web.config 限制上传文件大小的节
+                parallelUploads: 1, //手动触发时一次最大可以上传多少个文件
+                maxFiles: 1, //一次上传的量
+                maxFilesize: 10,   //M为单位
+                acceptedFiles: ".jpg,.jpeg,.doc,.docx,.ppt,.pptx,.txt,.pdf,.mp3,.zip,.png,.xls,.xlsx",//可接受的上传类型
+                dictDefaultMessage: "點擊或拖入要上傳的文件",      //上传框默认显示文字
+                dictMaxFilesExceeded: "一次只能上傳1個檔案",
+                dictResponseError: "上傳失敗",
+                dictInvalidFileType: "此檔案類型不能上傳",
+                dictFallbackMessage: "瀏覽器不支援",
+                dictFileTooBig: "檔案大小超過限制(10MB)",
+                success: function (file, response) {
+                    var imgName = response;
+                    file.previewElement.classList.add("dz-success");
+                    console.log("Successfully uploaded :" + imgName);
+
+                    //this.removeAllFiles();
+                },
+                error: function (file, response) {
+                    file.previewElement.classList.add("dz-error");
+                }
+            });
+        }
+    </script>
+    <asp:ContentPlaceHolder ID="cphFooter" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>

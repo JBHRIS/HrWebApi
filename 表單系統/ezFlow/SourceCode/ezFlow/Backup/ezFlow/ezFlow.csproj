@@ -1,0 +1,331 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FE50F0C0-0F1C-4DBE-AAD3-9C748A126F73}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ezFlow</RootNamespace>
+    <AssemblyName>ezFlow</AssemblyName>
+    <ManifestCertificateThumbprint>28F0FF491CCF58E0FD15E8E54EDF7DFB4C5C089E</ManifestCertificateThumbprint>
+    <ManifestKeyFile>ezFlow_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>true</SignManifests>
+    <PublishUrl>http://192.168.1.36/ezFlow/ezFlow/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <SupportUrl>http://www.jbjob.com.tw</SupportUrl>
+    <ProductName>ezFlow%28流程設計強力工具%29</ProductName>
+    <PublisherName>傑報資訊</PublisherName>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseDeclare.cs" />
+    <Compile Include="ezFlowDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ezFlowDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="fmEmpSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmEmpSelector.Designer.cs">
+      <DependentUpon>fmEmpSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmLineType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmLineType.Designer.cs">
+      <DependentUpon>fmLineType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmMain.Designer.cs">
+      <DependentUpon>fmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmNodeEnd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmNodeEnd.Designer.cs">
+      <DependentUpon>fmNodeEnd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmNodeMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmNodeMail.Designer.cs">
+      <DependentUpon>fmNodeMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmNodeService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmNodeService.Designer.cs">
+      <DependentUpon>fmNodeService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmNodeStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmNodeStart.Designer.cs">
+      <DependentUpon>fmNodeStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmOpenFlow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmOpenFlow.Designer.cs">
+      <DependentUpon>fmOpenFlow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmOrgSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmOrgSelector.Designer.cs">
+      <DependentUpon>fmOrgSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmLinkPower.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmLinkPower.Designer.cs">
+      <DependentUpon>fmLinkPower.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmRoleSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmRoleSelector.Designer.cs">
+      <DependentUpon>fmRoleSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmSetFlowPower.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmSetFlowPower.Designer.cs">
+      <DependentUpon>fmSetFlowPower.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmSysVar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmSysVar.Designer.cs">
+      <DependentUpon>fmSysVar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ImageLink.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="fmEmpSelector.resx">
+      <DependentUpon>fmEmpSelector.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmLineType.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>fmLineType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>fmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmNodeEnd.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>fmNodeEnd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmNodeMail.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>fmNodeMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmNodeService.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>fmNodeService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmNodeStart.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>fmNodeStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmOpenFlow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>fmOpenFlow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmOrgSelector.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>fmOrgSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmLinkPower.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>fmLinkPower.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmRoleSelector.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>fmRoleSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmSetFlowPower.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>fmSetFlowPower.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmSysVar.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>fmSysVar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmMangPower.resx">
+      <DependentUpon>fmMangPower.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmNodeInit.resx">
+      <DependentUpon>fmNodeInit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmNodeForm.resx">
+      <DependentUpon>fmNodeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmNodeMang.resx">
+      <DependentUpon>fmNodeMang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmNodeMultiInit.resx">
+      <DependentUpon>fmNodeMultiInit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmNodeCustom.resx">
+      <DependentUpon>fmNodeCustom.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmNodeDynamic.resx">
+      <DependentUpon>fmNodeDynamic.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmNodeAgentInit.resx">
+      <DependentUpon>fmNodeAgentInit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="ezFlowDS.xsc">
+      <DependentUpon>ezFlowDS.xsd</DependentUpon>
+    </None>
+    <None Include="ezFlowDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ezFlowDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ezFlowDS.xss">
+      <DependentUpon>ezFlowDS.xsd</DependentUpon>
+    </None>
+    <None Include="ezFlow_TemporaryKey.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="fmMangPower.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmMangPower.Designer.cs">
+      <DependentUpon>fmMangPower.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmNodeInit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmNodeInit.Designer.cs">
+      <DependentUpon>fmNodeInit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmNodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmNodeForm.Designer.cs">
+      <DependentUpon>fmNodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmNodeMang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmNodeMang.Designer.cs">
+      <DependentUpon>fmNodeMang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmNodeMultiInit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmNodeMultiInit.Designer.cs">
+      <DependentUpon>fmNodeMultiInit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmNodeCustom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmNodeCustom.Designer.cs">
+      <DependentUpon>fmNodeCustom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmNodeDynamic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmNodeDynamic.Designer.cs">
+      <DependentUpon>fmNodeDynamic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmNodeAgentInit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmNodeAgentInit.Designer.cs">
+      <DependentUpon>fmNodeAgentInit.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

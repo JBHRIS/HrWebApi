@@ -1,0 +1,4 @@
+﻿CREATE VIEW [dbo].[JB_HR_CardApp]
+AS
+SELECT     RTRIM(NOBR) AS sNobr, RTRIM(CARDNO) AS sCardNo, BDATE AS dDateB, TEMPS AS bTemps
+FROM         dbo.CARDAPP

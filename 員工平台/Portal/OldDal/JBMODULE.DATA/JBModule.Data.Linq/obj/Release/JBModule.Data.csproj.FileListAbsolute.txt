@@ -1,0 +1,2 @@
+C:\Project\SVN\Customer\員工平台\Portal\OldDal\JBMODULE.DATA\JBModule.Data.Linq\obj\Release\JBModule.Data.csprojAssemblyReference.cache
+C:\Project\SVN\Customer\員工平台\Portal\OldDal\JBMODULE.DATA\JBModule.Data.Linq\obj\Release\JBModule.Data.csproj.CoreCompileInputs.cache

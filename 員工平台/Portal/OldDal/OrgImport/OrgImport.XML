@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OrgImport</name>
+    </assembly>
+    <members>
+        <member name="M:OrgImport.Program.CreateSubOrgPath(System.Collections.Generic.List{OrgImport.Dept},System.Collections.Generic.IEnumerable{OrgImport.Dept},System.String)">
+            <summary>
+            遞回部門路徑
+            </summary>
+            <param name="lsDept"></param>
+            <param name="rows"></param>
+            <param name="parentPath"></param>
+        </member>
+        <member name="M:OrgImport.Program.FixPorcess(OrgImport.dcFlowDataContext)">
+            <summary>
+            修正流程
+            </summary>
+            <param name="dcFlow"></param>
+        </member>
+    </members>
+</doc>

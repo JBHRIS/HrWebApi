@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[RSEMPPR] (
+    [DEPT]     NVARCHAR (50)   NOT NULL,
+    [JOB]      NVARCHAR (50)   NOT NULL,
+    [JOBL]     NVARCHAR (50)   NOT NULL,
+    [PNS]      DECIMAL (16, 2) NOT NULL,
+    [NAME_C]   NVARCHAR (50)   NOT NULL,
+    [STAT]     NVARCHAR (50)   NOT NULL,
+    [ADATE]    DATETIME        NOT NULL,
+    [NOTE]     NVARCHAR (50)   NOT NULL,
+    [KEY_MAN]  NVARCHAR (50)   NOT NULL,
+    [KEY_DATE] DATETIME        NOT NULL
+);
+

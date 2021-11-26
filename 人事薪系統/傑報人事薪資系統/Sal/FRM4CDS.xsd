@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FRM4CDS" targetNamespace="http://tempuri.org/FRM4CDS.xsd" xmlns:mstns="http://tempuri.org/FRM4CDS.xsd" xmlns="http://tempuri.org/FRM4CDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="JBHRConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="JBHRConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.JBHR.Properties.Settings.GlobalReference.Default.JBHRConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DEPTTableAdapter" GeneratorDataComponentClassName="DEPTTableAdapter" Name="DEPT" UserDataComponentName="DEPTTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="waferhr.dbo.DEPT" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          D_NO, D_NAME
+FROM              DEPT
+ORDER BY   D_NO</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="D_NO" DataSetColumn="D_NO" />
+              <Mapping SourceColumn="D_NAME" DataSetColumn="D_NAME" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_BASETableAdapter" GeneratorDataComponentClassName="V_BASETableAdapter" Name="V_BASE" UserDataComponentName="V_BASETableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="waferhr.dbo.V_BASE" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT NOBR, NAME_C, NAME_E, NAME_P, SALADR FROM dbo.V_BASE</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NOBR" DataSetColumn="NOBR" />
+              <Mapping SourceColumn="NAME_C" DataSetColumn="NAME_C" />
+              <Mapping SourceColumn="NAME_E" DataSetColumn="NAME_E" />
+              <Mapping SourceColumn="NAME_P" DataSetColumn="NAME_P" />
+              <Mapping SourceColumn="SALADR" DataSetColumn="SALADR" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SALABSTableAdapter" GeneratorDataComponentClassName="SALABSTableAdapter" Name="SALABS" UserDataComponentName="SALABSTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="waferhr.dbo.SALABS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[SALABS] WHERE (([YYMM] = @Original_YYMM) AND ([NOBR] = @Original_NOBR) AND ([ADATE] = @Original_ADATE) AND ([BTIME] = @Original_BTIME) AND ([H_CODE] = @Original_H_CODE) AND ([SAL_CODE] = @Original_SAL_CODE) AND ([AMT] = @Original_AMT) AND ([ADJ_CODE] = @Original_ADJ_CODE) AND ([MLSSALCODE] = @Original_MLSSALCODE) AND ([KEY_DATE] = @Original_KEY_DATE) AND ([KEY_MAN] = @Original_KEY_MAN) AND ([SALSEQ] = @Original_SALSEQ))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_YYMM" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="YYMM" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_NOBR" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NOBR" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_ADATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ADATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BTIME" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BTIME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_H_CODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="H_CODE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SAL_CODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SAL_CODE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_AMT" Precision="16" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="AMT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_ADJ_CODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ADJ_CODE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MLSSALCODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MLSSALCODE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_KEY_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="KEY_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KEY_MAN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KEY_MAN" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SALSEQ" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SALSEQ" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[SALABS] ([YYMM], [NOBR], [ADATE], [BTIME], [H_CODE], [SAL_CODE], [AMT], [ADJ_CODE], [MLSSALCODE], [KEY_DATE], [KEY_MAN], [SALSEQ]) VALUES (@YYMM, @NOBR, @ADATE, @BTIME, @H_CODE, @SAL_CODE, @AMT, @ADJ_CODE, @MLSSALCODE, @KEY_DATE, @KEY_MAN, @SALSEQ);
+SELECT YYMM, NOBR, ADATE, BTIME, H_CODE, SAL_CODE, AMT, ADJ_CODE, MLSSALCODE, KEY_DATE, KEY_MAN, SALSEQ FROM SALABS WHERE (ADATE = @ADATE) AND (BTIME = @BTIME) AND (H_CODE = @H_CODE) AND (NOBR = @NOBR) AND (SAL_CODE = @SAL_CODE) AND (YYMM = @YYMM)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@YYMM" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="YYMM" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NOBR" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NOBR" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@ADATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ADATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BTIME" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BTIME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@H_CODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="H_CODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SAL_CODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SAL_CODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@AMT" Precision="16" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="AMT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@ADJ_CODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ADJ_CODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MLSSALCODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MLSSALCODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@KEY_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="KEY_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KEY_MAN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KEY_MAN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SALSEQ" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SALSEQ" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT YYMM, NOBR, ADATE, BTIME, H_CODE, SAL_CODE, AMT, ADJ_CODE, MLSSALCODE, KEY_DATE, KEY_MAN, SALSEQ FROM dbo.SALABS</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[SALABS] SET [YYMM] = @YYMM, [NOBR] = @NOBR, [ADATE] = @ADATE, [BTIME] = @BTIME, [H_CODE] = @H_CODE, [SAL_CODE] = @SAL_CODE, [AMT] = @AMT, [ADJ_CODE] = @ADJ_CODE, [MLSSALCODE] = @MLSSALCODE, [KEY_DATE] = @KEY_DATE, [KEY_MAN] = @KEY_MAN, [SALSEQ] = @SALSEQ WHERE (([YYMM] = @Original_YYMM) AND ([NOBR] = @Original_NOBR) AND ([ADATE] = @Original_ADATE) AND ([BTIME] = @Original_BTIME) AND ([H_CODE] = @Original_H_CODE) AND ([SAL_CODE] = @Original_SAL_CODE) AND ([AMT] = @Original_AMT) AND ([ADJ_CODE] = @Original_ADJ_CODE) AND ([MLSSALCODE] = @Original_MLSSALCODE) AND ([KEY_DATE] = @Original_KEY_DATE) AND ([KEY_MAN] = @Original_KEY_MAN) AND ([SALSEQ] = @Original_SALSEQ));
+SELECT YYMM, NOBR, ADATE, BTIME, H_CODE, SAL_CODE, AMT, ADJ_CODE, MLSSALCODE, KEY_DATE, KEY_MAN, SALSEQ FROM SALABS WHERE (ADATE = @ADATE) AND (BTIME = @BTIME) AND (H_CODE = @H_CODE) AND (NOBR = @NOBR) AND (SAL_CODE = @SAL_CODE) AND (YYMM = @YYMM)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@YYMM" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="YYMM" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NOBR" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NOBR" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@ADATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ADATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BTIME" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BTIME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@H_CODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="H_CODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SAL_CODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SAL_CODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@AMT" Precision="16" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="AMT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@ADJ_CODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ADJ_CODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MLSSALCODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MLSSALCODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@KEY_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="KEY_DATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@KEY_MAN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KEY_MAN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@SALSEQ" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SALSEQ" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_YYMM" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="YYMM" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_NOBR" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NOBR" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_ADATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ADATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BTIME" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BTIME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_H_CODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="H_CODE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SAL_CODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SAL_CODE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_AMT" Precision="16" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="AMT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_ADJ_CODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ADJ_CODE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MLSSALCODE" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MLSSALCODE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_KEY_DATE" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="KEY_DATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_KEY_MAN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="KEY_MAN" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_SALSEQ" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="SALSEQ" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="YYMM" DataSetColumn="YYMM" />
+              <Mapping SourceColumn="NOBR" DataSetColumn="NOBR" />
+              <Mapping SourceColumn="ADATE" DataSetColumn="ADATE" />
+              <Mapping SourceColumn="BTIME" DataSetColumn="BTIME" />
+              <Mapping SourceColumn="H_CODE" DataSetColumn="H_CODE" />
+              <Mapping SourceColumn="SAL_CODE" DataSetColumn="SAL_CODE" />
+              <Mapping SourceColumn="AMT" DataSetColumn="AMT" />
+              <Mapping SourceColumn="ADJ_CODE" DataSetColumn="ADJ_CODE" />
+              <Mapping SourceColumn="MLSSALCODE" DataSetColumn="MLSSALCODE" />
+              <Mapping SourceColumn="KEY_DATE" DataSetColumn="KEY_DATE" />
+              <Mapping SourceColumn="KEY_MAN" DataSetColumn="KEY_MAN" />
+              <Mapping SourceColumn="SALSEQ" DataSetColumn="SALSEQ" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="JBHRConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery" Modifier="Public" Name="DeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteQuery">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM SALABS
+WHERE          (YYMM = @yymm) AND (NOBR BETWEEN @nobrb AND @nobre)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="yymm" ColumnName="YYMM" DataSourceName="waferhr.dbo.SALABS" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@yymm" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="YYMM" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="nobrb" ColumnName="NOBR" DataSourceName="waferhr.dbo.SALABS" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@nobrb" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="NOBR" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="nobre" ColumnName="NOBR" DataSourceName="waferhr.dbo.SALABS" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@nobre" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="NOBR" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FRM4CDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="FRM4CDS" msprop:Generator_DataSetName="FRM4CDS" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DEPT" msprop:Generator_UserTableName="DEPT" msprop:Generator_RowDeletedName="DEPTRowDeleted" msprop:Generator_RowChangedName="DEPTRowChanged" msprop:Generator_RowClassName="DEPTRow" msprop:Generator_RowChangingName="DEPTRowChanging" msprop:Generator_RowEvArgName="DEPTRowChangeEvent" msprop:Generator_RowEvHandlerName="DEPTRowChangeEventHandler" msprop:Generator_TableClassName="DEPTDataTable" msprop:Generator_TableVarName="tableDEPT" msprop:Generator_RowDeletingName="DEPTRowDeleting" msprop:Generator_TablePropName="DEPT">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="D_NO" msprop:Generator_UserColumnName="D_NO" msprop:Generator_ColumnPropNameInRow="D_NO" msprop:Generator_ColumnVarNameInTable="columnD_NO" msprop:Generator_ColumnPropNameInTable="D_NOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="D_NAME" msprop:Generator_UserColumnName="D_NAME" msprop:Generator_ColumnPropNameInRow="D_NAME" msprop:Generator_ColumnVarNameInTable="columnD_NAME" msprop:Generator_ColumnPropNameInTable="D_NAMEColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="V_BASE" msprop:Generator_UserTableName="V_BASE" msprop:Generator_RowDeletedName="V_BASERowDeleted" msprop:Generator_RowChangedName="V_BASERowChanged" msprop:Generator_RowClassName="V_BASERow" msprop:Generator_RowChangingName="V_BASERowChanging" msprop:Generator_RowEvArgName="V_BASERowChangeEvent" msprop:Generator_RowEvHandlerName="V_BASERowChangeEventHandler" msprop:Generator_TableClassName="V_BASEDataTable" msprop:Generator_TableVarName="tableV_BASE" msprop:Generator_RowDeletingName="V_BASERowDeleting" msprop:Generator_TablePropName="V_BASE">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NOBR" msprop:Generator_UserColumnName="NOBR" msprop:Generator_ColumnPropNameInRow="NOBR" msprop:Generator_ColumnVarNameInTable="columnNOBR" msprop:Generator_ColumnPropNameInTable="NOBRColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME_C" msprop:Generator_UserColumnName="NAME_C" msprop:Generator_ColumnPropNameInRow="NAME_C" msprop:Generator_ColumnVarNameInTable="columnNAME_C" msprop:Generator_ColumnPropNameInTable="NAME_CColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME_E" msprop:Generator_UserColumnName="NAME_E" msprop:Generator_ColumnPropNameInRow="NAME_E" msprop:Generator_ColumnVarNameInTable="columnNAME_E" msprop:Generator_ColumnPropNameInTable="NAME_EColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME_P" msprop:Generator_UserColumnName="NAME_P" msprop:Generator_ColumnPropNameInRow="NAME_P" msprop:Generator_ColumnVarNameInTable="columnNAME_P" msprop:Generator_ColumnPropNameInTable="NAME_PColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SALADR" msprop:Generator_UserColumnName="SALADR" msprop:Generator_ColumnPropNameInRow="SALADR" msprop:Generator_ColumnVarNameInTable="columnSALADR" msprop:Generator_ColumnPropNameInTable="SALADRColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SALABS" msprop:Generator_UserTableName="SALABS" msprop:Generator_RowDeletedName="SALABSRowDeleted" msprop:Generator_RowChangedName="SALABSRowChanged" msprop:Generator_RowClassName="SALABSRow" msprop:Generator_RowChangingName="SALABSRowChanging" msprop:Generator_RowEvArgName="SALABSRowChangeEvent" msprop:Generator_RowEvHandlerName="SALABSRowChangeEventHandler" msprop:Generator_TableClassName="SALABSDataTable" msprop:Generator_TableVarName="tableSALABS" msprop:Generator_RowDeletingName="SALABSRowDeleting" msprop:Generator_TablePropName="SALABS">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="YYMM" msprop:Generator_UserColumnName="YYMM" msprop:Generator_ColumnVarNameInTable="columnYYMM" msprop:Generator_ColumnPropNameInRow="YYMM" msprop:Generator_ColumnPropNameInTable="YYMMColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NOBR" msprop:Generator_UserColumnName="NOBR" msprop:Generator_ColumnVarNameInTable="columnNOBR" msprop:Generator_ColumnPropNameInRow="NOBR" msprop:Generator_ColumnPropNameInTable="NOBRColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ADATE" msprop:Generator_UserColumnName="ADATE" msprop:Generator_ColumnVarNameInTable="columnADATE" msprop:Generator_ColumnPropNameInRow="ADATE" msprop:Generator_ColumnPropNameInTable="ADATEColumn" type="xs:dateTime" />
+              <xs:element name="BTIME" msprop:Generator_UserColumnName="BTIME" msprop:Generator_ColumnVarNameInTable="columnBTIME" msprop:Generator_ColumnPropNameInRow="BTIME" msprop:Generator_ColumnPropNameInTable="BTIMEColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="H_CODE" msprop:Generator_UserColumnName="H_CODE" msprop:Generator_ColumnVarNameInTable="columnH_CODE" msprop:Generator_ColumnPropNameInRow="H_CODE" msprop:Generator_ColumnPropNameInTable="H_CODEColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SAL_CODE" msprop:Generator_UserColumnName="SAL_CODE" msprop:Generator_ColumnVarNameInTable="columnSAL_CODE" msprop:Generator_ColumnPropNameInRow="SAL_CODE" msprop:Generator_ColumnPropNameInTable="SAL_CODEColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AMT" msprop:Generator_UserColumnName="AMT" msprop:Generator_ColumnVarNameInTable="columnAMT" msprop:Generator_ColumnPropNameInRow="AMT" msprop:Generator_ColumnPropNameInTable="AMTColumn" type="xs:decimal" />
+              <xs:element name="ADJ_CODE" msprop:Generator_UserColumnName="ADJ_CODE" msprop:Generator_ColumnVarNameInTable="columnADJ_CODE" msprop:Generator_ColumnPropNameInRow="ADJ_CODE" msprop:Generator_ColumnPropNameInTable="ADJ_CODEColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MLSSALCODE" msprop:Generator_UserColumnName="MLSSALCODE" msprop:Generator_ColumnVarNameInTable="columnMLSSALCODE" msprop:Generator_ColumnPropNameInRow="MLSSALCODE" msprop:Generator_ColumnPropNameInTable="MLSSALCODEColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KEY_DATE" msprop:Generator_UserColumnName="KEY_DATE" msprop:Generator_ColumnVarNameInTable="columnKEY_DATE" msprop:Generator_ColumnPropNameInRow="KEY_DATE" msprop:Generator_ColumnPropNameInTable="KEY_DATEColumn" type="xs:dateTime" />
+              <xs:element name="KEY_MAN" msprop:Generator_UserColumnName="KEY_MAN" msprop:Generator_ColumnVarNameInTable="columnKEY_MAN" msprop:Generator_ColumnPropNameInRow="KEY_MAN" msprop:Generator_ColumnPropNameInTable="KEY_MANColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SALSEQ" msprop:Generator_UserColumnName="SALSEQ" msprop:Generator_ColumnVarNameInTable="columnSALSEQ" msprop:Generator_ColumnPropNameInRow="SALSEQ" msprop:Generator_ColumnPropNameInTable="SALSEQColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DEPT" />
+      <xs:field xpath="mstns:D_NO" />
+    </xs:unique>
+    <xs:unique name="V_BASE_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:V_BASE" />
+      <xs:field xpath="mstns:NOBR" />
+    </xs:unique>
+    <xs:unique name="SALABS_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SALABS" />
+      <xs:field xpath="mstns:YYMM" />
+      <xs:field xpath="mstns:NOBR" />
+      <xs:field xpath="mstns:ADATE" />
+      <xs:field xpath="mstns:BTIME" />
+      <xs:field xpath="mstns:H_CODE" />
+      <xs:field xpath="mstns:SAL_CODE" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

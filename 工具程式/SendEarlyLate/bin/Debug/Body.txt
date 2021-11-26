@@ -1,0 +1,2 @@
+AttTopA[個人發送頁首]#<font color=black size=3><BR><B>您【{NOBR}】的出勤上下班刷卡時間資料異常，請查照下表</font></B><BR><B><font color=red>異常通知會發送至加班單簽核流程完成為止</font></B><BR><BR>
+AttDeptTopA[部門主管發送頁首]#<font color=black size=3><BR><B>出勤上下班刷卡資料時間異常，請查照下表<BR></font></B><B><font color=red>異常通知會發送至加班單簽核流程完成為止</font></B><BR><BR>

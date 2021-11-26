@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="4d4162dc-b082-4079-b4b3-d4f2127ca0cb" name="shingo@SHINGO-PC 2013-03-26 16:54:23" runUser="shingo-PC\shingo" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="本機" id="9f0738f3-28de-4c30-9774-93311bce5bff">
+    <Description>這些是本機測試回合的預設測試設定。</Description>
+    <Deployment enabled="false" runDeploymentRoot="shingo_SHINGO-PC 2013-03-26 16_54_23">
+      <DeploymentItem filename="C:\SVN\Standard\JBMODULE.MESSAGE\bin\Debug\JBModule.Message.dll" />
+      <DeploymentItem filename="C:\SVN\Customer\HOLYSTONE\元件\Dal\bin\Debug\Dal.dll" />
+      <DeploymentItem filename="C:\SVN\Customer\HOLYSTONE\元件\JBMODULE.DATA\JBModule.Data.Linq\bin\Debug\JBModule.Data.dll" />
+      <DeploymentItem filename="C:\SVN\Customer\HOLYSTONE\工具程式\JBHR_CardCollector\JBHR_CardCollector\bin\Debug\JBHR_CardCollector.exe" />
+      <DeploymentItem filename="C:\SVN\Standard\JBTools\bin\Debug\JBTools.dll" />
+      <DeploymentItem filename="C:\SVN\Standard\JBModule\JBModule\bin\Debug\JBModule.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-03-26T16:54:23.4521541+08:00" queuing="2013-03-26T16:54:23.6191636+08:00" start="2013-03-26T16:54:23.6521655+08:00" finish="2013-03-26T16:55:32.7571181+08:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="CardReadConstructorTest" storage="c:\svn\customer\holystone\工具程式\jbhr_cardcollector\testproject1\bin\debug\testproject1.dll" id="c76abb8a-d835-680a-fcbd-1e35cdec3c85">
+      <Execution id="afbf8741-73d3-4ff6-bebd-f2a4fa7e4018" />
+      <TestMethod codeBase="C:/SVN/Customer/HOLYSTONE/工具程式/JBHR_CardCollector/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.CardReadTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CardReadConstructorTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="不在清單中的結果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有載入的結果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="c76abb8a-d835-680a-fcbd-1e35cdec3c85" executionId="afbf8741-73d3-4ff6-bebd-f2a4fa7e4018" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="afbf8741-73d3-4ff6-bebd-f2a4fa7e4018" testId="c76abb8a-d835-680a-fcbd-1e35cdec3c85" testName="CardReadConstructorTest" computerName="SHINGO-PC" duration="00:01:08.7077103" startTime="2013-03-26T16:54:23.6611660+08:00" endTime="2013-03-26T16:55:32.7271164+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="afbf8741-73d3-4ff6-bebd-f2a4fa7e4018">
+      <Output>
+        <ErrorInfo>
+          <Message>測試方法 TestProject1.CardReadTest.CardReadConstructorTest 擲回例外狀況: 
+System.Data.SqlClient.SqlException: 建立連接至 SQL Server 時，發生網路相關或執行個體特定的錯誤。找不到或無法存取伺服器。確認執行個名稱是否正確，以及 SQL Server 是否設定為允許遠端連線。 (provider: Named Pipes Provider, error: 40 - 無法開啟至 SQL Server 的連接)</Message>
+          <StackTrace>    於 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   於 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   於 System.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity)
+   於 System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, SqlConnection owningObject)
+   於 System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, Boolean redirectedUserInstance, SqlConnection owningObject, SqlConnectionString connectionOptions, TimeoutTimer timeout)
+   於 System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(SqlConnection owningObject, TimeoutTimer timeout, SqlConnectionString connectionOptions, String newPassword, Boolean redirectedUserInstance)
+   於 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, Object providerInfo, String newPassword, SqlConnection owningObject, Boolean redirectedUserInstance)
+   於 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection)
+   於 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   於 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   於 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   於 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   於 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   於 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   於 System.Data.SqlClient.SqlConnection.Open()
+   於 System.Data.Linq.SqlClient.SqlConnectionManager.UseConnection(IConnectionUser user)
+   於 System.Data.Linq.SqlClient.SqlProvider.get_IsSqlCe()
+   於 System.Data.Linq.SqlClient.SqlProvider.InitializeProviderMode()
+   於 System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   於 System.Data.Linq.DataQuery`1.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   於 System.Linq.Queryable.First[TSource](IQueryable`1 source)
+   於 TestProject1.CardReadTest.CardReadConstructorTest() 於 C:\SVN\Customer\HOLYSTONE\工具程式\JBHR_CardCollector\TestProject1\CardReadTest.cs: 行 78
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

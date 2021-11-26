@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Single.master.cs" Inherits="Performance.Single" %>
+
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>績效獎金系統</title>
+
+    <link href="Templates/Inspinia/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Templates/Inspinia/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="Templates/Inspinia/css/animate.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/style.css" rel="stylesheet">
+
+    <asp:ContentPlaceHolder ID="cphHead" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+
+<body class="gray-bg">
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server" EnablePageMethods="true">
+        </telerik:RadScriptManager>
+        <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" runat="server" Skin="Default">
+        </telerik:RadAjaxLoadingPanel>
+        <div class="<%= _DivClass  %>">
+            <asp:ContentPlaceHolder ID="cphMain" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <div class="row">
+                <div class="col-md-6">
+                    Copyright 傑報
+                </div>
+                <div class="col-md-6 text-right">
+                    <small>© 2020</small>
+                </div>
+            </div>
+
+        </div>
+    </form>
+    <asp:ContentPlaceHolder ID="cphFooter" runat="server">
+    </asp:ContentPlaceHolder>
+
+</body>
+</html>

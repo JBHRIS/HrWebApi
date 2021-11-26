@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{18B233B7-6C64-4257-B2B3-945606E97187}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JBHRIS.BLL</RootNamespace>
+    <AssemblyName>JBHRIS.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\..\..\Customer\MAXIM\人事薪系統\上海美聲人事薪資系統\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration">
+      <HintPath>..\..\..\..\Customer\MAXIM\人事薪系統\上海美聲人事薪資系統\packages\Autofac.Configuration.3.3.0\lib\net40\Autofac.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\Customer\VADI\人事薪系統\愷得人事薪資系統\packages\Newtonsoft.Json.11.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\..\JBHRIS.Service\packages\NLog.4.0.1\lib\net40\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Att\AbsenceEntitleController.cs" />
+    <Compile Include="Att\AbsenceUtility.cs" />
+    <Compile Include="Att\LockAttend.cs" />
+    <Compile Include="Bas\BasettsFixDdateDao.cs" />
+    <Compile Include="Bas\InslabCnFixDdateDao.cs" />
+    <Compile Include="Bas\SalbasdFixDdateDao.cs" />
+    <Compile Include="Dto\AbsenceRequestCondition.cs" />
+    <Compile Include="Att\AbsenceRequestController.cs" />
+    <Compile Include="Att\AttendanceStateController.cs" />
+    <Compile Include="Att\Transformard.cs" />
+    <Compile Include="Att\CheckAttendanceError.cs" />
+    <Compile Include="Dto\AbsTakenDto.cs" />
+    <Compile Include="Dto\AttendanceDto.cs" />
+    <Compile Include="Dto\AttendanceInfoCondition.cs" />
+    <Compile Include="Dto\AttendanceInfoDto.cs" />
+    <Compile Include="Dto\CheckImportData.cs" />
+    <Compile Include="Dto\EmpDto.cs" />
+    <Compile Include="Dto\EnrichDto.cs" />
+    <Compile Include="Dto\FileDictionaryDto.cs" />
+    <Compile Include="Dto\FileStreamInfoDto.cs" />
+    <Compile Include="Dto\LogMessage.cs" />
+    <Compile Include="Dto\ReportCondition.cs" />
+    <Compile Include="Dto\ScheduleParameter.cs" />
+    <Compile Include="IOC.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Dto\AttendCondition.cs" />
+    <Compile Include="Dto\AttendDto.cs" />
+    <Compile Include="Dto\AttcardCondition.cs" />
+    <Compile Include="Dto\AttcardDto.cs" />
+    <Compile Include="Dto\AbsCondition.cs" />
+    <Compile Include="Dto\AbsDto.cs" />
+    <Compile Include="Dto\AbsEntitleCondition.cs" />
+    <Compile Include="Dto\AbsEntitleDto.cs" />
+    <Compile Include="Repo\AbsEntitleRepo.cs" />
+    <Compile Include="Repo\AbsRepo.cs" />
+    <Compile Include="Dto\AttendanceLockCondition.cs" />
+    <Compile Include="Dto\AttendanceLockDto.cs" />
+    <Compile Include="Repo\AttendanceLockRepo.cs" />
+    <Compile Include="Repo\AttendCardRepo.cs" />
+    <Compile Include="Repo\AttendRepo.cs" />
+    <Compile Include="Dto\CardCondition.cs" />
+    <Compile Include="Dto\CardDto.cs" />
+    <Compile Include="Repo\CardRepo.cs" />
+    <Compile Include="Dto\EmpAttCondition.cs" />
+    <Compile Include="Repo\EmpAttRepo.cs" />
+    <Compile Include="Dto\EntitleCodeCondition.cs" />
+    <Compile Include="Dto\EntitleCodeDto.cs" />
+    <Compile Include="Repo\EntitleCodeRepo.cs" />
+    <Compile Include="Repo\IAttendaceRepo.cs" />
+    <Compile Include="Repo\AttendanceInfoRepo.cs" />
+    <Compile Include="Repo\IAbsRepo.cs" />
+    <Compile Include="Repo\IAttRepo.cs" />
+    <Compile Include="Repo\IEmpRepo.cs" />
+    <Compile Include="Repo\IEnrichRepo.cs" />
+    <Compile Include="Repo\ILoger.cs" />
+    <Compile Include="Dto\IncomeOfYearCondition.cs" />
+    <Compile Include="Dto\IncomeOfYearDto.cs" />
+    <Compile Include="Repo\IncomeOfYearRepo.cs" />
+    <Compile Include="Repo\IRepoHelper.cs" />
+    <Compile Include="Repo\ISchedule.cs" />
+    <Compile Include="Repo\IScheduleRepo.cs" />
+    <Compile Include="Dto\RoteCondition.cs" />
+    <Compile Include="Dto\RoteDto.cs" />
+    <Compile Include="Dto\OtCondition.cs" />
+    <Compile Include="Dto\OtDto.cs" />
+    <Compile Include="Dto\LeaveCodeCondition.cs" />
+    <Compile Include="Dto\LeaveCodeDto.cs" />
+    <Compile Include="Repo\LeaveCodeRepo.cs" />
+    <Compile Include="Repo\OtRepo.cs" />
+    <Compile Include="Repo\RoteRepo.cs" />
+    <Compile Include="Repo\ScheduleManager.cs" />
+    <Compile Include="Service\FileDictionaryService.cs" />
+    <Compile Include="Service\FileStreamService.cs" />
+    <Compile Include="Service\IReportService.cs" />
+    <Compile Include="Test\LeaveCodeRepo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="app.config" />
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JBTools\JBTools.csproj">
+      <Project>{9a891671-4fc7-4ddf-a21d-21e3d563cee6}</Project>
+      <Name>JBTools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

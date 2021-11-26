@@ -1,0 +1,78 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+.k-pdf-export, .k-pdf-export * {
+    font-family: 'Arial Unicode MS' !important;
+}
+
+.ListViewRow {
+    float: left;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.ListViewArticleUserSellRow {
+    float: left;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.Ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}
+
+.dragRangeSlider .rslSelectedregion {
+    cursor: pointer;
+}
+
+.infoContainer {
+    margin-top: 1em;
+}
+
+td{
+vertical-align: top !important;
+}
+
+.kdate{
+
+}
+
+    .kdate p {
+        margin: 0;
+        padding: 2px;
+        text-align: center;
+        font-size: 0.5em;
+    }
+
+    .kdate .kdateNum {
+        text-align: right;
+        color: #CCCCCC;
+        font-size: 2.5em;
+        padding: 0;
+        margin: 0;
+    }
+	
+
+/*麵包CSS*/
+
+.RadSiteMap_Silk .rsmOneLevel .rsmLink:hover, .RadSiteMap_Silk .rsmTwoLevels .rsmLevel1 .rsmLink:hover, .RadSiteMap_Silk .rsmThreeLevels .rsmLevel1 .rsmLink:hover, .RadSiteMap_Silk .rsmManyLevels .rsmLevel2 .rsmLink:hover{
+	border-color:rgba(0, 0, 0, 0) !important;
+	color:#676a6c !important;
+	background-color:rgba(0, 0, 0, 0) !important;
+}
+
+.RadSiteMap .rsmLink{
+	padding:0 !important;
+	color:#676a6c !important;
+	}
+	
+
+	

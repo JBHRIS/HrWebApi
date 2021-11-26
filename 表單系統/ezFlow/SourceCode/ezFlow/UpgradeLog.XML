@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="ezFlow">
+</Property><Property Name="方案檔" Value="D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\ezFlow.sln">
+</Property><Property Name="使用者選項檔" Value="D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\ezFlow.suo">
+</Property><Property Name="Date" Value="2012年11月6日">
+</Property><Property Name="Time" Value="上午 09:27">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="ezFlow.sln" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow.sln">
+</Event><Event ErrorLevel="0" Project="" Source="ezFlow.suo" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow.suo">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\ezFlow.csproj" Description="專案檔已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\ezFlow.csproj">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\ezFlow.csproj.user" Description="專案使用者檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\ezFlow.csproj.user">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\BaseDeclare.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\BaseDeclare.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\ezFlowDS.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\ezFlowDS.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmEmpSelector.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmEmpSelector.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmEmpSelector.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmEmpSelector.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmLineType.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmLineType.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmLineType.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmLineType.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmMain.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmMain.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmMain.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmMain.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeEnd.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeEnd.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeEnd.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeEnd.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeMail.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeMail.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeMail.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeMail.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeService.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeService.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeService.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeService.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeStart.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeStart.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeStart.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeStart.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmOpenFlow.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmOpenFlow.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmOpenFlow.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmOpenFlow.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmOrgSelector.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmOrgSelector.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmOrgSelector.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmOrgSelector.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmLinkPower.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmLinkPower.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmLinkPower.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmLinkPower.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmRoleSelector.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmRoleSelector.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmRoleSelector.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmRoleSelector.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmSetFlowPower.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmSetFlowPower.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmSetFlowPower.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmSetFlowPower.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmSysVar.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmSysVar.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmSysVar.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmSysVar.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\ImageBox.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\ImageBox.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\ImageLink.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\ImageLink.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\Program.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\Program.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\Properties\AssemblyInfo.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\Properties\Resources.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\Properties\Settings.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmMangPower.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmMangPower.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmMangPower.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmMangPower.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeInit.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeInit.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeInit.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeInit.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeForm.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeForm.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeForm.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeForm.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeMang.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeMang.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeMang.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeMang.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeMultiInit.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeMultiInit.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeMultiInit.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeMultiInit.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeCustom.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeCustom.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeCustom.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeCustom.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeDynamic.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeDynamic.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeDynamic.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeDynamic.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeAgentInit.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeAgentInit.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeAgentInit.Designer.cs" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeAgentInit.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\app.config" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\app.config">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\ezFlowDS.xsc" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\ezFlowDS.xsc">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\ezFlowDS.xsd" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\ezFlowDS.xsd">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\ezFlowDS.xss" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\ezFlowDS.xss">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\ezFlow_TemporaryKey.pfx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\ezFlow_TemporaryKey.pfx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\Properties\Settings.settings" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmEmpSelector.resx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmEmpSelector.resx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmLineType.resx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmLineType.resx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmMain.resx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmMain.resx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeEnd.resx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeEnd.resx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeMail.resx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeMail.resx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeService.resx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeService.resx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeStart.resx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeStart.resx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmOpenFlow.resx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmOpenFlow.resx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmOrgSelector.resx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmOrgSelector.resx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmLinkPower.resx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmLinkPower.resx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmRoleSelector.resx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmRoleSelector.resx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmSetFlowPower.resx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmSetFlowPower.resx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmSysVar.resx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmSysVar.resx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\Properties\Resources.resx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmMangPower.resx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmMangPower.resx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeInit.resx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeInit.resx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeForm.resx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeForm.resx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeMang.resx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeMang.resx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeMultiInit.resx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeMultiInit.resx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeCustom.resx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeCustom.resx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeDynamic.resx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeDynamic.resx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\fmNodeAgentInit.resx" Description="檔案已成功備份為 D:\SVN\Customer\HOLYSTONE\表單系統\ezFlow\SourceCode\ezFlow\Backup\ezFlow\fmNodeAgentInit.resx">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\ezFlow.csproj" Description="專案轉換成功">
+</Event><Event ErrorLevel="3" Project="ezFlow" Source="ezFlow\ezFlow.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="ezFlow.sln" Description="方案轉換成功">
+</Event><Event ErrorLevel="3" Project="" Source="ezFlow.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ezFlow" Source="ezFlow\ezFlow.csproj" Description="掃描完成: 專案檔不需要升級。">
+</Event></UpgradeLog>

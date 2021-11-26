@@ -1,0 +1,30 @@
+<telerik:RadCheckBoxList ID="cbl" runat="server"  AutoPostBack="false"  />
+<telerik:RadCheckBox ID="cb" runat="server" Text="RadCheckBox"   />
+<telerik:RadRadioButtonList runat="server" ID="rbl"  AutoPostBack="false" Direction="Horizontal"  />
+<telerik:RadRadioButton runat="server" ID="rb" CssClass="GenderRadioButton" AutoPostBack="false" Value="male" Text="Male" OnClientClicked="toggleRadios" />
+<telerik:RadDropDownList ID="ddl" runat="server"  />
+<telerik:RadTextBox ID="txt" runat="server" EmptyMessage="請說明其它"  />
+<telerik:RadDatePicker RenderMode="Lightweight" ID="txtDateA"  runat="server"  DateInput-Label="到"  />
+<telerik:RadNumericTextBox ToolTip="發放禮品價值" ID="txt" NumberFormat-DecimalDigits="0" MaxLength="5" MinValue="0" MaxValue="99999" runat="server"  />
+<telerik:RadLabel ID="lbl" runat="server"  />
+<telerik:RadButton ID="btnExport" runat="server" Text="匯出"  />
+<telerik:RadLinkButton runat="server" ID="lbtn" Text="lbtn" ToolTip="lbtn"  NavigateUrl="http://www.telerik.com" />
+<telerik:RadAjaxPanel ID="pl" runat="server" ></telerik:RadAjaxPanel>
+<telerik:RadDatePicker RenderMode="Lightweight" runat="server" ID="txt" Width="100%"  />
+[Bindable(true)]
+public RadTextBox _txt
+{
+	get
+	{
+	return txt;
+	}
+	set
+	{
+	txt = value;
+	}
+}
+
+<%@ Register Src="~/UserControl/ucBonusWelfare1.ascx" TagName="BonusWelfare1" TagPrefix="uc" %>
+<uc:BonusCash ID="ucLaborDay" runat="server" />
+<asp:PlaceHolder ID="phMenu" runat="server"></asp:PlaceHolder>
+Bootstrap

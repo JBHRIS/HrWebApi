@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[jqUserColumn] (
+    [ID]                        INT            IDENTITY (1, 1) NOT NULL,
+    [SettingID]                 INT            NOT NULL,
+    [Sort]                      INT            NOT NULL,
+    [TableName]                 NVARCHAR (50)  NOT NULL,
+    [ColumnName]                NVARCHAR (50)  NOT NULL,
+    [DisplayName]               NVARCHAR (50)  NOT NULL,
+    [Display]                   BIT            NOT NULL,
+    [DataType]                  NVARCHAR (50)  NOT NULL,
+    [PrimaryKey]                BIT            NOT NULL,
+    [Format]                    NVARCHAR (50)  NOT NULL,
+    [Memo]                      NVARCHAR (500) NOT NULL,
+    [CreateMan]                 NVARCHAR (50)  NOT NULL,
+    [CreateDate]                DATETIME       NOT NULL,
+    [System]                    NVARCHAR (50)  NOT NULL,
+    [UserId]                    NVARCHAR (50)  NOT NULL,
+    [GroupIndex]                INT            CONSTRAINT [DF_jqUserColumn_GroupIndex] DEFAULT ((0)) NOT NULL,
+    [OrderByIndex]              INT            CONSTRAINT [DF_jqUserColumn_OrderByIndex] DEFAULT ((0)) NOT NULL,
+    [TopSummaryOption]          NVARCHAR (50)  NOT NULL,
+    [TopSummaryFormatString]    NVARCHAR (100) NOT NULL,
+    [BottomSummaryOption]       NVARCHAR (50)  NOT NULL,
+    [BottomSummaryFormatString] NVARCHAR (100) NOT NULL,
+    CONSTRAINT [PK_jqUserColumn] PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+

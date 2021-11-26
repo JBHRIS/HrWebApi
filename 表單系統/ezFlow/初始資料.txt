@@ -1,0 +1,43 @@
+DELETE FROM CheckAgentAlways
+DELETE FROM CheckAgentDefault
+DELETE FROM CheckAgentPowerD
+DELETE FROM CheckAgentPowerM
+DELETE FROM Dept
+DELETE FROM Emp
+DELETE FROM EmpBak
+DELETE FROM EmpInfo
+DELETE FROM HrNotice
+DELETE FROM HrNoticeFiles
+DELETE FROM HrPost
+DELETE FROM Pos
+DELETE FROM ProcessApParm
+DELETE FROM ProcessApView
+DELETE FROM ProcessCheck
+DELETE FROM ProcessException
+DELETE FROM ProcessFlow
+DELETE FROM ProcessFlowShare
+DELETE FROM ProcessNode
+DELETE FROM Role
+DELETE FROM SendMailLog
+DELETE FROM SendMailParm
+DELETE FROM SubWork
+DELETE FROM tempBase
+DELETE FROM tempDept
+DELETE FROM tempPos
+
+DELETE FROM WorkAgent
+DELETE FROM WorkAgentPower
+
+
+DELETE FROM wfAppAbs
+DELETE FROM wfAppAbsc
+DELETE FROM wfAppCard
+DELETE FROM wfAppOt
+DELETE FROM wfAppShiftLong
+DELETE FROM wfAppShiftShort
+DELETE FROM wfDynamic
+DELETE FROM wfFormApp
+DELETE FROM wfFormAppCode
+DELETE FROM wfFormSignM
+DELETE FROM wfFormUploadFile
+DELETE FROM wfFormSendMail

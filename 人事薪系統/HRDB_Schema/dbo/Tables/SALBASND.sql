@@ -1,0 +1,35 @@
+﻿CREATE TABLE [dbo].[SALBASND] (
+    [NOBR]            NVARCHAR (50)   NOT NULL,
+    [YYMM_B]          NVARCHAR (50)   NOT NULL,
+    [YYMM_E]          NVARCHAR (50)   NOT NULL,
+    [SAL_CODE]        NVARCHAR (50)   NOT NULL,
+    [SEQ]             DECIMAL (16, 2) NOT NULL,
+    [A_DATE]          DATETIME        NOT NULL,
+    [A_TYPE]          BIT             NOT NULL,
+    [A_PER]           DECIMAL (16, 2) NOT NULL,
+    [F_AMT]           DECIMAL (16, 2) NOT NULL,
+    [P_AMT]           DECIMAL (16, 2) NOT NULL,
+    [T_AMT]           DECIMAL (16, 2) NOT NULL,
+    [KEY_MAN]         NVARCHAR (50)   NOT NULL,
+    [KEY_DATE]        DATETIME        NOT NULL,
+    [MEMO]            NVARCHAR (120)  CONSTRAINT [DF_SALBASND_MEMO] DEFAULT ('') NOT NULL,
+    [DISPATCH]        NVARCHAR (50)   NOT NULL,
+    [DE_DEPT]         NVARCHAR (200)  CONSTRAINT [DF_SALBASND_DE_DEPT] DEFAULT ('') NOT NULL,
+    [DE_MAN]          NVARCHAR (200)  CONSTRAINT [DF_SALBASND_DE_MAN] DEFAULT ('') NOT NULL,
+    [DE_TEL]          NVARCHAR (50)   NOT NULL,
+    [DE_ADD]          NVARCHAR (60)   NOT NULL,
+    [LAW_DEPT]        NVARCHAR (50)   NOT NULL,
+    [LAW_MAN]         NVARCHAR (50)   NOT NULL,
+    [LAW_TEL]         NVARCHAR (50)   NOT NULL,
+    [P_DATE]          DATETIME        NOT NULL,
+    [F_DATE]          DATETIME        NOT NULL,
+    [T_DATE]          DATETIME        NOT NULL,
+    [C_DATE]          DATETIME        NOT NULL,
+    [P_PER]           DECIMAL (16, 2) CONSTRAINT [DF_SALBASND_P_PER] DEFAULT ((0)) NOT NULL,
+    [ACNO]            NVARCHAR (50)   CONSTRAINT [DF_SALBASND_ACNO] DEFAULT ([DBO].[GETNEWACNO]()) NOT NULL,
+    [MIN_COST_LIVING] DECIMAL (16, 2) DEFAULT ((0)) NOT NULL,
+    CONSTRAINT [PK_SALBASND_1] PRIMARY KEY CLUSTERED ([ACNO] ASC)
+);
+
+
+

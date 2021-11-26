@@ -1,0 +1,9 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\tseng\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\tseng\\.nuget\\packages",
+      "C:\\Program Files (x86)\\Progress\\ToolboxNugetPackages"
+    ]
+  }
+}

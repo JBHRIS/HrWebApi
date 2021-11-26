@@ -1,0 +1,24 @@
+/****** Object:  Table [dbo].[USERDEFINEMASTER]    Script Date: 2021/3/9 ¤U¤È 04:19:25 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[USERDEFINEMASTER](
+	[AK] [int] IDENTITY(1,1) NOT NULL,
+	[UserDefineMasterID] [uniqueidentifier] NOT NULL,
+	[UserDefineMasterName] [nvarchar](50) NULL,
+	[NOTE] [nvarchar](500) NULL,
+	[KEY_MAN] [nvarchar](50) NULL,
+	[KEY_DATE] [datetime] NULL,
+ CONSTRAINT [PK_USERDEFINEMASTER] PRIMARY KEY CLUSTERED 
+(
+	[AK] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+Alter table USERDEFINEGROUP add UserDefineMasterID uniqueidentifier null
+GO

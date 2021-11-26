@@ -1,0 +1,2 @@
+Portal  http://hrm.cht-pt.com.tw/ezPortal
+eTraining http://hrm.cht-pt.com.tw/eTraining

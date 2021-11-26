@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[TRTCRDT] (
+    [COSCODE] NVARCHAR (50)   NOT NULL,
+    [YYMM]    NVARCHAR (50)   NOT NULL,
+    [SER]     NVARCHAR (50)   NOT NULL,
+    [TCR_NO]  NVARCHAR (50)   NOT NULL,
+    [HRS]     DECIMAL (16, 2) NOT NULL
+);
+

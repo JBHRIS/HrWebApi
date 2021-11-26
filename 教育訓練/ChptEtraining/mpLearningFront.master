@@ -1,0 +1,113 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="mpLearningFront.master.cs"
+    Inherits="mpLearningFront"  %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>title</title>
+    
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div style="width: 100%">
+
+        <div style="width: 770px; margin: 0 auto">
+            <div id="title">
+                <div>
+                    <a href="eLearning/lnHome.aspx">回首頁</a> <span>|</span> <a href="">常見問題</a> <span>|</span>
+                    <a href="eLearning/lnView.aspx">網站導覽</a>
+                </div>
+            </div>
+            <asp:Menu ID="mu" SkinID="HeaderMenuSkin" runat="server" DynamicHorizontalOffset="2"
+                Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284E98" Orientation="Horizontal"
+                StaticSubMenuIndent="10px"  
+                OnMenuItemClick="mu_MenuItemClick">
+                <DynamicHoverStyle BackColor="#284E98" ForeColor="White" />
+                <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                <DynamicMenuStyle BackColor="#B5C7DE" />
+                <DynamicSelectedStyle BackColor="#507CD1" />
+                <Items>
+                    <asp:MenuItem NavigateUrl="~/eLearning/lnNews.aspx" Text="最新消息" Value="最新消息"></asp:MenuItem>
+                    <asp:MenuItem Text="最新課程" Value="最新課程" NavigateUrl="~/eLearning/lnNcour.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="熱門課程" Value="熱門課程" NavigateUrl="~/eLearning/lnHcour.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="講座活動" Value="講座活動" NavigateUrl="~/eLearning/lnAcv.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="討論區" Value="討論區" NavigateUrl="~/eLearning/lnDus.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="課程總覽" Value="課程總覽" NavigateUrl="~/eLearning/lnAllcour.aspx">
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="線上測試" Value="線上測試" NavigateUrl="~/eLearning/lnTest.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="文章交流" Value="文章交流" NavigateUrl="~/eLearning/lnArt.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="精華區" Value="精華區" NavigateUrl="~/eLearning/lnAllin.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="意見箱" Value="意見箱" NavigateUrl="~/eLearning/lnSug.aspx"></asp:MenuItem>
+                </Items>
+                <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
+                <StaticMenuItemStyle Font-Size="Larger" HorizontalPadding="5px" VerticalPadding="2px" />
+                <StaticSelectedStyle BackColor="#507CD1" />
+            </asp:Menu>
+
+            
+
+                        <%--<div id="menu">
+                <ul>
+                    <li><a href="eLearning/lnNews.aspx">最新消息</a></li>
+                    <li><a href="eLearning/lnNcour.aspx">最新課程</a></li>
+                    <li><a href="eLearning/lnHcour.aspx">熱門課程</a></li>
+                    <li><a href="eLearning/lnAcv.aspx">講座活動</a></li>
+                    <li><a href="eLearning/lnDus.aspx">討論區</a></li>
+                    <li><a href="eLearning/lnAllcour.aspx">課程總覽</a></li>
+                    <li><a href="eLearning/lnTest.aspx">線上測試</a></li>
+                    <li><a href="eLearning/lnArt.aspx">文章交流</a></li>
+                    <li><a href="eLearning/lnAllin.aspx">精華區</a></li>
+                    <li><a href="eLearning/lnSug.aspx">意見箱</a></li>
+                </ul>
+            </div>--%>
+            <div id="login">
+                <h4 class="header">
+                    學員登入</h4>
+                <ul style="margin: 0 0 0 0px; list-style-type: none">
+                    <li>帳號</li>
+                    <li>密碼</li>
+                    <li>登入</li>
+                    <li><a href="" style="text-align: center">忘記密碼</a></li>
+                </ul>
+                <h4 class="footer">
+                </h4>
+                <span style="background-color: #ffffff; height: 10px; width: 170px; display: block">
+                </span>
+                <h4 class="header">
+                    榮譽排行榜</h4>
+                <ul>
+                    <li class="a">No1<span style="padding: 0 0 0 10px">張巧惠</span><span style="padding: 0 0 0 10px">505分</span></li>
+                    <li class="b">No2<span style="padding: 0 0 0 10px">李大同</span><span style="padding: 0 0 0 10px">495分</span></li>
+                    <li class="c">No3<span style="padding: 0 0 0 10px">王老五</span><span style="padding: 0 0 0 10px">325分</span></li>
+                    <li style="text-align: right; padding: 0 10px 0 0"><a href="eLearning/lnRank.aspx">more</a></li>
+                </ul>
+                <h4 class="footer">
+                </h4>
+                <span style="background-color: #ffffff; height: 10px; width: 170px; display: block">
+                </span>
+                <h4 class="header">
+                    訪客人數</h4>
+                <ul style="text-align: center">
+                    <li class="d">11111人氣</li>
+                </ul>
+                <h4 class="footer">
+                </h4>
+               
+            </div>
+
+            
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            
+
+            <div id="down">
+                <a href="http://www.jbjob.com.tw">傑報資訊版權所有</a></div>
+        </div>
+        
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,12 @@
+﻿CREATE TABLE [dbo].[BankCode] (
+    [Code]      NVARCHAR (50) NOT NULL,
+    [BankName]  NVARCHAR (50) NOT NULL,
+    [KEY_DATE]  DATETIME      NOT NULL,
+    [KEY_MAN]   NVARCHAR (50) NOT NULL,
+    [CODE_DISP] NVARCHAR (50) NULL,
+    [CODEPAGE]  INT           DEFAULT ((950)) NOT NULL,
+    CONSTRAINT [PK_BankCode] PRIMARY KEY CLUSTERED ([Code] ASC)
+);
+
+
+

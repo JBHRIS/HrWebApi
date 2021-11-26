@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="mpTraining.master.cs" Inherits="mpTraining" %>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<%@ Register Src="UC/PersonalInformaton.ascx" TagName="PersonalInformaton" TagPrefix="uc5" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <script src="<%#ResolveUrl("~/Scripts/jquery-1.7.1.min.js") %>" type="text/javascript"></script>
+    <script src="<%#ResolveUrl("~/Scripts/jquery.corner.js") %>" type="text/javascript"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>未命名 1</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <telerik:RadScriptManager ID="RadScriptManager1" runat="server" AsyncPostBackErrorMessage="網頁傳輸出現錯誤，請檢查網路是否正常"
+        AsyncPostBackTimeout="180">
+    </telerik:RadScriptManager>
+    <div style="width: 100%">
+        <div style="width: 1000px; margin: 0 auto">
+            <div id="title1">
+            </div>
+            <div style="text-align: right; background-color: #EEF5FC; line-height: 20px;">
+                <asp:Label ID="lblName" runat="server"></asp:Label>
+                &nbsp;<asp:Label ID="lblNobr" runat="server"></asp:Label>
+                <asp:Label ID="lblDept" runat="server"></asp:Label>
+                &nbsp;|
+                <asp:HyperLink ID="HyperLink1" runat="server" Font-Size="Small" NavigateUrl="~/Default.aspx">回首頁</asp:HyperLink>
+                &nbsp;|
+                <asp:LinkButton ID="lbtnLogout" runat="server" OnClick="lbtnLogout_Click1">登出</asp:LinkButton>
+            </div>
+            <div>
+                <telerik:RadMenu ID="menu" runat="server" Skin="WebBlue" Width="100%" style="z-index:2900">
+                </telerik:RadMenu>
+            </div>
+            <div style="float:left;width:100%">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

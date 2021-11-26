@@ -1,0 +1,74 @@
+﻿/*
+body{
+			font-size:10pt;
+			font-family: 微軟正黑體;
+			color:#005AAA;
+}
+*/
+
+#title
+{
+    background-image:url('../IMAGES/eTraining/t-header.png');
+}
+
+#bb{
+			border:1px gray solid;
+			width:770px;
+			margin:0 auto;
+}
+#bb a{
+			color:#005AAA;
+			text-decoration:none;
+}
+#menu{
+			background-color:#E8E8E8;
+			width:180px;
+			float:left;
+			margin:10px 0 0 0;
+}
+#menu h4{
+			background-color:#78AEFF;
+			padding:5px;
+			color:#ffffff;
+			margin:0;
+}
+#menu ul{
+			line-height:30px;
+}
+#menu ul.a{
+			list-style-image:url('Images/eTraining/photo.png');
+}
+#menu ul.b{
+			list-style-image:url('Images/eTraining/file.png');
+}
+#menu ul.c{
+			list-style-image:url('Images/eTraining/contact.png');
+}
+#menu ul.d{
+			list-style-image:url('Images/eTraining/box.png');
+}
+
+#mm{
+			width:580px;
+			float:right;
+}
+#mm h4{
+			background-color:#CCFFE5;
+			color:#339966;
+			padding:5px;
+			margin:10px 0 0 0;
+}
+#mm h4.a{
+			background-color:#CCCCCC;
+			color:#ffffff;
+}
+#mm h4.a1{
+			background-color:#0066FF;
+			color:#ffffff;
+}
+#mm h4.a2{
+			background-color:#FFBF00;
+			color:#ffffff;
+}
+
+

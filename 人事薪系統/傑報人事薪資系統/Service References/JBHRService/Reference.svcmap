@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="adf8a1ee-8f29-4e72-adca-e5f3a0e541ae" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://61.222.40.10/ezPortal/Service/JbhrService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="JbhrService.xsd" MetadataType="Schema" ID="8d99240f-f84f-4d73-b37a-81605e3d976d" SourceId="1" SourceUrl="http://61.222.40.10/ezPortal/Service/JbhrService.svc?xsd=xsd1" />
+    <MetadataFile FileName="JbhrService1.xsd" MetadataType="Schema" ID="561fe8c8-ced5-40dd-9e0f-be25ac4f7417" SourceId="1" SourceUrl="http://61.222.40.10/ezPortal/Service/JbhrService.svc?xsd=xsd0" />
+    <MetadataFile FileName="JbhrService2.xsd" MetadataType="Schema" ID="4e702a82-0fb0-4bba-b93e-a1f103af3f6e" SourceId="1" SourceUrl="http://61.222.40.10/ezPortal/Service/JbhrService.svc?xsd=xsd2" />
+    <MetadataFile FileName="JbhrService.wsdl" MetadataType="Wsdl" ID="176f67b0-62e2-4291-9259-929308ade6c8" SourceId="1" SourceUrl="http://61.222.40.10/ezPortal/Service/JbhrService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

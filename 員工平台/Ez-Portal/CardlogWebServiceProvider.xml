@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://ssiscardweb.provider.ws.holystone.com" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://ssiscardweb.provider.ws.holystone.com">
+    <wsdl:documentation>
+		Please Type your service description here
+	</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ssiscardweb.provider.ws.holystone.com">
+            <xs:complexType name="Exception">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Exception" nillable="true" type="xs:anyType"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="Exception">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="Exception" nillable="true" type="ns:Exception"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getCardlog">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="clientName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="sdate" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="edate" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getCardlogResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getCardlogRequest">
+        <wsdl:part name="parameters" element="ns:getCardlog"/>
+    </wsdl:message>
+    <wsdl:message name="getCardlogResponse">
+        <wsdl:part name="parameters" element="ns:getCardlogResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Exception">
+        <wsdl:part name="parameters" element="ns:Exception"/>
+    </wsdl:message>
+    <wsdl:portType name="CardlogWebServiceProviderPortType">
+        <wsdl:operation name="getCardlog">
+            <wsdl:input message="ns:getCardlogRequest" wsaw:Action="urn:getCardlog"/>
+            <wsdl:output message="ns:getCardlogResponse" wsaw:Action="urn:getCardlogResponse"/>
+            <wsdl:fault message="ns:Exception" name="Exception" wsaw:Action="urn:getCardlogException"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CardlogWebServiceProviderSoap11Binding" type="ns:CardlogWebServiceProviderPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getCardlog">
+            <soap:operation soapAction="urn:getCardlog" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="Exception">
+                <soap:fault use="literal" name="Exception"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="CardlogWebServiceProviderSoap12Binding" type="ns:CardlogWebServiceProviderPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getCardlog">
+            <soap12:operation soapAction="urn:getCardlog" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="Exception">
+                <soap12:fault use="literal" name="Exception"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="CardlogWebServiceProviderHttpBinding" type="ns:CardlogWebServiceProviderPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="getCardlog">
+            <http:operation location="CardlogWebServiceProvider/getCardlog"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getCardlog"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getCardlog"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CardlogWebServiceProvider">
+        <wsdl:port name="CardlogWebServiceProviderHttpSoap11Endpoint" binding="ns:CardlogWebServiceProviderSoap11Binding">
+            <soap:address location="http://192.168.0.65:80/axis2/services/CardlogWebServiceProvider.CardlogWebServiceProviderHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="CardlogWebServiceProviderHttpSoap12Endpoint" binding="ns:CardlogWebServiceProviderSoap12Binding">
+            <soap12:address location="http://192.168.0.65:80/axis2/services/CardlogWebServiceProvider.CardlogWebServiceProviderHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="CardlogWebServiceProviderHttpEndpoint" binding="ns:CardlogWebServiceProviderHttpBinding">
+            <http:address location="http://192.168.0.65:80/axis2/services/CardlogWebServiceProvider.CardlogWebServiceProviderHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

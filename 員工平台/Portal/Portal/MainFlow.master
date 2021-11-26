@@ -1,0 +1,26 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="MainFlow.master.cs" Inherits="Portal.MainFlow" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="Templates/Inspinia/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Templates/Inspinia/font-awesome/css/fontawesome.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/plugins/steps/jquery.steps.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/animate.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/style.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/plugins/colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet">
+	<link href="Templates/Inspinia/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/plugins/clockpicker/clockpicker.css" rel="stylesheet">
+
+    <link href="Templates/Inspinia/css/plugins/select2/select2-bootstrap4.min.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/plugins/select2/select2-bootstrap4.min.css" rel="stylesheet">
+    <asp:ContentPlaceHolder ID="cphHead" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ContentPlaceHolder ID="cphMain" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <asp:ContentPlaceHolder ID="cphFooter" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>

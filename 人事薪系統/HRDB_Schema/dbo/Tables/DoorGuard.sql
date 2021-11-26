@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[DoorGuard] (
+    [Code]     NVARCHAR (50) NOT NULL,
+    [DoorName] NVARCHAR (50) NOT NULL,
+    [KEY_DATE] DATETIME      NOT NULL,
+    [KEY_MAN]  NVARCHAR (50) NOT NULL,
+    CONSTRAINT [PK_DoorGuard] PRIMARY KEY CLUSTERED ([Code] ASC)
+);
+

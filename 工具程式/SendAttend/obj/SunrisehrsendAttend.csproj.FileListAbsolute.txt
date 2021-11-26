@@ -1,0 +1,3 @@
+D:\c#.net\Sunrise\SunrisehrsendAttend\bin\Debug\sendAttendMail.exe.config
+D:\c#.net\Sunrise\SunrisehrsendAttend\obj\Debug\sendAttendMail.exe
+D:\c#.net\Sunrise\SunrisehrsendAttend\obj\Debug\sendAttendMail.pdb

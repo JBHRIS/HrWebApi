@@ -1,0 +1,25 @@
+/****** Object:  Table [dbo].[MealType]    Script Date: 2020/7/17 ¤W¤È 10:38:44 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[MealType](
+	[MEALTYPE_CODE] [nvarchar](50) NOT NULL,
+	[MEALGROUP] [nvarchar](50) NOT NULL,
+	[MEALTYPE_NAME] [nvarchar](50) NOT NULL,
+	[BTIME] [nvarchar](50) NOT NULL,
+	[ETIME] [nvarchar](50) NOT NULL,
+	[NOTE] [nvarchar](500) NULL,
+	[KEY_MAN] [nvarchar](50) NOT NULL,
+	[KEY_DATE] [datetime] NOT NULL,
+ CONSTRAINT [PK_MealType] PRIMARY KEY CLUSTERED 
+(
+	[MEALTYPE_CODE] ASC,
+	[MEALGROUP] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+

@@ -1,0 +1,7 @@
+C:\Project\SVN\Customer\員工平台\Portal\OldDal\JbHrDll\Bll\bin\Release\OldBll.xml
+C:\Project\SVN\Customer\員工平台\Portal\OldDal\JbHrDll\Bll\bin\Release\OldBll.dll
+C:\Project\SVN\Customer\員工平台\Portal\OldDal\JbHrDll\Bll\bin\Release\OldBll.pdb
+C:\Project\SVN\Customer\員工平台\Portal\OldDal\JbHrDll\Bll\obj\Release\OldBll.csprojAssemblyReference.cache
+C:\Project\SVN\Customer\員工平台\Portal\OldDal\JbHrDll\Bll\obj\Release\OldBll.csproj.CoreCompileInputs.cache
+C:\Project\SVN\Customer\員工平台\Portal\OldDal\JbHrDll\Bll\obj\Release\OldBll.dll
+C:\Project\SVN\Customer\員工平台\Portal\OldDal\JbHrDll\Bll\obj\Release\OldBll.pdb

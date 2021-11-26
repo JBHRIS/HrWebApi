@@ -1,0 +1,594 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dal</name>
+    </assembly>
+    <members>
+        <member name="M:Dal.Dao.Att.AbsDao.#ctor(System.Data.IDbConnection)">
+            <summary>
+            請假資料
+            </summary>
+            <param name="conn"></param>
+        </member>
+        <member name="M:Dal.Dao.Att.AbsDao.#ctor(System.String)">
+            <summary>
+            請假資料
+            </summary>
+            <param name="ConnectionString"></param>
+        </member>
+        <member name="M:Dal.Dao.Att.AbsDao.GetBalance(System.String,System.DateTime,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Boolean,System.Collections.Generic.List{Bll.Att.Vdb.AbsDataTable})">
+            <summary>
+            請假剩餘
+            </summary>
+            <param name="sNobr">工號</param>
+            <param name="dDate">日期</param>
+            <param name="sNameA">對沖對象主鍵</param>
+            <param name="dDateYB">年計開始日期預設年初</param>
+            <param name="dDateYE">年計結束日期預設年底</param>
+            <param name="dDateMB">月計開始日期預設月初</param>
+            <param name="dDateME">月計結束日期預設月底</param>
+            <param name="bProportion">事病假依照比例原則</param>
+            <param name="lsAbs">進行中流程的請假資料</param>
+            <returns>List AbsBalanceRow</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.AbsDao.GetAbst(System.String,System.DateTime)">
+            <summary>
+            得假資料
+            </summary>
+            <param name="sNobr">工號</param>
+            <param name="dDate">開始出勤日期</param>
+            <returns>List</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.AbsDao.GetAbs(System.String,System.DateTime,System.DateTime)">
+            <summary>
+            出勤資料(日期區間)
+            </summary>
+            <param name="sNobr">工號</param>
+            <param name="dDateB">開始出勤日期</param>
+            <param name="dDateE">結束出勤日期</param>
+            <returns>List</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.AttcardDao.#ctor(System.Data.IDbConnection)">
+            <summary>
+            出勤資料
+            </summary>
+            <param name="conn"></param>
+        </member>
+        <member name="M:Dal.Dao.Att.AttcardDao.#ctor(System.String)">
+            <summary>
+            出勤資料
+            </summary>
+            <param name="ConnectionString"></param>
+        </member>
+        <member name="M:Dal.Dao.Att.AttcardDao.#ctor">
+            <summary>
+            出勤資料
+            </summary>
+            <param name="ConnectionString"></param>
+        </member>
+        <member name="M:Dal.Dao.Att.AttcardDao.GetAttcard(System.String,System.DateTime)">
+            <summary>
+            出勤刷卡資料
+            </summary>
+            <param name="sNobr">工號</param>
+            <param name="dDate">出勤日期</param>
+            <returns>List AttcardRow</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.AttcardDao.GetAttcard(System.DateTime)">
+            <summary>
+            出勤刷卡資料(依日期)
+            </summary>
+            <param name="dDate">出勤日期</param>
+            <returns>List AttcardRow</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.AttcardDao.GetAttcard(System.String,System.DateTime,System.DateTime)">
+            <summary>
+            出勤刷卡資料(日期區間)
+            </summary>
+            <param name="sNobr">工號</param>
+            <param name="dDateB">開始出勤日期</param>
+            <param name="dDateE">結束出勤日期</param>
+            <returns>List AttcardRow</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.AttcardDao.GetAttcard(System.Collections.Generic.List{System.String},System.DateTime,System.DateTime)">
+            <summary>
+            出勤刷卡資料(日期區間)
+            </summary>
+            <param name="lsNobr">工號</param>
+            <param name="dDateB">開始出勤日期</param>
+            <param name="dDateE">結束出勤日期</param>
+            <returns>List AttcardRow</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.AttcardDao.GetAttcard(System.String,System.Collections.Generic.List{System.DateTime})">
+            <summary>
+            出勤刷卡資料(不規則日期)
+            </summary>
+            <param name="sNobr">工號</param>
+            <param name="lsDate">開始出勤日期</param>
+            <returns>List AttcardRow</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.AttcardDao.IsCardTime(System.String,System.DateTime,System.String,System.String)">
+            <summary>
+            是否為刷卡時間 True = 是刷卡時間
+            </summary>
+            <param name="sNobr">工號</param>
+            <param name="dDate">日期</param>
+            <param name="sTimeB">開始時間</param>
+            <param name="sTimeE">結束時間</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.AttcardDao.IsCardTime(System.String,System.DateTime,System.DateTime,System.String,System.String)">
+            <summary>
+            是否為刷卡時間 True = 是刷卡時間
+            </summary>
+            <param name="sNobr">工號</param>
+            <param name="dDateB">日期</param>
+            <param name="dDateE">日期</param>
+            <param name="sTimeB">開始時間</param>
+            <param name="sTimeE">結束時間</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.AttendDao.#ctor(System.Data.IDbConnection)">
+            <summary>
+            出勤資料
+            </summary>
+            <param name="conn"></param>
+        </member>
+        <member name="M:Dal.Dao.Att.AttendDao.#ctor(System.String)">
+            <summary>
+            出勤資料
+            </summary>
+            <param name="ConnectionString"></param>
+        </member>
+        <member name="M:Dal.Dao.Att.AttendDao.GetAttend(System.String,System.DateTime)">
+            <summary>
+            出勤資料
+            </summary>
+            <param name="sNobr">工號</param>
+            <param name="dDate">出勤日期</param>
+            <returns>List</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.AttendDao.GetAttendFixedRoteCode(System.String,System.DateTime,System.Boolean)">
+            <summary>
+            取得可能慣用的班別
+            </summary>
+            <param name="sNobr">工號</param>
+            <param name="dDate">日期</param>
+            <param name="bLeft">向左第一筆開始找 反之 向右第一筆開始找</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.AttendDao.GetAttend(System.String,System.DateTime,System.DateTime)">
+            <summary>
+            出勤資料(日期區間)
+            </summary>
+            <param name="sNobr">工號</param>
+            <param name="dDateB">開始出勤日期</param>
+            <param name="dDateE">結束出勤日期</param>
+            <returns>List</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.AttendDao.GetAttend(System.String,System.Collections.Generic.List{System.DateTime})">
+            <summary>
+            出勤資料(不規則日期)
+            </summary>
+            <param name="sNobr">工號</param>
+            <param name="lsDate">開始出勤日期</param>
+            <returns>List</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.AttendDao.GetAttendAbnormal(System.Collections.Generic.List{System.String},System.DateTime,System.DateTime)">
+            <summary>
+            取得早來晚走異常資料
+            </summary>
+            <param name="ListEmpId">工號陣列</param>
+            <param name="DateB">開始日期</param>
+            <param name="DateE">結束日期</param>
+            <returns>List AttendAbnormalRow</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.AttendDao.GetAttendCheck(System.Collections.Generic.List{System.String},System.DateTime,System.DateTime)">
+            <summary>
+            取得註記資料
+            </summary>
+            <param name="ListEmpId">工號陣列</param>
+            <param name="DateB">開始日期</param>
+            <param name="DateE">結束日期</param>
+            <returns>List AttendCheckRow</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.AttendDao.GetAttendCheckType(System.Boolean)">
+            <summary>
+            註記類別(早來或晚走)
+            </summary>
+            <param name="DisplayAll">全部顯示</param>
+            <returns>List TextValueRow</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.AttendDao.GetAttendCheckRemarkType(System.Boolean)">
+            <summary>
+            註記原因代碼
+            </summary>
+            <param name="DisplayAll">全部顯示</param>
+            <returns>List TextValueRow</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.AttendDao.SaveAttendCheck(Bll.Att.Vdb.AttendCheckRow)">
+            <summary>
+            新增及修改註記資料
+            </summary>
+            <param name="AttendCheck">註記資料</param>
+            <returns>int 1 = 新增 , 2 = 修改</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.AttendDao.SaveAttendCheckCheck(Bll.Att.Vdb.AttendCheckRow)">
+            <summary>
+            新增及修改註記資料檢查
+            </summary>
+            <param name="AttendCheck">註記資料</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.AttendDao.DeleteAttendCheck(Bll.Att.Vdb.AttendCheckRow)">
+            <summary>
+            刪除註記資料
+            </summary>
+            <param name="AttendCheck"></param>
+            <returns>int 1 = 成功</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.AttendDao.DeleteAttendCheckAutoKey(System.Int32)">
+            <summary>
+            刪除註記資料(自動編號)
+            </summary>
+            <param name="AutoKey">自動編號</param>
+            <returns>int 1 = 成功</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.HcodeDao.#ctor(System.Data.IDbConnection)">
+            <summary>
+            假別代碼
+            </summary>
+            <param name="conn"></param>
+        </member>
+        <member name="M:Dal.Dao.Att.HcodeDao.#ctor(System.String)">
+            <summary>
+            假別代碼
+            </summary>
+            <param name="ConnectionString"></param>
+        </member>
+        <member name="M:Dal.Dao.Att.HcodeDao.GetHocde(System.String,System.Boolean)">
+            <summary>
+            假別代碼資料
+            </summary>
+            <param name="sCode">假別代碼</param>
+            <param name="bDisplay">只列出要顯示的</param>
+            <returns>HcodeTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.HcodeDao.GetHocdeDetail(System.String,System.Boolean)">
+            <summary>
+            假別代碼資料
+            </summary>
+            <param name="sCode">假別代碼</param>
+            <param name="bDisplay">只列出要顯示的</param>
+            <returns>HcodeTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.OtDao.#ctor(System.Data.IDbConnection)">
+            <summary>
+            請假資料
+            </summary>
+            <param name="conn"></param>
+        </member>
+        <member name="M:Dal.Dao.Att.OtDao.#ctor(System.String)">
+            <summary>
+            請假資料
+            </summary>
+            <param name="ConnectionString"></param>
+        </member>
+        <member name="M:Dal.Dao.Att.OtDao.GetOtType(System.String,System.Boolean)">
+            <summary>
+            取得加班類別代碼
+            </summary>
+            <param name="sCode">代碼</param>
+            <param name="bAllDisplay">是否全部顯示</param>
+            <returns>List</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.OtDao.DeleteOt(System.String)">
+            <summary>
+            刪除加班資料
+            </summary>
+            <param name="sProcessID">ProcessID</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.OtDao.DeleteOt(System.String,System.DateTime,System.String,System.DateTime,System.String,System.String)">
+            <summary>
+            刪除加班資料
+            </summary>
+            <param name="sNobr">工號</param>
+            <param name="dDateB">開始日期</param>
+            <param name="sTimeB">結束日期</param>
+            <param name="dDateE">開始時間</param>
+            <param name="sTimeE">結束時間</param>
+            <param name="sType">加班類別</param>
+            <returns>int</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.OtDao.ConvertTime24To48(System.String,System.DateTime@,System.DateTime@,System.String@,System.String@)">
+            <summary>
+            轉換成48小時
+            </summary>
+            <param name="sNobr">工號</param>
+            <param name="dDateB">開始日期</param>
+            <param name="dDateE">結束日期</param>
+            <param name="sTimeB">開始時日</param>
+            <param name="sTimeE">結束時間</param>
+        </member>
+        <member name="M:Dal.Dao.Att.OtDao.GetCalculate(System.String,System.String,System.DateTime,System.DateTime,System.String,System.String,System.String,System.Decimal,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            加班計算
+            </summary>
+            <param name="sNobr">工號</param>
+            <param name="sOtCat">加班費或補休假</param>
+            <param name="dDateB">開始日期</param>
+            <param name="dDateE">結束日期</param>
+            <param name="sTimeB">開始時間</param>
+            <param name="sTimeE">結束時間</param>
+            <param name="sOtrcd">加班原因代碼</param>
+            <param name="iException">例外時數</param>
+            <param name="sRoteCode">加班班別代碼</param>
+            <param name="bCalculateRes">扣除休息時數</param>
+            <param name="bTime24">24小時計算</param>
+            <returns>decimal</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.RoteDao.#ctor(System.Data.IDbConnection)">
+            <summary>
+            假別代碼
+            </summary>
+            <param name="conn"></param>
+        </member>
+        <member name="M:Dal.Dao.Att.RoteDao.#ctor(System.String)">
+            <summary>
+            假別代碼
+            </summary>
+            <param name="ConnectionString"></param>
+        </member>
+        <member name="M:Dal.Dao.Att.RoteDao.GetRoteDetail(System.Collections.Generic.List{System.String})">
+            <summary>
+            取得班表資料
+            </summary>
+            <param name="arrRoteCode">null = 全部</param>
+            <returns>RoteTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.RoteDao.GetRoteRes(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            休息時間
+            </summary>
+            <param name="sResB1">休息時間</param>
+            <param name="sResE1">休息時間</param>
+            <param name="sResB2">休息時間</param>
+            <param name="sResE2">休息時間</param>
+            <param name="sResB3">休息時間</param>
+            <param name="sResE3">休息時間</param>
+            <param name="sResB4">休息時間</param>
+            <param name="sResE4">休息時間</param>
+            <param name="sResB5">休息時間</param>
+            <param name="sResE5">休息時間</param>
+            <returns>RoteResTable</returns>
+        </member>
+        <member name="T:Dal.Dao.Att.TransCardDao">
+            <summary>
+            TransCardDao
+            </summary>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.#ctor(System.Data.IDbConnection)">
+            <summary>
+            刷卡轉出勤
+            </summary>
+            <param name="conn">連接字串 沒有等於預設</param>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.#ctor(System.String)">
+            <summary>
+            刷卡轉出勤
+            </summary>
+            <param name="ConnectionString"></param>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.GetBaseByNobr(Bll.Att.Vdb.TransCardCondition)">
+            <summary>
+            取得員工基本判斷資料
+            </summary>
+            <param name="Cond">TransCardCondition</param>
+            <returns>BaseTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.GetRote(System.String[])">
+            <summary>
+            取得班表資料
+            </summary>
+            <param name="arrRoteCode">null = 全部</param>
+            <returns>RoteTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.GetRoteRes(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            休息時間
+            </summary>
+            <param name="sResB1">休息時間</param>
+            <param name="sResE1">休息時間</param>
+            <param name="sResB2">休息時間</param>
+            <param name="sResE2">休息時間</param>
+            <param name="sResB3">休息時間</param>
+            <param name="sResE3">休息時間</param>
+            <param name="sResB4">休息時間</param>
+            <param name="sResE4">休息時間</param>
+            <param name="sResB5">休息時間</param>
+            <param name="sResE5">休息時間</param>
+            <returns>RoteResTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.GetAbs(Bll.Att.Vdb.TransCardCondition)">
+            <summary>
+            取得請假資料
+            </summary>
+            <param name="Cond">TransCardCondition</param>
+            <returns>AbsTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.GetOt(Bll.Att.Vdb.TransCardCondition)">
+            <summary>
+            取得加班資料
+            </summary>
+            <param name="Cond">TransCardCondition</param>
+            <returns>OtTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.GetCard(Bll.Att.Vdb.TransCardCondition)">
+            <summary>
+            取得刷卡資料
+            </summary>
+            <param name="Cond">TransCardCondition</param>
+            <returns>CardTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.GetAttCard(Bll.Att.Vdb.TransCardCondition)">
+            <summary>
+            取得出勤資料
+            </summary>
+            <param name="Cond">TransCardCondition</param>
+            <returns>AttCardTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.TransCard(System.String,System.String,System.String,System.String,System.DateTime,System.DateTime,System.String,System.Boolean,System.Boolean,System.Boolean,System.String,System.String,System.Boolean,System.Int32)">
+            <summary>
+            刷卡轉出勤 及 判斷異常
+            </summary>
+            <param name="sNobrB">開始工號</param>
+            <param name="sNobrE">結束工號</param>
+            <param name="sDeptB">開始部門</param>
+            <param name="sDeptE">結束部門</param>
+            <param name="dDateB">開始日期</param>
+            <param name="dDateE">結束日期</param>
+            <param name="sKeyMan">登錄者</param>
+            <param name="bAttCard">轉換刷卡時間</param>
+            <param name="bAttEnd">判斷異常</param>
+            <param name="bEzAttCard">簡單轉換True = 簡單(一天多筆的情況，才需要複雜的判斷)</param>
+            <param name="sUserID">登入者工號</param>
+            <param name="sComp">公司別</param>
+            <param name="bAdmin">是否管理權限</param>
+            <param name="ThreadCount">啟用多少個執行緒(預設是2)</param>
+            <returns>int</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.dcSubmitChanges(JBModule.Data.Linq.HrDBDataContext)">
+            <summary>
+            
+            </summary>
+            <param name="dc">dcAttDataContext</param>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.TransCardPools.GetRoteCode(System.Collections.Generic.List{JBModule.Data.Linq.ATTEND},System.Collections.Generic.List{Bll.Att.Vdb.RoteTable},System.String,System.DateTime,System.String)">
+            <summary>
+            尋找客制班別
+            </summary>
+            <param name="rsATTEND">ATTEND</param>
+            <param name="Nobr">工號</param>
+            <param name="Date">日期</param>
+            <param name="RoteCode">班別</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.TransCardPools.IsHoliDay(System.Collections.Generic.List{Bll.Att.Vdb.RoteTable},System.String)">
+            <summary>
+            判斷是否為假日班 True = 是假日
+            </summary>
+            <param name="rsRote"></param>
+            <param name="RoteCode"></param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.TransCardPoolsNew.GetRoteCode(System.Collections.Generic.List{JBModule.Data.Linq.ATTEND},System.Collections.Generic.List{Bll.Att.Vdb.RoteTable},System.String,System.DateTime,System.String)">
+            <summary>
+            尋找客制班別
+            </summary>
+            <param name="rsATTEND">ATTEND</param>
+            <param name="Nobr">工號</param>
+            <param name="Date">日期</param>
+            <param name="RoteCode">班別</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:Dal.Dao.Att.TransCardDao.TransCardPoolsNew.IsHoliDay(System.Collections.Generic.List{Bll.Att.Vdb.RoteTable},System.String)">
+            <summary>
+            判斷是否為假日班 True = 是假日
+            </summary>
+            <param name="rsRote"></param>
+            <param name="RoteCode"></param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:Dal.Dao.Bas.BasDao.#ctor(System.Data.IDbConnection)">
+            <summary>
+            員工基本資料
+            </summary>
+            <param name="conn">連接字串 沒有等於預設</param>
+        </member>
+        <member name="M:Dal.Dao.Bas.BasDao.#ctor(System.String)">
+            <summary>
+            員工基本資料
+            </summary>
+            <param name="ConnectionString"></param>
+        </member>
+        <member name="M:Dal.Dao.Bas.BasDao.GetBase(System.String,System.Boolean)">
+            <summary>
+            取得員工基本資料
+            </summary>
+            <param name="sNobr">工號 空白等於全部</param>
+            <param name="bIn">是否一定要在職</param>
+            <returns>BaseTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Bas.BasDao.GetBase(System.String)">
+            <summary>
+            取得員工基本資料 依工號 包含離職員工
+            </summary>
+            <param name="sNobr">工號</param>
+            <returns>BaseTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Bas.BasDao.GetBase(System.Collections.Generic.List{System.String})">
+            <summary>
+            取得員工基本資料 依工號 包含離職員工
+            </summary>
+            <param name="lsNobr">工號</param>
+            <returns>BaseTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Bas.BasDao.GetBaseByNobr(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            取得員工基本資料 依工號
+            </summary>
+            <param name="sNobr">工號</param>
+            <param name="sDeptCate">1 = 編制部門 , 2 = 簽核部門</param>
+            <param name="bDeptDown">部門是否向下</param>
+            <param name="bIn">是否一定要在職</param>
+            <returns>BaseTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Bas.BasDao.GetBaseByNobr(System.String,System.DateTime)">
+            <summary>
+            取得員工基本資料 依工號
+            </summary>
+            <param name="sNobr">工號</param>
+            <param name="dDate">生效日期</param>
+            <returns>BaseTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Bas.BasDao.GetBaseByNobr(System.Collections.Generic.List{System.String},System.DateTime)">
+            <summary>
+            取得員工基本資料 依工號
+            </summary>
+            <param name="lsNobr">工號</param>
+            <param name="dDate">生效日期</param>
+            <returns>BaseTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Bas.BasDao.GetBaseByDept(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            取得員工基本資料 依部門
+            </summary>
+            <param name="sDept">部門</param>
+            <param name="sDeptCate">1 = 編制部門 , 2 = 簽核部門</param>
+            <param name="bDeptDown">部門是否向下</param>
+            <param name="bIn">是否一定要在職</param>
+            <returns>BaseTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Bas.BasDao.GetBasettsByNobr(System.String,System.Nullable{System.DateTime})">
+            <summary>
+            取得員工異動資料
+            </summary>
+            <param name="sNobr">工號</param>
+            <param name="dDate">生效日</param>
+            <returns>BasettsTable</returns>
+        </member>
+        <member name="M:Dal.Dao.Bas.DeptDao.#ctor(System.Data.IDbConnection)">
+            <summary>
+            員工基本資料
+            </summary>
+            <param name="conn">連接字串 沒有等於預設</param>
+        </member>
+        <member name="M:Dal.Dao.Bas.DeptDao.#ctor(System.String)">
+            <summary>
+            員工基本資料
+            </summary>
+            <param name="ConnectionString"></param>
+        </member>
+    </members>
+</doc>

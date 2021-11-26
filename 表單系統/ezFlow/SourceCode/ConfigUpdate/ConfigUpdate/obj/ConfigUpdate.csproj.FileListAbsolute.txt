@@ -1,0 +1,8 @@
+D:\ezFlow35\Tools Source\ConfigUpdate\ConfigUpdate\obj\Debug\ConfigUpdate.exe
+D:\ezFlow35\Tools Source\ConfigUpdate\ConfigUpdate\obj\Debug\ConfigUpdate.pdb
+D:\ezFlow35\Tools Source\ConfigUpdate\ConfigUpdate\bin\Debug\ConfigUpdate.exe
+D:\ezFlow35\Tools Source\ConfigUpdate\ConfigUpdate\bin\Debug\ConfigUpdate.pdb
+D:\ezFlow35\Tools Source\ConfigUpdate\ConfigUpdate\obj\Debug\ResolveAssemblyReference.cache
+D:\ezFlow35\Tools Source\ConfigUpdate\ConfigUpdate\obj\Debug\ConfigUpdate.Form1.resources
+D:\ezFlow35\Tools Source\ConfigUpdate\ConfigUpdate\obj\Debug\ConfigUpdate.Properties.Resources.resources
+D:\ezFlow35\Tools Source\ConfigUpdate\ConfigUpdate\obj\Debug\ConfigUpdate.csproj.GenerateResource.Cache

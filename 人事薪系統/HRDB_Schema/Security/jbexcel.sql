@@ -1,0 +1,2 @@
+﻿CREATE USER [jbexcel] WITHOUT LOGIN;
+

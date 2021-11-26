@@ -1,0 +1,8 @@
+﻿CREATE FUNCTION [dbo].[GetCodeFilterByNobr](@source nvarchar(50),@Code nvarchar(50),@NOBR NVARCHAR(50),@DATE DATETIME)
+returns BIT
+as
+begin
+	declare @i int
+	select @i=1 from CODE_FILTER where CODE_FILTER.SOURCE=@source AND CODE_FILTER.CODE=@Code and CODE_FILTER.CODEGROUP=(SELECT SALADR FROM BASETTS WHERE BASETTS.NOBR=@NOBR AND @DATE BETWEEN BASETTS.ADATE AND BASETTS.DDATE)
+	return @i
+end

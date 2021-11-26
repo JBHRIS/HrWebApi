@@ -1,0 +1,244 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Portal.Main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="PRAGMA" content="NO-CACHE">
+    <meta http-equiv="EXPIRES" content="0">
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+    <title>員工入口平台</title>
+
+    <link href="Templates/Inspinia/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Templates/Inspinia/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="Templates/Inspinia/css/animate.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/style.css" rel="stylesheet">
+
+    <link href="Templates/Inspinia/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/plugins/steps/jquery.steps.css" rel="stylesheet">
+    <link href="styles/Main.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
+
+    <link href="Fonts/FontAwesome.ttf" rel="stylesheet" />
+    <link href="Images/favicon.ico" rel="shortcut icon">
+    <link href="Templates/Inspinia/css/plugins/colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/plugins/clockpicker/clockpicker.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/plugins/select2/select2.min.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/plugins/select2/select2-bootstrap4.min.css" rel="stylesheet">
+    <link href="styles/form_style.css" rel="stylesheet">
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        thead tr {
+            white-space: nowrap;
+        }
+    </style>
+   <!-- <style type="text/css">
+        .kendo-pdf-hide-pseudo-elements:after,
+        .kendo-pdf-hide-pseudo-elements:before {
+            display: none !important;
+        }
+
+        .i ::before {
+            display: none !important;
+        }       
+    </style>-->
+    <telerik:RadCodeBlock ID="RadCodeBlock1" runat="server">
+    </telerik:RadCodeBlock>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="pace-done fixed-nav fixed-nav-basic">
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server" EnablePageMethods="true">
+        </telerik:RadScriptManager>
+        <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" DefaultLoadingPanelID="RadAjaxLoadingPanel1">
+            <AjaxSettings>
+                <telerik:AjaxSetting AjaxControlID="btnSearch">
+                    <UpdatedControls>
+                        <telerik:AjaxUpdatedControl ControlID="plMain" />
+                    </UpdatedControls>
+                </telerik:AjaxSetting>
+            </AjaxSettings>
+        </telerik:RadAjaxManager>
+        <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" runat="server" Skin="Default">
+        </telerik:RadAjaxLoadingPanel>
+        <telerik:RadCodeBlock ID="RadCodeBlock2" runat="server">
+            <script language="javascript" type="text/javascript">
+                function exports() {
+                    var exp = $find("<%= RadClientExportManager1.ClientID %>");
+                    exp.exportPDF($telerik.$("#<%= phPdf.ClientID %>"));
+                }
+            </script>
+        </telerik:RadCodeBlock>
+        <telerik:RadClientExportManager runat="server" ID="RadClientExportManager1">
+            <PdfSettings MarginTop="20mm" MarginBottom="20mm" MarginLeft="20mm" MarginRight="20mm" />
+        </telerik:RadClientExportManager>
+        <div id="wrapper">
+            <nav class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav metismenu" id="side-menu">
+                        <li class="nav-header">
+                            <div class="dropdown profile-element">
+                                <asp:PlaceHolder ID="phUserImg" runat="server">
+                                    <asp:Image runat="server" ID="imgMenuTopIcon" alt="Image" ImageUrl="images/jb.png" /></asp:PlaceHolder>
+                                <a data-toggle="dropdown" class="dropdown-toggle" style="white-space: unset" href="#">
+                                    <span class="block m-t-xs font-bold">
+                                        <telerik:RadLabel ID="lblUserName" runat="server" Text="" />
+                                    </span>
+                                    <span class="text-muted text-xs block">
+                                        <telerik:RadLabel ID="lblUserUserGroupName" runat="server" Text="系統" />
+
+
+                                        <b class="caret"></b></span>
+                                </a>
+                                <telerik:RadLabel ID="TotalTime" runat="server" Text="" />
+                                <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                    <li><a class="dropdown-item" href="EmployeeBaseData.aspx">個人資料</a></li>
+                                    <li><a class="dropdown-item" href="EmployeeBaseChangePassword.aspx">更改密碼</a></li>
+                                    <li class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="Login.aspx?Param=Logout">登出</a></li>
+                                </ul>
+                            </div>
+                            <!--<div class="logo-element">
+                                &emsp;
+                            </div>-->
+                        </li>
+                        <!--左側 Menu 項目-->
+                        <asp:PlaceHolder ID="phMenu" runat="server"></asp:PlaceHolder>
+                    </ul>
+
+                </div>
+            </nav>
+
+            <div id="page-wrapper" class="gray-bg dashbard-1">
+                <div class="row border-bottom">
+                    <nav class="navbar navbar-fixed-top" role="navigation" style="margin-bottom: 0; height: 63px;">
+                        <div class="navbar-header " style="flex: 2; display: flex">
+                            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                            <div class="navbar-form-custom">
+                                <div class="row">
+                                    <div class="col-9 col-lg-9  d-none d-sm-block">
+                                        <div class="form-group" style="width: 100%">
+                                            <input type="text" placeholder="你想搜尋什麼..." class="form-control" name="top-search" id="top-search" />
+                                        </div>
+                                    </div>
+                                    <div class="d-none d-sm-block">
+                                        <telerik:RadButton ID="TopSearch" TabIndex="-1" runat="server" CssClass="minimalize-styl-2 btn fa" OnClick="TopSearch_Click" Style="color: #1ab394;">
+                                            <Icon PrimaryIconCssClass="rbSearch" />
+                                        </telerik:RadButton>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="nav navbar-top-links navbar-right">
+                            <asp:Panel runat="server" ID="plCountDown" Visible="false">
+                                <li class="text-danger text-pd"><strong>自動登出倒數</strong>
+                                    <strong>
+                                        <telerik:RadAjaxPanel runat="server">
+                                            <asp:Timer ID="Timer" runat="server" Interval="1000"></asp:Timer>
+                                            <telerik:RadLabel runat="server" ID="lblTime"></telerik:RadLabel>
+                                        </telerik:RadAjaxPanel>
+                                    </strong></li>
+                            </asp:Panel>
+                            <li>
+                                <!--<span class="m-r-sm text-muted welcome-message">請勿將密碼告知任何人</span>-->
+                                <telerik:RadButton ID="btnExport" runat="server" Visible="False" Text="匯出頁面" OnClientClicking="exports" AutoPostBack="false" CssClass="btn btn-w-m fa" Style="color: #999c9e; font-weight: bolder; font-size: 14px;">
+                                    <Icon PrimaryIconCssClass="rbPrint" />
+                                </telerik:RadButton>
+                            </li>
+                            <li>
+                                <asp:Panel runat="server" ID="plLogOut">
+                                    <a href="Login.aspx?Param=Logout" style="color: #999c9e; font-weight: bolder;">
+                                        <i class="fa fa-sign-out"></i>登出
+                                    </a>
+                                </asp:Panel>
+                            </li>
+                        </ul>
+
+                    </nav>
+                </div>
+                <asp:Panel ID="plSiteMap" runat="server">
+                    <div class="row wrapper border-bottom white-bg page-heading">
+                        <div class="col-lg-10">
+                            <h2>
+                                <telerik:RadLabel ID="lblSiteMapName" runat="server" />
+                            </h2>
+                            <telerik:RadSiteMap ID="smBreadcrumb" runat="server" DataTextField="Text" DataNavigateUrlField="NavigateUrl" Skin="Silk">
+                                <DefaultLevelSettings ListLayout-RepeatDirection="Horizontal" SeparatorText="/" Layout="Flow" />
+                            </telerik:RadSiteMap>
+                        </div>
+                    </div>
+                </asp:Panel>
+                <asp:Panel ID="phPdf" runat="server">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </asp:Panel>
+                <div class="footer fixed">
+                    <div class="float-right">
+                        Ver <strong>20210208</strong> 42384
+                    </div>
+                    <div>
+                        <strong>Copyright</strong> 傑報 &copy; 2021
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Mainly scripts -->
+        <script src="Templates/Inspinia/js/jquery-3.1.1.min.js"></script>
+        <script src="Templates/Inspinia/js/popper.min.js"></script>
+        <script src="Templates/Inspinia/js/bootstrap.js"></script>
+        <script src="Templates/Inspinia/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+        <script src="Templates/Inspinia/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+        <!-- Custom and plugin javascript -->
+        <script src="Templates/Inspinia/js/inspinia.js"></script>
+        <script src="Templates/Inspinia/js/plugins/pace/pace.min.js"></script>
+
+    </form>
+    <div style="position: fixed; top: 80%; right: 0%; z-index: 999;">
+        <a id="BackTop" style="display: none">
+            <i class="fa fa-4x fa-arrow-circle-up"></i>
+        </a>
+    </div>
+    <script>
+        $(function () {
+            $('#BackTop').click(function () {
+                $('html,body').animate({ scrollTop: 0 }, 333);
+            });
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 300) {
+                    $('#BackTop').fadeIn(222);
+                } else {
+                    $('#BackTop').stop().fadeOut(222);
+                }
+            }).scroll();
+        });
+
+    </script>
+    <script type="text/javascript">
+        function fixGridSchedulerComboBoxDropDownList() {
+            // For RadGrid - .RadGrid .RadTouchExtender
+            // For RadScheduler - .rsContentScrollArea.RadTouchExtender
+            // For RadComboBox - .rcbScroll
+            // For RadDropDownList - .rddlList
+            var fixed = $telerik.$(".RadGrid .RadTouchExtender, .rsContentScrollArea.RadTouchExtender, .rcbScroll, .rddlList");
+            fixed.on('touchmove', function (e) {
+                e.preventDefault();
+            });
+        }
+        Sys.Application.add_load(fixGridSchedulerComboBoxDropDownList);
+    </script>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>

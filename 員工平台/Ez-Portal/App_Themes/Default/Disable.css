@@ -1,0 +1,7 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+body {
+-moz-user-select : none;
+-webkit-user-select: none;
+}

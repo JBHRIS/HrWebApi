@@ -1,0 +1,116 @@
+GoodPost
+	auto
+	caption						標題
+	content						內容
+	adate						日期
+	Emp_id						張貼者
+
+HrPost
+	auto
+	caption						標題
+	content						內容
+	adate						日期
+	Emp_id						張貼者
+
+BoardList 討論版
+	auto
+	caption						版名
+	note						簡要說明	
+	Emp_idAdmin1				版主1
+	Emp_idAdmin2				版主2
+	
+PostMain 發表者
+	auto
+	BoardList_auto
+	subject						主題
+	Emp_id						發表者	
+	adate						發者日期	
+	isTop						置頂	
+
+PostDetail
+	PostMain_auto
+	content						內容
+	Emp_id						發表者
+	adate						發表日	
+	
+EmpInfo
+	id
+	signText
+	praiseCount
+	
+PraiseRecord
+	auto
+	PostMain_auto
+	Emp_idAuthor
+	Emp_id
+	
+		
+SysPlan 管理計劃
+	monitor_Check				激催週期
+	maxCount_Check				最多激催次數
+	isAutoFix_Check				超過激催次數，是否轉給上層主管
+	isMail_Check				超過激催次數，是否發出郵件通知
+	mail1_Check					郵件通知的接收者1
+	mail2_Check					郵件通知的接收者2
+	mail3_Check					郵件通知的接收者3		
+	monitor_Error				監控週期
+	maxCount_Error				最多通知次數
+	isAutoFix_Error				超過通知次數仍未處理，是否自動修復
+	mail1_Error					郵件通知的接收者1
+	mail2_Error					郵件通知的接收者2
+	mail3_Error					郵件通知的接收者3
+	
+RobotLog
+	auto
+	srvType						(1.激催 2.警告)
+	ProcessFlow_id				
+	ProcessNode_auto
+	ProcessCheck_auto
+	counter						計數
+	note						說明
+	adate						執行時間
+	isClose						不在監測此流程
+
+AutoStartLog
+	auto
+	ProcessFlow_id
+	adate
+	isSuccess
+
+
+NodeStartLog 自動彙整流程記錄
+	auto
+	adate						啟動時間
+	FlowTree_id					啟動流程
+	processID					流程代碼
+	isFailure					是否失敗
+	
+Calendar
+	auto
+	Emp_id
+	adate
+	calType
+	content
+
+DeviceItems 設備項目
+	auto
+	name						項目名稱
+	isPublic					是否公佈至行事曆
+	
+DeviceUse
+	auto
+	DeviceItems_auto			設備
+	useType						使用類型(1.自用 2.租用 3.外借)
+	useUnit						使用單位
+	dateB						起始時間
+	dateE						結束時間
+	note						附註
+	milageB						使用前碼錶數
+	milageE						使用後碼錶數
+	charge						費用	
+	Emp_id						申請人
+	Emp_name
+	Dept_id						申請人部門
+	Dept_name
+	isOK						同意使用
+	isReCheck					是否需要補填資料

@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[QQType] (
+    [Code] NVARCHAR (50) NOT NULL,
+    [Name] NVARCHAR (10) NOT NULL,
+    CONSTRAINT [PK_QQType] PRIMARY KEY CLUSTERED ([Code] ASC)
+);
+

@@ -1,0 +1,1 @@
+ALTER TABLE dbo.SALCODE add SORT int
