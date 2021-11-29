@@ -3,3 +3,20 @@
 ################################################################################
 
 /.vs
+/DynamicQRCode/DynamicQRCode/obj
+/Flow_WebApi
+/員工平台
+/工具程式
+/表單系統/ezFlow/SourceCode
+/考核系統/KPI/KPI/obj
+/考核系統/KPI/KPI/obj
+/JBAppService
+/人事薪系統/傑報考勤助理系統/obj
+/人事薪系統/HRDB_Schema/obj/Debug
+/人事薪系統/傑報人事薪資系統/.vs/傑報人事薪資系統
+/人事薪系統/傑報人事薪資系統/AbsRepo_TestProject/obj
+/人事薪系統/傑報人事薪資系統/obj
+/人事薪系統/傑報人事薪資系統/TestProject1/obj
+/元件/JBMODULE.DATA/JBModule.Data.Linq/obj
+/元件/Dal/obj
+/元件/JBHR.DLL/obj
