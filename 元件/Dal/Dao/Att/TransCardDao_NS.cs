@@ -32,7 +32,7 @@ namespace Dal.Dao.Att
         /// <param name="conn">連接字串 沒有等於預設</param>
         public TransCardDao_NS(IDbConnection conn = null)
         {
-                dcHr = new HrDBDataContext(conn.ConnectionString);
+            dcHr = new HrDBDataContext(conn.ConnectionString);
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace Dal.Dao.Att
         /// <param name="ConnectionString"></param>
         public TransCardDao_NS(string ConnectionString = null)
         {
-                dcHr = new HrDBDataContext(ConnectionString);
+            dcHr = new HrDBDataContext(ConnectionString);
         }
 
         /// <summary>
@@ -496,18 +496,18 @@ namespace Dal.Dao.Att
             this.Report(30, "判斷異常中...");
 
             Bll.Tools.ThreadPools stp = new Bll.Tools.ThreadPools(_ThreadCount, System.Threading.ThreadPriority.BelowNormal);
-            foreach (var item in lsNobr.Split(300))
+            //foreach (var item in lsNobr.Split(300))
+            //{
+            //for (int count = 0; count < lsNobr.Count; count++)
             {
-                //for (int count = 0; count < lsNobr.Count; count++)
-                {
-                    this.Report(50, "判斷異常中...");// + lsNobr[count]);
+                this.Report(50, "判斷異常中...");// + lsNobr[count]);
 
-                    tcp = new TransCardPools(dcHr.Connection, null, Vdb, oCond, item, string.Empty, iPass);// new List<string>(), lsNobr[count], iPass);
-                    stp.QueueUserWorkItem(new WaitCallback(tcp.TransCardThreadPoolCallback));//, string.Format("STP1[{0}]", count));
-                    //Thread.Sleep(new Random().Next(500));
-                    Thread.Sleep(0);
-                } 
+                tcp = new TransCardPools(dcHr.Connection, null, Vdb, oCond, lsNobr, string.Empty, iPass);// new List<string>(), lsNobr[count], iPass);
+                stp.QueueUserWorkItem(new WaitCallback(tcp.TransCardThreadPoolCallback));//, string.Format("STP1[{0}]", count));
+                                                                                         //Thread.Sleep(new Random().Next(500));
+                Thread.Sleep(0);
             }
+            //}
 
             this.Report(70, "資料批次處理中(這裡要很久)...");
             stp.EndPool();
@@ -545,291 +545,293 @@ namespace Dal.Dao.Att
 
             public void TransCardThreadPoolCallback(object obj)
             {
-                //ManualResetEvent mre = (ManualResetEvent)obj;
-                HrDBDataContext dcHr = new HrDBDataContext(ConnectionString.ConnectionString);
-
-                //20140213這邊改分為抓單獨一個工號，或是一段工號，因之前兩個一起做，使用or，懷疑此方式會讓他Timeout
-                //修改此方式測試看看
-                List<ATTEND> rsATTEND = new List<ATTEND>();
-                List<ATTCARD> rsATTCARD = new List<ATTCARD>();
-                List<CardTable> rsCardData = new List<CardTable>();
-                if (lsNobr.Count == 0)
+                foreach (var item in lsNobr.Split(1000))
                 {
-                    rsATTEND.AddRange((from c in dcHr.ATTEND
-                                       join r in dcHr.ROTE on c.ROTE equals r.ROTE1
-                                       where c.NOBR.Trim() == sNobr
-                                       && c.ADATE.Date >= oCond.dDateB.AddDays(-1).Date
-                                       && c.ADATE.Date <= oCond.dDateE.AddDays(1).Date
-                                       //orderby c.ROTE descending, c.NOBR, c.ADATE
-                                       //orderby c.ADATE, r.WK_HRS descending
-                                       orderby r.WK_HRS descending, c.ROTE, c.ADATE
-                                       select c).ToList());
+                    //ManualResetEvent mre = (ManualResetEvent)obj;
+                    HrDBDataContext dcHr = new HrDBDataContext(ConnectionString.ConnectionString);
 
-                    rsATTCARD.AddRange((from c in dcHr.ATTCARD
-                                        where c.NOBR.Trim() == sNobr
-                                        && c.ADATE.Date >= oCond.dDateB.Date.AddDays(-1)
-                                        && c.ADATE.Date <= oCond.dDateE.Date.AddDays(1)
-                                        //orderby c.NOBR, c.ADATE
-                                        orderby c.ADATE descending
-                                        select c).ToList());
-
-                    rsCardData.AddRange((from c in Vdb.CardData
-                                         where c.Nobr == sNobr
-                                         && c.CardDate >= oCond.dDateB.AddDays(-1).Date
-                                         && c.CardDate <= oCond.dDateE.AddDays(1).Date
-                                         select c).ToList());
-                }
-                else
-                {
-                    rsATTEND.AddRange((from c in dcHr.ATTEND
-                                       join r in dcHr.ROTE on c.ROTE equals r.ROTE1
-                                       where lsNobr.Contains(c.NOBR)
-                                       && c.ADATE.Date >= oCond.dDateB.AddDays(-1).Date
-                                       && c.ADATE.Date <= oCond.dDateE.AddDays(1).Date
-                                       //orderby c.ROTE descending, c.NOBR, c.ADATE
-                                       //orderby c.ADATE, r.WK_HRS descending
-                                       orderby r.WK_HRS descending, c.ROTE, c.ADATE
-                                       select c).ToList());
-
-                    rsATTCARD.AddRange((from c in dcHr.ATTCARD
-                                        where lsNobr.Contains(c.NOBR)
-                                        && c.ADATE.Date >= oCond.dDateB.Date.AddDays(-1)
-                                        && c.ADATE.Date <= oCond.dDateE.Date.AddDays(1)
-                                        //orderby c.NOBR, c.ADATE
-                                        orderby c.ADATE descending
-                                        select c).ToList());
-
-                    rsCardData.AddRange((from c in Vdb.CardData
-                                         where lsNobr.Contains(c.Nobr)
-                                         && c.CardDate >= oCond.dDateB.AddDays(-1).Date
-                                         && c.CardDate <= oCond.dDateE.AddDays(1).Date
-                                         select c).ToList());
-                }
-                //加一個月的主要原因，是因為當遇到最後一天是假日時，可以一直向後尋找，會影響效能
-
-                int i = 0;
-
-                #region
-                DateTime Date, DateTimeB, DateTimeE;
-                Date = DateTime.Now.Date;
-                string RoteCode;
-                foreach (var rATTEND in rsATTEND)
-                {
-                    i += 1;
-
-                    //取得需要轉的出勤資料 沒有出勤資料就不用轉
-                    if (oCond.dDateB.AddDays(-1) <= rATTEND.ADATE.Date && rATTEND.ADATE.Date <= oCond.dDateE.AddDays(1))
+                    //20140213這邊改分為抓單獨一個工號，或是一段工號，因之前兩個一起做，使用or，懷疑此方式會讓他Timeout
+                    //修改此方式測試看看
+                    List<ATTEND> rsATTEND = new List<ATTEND>();
+                    List<ATTCARD> rsATTCARD = new List<ATTCARD>();
+                    List<CardTable> rsCardData = new List<CardTable>();
+                    if (item.Count == 0)
                     {
-                        //取得員工設定檔
-                        var rBaseData = Vdb.BaseData.Where(p => p.Nobr.Trim() == rATTEND.NOBR.Trim()
-                            && p.DateA <= rATTEND.ADATE.Date
-                            && rATTEND.ADATE.Date <= p.DateD).FirstOrDefault();
-                        if (rBaseData != null)
+                        rsATTEND.AddRange((from c in dcHr.ATTEND
+                                           join r in dcHr.ROTE on c.ROTE equals r.ROTE1
+                                           where c.NOBR.Trim() == sNobr
+                                           && c.ADATE.Date >= oCond.dDateB.AddDays(-1).Date
+                                           && c.ADATE.Date <= oCond.dDateE.AddDays(1).Date
+                                           //orderby c.ROTE descending, c.NOBR, c.ADATE
+                                           //orderby c.ADATE, r.WK_HRS descending
+                                           orderby r.WK_HRS descending, c.ROTE, c.ADATE
+                                           select c).ToList());
+
+                        rsATTCARD.AddRange((from c in dcHr.ATTCARD
+                                            where c.NOBR.Trim() == sNobr
+                                            && c.ADATE.Date >= oCond.dDateB.Date.AddDays(-1)
+                                            && c.ADATE.Date <= oCond.dDateE.Date.AddDays(1)
+                                            //orderby c.NOBR, c.ADATE
+                                            orderby c.ADATE descending
+                                            select c).ToList());
+
+                        rsCardData.AddRange((from c in Vdb.CardData
+                                             where c.Nobr == sNobr
+                                             && c.CardDate >= oCond.dDateB.AddDays(-1).Date
+                                             && c.CardDate <= oCond.dDateE.AddDays(1).Date
+                                             select c).ToList());
+                    }
+                    else
+                    {
+                        rsATTEND.AddRange((from c in dcHr.ATTEND
+                                           join r in dcHr.ROTE on c.ROTE equals r.ROTE1
+                                           where item.Contains(c.NOBR)
+                                           && c.ADATE.Date >= oCond.dDateB.AddDays(-1).Date
+                                           && c.ADATE.Date <= oCond.dDateE.AddDays(1).Date
+                                           //orderby c.ROTE descending, c.NOBR, c.ADATE
+                                           //orderby c.ADATE, r.WK_HRS descending
+                                           orderby r.WK_HRS descending, c.ROTE, c.ADATE
+                                           select c).ToList());
+
+                        rsATTCARD.AddRange((from c in dcHr.ATTCARD
+                                            where item.Contains(c.NOBR)
+                                            && c.ADATE.Date >= oCond.dDateB.Date.AddDays(-1)
+                                            && c.ADATE.Date <= oCond.dDateE.Date.AddDays(1)
+                                            //orderby c.NOBR, c.ADATE
+                                            orderby c.ADATE descending
+                                            select c).ToList());
+
+                        rsCardData.AddRange((from c in Vdb.CardData
+                                             where lsNobr.Contains(c.Nobr)
+                                             && c.CardDate >= oCond.dDateB.AddDays(-1).Date
+                                             && c.CardDate <= oCond.dDateE.AddDays(1).Date
+                                             select c).ToList());
+                    }
+                    //加一個月的主要原因，是因為當遇到最後一天是假日時，可以一直向後尋找，會影響效能
+
+                    int i = 0;
+
+                    #region
+                    DateTime Date, DateTimeB, DateTimeE;
+                    Date = DateTime.Now.Date;
+                    string RoteCode;
+                    foreach (var rATTEND in rsATTEND)
+                    {
+                        i += 1;
+
+                        //取得需要轉的出勤資料 沒有出勤資料就不用轉
+                        if (oCond.dDateB.AddDays(-1) <= rATTEND.ADATE.Date && rATTEND.ADATE.Date <= oCond.dDateE.AddDays(1))
                         {
-                            if (oCond.sRote == "0" || oCond.sRote.Trim().Length == 0)
+                            //取得員工設定檔
+                            var rBaseData = Vdb.BaseData.Where(p => p.Nobr.Trim() == rATTEND.NOBR.Trim()
+                                && p.DateA <= rATTEND.ADATE.Date
+                                && rATTEND.ADATE.Date <= p.DateD).FirstOrDefault();
+                            if (rBaseData != null)
                             {
-                                RoteCode = rATTEND.ROTE_H.Trim();
-
-                                var rRote = Vdb.RoteData.Where(p => p.RoteCode == RoteCode).FirstOrDefault();
-
-                                //如果是假日班就置換班別 先從加班資料尋找 再按照客戶規則找預設班別
-                                if (!PassOtRote && rRote != null && IsHoliDay(Vdb.RoteData, RoteCode))
+                                if (oCond.sRote == "0" || oCond.sRote.Trim().Length == 0)
                                 {
-                                    var rOt = Vdb.OtData.Where(p => p.Nobr == rATTEND.NOBR.Trim()
-                                        && p.Date == rATTEND.ADATE.Date).FirstOrDefault();
+                                    RoteCode = rATTEND.ROTE_H.Trim();
 
-                                    if (rOt != null)
+                                    var rRote = Vdb.RoteData.Where(p => p.RoteCode == RoteCode).FirstOrDefault();
+
+                                    //如果是假日班就置換班別 先從加班資料尋找 再按照客戶規則找預設班別
+                                    if (!PassOtRote && rRote != null && IsHoliDay(Vdb.RoteData, RoteCode))
                                     {
-                                        if (IsHoliDay(Vdb.RoteData, rOt.RoteCode))
-                                            RoteCode = rATTEND.ROTE_H;
+                                        var rOt = Vdb.OtData.Where(p => p.Nobr == rATTEND.NOBR.Trim()
+                                            && p.Date == rATTEND.ADATE.Date).FirstOrDefault();
+
+                                        if (rOt != null)
+                                        {
+                                            if (IsHoliDay(Vdb.RoteData, rOt.RoteCode))
+                                                RoteCode = rATTEND.ROTE_H;
+                                            else
+                                                RoteCode = rOt.RoteCode;
+                                        }
                                         else
-                                            RoteCode = rOt.RoteCode;
-                                    }
-                                    else
-                                    {
-                                        if (IsHoliDay(Vdb.RoteData, rATTEND.ROTE_H))
-                                            RoteCode = GetRoteCode(rsATTEND, Vdb.RoteData, rATTEND.NOBR.Trim(), rATTEND.ADATE.Date, RoteCode);
-                                        else
-                                            RoteCode = rATTEND.ROTE_H;
+                                        {
+                                            if (IsHoliDay(Vdb.RoteData, rATTEND.ROTE_H))
+                                                RoteCode = GetRoteCode(rsATTEND, Vdb.RoteData, rATTEND.NOBR.Trim(), rATTEND.ADATE.Date, RoteCode);
+                                            else
+                                                RoteCode = rATTEND.ROTE_H;
+                                        }
                                     }
                                 }
-                            }
-                            else
-                                RoteCode = oCond.sRote;
+                                else
+                                    RoteCode = oCond.sRote;
 
-                            List<AttCardTable> rsAttCardDataDay = new List<AttCardTable>();
+                                List<AttCardTable> rsAttCardDataDay = new List<AttCardTable>();
 
-                            //一定要非假日班別能轉換 而且班別一定要存在
-                            RoteTable rRoteDataDay = Vdb.RoteData.Where(p => p.RoteCode == RoteCode).FirstOrDefault();
-                            if (rRoteDataDay != null && !IsHoliDay(Vdb.RoteData, rRoteDataDay.RoteCode))
-                            {
-                                //今天上班時間 如果比轉換時間還要大 此資料不需判斷
-                                DateTime DateOnTime = rATTEND.ADATE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(rRoteDataDay.OnTime));
-                                if (DateTime.Now < DateOnTime)
-                                    continue;
-
-                                //放入請假資料
-                                List<AbsTable> rsAbs = Vdb.AbsData.Where(p => p.Nobr.Trim() == rATTEND.NOBR.Trim() && p.Date.Date == rATTEND.ADATE.Date).ToList();
-
-                                //取得正確的刷卡資料
-                                DateTimeB = rATTEND.ADATE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(rRoteDataDay.OffLastTime));  //今天的最早上班時間
-                                DateTimeE = DateTimeB.AddDays(1);   //今天的最晚下班時間
-
-                                List<AttCardTable> lsAttCard = new List<AttCardTable>();
-
-                                //取得當天的出勤上下班時間
-                                //lsAttCard = Vdb.AttCardData.Where(p => p.Nobr == rATTEND.NOBR.Trim() && p.Date == rATTEND.ADATE.Date).ToList();
-                                var rsATTCARD_Day = rsATTCARD.Where(p => p.NOBR.Trim() == rATTEND.NOBR.Trim() && p.ADATE.Date == rATTEND.ADATE.Date).ToList();
-                                lsAttCard = rsATTCARD_Day.Select(c => new AttCardTable
+                                //一定要非假日班別能轉換 而且班別一定要存在
+                                RoteTable rRoteDataDay = Vdb.RoteData.Where(p => p.RoteCode == RoteCode).FirstOrDefault();
+                                if (rRoteDataDay != null && !IsHoliDay(Vdb.RoteData, rRoteDataDay.RoteCode))
                                 {
-                                    Nobr = c.NOBR.Trim(),
-                                    Date = c.ADATE.Date,
-                                    NoTrans = c.NOMODY,
-                                    OnCardTime48 = c.T1.Trim(),
-                                    OffCardTime48 = c.T2.Trim(),
-                                    OnCardTime24 = c.TT1.Trim(),
-                                    OffCardTime24 = c.TT2.Trim(),
-                                    OnLos = c.LOST1,
-                                    OffLos = c.LOST2,
-                                }).ToList();
+                                    //今天上班時間 如果比轉換時間還要大 此資料不需判斷
+                                    DateTime DateOnTime = rATTEND.ADATE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(rRoteDataDay.OnTime));
+                                    if (DateTime.Now < DateOnTime)
+                                        continue;
 
-                                //需要重新拼上下班時間
-                                if (oCond.bAttCard)
-                                {
-                                    //完全沒有資料 或是 沒有任何一筆勾不轉換 ※只要有一筆勾不轉換 全天就不轉換了 這邊可能會有爭議
-                                    //if (lsAttCard.Count == 0 || !lsAttCard.Where(p => p.NoTrans).Any())
-                                    if (true)
+                                    //放入請假資料
+                                    List<AbsTable> rsAbs = Vdb.AbsData.Where(p => p.Nobr.Trim() == rATTEND.NOBR.Trim() && p.Date.Date == rATTEND.ADATE.Date).ToList();
+
+                                    //取得正確的刷卡資料
+                                    DateTimeB = rATTEND.ADATE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(rRoteDataDay.OffLastTime));  //今天的最早上班時間
+                                    DateTimeE = DateTimeB.AddDays(1);   //今天的最晚下班時間
+
+                                    List<AttCardTable> lsAttCard = new List<AttCardTable>();
+
+                                    //取得當天的出勤上下班時間
+                                    //lsAttCard = Vdb.AttCardData.Where(p => p.Nobr == rATTEND.NOBR.Trim() && p.Date == rATTEND.ADATE.Date).ToList();
+                                    var rsATTCARD_Day = rsATTCARD.Where(p => p.NOBR.Trim() == rATTEND.NOBR.Trim() && p.ADATE.Date == rATTEND.ADATE.Date).ToList();
+                                    lsAttCard = rsATTCARD_Day.Select(c => new AttCardTable
                                     {
-                                        //lsAttCard = new List<AttCardTable>(); //重新初始
+                                        Nobr = c.NOBR.Trim(),
+                                        Date = c.ADATE.Date,
+                                        NoTrans = c.NOMODY,
+                                        OnCardTime48 = c.T1.Trim(),
+                                        OffCardTime48 = c.T2.Trim(),
+                                        OnCardTime24 = c.TT1.Trim(),
+                                        OffCardTime24 = c.TT2.Trim(),
+                                        OnLos = c.LOST1,
+                                        OffLos = c.LOST2,
+                                    }).ToList();
 
-                                        //將刷卡時間丟入物件集合 準備涵數使用
-                                        //List<CardTable> rsCardDataDay = Vdb.CardData.Where(p => p.Nobr == rATTEND.NOBR.Trim() && DateTimeB <= p.CardDateTime && p.CardDateTime <= DateTimeE).ToList();
-                                        List<CardTable> rsCardDataDay = rsCardData.Where(p => p.Nobr == rATTEND.NOBR.Trim() && DateTimeB <= p.CardDateTime && p.CardDateTime <= DateTimeE).ToList();
-
-                                        //創出另一個集合，等下要把這些資料刪除
-                                        List<CardTable> rsCardDay = new List<CardTable>();
-                                        foreach (var rCardDataDay in rsCardDataDay)
-                                            rsCardDay.Add(rCardDataDay);
-
-                                        //至少要有一筆刷卡資料
-                                        if (rsCardDataDay.Any())
+                                    //需要重新拼上下班時間
+                                    if (oCond.bAttCard)
+                                    {
+                                        //完全沒有資料 或是 沒有任何一筆勾不轉換 ※只要有一筆勾不轉換 全天就不轉換了 這邊可能會有爭議
+                                        //if (lsAttCard.Count == 0 || !lsAttCard.Where(p => p.NoTrans).Any())
+                                        if (true)
                                         {
-                                            var rsAttCardData = oTransCard.AttCardByOneDay(rsCardDataDay, rATTEND.ADATE.Date, oCond.bEzAttCard);
+                                            //lsAttCard = new List<AttCardTable>(); //重新初始
 
-                                            //刪除Vdb.CardData曾經使用過的資料
-                                            foreach (var rCardDay in rsCardDay)
-                                                if (rsCardData.Contains(rCardDay))
-                                                    rsCardData.Remove(rCardDay);
+                                            //將刷卡時間丟入物件集合 準備涵數使用
+                                            //List<CardTable> rsCardDataDay = Vdb.CardData.Where(p => p.Nobr == rATTEND.NOBR.Trim() && DateTimeB <= p.CardDateTime && p.CardDateTime <= DateTimeE).ToList();
+                                            List<CardTable> rsCardDataDay = rsCardData.Where(p => p.Nobr == rATTEND.NOBR.Trim() && DateTimeB <= p.CardDateTime && p.CardDateTime <= DateTimeE).ToList();
 
-                                            DateTime dTempDateTime = DateTime.Now;
+                                            //創出另一個集合，等下要把這些資料刪除
+                                            List<CardTable> rsCardDay = new List<CardTable>();
+                                            foreach (var rCardDataDay in rsCardDataDay)
+                                                rsCardDay.Add(rCardDataDay);
 
-                                            if ((lsAttCard.Count == 0 || !lsAttCard.Where(p => p.NoTrans).Any()) && oCond.dDateB <= rATTEND.ADATE.Date && rATTEND.ADATE.Date <= oCond.dDateE)
+                                            //至少要有一筆刷卡資料
+                                            if (rsCardDataDay.Any())
                                             {
-                                                lsAttCard = new List<AttCardTable>(); //重新初始
+                                                var rsAttCardData = oTransCard.AttCardByOneDay(rsCardDataDay, rATTEND.ADATE.Date, oCond.bEzAttCard);
 
-                                                //有可能會有一天多筆資料
-                                                foreach (var rAttCardDataDay in rsAttCardData)
+                                                //刪除Vdb.CardData曾經使用過的資料
+                                                foreach (var rCardDay in rsCardDay)
+                                                    if (rsCardData.Contains(rCardDay))
+                                                        rsCardData.Remove(rCardDay);
+
+                                                DateTime dTempDateTime = DateTime.Now;
+
+                                                if ((lsAttCard.Count == 0 || !lsAttCard.Where(p => p.NoTrans).Any()) && oCond.dDateB <= rATTEND.ADATE.Date && rATTEND.ADATE.Date <= oCond.dDateE)
                                                 {
-                                                    //新增到ATTCARD
-                                                    var rATTACRD = new ATTCARD();
-                                                    dcHr.ATTCARD.InsertOnSubmit(rATTACRD);
+                                                    lsAttCard = new List<AttCardTable>(); //重新初始
 
-                                                    //不要的資料
-                                                    rATTACRD.CODE = "";
-                                                    rATTACRD.KEY_DATE = dTempDateTime;  //這個是關鍵
-                                                    rATTACRD.DD1 = "";
-                                                    rATTACRD.DD2 = "";
-                                                    rATTACRD.NOMODY = false;
+                                                    //有可能會有一天多筆資料
+                                                    foreach (var rAttCardDataDay in rsAttCardData)
+                                                    {
+                                                        //新增到ATTCARD
+                                                        var rATTACRD = new ATTCARD();
+                                                        dcHr.ATTCARD.InsertOnSubmit(rATTACRD);
 
-                                                    //要的資料
-                                                    rATTACRD.NOBR = rATTEND.NOBR.Trim();
-                                                    rATTACRD.ADATE = rATTEND.ADATE.Date;
-                                                    rATTACRD.SER = 1;
-                                                    rATTACRD.KEY_MAN = oCond.sKeyMan;
-                                                    rATTACRD.T1 = rAttCardDataDay.OnCardTime48;
-                                                    rATTACRD.T2 = rAttCardDataDay.OffCardTime48;
-                                                    rATTACRD.LOST1 = rAttCardDataDay.OnLos;
-                                                    rATTACRD.LOST2 = rAttCardDataDay.OffLos;
-                                                    rATTACRD.TT1 = rAttCardDataDay.OnCardTime24;
-                                                    rATTACRD.TT2 = rAttCardDataDay.OffCardTime24;
+                                                        //不要的資料
+                                                        rATTACRD.CODE = "";
+                                                        rATTACRD.KEY_DATE = dTempDateTime;  //這個是關鍵
+                                                        rATTACRD.DD1 = "";
+                                                        rATTACRD.DD2 = "";
+                                                        rATTACRD.NOMODY = false;
 
-                                                    //將資料加入到vdb
-                                                    lsAttCard.Add(rAttCardDataDay);
-                                                }   //end foreach by attcard
+                                                        //要的資料
+                                                        rATTACRD.NOBR = rATTEND.NOBR.Trim();
+                                                        rATTACRD.ADATE = rATTEND.ADATE.Date;
+                                                        rATTACRD.SER = 1;
+                                                        rATTACRD.KEY_MAN = oCond.sKeyMan;
+                                                        rATTACRD.T1 = rAttCardDataDay.OnCardTime48;
+                                                        rATTACRD.T2 = rAttCardDataDay.OffCardTime48;
+                                                        rATTACRD.LOST1 = rAttCardDataDay.OnLos;
+                                                        rATTACRD.LOST2 = rAttCardDataDay.OffLos;
+                                                        rATTACRD.TT1 = rAttCardDataDay.OnCardTime24;
+                                                        rATTACRD.TT2 = rAttCardDataDay.OffCardTime24;
+
+                                                        //將資料加入到vdb
+                                                        lsAttCard.Add(rAttCardDataDay);
+                                                    }   //end foreach by attcard
+                                                }
+                                            }   //end if by 至少要有一筆刷卡資料
+
+                                            //一律刪除 因為T1是主鍵
+                                            if ((rsATTCARD_Day.Count > 0 && !rsATTCARD_Day.Where(p => p.NOMODY).Any()) && oCond.dDateB <= rATTEND.ADATE.Date && rATTEND.ADATE.Date <= oCond.dDateE)
+                                                dcHr.ATTCARD.DeleteAllOnSubmit(rsATTCARD_Day);
+                                        }
+                                    }   //end if by 需要重新拼上下班時間
+
+                                    //需要判斷異常
+                                    if (!rATTEND.CANT_ADJ && oCond.bAttEnd && oCond.dDateB <= rATTEND.ADATE.Date && rATTEND.ADATE.Date <= oCond.dDateE)
+                                    {
+                                        rATTEND.LATE_MINS = 0;  //遲到
+                                        rATTEND.E_MINS = 0; //早退
+                                        rATTEND.ABS = false;    //曠職
+                                        rATTEND.FORGET = 0; //忘刷
+                                        rATTEND.EARLY_MINS = 0; //提早來
+                                        rATTEND.DELAY_MINS = 0; //延後走
+
+                                        //一定要有刷卡資料 才需要判斷
+                                        if (rBaseData.NeedCard && !IsHoliDay(Vdb.RoteData, rATTEND.ROTE.Trim()))
+                                        {
+                                            var rAttEndByOneDay = oTransCard.AttEndByOneDay(lsAttCard, rRoteDataDay, rsAbs, rATTEND.ADATE.Date);
+                                            //var rAttEndByOneDay = oTransCard.AttEndByOneDayByMultiRes(lsAttCard, rRoteDataDay, rsAbs, rATTEND.ADATE.Date);
+                                            rATTEND.LATE_MINS = rAttEndByOneDay.LatesMin;
+                                            rATTEND.E_MINS = rAttEndByOneDay.EarlierMin;
+                                            rATTEND.ABS = rAttEndByOneDay.Abs;
+                                            rATTEND.FORGET = rAttEndByOneDay.Card;
+
+                                            rATTEND.EARLY_MINS = rAttEndByOneDay.EarlyMin;
+                                            rATTEND.DELAY_MINS = rAttEndByOneDay.DelayMin;
+
+                                            //不計算遲到早退
+                                            if (rBaseData.NoTer)
+                                            {
+                                                rATTEND.LATE_MINS = 0;
+                                                rATTEND.E_MINS = 0;
                                             }
-                                        }   //end if by 至少要有一筆刷卡資料
 
-                                        //一律刪除 因為T1是主鍵
-                                        if ((rsATTCARD_Day.Count > 0 && !rsATTCARD_Day.Where(p => p.NOMODY).Any()) && oCond.dDateB <= rATTEND.ADATE.Date && rATTEND.ADATE.Date <= oCond.dDateE)
-                                            dcHr.ATTCARD.DeleteAllOnSubmit(rsATTCARD_Day);
-                                    }
-                                }   //end if by 需要重新拼上下班時間
+                                            //大於今天日期不判早退
+                                            if (rATTEND.ADATE.Date >= DateTime.Now.Date)
+                                                rATTEND.E_MINS = 0;
 
-                                //需要判斷異常
-                                if (!rATTEND.CANT_ADJ && oCond.bAttEnd && oCond.dDateB <= rATTEND.ADATE.Date && rATTEND.ADATE.Date <= oCond.dDateE)
-                                {
-                                    rATTEND.LATE_MINS = 0;  //遲到
-                                    rATTEND.E_MINS = 0; //早退
-                                    rATTEND.ABS = false;    //曠職
-                                    rATTEND.FORGET = 0; //忘刷
-                                    rATTEND.EARLY_MINS = 0; //提早來
-                                    rATTEND.DELAY_MINS = 0; //延後走
-
-                                    //一定要有刷卡資料 才需要判斷
-                                    if (rBaseData.NeedCard && !IsHoliDay(Vdb.RoteData, rATTEND.ROTE.Trim()))
-                                    {
-                                        var rAttEndByOneDay = oTransCard.AttEndByOneDay(lsAttCard, rRoteDataDay, rsAbs, rATTEND.ADATE.Date);
-                                        //var rAttEndByOneDay = oTransCard.AttEndByOneDayByMultiRes(lsAttCard, rRoteDataDay, rsAbs, rATTEND.ADATE.Date);
-                                        rATTEND.LATE_MINS = rAttEndByOneDay.LatesMin;
-                                        rATTEND.E_MINS = rAttEndByOneDay.EarlierMin;
-                                        rATTEND.ABS = rAttEndByOneDay.Abs;
-                                        rATTEND.FORGET = rAttEndByOneDay.Card;
-
-                                        rATTEND.EARLY_MINS = rAttEndByOneDay.EarlyMin;
-                                        rATTEND.DELAY_MINS = rAttEndByOneDay.DelayMin;
-
-                                        //不計算遲到早退
-                                        if (rBaseData.NoTer)
+                                            rATTEND.LATE_MINS = rBaseData.NeedOnCard ? rATTEND.LATE_MINS : 0;
+                                            rATTEND.E_MINS = rBaseData.NeedOffCard ? rATTEND.E_MINS : 0;
+                                        }
+                                        else if (IsHoliDay(Vdb.RoteData, rATTEND.ROTE.Trim()) && lsAttCard.Count > 0)   //假日也要計算總分鐘數 20140106 家瑜
                                         {
-                                            rATTEND.LATE_MINS = 0;
-                                            rATTEND.E_MINS = 0;
+                                            var rAttCard = lsAttCard[0];
+                                            if (rAttCard.OnCardTime48.Trim().Length > 0 && rAttCard.OffCardTime48.Trim().Length > 0)
+                                            {
+                                                int iRoteMin = Bll.Tools.TimeTrans.ConvertHhMmToMinutes(rAttCard.OnCardTime48);
+                                                int iCardMin = Bll.Tools.TimeTrans.ConvertHhMmToMinutes(rAttCard.OffCardTime48);
+
+                                                rATTEND.DELAY_MINS = iCardMin - iRoteMin;
+                                            }
                                         }
 
-                                        //大於今天日期不判早退
-                                        if (rATTEND.ADATE.Date >= DateTime.Now.Date)
-                                            rATTEND.E_MINS = 0;
-
-                                        rATTEND.LATE_MINS = rBaseData.NeedOnCard ? rATTEND.LATE_MINS : 0;
-                                        rATTEND.E_MINS = rBaseData.NeedOffCard ? rATTEND.E_MINS : 0;
+                                        rATTEND.KEY_MAN = oCond.sKeyMan;
+                                        rATTEND.KEY_DATE = DateTime.Now;
                                     }
-                                    else if (IsHoliDay(Vdb.RoteData, rATTEND.ROTE.Trim()) && lsAttCard.Count > 0)   //假日也要計算總分鐘數 20140106 家瑜
-                                    {
-                                        var rAttCard = lsAttCard[0];
-                                        if (rAttCard.OnCardTime48.Trim().Length > 0 && rAttCard.OffCardTime48.Trim().Length > 0)
-                                        {
-                                            int iRoteMin = Bll.Tools.TimeTrans.ConvertHhMmToMinutes(rAttCard.OnCardTime48);
-                                            int iCardMin = Bll.Tools.TimeTrans.ConvertHhMmToMinutes(rAttCard.OffCardTime48);
+                                }   //end if by 一定要非假日班別能轉換 而且班別一定要存在
+                            }   // end if by 取得員工設定檔
+                        }   //end if by 取得需要轉的出勤資料 沒有出勤資料就不用轉
+                    }   //end foreach
+                    #endregion
 
-                                            rATTEND.DELAY_MINS = iCardMin - iRoteMin;
-                                        }
-                                    }
-
-                                    rATTEND.KEY_MAN = oCond.sKeyMan;
-                                    rATTEND.KEY_DATE = DateTime.Now;
-                                }
-                            }   //end if by 一定要非假日班別能轉換 而且班別一定要存在
-                        }   // end if by 取得員工設定檔
-                    }   //end if by 取得需要轉的出勤資料 沒有出勤資料就不用轉
-                }   //end foreach
-                #endregion
-
-                try
-                {
-                    dcSubmitChanges(dcHr);
-                    iPass += i;
+                    try
+                    {
+                        dcSubmitChanges(dcHr);
+                        iPass += i;
+                    }
+                    catch { }
                 }
-                catch { }
-
                 //doneEvent.Set();
                 //return iPass;
             }
