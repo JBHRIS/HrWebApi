@@ -1,0 +1,1538 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HR_WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:HR_WebApi.Controllers.Attendance.AbnormalController.GetAbnormalAttendance(JBHRIS.Api.Dto.Attendance.Entry.AttendanceEntry)">
+            <summary>
+            取得需要註記資料
+            </summary>
+            <param name="attendanceEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AbnormalController.CheckAbnormalAttendanceComment(System.Collections.Generic.List{JBHRIS.Api.Dto.Attendance.View.AbnormalViewDto})">
+            <summary>
+            註記檢核
+            </summary>
+            <param name="abnormalViewDtos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AbnormalController.SaveAbnormalAttendanceComment(System.Collections.Generic.List{JBHRIS.Api.Dto.Attendance.View.AbnormalViewDto})">
+            <summary>
+            註記存入後端系統
+            </summary>
+            <param name="abnormalViewDtos"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HR_WebApi.Controllers.Attendance.AbsenceCancelController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AbsenceCancelController.#ctor(JBHRIS.Api.Service.Attendance.Normal.IAbsenceCancelService)">
+            <summary>
+            
+            </summary>
+            <param name="absenceCancelService"></param>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AbsenceCancelController.GetCancelableLeave(JBHRIS.Api.Dto.Attendance.DateBetweenQueryDto)">
+            <summary>
+            取得可銷假資料
+            </summary>
+            <param name="dateBetweenQueryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AbsenceCancelController.CheckCancelLeave(System.Collections.Generic.List{JBHRIS.Api.Dto.Attendance.CancelLeaveApplyDto})">
+            <summary>
+            銷假檢核
+            </summary>
+            <param name="cancelLeaveApplyDtos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AbsenceCancelController.SaveCancelLeave(System.Collections.Generic.List{JBHRIS.Api.Dto.Attendance.CancelLeaveApplyDto})">
+            <summary>
+            銷假存入後端系統(刪除實體資料)
+            </summary>
+            <param name="cancelLeaveApplyDtos"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HR_WebApi.Controllers.Attendance.AbsenceController">
+            <summary>
+            請假服務
+            </summary>
+            <description>
+            請假服務的輔助說明
+            </description>
+            <remarks>測試123</remarks>    
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AbsenceController.#ctor(JBHRIS.Api.Service.Attendance.Normal.IAbsenceService,JBHRIS.Api.Service.Attendance.Normal.IAbsenceCalculateService,NLog.ILogger)">
+            <summary>
+            請假控制器
+            </summary>
+            <param name="absenceService">請假服務</param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AbsenceController.GetAbsenceTaken(JBHRIS.Api.Dto.Attendance.Entry.AbsenceEntry)">
+            <summary>
+            取得請假資料
+            </summary>
+            <param name="absenceEntryDto"></param>
+            <returns>產生的結果</returns>
+            <remarks>請假服務的輔助說明</remarks>  
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AbsenceController.GetAbsenceCancel(JBHRIS.Api.Dto.Attendance.Entry.AbsenceEntry)">
+            <summary>
+            取得銷假資料
+            </summary>
+            <param name="absenceEntryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AbsenceController.GetAbsBalance(JBHRIS.Api.Dto.Attendance.Entry.AbsenceBalanceEntry)">
+            <summary>
+            取得剩餘時數
+            </summary>
+            <param name="absenceEntryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AbsenceController.GetPeopleAbs(JBHRIS.Api.Dto.Attendance.Entry.AbsenceEntry)">
+            <summary>
+            請假名單
+            </summary>
+            <param name="absenceEntryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AbsenceController.GetHcode">
+            <summary>
+            取得假別代碼
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AbsenceController.GetHcodeTypes">
+            <summary>
+            取得假別類別
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AbsenceController.GetHcodeTypesByHcode(JBHRIS.Api.Dto.Attendance.Entry.HcodeTypesByHcodeEntry)">
+            <summary>
+            取得請假類別假別代碼
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AbsenceController.GetAbsenceDataDetail(JBHRIS.Api.Dto.Absence.Entry.GetAbsenceDataDetailEntry)">
+            <summary>
+            產生請假明細
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AbsenceController.CheckAbsenceDataDetail(System.Collections.Generic.List{JBHRIS.Api.Dto.Attendance.View.CalAbsHoursDto})">
+             <summary>
+            檢查請假明細
+             </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AbsenceController.AbsenceDataSave(System.Collections.Generic.List{JBHRIS.Api.Dto.Attendance.View.CalAbsHoursDto})">
+            <summary>
+            請假存入
+            </summary>
+        </member>
+        <member name="T:HR_WebApi.Controllers.Attendance.AttendanceController">
+            <summary>
+            考勤服務
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AttendanceController.GetAttendance(JBHRIS.Api.Dto.Attendance.Entry.AttendanceRoteEntry)">
+            <summary>
+            取得考勤資料
+            </summary>
+            <param name="attendanceEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AttendanceController.GetCalendar(JBHRIS.Api.Dto.Attendance.Entry.AttendanceCalendarEntry)">
+             <summary>
+             取得行事曆資料(包含請假、加班、刷卡、班別資訊、異常資料)
+             </summary>
+             <remarks>
+            {
+              "employeeList": [
+                "A1357","A0793"
+              ],
+              "attendTypeList": [
+                "AttendType_Attend","AttendType_Card","AttendType_Abs","AttendType_Ot","AttendType_Abnormal"
+              ],
+              "dateBegin": "2020-09-05",
+              "dateEnd": "2020-09-09"
+            }
+             </remarks>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AttendanceController.GetRoteChange(JBHRIS.Api.Dto.Attendance.Entry.AttendanceRoteEntry)">
+            <summary>
+            取得調班資料
+            </summary>
+            <param name="attendanceEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AttendanceController.GetPeopleAbnormal(JBHRIS.Api.Dto.Attendance.Entry.AttendanceRoteEntry)">
+            <summary>
+            取得異常名單
+            </summary>
+            <param name="attendanceEntry"></param>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AttendanceController.GetPeopleWork(JBHRIS.Api.Dto.Attendance.Entry.AttendanceRoteEntry)">
+            <summary>
+            取得工作名單
+            </summary>
+            <param name="attendanceEntry"></param>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AttendanceController.GetRote(System.String)">
+            <summary>
+            取得班別代碼
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AttendanceController.GetAttendType">
+            <summary>
+            出勤種類
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AttendanceController.GetAttendDetail(JBHRIS.Api.Dto.Attendance.Entry.AttendanceDetailEntry)">
+             <summary>
+             出勤明細表
+             </summary>
+             <remarks>
+            {
+              "employeeList": [
+                "A1357","A0793"
+              ],
+              "attendTypeList": [],
+              "dateBegin": "2020-09-05",
+              "dateEnd": "2020-09-09"
+            }
+             </remarks>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AttendanceController.UpdateAttendRote(JBHRIS.Api.Dto.Attendance.Entry.UpdateAttendRoteEntry)">
+            <summary>
+            調換員工出勤班別
+            </summary>
+            <param name="updateAttendRoteEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AttendanceController.TimetableGenerate(JBHRIS.Api.Dto.Attendance.Action.TimetableGenerateEntry)">
+            <summary>
+            產生班表
+            </summary>
+            <param name="timetableGenerateEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AttendanceController.AttendanceGenerate(System.Collections.Generic.List{System.String},System.DateTime,System.DateTime)">
+            <summary>
+            產生出勤資料
+            </summary>
+            <param name="employeeList">員工編號</param>
+            <param name="begindDate">開始日期</param>
+            <param name="endDate">結束日期</param>
+            <returns></returns>
+        </member>
+        <member name="T:HR_WebApi.Controllers.Attendance.CardController">
+            <summary>
+            刷卡服務
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.CardController.#ctor(JBHRIS.Api.Service.Attendance.Normal.ICardService,NLog.ILogger)">
+            <summary>
+            刷卡控制器
+            </summary>
+            <param name="cardService">刷卡服務</param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.CardController.GetCard(JBHRIS.Api.Dto.Attendance.Entry.AttendanceEntry)">
+            <summary>
+            取得刷卡資料
+            </summary>
+            <param name="attendanceEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.CardController.GetCardReason">
+            <summary>
+            取得忘刷原因
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.CardController.ForgetCards(JBHRIS.Api.Dto.Attendance.Entry.ForgetCardApplyDto)">
+            <summary>
+            忘刷檢核與存入後端系統
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HR_WebApi.Controllers.Attendance.EmployeeShiftImportController">
+            <summary>
+            員工匯入班表
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.EmployeeShiftImportController.GetEmployeeShifts">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HR_WebApi.Controllers.Attendance.OvertimeController">
+            <summary>
+            加班服務
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.OvertimeController.#ctor(JBHRIS.Api.Service.Attendance.Normal.IOvertimeService,NLog.ILogger)">
+            <summary>
+            加班控制器
+            </summary>
+            <param name="overtimeService">加班服務</param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.OvertimeController.GetOvertimeByDate(JBHRIS.Api.Dto.Attendance.Entry.OvertimeByDateEntry)">
+            <summary>
+            取得期間加班資料
+            </summary>
+            <param name="overtimeByDateEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.OvertimeController.CheckOvertimeData(System.Collections.Generic.List{JBHRIS.Api.Dto.Attendance.View.OvertimeByDateDto})">
+            <summary>
+            判斷加班異常
+            </summary>
+            <param name="overtimeByDateDtos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.OvertimeController.GetPeopleOvertime(JBHRIS.Api.Dto.Attendance.Entry.AttendanceEntry)">
+            <summary>
+            加班名單
+            </summary>
+            <param name="attendanceEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.OvertimeController.GetOvertimeType">
+            <summary>
+            取得加班類型?目前沒有
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.OvertimeController.CalculateOvertime(JBHRIS.Api.Dto.Attendance.Entry.OvertimeApplyDto)">
+            <summary>
+            加班計算
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.OvertimeController.CheckOvertime(JBHRIS.Api.Dto.Attendance.View.OvertimeDto)">
+            <summary>
+            加班檢核
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.OvertimeController.SaveOvertime(System.Collections.Generic.List{JBHRIS.Api.Dto.Attendance.View.OvertimeDto})">
+            <summary>
+            加班存入
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HR_WebApi.Controllers.Attendance.ShiftChangeController">
+            <summary>
+            換班
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.ShiftChangeController.#ctor(JBHRIS.Api.Service.Attendance.Normal.IShiftChangeService,NLog.ILogger)">
+            <summary>
+            換班控制器
+            </summary>
+            <param name="shiftChangeService">調班服務</param>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.ShiftChangeController.DayShiftChange(JBHRIS.Api.Dto.Attendance.Entry.DayShiftChangeApplyDto)">
+            <summary>
+            換班檢核與存入後端系統
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HR_WebApi.Controllers.Attendance.View.AbnormalViewController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.View.AbnormalViewController.GetAbnormalSearchView(JBHRIS.Api.Dto.Attendance.Entry.AbnormalSearchViewEntry)">
+            <summary>
+            異常查詢
+            </summary>
+            <remarks>        
+            { "employeeList": [ "A1357","A0793" ],"dateBegin": "2020-09-01", "dateEnd": "2020-09-05","isCheck":true }
+            </remarks>
+        </member>
+        <member name="T:HR_WebApi.Controllers.Attendance.View.AbsenceViewController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.View.AbsenceViewController.#ctor(JBHRIS.Api.Service.Attendance.View.IAbsenceTakenViewService,JBHRIS.Api.Service.Attendance.View.IAbsenceEntitleViewService)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.View.AbsenceViewController.GetAbsenceEntitleView(JBHRIS.Api.Dto.Attendance.Entry.AbseneceEntitleViewEntry)">
+            <summary>
+            得假查詢
+            </summary>
+            <remarks>
+            {
+             "employeeList": [
+               "A1357","A0793"
+             ],
+             "leaveCodeList": [
+             ],
+             "dateBegin": "2020-09-05",
+             "dateEnd": "2020-09-09"
+            }
+            </remarks>
+            <param name="abseneceEntitleViewEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.View.AbsenceViewController.GetAbsenceTakenView(JBHRIS.Api.Dto.Attendance.Entry.AbsenceTakenViewEntry)">
+            <summary>
+            請假查詢
+            </summary>
+            <remarks>
+            {
+             "employeeList": [
+               "A1357","A0793"
+             ],
+             "leaveCodeList": [
+             ],
+             "dateBegin": "2020-09-05",
+             "dateEnd": "2020-09-09"
+            }
+            </remarks>
+            <param name="abseneceTakenViewEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.View.AbsenceViewController.GetAnnualLeave(System.DateTime)">
+            <summary>
+            取得特休剩餘時數By首頁
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.View.AbsenceViewController.GetCompensatoryLeave(System.DateTime)">
+            <summary>
+            取得補休剩餘時數By首頁
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HR_WebApi.Controllers.Attendance.View.CardViewController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.View.CardViewController.GetCardSearchView(JBHRIS.Api.Dto.Attendance.Entry.CardSearchViewEntry)">
+            <summary>
+            刷卡查詢
+            </summary>
+            <remarks>
+            { "employeeList": [ "A1357","A0793" ],"dateBegin": "2020-09-05", "dateEnd": "2020-09-05","isForget":true }
+            </remarks>
+        </member>
+        <member name="T:HR_WebApi.Controllers.Attendance.View.OverTimeViewController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.View.OverTimeViewController.GetOverTimeSearchView(JBHRIS.Api.Dto.Attendance.Entry.OverTimeSearchViewEntry)">
+            <summary>
+            加班查詢
+            </summary>
+            <remarks>
+            { "employeeList": [ "A1357","A0793" ], "dateBegin": "2020-09-05", "dateEnd": "2020-09-09" }
+            </remarks>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.View.OverTimeViewController.GetOvertimeReason">
+            <summary>
+            取得加班原因
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.WorkFromHomeController.GetWorkLog(HR_WebApi.Dto.Attendance.GetWorkLogEntry)">
+            <summary>
+            取得工作日誌資料
+            </summary>
+            <param name="getWorkLogEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.WorkFromHomeController.InsertWorkLog(HR_WebApi.Dto.Attendance.WorkLogDto)">
+            <summary>
+            新增工作日誌資料
+            </summary>
+            <param name="WorkLogDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.WorkFromHomeController.UpdateWorkLog(HR_WebApi.Dto.Attendance.WorkLogDto)">
+            <summary>
+            更新工作日誌資料
+            </summary>
+            <param name="WorkLogDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.WorkFromHomeController.DeleteWorkLog(HR_WebApi.Dto.Attendance.WorkLogDto)">
+            <summary>
+            刪除工作日誌資料
+            </summary>
+            <param name="WorkLogDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.WorkFromHomeController.GetTemperoturyReport(HR_WebApi.Dto.Attendance.GetTemperoturyReportEntry)">
+            <summary>
+            取得體溫回報資料
+            </summary>
+            <param name="getTemperoturyReportEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.WorkFromHomeController.InsertTemperoturyReport(HR_WebApi.Dto.Attendance.TemperoturyReportDto)">
+            <summary>
+            新增體溫回報資料
+            </summary>
+            <param name="TemperoturyReportDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.WorkFromHomeController.UpdateTemperoturyReport(HR_WebApi.Dto.Attendance.TemperoturyReportDto)">
+            <summary>
+            更新體溫回報資料
+            </summary>
+            <param name="TemperoturyReportDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.WorkFromHomeController.DeleteTemperoturyReport(HR_WebApi.Dto.Attendance.TemperoturyReportDto)">
+            <summary>
+            刪除體溫回報資料
+            </summary>
+            <param name="TemperoturyReportDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.WorkFromHomeController.GetDiversionShiftAttendReport(HR_WebApi.Controllers.Attendance.GetDiversionShiftAttendReportEntry)">
+            <summary>
+            分流出勤明細表
+            </summary>
+            <param name="getDiversionShiftAttendReportEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HR_WebApi.Controllers.AuthorizeTestController">
+            <summary>
+            這個為測試用API主要為針對AOP或是相關擴充功能驗證的API Service
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.AuthorizeTestController.withAuthorize">
+            <summary>
+            測試驗證角色為為test禁止呼叫
+            </summary>
+            <returns></returns>
+            <responses Code="401">驗證失敗</responses>
+        </member>
+        <member name="T:HR_WebApi.Controllers.Employee.UserController">
+            <summary>
+            使用者控制器
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Employee.UserController.Get">
+            <summary>
+            取得使用者資料
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Employee.UserController.Update">
+            <summary>
+            更新使用者資料
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Employee.UserPasswordController.VerifyIdentity(JBHRIS.Api.Dto.Employee.Entry.VerifyIdentityEntry)">
+            <summary>
+            驗證使用者
+            </summary>
+            <param name="verifyIdentityEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Employee.UserPasswordController.ChangePassword(JBHRIS.Api.Dto.Employee.Entry.ChangePasswordEntry)">
+            <summary>
+            更改密碼(忘記密碼)
+            </summary>
+            <param name="changePasswordEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Employee.UserPasswordController.UpdatePassword(JBHRIS.Api.Dto.Employee.Entry.UpdatePasswordEntry)">
+            <summary>
+            修改密碼
+            </summary>
+            <param name="updatePasswordEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HR_WebApi.Controllers.ErrorController">
+            <summary>
+            錯誤控制器
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.ErrorController.#ctor(NLog.ILogger)">
+            <summary>
+            錯誤處理
+            </summary>
+            <param name="logger"></param>
+        </member>
+        <member name="M:HR_WebApi.Controllers.ErrorController.ErrorLocalDevelopment(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            開發版錯誤處理
+            </summary>
+            <param name="webHostEnvironment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.ErrorController.Error(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            正式版錯誤處理
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HR_WebApi.Controllers.FilesController">
+            <summary>
+            檔案
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.FilesController.GetFilesByFileTicket(System.String)">
+            <summary>
+            取得檔案by主檔Guid
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.FilesController.UploadSingleFile(Microsoft.AspNetCore.Http.IFormFile,System.String)">
+            <summary>
+            上傳單一檔案
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.FilesController.UploadMultipleFiles(Microsoft.AspNetCore.Http.IFormCollection,System.String)">
+            <summary>
+            上傳多個檔案
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.FilesController.DownloadFiles(System.String)">
+            <summary>
+            下載檔案
+            </summary>
+            <param name="fileId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.FilesController.DeleteFile(System.String)">
+            <summary>
+            刪除檔案
+            </summary>
+            <param name="fileGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.FilesController.Upload(Microsoft.AspNetCore.Http.IFormFile,System.String)">
+            <summary>
+            共用檔案上傳方法
+            </summary>
+            <param name="file"></param>
+            <param name="FileTicket"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.FilesController.ImportAttendExcelCover(Microsoft.AspNetCore.Http.IFormFile,System.String)">
+            <summary>
+            出勤班表匯入_覆蓋
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.FilesController.ImportAttendExcelIgnore(Microsoft.AspNetCore.Http.IFormFile,System.String)">
+            <summary>
+            出勤班表匯入_忽略
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.FilesController.GetExcelSheetName(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            取得Excel工作表名稱
+            </summary>
+        </member>
+        <member name="T:HR_WebApi.Controllers.Home.BillBoardController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Home.BillBoardController.GetBillboards">
+            <summary>
+            取得公佈欄(員工)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Home.BillBoardController.GetBillboardsById(System.String)">
+            <summary>
+            取得公佈欄詳細(員工)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HR_WebApi.Controllers.Home.HomeController">
+            <summary>
+            首頁
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Home.HomeController.GetHomeInfoCard">
+            <summary>
+            取得首頁資訊卡
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Menu.MenuController.GetMenu(System.String)">
+            <summary>
+            取得選單功能
+            </summary>
+            <param name="code">根節點(Menu)</param>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Menu.MenuController.GetAllMenu(System.String)">
+            <summary>
+            取得所有選單功能
+            </summary>
+            <param name="code">根節點(Root)</param>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Menu.MenuController.GetFeatures(System.String,System.String)">
+            <summary>
+            搜尋選單功能
+            </summary>
+            <param name="code">根節點(Menu)</param>
+            <param name="keyword">查詢字</param>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Menu.MenuController.GetIndexFeatures(System.String)">
+            <summary>
+            取得首頁功能
+            </summary>
+            <param name="Nobr">工號</param>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Menu.MenuController.InsertMenu(JBHRIS.Api.Dto._System.View.SysMenuDto)">
+            <summary>
+            新增選單功能
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Menu.MenuController.UpdateMenu(JBHRIS.Api.Dto._System.View.SysMenuDto)">
+            <summary>
+            更新選單功能
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers.Menu.MenuController.DeleteMenu(System.String)">
+            <summary>
+            刪除選單功能
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.ApiVoidBlackListController.#ctor(JBHRIS.Api.Service._System.View.ISysApiVoidBlackListService,NLog.ILogger)">
+            <summary>
+            建構子
+            </summary>
+            <param name="sysApiVoidBlackListService">方法黑名單</param>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.ApiVoidBlackListController.GetApiVoidBlackList(System.Collections.Generic.List{System.String})">
+            <summary>
+            取得方法黑名單
+            </summary>
+            <param name="nobr">員工號</param>
+            <returns>方法黑名單資料</returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.ApiVoidBlackListController.InsertApiVoidBlackList(JBHRIS.Api.Dto._System.Entry.SysApiVoidBlackListEntry)">
+            <summary>
+            新增方法黑名單
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.ApiVoidBlackListController.DeleteApiVoidBlackList(JBHRIS.Api.Dto._System.Entry.SysApiVoidBlackListEntry)">
+            <summary>
+            刪除方法黑名單
+            </summary>
+        </member>
+        <member name="T:HR_WebApi.Controllers._System.ApiVoidController">
+            <summary>
+            權限控制器
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.ApiVoidController.#ctor(JBHRIS.Api.Service._System.View.ISysApiVoidService,NLog.ILogger)">
+            <summary>
+            建構子
+            </summary>
+            <param name="sysApiVoidService">方法資料</param>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.ApiVoidController.GetApiVoidView">
+            <summary>
+            取得方法資料
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.ApiVoidController.InsertApiVoidView(JBHRIS.Api.Dto._System.View.SysApiVoidDto)">
+            <summary>
+            新增方法資料
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.ApiVoidController.UpdateApiVoidView(JBHRIS.Api.Dto._System.View.SysApiVoidDto)">
+            <summary>
+            更新方法資料
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.ApiVoidController.DeleteApiVoidView(System.String)">
+            <summary>
+            刪除方法資料
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.ApiVoidWhiteListController.#ctor(JBHRIS.Api.Service._System.View.ISysApiVoidWhiteListService,NLog.ILogger)">
+            <summary>
+            建構子
+            </summary>
+            <param name="sysApiVoidWhiteListService">方法白名單</param>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.ApiVoidWhiteListController.GetApiVoidWhiteList(System.Collections.Generic.List{System.String})">
+            <summary>
+            取得方法白名單
+            </summary>
+            <param name="nobr">員工號</param>
+            <returns>方法白名單資料</returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.ApiVoidWhiteListController.InsertApiVoidWhiteList(JBHRIS.Api.Dto._System.Entry.SysApiVoidWhiteListEntry)">
+            <summary>
+            新增方法白名單
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.ApiVoidWhiteListController.DeleteApiVoidWhiteList(JBHRIS.Api.Dto._System.Entry.SysApiVoidWhiteListEntry)">
+            <summary>
+            刪除方法白名單
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.NewsController.GetNews">
+            <summary>
+            取得公佈欄
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.NewsController.GetNewsById(System.String)">
+            <summary>
+            取得公佈欄詳細
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.NewsController.InsertNews(JBHRIS.Api.Dto._System.View.NewsDto)">
+            <summary>
+            新增公佈欄
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.NewsController.UpdateNews(JBHRIS.Api.Dto._System.View.NewsDto)">
+            <summary>
+            修改公佈欄
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.NewsController.DeleteNewsById(System.String)">
+            <summary>
+            刪除公佈欄
+            </summary>
+        </member>
+        <member name="T:HR_WebApi.Controllers._System.PageApiVoidController">
+            <summary>
+            權限控制器
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.PageApiVoidController.#ctor(JBHRIS.Api.Service._System.View.ISysPageApiVoidService,NLog.ILogger)">
+            <summary>
+            建構子
+            </summary>
+            <param name="sysPageApiVoidService">頁面權限</param>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.PageApiVoidController.GetPageToApiVoidView">
+            <summary>
+            取得頁面包含api權限
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.PageApiVoidController.InsertPageApiVoid(JBHRIS.Api.Dto._System.Entry.SysPageApiVoidEntry)">
+            <summary>
+            新增頁面權限資料
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.PageApiVoidController.DeletePageApiVoid(JBHRIS.Api.Dto._System.Entry.SysPageApiVoidEntry)">
+            <summary>
+            刪除頁面權限資料
+            </summary>
+        </member>
+        <member name="T:HR_WebApi.Controllers._System.RoleController">
+            <summary>
+            權限控制器
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.RoleController.#ctor(JBHRIS.Api.Service._System.View.ISysRoleViewService,NLog.ILogger)">
+            <summary>
+            建構子
+            </summary>
+            <param name="sysRoleViewService">角色資料</param>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.RoleController.GetRole">
+            <summary>
+            取得角色資料
+            </summary>
+            <returns>角色清單</returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.RoleController.InsertRole(JBHRIS.Api.Dto._System.View.SysRoleDto)">
+             <summary>
+             新增角色資料
+             </summary>
+             <remarks>
+                 {
+                    "code": "test",
+                    "name": "測試角色",
+                    "isAdminRole": true,
+                    "isVisible": true
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.RoleController.UpdateRole(JBHRIS.Api.Dto._System.View.SysRoleDto)">
+            <summary>
+            修改角色資料
+            </summary>
+            <param name="sysRoleDto">角色key</param>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.RoleController.DeleteRole(System.String)">
+            <summary>
+            刪除角色資料
+            </summary>
+            <param name="Code">角色key</param>
+        </member>
+        <member name="T:HR_WebApi.Controllers._System.RolePageController">
+            <summary>
+            權限控制器
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.RolePageController.#ctor(JBHRIS.Api.Service._System.View.ISysRolePageService,NLog.ILogger)">
+            <summary>
+            建構子
+            </summary>
+            <param name="sysRolePageService">角色頁面權限</param>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.RolePageController.InsertRolePage(JBHRIS.Api.Dto._System.Entry.SysRolePageEntry)">
+            <summary>
+            新增角色頁面權限資料
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.RolePageController.DeleteRolePage(JBHRIS.Api.Dto._System.Entry.SysRolePageEntry)">
+            <summary>
+            刪除角色頁面權限資料
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.RolePageController.GetRoleToPageView">
+            <summary>
+            取得所有角色擁有的頁面權限
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.RolePageController.GetPageToRoleView">
+            <summary>
+            取得所有頁面包含角色
+            </summary>
+        </member>
+        <member name="T:HR_WebApi.Controllers._System.UserRoleController">
+            <summary>
+            權限控制器
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.UserRoleController.#ctor(JBHRIS.Api.Service._System.View.ISysUserRoleViewService,NLog.ILogger)">
+            <summary>
+            建構子
+            </summary>
+            <param name="sysUserRoleViewService">角色資料</param>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.UserRoleController.GetUserRole(System.Collections.Generic.List{System.String})">
+            <summary>
+            取得使用者角色資料
+            </summary>
+            <param name="nobr">員工號</param>
+            <returns>使用者角色資料</returns>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.UserRoleController.InsertUserRole(JBHRIS.Api.Dto._System.Entry.SysUserRoleEntry)">
+            <summary>
+            新增使用者角色資料
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Controllers._System.UserRoleController.DeleteUserRoleView(JBHRIS.Api.Dto._System.Entry.SysUserRoleEntry)">
+            <summary>
+            刪除使用者角色資料
+            </summary>
+            <param name="id">Autokey</param>
+        </member>
+        <member name="T:HR_WebApi.Helpers.JwtHelpers">
+             https://blog.miniasp.com/post/2019/10/13/How-to-use-JWT-token-based-auth-in-aspnet-core-22
+            
+        </member>
+        <member name="T:HR_WebApi.Infrastructure.DefaultAuthorize">
+            <summary>
+            預設驗證授權內容
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Infrastructure.DefaultAuthorize.AllowAnonymouse(Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext)">
+            <summary>
+            允許匿名存取
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.IoCConfig.Configure(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            設定註冊服務
+            </summary>
+            <param name="Configuration">設定檔</param>
+            <param name="services">服務集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_WebApi.CompositeIocConfig.AddScoped``2">
+            <summary>
+            
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TTarget"></typeparam>
+        </member>
+        <member name="T:HR_WebApi.JwtConfing">
+            <summary>
+            用來設定jwt initial config
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.JwtConfing.#ctor">
+            <summary>
+            JwtConfing建構子
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.JwtConfing.Configure(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            在starup設定config
+            </summary>
+            <param name="Configuration"></param>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HR_WebApi.Startup">
+            <summary>
+            啟動
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="configuration">設定檔</param>
+        </member>
+        <member name="P:HR_WebApi.Startup.Configuration">
+            <summary>
+            設定檔
+            </summary>
+        </member>
+        <member name="M:HR_WebApi.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            設定服務
+            </summary>
+            <param name="services">服務集合</param>
+        </member>
+        <member name="T:JBHRIS.Api.Attendance.RoteChangeController">
+            <summary>
+            調班服務
+            </summary>
+        </member>
+        <member name="M:JBHRIS.Api.Attendance.RoteChangeController.#ctor(JBHRIS.Api.Service.Attendance.Normal.IRoteChangeService,NLog.ILogger)">
+            <summary>
+            調班控制器
+            </summary>
+            <param name="roteChangeService">調班服務</param>
+        </member>
+        <member name="M:JBHRIS.Api.Attendance.RoteChangeController.GetRoteChange(JBHRIS.Api.Dto.Attendance.Entry.AttendanceEntry)">
+            <summary>
+            取得刷卡資料
+            </summary>
+            <param name="attendacneEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JBHRIS.Api.Attendance.RoteChangeController.LongShiftChange(JBHRIS.Api.Dto.Attendance.Entry.LongShiftChangeApplyDto)">
+            <summary>
+            調班檢核與存入後端系統
+            </summary>
+            <param name="longShiftChangeApplyDto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HR_Api_Demo.Controllers.WorkScheduleCheckController">
+            <summary>
+            排班檢核服務
+            </summary>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.WorkScheduleCheckController.#ctor(JBHRIS.Api.Service.Attendance.IWorkScheduleCheckService,NLog.ILogger)">
+            <summary>
+            
+            </summary>
+            <param name="workScheduleCheckService"></param>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.WorkScheduleCheckController.Check(JBHRIS.Api.Dto.Attendance.WorkScheduleCheckEntry)">
+            <summary>
+            排班檢核
+            </summary>
+            <param name="workScheduleCheckEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.WorkScheduleCheckController.CheckWithQuery(JBHRIS.Api.Dto.Attendance.WorkScheduleCheckEntry)">
+            <summary>
+            查詢現有班表資料，同時合併輸入的資料進行檢核班表是否有違規
+            </summary>
+            <param name="workScheduleCheckEntry">檢核條件</param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.WorkScheduleCheckController.GetScheduleTypes">
+            <summary>
+            取得班別設定
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.WorkScheduleCheckController.GetWorkschedules(JBHRIS.Api.Dto.Attendance.Entry.WorkschedulecheckEntry)">
+            <summary>
+            取得員工班別代碼
+            </summary>
+            <param name="workschedulecheckEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.WorkScheduleCheckController.DataCheck(JBHRIS.Api.Dto.Attendance.WorkScheduleCheckEntry)">
+            <summary>
+            輸入資料檢核
+            </summary>
+            <param name="workScheduleCheckEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HR_Api_Demo.Controllers.EmployeeController">
+            <summary>
+            人事控制器
+            </summary>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.#ctor(JBHRIS.Api.Service.Employee.Normal.IEmployeeInfoService,JBHRIS.Api.Service.Employee.Normal.IEmployeeListService,JBHRIS.Api.Service.Employee.View.IEmployeeViewService,JBHRIS.Api.Service.Employee.Normal.IEmployeeRoleService,NLog.ILogger,JBHRIS.Api.Service.Employee.View.IDeptViewService,JBHRIS.Api.Service.Employee.View.IEmployeeJobStatusService,JBHRIS.Api.Service.Employee.View.IJobViewService)">
+            <summary>
+            建構子
+            </summary>
+            <param name="employeeService">員工基本服務</param>
+            <param name="employeeListService">員工清單服務</param>
+            <param name="employeeViewService">員工檢視表服務</param>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetEmployeeStartWorkDate(System.String)">
+            <summary>
+            取得員工到職日
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.CheckEmployeeJobStatusChange(JBHRIS.Api.Dto.Employee.View.BasettsDto)">
+            <summary>
+            檢查員工異動資料
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetCurrentJobStatus(System.String,System.DateTime)">
+            <summary>
+            取得員工異動資料
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.EmployeeJobStatusAddChange(JBHRIS.Api.Dto.Employee.View.BasettsDto)">
+            <summary>
+            新增員工異動
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetPeople">
+            <summary>
+            取得所有員工
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetAllPeopleByDept(JBHRIS.Api.Dto.Employee.Entry.GetPeopleByDeptEntry)">
+            <summary>
+            取得部門清單
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetPeopleByDept(JBHRIS.Api.Dto.Employee.Entry.GetPeopleByDeptEntry)">
+            <summary>
+            取得部門清單(有參考角色權限)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetPeopleByDeptExtraTree(JBHRIS.Api.Dto.Employee.Entry.GetPeopleByDeptTreeEntry)">
+            <summary>
+            取得兼職部門即期向下清單(有參考角色權限)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetPeopleByDeptTree(JBHRIS.Api.Dto.Employee.Entry.GetPeopleByDeptTreeEntry)">
+            <summary>
+            取得部門即期向下清單(有參考角色權限)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetPeopleByDeptaTree(JBHRIS.Api.Dto.Employee.Entry.GetPeopleByDeptaTreeEntry)">
+            <summary>
+            取得簽核部門即期向下清單(有參考角色權限)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetEmployeeInfo(System.Collections.Generic.List{System.String})">
+            <summary>
+            取得員工基本資料
+            </summary>
+            <param name="employeeList">工號清單</param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetEmployeeInfoView(System.Collections.Generic.List{System.String})">
+            <summary>
+            取得員工基本資料(前端)
+            </summary>
+            <remarks>
+            ["A0003","A0017","A1423"]
+            </remarks>
+            <param name="employeeList">工號清單</param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetEmployeeView(System.Collections.Generic.List{System.String})">
+            <summary>
+            取得員工檢視表
+            </summary>
+            <param name="employeeList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetPeopleBirthday(JBHRIS.Api.Dto.Attendance.Entry.EmployeeBirthdayEntry)">
+            <summary>
+            取得生日名單
+            </summary>
+            <param name="employeeBirthdayEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetEffemployView(JBHRIS.Api.Dto.Employee.Entry.EffemployEntryDto)">
+            <summary>
+            取得考績記錄
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetPeopleApDate(System.DateTime,System.DateTime)">
+            <summary>
+            取得試用期人員名單
+            </summary>
+            <param name="BeginDate"></param>
+            <param name="EndDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetAllPassType">
+            <summary>
+            取得所有試用期狀態
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.UpdateEmployeeInfo(JBHRIS.Api.Dto.Employee.View.UpdateEmployeeInfoViewDto)">
+            <summary>
+            更新員工基本資料
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetRelcodeView">
+            <summary>
+            取得親屬關係
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetDept">
+            <summary>
+            取得編制部門
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetDepta">
+            <summary>
+             取得簽核部門
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetJob">
+            <summary>
+            取得職稱
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetJobs">
+            <summary>
+            取得職類
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetJobl">
+            <summary>
+            取得職等
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetJobo">
+            <summary>
+            取得職級
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetTtsCode">
+            <summary>
+            取得異動代碼
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetComp">
+            <summary>
+            取得公司別代碼
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetOutReason">
+            <summary>
+            取得離職原因代碼
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetTtscd">
+            <summary>
+            取得異動原因代碼
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetEmployeeRule(JBHRIS.Api.Dto.Employee.Entry.EmployeeRuleEntry)">
+            <summary>
+            取得員工特殊規則
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HR_Api_Demo.Controllers.EmployeeInfo_GetPeopleByDept_Entry">
+            <summary>
+            取得部門名單-查詢條件
+            </summary>
+        </member>
+        <member name="P:HR_Api_Demo.Controllers.EmployeeInfo_GetPeopleByDept_Entry.deptList">
+            <summary>
+            部門清單
+            </summary>
+        </member>
+        <member name="P:HR_Api_Demo.Controllers.EmployeeInfo_GetPeopleByDept_Entry.CheckDate">
+            <summary>
+            檢核日期
+            </summary>
+        </member>
+        <member name="T:HR_Api_Demo.Controllers.SalaryController">
+            <summary>
+            薪資服務
+            </summary>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.#ctor(JBHRIS.Api.Service.Salary.Payroll.ISalaryCalculationService,JBHRIS.Api.Service.Salary.View.ISalaryViewService)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.Calculate">
+            <summary>
+            計算薪資
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.GetSalaryYymm(JBHRIS.Api.Dto.Salary.Entry.SalaryYymmEntryDto)">
+            <summary>
+            計薪年月
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.IsAttendLock(JBHRIS.Api.Dto.Salary.Entry.IsAttendLockEntryDto)">
+            <summary>
+            判斷是否已經出勤鎖檔
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.GetSalDateCycle(JBHRIS.Api.Dto.Salary.Entry.GetSalDateCycleEntryDto)">
+            <summary>
+            取得計薪週期
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.GetAttDateCycle(JBHRIS.Api.Dto.Salary.Entry.GetAttDateCycleEntryDto)">
+            <summary>
+            取得出勤週期
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.GetSalaryWageLock">
+            <summary>
+            取得薪資鎖檔
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.GetAnnualLeave(System.String,System.String)">
+            <summary>
+            取得特休剩餘時數
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.GetCompensatoryLeave(System.String,System.String)">
+            <summary>
+            取得補休剩餘時數
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.GetPayslipTitle(JBHRIS.Api.Dto.Salary.Entry.GetPayslipEntryDto)">
+            <summary>
+            取得薪資單主檔
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.GetAbsThisMonth(System.String,System.String)">
+            <summary>
+            取得薪資單-本月請假
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.GetOtThisMonth(System.String,System.String)">
+            <summary>
+            取得薪資單-本月加班
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.GetEarningsThisMonth(JBHRIS.Api.Dto.Salary.Entry.GetPayslipEntryDto)">
+            <summary>
+            取得薪資單-本月所得
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.GetDeductionThisMonth(JBHRIS.Api.Dto.Salary.Entry.GetPayslipEntryDto)">
+            <summary>
+            取得薪資單-本月扣款
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.GetSalaryThisMonth(JBHRIS.Api.Dto.Salary.Entry.GetPayslipEntryDto)">
+            <summary>
+            取得薪資單-本月實發薪資
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.GetRetirementThisMonth(System.String,System.String)">
+            <summary>
+            取得薪資單-本月勞退新制
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.SetSalaryPassWord(System.String)">
+            <summary>
+            設定薪資密碼
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.DeleteSalaryPassWord(System.String)">
+            <summary>
+            刪除薪資密碼
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.GetSalaryChange(System.String,System.DateTime)">
+            <summary>
+            取得薪資異動
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.AddSalaryChange(JBHRIS.Api.Dto.Salary.View.SalaryChangeInfoDto)">
+            <summary>
+            新增薪資異動
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.AddSalaryChange(System.Collections.Generic.List{JBHRIS.Api.Dto.Salary.View.SalaryChangeInfoDto})">
+            <summary>
+            新增多筆薪資異動
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WebApiAuthDemo.Controllers.TokenController">
+             https://blog.miniasp.com/post/2019/10/13/How-to-use-JWT-token-based-auth-in-aspnet-core-22
+            
+            <summary>
+            登入及授權
+            </summary>
+        </member>
+        <member name="M:WebApiAuthDemo.Controllers.TokenController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,JBHRIS.Api.Service.UserValidateService,JBHRIS.Api.Service.UserInfoService,JBHRIS.Api.Service.Token.IRefreshTokenService,JBHRIS.Api.Service.Token.IClientTokenService)">
+            <summary>
+            建構子
+            </summary>
+            <param name="configuration"></param>
+            <param name="userValidateService"></param>
+            <param name="userInfoService"></param>
+        </member>
+        <member name="M:WebApiAuthDemo.Controllers.TokenController.GetConnection(System.String)">
+            <summary>
+            取得DBToken
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiAuthDemo.Controllers.TokenController.SignIn(System.String,System.String)">
+            <summary>
+            登入並取得Token
+            </summary>
+            <param name="UserId">使用者編號</param>
+            <param name="Password">密碼</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiAuthDemo.Controllers.TokenController.AdSignin(System.String)">
+            <summary>
+            AD登入並取得Token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiAuthDemo.Controllers.TokenController.Login(JBHRIS.Api.Dto.ApiResult{System.String})">
+            <summary>
+            共用Login方法
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiAuthDemo.Controllers.TokenController.RefreshToken(System.String)">
+            <summary>
+            重新取得Token
+            </summary>
+            <param name="refreshToken">refreshToken</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiAuthDemo.Controllers.TokenController.GetLineUrl">
+            <summary>
+            登入並取得LineUrl(與使用者連動line)
+            </summary>
+        </member>
+        <member name="M:WebApiAuthDemo.Controllers.TokenController.InsertLineToken(System.String,System.String,System.String)">
+            <summary>
+            InsertLineToken
+            </summary>
+        </member>
+        <member name="M:WebApiAuthDemo.Controllers.TokenController.PostLineNotifyWithToken(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            PostLineNotifyWithToken
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiAuthDemo.Controllers.TokenController.ClientGetToken(System.String)">
+            <summary>
+            客戶取得token
+            </summary>
+            <param name="ClientId">ClientId</param>
+            <param name="DbName">DbName</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiAuthDemo.Controllers.TokenController.FirstGet">
+            <summary>
+            排程啟動服務
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiAuthDemo.Controllers.TokenController.GetClaims">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiAuthDemo.Controllers.TokenController.GetUserData">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiAuthDemo.Controllers.TokenController.GetUserName">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiAuthDemo.Controllers.TokenController.GetUniqueId">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
