@@ -110,6 +110,10 @@
       <Project>{B94796B3-CEDB-4083-95AD-E94EC30D15D5}</Project>
       <Name>JBModule.Message</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Standard\JBTools\JBTools.csproj">
+      <Project>{9a891671-4fc7-4ddf-a21d-21e3d563cee6}</Project>
+      <Name>JBTools</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JBMODULE.DATA\JBModule.Data.Linq\JBModule.Data.csproj">
       <Project>{05DAC84F-258E-41FC-B490-0FCCD4AB15B5}</Project>
       <Name>JBModule.Data</Name>

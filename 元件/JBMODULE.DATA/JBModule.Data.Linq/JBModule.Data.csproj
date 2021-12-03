@@ -131,6 +131,9 @@
     <Compile Include="Linq\DcHelper.cs" />
     <Compile Include="Linq\DebuggerWriter.cs" />
     <Compile Include="Linq\EmployeeAgent.cs" />
+    <Compile Include="Linq\HrDB.cs">
+      <DependentUpon>HrDB.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Linq\LinqDataManager.cs" />
     <Compile Include="Linq\OtAgent.cs" />
     <Compile Include="Linq\SalaryAgent.cs" />

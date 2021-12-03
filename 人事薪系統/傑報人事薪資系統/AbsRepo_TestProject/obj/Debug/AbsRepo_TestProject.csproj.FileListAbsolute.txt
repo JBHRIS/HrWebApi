@@ -142,3 +142,7 @@ C:\JB-SVN\Customer\JBHR\人事薪系統\傑報人事薪資系統\AbsRepo_TestPro
 C:\JB-SVN\Customer\JBHR\人事薪系統\傑報人事薪資系統\AbsRepo_TestProject\obj\Debug\AbsRepo_TestProject.dll
 C:\JB-SVN\Customer\JBHR\人事薪系統\傑報人事薪資系統\AbsRepo_TestProject\obj\Debug\AbsRepo_TestProject.pdb
 C:\JB-SVN\Customer\JBHR\人事薪系統\傑報人事薪資系統\AbsRepo_TestProject\bin\Debug\Newtonsoft.Json.dll
+D:\Git\Customer\JBHR2\人事薪系統\傑報人事薪資系統\AbsRepo_TestProject\obj\Debug\AbsRepo_TestProject.csproj.AssemblyReference.cache
+D:\Git\Customer\JBHR2\人事薪系統\傑報人事薪資系統\AbsRepo_TestProject\obj\Debug\AbsRepo_TestProject.csproj.CoreCompileInputs.cache
+D:\Git\Customer\JBHR2\人事薪系統\傑報人事薪資系統\AbsRepo_TestProject\obj\Debug\AbsRepo_TestProject.dll
+D:\Git\Customer\JBHR2\人事薪系統\傑報人事薪資系統\AbsRepo_TestProject\obj\Debug\AbsRepo_TestProject.pdb
