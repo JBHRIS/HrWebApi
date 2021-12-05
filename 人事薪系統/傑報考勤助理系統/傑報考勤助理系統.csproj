@@ -49,7 +49,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>19.11.19.1</ApplicationVersion>
+    <ApplicationVersion>20.4.22.1</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -1074,15 +1074,21 @@
     <Compile Include="Reports\AttForm\ZZ2Z_Report.Designer.cs">
       <DependentUpon>ZZ2Z_Report.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\AttForm\ZZ2Z_Report4.cs" />
+    <Compile Include="Reports\AttForm\ZZ2Z_Report4.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reports\AttForm\ZZ2Z_Report4.Designer.cs">
       <DependentUpon>ZZ2Z_Report4.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\AttForm\ZZ2Z_Report5.cs" />
+    <Compile Include="Reports\AttForm\ZZ2Z_Report5.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reports\AttForm\ZZ2Z_Report5.Designer.cs">
       <DependentUpon>ZZ2Z_Report5.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\AttForm\ZZ2Z_Report6.cs" />
+    <Compile Include="Reports\AttForm\ZZ2Z_Report6.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reports\AttForm\ZZ2Z_Report6.Designer.cs">
       <DependentUpon>ZZ2Z_Report6.cs</DependentUpon>
     </Compile>
@@ -1338,82 +1344,82 @@
   <ItemGroup>
     <PublishFile Include="JBControls.pdb">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="JBHR.BLL.pdb">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="JBHR.Dll.pdb">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="JBHR.pdb">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="JBModule.Data.pdb">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="JBModule.Message.pdb">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="JBModule.pdb">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="JBTools.pdb">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>

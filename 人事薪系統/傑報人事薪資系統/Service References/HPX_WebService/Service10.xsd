@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.1.46/HopaxWebService/Service.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ApiResultOfArrayOfMtcodeDtoMTRdQN6P">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ApiResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfMtcodeDto" Namespace="http://schemas.datacontract.org/2004/07/" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfMtcodeDto" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiResultOfArrayOfMtcodeDtoMTRdQN6P" nillable="true" type="tns:ApiResultOfArrayOfMtcodeDtoMTRdQN6P" />
+  <xs:complexType name="ArrayOfMtcodeDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MtcodeDto" nillable="true" type="tns:MtcodeDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMtcodeDto" nillable="true" type="tns:ArrayOfMtcodeDto" />
+  <xs:complexType name="MtcodeDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CATEGORY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DISPLAY" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SORT" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MtcodeDto" nillable="true" type="tns:MtcodeDto" />
+  <xs:complexType name="ApiResultOfMtcodeDtoMTRdQN6P">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ApiResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="MtcodeDto" Namespace="http://schemas.datacontract.org/2004/07/" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:MtcodeDto" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiResultOfMtcodeDtoMTRdQN6P" nillable="true" type="tns:ApiResultOfMtcodeDtoMTRdQN6P" />
+  <xs:complexType name="ApiResultOfHPXPlateDtoMTRdQN6P">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ApiResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="HPXPlateDto" Namespace="http://schemas.datacontract.org/2004/07/" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:HPXPlateDto" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiResultOfHPXPlateDtoMTRdQN6P" nillable="true" type="tns:ApiResultOfHPXPlateDtoMTRdQN6P" />
+  <xs:complexType name="HPXPlateDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EmployeeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastUpdateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastUpdatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlateNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sno" type="xs:int" />
+      <xs:element minOccurs="0" name="VehicleType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleTypeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HPXPlateDto" nillable="true" type="tns:HPXPlateDto" />
+  <xs:complexType name="GetHPXPlateEntryDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmployeeId_End" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeId_Start" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlateNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="VehicleType" nillable="true" type="q1:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetHPXPlateEntryDto" nillable="true" type="tns:GetHPXPlateEntryDto" />
+  <xs:complexType name="ApiResultOfArrayOfHPXPlateDtoMTRdQN6P">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ApiResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfHPXPlateDto" Namespace="http://schemas.datacontract.org/2004/07/" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfHPXPlateDto" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiResultOfArrayOfHPXPlateDtoMTRdQN6P" nillable="true" type="tns:ApiResultOfArrayOfHPXPlateDtoMTRdQN6P" />
+  <xs:complexType name="ArrayOfHPXPlateDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HPXPlateDto" nillable="true" type="tns:HPXPlateDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHPXPlateDto" nillable="true" type="tns:ArrayOfHPXPlateDto" />
+  <xs:complexType name="ApiResultOfstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ApiResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiResultOfstring" nillable="true" type="tns:ApiResultOfstring" />
+  <xs:complexType name="GetHPXPointEntryDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActivityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeId_End" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeId_Start" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetHPXPointEntryDto" nillable="true" type="tns:GetHPXPointEntryDto" />
+  <xs:complexType name="ApiResultOfArrayOfHPXPointDtoMTRdQN6P">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ApiResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfHPXPointDto" Namespace="http://schemas.datacontract.org/2004/07/" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfHPXPointDto" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiResultOfArrayOfHPXPointDtoMTRdQN6P" nillable="true" type="tns:ApiResultOfArrayOfHPXPointDtoMTRdQN6P" />
+  <xs:complexType name="ArrayOfHPXPointDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HPXPointDto" nillable="true" type="tns:HPXPointDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHPXPointDto" nillable="true" type="tns:ArrayOfHPXPointDto" />
+  <xs:complexType name="HPXPointDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActivityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BookUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EmployeeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GetPoint" type="xs:int" />
+      <xs:element minOccurs="0" name="LastUpdateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastUpdatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Leader" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersonJoin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RelativesCount" type="xs:int" />
+      <xs:element minOccurs="0" name="RemainingPoint" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sno" type="xs:int" />
+      <xs:element minOccurs="0" name="UseDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UsePoint" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HPXPointDto" nillable="true" type="tns:HPXPointDto" />
+  <xs:complexType name="ApiResultOfHPXPointDtoMTRdQN6P">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ApiResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="HPXPointDto" Namespace="http://schemas.datacontract.org/2004/07/" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:HPXPointDto" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiResultOfHPXPointDtoMTRdQN6P" nillable="true" type="tns:ApiResultOfHPXPointDtoMTRdQN6P" />
+  <xs:complexType name="ApiResultOfint">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ApiResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" type="xs:int" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApiResultOfint" nillable="true" type="tns:ApiResultOfint" />
+  <xs:complexType name="CompositeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BoolValue" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StringValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompositeType" nillable="true" type="tns:CompositeType" />
+</xs:schema>

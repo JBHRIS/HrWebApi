@@ -462,7 +462,7 @@ namespace JBHR.Reports.SalForm
                     SenderName = Row1["value"].ToString();
             }
 
-            string mailtitle = (ck_file) ? date_e + "測試薪資異動通知" : date_e + "薪資異動通知";
+            string mailtitle = (ck_file) ? "測試薪資異動通知" : "薪資異動通知";
             //if (ck_file) mailtitle += "測試員工編號=>";
             string _filename = DateTime.Parse(date_e).ToString("yyyyMMdd") + "薪資異動通知";
             if (!System.IO.Directory.Exists(JBControls.ControlConfig.GetExportPath() + _filename))//檢查目錄是否存在，不存在就建立新目錄

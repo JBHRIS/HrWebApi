@@ -2309,8 +2309,8 @@
         </TablixRowHierarchy>
         <DataSetName>SalDataSet_zz4j</DataSetName>
         <Left>0.5cm</Left>
-        <Height>4.54447cm</Height>
-        <Width>17.75003cm</Width>
+        <Height>4.54444cm</Height>
+        <Width>17.75004cm</Width>
         <Style>
           <FontFamily>新細明體</FontFamily>
         </Style>
@@ -2361,7 +2361,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value EvaluationMode="Constant">實際發放薪資料平均表</Value>
+                  <Value>實際發放薪資平均表</Value>
                   <Style>
                     <FontFamily>標楷體</FontFamily>
                     <FontSize>12pt</FontSize>

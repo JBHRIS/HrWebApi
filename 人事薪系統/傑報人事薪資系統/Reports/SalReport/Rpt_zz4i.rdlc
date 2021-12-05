@@ -1735,9 +1735,6 @@
                 <GroupExpressions>
                   <GroupExpression>=IIf(Parameters!MainSort.Value="DEPTS",Fields!depts.Value,IIf(Parameters!MainSort.Value="SAL_CODE",Fields!sal_code.Value,Fields!nobr.Value))</GroupExpression>
                 </GroupExpressions>
-                <PageBreak>
-                  <BreakLocation>Between</BreakLocation>
-                </PageBreak>
               </Group>
               <SortExpressions>
                 <SortExpression>

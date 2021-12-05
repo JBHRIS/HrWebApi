@@ -125,15 +125,15 @@
     <Compile Include="Dto\TBaseDto.cs" />
     <Compile Include="Dto\UserDefineDto.cs" />
     <Compile Include="Dto\WorksDto.cs" />
+    <Compile Include="Factory\Formula\FormulaFunctionRepo.cs" />
+    <Compile Include="Factory\Formula\GetParamsBySQLFunction.cs" />
     <Compile Include="Linq\AbsAgent.cs" />
     <Compile Include="Linq\AttendanceAgent.cs" />
     <Compile Include="Linq\CodeAgent.cs" />
     <Compile Include="Linq\DcHelper.cs" />
     <Compile Include="Linq\DebuggerWriter.cs" />
     <Compile Include="Linq\EmployeeAgent.cs" />
-    <Compile Include="Linq\HrDB.cs">
-      <DependentUpon>HrDB.dbml</DependentUpon>
-    </Compile>
+    <Compile Include="Linq\HrDB.cs" />
     <Compile Include="Linq\LinqDataManager.cs" />
     <Compile Include="Linq\OtAgent.cs" />
     <Compile Include="Linq\SalaryAgent.cs" />
@@ -142,6 +142,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SimpleDB.dbml</DependentUpon>
     </Compile>
+    <Compile Include="MealCardGenerator.cs" />
     <Compile Include="Repo\AbsenceRepo.cs" />
     <Compile Include="Repo\AbsEntitleRepo.cs" />
     <Compile Include="Repo\AbsRepo.cs" />
@@ -154,6 +155,7 @@
     <Compile Include="Repo\CardRepo.cs" />
     <Compile Include="Repo\ContractRepo.cs" />
     <Compile Include="Repo\CostRepo.cs" />
+    <Compile Include="Repo\DailyOvertimeHoursLabourCheckRule.cs" />
     <Compile Include="Repo\DeptRepo.cs" />
     <Compile Include="Repo\DeptsRepo.cs" />
     <Compile Include="Repo\EnrichRepo.cs" />
@@ -171,8 +173,10 @@
     <Compile Include="Repo\OvertimeRepository.cs" />
     <Compile Include="Repo\RepoHelper.cs" />
     <Compile Include="Repo\ROTETCHGRepo.cs" />
+    <Compile Include="Repo\SalCalcBeforeInspectionRuleRepo.cs" />
     <Compile Include="Repo\ScheduleRepo.cs" />
     <Compile Include="Repo\SCHLRepo.cs" />
+    <Compile Include="Repo\SqlFuctionCheckRule.cs" />
     <Compile Include="Repo\TBaseRepo.cs" />
     <Compile Include="Repo\UserDefineRepo.cs" />
     <Compile Include="Repo\WorksRepo.cs" />

@@ -226,7 +226,6 @@ namespace Dal.Dao.Bas
                            DI = b1.DI.Trim(),
                            JobCode = b1.JOB.Trim(),
                            JobName = j.JOB_NAME.Trim(),
-                           JobEName = j.JOB_ENAME,
                            JoblCode = b1.JOBL.Trim(),
                            JoblName = jl.JOB_NAME.Trim(),
                            DeptCode = b1.DEPT.Trim(),
@@ -511,59 +510,6 @@ namespace Dal.Dao.Bas
                            DisplayName = c.TTSNAME + "(" + c.TTSCD_DISP + ")",
                        }).ToList();
 
-            return Vdb;
-        }
-        /// <summary>
-        /// 取得所有在職員工
-        /// </summary>
-        /// <param name="dDate"></param>
-        /// <returns></returns>
-        public List<BaseTable> GetAllEmp()
-        {
-            var Vdb = (from b1 in dcHr.BASETTS
-                       join b in dcHr.BASE on b1.NOBR equals b.NOBR
-                       where arrTtscode.Contains(b1.TTSCODE.Trim())
-                         && b1.ADATE.Date.CompareTo(DateNow) <= 0
-                         && DateNow.CompareTo(b1.DDATE.Value.Date) <= 0
-                       select new BaseTable
-                       {
-                           Nobr = b.NOBR.Trim(),
-                           NameC = b.NAME_C.Trim(),
-                           NameE = b.NAME_E.Trim(),
-                           Name = b.NAME_C.Trim() + "," + b.NOBR.Trim(),
-                       }).ToList();
-            return Vdb;
-        }
-        /// <summary>
-        /// 取得員工基本資料 依姓名 
-        /// </summary>
-        /// <param name="sNobr">工號</param>
-        /// <returns>BaseTable</returns>
-        public List<BaseTable> GetBaseByName(string sName)
-        {
-            var Vdb = (from b in dcHr.BASE
-                       join b1 in dcHr.BASETTS on b.NOBR equals b1.NOBR
-                       where b.NAME_C.Trim() == sName.Trim()
-                       select new BaseTable
-                       {
-                           Nobr = b.NOBR.Trim(),
-                           NameC = b.NAME_C.Trim(),
-                           NameE = b.NAME_E.Trim(),
-                           Name = b.NAME_C.Trim() + "," + b.NOBR.Trim(),
-                       }).ToList();
-
-            return Vdb;
-        }
-        /// <summary>
-        /// 取得員工入口角色依功號
-        /// </summary>
-        /// <param name="sNobr">工號</param>
-        /// <returns></returns>
-        public List<sysUserRole> GetPortalRoleByNobr(string sNobr)
-        {
-            var Vdb = (from c in dcHr.sysUserRole
-                       where c.NOBR == sNobr
-                       select c).ToList();
             return Vdb;
         }
     }

@@ -403,7 +403,6 @@
                         <PaddingBottom>1pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -1320,7 +1319,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!subj.Value</Value>
+                              <Value>=Fields!subj_detail.Value</Value>
                               <Style>
                                 <FontFamily>標楷體</FontFamily>
                                 <Format>P0</Format>
@@ -2504,8 +2503,8 @@
         </TablixRowHierarchy>
         <DataSetName>empdata_rq_zz1cs1</DataSetName>
         <Left>0.5cm</Left>
-        <Height>3.03969cm</Height>
-        <Width>28.59994cm</Width>
+        <Height>3.03968cm</Height>
+        <Width>28.59997cm</Width>
         <Style>
           <FontFamily>新細明體</FontFamily>
         </Style>

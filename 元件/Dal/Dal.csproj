@@ -60,7 +60,6 @@
     <Compile Include="Dao\Att\OtDao.cs" />
     <Compile Include="Dao\Att\RoteDao.cs" />
     <Compile Include="Dao\Att\TransCardDao.cs" />
-    <Compile Include="Dao\Att\TransCardDao_NS.cs" />
     <Compile Include="Dao\Bas\BasDao.cs" />
     <Compile Include="Dao\Bas\DeptDao.cs" />
     <Compile Include="Dao\Bas\IpControlDao.cs" />

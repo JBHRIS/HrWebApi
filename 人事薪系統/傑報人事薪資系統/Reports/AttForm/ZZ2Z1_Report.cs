@@ -5,18 +5,20 @@
  * 檔案路徑：~\Customer\JBHR2\人事薪系統\傑報人事薪資系統\Reports\AttForm\ZZ2Z1_Report.cs
  * 功能用途：
  *  用於產出員工出勤明細表
- * 
- * 版本記錄：
+ */
+/* 版本記錄：
  * ======================================================================================================
- *    日期           人員           版本           說明
+ *    日期           人員               版本              單號              說明
  * ------------------------------------------------------------------------------------------------------
- * 2021/05/25    Daniel Chih    Ver 1.0.01     1. 新增報表選項【部門匯總（全勤獎金）】現階段僅開放寶齡富錦可用
- * 2021/10/05    Daniel Chih    Ver 1.0.02     1. 修改加班資料的撈取條件判斷從原本的yymm改成bdate
+ * 2021/05/25    Daniel Chih        Ver 1.0.01                          1. 新增報表選項【部門匯總（全勤獎金）】現階段僅開放寶齡富錦可用
+ * 2021/10/05    Daniel Chih        Ver 1.0.02                          1. 修改加班資料的撈取條件判斷從原本的yymm改成bdate
+ * 2021/11/26    Daniel Chih        Ver 1.0.03    20211126-DC0492-01    1. 增加【部門匯總（全勤獎金）】的全勤獎金 SalCode 代入
  * 
  * 
- * ======================================================================================================
- * 
- * 最後修改：Daniel Chih (0492) - 2021/10/05
+ */
+/* ======================================================================================================
+ *
+ * 最後修改：Daniel Chih (0492) - 2021/11/26
  */
 
 using System;
@@ -380,7 +382,8 @@ namespace JBHR.Reports.AttForm
                 //判斷是否為寶齡獨有報表
                 if (checkBPBF)
                 {
-                    FullAttAmt = CalAttFull.SalAttFunction(yymm_e, nobr_b, nobr_e, dept_b, dept_e, DateTime.Parse(date_b), DateTime.Parse(date_e));
+                    //需求單號：20211126-DC0492-01
+                    FullAttAmt = CalAttFull.SalAttFunction(yymm_e, nobr_b, nobr_e, dept_b, dept_e, DateTime.Parse(date_b), DateTime.Parse(date_e), attawardsalcode);
                 }
 
                 //全勤獎金計算end

@@ -1,4 +1,25 @@
-﻿using System;
+﻿/* ======================================================================================================
+ * 功能名稱：
+ * 功能代號：CalcSalaryByAttFunction
+ * 功能路徑：
+ * 檔案路徑：~\Customer\JBHR2\人事薪系統\傑報人事薪資系統\Reports\CalcSalaryByAttFunction.cs
+ * 功能用途：
+ *  用於產出員工出勤明細表
+ */
+/* 版本記錄：
+ * ======================================================================================================
+ *    日期           人員               版本              單號              說明
+ * ------------------------------------------------------------------------------------------------------
+ * 2021/11/26    Daniel Chih        Ver 1.0.01    20211126-DC0492-01    1. 增加【部門匯總（全勤獎金）】的全勤獎金 SalCode 代入
+ * 
+ * 
+ */
+/* ======================================================================================================
+ *
+ * 最後修改：Daniel Chih (0492) - 2021/11/26
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -28,7 +49,7 @@ namespace JBModule.Data
         Dictionary<string, decimal> FullAttAmt;
         public  Dictionary<string ,decimal>     SalAttFunction(string yymm,
             string nobr_b, string nobr_e, string dept_b, string dept_e,
-           DateTime AttDateB, DateTime AttDateE
+           DateTime AttDateB, DateTime AttDateE, string attawardsalcode
             )
         {
 
@@ -43,13 +64,14 @@ namespace JBModule.Data
             this.DATE_E  = AttDateE;
             this.DEPT_B = dept_b;
             this.DEPT_E = dept_e;
+
             FullAttAmt = new Dictionary<string, decimal>();
-                        var sql = from a in db.BASE
+            var sql = from a in db.BASE
                       join b in db.BASETTS on a.NOBR equals b.NOBR
                       join c in db.DEPT on b.DEPT equals c.D_NO
                       join b1 in db.BASETTS on a.NOBR equals b1.NOBR
                       join d in db.WriteRuleTable(JBHR.MainForm.USER_ID, JBHR.MainForm.COMPANY, JBHR.MainForm.ADMIN) on a.NOBR equals d.NOBR
-                     //join wrnt in db.WriteRuleNobrTable.Where(p => p.GUID == guid) on a.NOBR equals wrnt.EMPID
+                      //join wrnt in db.WriteRuleNobrTable.Where(p => p.GUID == guid) on a.NOBR equals wrnt.EMPID
                       where DATE_E >= b.ADATE && DATE_E <= b.DDATE
                       && c.D_NO_DISP.CompareTo(DEPT_B) >= 0 && c.D_NO_DISP.CompareTo(DEPT_E) <= 0
                       && b.NOBR.CompareTo(NOBR_B) >= 0 && b.NOBR.CompareTo(NOBR_E) <= 0
@@ -57,11 +79,32 @@ namespace JBModule.Data
                       && (DATE_E >= b1.ADATE && b1.DDATE >= DATE_B
                         || ATT_DATE_E >= b1.ADATE && b1.DDATE >= ATT_DATE_B) //包含當月離離人員
                       select new { a.NOBR, a.NAME_C, b.SALADR };
+
+            //FullAttAmt = new Dictionary<string, decimal>();
+            //var sql = from a in db.BASE
+            //          join b in db.BASETTS on new { a.NOBR } equals new { b.NOBR }
+            //          join c in db.DEPT on b.DEPT equals c.D_NO
+            //          join b1 in db.BASETTS on a.NOBR equals b1.NOBR
+            //          join d in db.WriteRuleTable(JBHR.MainForm.USER_ID, JBHR.MainForm.COMPANY, JBHR.MainForm.ADMIN) on a.NOBR equals d.NOBR
+            //          //join wrnt in db.WriteRuleNobrTable.Where(p => p.GUID == guid) on a.NOBR equals wrnt.EMPID
+            //          where DATE_E >= b.ADATE && DATE_E <= b.DDATE
+            //          && c.D_NO_DISP.CompareTo(DEPT_B) >= 0 
+            //          && c.D_NO_DISP.CompareTo(DEPT_E) <= 0
+            //          && b.NOBR.Equals(NOBR_B)
+            //          && new string[] { "1", "4", "6" }.Contains(b1.TTSCODE)
+            //          && (DATE_E >= b1.ADATE && b1.DDATE >= DATE_B
+            //            || ATT_DATE_E >= b1.ADATE && b1.DDATE >= ATT_DATE_B) //包含當月離離人員
+            //          select new { a.NOBR, a.NAME_C, b.SALADR };
+
             if (!sql.Any()) return FullAttAmt;
+            
+            
+
             foreach (var Emp in sql.Distinct())
              {
-                var list = calcSalary.GetCalcSalaryMsg("SAL", Emp.NOBR, YYMM, ATT_DATE_B, ATT_DATE_E, DATE_B, DATE_E, JBHR.MainForm.USER_ID , JBHR.MainForm.COMPANY, JBHR.MainForm.ADMIN);
-                foreach (var itm in list)
+                var list = calcSalary.GetCalcSalaryMsg("SAL", Emp.NOBR, YYMM, ATT_DATE_B, ATT_DATE_E, DATE_B, DATE_E, JBHR.MainForm.USER_ID, JBHR.MainForm.COMPANY, JBHR.MainForm.ADMIN);
+                //需求單號：20211126-DC0492-01
+                foreach (var itm in list.Where(p => p.Salcode == attawardsalcode))
                 {
                     FullAttAmt.Add(itm.Nobr, itm.Amt); 
                     //setProgress(0, string.Format("薪資公式計算_{0}", Emp.NOBR));
@@ -72,7 +115,7 @@ namespace JBModule.Data
                     //waged.SEQ = SEQ;
                     //waged.YYMM = YYMM;
                     //InsertWaged(waged);
-                }
+                };
             }
             return FullAttAmt;
 

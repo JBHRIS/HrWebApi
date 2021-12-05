@@ -1013,8 +1013,12 @@ namespace JBHR.Bas
                     BASEQuery = from c in FRM12Context.BASE
                                 where c.NOBR.Trim() == textBoxNOBR.Text
                                 select c;
-
-                    IQueryable<EntitySet<SCHL>> SCHLQuery = from c in BASEQuery where c.SCHL.Any() select c.SCHL;
+                    //int bqCount = BASEQuery.Count();
+                    var SCHLQuery = from c in FRM12Context.SCHL
+                                    join b in FRM12Context.BASETTS on c.NOBR equals b.NOBR
+                                    where c.NOBR == textBoxNOBR.Text
+                                    && DateTime.Today >= b.ADATE && DateTime.Today <= b.DDATE.Value
+                                    select new { c, b.DEPT, b.JOB, b.TTSCODE };
                     IQueryable<EntitySet<WORKS>> WORKSQuery = from c in BASEQuery where c.WORKS.Any() select c.WORKS;
                     IQueryable<EntitySet<MASTER>> MASTERQuery = from c in BASEQuery where c.MASTER.Any() select c.MASTER;
                     IQueryable<EntitySet<FAMILY>> FAMILYQuery = from c in BASEQuery where c.FAMILY.Any() select c.FAMILY;

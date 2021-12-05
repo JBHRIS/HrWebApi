@@ -1,9 +1,7 @@
-﻿namespace JBHR
-{
+﻿namespace JBHR {
 
 
     public partial class SalaryTransferDataSet
     {
     }
 }
-

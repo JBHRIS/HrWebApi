@@ -13,9 +13,8 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <ManifestCertificateThumbprint>037F06280CC5F7B648071C241A2F017DBE2BF501</ManifestCertificateThumbprint>
-    <ManifestKeyFile>
-    </ManifestKeyFile>
+    <ManifestCertificateThumbprint>81091AC2C2EAE4BD9B4C8A5BEB7F1DE8A2DA46EC</ManifestCertificateThumbprint>
+    <ManifestKeyFile>jbhrcodesinging.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
     <SignManifests>false</SignManifests>
     <SignAssembly>false</SignAssembly>
@@ -48,8 +47,8 @@
     <PublisherName>傑報資訊</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>20.3.10.1</ApplicationVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>21.12.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -95,6 +94,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Standard\JBHRIS\JBHRIS.BLL\JBHRIS.BLL\bin\Debug\Dapper.dll</HintPath>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="Ionic.Zip, Version=1.9.1.5, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Standard\Zip\Ionic.Zip.dll</HintPath>
@@ -115,21 +117,17 @@
       <HintPath>packages\Newtonsoft.Json.12.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="NPOI, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\VIC\人事薪系統\弘捷電路人事薪資系統\bin\Debug\NPOI.dll</HintPath>
+    <Reference Include="NPOI, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>packages\NPOI.2.4.1\lib\net40\NPOI.dll</HintPath>
     </Reference>
-    <Reference Include="NPOI.OOXML, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\VIC\人事薪系統\弘捷電路人事薪資系統\bin\Debug\NPOI.OOXML.dll</HintPath>
+    <Reference Include="NPOI.OOXML, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>packages\NPOI.2.4.1\lib\net40\NPOI.OOXML.dll</HintPath>
     </Reference>
-    <Reference Include="NPOI.OpenXml4Net, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\VIC\人事薪系統\弘捷電路人事薪資系統\bin\Debug\NPOI.OpenXml4Net.dll</HintPath>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>packages\NPOI.2.4.1\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
     </Reference>
-    <Reference Include="NPOI.OpenXmlFormats, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\VIC\人事薪系統\弘捷電路人事薪資系統\bin\Debug\NPOI.OpenXmlFormats.dll</HintPath>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>packages\NPOI.2.4.1\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -183,6 +181,13 @@
   <ItemGroup>
     <Compile Include="Att\AbsentEntitle.cs" />
     <Compile Include="Att\AbsentTaken.cs" />
+    <Compile Include="Att\Attendance\Dto\ScheduleTypeDto.cs" />
+    <Compile Include="Att\Attendance\Dto\WorkScheduleCheckDto.cs" />
+    <Compile Include="Att\Attendance\Dto\WorkScheduleCheckEntry.cs" />
+    <Compile Include="Att\Attendance\Dto\WorkScheduleCheckResult.cs" />
+    <Compile Include="Att\Attendance\Dto\WorkScheduleDto.cs" />
+    <Compile Include="Att\Attendance\Dto\WorkScheduleIssueDto.cs" />
+    <Compile Include="Att\Attendance\WorkScheduleCheckGenerator.cs" />
     <Compile Include="Att\CopyBonusSetting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -353,6 +358,24 @@
     <Compile Include="Att\FRM24.Designer.cs">
       <DependentUpon>FRM24.cs</DependentUpon>
     </Compile>
+    <Compile Include="Att\FRM24F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM24F.Designer.cs">
+      <DependentUpon>FRM24F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM24FA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM24FA.Designer.cs">
+      <DependentUpon>FRM24FA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM24FD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM24FD.designer.cs">
+      <DependentUpon>FRM24FD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Att\FRM24T.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -407,6 +430,18 @@
     <Compile Include="Att\FRM272A.Designer.cs">
       <DependentUpon>FRM272A.cs</DependentUpon>
     </Compile>
+    <Compile Include="Att\FRM27A.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM27A.Designer.cs">
+      <DependentUpon>FRM27A.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM27A_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM27A_ADD.Designer.cs">
+      <DependentUpon>FRM27A_ADD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Att\FRM28.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -454,6 +489,24 @@
     </Compile>
     <Compile Include="Att\FRM2A1.designer.cs">
       <DependentUpon>FRM2A1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM2AN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM2AN.Designer.cs">
+      <DependentUpon>FRM2AN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM2ANIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM2ANIN.Designer.cs">
+      <DependentUpon>FRM2ANIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM2AN_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM2AN_ADD.Designer.cs">
+      <DependentUpon>FRM2AN_ADD.cs</DependentUpon>
     </Compile>
     <Compile Include="Att\FRM2B.cs">
       <SubType>Form</SubType>
@@ -575,6 +628,60 @@
     <Compile Include="Att\FRM2KB.Designer.cs">
       <DependentUpon>FRM2KB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Att\FRM2M_Apply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM2M_Apply.Designer.cs">
+      <DependentUpon>FRM2M_Apply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM2M_Apply_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM2M_Apply_ADD.Designer.cs">
+      <DependentUpon>FRM2M_Apply_ADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM2M_CardType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM2M_CardType.Designer.cs">
+      <DependentUpon>FRM2M_CardType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM2M_CardType_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM2M_CardType_ADD.Designer.cs">
+      <DependentUpon>FRM2M_CardType_ADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM2M_CardType_Trans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM2M_CardType_Trans.Designer.cs">
+      <DependentUpon>FRM2M_CardType_Trans.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM2M_CaseSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM2M_CaseSetting.Designer.cs">
+      <DependentUpon>FRM2M_CaseSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM2M_Deduction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM2M_Deduction.Designer.cs">
+      <DependentUpon>FRM2M_Deduction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM2M_Group.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM2M_Group.Designer.cs">
+      <DependentUpon>FRM2M_Group.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM2M_Type.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM2M_Type.Designer.cs">
+      <DependentUpon>FRM2M_Type.cs</DependentUpon>
+    </Compile>
     <Compile Include="Att\FRM2O.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -623,11 +730,71 @@
     <Compile Include="Att\FRM2TG.Designer.cs">
       <DependentUpon>FRM2TG.cs</DependentUpon>
     </Compile>
+    <Compile Include="Att\FRM2TGN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM2TGN.Designer.cs">
+      <DependentUpon>FRM2TGN.cs</DependentUpon>
+    </Compile>
     <Compile Include="Att\FRM2TIN.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Att\FRM2TIN.Designer.cs">
       <DependentUpon>FRM2TIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM2V.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM2V.designer.cs">
+      <DependentUpon>FRM2V.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM2V_EDIT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM2V_EDIT.designer.cs">
+      <DependentUpon>FRM2V_EDIT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM2V_EDIT_M.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM2V_EDIT_M.designer.cs">
+      <DependentUpon>FRM2V_EDIT_M.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM2_DiversionAttendType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM2_DiversionAttendType.Designer.cs">
+      <DependentUpon>FRM2_DiversionAttendType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM2_DiversionGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM2_DiversionGroup.Designer.cs">
+      <DependentUpon>FRM2_DiversionGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM2_DiversionGroup_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM2_DiversionGroup_ADD.Designer.cs">
+      <DependentUpon>FRM2_DiversionGroup_ADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM2_DiversionShift.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM2_DiversionShift.Designer.cs">
+      <DependentUpon>FRM2_DiversionShift.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM2_DiversionShift_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM2_DiversionShift_ADD.Designer.cs">
+      <DependentUpon>FRM2_DiversionShift_ADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\FRM2_DiversionShift_Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\FRM2_DiversionShift_Import.Designer.cs">
+      <DependentUpon>FRM2_DiversionShift_Import.cs</DependentUpon>
     </Compile>
     <Compile Include="BasDataClasses.designer.cs">
       <AutoGen>True</AutoGen>
@@ -959,6 +1126,18 @@
     <Compile Include="Bas\FRM18.Designer.cs">
       <DependentUpon>FRM18.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bas\FRM18_IMPORT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bas\FRM18_IMPORT.Designer.cs">
+      <DependentUpon>FRM18_IMPORT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bas\FRM18_UserDF_Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bas\FRM18_UserDF_Import.Designer.cs">
+      <DependentUpon>FRM18_UserDF_Import.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bas\FRM1A.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1061,6 +1240,24 @@
     <Compile Include="Bas\FRM1OIN.Designer.cs">
       <DependentUpon>FRM1OIN.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bas\FRM1Q.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bas\FRM1Q.designer.cs">
+      <DependentUpon>FRM1Q.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bas\FRM1Q_IMPORT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bas\FRM1Q_IMPORT.designer.cs">
+      <DependentUpon>FRM1Q_IMPORT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bas\FRM1_BlackList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bas\FRM1_BlackList.Designer.cs">
+      <DependentUpon>FRM1_BlackList.cs</DependentUpon>
+    </Compile>
     <Compile Include="CodeFunction.cs" />
     <Compile Include="ConfigManager.cs">
       <SubType>Form</SubType>
@@ -1068,15 +1265,63 @@
     <Compile Include="ConfigManager.designer.cs">
       <DependentUpon>ConfigManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dividend\HunyaCustom\Code\Hunya_DIVDAppraisalCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dividend\HunyaCustom\Code\Hunya_DIVDAppraisalCode.Designer.cs">
+      <DependentUpon>Hunya_DIVDAppraisalCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dividend\HunyaCustom\Code\Hunya_DIVDJobWeighting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dividend\HunyaCustom\Code\Hunya_DIVDJobWeighting.Designer.cs">
+      <DependentUpon>Hunya_DIVDJobWeighting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dividend\HunyaCustom\Hunya_DIVDPersonalAppraisal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dividend\HunyaCustom\Hunya_DIVDPersonalAppraisal.Designer.cs">
+      <DependentUpon>Hunya_DIVDPersonalAppraisal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dividend\HunyaCustom\Hunya_DIVDPersonalAppraisal_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dividend\HunyaCustom\Hunya_DIVDPersonalAppraisal_ADD.Designer.cs">
+      <DependentUpon>Hunya_DIVDPersonalAppraisal_ADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dividend\HunyaCustom\Hunya_DIVDPersonalAppraisal_Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dividend\HunyaCustom\Hunya_DIVDPersonalAppraisal_Import.Designer.cs">
+      <DependentUpon>Hunya_DIVDPersonalAppraisal_Import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dividend\HunyaCustom\Hunya_DIVDPersonalBonus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dividend\HunyaCustom\Hunya_DIVDPersonalBonus.Designer.cs">
+      <DependentUpon>Hunya_DIVDPersonalBonus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dividend\HunyaCustom\Hunya_DIVDPersonalBonus_Calculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dividend\HunyaCustom\Hunya_DIVDPersonalBonus_Calculator.Designer.cs">
+      <DependentUpon>Hunya_DIVDPersonalBonus_Calculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dividend\HunyaCustom\Hunya_Dividend.cs">
+      <DependentUpon>Hunya_Dividend.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dividend\HunyaCustom\Hunya_Dividend.Designer.cs">
+      <DependentUpon>Hunya_Dividend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dividend\HunyaCustom\Repository\Hunya_DIVDPersonalAppraisalDto.cs" />
+    <Compile Include="Dividend\HunyaCustom\Repository\Hunya_DIVDPersonalAppraisalRepo.cs" />
     <Compile Include="Dto\AttendDto.cs" />
     <Compile Include="Dto\HcodeDto.cs" />
     <Compile Include="Dto\RoteDto.cs" />
     <Compile Include="EXA\exaDS.cs">
       <DependentUpon>exaDS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="EXA\exaDS.Designer.cs">
-      <DependentUpon>exaDS.cs</DependentUpon>
-    </Compile>
+    <Compile Include="EXA\exaDS1.Designer.cs" />
     <Compile Include="EXA\FRM81.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1113,6 +1358,36 @@
     <Compile Include="EXA\FRM85.Designer.cs">
       <DependentUpon>FRM85.cs</DependentUpon>
     </Compile>
+    <Compile Include="HopaxCustom\HPX_Plate_Mgt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HopaxCustom\HPX_Plate_Mgt.Designer.cs">
+      <DependentUpon>HPX_Plate_Mgt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HopaxCustom\HPX_Plate_Mgt_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HopaxCustom\HPX_Plate_Mgt_ADD.Designer.cs">
+      <DependentUpon>HPX_Plate_Mgt_ADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HopaxCustom\HPX_Point_Mgt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HopaxCustom\HPX_Point_Mgt.Designer.cs">
+      <DependentUpon>HPX_Point_Mgt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HopaxCustom\HPX_Point_Mgt_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HopaxCustom\HPX_Point_Mgt_ADD.Designer.cs">
+      <DependentUpon>HPX_Point_Mgt_ADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HopaxCustom\HPX_Point_MGT_IN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HopaxCustom\HPX_Point_MGT_IN.Designer.cs">
+      <DependentUpon>HPX_Point_MGT_IN.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImportC\ABS\ABSC1.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -1135,9 +1410,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ImportC\SQL_Repo\ABS_REPO.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ImportC\SQL_Repo\ATTEND_REPO.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ImportC\SQL_Repo\BASETTS_REPO.cs">
@@ -1306,6 +1578,12 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Med\BPBFCustom\BPBF_FRM7F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Med\BPBFCustom\BPBF_FRM7F.Designer.cs">
+      <DependentUpon>BPBF_FRM7F.cs</DependentUpon>
+    </Compile>
     <Compile Include="Med\FRM52.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1347,6 +1625,12 @@
     </Compile>
     <Compile Include="Med\FRM71N1.designer.cs">
       <DependentUpon>FRM71N1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Med\FRM71N1_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Med\FRM71N1_ADD.Designer.cs">
+      <DependentUpon>FRM71N1_ADD.cs</DependentUpon>
     </Compile>
     <Compile Include="Med\FRM71N1_IMPORT.cs">
       <SubType>Form</SubType>
@@ -1415,6 +1699,91 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MedDataClasses.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Performance\HunyaCustom\Code\Hunay_PAGroupCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Code\Hunay_PAGroupCode.Designer.cs">
+      <DependentUpon>Hunay_PAGroupCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Code\Hunya_PALevelCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Code\Hunya_PALevelCode.Designer.cs">
+      <DependentUpon>Hunya_PALevelCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_PABonusGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_PABonusGroup.Designer.cs">
+      <DependentUpon>Hunya_PABonusGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_PABonusGroup_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_PABonusGroup_ADD.Designer.cs">
+      <DependentUpon>Hunya_PABonusGroup_ADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_PABonusGroup_Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_PABonusGroup_Import.Designer.cs">
+      <DependentUpon>Hunya_PABonusGroup_Import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_PADeptBonus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_PADeptBonus.Designer.cs">
+      <DependentUpon>Hunya_PADeptBonus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_PADeptBonus_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_PADeptBonus_ADD.Designer.cs">
+      <DependentUpon>Hunya_PADeptBonus_ADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_PADeptBonus_Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_PADeptBonus_Import.Designer.cs">
+      <DependentUpon>Hunya_PADeptBonus_Import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_PAPersonalAssessment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_PAPersonalAssessment.Designer.cs">
+      <DependentUpon>Hunya_PAPersonalAssessment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_PAPersonalAssessment_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_PAPersonalAssessment_ADD.Designer.cs">
+      <DependentUpon>Hunya_PAPersonalAssessment_ADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_PAPersonalAssessment_Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_PAPersonalAssessment_Import.Designer.cs">
+      <DependentUpon>Hunya_PAPersonalAssessment_Import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_PAPersonalBonus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_PAPersonalBonus.Designer.cs">
+      <DependentUpon>Hunya_PAPersonalBonus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_PAPersonalBonus_Calculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_PAPersonalBonus_Calculator.Designer.cs">
+      <DependentUpon>Hunya_PAPersonalBonus_Calculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Performance\HunyaCustom\Hunya_Performance.Designer.cs" />
+    <Compile Include="Performance\HunyaCustom\Repository\Hunya_PABonusGroupDto.cs" />
+    <Compile Include="Performance\HunyaCustom\Repository\Hunya_PABonusGroupRepo.cs" />
+    <Compile Include="Performance\HunyaCustom\Repository\Hunya_PADeptBonusDto.cs" />
+    <Compile Include="Performance\HunyaCustom\Repository\Hunya_PADeptBonusRepo.cs" />
+    <Compile Include="Performance\HunyaCustom\Repository\Hunya_PAPersonalAssessmentDto.cs" />
+    <Compile Include="Performance\HunyaCustom\Repository\Hunya_PAPersonalAssessmentRepo.cs" />
     <Compile Include="PhotoService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1425,85 +1794,525 @@
     <Content Include="Resources\ICON\favicon_C.ico" />
     <Content Include="Resources\ICON\傑報資訊_icon_01.png" />
     <Content Include="Resources\ICON\傑報資訊_icon_02.png" />
-    <Content Include="SqlStorage\20191126_FullScriptForTwTax.sql">
+    <None Include="Bll.Att.Vdb.HcodeTable.datasource" />
+    <None Include="Bll.Flow.Vdb.CheckAgentDefaultTable.datasource" />
+    <None Include="Bll.Flow.Vdb.FlowAbsTable.datasource" />
+    <None Include="Bll.Flow.Vdb.FlowOtTable.datasource" />
+    <None Include="Bll.Flow.Vdb.FlowSearchCompleteTable.datasource" />
+    <None Include="Bll.Flow.Vdb.FlowSearchIngTable.datasource" />
+    <None Include="Bll.Flow.Vdb.FlowSignCompleteTable.datasource" />
+    <None Include="Bll.Flow.Vdb.FlowSignTable.datasource" />
+    <None Include="Bll.Flow.Vdb.FormTreeTable.datasource" />
+    <None Include="Bll.Flow.Vdb.RolesTable.datasource" />
+    <None Include="Dividend\HunyaCustom\Hunya_Dividend.xsc">
+      <DependentUpon>Hunya_Dividend.xsd</DependentUpon>
+    </None>
+    <None Include="Dividend\HunyaCustom\Hunya_Dividend.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Hunya_Dividend1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Dividend\HunyaCustom\Hunya_Dividend.xss">
+      <DependentUpon>Hunya_Dividend.xsd</DependentUpon>
+    </None>
+    <None Include="JBModule.Data.Dto.AbsenceDetail.datasource" />
+    <None Include="JBModule.Data.Dto.AbsenceDto.datasource" />
+    <None Include="JBModule.Data.Linq.BASETTS.datasource" />
+    <None Include="JBModule.Data.Repo.SpecialLeaveOfYear.datasource" />
+    <None Include="Performance\HunyaCustom\Hunya_Performance.xsc">
+      <DependentUpon>Hunya_Performance.xsd</DependentUpon>
+    </None>
+    <None Include="Performance\HunyaCustom\Hunya_Performance.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Hunya_Performance1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Performance\HunyaCustom\Hunya_Performance.xss">
+      <DependentUpon>Hunya_Performance.xsd</DependentUpon>
+    </None>
+    <None Include="Service References\HPX_WebService\JBHR.HPX_WebService.ApiResultOfArrayOfHPXPlateDtoMTRdQN6P.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HPX_WebService\JBHR.HPX_WebService.ApiResultOfArrayOfHPXPointDtoMTRdQN6P.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HPX_WebService\JBHR.HPX_WebService.ApiResultOfArrayOfMtcodeDtoMTRdQN6P.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HPX_WebService\JBHR.HPX_WebService.ApiResultOfHPXPlateDtoMTRdQN6P.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HPX_WebService\JBHR.HPX_WebService.ApiResultOfHPXPointDtoMTRdQN6P.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HPX_WebService\JBHR.HPX_WebService.ApiResultOfint.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HPX_WebService\JBHR.HPX_WebService.ApiResultOfMtcodeDtoMTRdQN6P.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HPX_WebService\JBHR.HPX_WebService.ApiResultOfstring.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HPX_WebService\JBHR.HPX_WebService.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HPX_WebService\Service.disco" />
+    <None Include="Service References\HPX_WebService\configuration91.svcinfo" />
+    <None Include="Service References\HPX_WebService\configuration.svcinfo" />
+    <None Include="Service References\HPX_WebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="SqlStorage\sql\20191126_FullScriptForTwTax.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\20191126_ReCreate_View_人事系統_員工基本資料表.sql">
+    <Content Include="SqlStorage\sql\20191126_ReCreate_View_人事系統_員工基本資料表.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\20191212_MenuManagement.sql">
+    <Content Include="SqlStorage\sql\20191212_MenuManagement.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\20200102_福利金資料-新增-AUTO.sql">
+    <Content Include="SqlStorage\sql\20200102_福利金資料-新增-AUTO.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\20200106_HcodeTypeAlterColumn.sql">
+    <Content Include="SqlStorage\sql\20200106_HcodeTypeAlterColumn.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\20200116_VIEW_TW_TAX_ITEM_FIX_所得註記.sql">
+    <Content Include="SqlStorage\sql\20200116_VIEW_TW_TAX_ITEM_FIX_所得註記.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\20200120_SalcodeAddSort.sql">
+    <Content Include="SqlStorage\sql\20200120_SalcodeAddSort.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\20200204001_EXPSUP.sql">
+    <Content Include="SqlStorage\sql\20200204001_EXPSUP.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\20200204002_YRINSUR_ADD_RELSUP.sql">
+    <Content Include="SqlStorage\sql\20200204002_YRINSUR_ADD_RELSUP.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\20200204003_Update_Explab_Saladr.sql">
+    <Content Include="SqlStorage\sql\20200204003_Update_Explab_Saladr.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\20200210SALENRICH.sql">
+    <Content Include="SqlStorage\sql\20200210SALENRICH.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\20200210SALENRICHview.sql">
+    <Content Include="SqlStorage\sql\20200210SALENRICHview.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\20200211INSU_CODE.sql">
+    <Content Include="SqlStorage\sql\20200211INSU_CODE.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\20200214_ATTEND轉換SALATT_新增資料結構判斷.sql">
+    <Content Include="SqlStorage\sql\20200214_ATTEND轉換SALATT_新增資料結構判斷.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\2020021701_RenameVisibleToEnable.sql">
+    <Content Include="SqlStorage\sql\2020021701_RenameVisibleToEnable.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\2020021801_半年特休BTIME填0.sql">
+    <Content Include="SqlStorage\sql\2020021801_半年特休BTIME填0.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\2020022101_UserDefineManagement.sql">
+    <Content Include="SqlStorage\sql\2020022101_UserDefineManagement.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\20200303_NotifyClass_Full.sql">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlStorage\2020030601_ABSWriteOff.sql">
+    <Content Include="SqlStorage\sql\20200303_NotifyClass_Full.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\AlterSalcode.sql">
+    <Content Include="SqlStorage\sql\2020030601_ABSWriteOff.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\CreateEncodingTable.sql">
+    <Content Include="SqlStorage\sql\2020031001_EFFLVL_EFFTYPE_ADD_PK.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\Create_SYS_Calc_and_WriteRuleTable.sql">
+    <Content Include="SqlStorage\sql\2020031101_RotechgAddAutokey.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\_InitialSqlUdateTable.sql">
+    <Content Include="SqlStorage\sql\2020031102_CreateView_ROTECHG.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\法扣最低生活費修改FRM46B結構.sql">
+    <Content Include="SqlStorage\sql\2020032701_ABS_WriteOff_AMT_DisplayOff.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\考核系統相關.sql">
+    <Content Include="SqlStorage\sql\2020040101_Alter_SQLUPDATETABLE_FileName.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\重建EFFEMPLOY.sql">
+    <Content Include="SqlStorage\sql\2020042401_AppConfig_Insert_ApplicationName_JBHR2.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020042701_GetCurrentCINDT.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020042702_GetTotalYears1.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020050502_ReCreate_View_ABSWriteOFF.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020050702_Alter_OTRATECD_EXPAND_Decimals.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020050703_Alter_OTRATECD_ROTE_EXPAND_Decimals.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020051501_Create_View_Rpt_Enrich.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020051502_Create_View_ReportEMP.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020070901_CreateMealType.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020070902_CreateMealGroup.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020070903_CreateMealCaseSetting.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020070904_CreateMealApplyRecord.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020070905_CreateMealApplyRecord_INDEX.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020071302_AlterUserDefineSourceADDColumns.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020071401_CreateViewMealApplyRecord.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020072001_CreateMealCardType.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020072002_CreateMealCardType_INDEX.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020072003_CreateViewMealCardType.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020081401_CreateMealDeduction.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020081901_CreateViewMealDeduction.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020081902_CreateGetMealDeduction.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020090101_UpdateBaseBANKCODEfromBANKNO.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020090401_UpdateABSWhenBalanceIsNull.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\20200928INSLAB_NOSUP 免收補充保費.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\20201005_LARCODE_NOFUND.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020102701_CreateFOODCARD.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020102702_ReCreateYRINSUR.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020110901_CreateStoreProcedure_GetAMTByTimeSection.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020110901_CreateStoreProcedure_GetTimeDiff.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020111001_ReCreateViewMealApplyRecord.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020111002_ReCreateViewMealDeduction.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\20201117_NotifyClass_Full.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020121501_RoteBonusConditionTypeInsertJOB.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020121801_create_ENCODE_function.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020121802_updateJqColumSetDecodeForTW_TAX_seriesFormat.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020121803_TW_TAX_seriesEncodeAMT.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020122101_RecreateView_TW_TAX_ITEM.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020122201_AlterTW_TAX_ITEMAddNote1Note2.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020122501_CreateAttendABNormal.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020122502_CreateAttendABNormalCheck.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020122503_CreateReportEMP.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020122504_CreateViewAttendABNormal.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2020122505_MTCodeInsertATTEND_ABNORMAL.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021010501_AlterCost_PK.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021010801_ReCreateViewReportEntitleExtend.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021011501_FixDBsDecodeFunction.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021011502_FixDBsDecodeFunction.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021022001_Remove_DATA_PA_RepeatData.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021030201_AlterLarcode_AddNoDisaster.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021031201_AlterHcodeTypeAddDISP_and_SetCodeFilter.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021031701_ReCreate_VIEW_TW_TAX_ITEM.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021032301_UpdateAppconfigSetAboutHcodeType.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021032601_CreateTableFunction_UserReadDataGroupList.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021041501_UserDefineGroupAlterAddColumns.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021041502_MealTypeAddCertificationTime.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021041511_AlterCompAndUserDefineValueColumnName.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021041512_CreateFunction_GetUserDefineValue.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021041513_CreateFunction_GetUserDefineValueList.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021041514_CreateTable_UserDefineMaster.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021041515_AlterView_MealDeduction.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021042201_CreateTable_HRBlackList.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021042202_InsertInto_U_CODE_About_BlackList.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021042601_AlterView_MealApplyRecord.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021051001_CreateTable_FileStreamInfo.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\20210510_notification_schema.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021051901_AlterTableFunction_UserReadDataGroupList.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021052501_InsertIntoMTCODE_for_FRM2I_CalcType.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021052502_AlterTableYEAR_HOLIDAY_Add_Column_Auto_and_ChangePrimaryKey.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021053101_InserIntoAppConfig_About_CheckLabourRule.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021060201_UpdateCheckLabourRuleParams_HolidayList_Default_00_0Z.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021060401_CreateTable_DiversionGroup.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021060402_CreateTable_DiversionShift.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021060403_CreateTable_DiversionAttendType.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021060404_CreateTable_TemperoturyReport.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021060405_CreateTable_WorkLog.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021060406_InsertIntoMTCODE_DiversionGroupType.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021060407_CreateView_DiversionGroup.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021060408_CreateView_DiversionShift.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021060409_InsertIntoU_CODE_For_FRM2_DiversionAttendType.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021062101_UpdateMenuStripStructure_ItemIndex_About_AB班分流.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021062201_AlterView_FRM46.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021062501_AlterView_FRM47.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\20210701_通知系統_內容參數.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021070701_AlterAppconfig_AboutFRM4P_LeaveTypeCode.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021071301_AlterCard_AddTemperature.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021071302_AlterFood_Card_AddTemperature.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021071303_AlterU_SYS7_AddTemperature_POS_and_Temperature_LEN.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021071304_AlterU_SYS7A_AddTemperature.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021071305_AlterViewFRM24_AddTemperature.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\20210713_update_contentargs_to_nullable.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021072701_AlterSalCode_AddImportSEQ2.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021072702_AlterViewReportEmp_GetDate_To_Today.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021072703_AlterView_MealApplyRecord_GetDate_To_Today.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021072703_AlterView_MealDeduction_GetDate_To_Today.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021072704_AlterView_DiversionGroup_GetDate_To_Today.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021072705_AlterViewFRM46B_GetDate_To_Today.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021080301_CreateTable_TraceLog.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021080302_Create_Trigger_Base_Log.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021080303_Create_Trigger_Basetts_Log.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021081813_CreateFunction_f_split.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\20210818_修改_年資判斷的異動資料參考日期.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021081901_AlterTable_MenuStructure_Alter_Assemblyname_Size.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021083001_InsertInto_MTCODE_RoteBonusConditionType.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021090901_AlterU_Code_about_FRM24F.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021092201_AlterDECODE_TO_BigINT.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021101201_CreateView_FRM27A.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021101401_RuleCode.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021101402_Add_RuleCode.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021101403_EmployeeRule.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021101404_CreateView_FRM1Q.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021101405_InerstIntoU_CODE_About_FRM1Q.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021102101_CreateTable_SALDIVOT.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\20211027001_JBHR_SalaryTransferBank.sql" />
+    <Content Include="SqlStorage\sql\2021102701_InsertIntoRuleCode_Add_OtHrsDailyMax.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021102702_UpdateRuleCode_change_OtHrsDailyMax.sql_to_AttHrsDailyMax.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021102801_CreateIndex_SALADR_For_UserReadDataGroupList.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021110501_CreateFunction_GetCurrentINDT.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2021110502_CreateFunction_GetAnnualLeaveEndDate.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\AlterSalcode.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\CreateEncodingTable.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\Create_SYS_Calc_and_WriteRuleTable.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\_InitialSqlUdateTable.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\法扣最低生活費修改FRM46B結構.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\考核系統相關.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\重建EFFEMPLOY.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Version.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Bas\Excel\FRM18_Template.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="EXA\exaDS.xsc">
@@ -1517,6 +2326,7 @@
     <None Include="EXA\exaDS.xss">
       <DependentUpon>exaDS.xsd</DependentUpon>
     </None>
+    <None Include="jbhrcodesinging.pfx" />
     <None Include="JBModule.Data.Linq.NotifyTemplate.datasource" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
@@ -1560,6 +2370,41 @@
       <DependentUpon>TraDataSet.xsd</DependentUpon>
     </None>
     <None Include="Service References\HolyStoneService\CardlogWebServiceProvider.wsdl" />
+    <None Include="Service References\HPX_WebService\Service.wsdl" />
+    <None Include="Service References\HPX_WebService\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HPX_WebService\Service1.wsdl" />
+    <None Include="Service References\HPX_WebService\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HPX_WebService\Service10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HPX_WebService\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HPX_WebService\Service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HPX_WebService\Service4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HPX_WebService\Service5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HPX_WebService\Service6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HPX_WebService\Service7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HPX_WebService\Service8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\HPX_WebService\Service9.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\JBHRService\JBHR.JBHRService.SCardWebDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -1681,6 +2526,15 @@
       <DependentUpon>FRM24.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM24F.resx">
+      <DependentUpon>FRM24F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM24FA.resx">
+      <DependentUpon>FRM24FA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM24FD.resx">
+      <DependentUpon>FRM24FD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Att\FRM24T.resx">
       <DependentUpon>FRM24T.cs</DependentUpon>
     </EmbeddedResource>
@@ -1711,6 +2565,12 @@
     <EmbeddedResource Include="Att\FRM272A.resx">
       <DependentUpon>FRM272A.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM27A.resx">
+      <DependentUpon>FRM27A.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM27A_ADD.resx">
+      <DependentUpon>FRM27A_ADD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Att\FRM28.resx">
       <DependentUpon>FRM28.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -1737,6 +2597,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Att\FRM2A1.resx">
       <DependentUpon>FRM2A1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM2AN.resx">
+      <DependentUpon>FRM2AN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM2ANIN.resx">
+      <DependentUpon>FRM2ANIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM2AN_ADD.resx">
+      <DependentUpon>FRM2AN_ADD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Att\FRM2B.resx">
       <DependentUpon>FRM2B.cs</DependentUpon>
@@ -1804,6 +2673,33 @@
     <EmbeddedResource Include="Att\FRM2KB.resx">
       <DependentUpon>FRM2KB.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM2M_Apply.resx">
+      <DependentUpon>FRM2M_Apply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM2M_Apply_ADD.resx">
+      <DependentUpon>FRM2M_Apply_ADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM2M_CardType.resx">
+      <DependentUpon>FRM2M_CardType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM2M_CardType_ADD.resx">
+      <DependentUpon>FRM2M_CardType_ADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM2M_CardType_Trans.resx">
+      <DependentUpon>FRM2M_CardType_Trans.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM2M_CaseSetting.resx">
+      <DependentUpon>FRM2M_CaseSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM2M_Deduction.resx">
+      <DependentUpon>FRM2M_Deduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM2M_Group.resx">
+      <DependentUpon>FRM2M_Group.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM2M_Type.resx">
+      <DependentUpon>FRM2M_Type.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Att\FRM2O.resx">
       <DependentUpon>FRM2O.cs</DependentUpon>
     </EmbeddedResource>
@@ -1832,8 +2728,32 @@
     <EmbeddedResource Include="Att\FRM2TG.resx">
       <DependentUpon>FRM2TG.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM2TGN.resx">
+      <DependentUpon>FRM2TGN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Att\FRM2TIN.resx">
       <DependentUpon>FRM2TIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM2V.resx">
+      <DependentUpon>FRM2V.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM2V_EDIT.resx">
+      <DependentUpon>FRM2V_EDIT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM2V_EDIT_M.resx">
+      <DependentUpon>FRM2V_EDIT_M.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM2_DiversionGroup.resx">
+      <DependentUpon>FRM2_DiversionGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM2_DiversionGroup_ADD.resx">
+      <DependentUpon>FRM2_DiversionGroup_ADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM2_DiversionShift.resx">
+      <DependentUpon>FRM2_DiversionShift.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Att\FRM2_DiversionShift_ADD.resx">
+      <DependentUpon>FRM2_DiversionShift_ADD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bas\BASETTSD.resx">
       <DependentUpon>BASETTSD.cs</DependentUpon>
@@ -2017,6 +2937,12 @@
       <DependentUpon>FRM18.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bas\FRM18_IMPORT.resx">
+      <DependentUpon>FRM18_IMPORT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bas\FRM18_UserDF_Import.resx">
+      <DependentUpon>FRM18_UserDF_Import.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bas\FRM1A.resx">
       <DependentUpon>FRM1A.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -2076,8 +3002,38 @@
     <EmbeddedResource Include="Bas\FRM1OIN.resx">
       <DependentUpon>FRM1OIN.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bas\FRM1Q.resx">
+      <DependentUpon>FRM1Q.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bas\FRM1Q_IMPORT.resx">
+      <DependentUpon>FRM1Q_IMPORT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bas\FRM1_BlackList.resx">
+      <DependentUpon>FRM1_BlackList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConfigManager.resx">
       <DependentUpon>ConfigManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dividend\HunyaCustom\Code\Hunya_DIVDAppraisalCode.resx">
+      <DependentUpon>Hunya_DIVDAppraisalCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dividend\HunyaCustom\Code\Hunya_DIVDJobWeighting.resx">
+      <DependentUpon>Hunya_DIVDJobWeighting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dividend\HunyaCustom\Hunya_DIVDPersonalAppraisal.resx">
+      <DependentUpon>Hunya_DIVDPersonalAppraisal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dividend\HunyaCustom\Hunya_DIVDPersonalAppraisal_ADD.resx">
+      <DependentUpon>Hunya_DIVDPersonalAppraisal_ADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dividend\HunyaCustom\Hunya_DIVDPersonalAppraisal_Import.resx">
+      <DependentUpon>Hunya_DIVDPersonalAppraisal_Import.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dividend\HunyaCustom\Hunya_DIVDPersonalBonus.resx">
+      <DependentUpon>Hunya_DIVDPersonalBonus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dividend\HunyaCustom\Hunya_DIVDPersonalBonus_Calculator.resx">
+      <DependentUpon>Hunya_DIVDPersonalBonus_Calculator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EXA\FRM81.resx">
       <DependentUpon>FRM81.cs</DependentUpon>
@@ -2096,6 +3052,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EXA\FRM85.resx">
       <DependentUpon>FRM85.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HopaxCustom\HPX_Plate_Mgt.resx">
+      <DependentUpon>HPX_Plate_Mgt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HopaxCustom\HPX_Plate_Mgt_ADD.resx">
+      <DependentUpon>HPX_Plate_Mgt_ADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HopaxCustom\HPX_Point_Mgt.resx">
+      <DependentUpon>HPX_Point_Mgt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HopaxCustom\HPX_Point_Mgt_ADD.resx">
+      <DependentUpon>HPX_Point_Mgt_ADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HopaxCustom\HPX_Point_MGT_IN.resx">
+      <DependentUpon>HPX_Point_MGT_IN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ins\FRM31.resx">
       <DependentUpon>FRM31.cs</DependentUpon>
@@ -2188,6 +3159,9 @@
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Med\BPBFCustom\BPBF_FRM7F.resx">
+      <DependentUpon>BPBF_FRM7F.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Med\FRM52.resx">
       <DependentUpon>FRM52.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -2219,6 +3193,9 @@
     <EmbeddedResource Include="Med\FRM71N1.resx">
       <DependentUpon>FRM71N1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Med\FRM71N1_ADD.resx">
+      <DependentUpon>FRM71N1_ADD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Med\FRM71N1_IMPORT.resx">
       <DependentUpon>FRM71N1_IMPORT.cs</DependentUpon>
     </EmbeddedResource>
@@ -2245,6 +3222,45 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Med\FRM74A.resx">
       <DependentUpon>FRM74A.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Performance\HunyaCustom\Code\Hunay_PAGroupCode.resx">
+      <DependentUpon>Hunay_PAGroupCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Performance\HunyaCustom\Code\Hunya_PALevelCode.resx">
+      <DependentUpon>Hunya_PALevelCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Performance\HunyaCustom\Hunya_PABonusGroup.resx">
+      <DependentUpon>Hunya_PABonusGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Performance\HunyaCustom\Hunya_PABonusGroup_ADD.resx">
+      <DependentUpon>Hunya_PABonusGroup_ADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Performance\HunyaCustom\Hunya_PABonusGroup_Import.resx">
+      <DependentUpon>Hunya_PABonusGroup_Import.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Performance\HunyaCustom\Hunya_PADeptBonus.resx">
+      <DependentUpon>Hunya_PADeptBonus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Performance\HunyaCustom\Hunya_PADeptBonus_ADD.resx">
+      <DependentUpon>Hunya_PADeptBonus_ADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Performance\HunyaCustom\Hunya_PADeptBonus_Import.resx">
+      <DependentUpon>Hunya_PADeptBonus_Import.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Performance\HunyaCustom\Hunya_PAPersonalAssessment.resx">
+      <DependentUpon>Hunya_PAPersonalAssessment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Performance\HunyaCustom\Hunya_PAPersonalAssessment_ADD.resx">
+      <DependentUpon>Hunya_PAPersonalAssessment_ADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Performance\HunyaCustom\Hunya_PAPersonalAssessment_Import.resx">
+      <DependentUpon>Hunya_PAPersonalAssessment_Import.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Performance\HunyaCustom\Hunya_PAPersonalBonus.resx">
+      <DependentUpon>Hunya_PAPersonalBonus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Performance\HunyaCustom\Hunya_PAPersonalBonus_Calculator.resx">
+      <DependentUpon>Hunya_PAPersonalBonus_Calculator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -2391,6 +3407,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\AttForm\ZZ2S.resx">
       <DependentUpon>ZZ2S.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\AttForm\ZZ2UA.resx">
+      <DependentUpon>ZZ2UA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\AttForm\ZZ2UA_Report.resx">
+      <DependentUpon>ZZ2UA_Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\AttForm\ZZ2Z.resx">
       <DependentUpon>ZZ2Z.cs</DependentUpon>
@@ -2599,6 +3621,12 @@
     <Content Include="Reports\AttReport\Rpt_zz2i1.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Reports\AttReport\Rpt_zz2z-page.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\AttReport\Rpt_zz2z10_No_Dept_Sum.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="Reports\AttReport\Rpt_zz2z6-bak.rdlc" />
     <EmbeddedResource Include="Reports\AttReport\Rpt_zz2z7.rdlc" />
     <EmbeddedResource Include="Reports\AttReport\Rpt_zz2z8.rdlc" />
@@ -2749,7 +3777,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Reports\EmpReport\Rpt_zz115.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Reports\EmpReport\Rpt_zz116a.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -2834,6 +3862,7 @@
     </Content>
     <Content Include="Reports\EmpReport\Rpt_zz1DA.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Reports\EmpReport\Rpt_zz1E.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -2879,6 +3908,10 @@
     </Content>
     <Content Include="Reports\EmpReport\Rpt_zz1h1.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\EmpReport\Rpt_zz1D_NonSelf_Resign.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <EmbeddedResource Include="Reports\ExaForm\ZZ81.resx">
       <DependentUpon>ZZ81.cs</DependentUpon>
@@ -3057,6 +4090,9 @@
     <Content Include="Reports\InsReport\Rpt_zz391.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Reports\SalForm\SendMailBW.resx">
+      <DependentUpon>SendMailBW.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\SalForm\ZZ41.resx">
       <DependentUpon>ZZ41.cs</DependentUpon>
     </EmbeddedResource>
@@ -3150,6 +4186,12 @@
     <EmbeddedResource Include="Reports\SalForm\ZZ4BA_Report.resx">
       <DependentUpon>ZZ4BA_Report.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SalForm\ZZ4BC.resx">
+      <DependentUpon>ZZ4BC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SalForm\ZZ4BC_Report.resx">
+      <DependentUpon>ZZ4BC_Report.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\SalForm\ZZ4B_Report.resx">
       <DependentUpon>ZZ4B_Report.cs</DependentUpon>
     </EmbeddedResource>
@@ -3198,6 +4240,12 @@
     <EmbeddedResource Include="Reports\SalForm\ZZ4M_Report.resx">
       <DependentUpon>ZZ4M_Report.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SalForm\ZZ4O.resx">
+      <DependentUpon>ZZ4O.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SalForm\ZZ4O_Report.resx">
+      <DependentUpon>ZZ4O_Report.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\SalForm\ZZ4P.resx">
       <DependentUpon>ZZ4P.cs</DependentUpon>
     </EmbeddedResource>
@@ -3216,11 +4264,23 @@
     <EmbeddedResource Include="Reports\SalForm\ZZ4R_Report.resx">
       <DependentUpon>ZZ4R_Report.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SalForm\ZZ4S.resx">
+      <DependentUpon>ZZ4S.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SalForm\ZZ4S_Report.resx">
+      <DependentUpon>ZZ4S_Report.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\SalForm\ZZ4U.resx">
       <DependentUpon>ZZ4U.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\SalForm\ZZ4U_Report.resx">
       <DependentUpon>ZZ4U_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SalForm\ZZ4V.resx">
+      <DependentUpon>ZZ4V.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SalForm\ZZ4V_Report.resx">
+      <DependentUpon>ZZ4V_Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\SalForm\ZZ4X.resx">
       <DependentUpon>ZZ4X.cs</DependentUpon>
@@ -3355,7 +4415,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Reports\SalReport\Rpt_zz421d.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Reports\SalReport\Rpt_zz421f.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -3379,7 +4439,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Reports\SalReport\Rpt_zz433.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Reports\SalReport\Rpt_zz434.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -3502,10 +4562,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Reports\SalReport\Rpt_zz4j.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Reports\SalReport\Rpt_zz4j1.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Reports\SalReport\Rpt_zz4j2.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -3636,6 +4696,57 @@
     <Content Include="Reports\SalReport\Rpt_zz4a1b.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Reports\SalReport\Rpt_zz4211r.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\SalReport\Rpt_zz4211tr.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\SalReport\Rpt_zz4215tr.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\SalReport\Rpt_zz4o.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\SalReport\Rpt_zz4o1.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\SalReport\Rpt_zz4s.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\SalReport\Rpt_zz4v.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\SalReport\Rpt_zz4bc.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\SalReport\Rpt_zz4a2a.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\SalReport\Rpt_zz4215_HISS.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\SalReport\Rpt_zz4i_Page_Check.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\SalReport\Rpt_zz4211_subtotal.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\SalReport\Rpt_zz4211_no_subtotal.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\SalReport\Rpt_zz53.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\SalReport\Rpt_zz52.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\SalReport\Rpt_zz52_sum_format.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\SalReport\Rpt_zz4211t_subtotal.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="Reports\TraForm\ZZ91.resx">
       <DependentUpon>ZZ91.cs</DependentUpon>
     </EmbeddedResource>
@@ -3721,6 +4832,9 @@
     <EmbeddedResource Include="Sal\FRM42B.resx">
       <DependentUpon>FRM42B.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sal\FRM42C.resx">
+      <DependentUpon>FRM42C.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sal\FRM43.resx">
       <DependentUpon>FRM43.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -3792,6 +4906,9 @@
       <DependentUpon>FRM4A.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sal\FRM4ADV.resx">
+      <DependentUpon>FRM4ADV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sal\FRM4B.resx">
       <DependentUpon>FRM4B.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -3819,6 +4936,9 @@
       <DependentUpon>FRM4I.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sal\FRM4IA.resx">
+      <DependentUpon>FRM4IA.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sal\FRM4JC.resx">
       <DependentUpon>FRM4JC.cs</DependentUpon>
     </EmbeddedResource>
@@ -3832,6 +4952,21 @@
     <EmbeddedResource Include="Sal\FRM4LI.resx">
       <DependentUpon>FRM4LI.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sal\FRM4LIA.resx">
+      <DependentUpon>FRM4LIA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sal\FRM4LIN.resx">
+      <DependentUpon>FRM4LIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sal\FRM4LN.resx">
+      <DependentUpon>FRM4LN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sal\FRM4LN_ADD.resx">
+      <DependentUpon>FRM4LN_ADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sal\FRM4LN_EDIT.resx">
+      <DependentUpon>FRM4LN_EDIT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sal\FRM4O.resx">
       <DependentUpon>FRM4O.cs</DependentUpon>
@@ -3931,6 +5066,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sys\SYS_UserDefineMgt_ADD_C.resx">
       <DependentUpon>SYS_UserDefineMgt_ADD_C.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sys\SYS_UserDefineMgt_ADD_M.resx">
+      <DependentUpon>SYS_UserDefineMgt_ADD_M.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sys\U_CHGPAS.resx">
       <DependentUpon>U_CHGPAS.cs</DependentUpon>
@@ -4058,6 +5196,69 @@
     <None Include="Service References\JBHRService\JbhrService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="SqlStorage\jq\2020031111_查詢設定.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\2020031112_年度所得作業.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\2020031113_延休作業.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\2020031114_所得申報資料.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\2020031115_所得明細資料.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\2020031117_調班資料設定.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\2020040601_銷假還款.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\2020051501_Enrich_Batch_Processing.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\2020071401_員工報餐資料.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\2020072001_刷卡餐別數據.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\2020081901_用餐扣款明細.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\2020122501_異常通知.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\2021031701_調整所得明細資料.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\2021041501_自定義欄位公司管理.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\2021041502_自定義欄位頁面管理.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\2021041503_自定義欄位主檔管理.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\20210510_通知服務.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\20210510_通知牌程.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\2021060901_分流班別.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\2021060902_分流班表.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\2021101201_假日班別批次調整.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="TRA\traDS1.xsc">
       <DependentUpon>traDS1.xsd</DependentUpon>
     </None>
@@ -4397,9 +5598,23 @@
       <DependentUpon>ZZ2S.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\AttForm\ZZ2SAbsAttCard.cs" />
+    <Compile Include="Reports\AttForm\ZZ2SClass_Early_Late_Employee.cs" />
+    <Compile Include="Reports\AttForm\ZZ2SClass_Early_Late_Mang.cs" />
     <Compile Include="Reports\AttForm\ZZ2SClass_Manage.cs" />
     <Compile Include="Reports\AttForm\ZZ2SClass_Person.cs" />
     <Compile Include="Reports\AttForm\ZZ2SClass_Person1.cs" />
+    <Compile Include="Reports\AttForm\ZZ2UA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\AttForm\ZZ2UA.Designer.cs">
+      <DependentUpon>ZZ2UA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\AttForm\ZZ2UA_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\AttForm\ZZ2UA_Report.Designer.cs">
+      <DependentUpon>ZZ2UA_Report.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\AttForm\ZZ2Z.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4454,6 +5669,7 @@
     <Compile Include="Reports\AttForm\ZZ2Z_Report6.Designer.cs">
       <DependentUpon>ZZ2Z_Report6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\CalcSalaryByAttFunction.cs" />
     <Compile Include="Reports\EmpForm\empdata.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -4848,6 +6064,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SalDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reports\SalForm\SendMailBW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SalForm\SendMailBW.Designer.cs">
+      <DependentUpon>SendMailBW.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\SalForm\ZZ41.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -5039,7 +6261,19 @@
     <Compile Include="Reports\SalForm\ZZ4BA_Report.Designer.cs">
       <DependentUpon>ZZ4BA_Report.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\SalForm\ZZ4BC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SalForm\ZZ4BC.Designer.cs">
+      <DependentUpon>ZZ4BC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\SalForm\ZZ4BClass.cs" />
+    <Compile Include="Reports\SalForm\ZZ4BC_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SalForm\ZZ4BC_Report.Designer.cs">
+      <DependentUpon>ZZ4BC_Report.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\SalForm\ZZ4B_Report.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -5137,6 +6371,18 @@
     <Compile Include="Reports\SalForm\ZZ4M_Report.Designer.cs">
       <DependentUpon>ZZ4M_Report.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\SalForm\ZZ4O.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SalForm\ZZ4O.Designer.cs">
+      <DependentUpon>ZZ4O.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SalForm\ZZ4O_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SalForm\ZZ4O_Report.Designer.cs">
+      <DependentUpon>ZZ4O_Report.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\SalForm\ZZ4P.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -5174,6 +6420,18 @@
     <Compile Include="Reports\SalForm\ZZ4R_Report.Designer.cs">
       <DependentUpon>ZZ4R_Report.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\SalForm\ZZ4S.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SalForm\ZZ4S.Designer.cs">
+      <DependentUpon>ZZ4S.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SalForm\ZZ4S_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SalForm\ZZ4S_Report.Designer.cs">
+      <DependentUpon>ZZ4S_Report.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\SalForm\ZZ4U.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -5185,6 +6443,18 @@
     </Compile>
     <Compile Include="Reports\SalForm\ZZ4U_Report.Designer.cs">
       <DependentUpon>ZZ4U_Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SalForm\ZZ4V.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SalForm\ZZ4V.Designer.cs">
+      <DependentUpon>ZZ4V.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SalForm\ZZ4V_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SalForm\ZZ4V_Report.Designer.cs">
+      <DependentUpon>ZZ4V_Report.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\SalForm\ZZ4X.cs">
       <SubType>Form</SubType>
@@ -5455,6 +6725,12 @@
     <Compile Include="Sal\FRM42B.Designer.cs">
       <DependentUpon>FRM42B.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sal\FRM42C.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sal\FRM42C.Designer.cs">
+      <DependentUpon>FRM42C.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sal\FRM43.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -5575,6 +6851,12 @@
     <Compile Include="Sal\FRM4A.Designer.cs">
       <DependentUpon>FRM4A.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sal\FRM4ADV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sal\FRM4ADV.Designer.cs">
+      <DependentUpon>FRM4ADV.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sal\FRM4B.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -5621,6 +6903,12 @@
     <Compile Include="Sal\FRM4I.designer.cs">
       <DependentUpon>FRM4I.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sal\FRM4IA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sal\FRM4IA.designer.cs">
+      <DependentUpon>FRM4IA.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sal\FRM4JC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -5644,6 +6932,36 @@
     </Compile>
     <Compile Include="Sal\FRM4LI.Designer.cs">
       <DependentUpon>FRM4LI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sal\FRM4LIA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sal\FRM4LIA.designer.cs">
+      <DependentUpon>FRM4LIA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sal\FRM4LIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sal\FRM4LIN.designer.cs">
+      <DependentUpon>FRM4LIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sal\FRM4LN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sal\FRM4LN.designer.cs">
+      <DependentUpon>FRM4LN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sal\FRM4LN_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sal\FRM4LN_ADD.designer.cs">
+      <DependentUpon>FRM4LN_ADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sal\FRM4LN_EDIT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sal\FRM4LN_EDIT.designer.cs">
+      <DependentUpon>FRM4LN_EDIT.cs</DependentUpon>
     </Compile>
     <Compile Include="Sal\FRM4O.cs">
       <SubType>Form</SubType>
@@ -5727,6 +7045,11 @@
       <DependentUpon>wnStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="Service References\HolyStoneService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\HPX_WebService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -5864,6 +7187,12 @@
     </Compile>
     <Compile Include="Sys\SYS_UserDefineMgt_ADD_C.Designer.cs">
       <DependentUpon>SYS_UserDefineMgt_ADD_C.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sys\SYS_UserDefineMgt_ADD_M.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sys\SYS_UserDefineMgt_ADD_M.Designer.cs">
+      <DependentUpon>SYS_UserDefineMgt_ADD_M.cs</DependentUpon>
     </Compile>
     <Compile Include="Sys\U_CHGPAS.cs">
       <SubType>Form</SubType>
@@ -6379,17 +7708,12 @@
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5</ProductName>
-      <Install>true</Install>
+      <Install>false</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
-      <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
@@ -6479,6 +7803,66 @@
       <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
+    <PublishFile Include="Microsoft.mshtml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.Common">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.WinForms">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="System.Net.Http">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Standard\JBControls\JBControls\JBControls.csproj">
@@ -6531,6 +7915,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\HolyStoneService\" />
+    <WCFMetadataStorage Include="Service References\HPX_WebService\" />
     <WCFMetadataStorage Include="Service References\JBHRService\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
