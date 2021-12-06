@@ -15,32 +15,123 @@ namespace JBHR.Reports.SalForm
         SalDataSet ds = new SalDataSet();
         string nobr_b, nobr_e, dept_b, dept_e, year, ser_nob, ser_noe, type_data, ordertype, reporttype, username, comp_name, CompId;
         bool exportexcel;
-        public ZZ51_Report(string nobrb, string nobre, string deptb, string depte, string _year, string sernob, string sernoe, string typedata, string _ordertype, string _reporttype, bool _exportexcel, string _username, string compname, string _CompId)
+        List<JBModule.Data.Linq.YRTAX> yrtaxlist;
+        Dictionary<string, object> yrparameters;
+        public ZZ51_Report(string nobrb, string nobre, string deptb, string depte, string _year, string sernob, string sernoe, string typedata, string _ordertype, string _reporttype, bool _exportexcel, string _username, string compname, string _CompId, List<JBModule.Data.Linq.YRTAX> YrtaxList, Dictionary<string, object> YrParameters)
         {
             InitializeComponent();
             nobr_b = nobrb; nobr_e = nobre; dept_b = deptb; dept_e = depte; year = _year; ser_nob = sernob;
             ser_noe = sernoe; type_data = typedata; ordertype = _ordertype; reporttype = _reporttype;
             exportexcel = _exportexcel; username = _username; comp_name = compname; CompId = _CompId;
+            yrtaxlist = YrtaxList; yrparameters = YrParameters;
         }
 
         private void ZZ51_Report_Load(object sender, EventArgs e)
         {
             try
             {
-                string date_b =year+ "/12/31";
+                DataTable rq_yrtax = new DataTable();
                 JBModule.Data.CSQL SqlConn = new JBModule.Data.CSQL("JBHR.Properties.Settings.JBHRConnectionString");
-                string sqlCmd = "select e.d_no_disp as dept,e.d_name,e.d_ename,c.*";
-                sqlCmd += "  from yrtax c,base a,basetts b";
-                sqlCmd += " left outer join dept e on b.dept=e.d_no";
-                sqlCmd += " where c.nobr=b.nobr and a.nobr=b.nobr ";
-                sqlCmd += string.Format(@" and c.year='{0}'", year);
-                sqlCmd += string.Format(@" and '{0}' between b.adate and b.ddate", date_b);
-                sqlCmd += string.Format(@" and c.nobr between '{0}' and '{1}'", nobr_b, nobr_e);
-                sqlCmd += string.Format(@" and c.series between '{0}' and '{1}'", ser_nob, ser_noe);
-                sqlCmd += string.Format(@" and e.d_no_disp between '{0}' and '{1}'", dept_b, dept_e);
-                sqlCmd += type_data;
-                sqlCmd += ordertype;
-                DataTable rq_yrtax = SqlConn.GetDataTable(sqlCmd);
+                string date_b =year+ "/12/31";
+                if (yrparameters == null)
+                {
+                    string sqlCmd = "select e.d_no_disp as dept,e.d_name,e.d_ename,c.*";
+                    sqlCmd += "  from yrtax c,base a,basetts b";
+                    sqlCmd += " left outer join dept e on b.dept=e.d_no";
+                    sqlCmd += " where c.nobr=b.nobr and a.nobr=b.nobr ";
+                    sqlCmd += string.Format(@" and c.year='{0}'", year);
+                    sqlCmd += string.Format(@" and '{0}' between b.adate and b.ddate", date_b);
+                    sqlCmd += string.Format(@" and c.nobr between '{0}' and '{1}'", nobr_b, nobr_e);
+                    sqlCmd += string.Format(@" and c.series between '{0}' and '{1}'", ser_nob, ser_noe);
+                    sqlCmd += string.Format(@" and e.d_no_disp between '{0}' and '{1}'", dept_b, dept_e);
+                    sqlCmd += type_data;
+                    sqlCmd += ordertype;
+                    rq_yrtax = SqlConn.GetDataTable(sqlCmd); 
+                }
+                else
+                {
+                    JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
+
+                    var type_data2 = Convert.ToBoolean(yrparameters["type_data2"].ToString());
+                    var type_data3 = Convert.ToBoolean(yrparameters["type_data3"].ToString());
+                    var type_data4 = Convert.ToBoolean(yrparameters["type_data4"].ToString());
+
+                    var type_tr2 = Convert.ToBoolean(yrparameters["type_tr2"].ToString());
+                    var type_tr3 = Convert.ToBoolean(yrparameters["type_tr3"].ToString());
+
+                    var order_type = Convert.ToInt32(yrparameters["order_type"].ToString());
+
+                    var filterSQL = from b in db.BASE
+                                    join bts in db.BASETTS on b.NOBR equals bts.NOBR
+                                    join d in db.DEPT on bts.DEPT equals d.D_NO
+                                    where bts.ADATE <= Convert.ToDateTime(date_b) && bts.DDATE >= Convert.ToDateTime(date_b)
+                                    && b.NOBR.CompareTo(nobr_b) >= 0 && b.NOBR.CompareTo(nobr_e) <= 0
+                                    && d.D_NO_DISP.CompareTo(dept_b) >= 0 && d.D_NO_DISP.CompareTo(dept_e) <= 0
+                                    //&& db.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Select(p => p.DATAGROUP).Contains(bts.SALADR)
+                                    select new
+                                    {
+                                        Dept = d.D_NO_DISP,
+                                        DeptName = d.D_NAME,
+                                        DeptEName = d.D_ENAME,
+                                        BASE = b,
+                                        BASETTS = bts,
+                                    };
+                    var filterList = filterSQL.ToList();
+                    var ResultList = (from y in yrtaxlist
+                                      join f in filterList on y.NOBR equals f.BASE.NOBR
+                                      where 1 == 1
+                                      && (!type_data2 || f.BASETTS.DI == "I" && f.BASE.ACCOUNT_MA == "0")
+                                      && (!type_data3 || f.BASETTS.DI == "D" && f.BASE.ACCOUNT_MA == "0")
+                                      && (!type_data4 || f.BASE.COUNT_MA)
+                                      && (!type_tr2 || !y.T_OK)
+                                      && (!type_tr3 || y.T_OK)
+                                      select new
+                                      {
+                                          f.Dept,
+                                          f.DeptName,
+                                          f.DeptEName,
+                                          //Yrtax =  y,
+                                          y.NOBR,
+                                          y.ACC_NO,
+                                          y.ADDR_2,
+                                          y.BLANK_1,
+                                          y.COMP,
+                                          y.DATE,
+                                          y.ERR_MARK,
+                                          y.F0103,
+                                          y.F0407,
+                                          y.FORMAT,
+                                          y.ID,
+                                          y.ID1,
+                                          y.IDCODE,
+                                          y.KEY_DATE,
+                                          y.KEY_MAN,
+                                          y.MARK,
+                                          y.NAME_C,
+                                          y.POSTCODE2,
+                                          y.REL_AMT,
+                                          y.RET_AMT,
+                                          y.SALADR,
+                                          y.SERIES,
+                                          y.TAX_AMT,
+                                          y.TOT_AMT,
+                                          y.T_OK,
+                                          y.YEAR,
+                                          y.YEAR_B,
+                                          y.YEAR_E,
+                                      }).ToList();
+
+                    if (order_type == 0)
+                        ResultList = ResultList.OrderBy(p => p.Dept).ThenBy(p => p.NOBR).ToList();// " ORDER BY E.D_NO_DISP,C.NOBR";
+                    else if (order_type == 1)
+                        ResultList = ResultList.OrderByDescending(p => p.ID).ToList();//" ORDER BY C.ID DESC";
+                    else if (order_type == 2)
+                        ResultList = ResultList.OrderBy(p => p.NOBR).ToList();//" ORDER BY C.NOBR";
+                    else if (order_type == 3)
+                        ResultList = ResultList.OrderBy(p => p.COMP).ThenBy(p => p.SERIES).ToList();//" ORDER BY C.COMP,C.SERIES";
+
+                    rq_yrtax = ResultList.CopyToDataTable();
+                }
                 if (rq_yrtax.Rows.Count < 1)
                 {
                     MessageBox.Show(Resources.Reports.NotData, Resources.All.DialogTitle, MessageBoxButtons.OK, MessageBoxIcon.None);

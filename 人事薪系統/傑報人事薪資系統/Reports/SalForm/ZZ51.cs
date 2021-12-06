@@ -12,6 +12,8 @@ namespace JBHR.Reports.SalForm
     public partial class ZZ51 : JBControls.JBForm
     {
         ZZ51_Report zz51_report;
+        public List<JBModule.Data.Linq.YRTAX> yrtaxList;
+        public Dictionary<string, object> yrparameters;
         public ZZ51()
         {
             InitializeComponent();
@@ -66,9 +68,23 @@ namespace JBHR.Reports.SalForm
                     order_type = " ORDER BY C.NOBR";
                 else if (ordertype.SelectedIndex == 3)
                     order_type = " ORDER BY C.COMP,C.SERIES";
+
+                if (yrparameters != null)
+                {
+                    yrparameters.Clear();
+                    yrparameters.Add("type_data2", type_data2.Checked);
+                    yrparameters.Add("type_data3", type_data3.Checked);
+                    yrparameters.Add("type_data4", type_data4.Checked);
+
+                    yrparameters.Add("type_tr2", type_tr2.Checked);
+                    yrparameters.Add("type_tr3", type_tr3.Checked);
+
+                    yrparameters.Add("order_type", ordertype.SelectedIndex);
+                }
+
                 string report_type = reporttype.SelectedIndex.ToString();
                 bool _exportexcel = ExportExcel.Checked;
-                zz51_report = new ZZ51_Report(nobrb,nobre,deptb,depte,_year,sernob,sernoe,typedata,order_type,report_type,_exportexcel,MainForm.USER_NAME,MainForm.COMPANY_NAME,MainForm.COMPANY);
+                zz51_report = new ZZ51_Report(nobrb, nobre, deptb, depte, _year, sernob, sernoe, typedata, order_type, report_type, _exportexcel, MainForm.USER_NAME, MainForm.COMPANY_NAME, MainForm.COMPANY, yrtaxList, yrparameters);
                 zz51_report.Show();
                 
             }

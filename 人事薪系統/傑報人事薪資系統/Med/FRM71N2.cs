@@ -197,6 +197,69 @@ namespace JBHR.Med
         {
             jbQuery1.Parameters.Add("TW_TAX_AUTO", TW_TAX_Auto.ToString());
         }
+
+        private void buttonReport_Click(object sender, EventArgs e)
+        {
+            JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
+            List<JBModule.Data.Linq.YRTAX> yrtaxList = new List<JBModule.Data.Linq.YRTAX>();
+            if (db.Connection.State != ConnectionState.Open)
+                db.Connection.Open();
+            var trans = db.Connection.BeginTransaction();
+            db.Transaction = trans;
+            using (trans)
+            {
+                var instance = db.TW_TAX.SingleOrDefault(p => p.AUTO == TW_TAX_Auto);
+
+                var data = (from _tw_tax_summary in db.TW_TAX_SUMMARY
+                            join _basetts in db.BASETTS on _tw_tax_summary.NOBR equals _basetts.NOBR
+                            where _tw_tax_summary.PID == TW_TAX_Auto
+                            && instance.DateEnd >= _basetts.ADATE && instance.DateEnd <= _basetts.DDATE.Value
+                            select new { _tw_tax_summary, _basetts.SALADR }).ToList();
+                var compList = data.Select(p => p._tw_tax_summary.COMP).Distinct().ToList();
+                var formatList = data.Select(p => p._tw_tax_summary.FORMAT).Distinct().ToList();
+
+                foreach (var it in data)
+                {
+                    JBModule.Data.Linq.YRTAX rr = new JBModule.Data.Linq.YRTAX
+                    {
+                        ACC_NO = it._tw_tax_summary.NOBR,
+                        ADDR_2 = it._tw_tax_summary.ADDR2,
+                        BLANK_1 = "",
+                        SALADR = it.SALADR,
+                        YEAR = instance.YearMonth,
+                        COMP = it._tw_tax_summary.COMP,
+                        DATE = "",
+                        ERR_MARK = "",
+                        F0103 = it._tw_tax_summary.F0103,
+                        F0407 = it._tw_tax_summary.F0407,
+                        FORMAT = it._tw_tax_summary.FORMAT,
+                        ID = it._tw_tax_summary.ID,
+                        ID1 = it._tw_tax_summary.ID1,
+                        IDCODE = it._tw_tax_summary.IDCODE,
+                        KEY_DATE = DateTime.Now,
+                        KEY_MAN = MainForm.USER_NAME,
+                        MARK = "",
+                        NAME_C = it._tw_tax_summary.NAME_C,
+                        NOBR = it._tw_tax_summary.NOBR,
+                        POSTCODE2 = it._tw_tax_summary.POST2,
+                        TOT_AMT = it._tw_tax_summary.AMT,//JBModule.Data.CEncrypt.Number(it._tw_tax_summary.AMT),
+                        REL_AMT = JBModule.Data.CEncrypt.Number(JBModule.Data.CDecryp.Number(it._tw_tax_summary.AMT) - JBModule.Data.CDecryp.Number(it._tw_tax_summary.D_AMT)),
+                        RET_AMT = it._tw_tax_summary.RET_AMT,//JBModule.Data.CEncrypt.Number(it._tw_tax_summary.RET_AMT),
+                        SERIES = it._tw_tax_summary.SERIES,
+                        T_OK = it._tw_tax_summary.IS_FILE,
+                        TAX_AMT = it._tw_tax_summary.D_AMT,//JBModule.Data.CEncrypt.Number(it._tw_tax_summary.D_AMT),
+                        YEAR_B = instance.DateBegin.ToString("yyyy/MM/dd"),
+                        YEAR_E = instance.DateEnd.ToString("yyyy/MM/dd"),
+                    };
+                    yrtaxList.Add(rr);
+                }
+            }
+
+            Reports.SalForm.ZZ51 frm = new Reports.SalForm.ZZ51();
+            frm.yrtaxList = yrtaxList;
+            frm.yrparameters = new Dictionary<string, object>();
+            frm.ShowDialog();
+        }
     }
     public class TwYearTaxSummaryImport : JBControls.ImportTransfer
     {
