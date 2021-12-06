@@ -777,6 +777,9 @@ namespace JBModule.Data.Linq
     partial void InsertsysUserRole(sysUserRole instance);
     partial void UpdatesysUserRole(sysUserRole instance);
     partial void DeletesysUserRole(sysUserRole instance);
+    partial void InsertOT1(OT1 instance);
+    partial void UpdateOT1(OT1 instance);
+    partial void DeleteOT1(OT1 instance);
     #endregion
 		
 		public HrDBDataContext() : 
@@ -2929,6 +2932,14 @@ namespace JBModule.Data.Linq
 			}
 		}
 		
+		public System.Data.Linq.Table<OT1> OT1
+		{
+			get
+			{
+				return this.GetTable<OT1>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetHolidayYears", IsComposable=true)]
 		public System.Nullable<decimal> GetHolidayYears([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string nobr, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> date)
 		{
@@ -4514,7 +4525,7 @@ namespace JBModule.Data.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PHOTO", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PHOTO", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary PHOTO
 		{
 			get
@@ -4554,7 +4565,7 @@ namespace JBModule.Data.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_up1_file", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_up1_file", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary up1_file
 		{
 			get
@@ -4594,7 +4605,7 @@ namespace JBModule.Data.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_up2_file", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_up2_file", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary up2_file
 		{
 			get
@@ -4634,7 +4645,7 @@ namespace JBModule.Data.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_up3_file", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_up3_file", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary up3_file
 		{
 			get
@@ -4674,7 +4685,7 @@ namespace JBModule.Data.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_up4_file", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_up4_file", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary up4_file
 		{
 			get
@@ -4714,7 +4725,7 @@ namespace JBModule.Data.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_up5_file", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_up5_file", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary up5_file
 		{
 			get
@@ -27924,6 +27935,8 @@ namespace JBModule.Data.Linq
 		
 		private string _JOB_DISP;
 		
+		private string _DEPT_TREE;
+		
 		private EntitySet<BASETTS> _BASETTS;
 		
     #region 擴充性方法定義
@@ -27954,6 +27967,8 @@ namespace JBModule.Data.Linq
     partial void OnWORKAMTChanged();
     partial void OnJOB_DISPChanging(string value);
     partial void OnJOB_DISPChanged();
+    partial void OnDEPT_TREEChanging(string value);
+    partial void OnDEPT_TREEChanged();
     #endregion
 		
 		public JOB()
@@ -28198,6 +28213,26 @@ namespace JBModule.Data.Linq
 					this._JOB_DISP = value;
 					this.SendPropertyChanged("JOB_DISP");
 					this.OnJOB_DISPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPT_TREE", CanBeNull=false)]
+		public string DEPT_TREE
+		{
+			get
+			{
+				return this._DEPT_TREE;
+			}
+			set
+			{
+				if ((this._DEPT_TREE != value))
+				{
+					this.OnDEPT_TREEChanging(value);
+					this.SendPropertyChanging();
+					this._DEPT_TREE = value;
+					this.SendPropertyChanged("DEPT_TREE");
+					this.OnDEPT_TREEChanged();
 				}
 			}
 		}
@@ -97171,6 +97206,1844 @@ namespace JBModule.Data.Linq
 					this._RoleCode = value;
 					this.SendPropertyChanged("RoleCode");
 					this.OnRoleCodeChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OT1")]
+	public partial class OT1 : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _NOBR;
+		
+		private System.DateTime _BDATE;
+		
+		private string _BTIME;
+		
+		private string _ETIME;
+		
+		private decimal _TOT_HOURS;
+		
+		private decimal _OT_HRS;
+		
+		private decimal _REST_HRS;
+		
+		private decimal _OT_CAR;
+		
+		private string _OT_DEPT;
+		
+		private string _KEY_MAN;
+		
+		private System.DateTime _KEY_DATE;
+		
+		private decimal _OT_FOOD;
+		
+		private string _NOTE;
+		
+		private decimal _FOOD_PRI;
+		
+		private decimal _FOOD_CNT;
+		
+		private string _YYMM;
+		
+		private string _SER;
+		
+		private decimal _NOT_W_133;
+		
+		private decimal _NOT_W_167;
+		
+		private decimal _NOT_W_200;
+		
+		private decimal _NOT_H_200;
+		
+		private decimal _TOT_W_100;
+		
+		private decimal _TOT_W_133;
+		
+		private decimal _TOT_W_167;
+		
+		private decimal _TOT_W_200;
+		
+		private decimal _TOT_H_200;
+		
+		private decimal _NOT_EXP;
+		
+		private decimal _TOT_EXP;
+		
+		private decimal _REST_EXP;
+		
+		private decimal _FST_HOURS;
+		
+		private decimal _SALARY;
+		
+		private bool _NOTMODI;
+		
+		private string _OTRCD;
+		
+		private bool _NOFOOD;
+		
+		private bool _FIX_AMT;
+		
+		private decimal _REC;
+		
+		private bool _CANT_ADJ;
+		
+		private System.DateTime _OT_EDATE;
+		
+		private string _OTNO;
+		
+		private string _OT_ROTE;
+		
+		private decimal _OT_FOOD1;
+		
+		private decimal _OT_FOODH;
+		
+		private decimal _OT_FOODH1;
+		
+		private decimal _NOP_W_133;
+		
+		private decimal _NOP_W_167;
+		
+		private decimal _NOP_W_200;
+		
+		private decimal _NOP_H_100;
+		
+		private decimal _NOP_H_133;
+		
+		private decimal _NOP_H_167;
+		
+		private decimal _NOP_H_200;
+		
+		private decimal _TOP_W_133;
+		
+		private decimal _TOP_W_167;
+		
+		private decimal _TOP_W_200;
+		
+		private decimal _TOP_H_200;
+		
+		private decimal _NOT_H_133;
+		
+		private decimal _NOT_H_167;
+		
+		private decimal _HOT_133;
+		
+		private decimal _HOT_166;
+		
+		private decimal _HOT_200;
+		
+		private decimal _WOT_133;
+		
+		private decimal _WOT_166;
+		
+		private decimal _WOT_200;
+		
+		private bool _SUM;
+		
+		private bool _SYSCREAT;
+		
+		private string _OTRATE_CODE;
+		
+		private decimal _NOT_W_100;
+		
+		private decimal _TOP_W_100;
+		
+		private bool _SYSCREAT1;
+		
+		private decimal _NOP_W_100;
+		
+		private bool _SYS_OT;
+		
+		private string _SERNO;
+		
+		private decimal _DIFF;
+		
+		private bool _EAT;
+		
+		private bool _RES;
+		
+		private bool _NOFOOD1;
+		
+    #region 擴充性方法定義
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnNOBRChanging(string value);
+    partial void OnNOBRChanged();
+    partial void OnBDATEChanging(System.DateTime value);
+    partial void OnBDATEChanged();
+    partial void OnBTIMEChanging(string value);
+    partial void OnBTIMEChanged();
+    partial void OnETIMEChanging(string value);
+    partial void OnETIMEChanged();
+    partial void OnTOT_HOURSChanging(decimal value);
+    partial void OnTOT_HOURSChanged();
+    partial void OnOT_HRSChanging(decimal value);
+    partial void OnOT_HRSChanged();
+    partial void OnREST_HRSChanging(decimal value);
+    partial void OnREST_HRSChanged();
+    partial void OnOT_CARChanging(decimal value);
+    partial void OnOT_CARChanged();
+    partial void OnOT_DEPTChanging(string value);
+    partial void OnOT_DEPTChanged();
+    partial void OnKEY_MANChanging(string value);
+    partial void OnKEY_MANChanged();
+    partial void OnKEY_DATEChanging(System.DateTime value);
+    partial void OnKEY_DATEChanged();
+    partial void OnOT_FOODChanging(decimal value);
+    partial void OnOT_FOODChanged();
+    partial void OnNOTEChanging(string value);
+    partial void OnNOTEChanged();
+    partial void OnFOOD_PRIChanging(decimal value);
+    partial void OnFOOD_PRIChanged();
+    partial void OnFOOD_CNTChanging(decimal value);
+    partial void OnFOOD_CNTChanged();
+    partial void OnYYMMChanging(string value);
+    partial void OnYYMMChanged();
+    partial void OnSERChanging(string value);
+    partial void OnSERChanged();
+    partial void OnNOT_W_133Changing(decimal value);
+    partial void OnNOT_W_133Changed();
+    partial void OnNOT_W_167Changing(decimal value);
+    partial void OnNOT_W_167Changed();
+    partial void OnNOT_W_200Changing(decimal value);
+    partial void OnNOT_W_200Changed();
+    partial void OnNOT_H_200Changing(decimal value);
+    partial void OnNOT_H_200Changed();
+    partial void OnTOT_W_100Changing(decimal value);
+    partial void OnTOT_W_100Changed();
+    partial void OnTOT_W_133Changing(decimal value);
+    partial void OnTOT_W_133Changed();
+    partial void OnTOT_W_167Changing(decimal value);
+    partial void OnTOT_W_167Changed();
+    partial void OnTOT_W_200Changing(decimal value);
+    partial void OnTOT_W_200Changed();
+    partial void OnTOT_H_200Changing(decimal value);
+    partial void OnTOT_H_200Changed();
+    partial void OnNOT_EXPChanging(decimal value);
+    partial void OnNOT_EXPChanged();
+    partial void OnTOT_EXPChanging(decimal value);
+    partial void OnTOT_EXPChanged();
+    partial void OnREST_EXPChanging(decimal value);
+    partial void OnREST_EXPChanged();
+    partial void OnFST_HOURSChanging(decimal value);
+    partial void OnFST_HOURSChanged();
+    partial void OnSALARYChanging(decimal value);
+    partial void OnSALARYChanged();
+    partial void OnNOTMODIChanging(bool value);
+    partial void OnNOTMODIChanged();
+    partial void OnOTRCDChanging(string value);
+    partial void OnOTRCDChanged();
+    partial void OnNOFOODChanging(bool value);
+    partial void OnNOFOODChanged();
+    partial void OnFIX_AMTChanging(bool value);
+    partial void OnFIX_AMTChanged();
+    partial void OnRECChanging(decimal value);
+    partial void OnRECChanged();
+    partial void OnCANT_ADJChanging(bool value);
+    partial void OnCANT_ADJChanged();
+    partial void OnOT_EDATEChanging(System.DateTime value);
+    partial void OnOT_EDATEChanged();
+    partial void OnOTNOChanging(string value);
+    partial void OnOTNOChanged();
+    partial void OnOT_ROTEChanging(string value);
+    partial void OnOT_ROTEChanged();
+    partial void OnOT_FOOD1Changing(decimal value);
+    partial void OnOT_FOOD1Changed();
+    partial void OnOT_FOODHChanging(decimal value);
+    partial void OnOT_FOODHChanged();
+    partial void OnOT_FOODH1Changing(decimal value);
+    partial void OnOT_FOODH1Changed();
+    partial void OnNOP_W_133Changing(decimal value);
+    partial void OnNOP_W_133Changed();
+    partial void OnNOP_W_167Changing(decimal value);
+    partial void OnNOP_W_167Changed();
+    partial void OnNOP_W_200Changing(decimal value);
+    partial void OnNOP_W_200Changed();
+    partial void OnNOP_H_100Changing(decimal value);
+    partial void OnNOP_H_100Changed();
+    partial void OnNOP_H_133Changing(decimal value);
+    partial void OnNOP_H_133Changed();
+    partial void OnNOP_H_167Changing(decimal value);
+    partial void OnNOP_H_167Changed();
+    partial void OnNOP_H_200Changing(decimal value);
+    partial void OnNOP_H_200Changed();
+    partial void OnTOP_W_133Changing(decimal value);
+    partial void OnTOP_W_133Changed();
+    partial void OnTOP_W_167Changing(decimal value);
+    partial void OnTOP_W_167Changed();
+    partial void OnTOP_W_200Changing(decimal value);
+    partial void OnTOP_W_200Changed();
+    partial void OnTOP_H_200Changing(decimal value);
+    partial void OnTOP_H_200Changed();
+    partial void OnNOT_H_133Changing(decimal value);
+    partial void OnNOT_H_133Changed();
+    partial void OnNOT_H_167Changing(decimal value);
+    partial void OnNOT_H_167Changed();
+    partial void OnHOT_133Changing(decimal value);
+    partial void OnHOT_133Changed();
+    partial void OnHOT_166Changing(decimal value);
+    partial void OnHOT_166Changed();
+    partial void OnHOT_200Changing(decimal value);
+    partial void OnHOT_200Changed();
+    partial void OnWOT_133Changing(decimal value);
+    partial void OnWOT_133Changed();
+    partial void OnWOT_166Changing(decimal value);
+    partial void OnWOT_166Changed();
+    partial void OnWOT_200Changing(decimal value);
+    partial void OnWOT_200Changed();
+    partial void OnSUMChanging(bool value);
+    partial void OnSUMChanged();
+    partial void OnSYSCREATChanging(bool value);
+    partial void OnSYSCREATChanged();
+    partial void OnOTRATE_CODEChanging(string value);
+    partial void OnOTRATE_CODEChanged();
+    partial void OnNOT_W_100Changing(decimal value);
+    partial void OnNOT_W_100Changed();
+    partial void OnTOP_W_100Changing(decimal value);
+    partial void OnTOP_W_100Changed();
+    partial void OnSYSCREAT1Changing(bool value);
+    partial void OnSYSCREAT1Changed();
+    partial void OnNOP_W_100Changing(decimal value);
+    partial void OnNOP_W_100Changed();
+    partial void OnSYS_OTChanging(bool value);
+    partial void OnSYS_OTChanged();
+    partial void OnSERNOChanging(string value);
+    partial void OnSERNOChanged();
+    partial void OnDIFFChanging(decimal value);
+    partial void OnDIFFChanged();
+    partial void OnEATChanging(bool value);
+    partial void OnEATChanged();
+    partial void OnRESChanging(bool value);
+    partial void OnRESChanged();
+    partial void OnNOFOOD1Changing(bool value);
+    partial void OnNOFOOD1Changed();
+    #endregion
+		
+		public OT1()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOBR", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string NOBR
+		{
+			get
+			{
+				return this._NOBR;
+			}
+			set
+			{
+				if ((this._NOBR != value))
+				{
+					this.OnNOBRChanging(value);
+					this.SendPropertyChanging();
+					this._NOBR = value;
+					this.SendPropertyChanged("NOBR");
+					this.OnNOBRChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BDATE", DbType="DateTime NOT NULL", IsPrimaryKey=true)]
+		public System.DateTime BDATE
+		{
+			get
+			{
+				return this._BDATE;
+			}
+			set
+			{
+				if ((this._BDATE != value))
+				{
+					this.OnBDATEChanging(value);
+					this.SendPropertyChanging();
+					this._BDATE = value;
+					this.SendPropertyChanged("BDATE");
+					this.OnBDATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BTIME", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string BTIME
+		{
+			get
+			{
+				return this._BTIME;
+			}
+			set
+			{
+				if ((this._BTIME != value))
+				{
+					this.OnBTIMEChanging(value);
+					this.SendPropertyChanging();
+					this._BTIME = value;
+					this.SendPropertyChanged("BTIME");
+					this.OnBTIMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ETIME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ETIME
+		{
+			get
+			{
+				return this._ETIME;
+			}
+			set
+			{
+				if ((this._ETIME != value))
+				{
+					this.OnETIMEChanging(value);
+					this.SendPropertyChanging();
+					this._ETIME = value;
+					this.SendPropertyChanged("ETIME");
+					this.OnETIMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOT_HOURS", DbType="Decimal(16,2) NOT NULL")]
+		public decimal TOT_HOURS
+		{
+			get
+			{
+				return this._TOT_HOURS;
+			}
+			set
+			{
+				if ((this._TOT_HOURS != value))
+				{
+					this.OnTOT_HOURSChanging(value);
+					this.SendPropertyChanging();
+					this._TOT_HOURS = value;
+					this.SendPropertyChanged("TOT_HOURS");
+					this.OnTOT_HOURSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OT_HRS", DbType="Decimal(16,2) NOT NULL")]
+		public decimal OT_HRS
+		{
+			get
+			{
+				return this._OT_HRS;
+			}
+			set
+			{
+				if ((this._OT_HRS != value))
+				{
+					this.OnOT_HRSChanging(value);
+					this.SendPropertyChanging();
+					this._OT_HRS = value;
+					this.SendPropertyChanged("OT_HRS");
+					this.OnOT_HRSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REST_HRS", DbType="Decimal(16,2) NOT NULL")]
+		public decimal REST_HRS
+		{
+			get
+			{
+				return this._REST_HRS;
+			}
+			set
+			{
+				if ((this._REST_HRS != value))
+				{
+					this.OnREST_HRSChanging(value);
+					this.SendPropertyChanging();
+					this._REST_HRS = value;
+					this.SendPropertyChanged("REST_HRS");
+					this.OnREST_HRSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OT_CAR", DbType="Decimal(16,2) NOT NULL")]
+		public decimal OT_CAR
+		{
+			get
+			{
+				return this._OT_CAR;
+			}
+			set
+			{
+				if ((this._OT_CAR != value))
+				{
+					this.OnOT_CARChanging(value);
+					this.SendPropertyChanging();
+					this._OT_CAR = value;
+					this.SendPropertyChanged("OT_CAR");
+					this.OnOT_CARChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OT_DEPT", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string OT_DEPT
+		{
+			get
+			{
+				return this._OT_DEPT;
+			}
+			set
+			{
+				if ((this._OT_DEPT != value))
+				{
+					this.OnOT_DEPTChanging(value);
+					this.SendPropertyChanging();
+					this._OT_DEPT = value;
+					this.SendPropertyChanged("OT_DEPT");
+					this.OnOT_DEPTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KEY_MAN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string KEY_MAN
+		{
+			get
+			{
+				return this._KEY_MAN;
+			}
+			set
+			{
+				if ((this._KEY_MAN != value))
+				{
+					this.OnKEY_MANChanging(value);
+					this.SendPropertyChanging();
+					this._KEY_MAN = value;
+					this.SendPropertyChanged("KEY_MAN");
+					this.OnKEY_MANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KEY_DATE", DbType="DateTime NOT NULL")]
+		public System.DateTime KEY_DATE
+		{
+			get
+			{
+				return this._KEY_DATE;
+			}
+			set
+			{
+				if ((this._KEY_DATE != value))
+				{
+					this.OnKEY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._KEY_DATE = value;
+					this.SendPropertyChanged("KEY_DATE");
+					this.OnKEY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OT_FOOD", DbType="Decimal(16,2) NOT NULL")]
+		public decimal OT_FOOD
+		{
+			get
+			{
+				return this._OT_FOOD;
+			}
+			set
+			{
+				if ((this._OT_FOOD != value))
+				{
+					this.OnOT_FOODChanging(value);
+					this.SendPropertyChanging();
+					this._OT_FOOD = value;
+					this.SendPropertyChanged("OT_FOOD");
+					this.OnOT_FOODChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTE", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string NOTE
+		{
+			get
+			{
+				return this._NOTE;
+			}
+			set
+			{
+				if ((this._NOTE != value))
+				{
+					this.OnNOTEChanging(value);
+					this.SendPropertyChanging();
+					this._NOTE = value;
+					this.SendPropertyChanged("NOTE");
+					this.OnNOTEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOOD_PRI", DbType="Decimal(16,2) NOT NULL")]
+		public decimal FOOD_PRI
+		{
+			get
+			{
+				return this._FOOD_PRI;
+			}
+			set
+			{
+				if ((this._FOOD_PRI != value))
+				{
+					this.OnFOOD_PRIChanging(value);
+					this.SendPropertyChanging();
+					this._FOOD_PRI = value;
+					this.SendPropertyChanged("FOOD_PRI");
+					this.OnFOOD_PRIChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOOD_CNT", DbType="Decimal(16,2) NOT NULL")]
+		public decimal FOOD_CNT
+		{
+			get
+			{
+				return this._FOOD_CNT;
+			}
+			set
+			{
+				if ((this._FOOD_CNT != value))
+				{
+					this.OnFOOD_CNTChanging(value);
+					this.SendPropertyChanging();
+					this._FOOD_CNT = value;
+					this.SendPropertyChanged("FOOD_CNT");
+					this.OnFOOD_CNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YYMM", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string YYMM
+		{
+			get
+			{
+				return this._YYMM;
+			}
+			set
+			{
+				if ((this._YYMM != value))
+				{
+					this.OnYYMMChanging(value);
+					this.SendPropertyChanging();
+					this._YYMM = value;
+					this.SendPropertyChanged("YYMM");
+					this.OnYYMMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SER", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string SER
+		{
+			get
+			{
+				return this._SER;
+			}
+			set
+			{
+				if ((this._SER != value))
+				{
+					this.OnSERChanging(value);
+					this.SendPropertyChanging();
+					this._SER = value;
+					this.SendPropertyChanged("SER");
+					this.OnSERChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOT_W_133", DbType="Decimal(16,2) NOT NULL")]
+		public decimal NOT_W_133
+		{
+			get
+			{
+				return this._NOT_W_133;
+			}
+			set
+			{
+				if ((this._NOT_W_133 != value))
+				{
+					this.OnNOT_W_133Changing(value);
+					this.SendPropertyChanging();
+					this._NOT_W_133 = value;
+					this.SendPropertyChanged("NOT_W_133");
+					this.OnNOT_W_133Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOT_W_167", DbType="Decimal(16,2) NOT NULL")]
+		public decimal NOT_W_167
+		{
+			get
+			{
+				return this._NOT_W_167;
+			}
+			set
+			{
+				if ((this._NOT_W_167 != value))
+				{
+					this.OnNOT_W_167Changing(value);
+					this.SendPropertyChanging();
+					this._NOT_W_167 = value;
+					this.SendPropertyChanged("NOT_W_167");
+					this.OnNOT_W_167Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOT_W_200", DbType="Decimal(16,2) NOT NULL")]
+		public decimal NOT_W_200
+		{
+			get
+			{
+				return this._NOT_W_200;
+			}
+			set
+			{
+				if ((this._NOT_W_200 != value))
+				{
+					this.OnNOT_W_200Changing(value);
+					this.SendPropertyChanging();
+					this._NOT_W_200 = value;
+					this.SendPropertyChanged("NOT_W_200");
+					this.OnNOT_W_200Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOT_H_200", DbType="Decimal(16,2) NOT NULL")]
+		public decimal NOT_H_200
+		{
+			get
+			{
+				return this._NOT_H_200;
+			}
+			set
+			{
+				if ((this._NOT_H_200 != value))
+				{
+					this.OnNOT_H_200Changing(value);
+					this.SendPropertyChanging();
+					this._NOT_H_200 = value;
+					this.SendPropertyChanged("NOT_H_200");
+					this.OnNOT_H_200Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOT_W_100", DbType="Decimal(16,2) NOT NULL")]
+		public decimal TOT_W_100
+		{
+			get
+			{
+				return this._TOT_W_100;
+			}
+			set
+			{
+				if ((this._TOT_W_100 != value))
+				{
+					this.OnTOT_W_100Changing(value);
+					this.SendPropertyChanging();
+					this._TOT_W_100 = value;
+					this.SendPropertyChanged("TOT_W_100");
+					this.OnTOT_W_100Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOT_W_133", DbType="Decimal(16,2) NOT NULL")]
+		public decimal TOT_W_133
+		{
+			get
+			{
+				return this._TOT_W_133;
+			}
+			set
+			{
+				if ((this._TOT_W_133 != value))
+				{
+					this.OnTOT_W_133Changing(value);
+					this.SendPropertyChanging();
+					this._TOT_W_133 = value;
+					this.SendPropertyChanged("TOT_W_133");
+					this.OnTOT_W_133Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOT_W_167", DbType="Decimal(16,2) NOT NULL")]
+		public decimal TOT_W_167
+		{
+			get
+			{
+				return this._TOT_W_167;
+			}
+			set
+			{
+				if ((this._TOT_W_167 != value))
+				{
+					this.OnTOT_W_167Changing(value);
+					this.SendPropertyChanging();
+					this._TOT_W_167 = value;
+					this.SendPropertyChanged("TOT_W_167");
+					this.OnTOT_W_167Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOT_W_200", DbType="Decimal(16,2) NOT NULL")]
+		public decimal TOT_W_200
+		{
+			get
+			{
+				return this._TOT_W_200;
+			}
+			set
+			{
+				if ((this._TOT_W_200 != value))
+				{
+					this.OnTOT_W_200Changing(value);
+					this.SendPropertyChanging();
+					this._TOT_W_200 = value;
+					this.SendPropertyChanged("TOT_W_200");
+					this.OnTOT_W_200Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOT_H_200", DbType="Decimal(16,2) NOT NULL")]
+		public decimal TOT_H_200
+		{
+			get
+			{
+				return this._TOT_H_200;
+			}
+			set
+			{
+				if ((this._TOT_H_200 != value))
+				{
+					this.OnTOT_H_200Changing(value);
+					this.SendPropertyChanging();
+					this._TOT_H_200 = value;
+					this.SendPropertyChanged("TOT_H_200");
+					this.OnTOT_H_200Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOT_EXP", DbType="Decimal(16,2) NOT NULL")]
+		public decimal NOT_EXP
+		{
+			get
+			{
+				return this._NOT_EXP;
+			}
+			set
+			{
+				if ((this._NOT_EXP != value))
+				{
+					this.OnNOT_EXPChanging(value);
+					this.SendPropertyChanging();
+					this._NOT_EXP = value;
+					this.SendPropertyChanged("NOT_EXP");
+					this.OnNOT_EXPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOT_EXP", DbType="Decimal(16,2) NOT NULL")]
+		public decimal TOT_EXP
+		{
+			get
+			{
+				return this._TOT_EXP;
+			}
+			set
+			{
+				if ((this._TOT_EXP != value))
+				{
+					this.OnTOT_EXPChanging(value);
+					this.SendPropertyChanging();
+					this._TOT_EXP = value;
+					this.SendPropertyChanged("TOT_EXP");
+					this.OnTOT_EXPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REST_EXP", DbType="Decimal(16,2) NOT NULL")]
+		public decimal REST_EXP
+		{
+			get
+			{
+				return this._REST_EXP;
+			}
+			set
+			{
+				if ((this._REST_EXP != value))
+				{
+					this.OnREST_EXPChanging(value);
+					this.SendPropertyChanging();
+					this._REST_EXP = value;
+					this.SendPropertyChanged("REST_EXP");
+					this.OnREST_EXPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FST_HOURS", DbType="Decimal(16,2) NOT NULL")]
+		public decimal FST_HOURS
+		{
+			get
+			{
+				return this._FST_HOURS;
+			}
+			set
+			{
+				if ((this._FST_HOURS != value))
+				{
+					this.OnFST_HOURSChanging(value);
+					this.SendPropertyChanging();
+					this._FST_HOURS = value;
+					this.SendPropertyChanged("FST_HOURS");
+					this.OnFST_HOURSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SALARY", DbType="Decimal(16,2) NOT NULL")]
+		public decimal SALARY
+		{
+			get
+			{
+				return this._SALARY;
+			}
+			set
+			{
+				if ((this._SALARY != value))
+				{
+					this.OnSALARYChanging(value);
+					this.SendPropertyChanging();
+					this._SALARY = value;
+					this.SendPropertyChanged("SALARY");
+					this.OnSALARYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTMODI", DbType="Bit NOT NULL")]
+		public bool NOTMODI
+		{
+			get
+			{
+				return this._NOTMODI;
+			}
+			set
+			{
+				if ((this._NOTMODI != value))
+				{
+					this.OnNOTMODIChanging(value);
+					this.SendPropertyChanging();
+					this._NOTMODI = value;
+					this.SendPropertyChanged("NOTMODI");
+					this.OnNOTMODIChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OTRCD", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string OTRCD
+		{
+			get
+			{
+				return this._OTRCD;
+			}
+			set
+			{
+				if ((this._OTRCD != value))
+				{
+					this.OnOTRCDChanging(value);
+					this.SendPropertyChanging();
+					this._OTRCD = value;
+					this.SendPropertyChanged("OTRCD");
+					this.OnOTRCDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOFOOD", DbType="Bit NOT NULL")]
+		public bool NOFOOD
+		{
+			get
+			{
+				return this._NOFOOD;
+			}
+			set
+			{
+				if ((this._NOFOOD != value))
+				{
+					this.OnNOFOODChanging(value);
+					this.SendPropertyChanging();
+					this._NOFOOD = value;
+					this.SendPropertyChanged("NOFOOD");
+					this.OnNOFOODChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIX_AMT", DbType="Bit NOT NULL")]
+		public bool FIX_AMT
+		{
+			get
+			{
+				return this._FIX_AMT;
+			}
+			set
+			{
+				if ((this._FIX_AMT != value))
+				{
+					this.OnFIX_AMTChanging(value);
+					this.SendPropertyChanging();
+					this._FIX_AMT = value;
+					this.SendPropertyChanged("FIX_AMT");
+					this.OnFIX_AMTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REC", DbType="Decimal(16,2) NOT NULL")]
+		public decimal REC
+		{
+			get
+			{
+				return this._REC;
+			}
+			set
+			{
+				if ((this._REC != value))
+				{
+					this.OnRECChanging(value);
+					this.SendPropertyChanging();
+					this._REC = value;
+					this.SendPropertyChanged("REC");
+					this.OnRECChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CANT_ADJ", DbType="Bit NOT NULL")]
+		public bool CANT_ADJ
+		{
+			get
+			{
+				return this._CANT_ADJ;
+			}
+			set
+			{
+				if ((this._CANT_ADJ != value))
+				{
+					this.OnCANT_ADJChanging(value);
+					this.SendPropertyChanging();
+					this._CANT_ADJ = value;
+					this.SendPropertyChanged("CANT_ADJ");
+					this.OnCANT_ADJChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OT_EDATE", DbType="DateTime NOT NULL")]
+		public System.DateTime OT_EDATE
+		{
+			get
+			{
+				return this._OT_EDATE;
+			}
+			set
+			{
+				if ((this._OT_EDATE != value))
+				{
+					this.OnOT_EDATEChanging(value);
+					this.SendPropertyChanging();
+					this._OT_EDATE = value;
+					this.SendPropertyChanged("OT_EDATE");
+					this.OnOT_EDATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OTNO", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string OTNO
+		{
+			get
+			{
+				return this._OTNO;
+			}
+			set
+			{
+				if ((this._OTNO != value))
+				{
+					this.OnOTNOChanging(value);
+					this.SendPropertyChanging();
+					this._OTNO = value;
+					this.SendPropertyChanged("OTNO");
+					this.OnOTNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OT_ROTE", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string OT_ROTE
+		{
+			get
+			{
+				return this._OT_ROTE;
+			}
+			set
+			{
+				if ((this._OT_ROTE != value))
+				{
+					this.OnOT_ROTEChanging(value);
+					this.SendPropertyChanging();
+					this._OT_ROTE = value;
+					this.SendPropertyChanged("OT_ROTE");
+					this.OnOT_ROTEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OT_FOOD1", DbType="Decimal(16,2) NOT NULL")]
+		public decimal OT_FOOD1
+		{
+			get
+			{
+				return this._OT_FOOD1;
+			}
+			set
+			{
+				if ((this._OT_FOOD1 != value))
+				{
+					this.OnOT_FOOD1Changing(value);
+					this.SendPropertyChanging();
+					this._OT_FOOD1 = value;
+					this.SendPropertyChanged("OT_FOOD1");
+					this.OnOT_FOOD1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OT_FOODH", DbType="Decimal(16,2) NOT NULL")]
+		public decimal OT_FOODH
+		{
+			get
+			{
+				return this._OT_FOODH;
+			}
+			set
+			{
+				if ((this._OT_FOODH != value))
+				{
+					this.OnOT_FOODHChanging(value);
+					this.SendPropertyChanging();
+					this._OT_FOODH = value;
+					this.SendPropertyChanged("OT_FOODH");
+					this.OnOT_FOODHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OT_FOODH1", DbType="Decimal(16,2) NOT NULL")]
+		public decimal OT_FOODH1
+		{
+			get
+			{
+				return this._OT_FOODH1;
+			}
+			set
+			{
+				if ((this._OT_FOODH1 != value))
+				{
+					this.OnOT_FOODH1Changing(value);
+					this.SendPropertyChanging();
+					this._OT_FOODH1 = value;
+					this.SendPropertyChanged("OT_FOODH1");
+					this.OnOT_FOODH1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOP_W_133", DbType="Decimal(16,2) NOT NULL")]
+		public decimal NOP_W_133
+		{
+			get
+			{
+				return this._NOP_W_133;
+			}
+			set
+			{
+				if ((this._NOP_W_133 != value))
+				{
+					this.OnNOP_W_133Changing(value);
+					this.SendPropertyChanging();
+					this._NOP_W_133 = value;
+					this.SendPropertyChanged("NOP_W_133");
+					this.OnNOP_W_133Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOP_W_167", DbType="Decimal(16,2) NOT NULL")]
+		public decimal NOP_W_167
+		{
+			get
+			{
+				return this._NOP_W_167;
+			}
+			set
+			{
+				if ((this._NOP_W_167 != value))
+				{
+					this.OnNOP_W_167Changing(value);
+					this.SendPropertyChanging();
+					this._NOP_W_167 = value;
+					this.SendPropertyChanged("NOP_W_167");
+					this.OnNOP_W_167Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOP_W_200", DbType="Decimal(16,2) NOT NULL")]
+		public decimal NOP_W_200
+		{
+			get
+			{
+				return this._NOP_W_200;
+			}
+			set
+			{
+				if ((this._NOP_W_200 != value))
+				{
+					this.OnNOP_W_200Changing(value);
+					this.SendPropertyChanging();
+					this._NOP_W_200 = value;
+					this.SendPropertyChanged("NOP_W_200");
+					this.OnNOP_W_200Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOP_H_100", DbType="Decimal(16,2) NOT NULL")]
+		public decimal NOP_H_100
+		{
+			get
+			{
+				return this._NOP_H_100;
+			}
+			set
+			{
+				if ((this._NOP_H_100 != value))
+				{
+					this.OnNOP_H_100Changing(value);
+					this.SendPropertyChanging();
+					this._NOP_H_100 = value;
+					this.SendPropertyChanged("NOP_H_100");
+					this.OnNOP_H_100Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOP_H_133", DbType="Decimal(16,2) NOT NULL")]
+		public decimal NOP_H_133
+		{
+			get
+			{
+				return this._NOP_H_133;
+			}
+			set
+			{
+				if ((this._NOP_H_133 != value))
+				{
+					this.OnNOP_H_133Changing(value);
+					this.SendPropertyChanging();
+					this._NOP_H_133 = value;
+					this.SendPropertyChanged("NOP_H_133");
+					this.OnNOP_H_133Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOP_H_167", DbType="Decimal(16,2) NOT NULL")]
+		public decimal NOP_H_167
+		{
+			get
+			{
+				return this._NOP_H_167;
+			}
+			set
+			{
+				if ((this._NOP_H_167 != value))
+				{
+					this.OnNOP_H_167Changing(value);
+					this.SendPropertyChanging();
+					this._NOP_H_167 = value;
+					this.SendPropertyChanged("NOP_H_167");
+					this.OnNOP_H_167Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOP_H_200", DbType="Decimal(16,2) NOT NULL")]
+		public decimal NOP_H_200
+		{
+			get
+			{
+				return this._NOP_H_200;
+			}
+			set
+			{
+				if ((this._NOP_H_200 != value))
+				{
+					this.OnNOP_H_200Changing(value);
+					this.SendPropertyChanging();
+					this._NOP_H_200 = value;
+					this.SendPropertyChanged("NOP_H_200");
+					this.OnNOP_H_200Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOP_W_133", DbType="Decimal(16,2) NOT NULL")]
+		public decimal TOP_W_133
+		{
+			get
+			{
+				return this._TOP_W_133;
+			}
+			set
+			{
+				if ((this._TOP_W_133 != value))
+				{
+					this.OnTOP_W_133Changing(value);
+					this.SendPropertyChanging();
+					this._TOP_W_133 = value;
+					this.SendPropertyChanged("TOP_W_133");
+					this.OnTOP_W_133Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOP_W_167", DbType="Decimal(16,2) NOT NULL")]
+		public decimal TOP_W_167
+		{
+			get
+			{
+				return this._TOP_W_167;
+			}
+			set
+			{
+				if ((this._TOP_W_167 != value))
+				{
+					this.OnTOP_W_167Changing(value);
+					this.SendPropertyChanging();
+					this._TOP_W_167 = value;
+					this.SendPropertyChanged("TOP_W_167");
+					this.OnTOP_W_167Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOP_W_200", DbType="Decimal(16,2) NOT NULL")]
+		public decimal TOP_W_200
+		{
+			get
+			{
+				return this._TOP_W_200;
+			}
+			set
+			{
+				if ((this._TOP_W_200 != value))
+				{
+					this.OnTOP_W_200Changing(value);
+					this.SendPropertyChanging();
+					this._TOP_W_200 = value;
+					this.SendPropertyChanged("TOP_W_200");
+					this.OnTOP_W_200Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOP_H_200", DbType="Decimal(16,2) NOT NULL")]
+		public decimal TOP_H_200
+		{
+			get
+			{
+				return this._TOP_H_200;
+			}
+			set
+			{
+				if ((this._TOP_H_200 != value))
+				{
+					this.OnTOP_H_200Changing(value);
+					this.SendPropertyChanging();
+					this._TOP_H_200 = value;
+					this.SendPropertyChanged("TOP_H_200");
+					this.OnTOP_H_200Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOT_H_133", DbType="Decimal(16,2) NOT NULL")]
+		public decimal NOT_H_133
+		{
+			get
+			{
+				return this._NOT_H_133;
+			}
+			set
+			{
+				if ((this._NOT_H_133 != value))
+				{
+					this.OnNOT_H_133Changing(value);
+					this.SendPropertyChanging();
+					this._NOT_H_133 = value;
+					this.SendPropertyChanged("NOT_H_133");
+					this.OnNOT_H_133Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOT_H_167", DbType="Decimal(16,2) NOT NULL")]
+		public decimal NOT_H_167
+		{
+			get
+			{
+				return this._NOT_H_167;
+			}
+			set
+			{
+				if ((this._NOT_H_167 != value))
+				{
+					this.OnNOT_H_167Changing(value);
+					this.SendPropertyChanging();
+					this._NOT_H_167 = value;
+					this.SendPropertyChanged("NOT_H_167");
+					this.OnNOT_H_167Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOT_133", DbType="Decimal(16,2) NOT NULL")]
+		public decimal HOT_133
+		{
+			get
+			{
+				return this._HOT_133;
+			}
+			set
+			{
+				if ((this._HOT_133 != value))
+				{
+					this.OnHOT_133Changing(value);
+					this.SendPropertyChanging();
+					this._HOT_133 = value;
+					this.SendPropertyChanged("HOT_133");
+					this.OnHOT_133Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOT_166", DbType="Decimal(16,2) NOT NULL")]
+		public decimal HOT_166
+		{
+			get
+			{
+				return this._HOT_166;
+			}
+			set
+			{
+				if ((this._HOT_166 != value))
+				{
+					this.OnHOT_166Changing(value);
+					this.SendPropertyChanging();
+					this._HOT_166 = value;
+					this.SendPropertyChanged("HOT_166");
+					this.OnHOT_166Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOT_200", DbType="Decimal(16,2) NOT NULL")]
+		public decimal HOT_200
+		{
+			get
+			{
+				return this._HOT_200;
+			}
+			set
+			{
+				if ((this._HOT_200 != value))
+				{
+					this.OnHOT_200Changing(value);
+					this.SendPropertyChanging();
+					this._HOT_200 = value;
+					this.SendPropertyChanged("HOT_200");
+					this.OnHOT_200Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WOT_133", DbType="Decimal(16,2) NOT NULL")]
+		public decimal WOT_133
+		{
+			get
+			{
+				return this._WOT_133;
+			}
+			set
+			{
+				if ((this._WOT_133 != value))
+				{
+					this.OnWOT_133Changing(value);
+					this.SendPropertyChanging();
+					this._WOT_133 = value;
+					this.SendPropertyChanged("WOT_133");
+					this.OnWOT_133Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WOT_166", DbType="Decimal(16,2) NOT NULL")]
+		public decimal WOT_166
+		{
+			get
+			{
+				return this._WOT_166;
+			}
+			set
+			{
+				if ((this._WOT_166 != value))
+				{
+					this.OnWOT_166Changing(value);
+					this.SendPropertyChanging();
+					this._WOT_166 = value;
+					this.SendPropertyChanged("WOT_166");
+					this.OnWOT_166Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WOT_200", DbType="Decimal(16,2) NOT NULL")]
+		public decimal WOT_200
+		{
+			get
+			{
+				return this._WOT_200;
+			}
+			set
+			{
+				if ((this._WOT_200 != value))
+				{
+					this.OnWOT_200Changing(value);
+					this.SendPropertyChanging();
+					this._WOT_200 = value;
+					this.SendPropertyChanged("WOT_200");
+					this.OnWOT_200Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUM", DbType="Bit NOT NULL")]
+		public bool SUM
+		{
+			get
+			{
+				return this._SUM;
+			}
+			set
+			{
+				if ((this._SUM != value))
+				{
+					this.OnSUMChanging(value);
+					this.SendPropertyChanging();
+					this._SUM = value;
+					this.SendPropertyChanged("SUM");
+					this.OnSUMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SYSCREAT", DbType="Bit NOT NULL")]
+		public bool SYSCREAT
+		{
+			get
+			{
+				return this._SYSCREAT;
+			}
+			set
+			{
+				if ((this._SYSCREAT != value))
+				{
+					this.OnSYSCREATChanging(value);
+					this.SendPropertyChanging();
+					this._SYSCREAT = value;
+					this.SendPropertyChanged("SYSCREAT");
+					this.OnSYSCREATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OTRATE_CODE", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string OTRATE_CODE
+		{
+			get
+			{
+				return this._OTRATE_CODE;
+			}
+			set
+			{
+				if ((this._OTRATE_CODE != value))
+				{
+					this.OnOTRATE_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._OTRATE_CODE = value;
+					this.SendPropertyChanged("OTRATE_CODE");
+					this.OnOTRATE_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOT_W_100", DbType="Decimal(16,2) NOT NULL")]
+		public decimal NOT_W_100
+		{
+			get
+			{
+				return this._NOT_W_100;
+			}
+			set
+			{
+				if ((this._NOT_W_100 != value))
+				{
+					this.OnNOT_W_100Changing(value);
+					this.SendPropertyChanging();
+					this._NOT_W_100 = value;
+					this.SendPropertyChanged("NOT_W_100");
+					this.OnNOT_W_100Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOP_W_100", DbType="Decimal(16,2) NOT NULL")]
+		public decimal TOP_W_100
+		{
+			get
+			{
+				return this._TOP_W_100;
+			}
+			set
+			{
+				if ((this._TOP_W_100 != value))
+				{
+					this.OnTOP_W_100Changing(value);
+					this.SendPropertyChanging();
+					this._TOP_W_100 = value;
+					this.SendPropertyChanged("TOP_W_100");
+					this.OnTOP_W_100Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SYSCREAT1", DbType="Bit NOT NULL")]
+		public bool SYSCREAT1
+		{
+			get
+			{
+				return this._SYSCREAT1;
+			}
+			set
+			{
+				if ((this._SYSCREAT1 != value))
+				{
+					this.OnSYSCREAT1Changing(value);
+					this.SendPropertyChanging();
+					this._SYSCREAT1 = value;
+					this.SendPropertyChanged("SYSCREAT1");
+					this.OnSYSCREAT1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOP_W_100", DbType="Decimal(16,2) NOT NULL")]
+		public decimal NOP_W_100
+		{
+			get
+			{
+				return this._NOP_W_100;
+			}
+			set
+			{
+				if ((this._NOP_W_100 != value))
+				{
+					this.OnNOP_W_100Changing(value);
+					this.SendPropertyChanging();
+					this._NOP_W_100 = value;
+					this.SendPropertyChanged("NOP_W_100");
+					this.OnNOP_W_100Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SYS_OT", DbType="Bit NOT NULL")]
+		public bool SYS_OT
+		{
+			get
+			{
+				return this._SYS_OT;
+			}
+			set
+			{
+				if ((this._SYS_OT != value))
+				{
+					this.OnSYS_OTChanging(value);
+					this.SendPropertyChanging();
+					this._SYS_OT = value;
+					this.SendPropertyChanged("SYS_OT");
+					this.OnSYS_OTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERNO", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string SERNO
+		{
+			get
+			{
+				return this._SERNO;
+			}
+			set
+			{
+				if ((this._SERNO != value))
+				{
+					this.OnSERNOChanging(value);
+					this.SendPropertyChanging();
+					this._SERNO = value;
+					this.SendPropertyChanged("SERNO");
+					this.OnSERNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIFF", DbType="Decimal(16,2) NOT NULL")]
+		public decimal DIFF
+		{
+			get
+			{
+				return this._DIFF;
+			}
+			set
+			{
+				if ((this._DIFF != value))
+				{
+					this.OnDIFFChanging(value);
+					this.SendPropertyChanging();
+					this._DIFF = value;
+					this.SendPropertyChanged("DIFF");
+					this.OnDIFFChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EAT", DbType="Bit NOT NULL")]
+		public bool EAT
+		{
+			get
+			{
+				return this._EAT;
+			}
+			set
+			{
+				if ((this._EAT != value))
+				{
+					this.OnEATChanging(value);
+					this.SendPropertyChanging();
+					this._EAT = value;
+					this.SendPropertyChanged("EAT");
+					this.OnEATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RES", DbType="Bit NOT NULL")]
+		public bool RES
+		{
+			get
+			{
+				return this._RES;
+			}
+			set
+			{
+				if ((this._RES != value))
+				{
+					this.OnRESChanging(value);
+					this.SendPropertyChanging();
+					this._RES = value;
+					this.SendPropertyChanged("RES");
+					this.OnRESChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOFOOD1", DbType="Bit NOT NULL")]
+		public bool NOFOOD1
+		{
+			get
+			{
+				return this._NOFOOD1;
+			}
+			set
+			{
+				if ((this._NOFOOD1 != value))
+				{
+					this.OnNOFOOD1Changing(value);
+					this.SendPropertyChanging();
+					this._NOFOOD1 = value;
+					this.SendPropertyChanged("NOFOOD1");
+					this.OnNOFOOD1Changed();
 				}
 			}
 		}
