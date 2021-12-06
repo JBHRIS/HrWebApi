@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CB02A51F-2F65-4233-9116-D6EE85C31166}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ezEngineServices</RootNamespace>
+    <AssemblyName>ezEngineServices</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\ezEngineServices.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CData.cs" />
+    <Compile Include="CFlow.cs" />
+    <Compile Include="CImage.cs" />
+    <Compile Include="CFlowManage.cs" />
+    <Compile Include="CNotice.cs" />
+    <Compile Include="COrg.cs" />
+    <Compile Include="CProcess.cs" />
+    <Compile Include="Dao\ProcessDao.cs" />
+    <Compile Include="Dao\UploadFileDao.cs" />
+    <Compile Include="Dao\EmpDao.cs" />
+    <Compile Include="dcFlow.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dcFlow.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="FlowImages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlowImages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="IService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service.cs" />
+    <Compile Include="TmFunc\AttendanceGenerator.cs" />
+    <Compile Include="TmFunc\dsAtt.cs">
+      <DependentUpon>dsAtt.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TmFunc\dsAtt.Designer.cs">
+      <DependentUpon>dsAtt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TmFunc\Linq\HrDB.cs">
+      <DependentUpon>HrDB.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="TmFunc\Linq\HrDB.designer.cs">
+      <DependentUpon>HrDB.dbml</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="TmFunc\SqlHelper.cs" />
+    <Compile Include="TmFunc\TimeTableGenerator.cs" />
+    <Compile Include="Vdb\EmpVdb.cs" />
+    <Compile Include="Vdb\MultiEnum.cs" />
+    <Compile Include="Vdb\ProcessVdb.cs" />
+    <Compile Include="Vdb\Vdb.cs" />
+    <Compile Include="Vdb\UploadFileVdb.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dcFlow.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>dcFlow.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dcFlow.dbml.layout">
+      <DependentUpon>dcFlow.dbml</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TmFunc\dsAtt.xsc">
+      <DependentUpon>dsAtt.xsd</DependentUpon>
+    </None>
+    <None Include="TmFunc\dsAtt.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsAtt.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TmFunc\dsAtt.xss">
+      <DependentUpon>dsAtt.xsd</DependentUpon>
+    </None>
+    <None Include="TmFunc\Linq\HrDB.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>HrDB.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\AgentInit.bmp" />
+    <Content Include="Images\Custom.bmp" />
+    <Content Include="Images\Dynamic.bmp" />
+    <Content Include="Images\FlowEnd.bmp" />
+    <Content Include="Images\FlowInit.bmp" />
+    <Content Include="Images\Form.bmp" />
+    <Content Include="Images\FormView.bmp" />
+    <Content Include="Images\Mang.bmp" />
+    <Content Include="Images\MultiFlow.bmp" />
+    <Content Include="Images\MultiStart.bmp" />
+    <None Include="Resources\FormView.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FlowImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FlowImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="TmFunc\Linq\HrDB.dbml.layout">
+      <DependentUpon>HrDB.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JBMODULE.MESSAGE\JBModule.Message.csproj">
+      <Project>{b94796b3-cedb-4083-95ad-e94ec30d15d5}</Project>
+      <Name>JBModule.Message</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JBTools\JBTools.csproj">
+      <Project>{9a891671-4fc7-4ddf-a21d-21e3d563cee6}</Project>
+      <Name>JBTools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

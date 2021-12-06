@@ -1,0 +1,1903 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 57.625, 114.75" name="HrDB">
+  <DataContextMoniker Name="/HrDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="4e77c651-69f2-4c07-842e-86cfeaaac2c3" absoluteBounds="6.75, 35.125, 2, 11.885775146484377">
+      <DataClassMoniker Name="/HrDBDataContext/ROTE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bba68299-3196-4985-a2fe-fdc166e38aab" absoluteBounds="6.765, 35.585, 1.9700000000000002, 11.325775146484375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="241550b4-7f4c-4497-bc84-16466002c5e2" absoluteBounds="0.75, 11.875, 2, 6.5267460123697916">
+      <DataClassMoniker Name="/HrDBDataContext/ROTET" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0cbc042c-3052-4bb9-9c67-4cc4b55f34f8" absoluteBounds="0.765, 12.335, 1.9700000000000002, 5.9667460123697911" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a94adb29-356f-4ff4-909c-0f91f11bdf38" absoluteBounds="3.5, 98.625, 2, 7.82030476888022">
+      <DataClassMoniker Name="/HrDBDataContext/TMTABLE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0d3b27ca-9497-4920-aa95-9f1b2c0f48a4" absoluteBounds="3.515, 99.085, 1.9700000000000002, 7.260304768880208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4ab3974b-2a7a-4249-98d9-0f92933d843b" absoluteBounds="15.75, 1.875, 2, 7.8203047688802068">
+      <DataClassMoniker Name="/HrDBDataContext/TMTABLE_IMPORT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cd898f19-884c-4421-bf92-9714bb169577" absoluteBounds="15.765, 2.335, 1.9700000000000002, 7.260304768880208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d9a9ff4b-8c7b-4fdb-9946-42b6def7eeda" absoluteBounds="3.75, 17.875, 2, 7.8203047688802059">
+      <DataClassMoniker Name="/HrDBDataContext/TMTABLE_TMP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="52914553-910a-460c-b418-330a0e172c3e" absoluteBounds="3.765, 18.335, 1.9700000000000002, 7.260304768880208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e5de0032-8d7d-408f-a71c-55f0bbc12b3d" absoluteBounds="6.75, 17.875, 2, 2.0916874186197916">
+      <DataClassMoniker Name="/HrDBDataContext/HOL_DAY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f197b9e6-91f2-4416-bb2d-96030c62e10a" absoluteBounds="6.765, 18.335, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="171792f3-6de6-47b3-9873-c1dc2977844a" absoluteBounds="17.75, 10.875, 2, 2.0916874186197916">
+      <DataClassMoniker Name="/HrDBDataContext/HOLI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="074338e4-be53-4798-8fd2-22417fc02a26" absoluteBounds="17.765, 11.335, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3cc9a250-b937-4846-9d21-e37214aa3624" absoluteBounds="9.5, 52.375, 2, 3.3852461751302059">
+      <DataClassMoniker Name="/HrDBDataContext/CARD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8ca6808d-740d-463a-bbd6-1d6f22e7ccd1" absoluteBounds="9.515, 52.835, 1.9700000000000002, 2.825246175130208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="391cbdd5-8bd8-43f0-b620-1a735f1cfba3" absoluteBounds="18.75, 1.875, 2, 3.9396284993489576">
+      <DataClassMoniker Name="/HrDBDataContext/U_SYS7A" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4351408b-49de-4ae9-81fa-cbdd0405c949" absoluteBounds="18.765, 2.335, 1.9700000000000002, 3.379628499348958" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4a104c78-ef8e-4c74-bff3-300d9e710067" absoluteBounds="3.5, 39.375, 2, 2.0916874186197845">
+      <DataClassMoniker Name="/HrDBDataContext/CARDAPP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cff55d9c-a2f8-4bf8-938a-ad1eeb5b2c32" absoluteBounds="3.515, 39.835, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fc401337-ee14-43db-bd0b-9beabc54fe9a" absoluteBounds="12.25, 64.75, 2, 15.027274983723942">
+      <DataClassMoniker Name="/HrDBDataContext/OT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9637546f-b37c-4daf-8244-b6ada3be7b4c" absoluteBounds="12.265, 65.210000000000008, 1.9700000000000002, 14.467274983723957" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dfa5aff6-0c13-4120-a5c4-0b47f72cafb0" absoluteBounds="9.75, 19.875, 2, 5.2331872558593773">
+      <DataClassMoniker Name="/HrDBDataContext/YEAR_HOLIDAY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1dc0805b-4b39-402d-9ee6-73c94f5d419d" absoluteBounds="9.765, 20.335, 1.9700000000000002, 4.673187255859375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="198510eb-41b4-4304-8b46-692ef88e1dee" absoluteBounds="12.25, 38.125, 2, 2.0916874186197845">
+      <DataClassMoniker Name="/HrDBDataContext/ROTECHG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="08cfeac7-a4af-42f6-8ccf-96fb06b1f7ff" absoluteBounds="12.265, 38.585, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d883f729-6743-41a7-993f-2b1602b28115" absoluteBounds="18.75, 6.875, 2, 2.6460697428385416">
+      <DataClassMoniker Name="/HrDBDataContext/HARCODE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f5d00ce8-348a-499a-9851-19049ecb67de" absoluteBounds="18.765, 7.335, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="43d1479f-03e7-4daa-8816-24e41e7259e2" absoluteBounds="18.75, 13.875, 2, 2.6460697428385416">
+      <DataClassMoniker Name="/HrDBDataContext/INSURLV" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c025d6e9-d1a6-4eff-bcb9-3396fdd063a2" absoluteBounds="18.765, 14.335, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5c68f821-09a6-4b3d-8bd1-4cb107c2aa71" absoluteBounds="12.75, 19.875, 2, 2.8308638509114559">
+      <DataClassMoniker Name="/HrDBDataContext/LARCODE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="046d5774-58a8-490e-a8d7-7f8c935ffb43" absoluteBounds="12.765, 20.335, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bcc21ea0-4282-4e0b-b55f-1dd18a60c399" absoluteBounds="15.75, 19.875, 2, 2.0916874186197916">
+      <DataClassMoniker Name="/HrDBDataContext/SALATTR" />
+      <nestedChildShapes>
+        <elementListCompartment Id="baccecb8-a805-4ae0-94ac-eaf4f9cd0e44" absoluteBounds="15.765, 20.335, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b0867e54-1011-40aa-8246-c70dde1e61ad" absoluteBounds="6.75, 26.625, 2, 7.4507165527343773">
+      <DataClassMoniker Name="/HrDBDataContext/SALCODE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="644699c9-8c49-4557-99fb-71683e28e8d4" absoluteBounds="6.765, 27.085, 1.9700000000000002, 6.890716552734375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="256ee818-98be-4012-99de-233ac008f028" absoluteBounds="18.75, 17.875, 2, 2.6460697428385416">
+      <DataClassMoniker Name="/HrDBDataContext/SALTYCD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1a0e7da5-58ec-4751-b7ba-422d0ea3a725" absoluteBounds="18.765, 18.335, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ea4ddb41-c2bd-4140-8bf4-1c426f221c75" absoluteBounds="18.75, 21.875, 2, 3.2004520670572916">
+      <DataClassMoniker Name="/HrDBDataContext/U_CODE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7912ffd5-76e3-463a-a67c-3b12276fe70a" absoluteBounds="18.765, 22.335, 1.9700000000000002, 2.6404520670572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2a8c4323-ff5c-46f6-a085-73825debb1c5" absoluteBounds="20.75, 10.875, 2, 1.9068933105468737">
+      <DataClassMoniker Name="/HrDBDataContext/U_QUERY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d78fbdc4-48a6-43a3-88e6-0dac985c1da3" absoluteBounds="20.765, 11.335, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b2faa327-6830-4e71-bae2-76fc16e6b095" absoluteBounds="21.75, 1.875, 2, 1.7220992024739579">
+      <DataClassMoniker Name="/HrDBDataContext/U_DATAID" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8bb7fa6a-cfad-402d-920a-624e70562a33" absoluteBounds="21.765, 2.335, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b4a6296b-c21e-4e64-9613-2bcbeb07173b" absoluteBounds="21.75, 4.875, 2, 2.8308638509114576">
+      <DataClassMoniker Name="/HrDBDataContext/U_ERROR" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c502e925-4f56-4f8c-a961-3bee47c20e19" absoluteBounds="21.765, 5.335, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="57356aeb-ff5c-4a95-a7bf-b9597d934b85" absoluteBounds="21.75, 13.875, 2, 3.3852461751302059">
+      <DataClassMoniker Name="/HrDBDataContext/U_FILTER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="10222c8e-2780-47a7-a181-7ac728843edd" absoluteBounds="21.765, 14.335, 1.9700000000000002, 2.825246175130208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e0bab698-4998-4bad-8af9-3633bc29f078" absoluteBounds="21.75, 18.875, 2, 1.3525109863281273">
+      <DataClassMoniker Name="/HrDBDataContext/U_FLDLST" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ca909481-c5f9-4a0f-8bc3-fa10399ffbf1" absoluteBounds="21.765, 19.335, 1.9700000000000002, 0.792510986328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="517ba119-bc15-48b6-beca-facd3915943f" absoluteBounds="21.75, 21.875, 2, 2.6460697428385416">
+      <DataClassMoniker Name="/HrDBDataContext/U_GROUP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5aa6dfbb-d75d-41ce-8beb-9315bdcd523b" absoluteBounds="21.765, 22.335, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b5c1cace-f8cf-4f68-affc-5898b636ccbf" absoluteBounds="12.75, 23.875, 2, 2.2764815266927059">
+      <DataClassMoniker Name="/HrDBDataContext/U_LOGIN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2dc308d6-d605-4a91-996f-74d1f1ed1c24" absoluteBounds="12.765, 24.335, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f65ecba7-a846-41aa-a49e-245746a5bb3e" absoluteBounds="23.75, 8.875, 2, 2.0916874186197916">
+      <DataClassMoniker Name="/HrDBDataContext/U_ORDER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="614009e0-7420-499f-b653-22a670f2c334" absoluteBounds="23.765, 9.335, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="04833aca-7d77-4243-8e1b-bea4a178118c" absoluteBounds="24.75, 1.875, 2, 2.4612756347656255">
+      <DataClassMoniker Name="/HrDBDataContext/U_PRGID" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9affc94b-48f6-410b-be72-3c7e566fac91" absoluteBounds="24.765, 2.335, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f0c4c5d2-276b-4d11-b7ae-90990fae6921" absoluteBounds="24.75, 11.875, 2, 2.2764815266927094">
+      <DataClassMoniker Name="/HrDBDataContext/EMPCD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1b365b89-a181-44c3-a62c-de6f3234de5a" absoluteBounds="24.765, 12.335, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c27040d6-3e16-42b9-b9fc-5af392b9a78b" absoluteBounds="24.75, 15.875, 2, 3.0156579589843773">
+      <DataClassMoniker Name="/HrDBDataContext/JOB" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e2d399f5-8ce4-46c3-9928-09e2806cc604" absoluteBounds="24.765, 16.335, 1.9700000000000002, 2.455657958984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b22ec5bd-6778-4b4a-be26-a611fc259397" absoluteBounds="24.75, 5.875, 2, 1.7220992024739577">
+      <DataClassMoniker Name="/HrDBDataContext/JOBS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e5e98433-1759-41e8-a36e-c70cb1216b8a" absoluteBounds="24.765, 6.335, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="615eba59-84f9-4b1c-a676-3f6a0260af66" absoluteBounds="15.75, 25.875, 2, 1.7220992024739559">
+      <DataClassMoniker Name="/HrDBDataContext/JOBO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b500c118-5a10-4b30-b1e1-f5b497b760ac" absoluteBounds="15.765, 26.335, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="819804d2-847b-4a55-8554-4dc56a50881a" absoluteBounds="24.75, 19.875, 2, 1.7220992024739559">
+      <DataClassMoniker Name="/HrDBDataContext/TTSCD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2660e3bb-719f-432e-b538-06f9c708b883" absoluteBounds="24.765, 20.335, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bcca7251-c822-4371-b8f9-60aad17e5772" absoluteBounds="15.5, 16, 2, 2.4612756347656273">
+      <DataClassMoniker Name="/HrDBDataContext/HCODESRATE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="51ed3bad-9d38-4e21-82e3-8f21aac138ce" absoluteBounds="15.515, 16.46, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="68cf5f27-dd12-4aa4-8184-254697e8a642" absoluteBounds="12.75, 16.375, 2, 1.9068933105468773">
+      <DataClassMoniker Name="/HrDBDataContext/HCODES" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e4ff80ca-1e2a-43ab-bbb4-cca90769e1de" absoluteBounds="12.765, 16.835, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="806add08-8d3b-41fa-96fa-c7852c053e11" absoluteBounds="18.75, 25.875, 2, 2.4612756347656273">
+      <DataClassMoniker Name="/HrDBDataContext/SALBASD1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9fb55439-1bd8-4876-b54b-6ed695115a9f" absoluteBounds="18.765, 26.335, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8188b466-772f-426f-a90a-9c6bfd5cede2" absoluteBounds="24.75, 22.875, 2, 2.4612756347656273">
+      <DataClassMoniker Name="/HrDBDataContext/SALBASD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b4e56d49-282e-43d0-9653-ad443e3fed31" absoluteBounds="24.765, 23.335, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f3cd40a2-dc2e-4739-83aa-b30271460e08" absoluteBounds="18, 57.625, 2, 3.0156579589843773">
+      <DataClassMoniker Name="/HrDBDataContext/SALABS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="566a5de9-c4fc-4e15-a322-cda3226f990a" absoluteBounds="18.015, 58.085, 1.9700000000000002, 2.455657958984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="95803257-53c9-4948-84d7-61d2753fb51d" absoluteBounds="0.75, 26.875, 2, 4.3092167154947916">
+      <DataClassMoniker Name="/HrDBDataContext/INSLAB" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b903b5ac-ccb4-4f24-91bd-b5e4fcedf517" absoluteBounds="0.765, 27.335, 1.9700000000000002, 3.749216715494792" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1b22e33f-3ea9-4fd7-8e88-8acfc0a5a84b" absoluteBounds="21.75, 26.875, 2, 4.1244226074218773">
+      <DataClassMoniker Name="/HrDBDataContext/FAMILY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="adf090ab-e089-4fd3-b3da-1b2463ef805f" absoluteBounds="21.765, 27.335, 1.9700000000000002, 3.564422607421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="50641b77-2495-4f3e-8e49-3600915a7bd0" absoluteBounds="3.5, 51.5, 2, 3.0156579589843773">
+      <DataClassMoniker Name="/HrDBDataContext/LICAN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0da8eada-930e-4500-bef2-6b1a4626660e" absoluteBounds="3.515, 51.96, 1.9700000000000002, 2.455657958984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="44f4c0fc-bffd-4e2b-ae97-ae5476404452" absoluteBounds="3.5, 48.125, 2, 2.6460697428385345">
+      <DataClassMoniker Name="/HrDBDataContext/MASTER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c919b8cd-2d58-41f2-ab19-772fe60b312a" absoluteBounds="3.515, 48.585, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="58fa14da-d696-47fd-b2e4-c5df58a2f777" absoluteBounds="3.5, 55.25, 2, 3.0156579589843773">
+      <DataClassMoniker Name="/HrDBDataContext/SCHL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="30bff317-62b9-4dcb-ac8b-e5b17a58bf1c" absoluteBounds="3.515, 55.71, 1.9700000000000002, 2.455657958984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4ae1e3e6-d63e-4d2c-a4c6-c278739f2a57" absoluteBounds="3.5, 93.625, 2, 4.3092167154947845">
+      <DataClassMoniker Name="/HrDBDataContext/WORKS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="58dc3fc1-96dd-499d-9e1b-38e68a8b3fb8" absoluteBounds="3.515, 94.085, 1.9700000000000002, 3.749216715494792" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2cd83116-1d4f-4952-a26f-efe5e97560ef" absoluteBounds="3.5, 42.25, 2, 2.0916874186197845">
+      <DataClassMoniker Name="/HrDBDataContext/COST" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9b3570cb-67d6-449b-bdfe-9943f86c8820" absoluteBounds="3.515, 42.71, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="82a4754c-15ca-4c0e-b458-0b937c100583" absoluteBounds="24.75, 26.875, 2, 2.0916874186197916">
+      <DataClassMoniker Name="/HrDBDataContext/ORGTREE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="98033a6f-7894-46df-bee9-c86281172785" absoluteBounds="24.765, 27.335, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6f213920-770f-46c6-9f58-cff7b4837031" absoluteBounds="3.75, 63.125, 2, 2.0916874186197845">
+      <DataClassMoniker Name="/HrDBDataContext/DormitoryBed" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f9f4a698-d05e-4614-a18d-ccef31c4da42" absoluteBounds="3.765, 63.585, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5e0edb47-ebed-4ed7-9b90-51ca74894f3a" absoluteBounds="1, 63.25, 2, 1.7220992024739559">
+      <DataClassMoniker Name="/HrDBDataContext/DormitoryRoom" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e86b3489-0582-4662-bfe9-863548220adc" absoluteBounds="1.0150000000000001, 63.71, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b43d78b2-0c08-4a56-97b5-37de16f8aad1" absoluteBounds="6.5, 53, 2, 2.2764815266927059">
+      <DataClassMoniker Name="/HrDBDataContext/DormitoryManagement" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2ba33834-0254-443c-8c97-ca782f2c2fe8" absoluteBounds="6.515, 53.46, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8935d60b-3f10-45e0-97c1-ac5b96f641d7" absoluteBounds="9.5, 11.75, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/HrDBDataContext/NotifyMsgTarget" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e5acb5b9-b51b-4f8c-ac77-933f7ce2e7e5" absoluteBounds="9.515, 12.21, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="948424ba-0405-4cb6-bc8f-5a4bd1114bcc" absoluteBounds="15.25, 11.875, 2, 1.3525109863281237">
+      <DataClassMoniker Name="/HrDBDataContext/NotifyMsgTargetType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4bcf64e2-cf73-4700-8bc4-da3209b617ef" absoluteBounds="15.265, 12.335, 1.9700000000000002, 0.792510986328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="597f5815-25ec-4367-a02e-d4df4341224c" absoluteBounds="9.5, 8.75, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/HrDBDataContext/NotifyMsgTplTarget" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7f6b11d5-c8c8-4cb3-be71-25fe78dbbb7c" absoluteBounds="9.515, 9.21, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0daadaf5-cf83-4de8-80e1-8033a72d1a1a" absoluteBounds="6.75, 11.875, 2, 1.1677168782552094">
+      <DataClassMoniker Name="/HrDBDataContext/NotifyTargetType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d3e3f39f-b70c-4a67-8363-08430806ea4c" absoluteBounds="6.765, 12.335, 1.9700000000000002, 0.60771687825520826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ed1b906d-6d78-412b-b98b-b1cc1b5a256e" absoluteBounds="9.5, 5.875, 2, 1.1677168782552094">
+      <DataClassMoniker Name="/HrDBDataContext/NotifyType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b4e1394e-b609-481c-9a93-2f6f8f8683ea" absoluteBounds="9.515, 6.335, 1.9700000000000002, 0.60771687825520826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f9211276-4b7b-4ae9-9af7-3a7ea4e39806" absoluteBounds="7, 1.625, 2, 1.3525109863281253">
+      <DataClassMoniker Name="/HrDBDataContext/JBSystem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e1a2b6b3-8ce1-420b-a563-54a0f26910f2" absoluteBounds="7.015, 2.085, 1.9700000000000002, 0.792510986328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="02421183-3cd9-4d5d-b1c8-f8bff66ea9b0" absoluteBounds="9.75, 0.75, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/HrDBDataContext/JBSystemEvent" />
+      <nestedChildShapes>
+        <elementListCompartment Id="057049dc-6c83-4069-afa7-bd568838e070" absoluteBounds="9.765, 1.21, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="19bc8605-62d6-4978-b36b-abc275a21904" absoluteBounds="9.75, 27.875, 2, 2.8308638509114559">
+      <DataClassMoniker Name="/HrDBDataContext/ENRICH" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8f16e28b-4712-468c-8e27-848cf69e4dd6" absoluteBounds="9.765, 28.335, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="47765dd6-6e8a-4cee-9c1f-18e89296ee29" absoluteBounds="12.5, 10.625, 2, 3.7548343912760416">
+      <DataClassMoniker Name="/HrDBDataContext/NotifyMsgDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="30aad089-c08a-4d04-9276-6c862d4a931f" absoluteBounds="12.515, 11.085, 1.9700000000000002, 3.1948343912760415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="69c4a557-3eff-428f-8395-c7ddaaf6db89" absoluteBounds="6.75, 14, 2, 3.0156579589843773">
+      <DataClassMoniker Name="/HrDBDataContext/NotifyMsg" />
+      <nestedChildShapes>
+        <elementListCompartment Id="61e2c608-0c82-4e93-a143-0892fa4f1ec0" absoluteBounds="6.765, 14.46, 1.9700000000000002, 2.455657958984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a0b1e3c9-d1f9-4639-9990-b60a1257540b" absoluteBounds="9.5, 14.75, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/HrDBDataContext/NotifyMsgAttachment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fea5d7b9-e248-438e-af48-eb5f9174e2ce" absoluteBounds="9.515, 15.21, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a7947f7f-8d3d-4797-adab-9e46fbdf89a5" absoluteBounds="26.75, 8.875, 2, 1.7220992024739577">
+      <DataClassMoniker Name="/HrDBDataContext/INSNAME" />
+      <nestedChildShapes>
+        <elementListCompartment Id="efd15bc5-5e65-4d8d-9767-d410be5d803d" absoluteBounds="26.765, 9.335, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="02a67621-609c-487a-8813-4ce5e46f5818" absoluteBounds="3.75, 59.125, 2, 2.4612756347656273">
+      <DataClassMoniker Name="/HrDBDataContext/InsCnComp" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0a462248-f51b-47ef-b66f-8659246b3321" absoluteBounds="3.765, 59.585, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5beb2261-ec07-44b8-8c50-8a92aeedfd59" absoluteBounds="27.75, 1.875, 2, 1.7220992024739579">
+      <DataClassMoniker Name="/HrDBDataContext/MTCODE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0248a093-4506-4b81-9575-33710255b1eb" absoluteBounds="27.765, 2.335, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cd088868-4dfd-4e52-9b6f-03b04932bdbd" absoluteBounds="9.75, 32.875, 2, 3.9396284993489559">
+      <DataClassMoniker Name="/HrDBDataContext/DEPT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b88d2a92-cfe1-4387-8dba-937c481e044e" absoluteBounds="9.765, 33.335, 1.9700000000000002, 3.379628499348958" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="83d2ffb0-8be2-4451-8451-616bc9662ed3" absoluteBounds="9.75, 57.375, 2, 2.8308638509114559">
+      <DataClassMoniker Name="/HrDBDataContext/DEPTS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2fffe67c-de74-4b75-9752-f5e5c546252f" absoluteBounds="9.765, 57.835, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8146918d-20ac-4f4f-a06c-c791396773a0" absoluteBounds="6.75, 8.625, 2, 1.9068933105468755">
+      <DataClassMoniker Name="/HrDBDataContext/NotifyMsgTpl" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3c6e0090-1be5-4a96-a351-494e0c89f8ac" absoluteBounds="6.765, 9.085, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5cc2875d-b304-4aed-91fa-4526a7a82983" absoluteBounds="12.25, 7.875, 2, 1.3525109863281246">
+      <DataClassMoniker Name="/HrDBDataContext/NotifyMsgTplTargetType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0deaea44-b688-4af6-ae62-87aa1726164d" absoluteBounds="12.265, 8.335, 1.9700000000000002, 0.792510986328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2023d834-fd86-4d9a-bedd-898140548e92" absoluteBounds="12.5, 4.625, 2, 1.9068933105468755">
+      <DataClassMoniker Name="/HrDBDataContext/JBSystemEventTriggerMsg" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8c5e1bc1-11ca-4856-b174-ab7616238f72" absoluteBounds="12.515, 5.085, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4e960504-3705-440a-834e-77330dfa6b95" absoluteBounds="27.75, 4.875, 2, 1.9068933105468755">
+      <DataClassMoniker Name="/HrDBDataContext/CODE_GROUP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e8de18d2-25dc-477a-809f-cd2680665842" absoluteBounds="27.765, 5.335, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9aea0bde-5bba-4f36-a682-e91bbcb93c5c" absoluteBounds="3.5, 3.75, 2, 1.7220992024739577">
+      <DataClassMoniker Name="/HrDBDataContext/COMP_DATAGROUP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bdc3ed2f-2b99-4e3f-b7d9-b8eccd2660eb" absoluteBounds="3.515, 4.21, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f6b2f455-0714-429f-9f76-e57a44d65dfb" absoluteBounds="0.75, 8.75, 2, 1.7220992024739577">
+      <DataClassMoniker Name="/HrDBDataContext/DATAGROUP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d202c59c-247a-41ee-8391-b2defbe795bd" absoluteBounds="0.765, 9.21, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ca405ea5-dacd-4031-875e-4d9641b6f8e2" absoluteBounds="3.5, 6.25, 2, 1.7220992024739577">
+      <DataClassMoniker Name="/HrDBDataContext/U_USERCOMP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="11d0e0f5-eea3-485d-875e-8b9c40c9b4de" absoluteBounds="3.515, 6.71, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1e311388-a816-4263-9144-1a1f7b568187" absoluteBounds="6.25, 3.875, 2, 2.276481526692709">
+      <DataClassMoniker Name="/HrDBDataContext/U_DATAGROUP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ebef7744-3dd5-4c62-8f9a-5d594061f444" absoluteBounds="6.265, 4.335, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b8132d0e-2781-46b5-a487-68c25426f1b2" absoluteBounds="6.5, 66.5, 2, 2.4612756347656273">
+      <DataClassMoniker Name="/HrDBDataContext/InsCnCodeTts" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2c56dc81-fda7-403e-8352-369ed548c018" absoluteBounds="6.515, 66.96, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="852650e0-1ab4-41e3-91b0-04955705f69c" absoluteBounds="27.75, 11.875, 2, 3.0156579589843773">
+      <DataClassMoniker Name="/HrDBDataContext/U_USER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="87f66d8c-5b60-4e2a-ac1b-ef8c1492b239" absoluteBounds="27.765, 12.335, 1.9700000000000002, 2.455657958984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="78daacbd-0c32-450c-ad42-16d630675a32" absoluteBounds="12.75, 28.875, 2, 1.7220992024739559">
+      <DataClassMoniker Name="/HrDBDataContext/UpBaseRecord" />
+      <nestedChildShapes>
+        <elementListCompartment Id="00cf1910-7446-48af-8d85-198b4b703d83" absoluteBounds="12.765, 29.335, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7f723a40-37ff-473c-9b8b-34dadbf9c7b9" absoluteBounds="27.75, 15.875, 2, 2.0916874186197916">
+      <DataClassMoniker Name="/HrDBDataContext/HOLICD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4283b605-cf7f-4c35-8c57-5ed593413d20" absoluteBounds="27.765, 16.335, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5087def5-bc9b-4d7c-a5d1-9cbe6fbbec94" absoluteBounds="9.5, 47, 2, 4.3092167154947916">
+      <DataClassMoniker Name="/HrDBDataContext/ATTEND" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5a6165ff-19a4-4650-88e3-e3adc135f2e4" absoluteBounds="9.515, 47.46, 1.9700000000000002, 3.7492167154947915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5a986a51-1a2c-4958-ade9-df4dc27ec14e" absoluteBounds="12.25, 41, 2, 3.5700402832031273">
+      <DataClassMoniker Name="/HrDBDataContext/ATTCARD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4be3453d-6048-40fe-856e-82b1435702ec" absoluteBounds="12.265, 41.46, 1.9700000000000002, 3.010040283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7f3f4913-5fea-4b5b-97e4-1fb79813df83" absoluteBounds="18.25, 50.125, 2, 5.9723636881510345">
+      <DataClassMoniker Name="/HrDBDataContext/ABS1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7d164eec-b837-44b0-a69f-2851f422311c" absoluteBounds="18.265, 50.585, 1.9700000000000002, 5.4123636881510411" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="afa03d11-57f4-4518-ad8f-6a0b2db38b39" absoluteBounds="27.75, 18.875, 2, 3.2004520670572916">
+      <DataClassMoniker Name="/HrDBDataContext/ExplabCN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7adb3417-3133-4647-a9db-7ab869280289" absoluteBounds="27.765, 19.335, 1.9700000000000002, 2.6404520670572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="601bdbca-043a-4693-9c84-13e79f98233a" absoluteBounds="27.75, 22.875, 2, 1.9068933105468773">
+      <DataClassMoniker Name="/HrDBDataContext/LOCK_WAGE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4ae46343-77b0-4c24-b2e2-cad6c686abde" absoluteBounds="27.765, 23.335, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4335a60f-a3f7-42d9-ba0e-3c16fc88c0cb" absoluteBounds="27.75, 25.875, 2, 3.9396284993489559">
+      <DataClassMoniker Name="/HrDBDataContext/U_SYS1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1ca79b05-15ca-4056-a5cb-e97cafa1518b" absoluteBounds="27.765, 26.335, 1.9700000000000002, 3.379628499348958" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2477cb58-5738-459a-a5e2-8265a0987d81" absoluteBounds="15.75, 29.875, 2, 7.2659224446614523">
+      <DataClassMoniker Name="/HrDBDataContext/U_SYS9" />
+      <nestedChildShapes>
+        <elementListCompartment Id="60e98efc-8f48-4721-a579-559bd1c29ab6" absoluteBounds="15.765, 30.335, 1.9700000000000002, 6.705922444661458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b51333ba-8c95-4c6a-9438-d366f2fb5ce8" absoluteBounds="29.75, 7.875, 2, 1.7220992024739585">
+      <DataClassMoniker Name="/HrDBDataContext/U_SYS10" />
+      <nestedChildShapes>
+        <elementListCompartment Id="507eccab-10c2-41c4-95eb-6785925e7f66" absoluteBounds="29.765, 8.335, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fe4827c7-9349-4bf6-9056-e850ee48382f" absoluteBounds="24.75, 30.875, 2, 2.4612756347656237">
+      <DataClassMoniker Name="/HrDBDataContext/U_SYS3" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d9259e41-af7a-4187-88bb-fe21e95d27ff" absoluteBounds="24.765, 31.335, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3284ca3c-2cac-4710-819f-5160fb1933e1" absoluteBounds="27.75, 30.875, 2, 2.8308638509114523">
+      <DataClassMoniker Name="/HrDBDataContext/U_SYS4" />
+      <nestedChildShapes>
+        <elementListCompartment Id="14c6b8fe-5471-4b0a-97c0-e2a4a9807bc5" absoluteBounds="27.765, 31.335, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f7eee33e-0e4a-42eb-be5e-c7d691dd3e37" absoluteBounds="30.75, 1.875, 2, 1.9068933105468753">
+      <DataClassMoniker Name="/HrDBDataContext/U_SYS6" />
+      <nestedChildShapes>
+        <elementListCompartment Id="741a5ac5-1a44-415f-943e-a26fb70673fd" absoluteBounds="30.765, 2.335, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3eb695e5-5762-4f2d-a05d-41cb9835ece9" absoluteBounds="30.75, 10.875, 2, 18.538363037109377">
+      <DataClassMoniker Name="/HrDBDataContext/U_SYS8" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5d0df807-a2f8-4312-bd0a-e12f792d8d0f" absoluteBounds="30.765, 11.335, 1.9700000000000002, 17.978363037109375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cf224ce2-32f7-4063-aa1f-b5a1e5503baa" absoluteBounds="18.75, 31.875, 2, 5.7875695800781237">
+      <DataClassMoniker Name="/HrDBDataContext/U_SYS2" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d321740f-63e0-40d7-8161-3028229913f0" absoluteBounds="18.765, 32.335, 1.9700000000000002, 5.227569580078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ff1d00b0-c390-43de-9dcd-484df7b652cd" absoluteBounds="30.75, 30.875, 2, 3.0156579589843737">
+      <DataClassMoniker Name="/HrDBDataContext/AppConfig" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4338f5cf-e734-48d8-a0d9-50341514391f" absoluteBounds="30.765, 31.335, 1.9700000000000002, 2.455657958984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c3ea8496-790f-4350-bdc2-6b5dc254edc7" absoluteBounds="6.5, 56.5, 2, 3.2004520670572845">
+      <DataClassMoniker Name="/HrDBDataContext/InslabCN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f491087a-a40e-4af9-8f80-826ec0777fd9" absoluteBounds="6.515, 56.96, 1.9700000000000002, 2.6404520670572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="92a80835-9326-4aac-90b2-520d81b30c7c" absoluteBounds="30.75, 4.875, 2, 1.7220992024739577">
+      <DataClassMoniker Name="/HrDBDataContext/NATION" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2013658d-36f2-4a27-aae6-9f6148bfb17a" absoluteBounds="30.765, 5.335, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c06635fe-c430-40e4-85d1-c4440eb15e23" absoluteBounds="9.5, 39, 2, 4.1244226074218773">
+      <DataClassMoniker Name="/HrDBDataContext/ROTE_BONUS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2e2d2ee8-6e35-412e-8b54-eb2f7371be7d" absoluteBounds="9.515, 39.46, 1.9700000000000002, 3.564422607421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="56a1bbb9-909e-4020-b6d5-ac5b63b6f069" absoluteBounds="0.75, 32.875, 2, 3.5700402832031273">
+      <DataClassMoniker Name="/HrDBDataContext/SALATT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="11097e40-9481-40e7-85e0-e8ee04b0a9e4" absoluteBounds="0.765, 33.335, 1.9700000000000002, 3.010040283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8cceb58f-32ad-4eca-bb8b-eac207e93dc5" absoluteBounds="33.75, 1.875, 2, 2.8308638509114576">
+      <DataClassMoniker Name="/HrDBDataContext/OTRCD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c8b5b634-0325-42e6-b403-24a8dd068619" absoluteBounds="33.765, 2.335, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="57c645b4-51e5-4266-9ecc-67cd18bafb20" absoluteBounds="33.75, 5.875, 2, 2.4612756347656264">
+      <DataClassMoniker Name="/HrDBDataContext/CALC_CONDITION" />
+      <nestedChildShapes>
+        <elementListCompartment Id="25e789c5-66bb-4ee2-8d23-dea6352ee70e" absoluteBounds="33.765, 6.335, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7685ce80-36a8-4d45-89a1-e4d9aa452690" absoluteBounds="33.75, 9.875, 2, 2.2764815266927094">
+      <DataClassMoniker Name="/HrDBDataContext/TAXCNLVL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c161c9fc-6986-4bdf-b4d2-cd40ae1b0cab" absoluteBounds="33.765, 10.335, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="239a9a25-953c-45d6-a5e8-4f6a743c2855" absoluteBounds="33.75, 13.875, 2, 1.7220992024739594">
+      <DataClassMoniker Name="/HrDBDataContext/TAXCN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="68b7bb8d-dc76-4084-8ca6-10efea240776" absoluteBounds="33.765, 14.335, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="85e9ccb5-3795-44c8-8c11-949a7da2442d" absoluteBounds="33.75, 16.875, 2, 3.7548343912760416">
+      <DataClassMoniker Name="/HrDBDataContext/DISPATCH" />
+      <nestedChildShapes>
+        <elementListCompartment Id="48b3bef6-faa5-43a2-a7de-5e8ab4a057c1" absoluteBounds="33.765, 17.335, 1.9700000000000002, 3.1948343912760415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6e2c58d7-9cba-4bc2-b357-65cb7178a547" absoluteBounds="33.75, 21.875, 2, 2.0916874186197916">
+      <DataClassMoniker Name="/HrDBDataContext/EXCHANGE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5b68964b-b1e2-43f2-a4c3-2df45391654f" absoluteBounds="33.765, 22.335, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ba0d348d-02da-443e-b313-6b91fdf3244c" absoluteBounds="21.75, 34.875, 2, 3.3852461751302059">
+      <DataClassMoniker Name="/HrDBDataContext/INSCOMP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9a66466d-06ec-4525-99a1-41e19188045a" absoluteBounds="21.765, 35.335, 1.9700000000000002, 2.825246175130208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ca3f28d7-ac22-41b0-bcca-a631c595a2aa" absoluteBounds="33.75, 24.875, 2, 2.2764815266927059">
+      <DataClassMoniker Name="/HrDBDataContext/YRFORMAT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bb2539a1-7318-4abf-9235-ef9149dd4e48" absoluteBounds="33.765, 25.335, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="052fd268-62d2-402a-9b27-bfd2759ac6f2" absoluteBounds="24.75, 34.875, 2, 2.276481526692713">
+      <DataClassMoniker Name="/HrDBDataContext/OTHCODE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ce0bd6cd-bdaf-49c0-bc0d-4d873f5bce78" absoluteBounds="24.765, 35.335, 1.9700000000000002, 1.7164815266927083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d5f73e9f-b86c-4f13-ba35-722e372d008a" absoluteBounds="33.75, 28.875, 2, 2.0916874186197916">
+      <DataClassMoniker Name="/HrDBDataContext/SchedulerItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="59776345-140a-49fb-8bca-c71d91185f63" absoluteBounds="33.765, 29.335, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0700f977-f4e7-493b-abf5-1339a92fa5ac" absoluteBounds="27.75, 34.875, 2, 2.6460697428385345">
+      <DataClassMoniker Name="/HrDBDataContext/U_SYS5" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b72589ce-5a04-4316-b30d-3595b81a8b95" absoluteBounds="27.765, 35.335, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9882ac57-cfc4-41eb-99d4-417999524ee7" absoluteBounds="33.75, 31.875, 2, 2.4612756347656237">
+      <DataClassMoniker Name="/HrDBDataContext/NotifyTemplate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b2e37375-1fc7-4ea1-90b0-10bd657a37f4" absoluteBounds="33.765, 32.335, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d1d1d780-d2ed-47ec-82c8-f2dc2bca087e" absoluteBounds="18.25, 44.625, 2, 3.0156579589843773">
+      <DataClassMoniker Name="/HrDBDataContext/ABST" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c4072fb8-01c5-4ffd-8ca5-b6aabeeac2c5" absoluteBounds="18.265, 45.085, 1.9700000000000002, 2.455657958984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7e52a9fa-b181-4401-8105-a7813d8ffcb3" absoluteBounds="30.75, 35.875, 2, 3.3852461751302059">
+      <DataClassMoniker Name="/HrDBDataContext/NotifyClass" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a90b51b9-a5d9-43f9-b074-2fd773a5bd2d" absoluteBounds="30.765, 36.335, 1.9700000000000002, 2.825246175130208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="072c55d2-08c6-4ea2-bec9-0187a7ef8ce2" absoluteBounds="33.75, 35.875, 2, 2.0916874186197845">
+      <DataClassMoniker Name="/HrDBDataContext/U_PRG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f9c1cae9-d5a4-4db1-88a5-0d73b4dc8f0b" absoluteBounds="33.765, 36.335, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0cd4fe0a-477c-4406-8ac9-997da2d4ebe9" absoluteBounds="36.75, 1.875, 2, 3.0156579589843755">
+      <DataClassMoniker Name="/HrDBDataContext/PAY_DOC" />
+      <nestedChildShapes>
+        <elementListCompartment Id="25252331-d322-4957-b7ad-3313f5b69589" absoluteBounds="36.765, 2.335, 1.9700000000000002, 2.455657958984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d74bd5cb-5fb3-4a9c-99d7-ef859bbcc21b" absoluteBounds="36.75, 5.875, 2, 3.0156579589843764">
+      <DataClassMoniker Name="/HrDBDataContext/DOC_ITEM" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7b89ddb0-3207-4fb3-a693-78db775301c9" absoluteBounds="36.765, 6.335, 1.9700000000000002, 2.455657958984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e018076f-a0cc-453f-a954-6fea3588871c" absoluteBounds="36.75, 9.875, 2, 2.0916874186197916">
+      <DataClassMoniker Name="/HrDBDataContext/AlertSetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="45c0bd3d-14ae-402c-929f-403f9c943aaa" absoluteBounds="36.765, 10.335, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="989b3b7c-e661-4fa8-933e-ae940b7a1fdc" absoluteBounds="36.75, 12.875, 2, 2.2764815266927094">
+      <DataClassMoniker Name="/HrDBDataContext/AlertTarget" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d075a52d-8f29-4492-a97f-7b2d42a42528" absoluteBounds="36.765, 13.335, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fc8d68e3-169f-449c-a646-715c925a6678" absoluteBounds="36.75, 16.875, 2, 3.3852461751302059">
+      <DataClassMoniker Name="/HrDBDataContext/TBASE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e65b7bdb-8d2c-494a-9a76-f4433f73e2b3" absoluteBounds="36.765, 17.335, 1.9700000000000002, 2.825246175130208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="edf8b8b2-22a8-40de-b801-73d53e470a50" absoluteBounds="36.75, 21.875, 2, 6.1571577962239559">
+      <DataClassMoniker Name="/HrDBDataContext/TYRTAX" />
+      <nestedChildShapes>
+        <elementListCompartment Id="36238104-5903-4429-85ce-b8bb8cde6499" absoluteBounds="36.765, 22.335, 1.9700000000000002, 5.597157796223958" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="64997827-b06f-4e08-985f-811e350a10a0" absoluteBounds="36.75, 28.875, 2, 4.1244226074218737">
+      <DataClassMoniker Name="/HrDBDataContext/TWAGED" />
+      <nestedChildShapes>
+        <elementListCompartment Id="081944e9-4fca-47e5-b7ff-05f61ab3395c" absoluteBounds="36.765, 29.335, 1.9700000000000002, 3.564422607421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="39f76fbc-55f8-4863-8d35-8e673ac20891" absoluteBounds="8.75, 3.875, 2, 1.167716878255209">
+      <DataClassMoniker Name="/HrDBDataContext/YRERMAK" />
+      <nestedChildShapes>
+        <elementListCompartment Id="024e9dac-ad2b-453a-8f8f-82959dff1edd" absoluteBounds="8.765, 4.335, 1.9700000000000002, 0.60771687825520826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3d1852df-d61d-4b73-98dd-989cfbdb9cc0" absoluteBounds="36.75, 33.875, 2, 3.0156579589843773">
+      <DataClassMoniker Name="/HrDBDataContext/YRINSUR" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4a88bcc8-6e66-40a9-850b-9511c3640707" absoluteBounds="36.765, 34.335, 1.9700000000000002, 2.455657958984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="578b4301-90e9-40bd-aad7-2cb87d671ea2" absoluteBounds="0.75, 36.875, 2, 1.5373050944010345">
+      <DataClassMoniker Name="/HrDBDataContext/YRINA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="775cbf48-b161-4e0a-96e0-a6ce125791d1" absoluteBounds="0.765, 37.335, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eb963aa9-7618-4e4b-974e-db4563130a01" absoluteBounds="36.75, 37.875, 2, 1.7220992024739559">
+      <DataClassMoniker Name="/HrDBDataContext/YRHSN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="04d2f002-d62d-4f34-b47a-5e1835c98801" absoluteBounds="36.765, 38.335, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2093a9b7-6a3e-4491-858c-4b8b2f1dc8b4" absoluteBounds="24.75, 38.875, 2, 5.9723636881510345">
+      <DataClassMoniker Name="/HrDBDataContext/YRTAX" />
+      <nestedChildShapes>
+        <elementListCompartment Id="813737c7-00c5-4f35-9ab5-1dbdc33aad74" absoluteBounds="24.765, 39.335, 1.9700000000000002, 5.4123636881510411" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5c77bebb-70dc-407c-a610-7e9195da932c" absoluteBounds="14.75, 38.875, 2, 1.1677168782552059">
+      <DataClassMoniker Name="/HrDBDataContext/YRID" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a8e20b70-4094-4c49-98e5-305c49c1f9a1" absoluteBounds="14.765, 39.335, 1.9700000000000002, 0.60771687825520826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="14b903ee-8aaf-4a0c-83ff-4c18293e178d" absoluteBounds="17.75, 38.875, 2, 1.1677168782552059">
+      <DataClassMoniker Name="/HrDBDataContext/YRMARK" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f7de38c7-a5d9-4727-943b-8e538b6b9d99" absoluteBounds="17.765, 39.335, 1.9700000000000002, 0.60771687825520826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="043c7835-f516-4d9b-9cd6-54fdf49cf679" absoluteBounds="20.75, 39.875, 2, 1.5373050944010345">
+      <DataClassMoniker Name="/HrDBDataContext/WCODE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="65b1055d-7de7-43d7-ae23-08f347ecfe49" absoluteBounds="20.765, 40.335, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="31ad574e-d00e-48c6-8d32-95debfea39b3" absoluteBounds="39.75, 1.875, 2, 3.7548343912760416">
+      <DataClassMoniker Name="/HrDBDataContext/EXPSUP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ab3e2249-0018-4803-b62e-a687c2e857e6" absoluteBounds="39.765, 2.335, 1.9700000000000002, 3.1948343912760415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6bcf5673-01bb-4c59-b036-3419d6f32057" absoluteBounds="39.75, 6.875, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/HrDBDataContext/CURRENCY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b5c56c50-2a6e-4f6c-9fe8-fc3af5b9234c" absoluteBounds="39.765, 7.335, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4feea03c-12d3-45b5-9552-30f1b2d1a48d" absoluteBounds="39.75, 9.875, 2, 2.6460697428385416">
+      <DataClassMoniker Name="/HrDBDataContext/WORKADR_SALARY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="51b3b681-5b5d-4686-8068-680ae6693ee8" absoluteBounds="39.765, 10.335, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="168291eb-e098-443e-b459-fa360bb44744" absoluteBounds="39.75, 13.875, 2, 2.2764815266927112">
+      <DataClassMoniker Name="/HrDBDataContext/BonusGroup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d1d4ed8f-d59f-4ea5-80ad-7a4a2dae519e" absoluteBounds="39.765, 14.335, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fb6dba26-a1e3-46ab-9e6f-fb9fb794b545" absoluteBounds="0.75, 2.125, 2, 4.8635990397135416">
+      <DataClassMoniker Name="/HrDBDataContext/COMP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8f16a9da-950c-4394-8515-6b2f29a6f779" absoluteBounds="0.765, 2.585, 1.9700000000000002, 4.3035990397135411" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bb367b88-e9af-4225-8a3d-241bda5ccf70" absoluteBounds="39.75, 17.875, 2, 1.9068933105468773">
+      <DataClassMoniker Name="/HrDBDataContext/ACCOUNT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a83da064-d7e1-4596-8e25-c3974f32f6e7" absoluteBounds="39.765, 18.335, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5e49006f-b6d0-483f-987a-b4da79d3f1fc" absoluteBounds="39.75, 20.875, 2, 1.9068933105468773">
+      <DataClassMoniker Name="/HrDBDataContext/ACCOUNTTYPE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b86ebb59-a865-46a4-a798-b1212efd7706" absoluteBounds="39.765, 21.335, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e61bf077-c8f3-4f57-8dad-12c0fafeae4d" absoluteBounds="39.75, 23.875, 2, 3.0156579589843773">
+      <DataClassMoniker Name="/HrDBDataContext/ABS_ENTITLE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ef2b45a5-ac8f-4a51-9cb5-d0750a1ed587" absoluteBounds="39.765, 24.335, 1.9700000000000002, 2.455657958984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ed8153f3-618f-44c3-b5b2-76a86fd8b4a5" absoluteBounds="39.75, 27.875, 2, 3.7548343912760416">
+      <DataClassMoniker Name="/HrDBDataContext/JOBL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="78bfcd49-3ae4-47fa-86f0-19ff315ba331" absoluteBounds="39.765, 28.335, 1.9700000000000002, 3.1948343912760415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="62d2f190-9d2c-4192-b867-4693d392ae3c" absoluteBounds="27.75, 40.875, 2, 3.5700402832031273">
+      <DataClassMoniker Name="/HrDBDataContext/CHKIDNO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bd235ee6-033e-487d-9117-295102ebb4b2" absoluteBounds="27.765, 41.335, 1.9700000000000002, 3.010040283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dbdb9165-0149-4878-a108-e47429ed5661" absoluteBounds="30.75, 40.875, 2, 1.5373050944010345">
+      <DataClassMoniker Name="/HrDBDataContext/CITYCD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="68f47f5c-0567-4d44-95b5-befd3710db7a" absoluteBounds="30.765, 41.335, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="157743a6-39b8-4cff-9b2b-9b953f603b27" absoluteBounds="0.75, 46.75, 2, 15.027274983723963">
+      <DataClassMoniker Name="/HrDBDataContext/BASE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0aaadb31-7d03-4ae0-b1d2-8a2991d4f794" absoluteBounds="0.765, 47.21, 1.9700000000000002, 14.467274983723957" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="08683bf1-d4f2-4b3f-8d40-fa038d9f47ad" absoluteBounds="3.75, 66.25, 2, 3.0156579589843631">
+      <DataClassMoniker Name="/HrDBDataContext/InsurCnCode" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c376f941-2dbd-470c-b1c6-09c8a42cd492" absoluteBounds="3.765, 66.71, 1.9700000000000002, 2.455657958984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ed81490a-8b08-4562-9d78-dfcc8a34634f" absoluteBounds="15.5, 42.875, 2, 6.5267460123697845">
+      <DataClassMoniker Name="/HrDBDataContext/HCODE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="692441b4-ac07-41da-9987-d9419dcfee0d" absoluteBounds="15.515, 43.335, 1.9700000000000002, 5.9667460123697911" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f014dc5b-3bf7-457e-be77-63121cead032" absoluteBounds="39.75, 32.875, 2, 3.2004520670572845">
+      <DataClassMoniker Name="/HrDBDataContext/HcodeType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="06d1bee6-a7bb-47f4-88f1-67e9cba714a1" absoluteBounds="39.765, 33.335, 1.9700000000000002, 2.6404520670572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3ad4ec1d-e0a3-4615-899c-b7b41f90bc92" absoluteBounds="15.25, 50.625, 2, 4.8635990397135345">
+      <DataClassMoniker Name="/HrDBDataContext/ABS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="811b6273-a781-4e01-b226-3097fd39fe7a" absoluteBounds="15.265, 51.085, 1.9700000000000002, 4.3035990397135411" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d4234623-f205-448b-a5d9-ebba60cb917d" absoluteBounds="33.75, 40.875, 2, 1.9068933105468773">
+      <DataClassMoniker Name="/HrDBDataContext/ABSD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2a2d9b93-a675-41e2-a16c-28ee17ff2228" absoluteBounds="33.765, 41.335, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="daeb29f7-a647-4909-9a0a-e121fad8e8eb" absoluteBounds="39.75, 36.875, 2, 1.3525109863281273">
+      <DataClassMoniker Name="/HrDBDataContext/DATA_PA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5e7c5bf6-3de0-4a34-ae2f-e509fe0ff4cd" absoluteBounds="39.765, 37.335, 1.9700000000000002, 0.792510986328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4236236f-feae-4ff4-8ec6-4c2fc97b0f5c" absoluteBounds="36.75, 40.875, 2, 1.3525109863281273">
+      <DataClassMoniker Name="/HrDBDataContext/DATA_PASS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="43c51103-c7c8-485c-93bf-022b52e955f0" absoluteBounds="36.765, 41.335, 1.9700000000000002, 0.792510986328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9635eb04-6d31-4673-9fb2-542a7f13a1fe" absoluteBounds="39.75, 39.875, 2, 4.3092167154947845">
+      <DataClassMoniker Name="/HrDBDataContext/ABSC" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1d082e1e-51ea-4e18-a285-ff8d31b51838" absoluteBounds="39.765, 40.335, 1.9700000000000002, 3.749216715494792" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="13bd199f-cf97-48a6-8623-8cbaf3d0aa3d" absoluteBounds="20.75, 42.875, 2, 1.9068933105468773">
+      <DataClassMoniker Name="/HrDBDataContext/HcodeRule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cd542a9c-1bf6-4cda-8c19-7234c4fd0ef5" absoluteBounds="20.765, 43.335, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2068a393-708a-43a2-a115-2fe507dad8d6" absoluteBounds="42.75, 1.875, 2, 14.657686767578122">
+      <DataClassMoniker Name="/HrDBDataContext/OT1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="038d68ee-c326-46fa-a208-221283fa8c7b" absoluteBounds="42.765, 2.335, 1.9700000000000002, 14.097686767578125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0c33087d-01ce-4ac9-9ee2-ff5f165137e9" absoluteBounds="3.75, 45.125, 2, 1.9068933105468773">
+      <DataClassMoniker Name="/HrDBDataContext/ContractType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2e4ceade-7af0-44b0-8dd8-2b7d829708a6" absoluteBounds="3.765, 45.585, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ac0b0991-3582-460e-abcf-090ea342d27a" absoluteBounds="6.5, 48.625, 2, 3.939628499348963">
+      <DataClassMoniker Name="/HrDBDataContext/Contract" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9851511e-8ad5-4471-ae08-e7a0c66f2a50" absoluteBounds="6.515, 49.085, 1.9700000000000002, 3.379628499348958" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0b85997a-b028-48d8-8ef9-35e099bed44d" absoluteBounds="42.75, 17.875, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/HrDBDataContext/OUTCD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2c004dca-5ef9-495c-aabc-61b93a33b825" absoluteBounds="42.765, 18.335, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="80710115-6d4c-4eae-ac84-71c02dd815ba" absoluteBounds="42.75, 20.875, 2, 3.7548343912760416">
+      <DataClassMoniker Name="/HrDBDataContext/DEPTA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="68c6ca27-dbd1-435d-a220-5a61013a4049" absoluteBounds="42.765, 21.335, 1.9700000000000002, 3.1948343912760415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d8fe1eba-d2d1-4b13-a820-95fbbd268c7e" absoluteBounds="42.75, 25.875, 2, 2.2764815266927059">
+      <DataClassMoniker Name="/HrDBDataContext/ApplicationInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7ad27b46-30ff-4c1c-a1be-1b8d07a71f6d" absoluteBounds="42.765, 26.335, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a63e460a-c6d3-4b2e-886e-dca1571dcd57" absoluteBounds="42.75, 29.875, 2, 2.6460697428385416">
+      <DataClassMoniker Name="/HrDBDataContext/ApplicationStructure" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ffdca4a3-028a-4950-ac15-e8eb3d8b3467" absoluteBounds="42.765, 30.335, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="470da630-08ce-4383-8118-8d60f74e3064" absoluteBounds="30.75, 43.875, 2, 2.4612756347656273">
+      <DataClassMoniker Name="/HrDBDataContext/FileStreamInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="177aa0cc-1b22-4868-aab0-7535c2d24358" absoluteBounds="30.765, 44.335, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a5c6b389-da36-491d-a646-cae282a20f3e" absoluteBounds="42.75, 33.875, 2, 1.7220992024739559">
+      <DataClassMoniker Name="/HrDBDataContext/LICAN_TYPE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ba804a43-8493-4be2-ba38-aa7887ade8e3" absoluteBounds="42.765, 34.335, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bacca386-b1e5-416b-9822-bc0d84a77578" absoluteBounds="33.75, 43.875, 2, 1.9068933105468773">
+      <DataClassMoniker Name="/HrDBDataContext/CARDLOSD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f630275e-3a01-45d2-9451-a62b225ac2fa" absoluteBounds="33.765, 44.335, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5295cb72-34a1-45e2-be36-720d25e49389" absoluteBounds="42.75, 36.875, 2, 3.5700402832031273">
+      <DataClassMoniker Name="/HrDBDataContext/FOOD_CARD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8d8d61aa-dfb1-409e-b5ae-5f9e45ac46ae" absoluteBounds="42.765, 37.335, 1.9700000000000002, 3.010040283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e7470b0e-6b6b-4efc-8414-d3149bc4c451" absoluteBounds="42.75, 41.875, 2, 2.8308638509114559">
+      <DataClassMoniker Name="/HrDBDataContext/FOODTIMECD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d7077386-ab2f-4207-89dc-4afd09a7f49d" absoluteBounds="42.765, 42.335, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="44a34cbb-75f2-447f-b8b8-3a1a578064ed" absoluteBounds="20.75, 45.875, 2, 3.5700402832031273">
+      <DataClassMoniker Name="/HrDBDataContext/FOODWAGE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d481af0e-40e1-4a82-9ab5-181ec08ed7d7" absoluteBounds="20.765, 46.335, 1.9700000000000002, 3.010040283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b5f6ab77-4dd5-4afc-9b30-42ed4ba8fb4e" absoluteBounds="23.75, 45.875, 2, 1.7220992024739559">
+      <DataClassMoniker Name="/HrDBDataContext/UserFoodCardNumber" />
+      <nestedChildShapes>
+        <elementListCompartment Id="90ddca7d-88dc-4a4a-a9d3-bd307d585512" absoluteBounds="23.765, 46.335, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d82dd5b3-4418-43a7-a5f4-78b33d3b1a66" absoluteBounds="26.75, 45.875, 2, 4.3092167154947845">
+      <DataClassMoniker Name="/HrDBDataContext/U_SYS7" />
+      <nestedChildShapes>
+        <elementListCompartment Id="33096027-425a-4f69-a486-e89132af7509" absoluteBounds="26.765, 46.335, 1.9700000000000002, 3.749216715494792" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0ef66fe5-af10-4e3b-826c-1849cc38980c" absoluteBounds="36.75, 45.875, 2, 2.0916874186197845">
+      <DataClassMoniker Name="/HrDBDataContext/SALFUNCTION" />
+      <nestedChildShapes>
+        <elementListCompartment Id="292a2322-7096-498b-8ab4-a6acaef50042" absoluteBounds="36.765, 46.335, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e7b05c78-7fca-44eb-a2ad-888255ef1159" absoluteBounds="39.75, 45.875, 2, 2.0916874186197845">
+      <DataClassMoniker Name="/HrDBDataContext/SALCODE_GROUP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c6005a69-301d-4fef-b6b5-e77df41c90a2" absoluteBounds="39.765, 46.335, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fee6a75a-1036-4884-bae7-10b0263c5b7b" absoluteBounds="42.75, 45.875, 2, 1.5373050944010345">
+      <DataClassMoniker Name="/HrDBDataContext/SALBASE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1bf39abe-a8d5-4e6a-8527-f5963bf27e03" absoluteBounds="42.765, 46.335, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d73a6a4e-b914-402f-8a2b-3c3f888f13db" absoluteBounds="45.75, 1.875, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/HrDBDataContext/WORKCD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5cb8d24b-6c99-400e-965b-1edf27064400" absoluteBounds="45.765, 2.335, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e789a5cb-837f-4f1d-923d-8eff1c58d7c9" absoluteBounds="45.75, 4.875, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/HrDBDataContext/InsurCnWorkCd" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4d763b0b-ea63-4b61-869d-0f5962603166" absoluteBounds="45.765, 5.335, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fae501eb-2466-4116-bed0-ec8e32ca410d" absoluteBounds="45.75, 18.875, 2, 3.3852461751302059">
+      <DataClassMoniker Name="/HrDBDataContext/ExplabCN1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="64ed861e-dd5a-4153-8bc4-289dbe28dcf8" absoluteBounds="45.765, 19.335, 1.9700000000000002, 2.825246175130208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a8cd26a4-b67c-4590-a931-6604d35a30cf" absoluteBounds="45.75, 23.875, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/HrDBDataContext/v_dept" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f86d3ebc-539b-47a0-8822-3211dccbd244" absoluteBounds="45.765, 24.335, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="364ee5b7-8833-4cda-b788-cfc22a60a49b" absoluteBounds="45.75, 26.875, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/HrDBDataContext/v_depta" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e053bc85-164a-4de0-8a0f-2e4e20b6544a" absoluteBounds="45.765, 27.335, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="962d7310-f708-4287-9e70-e38a4423cba1" absoluteBounds="45.75, 29.875, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/HrDBDataContext/InsCnType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3168f2df-7f71-44ae-912b-649765caed67" absoluteBounds="45.765, 30.335, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8dc05fe9-3309-467e-850f-cbc4197c1ac1" absoluteBounds="45.75, 32.875, 2, 1.5373050944010345">
+      <DataClassMoniker Name="/HrDBDataContext/TaxType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="23047404-1ffc-4eca-ba55-52b8b4119f8d" absoluteBounds="45.765, 33.335, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="705cb102-c3b3-4dcd-acbb-d29066db978d" absoluteBounds="45.75, 35.875, 2, 2.2764815266927059">
+      <DataClassMoniker Name="/HrDBDataContext/SALTAXITEM" />
+      <nestedChildShapes>
+        <elementListCompartment Id="eadc5165-4f3c-47b8-8444-f2960cfd38f5" absoluteBounds="45.765, 36.335, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e11f1f32-abac-4faf-bd54-98a6d120d19c" absoluteBounds="45.75, 39.875, 2, 6.8963342285156273">
+      <DataClassMoniker Name="/HrDBDataContext/UserDefine" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22fae82b-66d0-4873-90dd-88510b7bcad6" absoluteBounds="45.765, 40.335, 1.9700000000000002, 6.336334228515625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4d34df67-95b0-4d35-9cf3-d42b686ed911" absoluteBounds="29.75, 47.875, 2, 1.3525109863281273">
+      <DataClassMoniker Name="/HrDBDataContext/TableAtt" />
+      <nestedChildShapes>
+        <elementListCompartment Id="33e5f929-c378-43c5-afe9-4c4cff05414c" absoluteBounds="29.765, 48.335, 1.9700000000000002, 0.792510986328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cb0863b5-03ab-4504-9135-680f0fb82b55" absoluteBounds="14.75, 40.875, 2, 1.1677168782552059">
+      <DataClassMoniker Name="/HrDBDataContext/v_GetInsurCnCodeByWorkcd" />
+      <nestedChildShapes>
+        <elementListCompartment Id="88ffefed-7ec3-4e75-957a-d12008da21e2" absoluteBounds="14.765, 41.335, 1.9700000000000002, 0.60771687825520826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="630aeb09-b6bd-490b-a880-c354e3fb82c1" absoluteBounds="32.75, 47.875, 2, 1.5373050944010345">
+      <DataClassMoniker Name="/HrDBDataContext/CostType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="eecf1b84-54fc-460f-941d-06ed9a8fd8c7" absoluteBounds="32.765, 48.335, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="208f4b07-eb45-4b0e-bbbe-6474effa0fdb" absoluteBounds="45.75, 47.875, 2, 2.0916874186197845">
+      <DataClassMoniker Name="/HrDBDataContext/ACCSAL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2215e81a-6ba6-47f0-9868-c72e1dc979c4" absoluteBounds="45.765, 48.335, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1bd906ca-8e41-4956-8168-cd21991fdf5e" absoluteBounds="35.75, 48.875, 2, 1.7220992024739559">
+      <DataClassMoniker Name="/HrDBDataContext/ORDER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3fe7b7fd-e609-4d4c-93d1-1c1cc65530d7" absoluteBounds="35.765, 49.335, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bee00323-4e5b-4136-abd6-77f51e6430a2" absoluteBounds="38.75, 48.875, 2, 2.0916874186197845">
+      <DataClassMoniker Name="/HrDBDataContext/AssessCat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="27f60a45-efce-484c-97f9-66ca123e7088" absoluteBounds="38.765, 49.335, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="98383096-b07e-4d9e-85ae-fe941e9ac4c1" absoluteBounds="41.75, 48.875, 2, 1.7220992024739559">
+      <DataClassMoniker Name="/HrDBDataContext/EFFTYPE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2b4db932-622a-45de-8f83-353ec2c94b7f" absoluteBounds="41.765, 49.335, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9ae223e4-0ac4-430b-9a32-5e89a4207cac" absoluteBounds="48.75, 1.875, 2, 2.0916874186197916">
+      <DataClassMoniker Name="/HrDBDataContext/EFFLVL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f658610d-b7ec-4eb2-ac8f-791b3adc4267" absoluteBounds="48.765, 2.335, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="80a5bb6c-2037-4d3e-bd64-847ebd59f8d4" absoluteBounds="48.75, 4.875, 2, 2.4612756347656255">
+      <DataClassMoniker Name="/HrDBDataContext/EFFEMPLOY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cfbca089-3a53-4288-99ba-cbe324938787" absoluteBounds="48.765, 5.335, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dc18264e-87a0-4847-8eeb-43e60bd39879" absoluteBounds="48.75, 8.875, 2, 3.7548343912760416">
+      <DataClassMoniker Name="/HrDBDataContext/FAMILY_IN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d52f98be-0d31-4fc3-82bb-98a68075b459" absoluteBounds="48.765, 9.335, 1.9700000000000002, 3.1948343912760415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="34f6718d-6d4c-4d83-a4bf-98c01ed63855" absoluteBounds="48.75, 13.875, 2, 3.9396284993489559">
+      <DataClassMoniker Name="/HrDBDataContext/AWARD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6ba4d7be-a098-40f0-83a9-23a982481384" absoluteBounds="48.765, 14.335, 1.9700000000000002, 3.379628499348958" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6b9c9a5a-0266-490d-a365-ec3c6939801c" absoluteBounds="48.75, 18.875, 2, 1.7220992024739559">
+      <DataClassMoniker Name="/HrDBDataContext/AWARDCD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cf8265bf-a98c-4c41-a957-5b8f53cbd0fb" absoluteBounds="48.765, 19.335, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="66f65e00-9d56-4ce2-b89e-60ba84a136e1" absoluteBounds="48.75, 21.875, 2, 1.9068933105468773">
+      <DataClassMoniker Name="/HrDBDataContext/BankCode" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0ce376c2-43dc-45ee-a3cf-c16bb2c30d50" absoluteBounds="48.765, 22.335, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="864df601-a6b9-4846-a16f-c78e8cac076e" absoluteBounds="48.75, 24.875, 2, 2.4612756347656273">
+      <DataClassMoniker Name="/HrDBDataContext/ACCCD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5eeb8594-fa1e-4ad2-9677-bed8d7466dd3" absoluteBounds="48.765, 25.335, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8ac5cd35-acea-4a08-9bfd-31b1a69acf1f" absoluteBounds="48.75, 28.875, 2, 4.3092167154947845">
+      <DataClassMoniker Name="/HrDBDataContext/Cardcd_damt" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b1cac36d-af90-4a2f-a0f5-39e1732cca1b" absoluteBounds="48.765, 29.335, 1.9700000000000002, 3.749216715494792" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9559a44c-4d6c-472c-a784-8d9369205ea4" absoluteBounds="48.75, 34.875, 2, 1.9068933105468773">
+      <DataClassMoniker Name="/HrDBDataContext/CARDCD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e6ed44d1-e023-4253-99fd-33c8623bdba6" absoluteBounds="48.765, 35.335, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e6e800b2-5f38-4675-a441-7e2368c91d8f" absoluteBounds="48.75, 37.875, 2, 2.0916874186197845">
+      <DataClassMoniker Name="/HrDBDataContext/FOOD_ITEM" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8802fb32-75b1-4a2e-bb13-99a1f721c9d4" absoluteBounds="48.765, 38.335, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ea8a554f-759f-4a78-bd4b-0d010123b5cb" absoluteBounds="48.75, 40.875, 2, 2.0916874186197845">
+      <DataClassMoniker Name="/HrDBDataContext/RelayTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="aa6bb296-b1cc-4539-aa84-ba0e7e13a6ff" absoluteBounds="48.765, 41.335, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4afdd76e-e431-4300-86ce-fe590b485ef6" absoluteBounds="48.75, 43.875, 2, 4.3092167154947916">
+      <DataClassMoniker Name="/HrDBDataContext/COMP1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="73eb663a-ea09-44f9-8020-c3de56b3fce0" absoluteBounds="48.765, 44.335, 1.9700000000000002, 3.7492167154947915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ad765f64-f6ef-4c9a-93fe-98a0ad98d17d" absoluteBounds="48.75, 48.875, 2, 2.4612756347656273">
+      <DataClassMoniker Name="/HrDBDataContext/UserDefineSource" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7a864800-2acd-48fb-9ec8-8ef668a00a02" absoluteBounds="48.765, 49.335, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e0699407-bfbf-4a32-9994-7471110cc65d" absoluteBounds="20.75, 50.875, 2, 2.6460697428385345">
+      <DataClassMoniker Name="/HrDBDataContext/UserDefineGroup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1d917d7c-cbc4-4ae8-a433-f0ab519320a9" absoluteBounds="20.765, 51.335, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2f0f3239-79f2-4a0c-9bbf-3aa67de39e0f" absoluteBounds="29.75, 50.875, 2, 3.3852461751302059">
+      <DataClassMoniker Name="/HrDBDataContext/UserDefineLayout" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1f345b44-9a98-4bdf-9cca-2c81eab6a52a" absoluteBounds="29.765, 51.335, 1.9700000000000002, 2.825246175130208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9f665298-b65f-4307-8404-395cce06b6b5" absoluteBounds="44.75, 50.875, 2, 2.2764815266927059">
+      <DataClassMoniker Name="/HrDBDataContext/UserDefineValue" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a24b11da-3a83-456b-816c-a7d4a3257611" absoluteBounds="44.765, 51.335, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cf5c2ef2-feb3-4da9-aab3-dae5efa32efb" absoluteBounds="23.75, 51.875, 2, 4.1244226074218773">
+      <DataClassMoniker Name="/HrDBDataContext/View_AbsWriteOff" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1a0302d7-af33-455d-8d90-c8e0bea32a87" absoluteBounds="23.765, 52.335, 1.9700000000000002, 3.564422607421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2b521780-928e-46ba-83ff-ff04b17f5b3a" absoluteBounds="32.75, 51.875, 2, 4.3092167154947845">
+      <DataClassMoniker Name="/HrDBDataContext/View_SalaryCorrection" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5eb1cefc-af2c-4b07-b803-bdabd49e39ae" absoluteBounds="32.765, 52.335, 1.9700000000000002, 3.749216715494792" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f52c16e7-53dc-40a7-9e01-3d80274d9db0" absoluteBounds="35.75, 51.875, 2, 1.7220992024739559">
+      <DataClassMoniker Name="/HrDBDataContext/TAXCN1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="13250a51-7c04-41b9-a379-f7a6d8fdc0ed" absoluteBounds="35.765, 52.335, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="390aa59c-ae77-493d-82fa-12f85dddc551" absoluteBounds="38.75, 51.875, 2, 3.9396284993489559">
+      <DataClassMoniker Name="/HrDBDataContext/TAXLVL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="351c82a7-3ade-4109-b507-d82f998c0334" absoluteBounds="38.765, 52.335, 1.9700000000000002, 3.379628499348958" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2ffe34cd-7872-44c1-a517-f1567051164b" absoluteBounds="47.75, 51.875, 2, 2.2764815266927059">
+      <DataClassMoniker Name="/HrDBDataContext/TAXCNLVL1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9f90ab08-9df8-4a07-af83-f2399a455b4e" absoluteBounds="47.765, 52.335, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="efae434d-8be5-497c-8f54-f63f15ca779d" absoluteBounds="50.75, 51.875, 2, 5.2331872558593773">
+      <DataClassMoniker Name="/HrDBDataContext/WAGE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7a5ce0af-49ee-4c3b-9cc2-713bef695a17" absoluteBounds="50.765, 52.335, 1.9700000000000002, 4.673187255859375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="25da615f-4405-4df8-97d0-b100c889728e" absoluteBounds="51.75, 1.875, 2, 1.9068933105468753">
+      <DataClassMoniker Name="/HrDBDataContext/WAGED" />
+      <nestedChildShapes>
+        <elementListCompartment Id="da1424b6-c6da-45a4-9779-18e7155473b2" absoluteBounds="51.765, 2.335, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d73cb31a-9796-4d3b-b811-7cb25740b85d" absoluteBounds="51.75, 4.875, 2, 2.2764815266927094">
+      <DataClassMoniker Name="/HrDBDataContext/WAGEDD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f3361d82-7d53-438a-8a5c-51083008b10f" absoluteBounds="51.765, 5.335, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="311343d6-d4ec-4d2a-aeef-b417966a9d8e" absoluteBounds="51.75, 8.875, 2, 6.1571577962239559">
+      <DataClassMoniker Name="/HrDBDataContext/SALBASND" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c036c63a-187f-4355-99c6-422d3785f6e0" absoluteBounds="51.765, 9.335, 1.9700000000000002, 5.597157796223958" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6539b864-41eb-46bf-8f2c-ff52271f43d4" absoluteBounds="51.75, 15.875, 2, 2.4612756347656255">
+      <DataClassMoniker Name="/HrDBDataContext/SALBASTD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="242a380f-6cd7-479d-9715-95cc27e2a45e" absoluteBounds="51.765, 16.335, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ba652d25-7557-4c56-ab3f-99125b6b480f" absoluteBounds="51.75, 19.875, 2, 4.6788049316406273">
+      <DataClassMoniker Name="/HrDBDataContext/EXPLAB" />
+      <nestedChildShapes>
+        <elementListCompartment Id="862b3443-03a1-4994-b7a0-8afcb67385e6" absoluteBounds="51.765, 20.335, 1.9700000000000002, 4.118804931640625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="979c2ed2-4748-42f8-8c21-ac1842eb0c65" absoluteBounds="51.75, 25.875, 2, 2.6460697428385416">
+      <DataClassMoniker Name="/HrDBDataContext/FOOD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="17ed9f49-bd52-4d53-a2c5-e7c09cab34fb" absoluteBounds="51.765, 26.335, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6e38aeb3-9710-4340-869f-d3b20a7fc17e" absoluteBounds="12.5, 46.75, 2, 14.842480875651042">
+      <DataClassMoniker Name="/HrDBDataContext/BASETTS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5864d0c9-c0ae-4ff6-812a-44f6d55f9fcd" absoluteBounds="12.515, 47.21, 1.9700000000000002, 14.282480875651041" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(0.79687525 : 61.777274983724); (0.79687525 : 102.53515238444); (3.5 : 102.53515238444)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/BASE/BASE_TMTABLE" />
+      <nodes>
+        <classShapeMoniker Id="157743a6-39b8-4cff-9b2b-9b953f603b27" />
+        <classShapeMoniker Id="a94adb29-356f-4ff4-909c-0f91f11bdf38" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.5 : 51.3092167154948); (10.5 : 52.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/ATTEND/ATTEND_CARD" />
+      <nodes>
+        <classShapeMoniker Id="5087def5-bc9b-4d7c-a5d1-9cbe6fbbec94" />
+        <classShapeMoniker Id="3cc9a250-b937-4846-9d21-e37214aa3624" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 61.7130253092448); (9.59375 : 61.7130253092448); (9.59375 : 55.7602461751302)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/BASE/BASE_CARD" />
+      <nodes>
+        <classShapeMoniker Id="157743a6-39b8-4cff-9b2b-9b953f603b27" />
+        <classShapeMoniker Id="3cc9a250-b937-4846-9d21-e37214aa3624" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.2812525 : 46.75); (2.2812525 : 40.4208437093099); (3.5 : 40.4208437093099)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/BASE/BASE_CARDAPP" />
+      <nodes>
+        <classShapeMoniker Id="157743a6-39b8-4cff-9b2b-9b953f603b27" />
+        <classShapeMoniker Id="4a104c78-ef8e-4c74-bff3-300d9e710067" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 50.771944219519); (12.25 : 50.771944219519); (12.25 : 62.092480875651); (13.25 : 62.092480875651); (13.25 : 64.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/ATTEND/ATTEND_OT" />
+      <nodes>
+        <classShapeMoniker Id="5087def5-bc9b-4d7c-a5d1-9cbe6fbbec94" />
+        <classShapeMoniker Id="fc401337-ee14-43db-bd0b-9beabc54fe9a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.4676923076923 : 47); (11.875 : 46.5926923076923); (11.875 : 39.1708437093099); (12.25 : 39.1708437093099)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/ATTEND/ATTEND_ROTECHG" />
+      <nodes>
+        <classShapeMoniker Id="5087def5-bc9b-4d7c-a5d1-9cbe6fbbec94" />
+        <classShapeMoniker Id="198510eb-41b4-4304-8b46-692ef88e1dee" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.75 : 17.3284466552734); (15.5 : 17.3284466552734)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/HCODES/HCODES_HCODESRATE" />
+      <nodes>
+        <classShapeMoniker Id="68cf5f27-dd12-4aa4-8184-254697e8a642" />
+        <classShapeMoniker Id="bcca7251-c822-4371-b8f9-60aad17e5772" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(16.25 : 55.4885990397135); (16.25 : 59.1328289794922); (18 : 59.1328289794922)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/ABS/ABS_SALABS" />
+      <nodes>
+        <classShapeMoniker Id="3ad4ec1d-e0a3-4615-899c-b7b41f90bc92" />
+        <classShapeMoniker Id="f3cd40a2-dc2e-4739-83aa-b30271460e08" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 53.0078289794922); (3.5 : 53.0078289794922)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/BASE/BASE_LICAN" />
+      <nodes>
+        <classShapeMoniker Id="157743a6-39b8-4cff-9b2b-9b953f603b27" />
+        <classShapeMoniker Id="50641b77-2495-4f3e-8e49-3600915a7bd0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 49.4480348714193); (3.5 : 49.4480348714193)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/BASE/BASE_MASTER" />
+      <nodes>
+        <classShapeMoniker Id="157743a6-39b8-4cff-9b2b-9b953f603b27" />
+        <classShapeMoniker Id="44f4c0fc-bffd-4e2b-ae97-ae5476404452" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 56.7578289794922); (3.5 : 56.7578289794922)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/BASE/BASE_SCHL" />
+      <nodes>
+        <classShapeMoniker Id="157743a6-39b8-4cff-9b2b-9b953f603b27" />
+        <classShapeMoniker Id="58fa14da-d696-47fd-b2e4-c5df58a2f777" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(0.898440125 : 61.777274983724); (0.898440125 : 95.7796083577474); (3.5 : 95.7796083577474)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/BASE/BASE_WORKS" />
+      <nodes>
+        <classShapeMoniker Id="157743a6-39b8-4cff-9b2b-9b953f603b27" />
+        <classShapeMoniker Id="4ae1e3e6-d63e-4d2c-a4c6-c278739f2a57" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75000025 : 46.75); (1.75000025 : 43.2958437093099); (2.19791916666667 : 43.2958437093099 : JumpStart); (2.36458583333333 : 43.2958437093099 : JumpEnd); (3.5 : 43.2958437093099)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/BASE/BASE_COST" />
+      <nodes>
+        <classShapeMoniker Id="157743a6-39b8-4cff-9b2b-9b953f603b27" />
+        <classShapeMoniker Id="2cd83116-1d4f-4952-a26f-efe5e97560ef" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3 : 64.111049601237); (3.75 : 64.111049601237)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/DormitoryRoom/DormitoryRoom_DormitoryBed" />
+      <nodes>
+        <classShapeMoniker Id="5e0edb47-ebed-4ed7-9b90-51ca74894f3a" />
+        <classShapeMoniker Id="6f213920-770f-46c6-9f58-cff7b4837031" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 63.125); (6.125 : 62.75); (6.125 : 53.8828294794922); (6.5 : 53.8828294794922)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/DormitoryBed/DormitoryBed_DormitoryManagement" />
+      <nodes>
+        <classShapeMoniker Id="6f213920-770f-46c6-9f58-cff7b4837031" />
+        <classShapeMoniker Id="b43d78b2-0c08-4a56-97b5-37de16f8aad1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 55.1015789794922); (6.5 : 55.1015789794922)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/BASE/BASE_DormitoryManagement" />
+      <nodes>
+        <classShapeMoniker Id="157743a6-39b8-4cff-9b2b-9b953f603b27" />
+        <classShapeMoniker Id="b43d78b2-0c08-4a56-97b5-37de16f8aad1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 12.4588584391276); (9.5 : 12.4588584391276)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/NotifyTargetType/NotifyTargetType_NotifyMsgTarget" />
+      <nodes>
+        <classShapeMoniker Id="0daadaf5-cf83-4de8-80e1-8033a72d1a1a" />
+        <classShapeMoniker Id="8935d60b-3f10-45e0-97c1-ac5b96f641d7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 14); (9.125 : 13.625); (9.125 : 12.9043337667643); (9.5 : 12.9043337667643)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/NotifyMsg/NotifyMsg_NotifyMsgTarget" />
+      <nodes>
+        <classShapeMoniker Id="69c4a557-3eff-428f-8395-c7ddaaf6db89" />
+        <classShapeMoniker Id="8935d60b-3f10-45e0-97c1-ac5b96f641d7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.5 : 13.287305094401); (10.5 : 13.537305094401); (12.25 : 13.537305094401); (12.25 : 14.629834391276); (14.875 : 14.629834391276); (14.875 : 12.5512554931641); (15.25 : 12.5512554931641)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/NotifyMsgTarget/NotifyMsgTarget_NotifyMsgTargetType" />
+      <nodes>
+        <classShapeMoniker Id="8935d60b-3f10-45e0-97c1-ac5b96f641d7" />
+        <classShapeMoniker Id="948424ba-0405-4cb6-bc8f-5a4bd1114bcc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 7.02205627194762); (12.2604166666667 : 7.02205627194762 : JumpStart); (12.4270833333333 : 7.02205627194762 : JumpEnd); (15.25 : 7.02205627194762); (15.25 : 11.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/NotifyType/NotifyType_NotifyMsgTargetType" />
+      <nodes>
+        <classShapeMoniker Id="ed1b906d-6d78-412b-b98b-b1cc1b5a256e" />
+        <classShapeMoniker Id="948424ba-0405-4cb6-bc8f-5a4bd1114bcc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 11.9253006501402); (9.28125 : 11.3940506501402); (9.28125 : 9.51865254720052); (9.5 : 9.51865254720052)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/NotifyTargetType/NotifyTargetType_NotifyMsgTplTarget" />
+      <nodes>
+        <classShapeMoniker Id="0daadaf5-cf83-4de8-80e1-8033a72d1a1a" />
+        <classShapeMoniker Id="597f5815-25ec-4367-a02e-d4df4341224c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.73113688119742 : 11.875); (9.125 : 11.4811368811974); (9.125 : 9.51865254720052); (9.5 : 9.51865254720052)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/NotifyTargetType/NotifyTargetType_NotifyMsgTplTarget1" />
+      <nodes>
+        <classShapeMoniker Id="0daadaf5-cf83-4de8-80e1-8033a72d1a1a" />
+        <classShapeMoniker Id="597f5815-25ec-4367-a02e-d4df4341224c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 9.96547882080078); (9.5 : 9.96547882080078)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/NotifyMsgTpl/NotifyMsgTpl_NotifyMsgTplTarget" />
+      <nodes>
+        <classShapeMoniker Id="8146918d-20ac-4f4f-a06c-c791396773a0" />
+        <classShapeMoniker Id="597f5815-25ec-4367-a02e-d4df4341224c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9 : 1.95615254720052); (9.75 : 1.95615254720052)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/JBSystem/JBSystem_JBSystemEvent" />
+      <nodes>
+        <classShapeMoniker Id="f9211276-4b7b-4ae9-9af7-3a7ea4e39806" />
+        <classShapeMoniker Id="02421183-3cd9-4d5d-b1c8-f8bff66ea9b0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.70931594059871 : 11.875); (7.70931594059871 : 11.15625); (11.7916666666667 : 11.15625 : JumpStart); (11.9583333333333 : 11.15625 : JumpEnd); (12.5 : 11.15625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/NotifyTargetType/NotifyTargetType_NotifyMsgDetail" />
+      <nodes>
+        <classShapeMoniker Id="0daadaf5-cf83-4de8-80e1-8033a72d1a1a" />
+        <classShapeMoniker Id="47765dd6-6e8a-4cee-9c1f-18e89296ee29" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.4811368811974 : 7.04271687825521); (11.875 : 7.43657999705779); (11.875 : 12.3780300472005); (12.5 : 12.3780300472005)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/NotifyType/NotifyType_NotifyMsgDetail" />
+      <nodes>
+        <classShapeMoniker Id="ed1b906d-6d78-412b-b98b-b1cc1b5a256e" />
+        <classShapeMoniker Id="47765dd6-6e8a-4cee-9c1f-18e89296ee29" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 14.658667195638); (12.59375 : 14.658667195638); (12.59375 : 14.379834391276)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/NotifyMsg/NotifyMsg_NotifyMsgDetail" />
+      <nodes>
+        <classShapeMoniker Id="69c4a557-3eff-428f-8395-c7ddaaf6db89" />
+        <classShapeMoniker Id="47765dd6-6e8a-4cee-9c1f-18e89296ee29" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 15.5186525472005); (9.5 : 15.5186525472005)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/NotifyMsg/NotifyMsg_NotifyMsgAttachment" />
+      <nodes>
+        <classShapeMoniker Id="69c4a557-3eff-428f-8395-c7ddaaf6db89" />
+        <classShapeMoniker Id="a0b1e3c9-d1f9-4639-9990-b60a1257540b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 10.0225449488609); (11.7916666666667 : 10.0225449488609 : JumpStart); (11.9583333333333 : 10.0225449488609 : JumpEnd); (13.25 : 10.0225449488609); (13.25 : 9.22751098632812)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/NotifyMsgTplTarget/NotifyMsgTplTarget_NotifyMsgTplTargetType" />
+      <nodes>
+        <classShapeMoniker Id="597f5815-25ec-4367-a02e-d4df4341224c" />
+        <classShapeMoniker Id="5cc2875d-b304-4aed-91fa-4526a7a82983" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 6.77697229124725); (12.34375 : 6.77697229124725); (12.34375 : 7.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/NotifyType/NotifyType_NotifyMsgTplTargetType" />
+      <nodes>
+        <classShapeMoniker Id="ed1b906d-6d78-412b-b98b-b1cc1b5a256e" />
+        <classShapeMoniker Id="5cc2875d-b304-4aed-91fa-4526a7a82983" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 10.440849202474); (11.7916666666667 : 10.440849202474 : JumpStart); (11.9583333333333 : 10.440849202474 : JumpEnd); (14.40625 : 10.440849202474); (14.40625 : 6.53189331054688)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/NotifyMsgTpl/NotifyMsgTpl_JBSystemEventTriggerMsg" />
+      <nodes>
+        <classShapeMoniker Id="8146918d-20ac-4f4f-a06c-c791396773a0" />
+        <classShapeMoniker Id="2023d834-fd86-4d9a-bedd-898140548e92" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.65625 : 2.28730509440104); (11.65625 : 5.4588584391276); (12.5 : 5.4588584391276)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/JBSystemEvent/JBSystemEvent_JBSystemEventTriggerMsg" />
+      <nodes>
+        <classShapeMoniker Id="02421183-3cd9-4d5d-b1c8-f8bff66ea9b0" />
+        <classShapeMoniker Id="2023d834-fd86-4d9a-bedd-898140548e92" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 8.75); (2.86857443490112 : 8.63142556509888 : JumpStart); (2.98642556509888 : 8.51357443490112 : JumpEnd); (3.125 : 8.375); (3.125 : 4.61104960123698); (3.25666666666667 : 4.61104960123698 : JumpStart); (3.42333333333333 : 4.61104960123698 : JumpEnd); (3.5 : 4.61104960123698)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HrDBDataContext/DATAGROUP/DATAGROUP_COMP_DATAGROUP" />
+      <nodes>
+        <classShapeMoniker Id="f6b2f455-0714-429f-9f76-e57a44d65dfb" />
+        <classShapeMoniker Id="9aea0bde-5bba-4f36-a682-e91bbcb93c5c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.11802480061849); (2.84416666666667 : 4.11802480061849 : JumpStart); (3.08333333333333 : 4.11802480061849 : JumpEnd); (3.10416666666667 : 4.11802480061849 : JumpStart); (3.42333333333333 : 4.11802480061849 : JumpEnd); (3.5 : 4.11802480061849)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HrDBDataContext/COMP/COMP_COMP_DATAGROUP" />
+      <nodes>
+        <classShapeMoniker Id="fb6dba26-a1e3-46ab-9e6f-fb9fb794b545" />
+        <classShapeMoniker Id="9aea0bde-5bba-4f36-a682-e91bbcb93c5c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.61929951985677); (2.84416666666667 : 6.61929951985677 : JumpStart); (3.01083333333333 : 6.61929951985677 : JumpEnd); (3.04166666666667 : 6.61929951985677 : JumpStart); (3.20833333333333 : 6.61929951985677 : JumpEnd); (3.25666666666667 : 6.61929951985677 : JumpStart); (3.42333333333333 : 6.61929951985677 : JumpEnd); (3.5 : 6.61929951985677)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/COMP/COMP_U_USERCOMP" />
+      <nodes>
+        <classShapeMoniker Id="fb6dba26-a1e3-46ab-9e6f-fb9fb794b545" />
+        <classShapeMoniker Id="ca405ea5-dacd-4031-875e-4d9641b6f8e2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.5 : 5.07282640185547); (3.42333333333333 : 5.07282640185547 : JumpStart); (3.04166666666667 : 5.07282640185547 : JumpEnd); (3 : 5.07282640185547); (3 : 2.875); (6.5 : 2.875); (6.5 : 3); (7.625 : 3); (7.625 : 3.625); (8.40666666666667 : 3.625 : JumpStart); (8.57333333333333 : 3.625 : JumpEnd); (8.625 : 3.625); (8.625 : 6.52648152669271); (7.25 : 6.52648152669271); (7.25 : 6.15148152669271)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HrDBDataContext/COMP_DATAGROUP/COMP_DATAGROUP_U_DATAGROUP" />
+      <nodes>
+        <classShapeMoniker Id="9aea0bde-5bba-4f36-a682-e91bbcb93c5c" />
+        <classShapeMoniker Id="1e311388-a816-4263-9144-1a1f7b568187" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 9.64230160123698); (2.9275 : 9.64230160123698); (2.9275 : 2.965); (3.10416666666667 : 2.965 : JumpStart); (3.27083333333333 : 2.965 : JumpEnd); (6.84 : 2.965); (6.84 : 3.09); (7.535 : 3.09); (7.535 : 3.20001098632813); (7.54166666666667 : 3.20001098632813 : JumpStart); (7.70833333333333 : 3.20001098632813 : JumpEnd); (8.49 : 3.20001098632813); (8.49 : 5.61361314501953); (8.25 : 5.61361314501953)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HrDBDataContext/DATAGROUP/DATAGROUP_U_DATAGROUP" />
+      <nodes>
+        <classShapeMoniker Id="f6b2f455-0714-429f-9f76-e57a44d65dfb" />
+        <classShapeMoniker Id="1e311388-a816-4263-9144-1a1f7b568187" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.5 : 7.32695136116536); (3.34 : 7.32695136116536); (3.34 : 2.965); (6.84 : 2.965); (6.84 : 3.12125); (7.535 : 3.12125); (7.535 : 3.16876098632813); (7.54166666666667 : 3.16876098632813 : JumpStart); (7.70833333333333 : 3.16876098632813 : JumpEnd); (8.49 : 3.16876098632813); (8.49 : 5.01324076334635); (8.25 : 5.01324076334635)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HrDBDataContext/U_USERCOMP/U_USERCOMP_U_DATAGROUP" />
+      <nodes>
+        <classShapeMoniker Id="ca405ea5-dacd-4031-875e-4d9641b6f8e2" />
+        <classShapeMoniker Id="1e311388-a816-4263-9144-1a1f7b568187" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.0307122207845); (2.84416666666667 : 6.0307122207845 : JumpStart); (3.01083333333333 : 6.0307122207845 : JumpEnd); (3.1875 : 6.0307122207845); (3.1875 : 2.8125); (6.625 : 2.8125); (6.625 : 3.015625); (7.625 : 3.015625); (7.625 : 3.75); (8.5625 : 3.75); (8.5625 : 6.77648152669271); (6.718748 : 6.77648152669271); (6.718748 : 6.15148152669271)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HrDBDataContext/COMP/COMP_U_DATAGROUP" />
+      <nodes>
+        <classShapeMoniker Id="fb6dba26-a1e3-46ab-9e6f-fb9fb794b545" />
+        <classShapeMoniker Id="1e311388-a816-4263-9144-1a1f7b568187" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 67.7306378173828); (6.5 : 67.7306378173828)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/InsurCnCode/InsurCnCode_InsCnCodeTts" />
+      <nodes>
+        <classShapeMoniker Id="08683bf1-d4f2-4b3f-8d40-fa038d9f47ad" />
+        <classShapeMoniker Id="b8132d0e-2781-46b5-a487-68c25426f1b2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.65625 : 47.0107751464844); (8.65625 : 48.0474152891235); (9.5 : 48.0474152891235)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/ROTE/ROTE_ATTEND" />
+      <nodes>
+        <classShapeMoniker Id="4e77c651-69f2-4c07-842e-86cfeaaac2c3" />
+        <classShapeMoniker Id="5087def5-bc9b-4d7c-a5d1-9cbe6fbbec94" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 47.4698255782471); (9.5 : 47.4698255782471)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/BASE/BASE_ATTEND" />
+      <nodes>
+        <classShapeMoniker Id="157743a6-39b8-4cff-9b2b-9b953f603b27" />
+        <classShapeMoniker Id="5087def5-bc9b-4d7c-a5d1-9cbe6fbbec94" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 47.0953836153846); (12.0625 : 46.5328836153846); (12.0625 : 42.7850201416016); (12.25 : 42.7850201416016)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/ATTEND/ATTEND_ATTCARD" />
+      <nodes>
+        <classShapeMoniker Id="5087def5-bc9b-4d7c-a5d1-9cbe6fbbec94" />
+        <classShapeMoniker Id="5a986a51-1a2c-4958-ade9-df4dc27ec14e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 48.0787974595478); (12.1666666666667 : 48.0787974595478 : JumpStart); (12.3333333333333 : 48.0787974595478 : JumpEnd); (12.375 : 48.0787974595478); (12.375 : 46.5); (14.3854166666667 : 46.5 : JumpStart); (14.5520833333333 : 46.5 : JumpEnd); (14.9166666666667 : 46.5 : JumpStart); (15.0833333333333 : 46.5 : JumpEnd); (15.25 : 46.5); (15.25 : 49.6517460123698); (16.7291666666667 : 49.6517460123698 : JumpStart); (16.8958333333333 : 49.6517460123698 : JumpEnd); (19.25 : 49.6517460123698); (19.25 : 50.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/ATTEND/ATTEND_ABS1" />
+      <nodes>
+        <classShapeMoniker Id="5087def5-bc9b-4d7c-a5d1-9cbe6fbbec94" />
+        <classShapeMoniker Id="7f3f4913-5fea-4b5b-97e4-1fb79813df83" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 61.6840030924479); (20.15625 : 61.6840030924479); (20.15625 : 56.097363688151)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/BASE/BASE_ABS1" />
+      <nodes>
+        <classShapeMoniker Id="157743a6-39b8-4cff-9b2b-9b953f603b27" />
+        <classShapeMoniker Id="7f3f4913-5fea-4b5b-97e4-1fb79813df83" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(17.40625 : 49.4017460123698); (17.40625 : 53.1111818440755); (18.25 : 53.1111818440755)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/HCODE/HCODE_ABS1" />
+      <nodes>
+        <classShapeMoniker Id="ed81490a-8b08-4562-9d78-dfcc8a34634f" />
+        <classShapeMoniker Id="7f3f4913-5fea-4b5b-97e4-1fb79813df83" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 59.4127260335286); (6.5 : 59.4127260335286)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/InsCnComp/InsCnComp_InslabCN" />
+      <nodes>
+        <classShapeMoniker Id="02a67621-609c-487a-8813-4ce5e46f5818" />
+        <classShapeMoniker Id="c3ea8496-790f-4350-bdc2-6b5dc254edc7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 58.6953289794922); (6.5 : 58.6953289794922)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/BASE/BASE_InslabCN" />
+      <nodes>
+        <classShapeMoniker Id="157743a6-39b8-4cff-9b2b-9b953f603b27" />
+        <classShapeMoniker Id="c3ea8496-790f-4350-bdc2-6b5dc254edc7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 66.3130759230769); (6.3125 : 65.7505759230769); (6.3125 : 58.1002260335286); (6.5 : 58.1002260335286)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/InsurCnCode/InsurCnCode_InslabCN" />
+      <nodes>
+        <classShapeMoniker Id="08683bf1-d4f2-4b3f-8d40-fa038d9f47ad" />
+        <classShapeMoniker Id="c3ea8496-790f-4350-bdc2-6b5dc254edc7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 41.0622113037109); (9.5 : 41.0622113037109)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/ROTE/ROTE_ROTE_BONUS" />
+      <nodes>
+        <classShapeMoniker Id="4e77c651-69f2-4c07-842e-86cfeaaac2c3" />
+        <classShapeMoniker Id="c06635fe-c430-40e4-85d1-c4440eb15e23" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 31.7904319254557); (9.59375 : 31.7904319254557); (9.59375 : 39)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/SALCODE/SALCODE_ROTE_BONUS" />
+      <nodes>
+        <classShapeMoniker Id="b0867e54-1011-40aa-8246-c70dde1e61ad" />
+        <classShapeMoniker Id="c06635fe-c430-40e4-85d1-c4440eb15e23" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(17.5 : 46.1328289794922); (18.25 : 46.1328289794922)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/HCODE/HCODE_ABST" />
+      <nodes>
+        <classShapeMoniker Id="ed81490a-8b08-4562-9d78-dfcc8a34634f" />
+        <classShapeMoniker Id="d1d1d780-d2ed-47ec-82c8-f2dc2bca087e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 49.917077761615); (11.9166666666667 : 49.917077761615 : JumpStart); (12.0833333333333 : 49.917077761615 : JumpEnd); (12.25 : 49.917077761615); (12.25 : 46.25); (14.3854166666667 : 46.25 : JumpStart); (14.5520833333333 : 46.25 : JumpEnd); (15 : 46.25); (15 : 49.9017460123698); (16.25 : 49.9017460123698); (16.25 : 50.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/ATTEND/ATTEND_ABS" />
+      <nodes>
+        <classShapeMoniker Id="5087def5-bc9b-4d7c-a5d1-9cbe6fbbec94" />
+        <classShapeMoniker Id="3ad4ec1d-e0a3-4615-899c-b7b41f90bc92" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(16.8125 : 49.4017460123698); (16.8125 : 50.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/HCODE/HCODE_ABS" />
+      <nodes>
+        <classShapeMoniker Id="ed81490a-8b08-4562-9d78-dfcc8a34634f" />
+        <classShapeMoniker Id="3ad4ec1d-e0a3-4615-899c-b7b41f90bc92" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 61.7369008528646); (12.1666666666667 : 61.7369008528646 : JumpStart); (12.3333333333333 : 61.7369008528646 : JumpEnd); (15.7187475 : 61.7369008528646); (15.7187475 : 55.4885990397135)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/BASE/BASE_ABS" />
+      <nodes>
+        <classShapeMoniker Id="157743a6-39b8-4cff-9b2b-9b953f603b27" />
+        <classShapeMoniker Id="3ad4ec1d-e0a3-4615-899c-b7b41f90bc92" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 51.2985289181439); (6.5 : 51.2985289181439)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/BASE/BASE_Contract" />
+      <nodes>
+        <classShapeMoniker Id="157743a6-39b8-4cff-9b2b-9b953f603b27" />
+        <classShapeMoniker Id="ac0b0991-3582-460e-abcf-090ea342d27a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.65625 : 47.0318933105469); (5.65625 : 51.0347968304912); (6.5 : 51.0347968304912)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/ContractType/ContractType_Contract" />
+      <nodes>
+        <classShapeMoniker Id="0c33087d-01ce-4ac9-9ee2-ff5f165137e9" />
+        <classShapeMoniker Id="ac0b0991-3582-460e-abcf-090ea342d27a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 61.7757355221855); (3.125 : 62.1507355221855); (3.125 : 61.967480875651); (11.9166666666667 : 61.967480875651 : JumpStart); (12.0833333333333 : 61.967480875651 : JumpEnd); (12.125 : 61.967480875651); (12.1910744349011 : 61.9014064407499 : JumpStart); (12.3089255650989 : 61.7835553105521 : JumpEnd); (12.5 : 61.592480875651)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/BASE/BASE_BASETTS" />
+      <nodes>
+        <classShapeMoniker Id="157743a6-39b8-4cff-9b2b-9b953f603b27" />
+        <classShapeMoniker Id="6e38aeb3-9710-4340-869f-d3b20a7fc17e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.75 : 35.8213932291667); (14.46875 : 35.8213932291667); (14.46875 : 46.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/DEPT/DEPT_BASETTS" />
+      <nodes>
+        <classShapeMoniker Id="cd088868-4dfd-4e52-9b6f-03b04932bdbd" />
+        <classShapeMoniker Id="6e38aeb3-9710-4340-869f-d3b20a7fc17e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.75 : 58.7904319254557); (11.9166666666667 : 58.7904319254557 : JumpStart); (12.0833333333333 : 58.7904319254557 : JumpEnd); (12.1666666666667 : 58.7904319254557 : JumpStart); (12.3333333333333 : 58.7904319254557 : JumpEnd); (12.5 : 58.7904319254557)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/DEPTS/DEPTS_BASETTS" />
+      <nodes>
+        <classShapeMoniker Id="83d2ffb0-8be2-4451-8451-616bc9662ed3" />
+        <classShapeMoniker Id="6e38aeb3-9710-4340-869f-d3b20a7fc17e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="16219dd1-eafe-4aa0-9bd5-a5d8957a3a89" absoluteBounds="3.375, 8.75, 2, 3.2004520670572916">
+      <DataClassMoniker Name="/HrDBDataContext/MenuStripStructure" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ee95bda6-d028-46ba-92fc-68fd1a39edf2" absoluteBounds="3.39, 9.21, 1.9700000000000002, 2.6404520670572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ad41b218-6261-4ed5-9fc5-60ba392d58b2" absoluteBounds="3.375, 0.75, 2, 1.9068933105468751">
+      <DataClassMoniker Name="/HrDBDataContext/MenuGroup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="946ae38f-10c3-487f-99e3-5f37c86b8bc6" absoluteBounds="3.39, 1.21, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5aab3c6f-df5a-4dde-a6ce-a7600a8acdd1" absoluteBounds="5.625, 0.5, 2, 1.9068933105468751">
+      <DataClassMoniker Name="/HrDBDataContext/CODE_FILTER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="86548f5b-019c-4f5a-92df-e9b45dfec42a" absoluteBounds="5.64, 0.96, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="82429e03-e923-4f98-8d9b-614bcfd94235" absoluteBounds="52, 30.125, 2, 1.9068933105468751">
+      <DataClassMoniker Name="/HrDBDataContext/RBA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2d6041dd-7f9b-4e96-8416-7512c7fce565" absoluteBounds="52.015, 30.585, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="790a6cde-a4e2-4591-b44a-1e6b14d4f679" absoluteBounds="18.625, 64.375, 2, 14.84248087565104">
+      <DataClassMoniker Name="/HrDBDataContext/OT_B" />
+      <nestedChildShapes>
+        <elementListCompartment Id="244d36cc-97de-4a26-993d-0bce39498b99" absoluteBounds="18.64, 64.835, 1.9700000000000002, 14.282480875651041" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="42c410d7-a630-4830-ba01-edfa76a4e5a2" absoluteBounds="26, 65.125, 2, 14.84248087565104">
+      <DataClassMoniker Name="/HrDBDataContext/OT_Simple" />
+      <nestedChildShapes>
+        <elementListCompartment Id="30e03966-fdc6-4fcf-b295-747c339adf73" absoluteBounds="26.015, 65.585, 1.9700000000000002, 14.282480875651041" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eac264b5-30b9-4278-836b-c12d5096ffff" absoluteBounds="55.375, 2.75, 2, 1.9068933105468751">
+      <DataClassMoniker Name="/HrDBDataContext/WAGED_B" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7625676e-6239-43b1-8d08-bba4f2bd8b8d" absoluteBounds="55.39, 3.21, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5e630e53-e4e0-441e-b64a-be150f9cbd16" absoluteBounds="53.5, 52.75, 2, 5.2331872558593746">
+      <DataClassMoniker Name="/HrDBDataContext/WAGE_B" />
+      <nestedChildShapes>
+        <elementListCompartment Id="110aa159-da94-4705-aa36-0b13452d9c90" absoluteBounds="53.515, 53.21, 1.9700000000000002, 4.673187255859375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.5 : 48.9979376105814); (12 : 48.9979376105814); (12 : 62.217480875651); (13.1666666666667 : 62.217480875651 : JumpStart); (13.3333333333333 : 62.217480875651 : JumpEnd); (19.625 : 62.217480875651); (19.625 : 64.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/HrDBDataContext/ATTEND/ATTEND_OT_B" />
+      <nodes>
+        <classShapeMoniker Id="5087def5-bc9b-4d7c-a5d1-9cbe6fbbec94" />
+        <classShapeMoniker Id="790a6cde-a4e2-4591-b44a-1e6b14d4f679" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="5cc0fe8b-8a03-4a4d-b6c3-5e5d3d3187ae" absoluteBounds="0.5, 0.5, 2, 2.6460697428385416">
+      <DataClassMoniker Name="/HrDBDataContext/SALENRICH" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2edf470a-91a5-40cd-a461-7245de09d443" absoluteBounds="0.515, 0.96, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a39e91ae-6483-42bb-a40f-a1fdcfea2253" absoluteBounds="12.375, 0.75, 2, 1.9068933105468751">
+      <DataClassMoniker Name="/HrDBDataContext/EXTENDDEFINE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fc9a6a17-5eed-4696-88c0-8d12e5837bf6" absoluteBounds="12.39, 1.21, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2b77d7eb-2d33-4129-bd93-201fb56b53de" absoluteBounds="3.375, 12.75, 2, 2.2764815266927094">
+      <DataClassMoniker Name="/HrDBDataContext/EXTENDTABLE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a89a5825-e886-432f-ab34-dbb9bd0392d7" absoluteBounds="3.39, 13.21, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="30111c20-4ea6-449d-bf2b-2650d7cd7fb8" absoluteBounds="0.75, 19.75, 2, 2.2764815266927059">
+      <DataClassMoniker Name="/HrDBDataContext/MealType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0c5eeb47-4e19-467c-a13a-31ae3f125eb8" absoluteBounds="0.765, 20.21, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="32a08369-3446-49ad-9b59-e171b9df614a" absoluteBounds="3.875, 27.375, 2, 1.9068933105468751">
+      <DataClassMoniker Name="/HrDBDataContext/MealGroup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e8c9295e-3991-4c16-bd5b-1b79218ba844" absoluteBounds="3.8899999999999997, 27.835, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="926c3990-9576-49ae-b194-96c06b73139b" absoluteBounds="4, 30.125, 2, 2.8308638509114581">
+      <DataClassMoniker Name="/HrDBDataContext/MealCaseSetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="06393e66-c42c-4b3f-94ff-dc73ac85fafc" absoluteBounds="4.015, 30.585, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e8bea115-35e1-4716-ae52-ac9728db3c8e" absoluteBounds="6.375, 20.75, 2, 2.4612756347656273">
+      <DataClassMoniker Name="/HrDBDataContext/MEALAPPLYRECORD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="97fd600b-f2a3-425a-b0ae-f3e676738a11" absoluteBounds="6.39, 21.21, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5440afea-9e50-472a-8823-4adc1dee93a8" absoluteBounds="5.375, 3.25, 2, 2.2764815266927085">
+      <DataClassMoniker Name="/HrDBDataContext/ROTE_REST" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7567a565-6c32-462a-8d88-8011f438ca77" absoluteBounds="5.39, 3.71, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eb747b8c-72df-4f75-a892-a5f6bf4c50da" absoluteBounds="12.375, 31.75, 2, 3.0156579589843773">
+      <DataClassMoniker Name="/HrDBDataContext/MealCardType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fe281f91-b9ce-4769-b1ba-941bbd56dc32" absoluteBounds="12.39, 32.21, 1.9700000000000002, 2.455657958984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8a5797d5-2012-4d22-bafa-14164f47b56b" absoluteBounds="4.125, 3.125, 2, 5.7875695800781246">
+      <DataClassMoniker Name="/HrDBDataContext/ABSTEMP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f598633f-dcb1-4c7d-93a6-34bd4f613b82" absoluteBounds="4.14, 3.585, 1.9700000000000002, 5.227569580078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="13e57a51-f599-4a63-a98c-d6522af18c14" absoluteBounds="14.25, 80.625, 2, 2.4612756347656251">
+      <DataClassMoniker Name="/HrDBDataContext/EmployeeRule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ced27424-0465-420f-ad81-e4035b2adde2" absoluteBounds="14.265, 81.085, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="266a1fc3-2b55-4664-a836-5c1f36c17d4b" absoluteBounds="10.875, 80.25, 2, 1.7220992024739581">
+      <DataClassMoniker Name="/HrDBDataContext/RuleCode" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ba1ccfec-bd22-4811-a07a-07a0ab0df6f3" absoluteBounds="10.89, 80.71, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="80e720db-e1c1-42f6-a068-32653add88f0" absoluteBounds="4.25, 16.75, 2, 3.3852461751302081">
+      <DataClassMoniker Name="/HrDBDataContext/OtherAttend" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2444f261-ec42-4ef4-bcbb-5126321398e1" absoluteBounds="4.265, 17.21, 1.9700000000000002, 2.825246175130208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="56b44f86-b967-4647-9faa-45a0896d44bf" absoluteBounds="3.75, 15.25, 2, 1.3525109863281251">
+      <DataClassMoniker Name="/HrDBDataContext/AttendType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="61922b3f-6288-418c-919f-e1e1e150eaa9" absoluteBounds="3.7649999999999997, 15.71, 1.9700000000000002, 0.792510986328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f65cddae-4f3b-4430-b11a-f88952795cd0" absoluteBounds="3.375, 33.75, 2, 3.5700402832031273">
+      <DataClassMoniker Name="/HrDBDataContext/MealDeduction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="94da2440-3141-490f-86c3-7a7b962fab1a" absoluteBounds="3.39, 34.21, 1.9700000000000002, 3.010040283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7cc57721-626b-480b-8459-11454b99445d" absoluteBounds="4.875, 108.125, 2, 2.4612756347656251">
+      <DataClassMoniker Name="/HrDBDataContext/View_SpecializedDeduction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="49ed3136-7916-4fa2-b3ad-d29ac003e5d5" absoluteBounds="4.89, 108.585, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="505a001c-e3c8-4c6d-8fcb-0a7d3b271965" absoluteBounds="1.875, 107.375, 2, 2.2764815266927085">
+      <DataClassMoniker Name="/HrDBDataContext/SpecializedDeduction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0e4c34e7-869f-4146-8e68-a5322713f3e0" absoluteBounds="1.8899999999999997, 107.835, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="68b70827-d031-4f80-91a2-549f066b715f" absoluteBounds="8, 108.125, 2, 2.0916874186197916">
+      <DataClassMoniker Name="/HrDBDataContext/RDCODE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ea08edec-6e39-4f01-b169-da4999eac617" absoluteBounds="8.015, 108.585, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d3c13e9c-95c6-4fd0-a8c7-8cb93511dd57" absoluteBounds="10.625, 108.5, 2, 2.8308638509114581">
+      <DataClassMoniker Name="/HrDBDataContext/RDCOST" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5261ae03-cd60-48b2-afe9-aac3f96c97a5" absoluteBounds="10.64, 108.96, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a308e5df-123b-47da-9ddd-ac7d1a41c4a3" absoluteBounds="8.375, 111.25, 2, 3.2004520670572916">
+      <DataClassMoniker Name="/HrDBDataContext/RDCOST_Cal" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e5517092-9de3-452b-8228-31d418a56fc7" absoluteBounds="8.39, 111.71, 1.9700000000000002, 2.6404520670572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="30299b97-fdf2-41f8-811e-d392f440ce9d" absoluteBounds="6.125, 111.375, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/HrDBDataContext/Lock_RD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8af1866c-71a0-427b-8e2f-b7a5d853f64d" absoluteBounds="6.14, 111.835, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3afaa150-f4b1-4e5c-b150-c85dbdc01bd7" absoluteBounds="26.375, 51.75, 2, 12.440157470703127">
+      <DataClassMoniker Name="/HrDBDataContext/OTRATECD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="93cfeb44-ba20-438c-858e-bfee7fe7d36e" absoluteBounds="26.39, 52.21, 1.9700000000000002, 11.880157470703125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a9186803-dad7-4ae5-b362-0d07a1040c47" absoluteBounds="15.375, 22.75, 2, 1.7220992024739559">
+      <DataClassMoniker Name="/HrDBDataContext/TRTYPE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ceb5f287-f6fb-4be7-a9a1-183c216ebe09" absoluteBounds="15.39, 23.21, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f9c1a05a-1961-4fc1-bfb1-9ac04149d478" absoluteBounds="0.75, 23.75, 2, 1.9068933105468773">
+      <DataClassMoniker Name="/HrDBDataContext/TRCOMPY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5d8f64cc-5723-40d1-b395-31c2da04334d" absoluteBounds="0.765, 24.21, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b99bcfb9-c9ed-4fe1-9404-e394da95ca13" absoluteBounds="21.375, 31.75, 2, 1.9068933105468773">
+      <DataClassMoniker Name="/HrDBDataContext/TRASSCODE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8673cb4a-8fd3-42da-90cd-fdf2dc871c3b" absoluteBounds="21.39, 32.21, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="66f4f7ca-af3c-4cf8-8eb3-1aaf1e7bb34d" absoluteBounds="45.375, 7.75, 2, 3.5700402832031237">
+      <DataClassMoniker Name="/HrDBDataContext/TRCOSP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="70fa551d-1f48-4c87-8af9-f866b72128ef" absoluteBounds="45.39, 8.21, 1.9700000000000002, 3.010040283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="298f3d06-8733-4b9b-892a-a1ebfad8a482" absoluteBounds="45.375, 12.75, 2, 5.0483931477864559">
+      <DataClassMoniker Name="/HrDBDataContext/TRCOSC" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e61b8c6f-38da-49c2-9a7b-08d0eea97bba" absoluteBounds="45.39, 13.21, 1.9700000000000002, 4.488393147786458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

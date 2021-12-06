@@ -82,12 +82,12 @@ namespace OldDal.Dao.Bas
 
             return Vdb;
         }
-        public string GetDeptTreeByJob(string Job)
-        {
-            var result = (from c in dcHr.JOB
-                          where c.JOB1 == Job
-                          select c.DEPT_TREE).FirstOrDefault();
-            return result;
-        }
+        //public string GetDeptTreeByJob(string Job)
+        //{
+        //    var result = (from c in dcHr.JOB
+        //                  where c.JOB1 == Job
+        //                  select c.DEPT_TREE).FirstOrDefault();
+        //    return result;
+        //}
     }
 }
