@@ -320,7 +320,7 @@
         <elementListCompartment Id="e8de9ee0-3b9d-4010-bf38-811db434a077" absoluteBounds="3.2650000000000006, 2.8350000000000009, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 5.45); (3.125 : 5.825); (3.125 : 6.02106974283854); (3.26041666666667 : 6.02106974283854 : JumpStart); (3.57565333333333 : 6.02106974283854 : JumpEnd); (4.01822729166667 : 6.02106974283854 : JumpStart); (4.18489395833333 : 6.02106974283854 : JumpEnd); (4.68229291666667 : 6.02106974283854 : JumpStart); (4.84895958333333 : 6.02106974283854 : JumpEnd); (5.08073229166667 : 6.02106974283854 : JumpStart); (5.24739895833333 : 6.02106974283854 : JumpEnd); (6.125 : 6.02106974283854); (6.5 : 5.64606974283854)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 5.45); (3.125 : 5.825); (3.125 : 6.02106974283854); (3.26041666666667 : 6.02106974283854 : JumpStart); (3.57565333333333 : 6.02106974283854 : JumpEnd); (4.05143057291667 : 6.02106974283854 : JumpStart); (4.21809723958333 : 6.02106974283854 : JumpEnd); (4.74869947916667 : 6.02106974283854 : JumpStart); (4.91536614583333 : 6.02106974283854 : JumpEnd); (5.11393557291667 : 6.02106974283854 : JumpStart); (5.28060223958333 : 6.02106974283854 : JumpEnd); (6.125 : 6.02106974283854); (6.5 : 5.64606974283854)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HrDBDataContext/BASE/BASE_Contract" />
       <nodes>
         <classShapeMoniker Id="02f1b079-32b1-41ba-b4ef-c6d416eb5e0b" />
@@ -359,7 +359,7 @@
         <elementListCompartment Id="45e9031c-37a1-42fc-a76b-375a6464d377" absoluteBounds="9.265, 4.4600000000000009, 1.9700000000000002, 4.118804931640625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 5.225); (3.25 : 5.225); (3.25 : 5.89606974283854); (3.26041666666667 : 5.89606974283854 : JumpStart); (3.57565333333333 : 5.89606974283854 : JumpEnd); (4.01822729166667 : 5.89606974283854 : JumpStart); (4.18489395833333 : 5.89606974283854 : JumpEnd); (4.68229291666667 : 5.89606974283854 : JumpStart); (4.84895958333333 : 5.89606974283854 : JumpEnd); (5.08073229166667 : 5.89606974283854 : JumpStart); (5.24739895833333 : 5.89606974283854 : JumpEnd); (6.16666666666667 : 5.89606974283854 : JumpStart); (6.33333333333333 : 5.89606974283854 : JumpEnd); (9 : 5.89606974283854); (9 : 5.375); (10.25 : 5.375); (10.25 : 4.45)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 5.225); (3.25 : 5.225); (3.25 : 5.89606974283854); (3.26041666666667 : 5.89606974283854 : JumpStart); (3.57565333333333 : 5.89606974283854 : JumpEnd); (4.05143057291667 : 5.89606974283854 : JumpStart); (4.21809723958333 : 5.89606974283854 : JumpEnd); (4.74869947916667 : 5.89606974283854 : JumpStart); (4.91536614583333 : 5.89606974283854 : JumpEnd); (5.11393557291667 : 5.89606974283854 : JumpStart); (5.28060223958333 : 5.89606974283854 : JumpEnd); (6.16666666666667 : 5.89606974283854 : JumpStart); (6.33333333333333 : 5.89606974283854 : JumpEnd); (9 : 5.89606974283854); (9 : 5.375); (10.25 : 5.375); (10.25 : 4.45)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/HrDBDataContext/BASE/BASE_ABS" />
       <nodes>
         <classShapeMoniker Id="02f1b079-32b1-41ba-b4ef-c6d416eb5e0b" />
@@ -458,10 +458,10 @@
         <elementListCompartment Id="ac063239-3711-4bfd-bb53-555e94bf8325" absoluteBounds="21.765, 13.46, 1.9700000000000002, 2.6404520670572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="482c7c9f-edc5-4da3-9f26-4949e5bf7576" absoluteBounds="0.75, 3.625, 2, 3.2004520670572916">
+    <classShape Id="482c7c9f-edc5-4da3-9f26-4949e5bf7576" absoluteBounds="0.75, 3.625, 2, 3.0156579589843746">
       <DataClassMoniker Name="/HrDBDataContext/JOB" />
       <nestedChildShapes>
-        <elementListCompartment Id="d17d3bbb-2adc-4c8a-afdb-01d4db951adb" absoluteBounds="0.76500000000000057, 4.0850000000000009, 1.9700000000000002, 2.6404520670572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d17d3bbb-2adc-4c8a-afdb-01d4db951adb" absoluteBounds="0.76500000000000057, 4.0850000000000009, 1.9700000000000002, 2.455657958984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="29a29fc4-b74d-46f3-b4c1-a3bf0569aee9" isExpanded="false" absoluteBounds="12.75, 22, 2, 0.45000000000000284">
@@ -800,21 +800,21 @@
         <classShapeMoniker Id="dfed670e-a0fe-4ecc-8a1e-0c7632792b18" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 6.725); (3.26041666666667 : 6.725 : JumpStart); (3.57565333333333 : 6.725 : JumpEnd); (4.76562625 : 6.725); (4.76562625 : 5.45)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 6.725); (3.26041666666667 : 6.725 : JumpStart); (3.57565333333333 : 6.725 : JumpEnd); (4.8320328125 : 6.725); (4.8320328125 : 5.45)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/HrDBDataContext/DEPTS/DEPTS_BASETTS" />
       <nodes>
         <classShapeMoniker Id="14a8632b-8046-4646-9ddf-4303b0c3c825" />
         <classShapeMoniker Id="dfed670e-a0fe-4ecc-8a1e-0c7632792b18" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 6.34178237141927); (3.26041666666667 : 6.34178237141927 : JumpStart); (3.57565333333333 : 6.34178237141927 : JumpEnd); (4.101560625 : 6.34178237141927); (4.101560625 : 5.45)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 6.33086385091146); (3.26041666666667 : 6.33086385091146 : JumpStart); (3.57565333333333 : 6.33086385091146 : JumpEnd); (4.13476390625 : 6.33086385091146); (4.13476390625 : 5.45)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/HrDBDataContext/JOB/JOB_BASETTS" />
       <nodes>
         <classShapeMoniker Id="482c7c9f-edc5-4da3-9f26-4949e5bf7576" />
         <classShapeMoniker Id="dfed670e-a0fe-4ecc-8a1e-0c7632792b18" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 5.32187375); (3.16666666666667 : 5.32187375 : JumpStart); (3.33333333333333 : 5.32187375 : JumpEnd); (3.40898666666667 : 5.32187375 : JumpStart); (3.57565333333333 : 5.32187375 : JumpEnd); (5.164065625 : 5.32187375); (5.164065625 : 7)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 5.32187375); (3.16666666666667 : 5.32187375 : JumpStart); (3.33333333333333 : 5.32187375 : JumpEnd); (3.40898666666667 : 5.32187375 : JumpStart); (3.57565333333333 : 5.32187375 : JumpEnd); (5.19726890625 : 5.32187375); (5.19726890625 : 7)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/HrDBDataContext/BASE/BASE_CARD" />
       <nodes>
         <classShapeMoniker Id="02f1b079-32b1-41ba-b4ef-c6d416eb5e0b" />

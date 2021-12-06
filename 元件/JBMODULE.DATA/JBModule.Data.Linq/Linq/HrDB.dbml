@@ -1206,7 +1206,6 @@
       <Column Name="OLD_JOB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="WORKAMT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="JOB_DISP" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="DEPT_TREE" Type="System.String" CanBeNull="false" />
       <Association Name="JOB_BASETTS" Member="BASETTS" ThisKey="JOB1" OtherKey="JOB" Type="BASETTS" />
     </Type>
   </Table>

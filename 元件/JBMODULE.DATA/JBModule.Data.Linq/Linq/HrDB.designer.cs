@@ -27935,8 +27935,6 @@ namespace JBModule.Data.Linq
 		
 		private string _JOB_DISP;
 		
-		private string _DEPT_TREE;
-		
 		private EntitySet<BASETTS> _BASETTS;
 		
     #region 擴充性方法定義
@@ -27967,8 +27965,6 @@ namespace JBModule.Data.Linq
     partial void OnWORKAMTChanged();
     partial void OnJOB_DISPChanging(string value);
     partial void OnJOB_DISPChanged();
-    partial void OnDEPT_TREEChanging(string value);
-    partial void OnDEPT_TREEChanged();
     #endregion
 		
 		public JOB()
@@ -28213,26 +28209,6 @@ namespace JBModule.Data.Linq
 					this._JOB_DISP = value;
 					this.SendPropertyChanged("JOB_DISP");
 					this.OnJOB_DISPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPT_TREE", CanBeNull=false)]
-		public string DEPT_TREE
-		{
-			get
-			{
-				return this._DEPT_TREE;
-			}
-			set
-			{
-				if ((this._DEPT_TREE != value))
-				{
-					this.OnDEPT_TREEChanging(value);
-					this.SendPropertyChanging();
-					this._DEPT_TREE = value;
-					this.SendPropertyChanged("DEPT_TREE");
-					this.OnDEPT_TREEChanged();
 				}
 			}
 		}
