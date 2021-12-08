@@ -81,6 +81,7 @@
             this.證照資料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.公司別資料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.合同管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.員工規則設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.黑名單資料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.考勤資料BToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -344,7 +345,6 @@
             this.toolStripUserList = new System.Windows.Forms.ToolStripDropDownButton();
             this.btnMenuManagement = new System.Windows.Forms.ToolStripSplitButton();
             this.cardTableAdapter1 = new JBHR.Dll.dsAttTableAdapters.CARDTableAdapter();
-            this.員工規則設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -352,6 +352,7 @@
             // menuStrip1
             // 
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.資料維護DToolStripMenuItem,
@@ -731,6 +732,12 @@
             this.合同管理ToolStripMenuItem.Name = "合同管理ToolStripMenuItem";
             resources.ApplyResources(this.合同管理ToolStripMenuItem, "合同管理ToolStripMenuItem");
             this.合同管理ToolStripMenuItem.Tag = "Bas.FRM1O";
+            // 
+            // 員工規則設定ToolStripMenuItem
+            // 
+            this.員工規則設定ToolStripMenuItem.Name = "員工規則設定ToolStripMenuItem";
+            resources.ApplyResources(this.員工規則設定ToolStripMenuItem, "員工規則設定ToolStripMenuItem");
+            this.員工規則設定ToolStripMenuItem.Tag = "BAS.FRM1Q";
             // 
             // toolStripSeparator7
             // 
@@ -2552,17 +2559,10 @@
             // 
             this.cardTableAdapter1.ClearBeforeFill = true;
             // 
-            // 員工規則設定ToolStripMenuItem
-            // 
-            this.員工規則設定ToolStripMenuItem.Name = "員工規則設定ToolStripMenuItem";
-            resources.ApplyResources(this.員工規則設定ToolStripMenuItem, "員工規則設定ToolStripMenuItem");
-            this.員工規則設定ToolStripMenuItem.Tag = "BAS.FRM1Q";
-            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::JBHR.Properties.Resources.background1;
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;

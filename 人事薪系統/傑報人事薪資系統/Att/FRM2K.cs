@@ -95,12 +95,13 @@ namespace JBHR.Att
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            //string connectionString =
-            //    string.Format(
-            //    "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}"
-            //    , txtDataSource.Text, txtInitailCatalog.Text, txtUserId.Text, txtPassWord.Text);
-            string ConnectString = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};", txtDataSource.Text);
-            OleDbConnection conn = new OleDbConnection(ConnectString);
+            string connectionString =
+                string.Format(
+                "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}"
+                , txtDataSource.Text, txtInitailCatalog.Text, txtUserId.Text, txtPassWord.Text);
+            //string ConnectString = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};", txtDataSource.Text);
+            //OleDbConnection conn = new OleDbConnection(ConnectString);
+            SqlConnection conn = new SqlConnection(connectionString);
             try
             {
                 if (conn.State == System.Data.ConnectionState.Closed) conn.Open();

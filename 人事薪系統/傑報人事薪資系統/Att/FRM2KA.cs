@@ -34,31 +34,29 @@ namespace JBHR.Att
         {
             button1.DialogResult = DialogResult.OK;
 
-            string connectionString = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};", datasource);
+            string connectionString =
+               string.Format(
+               "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}"
+               , datasource, initialcatalog, userid, passwd);
 
-            OleDbConnection conn = new OleDbConnection(connectionString);
+            SqlConnection conn = new SqlConnection(connectionString);
             try
             {
                 if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
                 Dictionary<string, string> itms = new Dictionary<string, string>();
-                string[] restrictions = new string[4];
-                restrictions[3] = "Table";
-                // Get list of user tables
-                var userTables = conn.GetSchema("Tables", restrictions);
-                //var cmd = conn.CreateCommand();
-                //cmd.CommandText = "SELECT MSysObjects.Name AS table_name FROM MSysObjects WHERE (((Left([Name],1))<>\"~\")  AND ((Left([Name],4))<>\"MSys\") AND ((MSysObjects.Type) In (1,4,6))) order by MSysObjects.Name";
-                ////JBModule.Data.CSQL sql = new JBModule.Data.CSQL(conn);
-                //var dr = cmd.ExecuteReader();
-                //DataTable dt = new DataTable();
-                //dt.Load(dr);
-                ////cbxDataTable.ValueMember = "id";
-                //var tables = sql.GetDataTable("sp_tables");
-                //var tb = from r in dt.Columns select r;
-                foreach (DataRow it in userTables.Rows) itms.Add(it["Table_name"].ToString(), it["Table_name"].ToString());
-                SystemFunction.SetComboBoxItems(cbxDataTable, itms);
+                JBModule.Data.CSQL sql = new JBModule.Data.CSQL(conn);
+                //cbxDataTable.ValueMember = "id";
+                var tables = sql.GetDataTable("sp_tables");
+                var tb = from r in tables.AsEnumerable() where r["TABLE_TYPE"].ToString().ToLower() == "table" select r;
+                foreach (var itm in tb)
+                    if (!itms.ContainsKey(itm["table_name"].ToString()))
+                        itms.Add(itm["table_name"].ToString(), itm["table_name"].ToString());
+                //cbxDataTable.AddItem(itms);
+                SystemFunction.SetComboBoxItems(cbxDataTable, itms, false, true, true, true);
             }
-            catch
+            catch (Exception ex)
             {
+                JBModule.Message.TextLog.WriteLog(ex);
                 MessageBox.Show(Resources.All.DBConnectErr, Resources.All.DialogTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
@@ -69,30 +67,55 @@ namespace JBHR.Att
 
         private void cbxDataTable_SelectedIndexChange(object sender, EventArgs e)
         {
-            string connectionString = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};", datasource);
+            string connectionString =
+                string.Format(
+                "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}"
+                , datasource, initialcatalog, userid, passwd);
 
-            OleDbConnection conn = new OleDbConnection(connectionString);
+            SqlConnection conn = new SqlConnection(connectionString);
             try
             {
                 if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
 
                 Dictionary<string, string> itms = new Dictionary<string, string>();
-                var cmd = conn.CreateCommand();
-                cmd.CommandText = string.Format("SELECT * FROM {0} where 1=0", cbxDataTable.SelectedValue.ToString());
-                var dr = cmd.ExecuteReader();
-                DataTable dt = new DataTable();
-                dt.Load(dr);
+                JBModule.Data.CSQL sql = new JBModule.Data.CSQL(conn);
+                //cbxDataTable.ValueMember = "id";
+                var tables = sql.GetDataTable("SP_COLUMNS '" + cbxDataTable.SelectedValue + "'");
                 //var tb = from r in tables.AsEnumerable() where r["TABLE_TYPE"].ToString().ToLower() == "table" select r;
-                foreach (DataColumn itm in dt.Columns) itms.Add(itm.ColumnName, itm.ColumnName);
-                SystemFunction.SetComboBoxItems(cbxNobr, itms,true);
-                SystemFunction.SetComboBoxItems(cbxDate, itms, true);
-                SystemFunction.SetComboBoxItems(cbxNobr, itms, true);
-                SystemFunction.SetComboBoxItems(cbxTime, itms, true);
-                SystemFunction.SetComboBoxItems(cbxCheckTime, itms, true);
-                SystemFunction.SetComboBoxItems(cbxSource, itms, true);
-                SystemFunction.SetComboBoxItems(cbxIpAddr, itms, true);
-                SystemFunction.SetComboBoxItems(cbxCardNo, itms, true);
-                SystemFunction.SetComboBoxItems(cbxTemperature,itms, true);
+                foreach (DataRow itm in tables.Rows) itms.Add(itm["COLUMN_NAME"].ToString(), itm["COLUMN_NAME"].ToString());
+
+                //cbxCardNo.ClearItems();
+                //cbxDate.ClearItems();
+                //cbxNobr.ClearItems();
+                //cbxTime.ClearItems();
+                //cbxCheckTime.ClearItems();
+                //cbxSource.ClearItems();
+                //cbxIpAddr.ClearItems();
+
+                //cbxCardNo.ValueMember = "id";
+                //cbxDate.ValueMember = "id";
+                //cbxNobr.ValueMember = "id";
+                //cbxTime.ValueMember = "id";
+                //cbxCheckTime.ValueMember = "id";
+                //cbxSource.ValueMember = "id";
+                //cbxIpAddr.ValueMember = "id";
+
+                //cbxCardNo.AddItem(itms);
+                //cbxDate.AddItem(itms);
+                //cbxNobr.AddItem(itms);
+                //cbxTime.AddItem(itms);
+                //cbxCheckTime.AddItem(itms);
+                //cbxSource.AddItem(itms);
+                //cbxIpAddr.AddItem(itms);
+
+                SystemFunction.SetComboBoxItems(cbxDate, itms, false, true, true, true);
+                SystemFunction.SetComboBoxItems(cbxNobr, itms, false, true, true, true);
+                SystemFunction.SetComboBoxItems(cbxTime, itms, false, true, true, true);
+                SystemFunction.SetComboBoxItems(cbxCardNo, itms, true, true, true, true);
+                SystemFunction.SetComboBoxItems(cbxCheckTime, itms, true, true, true, true);
+                SystemFunction.SetComboBoxItems(cbxSource, itms, true, true, true, true);
+                SystemFunction.SetComboBoxItems(cbxIpAddr, itms, true, true, true, true);
+                SystemFunction.SetComboBoxItems(cbxTemperature, itms, true, true, true, true);
             }
             catch
             {
