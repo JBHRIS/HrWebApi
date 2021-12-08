@@ -1,6 +1,8 @@
-﻿namespace JBModule.Data {
-    
-    
-    public partial class dsAtt {
+﻿namespace JBModule.Data
+{
+
+
+    public partial class dsAtt
+    {
     }
 }

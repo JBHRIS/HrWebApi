@@ -40,13 +40,14 @@ namespace JBHR.Att
 
             foreach (DataRow itm in dataList)
             {
-                string nobr, adate, ontime, cardno, source, ipaddr;
+                string nobr, adate, ontime, cardno, source, ipaddr, temperature;
                 nobr = itm[0].ToString();
                 adate = itm[1].ToString();
                 ontime = itm[2].ToString();
                 cardno = itm[3].ToString();
                 source = itm[4].ToString();
                 ipaddr = itm[5].ToString();
+                temperature = itm[6].ToString();
                 //if (!baseList.Contains(nobr.Trim())) continue;//如果沒有base資料就略過
 
                 //CARD card = new CARD();
@@ -80,6 +81,7 @@ namespace JBHR.Att
                 card.ONTIME = time;
                 card.REASON = "";
                 card.SERNO = "";
+                card.temperature = temperature;
                 //db.CARD.InsertOnSubmit(card);
                 try
                 {
@@ -104,6 +106,7 @@ namespace JBHR.Att
                     cardRow.ONTIME = card.ONTIME;
                     cardRow.REASON = card.REASON;
                     cardRow.SERNO = card.SERNO;
+                    cardRow.temperature = card.temperature;
                     try
                     {
                         dsAtt.CARD.AddCARDRow(cardRow);
@@ -125,6 +128,7 @@ namespace JBHR.Att
             db1.SubmitChanges();
 
             GetData();
+            MessageBox.Show("匯入完成.");
         }
 
         private void FRM2KB_Load(object sender, EventArgs e)
@@ -141,22 +145,28 @@ namespace JBHR.Att
 
         void GetData()
         {
-            string connectionString = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};", row.DATA_SOURCE);
+            //string connectionString = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};", row.DATA_SOURCE);
 
-            OleDbConnection conn = new OleDbConnection(connectionString);
+            //OleDbConnection conn = new OleDbConnection(connectionString);
+            string connectionString = 
+                string.Format("Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}", 
+                row.DATA_SOURCE, row.INITAIL_CATALOG, row.USER_ID, row.PASSWORD);
+
+            SqlConnection conn = new SqlConnection(connectionString);
             try
             {
                 if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
                 //JBModule.Data.CSQL cData = new JBModule.Data.CSQL(conn);
-                string nobr, adate, ontime, cardno, checktime, source, ipaddr;
+                string nobr, adate, ontime, cardno, checktime, source, ipaddr, temperature;
                 nobr = row.COL_NOBR == null ? "''" : row.COL_NOBR;
                 adate = row.COL_ADATE == null ? "''" : row.COL_ADATE;
                 ontime = row.COL_ONTIME == null ? "''" : row.COL_ONTIME;
                 cardno = row.COL_CARDNO == null ? "''" : row.COL_CARDNO;
                 source = row.COL_SOURCE == null ? "''" : row.COL_SOURCE;
                 ipaddr = row.COL_IPADD == null ? "''" : row.COL_IPADD;
+                temperature = row.COL_Temperature == null ? "''" : row.COL_Temperature;
                 checktime = row.COL_CHECKTIME.Trim().Length == 0 ? adate : row.COL_CHECKTIME;//沒有選擇欄位的話就以adate為準
-                object[] parms = new object[] { nobr, adate, ontime, cardno, checktime, row.DATATABLE, dateTimePicker1.Value, dateTimePicker2.Value, source.Trim().Length > 0 ? source : @"''", ipaddr.Trim().Length > 0 ? ipaddr : @"''", ontime };
+                object[] parms = new object[] { nobr, adate, ontime, cardno, checktime, row.DATATABLE, dateTimePicker1.Value, dateTimePicker2.Value, source.Trim().Length > 0 ? source : @"''", ipaddr.Trim().Length > 0 ? ipaddr : @"''", ontime, temperature };
                 string cmd = string.Format(row.SQL, parms);
                 SelectTime = DateTime.Now;
                 var dbcmd = conn.CreateCommand();
@@ -211,6 +221,7 @@ namespace JBHR.Att
                 card.NOT_TRAN = itm.NOT_TRAN;
                 card.REASON = itm.REASON;
                 card.SERNO = itm.SERNO;
+                card.Temperature = itm.temperature;
                 db.CARD.InsertOnSubmit(card);
                 try
                 {
