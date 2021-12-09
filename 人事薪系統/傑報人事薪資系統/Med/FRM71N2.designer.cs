@@ -34,6 +34,7 @@
             this.buttonImportFromFile = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.buttonReport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,12 +52,17 @@
             // 
             // jbQuery1
             // 
+            this.jbQuery1.bnAddEnable = true;
+            this.jbQuery1.bnDelEnable = true;
+            this.jbQuery1.bnEditEnable = true;
+            this.jbQuery1.bnExportEnable = true;
             this.jbQuery1.DataGrid = this.dataGridView1;
             this.jbQuery1.Location = new System.Drawing.Point(12, 11);
             this.jbQuery1.Name = "jbQuery1";
             this.jbQuery1.QuerySettingString = "TW_TAX_SUMMARY";
             this.jbQuery1.RadDataGrid = null;
             this.jbQuery1.Size = new System.Drawing.Size(642, 77);
+            this.jbQuery1.SortString = "";
             this.jbQuery1.SourceTable = null;
             this.jbQuery1.TabIndex = 2;
             this.jbQuery1.RowDelete += new JBControls.JBQuery.RowDeleteEventHandler(this.jbQuery1_RowDelete);
@@ -101,11 +107,22 @@
             this.maskedTextBox1.TabIndex = 7;
             this.maskedTextBox1.Text = "A0000001";
             // 
+            // buttonReport
+            // 
+            this.buttonReport.Location = new System.Drawing.Point(819, 60);
+            this.buttonReport.Name = "buttonReport";
+            this.buttonReport.Size = new System.Drawing.Size(85, 23);
+            this.buttonReport.TabIndex = 8;
+            this.buttonReport.Text = "產生報表";
+            this.buttonReport.UseVisualStyleBackColor = true;
+            this.buttonReport.Click += new System.EventHandler(this.buttonReport_Click);
+            // 
             // FRM71N2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 641);
+            this.Controls.Add(this.buttonReport);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonImportFromFile);
@@ -130,5 +147,6 @@
         private System.Windows.Forms.Button buttonImportFromFile;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.Button buttonReport;
     }
 }

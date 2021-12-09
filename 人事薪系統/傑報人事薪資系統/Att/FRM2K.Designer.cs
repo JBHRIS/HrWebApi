@@ -29,13 +29,22 @@
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridViewEx1 = new JBControls.DataGridView();
+            this.cARDNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dATASOURCEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dATATABLEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cOLNOBRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cOLADATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cOLONTIMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cOLCARDNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uSYS7ABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsAtt = new JBHR.Att.dsAtt();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtDataSource = new JBControls.TextBox();
-            this.textBox1 = new JBControls.TextBox();
             this.btnImport = new System.Windows.Forms.Button();
             this.label98 = new System.Windows.Forms.Label();
             this.txtLastCheck = new JBControls.TextBox();
@@ -56,12 +65,14 @@
             this.txtOntime = new JBControls.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtCardName = new JBControls.TextBox();
+            this.txtDataSource = new JBControls.TextBox();
             this.txtAdate = new JBControls.TextBox();
             this.btnTest = new System.Windows.Forms.Button();
             this.txtInitailCatalog = new JBControls.TextBox();
             this.txtUserId = new JBControls.TextBox();
             this.txtNobr = new JBControls.TextBox();
             this.txtPassWord = new JBControls.TextBox();
+            this.textBox1 = new JBControls.TextBox();
             this.txtDataTable = new JBControls.TextBox();
             this.lbTemperate = new System.Windows.Forms.Label();
             this.txtTemperature = new JBControls.TextBox();
@@ -71,31 +82,20 @@
             this.txtSource = new JBControls.TextBox();
             this.fullDataCtrl1 = new JBControls.FullDataCtrl();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cARDNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dATASOURCEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dATATABLEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cOLNOBRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cOLADATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cOLONTIMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cOLCARDNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uSYS7ABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsAtt = new JBHR.Att.dsAtt();
             this.u_SYS7ATableAdapter = new JBHR.Att.dsAttTableAdapters.U_SYS7ATableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEx1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uSYS7ABindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsAtt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uSYS7ABindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsAtt)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -124,14 +124,14 @@
             this.dataGridViewEx1.AllowUserToResizeRows = false;
             this.dataGridViewEx1.AutoGenerateColumns = false;
             this.dataGridViewEx1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("細明體", 9F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewEx1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("細明體", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewEx1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewEx1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEx1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cARDNAMEDataGridViewTextBoxColumn,
@@ -154,6 +154,89 @@
             this.dataGridViewEx1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewEx1.Size = new System.Drawing.Size(645, 167);
             this.dataGridViewEx1.TabIndex = 8;
+            // 
+            // cARDNAMEDataGridViewTextBoxColumn
+            // 
+            this.cARDNAMEDataGridViewTextBoxColumn.DataPropertyName = "CARD_NAME";
+            this.cARDNAMEDataGridViewTextBoxColumn.HeaderText = "卡鐘名稱";
+            this.cARDNAMEDataGridViewTextBoxColumn.Name = "cARDNAMEDataGridViewTextBoxColumn";
+            this.cARDNAMEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cARDNAMEDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // dATASOURCEDataGridViewTextBoxColumn
+            // 
+            this.dATASOURCEDataGridViewTextBoxColumn.DataPropertyName = "DATA_SOURCE";
+            this.dATASOURCEDataGridViewTextBoxColumn.HeaderText = "主機";
+            this.dATASOURCEDataGridViewTextBoxColumn.Name = "dATASOURCEDataGridViewTextBoxColumn";
+            this.dATASOURCEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dATASOURCEDataGridViewTextBoxColumn.Width = 54;
+            // 
+            // dATATABLEDataGridViewTextBoxColumn
+            // 
+            this.dATATABLEDataGridViewTextBoxColumn.DataPropertyName = "DATATABLE";
+            this.dATATABLEDataGridViewTextBoxColumn.HeaderText = "資料表";
+            this.dATATABLEDataGridViewTextBoxColumn.Name = "dATATABLEDataGridViewTextBoxColumn";
+            this.dATATABLEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dATATABLEDataGridViewTextBoxColumn.Width = 66;
+            // 
+            // cOLNOBRDataGridViewTextBoxColumn
+            // 
+            this.cOLNOBRDataGridViewTextBoxColumn.DataPropertyName = "COL_NOBR";
+            this.cOLNOBRDataGridViewTextBoxColumn.HeaderText = "工號";
+            this.cOLNOBRDataGridViewTextBoxColumn.Name = "cOLNOBRDataGridViewTextBoxColumn";
+            this.cOLNOBRDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cOLNOBRDataGridViewTextBoxColumn.Width = 54;
+            // 
+            // cOLADATEDataGridViewTextBoxColumn
+            // 
+            this.cOLADATEDataGridViewTextBoxColumn.DataPropertyName = "COL_ADATE";
+            this.cOLADATEDataGridViewTextBoxColumn.HeaderText = "日期";
+            this.cOLADATEDataGridViewTextBoxColumn.Name = "cOLADATEDataGridViewTextBoxColumn";
+            this.cOLADATEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cOLADATEDataGridViewTextBoxColumn.Width = 54;
+            // 
+            // cOLONTIMEDataGridViewTextBoxColumn
+            // 
+            this.cOLONTIMEDataGridViewTextBoxColumn.DataPropertyName = "COL_ONTIME";
+            this.cOLONTIMEDataGridViewTextBoxColumn.HeaderText = "時間";
+            this.cOLONTIMEDataGridViewTextBoxColumn.Name = "cOLONTIMEDataGridViewTextBoxColumn";
+            this.cOLONTIMEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cOLONTIMEDataGridViewTextBoxColumn.Width = 54;
+            // 
+            // cOLCARDNODataGridViewTextBoxColumn
+            // 
+            this.cOLCARDNODataGridViewTextBoxColumn.DataPropertyName = "COL_CARDNO";
+            this.cOLCARDNODataGridViewTextBoxColumn.HeaderText = "卡號";
+            this.cOLCARDNODataGridViewTextBoxColumn.Name = "cOLCARDNODataGridViewTextBoxColumn";
+            this.cOLCARDNODataGridViewTextBoxColumn.ReadOnly = true;
+            this.cOLCARDNODataGridViewTextBoxColumn.Width = 54;
+            // 
+            // kEYDATEDataGridViewTextBoxColumn
+            // 
+            this.kEYDATEDataGridViewTextBoxColumn.DataPropertyName = "KEY_DATE";
+            this.kEYDATEDataGridViewTextBoxColumn.HeaderText = "登錄時間";
+            this.kEYDATEDataGridViewTextBoxColumn.Name = "kEYDATEDataGridViewTextBoxColumn";
+            this.kEYDATEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kEYDATEDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // kEYMANDataGridViewTextBoxColumn
+            // 
+            this.kEYMANDataGridViewTextBoxColumn.DataPropertyName = "KEY_MAN";
+            this.kEYMANDataGridViewTextBoxColumn.HeaderText = "登錄者";
+            this.kEYMANDataGridViewTextBoxColumn.Name = "kEYMANDataGridViewTextBoxColumn";
+            this.kEYMANDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kEYMANDataGridViewTextBoxColumn.Width = 66;
+            // 
+            // uSYS7ABindingSource
+            // 
+            this.uSYS7ABindingSource.DataMember = "U_SYS7A";
+            this.uSYS7ABindingSource.DataSource = this.dsAtt;
+            // 
+            // dsAtt
+            // 
+            this.dsAtt.DataSetName = "dsAtt";
+            this.dsAtt.Locale = new System.Globalization.CultureInfo("zh-TW");
+            this.dsAtt.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // splitContainer2
             // 
@@ -233,48 +316,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(645, 190);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
-            // txtDataSource
-            // 
-            this.txtDataSource.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtDataSource.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.txtDataSource.CaptionLabel = null;
-            this.txtDataSource.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.tableLayoutPanel1.SetColumnSpan(this.txtDataSource, 2);
-            this.txtDataSource.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.uSYS7ABindingSource, "DATA_SOURCE", true));
-            this.txtDataSource.DecimalPlace = 2;
-            this.txtDataSource.IsEmpty = false;
-            this.txtDataSource.Location = new System.Drawing.Point(70, 35);
-            this.txtDataSource.Mask = "";
-            this.txtDataSource.MaxLength = 50;
-            this.txtDataSource.Name = "txtDataSource";
-            this.txtDataSource.PasswordChar = '\0';
-            this.txtDataSource.ReadOnly = false;
-            this.txtDataSource.ShowCalendarButton = true;
-            this.txtDataSource.Size = new System.Drawing.Size(182, 22);
-            this.txtDataSource.TabIndex = 1;
-            this.txtDataSource.ValidType = JBControls.TextBox.EValidType.String;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.textBox1.CaptionLabel = null;
-            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.tableLayoutPanel1.SetColumnSpan(this.textBox1, 6);
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.uSYS7ABindingSource, "SQL", true));
-            this.textBox1.DecimalPlace = 2;
-            this.textBox1.IsEmpty = true;
-            this.textBox1.Location = new System.Drawing.Point(70, 161);
-            this.textBox1.Mask = "";
-            this.textBox1.MaxLength = 500;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '\0';
-            this.textBox1.ReadOnly = false;
-            this.textBox1.ShowCalendarButton = true;
-            this.textBox1.Size = new System.Drawing.Size(461, 22);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.ValidType = JBControls.TextBox.EValidType.String;
-            // 
             // btnImport
             // 
             this.btnImport.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -343,7 +384,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(478, 102);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 12);
@@ -359,6 +400,7 @@
             this.btnBroswer.TabStop = false;
             this.btnBroswer.Text = "..";
             this.btnBroswer.UseVisualStyleBackColor = true;
+            this.btnBroswer.Visible = false;
             this.btnBroswer.Click += new System.EventHandler(this.btnBroswer_Click);
             // 
             // label1
@@ -404,7 +446,6 @@
             this.label96.Size = new System.Drawing.Size(41, 12);
             this.label96.TabIndex = 80;
             this.label96.Text = "資料庫";
-            this.label96.Visible = false;
             // 
             // label61
             // 
@@ -416,7 +457,6 @@
             this.label61.Size = new System.Drawing.Size(29, 12);
             this.label61.TabIndex = 76;
             this.label61.Text = "帳號";
-            this.label61.Visible = false;
             // 
             // label97
             // 
@@ -493,7 +533,6 @@
             this.label60.Size = new System.Drawing.Size(29, 12);
             this.label60.TabIndex = 77;
             this.label60.Text = "密碼";
-            this.label60.Visible = false;
             // 
             // txtOntime
             // 
@@ -547,6 +586,27 @@
             this.txtCardName.TabIndex = 0;
             this.txtCardName.ValidType = JBControls.TextBox.EValidType.String;
             // 
+            // txtDataSource
+            // 
+            this.txtDataSource.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtDataSource.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.txtDataSource.CaptionLabel = null;
+            this.txtDataSource.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.tableLayoutPanel1.SetColumnSpan(this.txtDataSource, 2);
+            this.txtDataSource.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.uSYS7ABindingSource, "DATA_SOURCE", true));
+            this.txtDataSource.DecimalPlace = 2;
+            this.txtDataSource.IsEmpty = false;
+            this.txtDataSource.Location = new System.Drawing.Point(70, 35);
+            this.txtDataSource.Mask = "";
+            this.txtDataSource.MaxLength = 50;
+            this.txtDataSource.Name = "txtDataSource";
+            this.txtDataSource.PasswordChar = '\0';
+            this.txtDataSource.ReadOnly = false;
+            this.txtDataSource.ShowCalendarButton = true;
+            this.txtDataSource.Size = new System.Drawing.Size(182, 22);
+            this.txtDataSource.TabIndex = 1;
+            this.txtDataSource.ValidType = JBControls.TextBox.EValidType.String;
+            // 
             // txtAdate
             // 
             this.txtAdate.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -598,7 +658,6 @@
             this.txtInitailCatalog.Size = new System.Drawing.Size(109, 22);
             this.txtInitailCatalog.TabIndex = 2;
             this.txtInitailCatalog.ValidType = JBControls.TextBox.EValidType.String;
-            this.txtInitailCatalog.Visible = false;
             // 
             // txtUserId
             // 
@@ -619,7 +678,6 @@
             this.txtUserId.Size = new System.Drawing.Size(109, 22);
             this.txtUserId.TabIndex = 3;
             this.txtUserId.ValidType = JBControls.TextBox.EValidType.String;
-            this.txtUserId.Visible = false;
             // 
             // txtNobr
             // 
@@ -661,7 +719,27 @@
             this.txtPassWord.Size = new System.Drawing.Size(109, 22);
             this.txtPassWord.TabIndex = 4;
             this.txtPassWord.ValidType = JBControls.TextBox.EValidType.String;
-            this.txtPassWord.Visible = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.textBox1.CaptionLabel = null;
+            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.tableLayoutPanel1.SetColumnSpan(this.textBox1, 6);
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.uSYS7ABindingSource, "SQL", true));
+            this.textBox1.DecimalPlace = 2;
+            this.textBox1.IsEmpty = true;
+            this.textBox1.Location = new System.Drawing.Point(70, 161);
+            this.textBox1.Mask = "";
+            this.textBox1.MaxLength = 500;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.PasswordChar = '\0';
+            this.textBox1.ReadOnly = false;
+            this.textBox1.ShowCalendarButton = true;
+            this.textBox1.Size = new System.Drawing.Size(461, 22);
+            this.textBox1.TabIndex = 5;
+            this.textBox1.ValidType = JBControls.TextBox.EValidType.String;
             // 
             // txtDataTable
             // 
@@ -826,89 +904,6 @@
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.DataSource = this.uSYS7ABindingSource;
             // 
-            // cARDNAMEDataGridViewTextBoxColumn
-            // 
-            this.cARDNAMEDataGridViewTextBoxColumn.DataPropertyName = "CARD_NAME";
-            this.cARDNAMEDataGridViewTextBoxColumn.HeaderText = "卡鐘名稱";
-            this.cARDNAMEDataGridViewTextBoxColumn.Name = "cARDNAMEDataGridViewTextBoxColumn";
-            this.cARDNAMEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cARDNAMEDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // dATASOURCEDataGridViewTextBoxColumn
-            // 
-            this.dATASOURCEDataGridViewTextBoxColumn.DataPropertyName = "DATA_SOURCE";
-            this.dATASOURCEDataGridViewTextBoxColumn.HeaderText = "主機";
-            this.dATASOURCEDataGridViewTextBoxColumn.Name = "dATASOURCEDataGridViewTextBoxColumn";
-            this.dATASOURCEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dATASOURCEDataGridViewTextBoxColumn.Width = 54;
-            // 
-            // dATATABLEDataGridViewTextBoxColumn
-            // 
-            this.dATATABLEDataGridViewTextBoxColumn.DataPropertyName = "DATATABLE";
-            this.dATATABLEDataGridViewTextBoxColumn.HeaderText = "資料表";
-            this.dATATABLEDataGridViewTextBoxColumn.Name = "dATATABLEDataGridViewTextBoxColumn";
-            this.dATATABLEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dATATABLEDataGridViewTextBoxColumn.Width = 66;
-            // 
-            // cOLNOBRDataGridViewTextBoxColumn
-            // 
-            this.cOLNOBRDataGridViewTextBoxColumn.DataPropertyName = "COL_NOBR";
-            this.cOLNOBRDataGridViewTextBoxColumn.HeaderText = "工號";
-            this.cOLNOBRDataGridViewTextBoxColumn.Name = "cOLNOBRDataGridViewTextBoxColumn";
-            this.cOLNOBRDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cOLNOBRDataGridViewTextBoxColumn.Width = 54;
-            // 
-            // cOLADATEDataGridViewTextBoxColumn
-            // 
-            this.cOLADATEDataGridViewTextBoxColumn.DataPropertyName = "COL_ADATE";
-            this.cOLADATEDataGridViewTextBoxColumn.HeaderText = "日期";
-            this.cOLADATEDataGridViewTextBoxColumn.Name = "cOLADATEDataGridViewTextBoxColumn";
-            this.cOLADATEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cOLADATEDataGridViewTextBoxColumn.Width = 54;
-            // 
-            // cOLONTIMEDataGridViewTextBoxColumn
-            // 
-            this.cOLONTIMEDataGridViewTextBoxColumn.DataPropertyName = "COL_ONTIME";
-            this.cOLONTIMEDataGridViewTextBoxColumn.HeaderText = "時間";
-            this.cOLONTIMEDataGridViewTextBoxColumn.Name = "cOLONTIMEDataGridViewTextBoxColumn";
-            this.cOLONTIMEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cOLONTIMEDataGridViewTextBoxColumn.Width = 54;
-            // 
-            // cOLCARDNODataGridViewTextBoxColumn
-            // 
-            this.cOLCARDNODataGridViewTextBoxColumn.DataPropertyName = "COL_CARDNO";
-            this.cOLCARDNODataGridViewTextBoxColumn.HeaderText = "卡號";
-            this.cOLCARDNODataGridViewTextBoxColumn.Name = "cOLCARDNODataGridViewTextBoxColumn";
-            this.cOLCARDNODataGridViewTextBoxColumn.ReadOnly = true;
-            this.cOLCARDNODataGridViewTextBoxColumn.Width = 54;
-            // 
-            // kEYDATEDataGridViewTextBoxColumn
-            // 
-            this.kEYDATEDataGridViewTextBoxColumn.DataPropertyName = "KEY_DATE";
-            this.kEYDATEDataGridViewTextBoxColumn.HeaderText = "登錄時間";
-            this.kEYDATEDataGridViewTextBoxColumn.Name = "kEYDATEDataGridViewTextBoxColumn";
-            this.kEYDATEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.kEYDATEDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // kEYMANDataGridViewTextBoxColumn
-            // 
-            this.kEYMANDataGridViewTextBoxColumn.DataPropertyName = "KEY_MAN";
-            this.kEYMANDataGridViewTextBoxColumn.HeaderText = "登錄者";
-            this.kEYMANDataGridViewTextBoxColumn.Name = "kEYMANDataGridViewTextBoxColumn";
-            this.kEYMANDataGridViewTextBoxColumn.ReadOnly = true;
-            this.kEYMANDataGridViewTextBoxColumn.Width = 66;
-            // 
-            // uSYS7ABindingSource
-            // 
-            this.uSYS7ABindingSource.DataMember = "U_SYS7A";
-            this.uSYS7ABindingSource.DataSource = this.dsAtt;
-            // 
-            // dsAtt
-            // 
-            this.dsAtt.DataSetName = "dsAtt";
-            this.dsAtt.Locale = new System.Globalization.CultureInfo("zh-TW");
-            this.dsAtt.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // u_SYS7ATableAdapter
             // 
             this.u_SYS7ATableAdapter.ClearBeforeFill = true;
@@ -929,6 +924,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEx1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uSYS7ABindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsAtt)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
@@ -936,8 +933,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uSYS7ABindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsAtt)).EndInit();
             this.ResumeLayout(false);
 
 		}

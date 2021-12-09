@@ -125,223 +125,223 @@
     <value>微軟正黑體, 10pt</value>
   </data>
   <data name="編制部門代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="編制部門代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>編制部門代碼</value>
   </data>
   <data name="成本部門代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="成本部門代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>成本部門代碼</value>
   </data>
   <data name="簽核部門代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="簽核部門代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>簽核部門代碼</value>
   </data>
   <data name="眷屬稱謂代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="眷屬稱謂代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>眷屬稱謂代碼</value>
   </data>
   <data name="工作地點代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="工作地點代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>工作地點代碼</value>
   </data>
   <data name="職稱代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="職稱代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>職稱代碼</value>
   </data>
   <data name="職等代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="職等代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>職等代碼</value>
   </data>
   <data name="toolStripMenuItem30.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="toolStripMenuItem30.Text" xml:space="preserve">
     <value>職類代碼</value>
   </data>
   <data name="toolStripMenuItem32.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="toolStripMenuItem32.Text" xml:space="preserve">
     <value>職級代碼</value>
   </data>
   <data name="toolStripMenuItem34.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="toolStripMenuItem34.Text" xml:space="preserve">
     <value>隸屬獎金代碼</value>
   </data>
   <data name="職系代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="職系代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>ERP代碼</value>
   </data>
   <data name="toolStripMenuItem23.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="toolStripMenuItem23.Text" xml:space="preserve">
     <value>部門層級代碼</value>
   </data>
   <data name="異動原因代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="異動原因代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>異動原因代碼</value>
   </data>
   <data name="離職原因代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="離職原因代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>離職原因代碼</value>
   </data>
   <data name="員別代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="員別代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>員別代碼</value>
   </data>
   <data name="獎懲原因代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="獎懲原因代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>獎懲原因代碼</value>
   </data>
   <data name="籍貫代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="籍貫代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>戶籍地代碼</value>
   </data>
   <data name="國別代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="國別代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>國別代碼</value>
   </data>
   <data name="toolStripMenuItem22.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="toolStripMenuItem22.Text" xml:space="preserve">
     <value>興趣代碼</value>
   </data>
   <data name="興趣代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="興趣代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>學歷代碼</value>
   </data>
   <data name="身份別代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="身份別代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>身份別代碼</value>
   </data>
   <data name="合同種類代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="合同種類代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>合同種類代碼</value>
   </data>
   <data name="錄取管道代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="錄取管道代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>門禁群組代碼</value>
   </data>
   <data name="錄取管道代碼ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="錄取管道代碼ToolStripMenuItem1.Text" xml:space="preserve">
     <value>錄取管道代碼</value>
   </data>
   <data name="銀行代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="銀行代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>銀行代碼</value>
   </data>
   <data name="外派身分代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="外派身分代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>外派代碼</value>
   </data>
   <data name="科系代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="科系代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>科系代碼</value>
   </data>
   <data name="費用部門代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="費用部門代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>費用部門代碼</value>
   </data>
   <data name="toolStripMenuItem35.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="toolStripMenuItem35.Text" xml:space="preserve">
     <value>檢核項目代碼</value>
   </data>
   <data name="toolStripMenuItem25.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="toolStripMenuItem25.Text" xml:space="preserve">
     <value>編制課別代碼</value>
   </data>
   <data name="toolStripMenuItem24.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="toolStripMenuItem24.Text" xml:space="preserve">
     <value>成本別代碼</value>
   </data>
   <data name="toolStripMenuItem27.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="toolStripMenuItem27.Text" xml:space="preserve">
     <value>組別代碼</value>
   </data>
   <data name="toolStripMenuItem26.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="toolStripMenuItem26.Text" xml:space="preserve">
     <value>責任區分代碼</value>
   </data>
   <data name="toolStripMenuItem28.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="toolStripMenuItem28.Text" xml:space="preserve">
     <value>殘障類別代碼</value>
   </data>
   <data name="toolStripMenuItem29.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="toolStripMenuItem29.Text" xml:space="preserve">
     <value>殘障身分代碼</value>
   </data>
   <data name="代碼資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="代碼資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>代碼資料</value>
   </data>
   <data name="自定義欄位設定ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="自定義欄位設定ToolStripMenuItem.Text" xml:space="preserve">
     <value>自定義欄位設定</value>
@@ -351,220 +351,220 @@
     <value>F1</value>
   </data>
   <data name="員工資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="員工資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>員工資料</value>
   </data>
   <data name="人事異動資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="人事異動資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>人事異動資料</value>
   </data>
   <data name="員工資料查詢ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="員工資料查詢ToolStripMenuItem.Text" xml:space="preserve">
     <value>員工資料查詢</value>
   </data>
   <data name="眷屬資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="眷屬資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>眷屬資料</value>
   </data>
   <data name="獎懲資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="獎懲資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>獎懲資料</value>
   </data>
   <data name="教育程度資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="教育程度資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>教育程度資料</value>
   </data>
   <data name="經歷資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="經歷資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>經歷資料</value>
   </data>
   <data name="費用分攤資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="費用分攤資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>費用分攤資料</value>
   </data>
   <data name="專長與興趣ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="專長與興趣ToolStripMenuItem.Text" xml:space="preserve">
     <value>專長與興趣</value>
   </data>
   <data name="證照資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="證照資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>證照資料</value>
   </data>
   <data name="公司別資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="公司別資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>公司基本資料</value>
   </data>
   <data name="合同管理ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="合同管理ToolStripMenuItem.Text" xml:space="preserve">
     <value>合同管理</value>
   </data>
   <data name="員工規則設定ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="員工規則設定ToolStripMenuItem.Text" xml:space="preserve">
     <value>員工規則設定</value>
   </data>
   <data name="toolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 6</value>
+    <value>251, 6</value>
   </data>
   <data name="黑名單資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="黑名單資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>黑名單資料</value>
   </data>
   <data name="人事資料AToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>237, 34</value>
   </data>
   <data name="人事資料AToolStripMenuItem.Text" xml:space="preserve">
     <value>人事資料(&amp;A)</value>
   </data>
   <data name="toolStripMenuItem31.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 22</value>
+    <value>274, 34</value>
   </data>
   <data name="toolStripMenuItem31.Text" xml:space="preserve">
     <value>請假類別代碼</value>
   </data>
   <data name="假別代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 22</value>
+    <value>274, 34</value>
   </data>
   <data name="假別代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>假別代碼</value>
   </data>
   <data name="班別代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 22</value>
+    <value>274, 34</value>
   </data>
   <data name="班別代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>班別代碼</value>
   </data>
   <data name="輪班別代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 22</value>
+    <value>274, 34</value>
   </data>
   <data name="輪班別代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>輪班別代碼</value>
   </data>
   <data name="遺忘刷卡原因代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 22</value>
+    <value>274, 34</value>
   </data>
   <data name="遺忘刷卡原因代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>遺忘刷卡原因代碼</value>
   </data>
   <data name="加班原因代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 22</value>
+    <value>274, 34</value>
   </data>
   <data name="加班原因代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>加班原因代碼</value>
   </data>
   <data name="行事曆代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 22</value>
+    <value>274, 34</value>
   </data>
   <data name="行事曆代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>行事曆代碼</value>
   </data>
   <data name="假日類別代碼設定ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 22</value>
+    <value>274, 34</value>
   </data>
   <data name="假日類別代碼設定ToolStripMenuItem.Text" xml:space="preserve">
     <value>假日類別代碼設定</value>
   </data>
   <data name="加班比率代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 22</value>
+    <value>274, 34</value>
   </data>
   <data name="加班比率代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>加班比率代碼</value>
   </data>
   <data name="夜點費設定ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 22</value>
+    <value>274, 34</value>
   </data>
   <data name="夜點費設定ToolStripMenuItem.Text" xml:space="preserve">
     <value>夜點費設定</value>
   </data>
   <data name="其他加班比率設定ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 22</value>
+    <value>274, 34</value>
   </data>
   <data name="其他加班比率設定ToolStripMenuItem.Text" xml:space="preserve">
     <value>其他加班比率設定</value>
   </data>
   <data name="代碼資料ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="代碼資料ToolStripMenuItem1.Text" xml:space="preserve">
     <value>代碼資料</value>
   </data>
   <data name="領卡資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="領卡資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>領卡資料</value>
   </data>
   <data name="員工班表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="員工班表ToolStripMenuItem.Text" xml:space="preserve">
     <value>員工班表</value>
   </data>
   <data name="toolStripMenuItem37.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="toolStripMenuItem37.Text" xml:space="preserve">
     <value>班表匯入資料</value>
   </data>
   <data name="刷卡資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="刷卡資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>刷卡資料</value>
   </data>
   <data name="遺忘刷卡資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="遺忘刷卡資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>遺忘刷卡資料</value>
   </data>
   <data name="出勤刷卡資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="出勤刷卡資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>出勤刷卡資料</value>
   </data>
   <data name="出勤異常註記toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="出勤異常註記toolStripMenuItem.Text" xml:space="preserve">
     <value>出勤異常註記</value>
   </data>
   <data name="出勤資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="出勤資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>出勤資料</value>
   </data>
   <data name="假日班别批次调整toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="假日班别批次调整toolStripMenuItem.Text" xml:space="preserve">
     <value>假日班别批次调整</value>
@@ -573,7 +573,7 @@
     <value>F2</value>
   </data>
   <data name="toolStripMenuItem36.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="toolStripMenuItem36.Text" xml:space="preserve">
     <value>請假資料</value>
@@ -582,91 +582,91 @@
     <value>F3</value>
   </data>
   <data name="加班資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="加班資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>加班資料</value>
   </data>
   <data name="公出資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="公出資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>公出資料</value>
   </data>
   <data name="得假資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="得假資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>得假資料</value>
   </data>
   <data name="調班資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="調班資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>調班資料</value>
   </data>
   <data name="調班資料新ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="調班資料新ToolStripMenuItem.Text" xml:space="preserve">
     <value>調班資料(新)</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 6</value>
+    <value>303, 6</value>
   </data>
   <data name="用餐群組代碼toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="用餐群組代碼toolStripMenuItem.Text" xml:space="preserve">
     <value>用餐群組代碼</value>
   </data>
   <data name="員工報餐紀錄toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="員工報餐紀錄toolStripMenuItem.Text" xml:space="preserve">
     <value>員工報餐紀錄</value>
   </data>
   <data name="食堂刷卡資料toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="食堂刷卡資料toolStripMenuItem.Text" xml:space="preserve">
     <value>食堂刷卡資料</value>
   </data>
   <data name="刷卡轉餐別toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="刷卡轉餐別toolStripMenuItem.Text" xml:space="preserve">
     <value>刷卡轉餐別</value>
   </data>
   <data name="刷卡餐別資料toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="刷卡餐別資料toolStripMenuItem.Text" xml:space="preserve">
     <value>刷卡餐別資料</value>
   </data>
   <data name="用餐扣款明細toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="用餐扣款明細toolStripMenuItem.Text" xml:space="preserve">
     <value>用餐扣款明細</value>
   </data>
   <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 6</value>
+    <value>303, 6</value>
   </data>
   <data name="行事曆ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="行事曆ToolStripMenuItem.Text" xml:space="preserve">
     <value>行事曆</value>
   </data>
   <data name="收集刷卡資料1ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="收集刷卡資料1ToolStripMenuItem.Text" xml:space="preserve">
     <value>收集刷卡資料(文字檔)</value>
   </data>
   <data name="收集刷卡資料2ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="收集刷卡資料2ToolStripMenuItem.Text" xml:space="preserve">
     <value>收集刷卡資料(資料庫)</value>
@@ -675,43 +675,43 @@
     <value>F4</value>
   </data>
   <data name="刷卡轉出勤ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="刷卡轉出勤ToolStripMenuItem.Text" xml:space="preserve">
     <value>刷卡轉出勤</value>
   </data>
   <data name="產生班表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="產生班表ToolStripMenuItem.Text" xml:space="preserve">
     <value>產生班表</value>
   </data>
   <data name="計算特休ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="計算特休ToolStripMenuItem.Text" xml:space="preserve">
     <value>計算特休</value>
   </data>
   <data name="產生加班ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="產生加班ToolStripMenuItem.Text" xml:space="preserve">
     <value>產生加班</value>
   </data>
   <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="toolStripMenuItem3.Text" xml:space="preserve">
     <value>延休作業</value>
   </data>
   <data name="考勤資料BToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>237, 34</value>
   </data>
   <data name="考勤資料BToolStripMenuItem.Text" xml:space="preserve">
     <value>考勤資料(&amp;B)</value>
   </data>
   <data name="保險等級資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 22</value>
+    <value>402, 34</value>
   </data>
   <data name="保險等級資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>保險等級資料</value>
@@ -720,112 +720,112 @@
     <value>F5</value>
   </data>
   <data name="勞健保投保資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 22</value>
+    <value>402, 34</value>
   </data>
   <data name="勞健保投保資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>勞健保投保資料</value>
   </data>
   <data name="勞保身分代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 22</value>
+    <value>402, 34</value>
   </data>
   <data name="勞保身分代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>勞保身分代碼資料</value>
   </data>
   <data name="健保身分代碼資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 22</value>
+    <value>402, 34</value>
   </data>
   <data name="健保身分代碼資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>健保身分代碼資料</value>
   </data>
   <data name="加退保原因代碼資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 22</value>
+    <value>402, 34</value>
   </data>
   <data name="加退保原因代碼資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>加退保原因代碼資料</value>
   </data>
   <data name="勞健保投保單位資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 22</value>
+    <value>402, 34</value>
   </data>
   <data name="勞健保投保單位資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>勞健保投保單位資料</value>
   </data>
   <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>275, 6</value>
+    <value>399, 6</value>
   </data>
   <data name="年度保費彙總ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 22</value>
+    <value>402, 34</value>
   </data>
   <data name="年度保費彙總ToolStripMenuItem.Text" xml:space="preserve">
     <value>年度保費彙總</value>
   </data>
   <data name="調整勞健保勞退金額ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 22</value>
+    <value>402, 34</value>
   </data>
   <data name="調整勞健保勞退金額ToolStripMenuItem.Text" xml:space="preserve">
     <value>調整勞健保勞退金額</value>
   </data>
   <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>275, 6</value>
+    <value>399, 6</value>
   </data>
   <data name="toolStripMenuItem20.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 22</value>
+    <value>402, 34</value>
   </data>
   <data name="toolStripMenuItem20.Text" xml:space="preserve">
     <value>勞保健保/勞退網路上傳媒體製作</value>
   </data>
   <data name="勞保健保勞退網路上傳媒體製作ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 22</value>
+    <value>402, 34</value>
   </data>
   <data name="勞保健保勞退網路上傳媒體製作ToolStripMenuItem.Text" xml:space="preserve">
     <value>補充保費網路上傳媒體製作</value>
   </data>
   <data name="勞保健保勞退費用資料匯入ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 22</value>
+    <value>402, 34</value>
   </data>
   <data name="勞保健保勞退費用資料匯入ToolStripMenuItem.Text" xml:space="preserve">
     <value>勞保健保/勞退費用資料匯入</value>
   </data>
   <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>275, 6</value>
+    <value>399, 6</value>
   </data>
   <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 22</value>
+    <value>402, 34</value>
   </data>
   <data name="toolStripMenuItem2.Text" xml:space="preserve">
     <value>團保保險等級資料</value>
   </data>
   <data name="團保保險等級資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 22</value>
+    <value>402, 34</value>
   </data>
   <data name="團保保險等級資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>團保投保資料</value>
   </data>
   <data name="保險資料CToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>237, 34</value>
   </data>
   <data name="保險資料CToolStripMenuItem.Text" xml:space="preserve">
     <value>保險資料(&amp;C)</value>
   </data>
   <data name="科目代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="科目代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>科目代碼</value>
   </data>
   <data name="薪別代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="薪別代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>薪別代碼</value>
   </data>
   <data name="薪資代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="薪資代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>薪資代碼</value>
   </data>
   <data name="薪資基本資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="薪資基本資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>薪資基本資料</value>
@@ -834,13 +834,13 @@
     <value>F6</value>
   </data>
   <data name="發薪資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="發薪資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>發薪資料</value>
   </data>
   <data name="調薪資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="調薪資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>調薪資料</value>
@@ -849,130 +849,130 @@
     <value>F7</value>
   </data>
   <data name="補扣發資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="補扣發資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>補扣發資料</value>
   </data>
   <data name="補扣發資料批次作業toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="補扣發資料批次作業toolStripMenuItem.Text" xml:space="preserve">
     <value>補扣發資料(批次作業)</value>
   </data>
   <data name="非經常期別toolStripMenuItem39.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="非經常期別toolStripMenuItem39.Text" xml:space="preserve">
     <value>非經常性期別資料</value>
   </data>
   <data name="toolStripMenuItem17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="toolStripMenuItem17.Text" xml:space="preserve">
     <value>固定加扣項</value>
   </data>
   <data name="變動薪資資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="變動薪資資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>變動薪資基礎</value>
   </data>
   <data name="所得稅級距表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="所得稅級距表ToolStripMenuItem.Text" xml:space="preserve">
     <value>所得稅級距表</value>
   </data>
   <data name="toolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 6</value>
+    <value>303, 6</value>
   </data>
   <data name="外勞膳宿費設定ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="外勞膳宿費設定ToolStripMenuItem.Text" xml:space="preserve">
     <value>外勞膳宿費設定</value>
   </data>
   <data name="toolStripMenuItem8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 6</value>
+    <value>303, 6</value>
   </data>
   <data name="法院強制代扣資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="法院強制代扣資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>法院強制代扣資料</value>
   </data>
   <data name="法院強制扣款明細ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="法院強制扣款明細ToolStripMenuItem.Text" xml:space="preserve">
     <value>法院強制扣款明細</value>
   </data>
   <data name="toolStripMenuItem9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 6</value>
+    <value>303, 6</value>
   </data>
   <data name="加班費資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="加班費資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>加班費資料</value>
   </data>
   <data name="出勤扣款資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="出勤扣款資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>出勤扣款資料</value>
   </data>
   <data name="toolStripMenuItem19.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="toolStripMenuItem19.Text" xml:space="preserve">
     <value>勞健保費用</value>
   </data>
   <data name="勞健保費用ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="勞健保費用ToolStripMenuItem.Text" xml:space="preserve">
     <value>補充保費明細</value>
   </data>
   <data name="銷假還款toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="銷假還款toolStripMenuItem.Text" xml:space="preserve">
     <value>銷假還款</value>
   </data>
   <data name="借假沖銷toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="借假沖銷toolStripMenuItem.Text" xml:space="preserve">
     <value>借假沖銷</value>
   </data>
   <data name="產生補休獎金ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="產生補休獎金ToolStripMenuItem.Text" xml:space="preserve">
     <value>產生補休獎金</value>
   </data>
   <data name="產生特休獎金ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="產生特休獎金ToolStripMenuItem.Text" xml:space="preserve">
     <value>產生特休獎金</value>
   </data>
   <data name="產生三節獎金ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="產生三節獎金ToolStripMenuItem.Text" xml:space="preserve">
     <value>產生三節獎金</value>
   </data>
   <data name="toolStripMenuItem10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 6</value>
+    <value>303, 6</value>
   </data>
   <data name="計算加班ToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>F8</value>
   </data>
   <data name="計算加班ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="計算加班ToolStripMenuItem.Text" xml:space="preserve">
     <value>計算加班</value>
@@ -981,7 +981,7 @@
     <value>F9</value>
   </data>
   <data name="計算請假扣款ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="計算請假扣款ToolStripMenuItem.Text" xml:space="preserve">
     <value>計算請假扣款</value>
@@ -990,7 +990,7 @@
     <value>F10</value>
   </data>
   <data name="計算勞健保費ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="計算勞健保費ToolStripMenuItem.Text" xml:space="preserve">
     <value>計算勞健保費</value>
@@ -999,7 +999,7 @@
     <value>F11</value>
   </data>
   <data name="計算團保費ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="計算團保費ToolStripMenuItem.Text" xml:space="preserve">
     <value>計算團保費</value>
@@ -1008,325 +1008,325 @@
     <value>F12</value>
   </data>
   <data name="計算薪資ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
+    <value>306, 34</value>
   </data>
   <data name="計算薪資ToolStripMenuItem.Text" xml:space="preserve">
     <value>計算薪資</value>
   </data>
   <data name="薪資資料DToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>237, 34</value>
   </data>
   <data name="薪資資料DToolStripMenuItem.Text" xml:space="preserve">
     <value>薪資資料(&amp;D)</value>
   </data>
   <data name="格式代號ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="格式代號ToolStripMenuItem.Text" xml:space="preserve">
     <value>格式代號</value>
   </data>
   <data name="稽徵機關ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="稽徵機關ToolStripMenuItem.Text" xml:space="preserve">
     <value>稽徵機關</value>
   </data>
   <data name="所得人資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="所得人資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>所得人資料</value>
   </data>
   <data name="年度所得資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="年度所得資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>年度所得作業</value>
   </data>
   <data name="媒體申報EToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>237, 34</value>
   </data>
   <data name="媒體申報EToolStripMenuItem.Text" xml:space="preserve">
     <value>媒體申報(&amp;E)</value>
   </data>
   <data name="福利金代號ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+    <value>214, 34</value>
   </data>
   <data name="福利金代號ToolStripMenuItem.Text" xml:space="preserve">
     <value>福利金代號</value>
   </data>
   <data name="福利金資料ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+    <value>214, 34</value>
   </data>
   <data name="福利金資料ToolStripMenuItem1.Text" xml:space="preserve">
     <value>福利金資料</value>
   </data>
   <data name="福利金資料toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>237, 34</value>
   </data>
   <data name="福利金資料toolStripMenuItem.Text" xml:space="preserve">
     <value>福利金資料(&amp;F)</value>
   </data>
   <data name="考績等級代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="考績等級代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>考績等級代碼</value>
   </data>
   <data name="考核類別代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="考核類別代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>考核類別代碼</value>
   </data>
   <data name="考核項目代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="考核項目代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>考核項目代碼</value>
   </data>
   <data name="考核種類代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="考核種類代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>考核種類代碼</value>
   </data>
   <data name="代碼資料ToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="代碼資料ToolStripMenuItem2.Text" xml:space="preserve">
     <value>代碼資料</value>
   </data>
   <data name="個人考核資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="個人考核資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>個人考核資料</value>
   </data>
   <data name="考核資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>237, 34</value>
   </data>
   <data name="考核資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>考核資料</value>
   </data>
   <data name="課程類別代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="課程類別代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>課程類別代碼</value>
   </data>
   <data name="承辦單位代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="承辦單位代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>承辦單位代碼</value>
   </data>
   <data name="課程評估代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="課程評估代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>課程評估代碼</value>
   </data>
   <data name="代碼資料ToolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="代碼資料ToolStripMenuItem3.Text" xml:space="preserve">
     <value>代碼資料</value>
   </data>
   <data name="訓練課程資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="訓練課程資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>訓練課程資料</value>
   </data>
   <data name="訓練人員資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="訓練人員資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>訓練人員資料</value>
   </data>
   <data name="教育訓練ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>237, 34</value>
   </data>
   <data name="教育訓練ToolStripMenuItem.Text" xml:space="preserve">
     <value>教育訓練</value>
   </data>
   <data name="分流上班類別代碼toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 22</value>
+    <value>274, 34</value>
   </data>
   <data name="分流上班類別代碼toolStripMenuItem.Text" xml:space="preserve">
     <value>分流上班類別代碼</value>
   </data>
   <data name="分流班表資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 22</value>
+    <value>274, 34</value>
   </data>
   <data name="分流班表資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>分流班表資料</value>
   </data>
   <data name="分流組別資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 22</value>
+    <value>274, 34</value>
   </data>
   <data name="分流組別資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>分流組別資料</value>
   </data>
   <data name="防疫分流班ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>237, 34</value>
   </data>
   <data name="防疫分流班ToolStripMenuItem.Text" xml:space="preserve">
     <value>防疫分流班</value>
   </data>
   <data name="資料維護DToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 23</value>
+    <value>135, 31</value>
   </data>
   <data name="資料維護DToolStripMenuItem.Text" xml:space="preserve">
     <value>資料維護(&amp;D)</value>
   </data>
   <data name="人事資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="人事資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>人事資料</value>
   </data>
   <data name="壽星名單ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="壽星名單ToolStripMenuItem.Text" xml:space="preserve">
     <value>壽星名單</value>
   </data>
   <data name="教育程度統計表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="教育程度統計表ToolStripMenuItem.Text" xml:space="preserve">
     <value>教育程度統計表</value>
   </data>
   <data name="獎懲資料ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="獎懲資料ToolStripMenuItem1.Text" xml:space="preserve">
     <value>獎懲資料</value>
   </data>
   <data name="離職率統計表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="離職率統計表ToolStripMenuItem.Text" xml:space="preserve">
     <value>離職率統計表</value>
   </data>
   <data name="年資分佈表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="年資分佈表ToolStripMenuItem.Text" xml:space="preserve">
     <value>年資分佈表</value>
   </data>
   <data name="年齡分佈表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="年齡分佈表ToolStripMenuItem.Text" xml:space="preserve">
     <value>年齡分佈表</value>
   </data>
   <data name="學經歷明細表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="學經歷明細表ToolStripMenuItem.Text" xml:space="preserve">
     <value>學經歷明細表</value>
   </data>
   <data name="部門人力統計表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="部門人力統計表ToolStripMenuItem.Text" xml:space="preserve">
     <value>部門人力統計表</value>
   </data>
   <data name="toolStripMenuItem11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 6</value>
+    <value>251, 6</value>
   </data>
   <data name="人事異動表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="人事異動表ToolStripMenuItem.Text" xml:space="preserve">
     <value>人事異動表</value>
   </data>
   <data name="人事異動單ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="人事異動單ToolStripMenuItem.Text" xml:space="preserve">
     <value>人事異動明細表</value>
   </data>
   <data name="服務證明書ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="服務證明書ToolStripMenuItem.Text" xml:space="preserve">
     <value>服務證明書</value>
   </data>
   <data name="toolStripMenuItem12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 6</value>
+    <value>251, 6</value>
   </data>
   <data name="證照資料明細表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="證照資料明細表ToolStripMenuItem.Text" xml:space="preserve">
     <value>證照資料明細表</value>
   </data>
   <data name="費用分攤明細表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="費用分攤明細表ToolStripMenuItem.Text" xml:space="preserve">
     <value>費用分攤明細表</value>
   </data>
   <data name="合同資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="合同資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>合同資料</value>
   </data>
   <data name="人事ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+    <value>194, 34</value>
   </data>
   <data name="人事ToolStripMenuItem.Text" xml:space="preserve">
     <value>人事</value>
   </data>
   <data name="員工出勤明細表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="員工出勤明細表ToolStripMenuItem.Text" xml:space="preserve">
     <value>員工出勤明細表</value>
   </data>
   <data name="員工加班請假檢核表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="員工加班請假檢核表ToolStripMenuItem.Text" xml:space="preserve">
     <value>員工加班請假檢核表</value>
   </data>
   <data name="出勤工時月報表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="出勤工時月報表ToolStripMenuItem.Text" xml:space="preserve">
     <value>出勤工時月報表</value>
   </data>
   <data name="出勤工時比較表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="出勤工時比較表ToolStripMenuItem.Text" xml:space="preserve">
     <value>出勤工時比較表</value>
   </data>
   <data name="加班報表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="加班報表ToolStripMenuItem.Text" xml:space="preserve">
     <value>加班報表</value>
   </data>
   <data name="加班原因分析表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="加班原因分析表ToolStripMenuItem.Text" xml:space="preserve">
     <value>加班原因分析表</value>
   </data>
   <data name="加班工時月報表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="加班工時月報表ToolStripMenuItem.Text" xml:space="preserve">
     <value>加班工時月報表</value>
   </data>
   <data name="加班班表與出勤班表差異ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="加班班表與出勤班表差異ToolStripMenuItem.Text" xml:space="preserve">
     <value>加班班表與出勤班表差異</value>
@@ -1336,25 +1336,25 @@
     <value>False</value>
   </data>
   <data name="請假報表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="請假報表ToolStripMenuItem.Text" xml:space="preserve">
     <value>請假報表</value>
   </data>
   <data name="請假對沖報表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="請假對沖報表ToolStripMenuItem.Text" xml:space="preserve">
     <value>請假對沖報表</value>
   </data>
   <data name="銷假報表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="銷假報表ToolStripMenuItem.Text" xml:space="preserve">
     <value>銷假報表</value>
   </data>
   <data name="特休報表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="特休報表ToolStripMenuItem.Text" xml:space="preserve">
     <value>特休報表</value>
@@ -1363,31 +1363,31 @@
     <value>False</value>
   </data>
   <data name="加班排名表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="加班排名表ToolStripMenuItem.Text" xml:space="preserve">
     <value>加班排名表</value>
   </data>
   <data name="出缺勤日報表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="出缺勤日報表ToolStripMenuItem.Text" xml:space="preserve">
     <value>出缺勤日報表</value>
   </data>
   <data name="員工班表ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="員工班表ToolStripMenuItem1.Text" xml:space="preserve">
     <value>員工班表</value>
   </data>
   <data name="調班報表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="調班報表ToolStripMenuItem.Text" xml:space="preserve">
     <value>調班報表</value>
   </data>
   <data name="補休報表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="補休報表ToolStripMenuItem.Text" xml:space="preserve">
     <value>補休報表</value>
@@ -1396,7 +1396,7 @@
     <value>False</value>
   </data>
   <data name="彈休報表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="彈休報表ToolStripMenuItem.Text" xml:space="preserve">
     <value>彈休報表</value>
@@ -1405,19 +1405,19 @@
     <value>False</value>
   </data>
   <data name="出勤排行ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="出勤排行ToolStripMenuItem.Text" xml:space="preserve">
     <value>出勤排行</value>
   </data>
   <data name="個人年度出勤明細ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="個人年度出勤明細ToolStripMenuItem.Text" xml:space="preserve">
     <value>個人年度出勤明細</value>
   </data>
   <data name="員工請假卡ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="員工請假卡ToolStripMenuItem.Text" xml:space="preserve">
     <value>員工請假卡</value>
@@ -1426,76 +1426,76 @@
     <value>False</value>
   </data>
   <data name="出勤異常通知ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="出勤異常通知ToolStripMenuItem.Text" xml:space="preserve">
     <value>出勤異常通知</value>
   </data>
   <data name="rBA標準工時表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 22</value>
+    <value>334, 34</value>
   </data>
   <data name="rBA標準工時表ToolStripMenuItem.Text" xml:space="preserve">
     <value>RBA標準工時表</value>
   </data>
   <data name="出勤ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+    <value>194, 34</value>
   </data>
   <data name="出勤ToolStripMenuItem.Text" xml:space="preserve">
     <value>出勤</value>
   </data>
   <data name="勞健保保險資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 22</value>
+    <value>414, 34</value>
   </data>
   <data name="勞健保保險資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>勞健保保險資料</value>
   </data>
   <data name="勞健保異動卡ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 22</value>
+    <value>414, 34</value>
   </data>
   <data name="勞健保異動卡ToolStripMenuItem.Text" xml:space="preserve">
     <value>勞健保異動卡</value>
   </data>
   <data name="保險費證明單ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 22</value>
+    <value>414, 34</value>
   </data>
   <data name="保險費證明單ToolStripMenuItem.Text" xml:space="preserve">
     <value>保險費證明單</value>
   </data>
   <data name="勞健團保代扣資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 22</value>
+    <value>414, 34</value>
   </data>
   <data name="勞健團保代扣資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>勞健團保代扣資料</value>
   </data>
   <data name="勞健團保費用分攤ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 22</value>
+    <value>414, 34</value>
   </data>
   <data name="勞健團保費用分攤ToolStripMenuItem.Text" xml:space="preserve">
     <value>勞健團保費用分攤</value>
   </data>
   <data name="團保保險資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 22</value>
+    <value>414, 34</value>
   </data>
   <data name="團保保險資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>團保保險資料</value>
   </data>
   <data name="團保異動卡ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 22</value>
+    <value>414, 34</value>
   </data>
   <data name="團保異動卡ToolStripMenuItem.Text" xml:space="preserve">
     <value>團保異動資料</value>
   </data>
   <data name="勞健保對帳單ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 22</value>
+    <value>414, 34</value>
   </data>
   <data name="勞健保對帳單ToolStripMenuItem.Text" xml:space="preserve">
     <value>勞健保對帳單</value>
   </data>
   <data name="toolStripMenuItem13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>283, 6</value>
+    <value>411, 6</value>
   </data>
   <data name="勞工退休金制度選擇暨提繳申報表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 22</value>
+    <value>414, 34</value>
   </data>
   <data name="勞工退休金制度選擇暨提繳申報表ToolStripMenuItem.Text" xml:space="preserve">
     <value>勞工退休金制度選擇暨提繳申報表</value>
@@ -1504,31 +1504,31 @@
     <value>False</value>
   </data>
   <data name="勞保健保勞退費用匯入比對資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 22</value>
+    <value>414, 34</value>
   </data>
   <data name="勞保健保勞退費用匯入比對資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>勞保健保/勞退費用匯入比對資料</value>
   </data>
   <data name="保險ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+    <value>194, 34</value>
   </data>
   <data name="保險ToolStripMenuItem.Text" xml:space="preserve">
     <value>保險</value>
   </data>
   <data name="基本薪資ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="基本薪資ToolStripMenuItem.Text" xml:space="preserve">
     <value>基本薪資</value>
   </data>
   <data name="發放薪資ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="發放薪資ToolStripMenuItem.Text" xml:space="preserve">
     <value>發放薪資</value>
   </data>
   <data name="薪資明細含出勤明細ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="薪資明細含出勤明細ToolStripMenuItem.Text" xml:space="preserve">
     <value>薪資明細含出勤明細</value>
@@ -1537,49 +1537,49 @@
     <value>False</value>
   </data>
   <data name="加班費用報表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="加班費用報表ToolStripMenuItem.Text" xml:space="preserve">
     <value>加班費用報表</value>
   </data>
   <data name="加班費用分析表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="加班費用分析表ToolStripMenuItem.Text" xml:space="preserve">
     <value>加班費用分析表</value>
   </data>
   <data name="請假扣款報表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="請假扣款報表ToolStripMenuItem.Text" xml:space="preserve">
     <value>請假扣款報表</value>
   </data>
   <data name="各期薪資表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="各期薪資表ToolStripMenuItem.Text" xml:space="preserve">
     <value>各期薪資表</value>
   </data>
   <data name="薪資異動表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="薪資異動表ToolStripMenuItem.Text" xml:space="preserve">
     <value>薪資異動表</value>
   </data>
   <data name="薪資總表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="薪資總表ToolStripMenuItem.Text" xml:space="preserve">
     <value>薪資總表</value>
   </data>
   <data name="toolStripMenuItem21.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="toolStripMenuItem21.Text" xml:space="preserve">
     <value>薪資分攤表</value>
   </data>
   <data name="薪資明細表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="薪資明細表ToolStripMenuItem.Text" xml:space="preserve">
     <value>薪資明細表</value>
@@ -1588,79 +1588,79 @@
     <value>False</value>
   </data>
   <data name="其它費用總表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="其它費用總表ToolStripMenuItem.Text" xml:space="preserve">
     <value>其它費用總表</value>
   </data>
   <data name="基本薪資平均表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="基本薪資平均表ToolStripMenuItem.Text" xml:space="preserve">
     <value>基本薪資平均表</value>
   </data>
   <data name="薪資異動通知單ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="薪資異動通知單ToolStripMenuItem.Text" xml:space="preserve">
     <value>薪資異動通知單</value>
   </data>
   <data name="補扣發明細表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="補扣發明細表ToolStripMenuItem.Text" xml:space="preserve">
     <value>補扣發明細表</value>
   </data>
   <data name="中夜津貼明細表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="中夜津貼明細表ToolStripMenuItem.Text" xml:space="preserve">
     <value>中夜津貼明細表</value>
   </data>
   <data name="屆退人員明細表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="屆退人員明細表ToolStripMenuItem.Text" xml:space="preserve">
     <value>屆退人員明細表</value>
   </data>
   <data name="實際發放薪資平均表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="實際發放薪資平均表ToolStripMenuItem.Text" xml:space="preserve">
     <value>實際發放薪資平均表</value>
   </data>
   <data name="扣繳稅額繳款書ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="扣繳稅額繳款書ToolStripMenuItem.Text" xml:space="preserve">
     <value>扣繳稅額繳款書</value>
   </data>
   <data name="薪資傳票ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="薪資傳票ToolStripMenuItem.Text" xml:space="preserve">
     <value>薪資傳票</value>
   </data>
   <data name="福利金代扣明細表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="福利金代扣明細表ToolStripMenuItem.Text" xml:space="preserve">
     <value>福利金代扣明細表</value>
   </data>
   <data name="toolStripMenuItem18.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="toolStripMenuItem18.Text" xml:space="preserve">
     <value>補充保費明細表</value>
   </data>
   <data name="全勤獎金明細表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="全勤獎金明細表ToolStripMenuItem.Text" xml:space="preserve">
     <value>全勤獎金明細表</value>
   </data>
   <data name="預估年終獎金ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="預估年終獎金ToolStripMenuItem.Text" xml:space="preserve">
     <value>預估年終獎金</value>
@@ -1669,112 +1669,112 @@
     <value>False</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>213, 6</value>
+    <value>311, 6</value>
   </data>
   <data name="法院強制扣款明細表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="法院強制扣款明細表ToolStripMenuItem.Text" xml:space="preserve">
     <value>法院強制扣款明細表</value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>213, 6</value>
+    <value>311, 6</value>
   </data>
   <data name="舊制勞退金提撥明細表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
+    <value>314, 34</value>
   </data>
   <data name="舊制勞退金提撥明細表ToolStripMenuItem.Text" xml:space="preserve">
     <value>舊制勞退金提撥明細表</value>
   </data>
   <data name="薪資ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+    <value>194, 34</value>
   </data>
   <data name="薪資ToolStripMenuItem.Text" xml:space="preserve">
     <value>薪資</value>
   </data>
   <data name="年度所得資料ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="年度所得資料ToolStripMenuItem1.Text" xml:space="preserve">
     <value>年度所得資料</value>
   </data>
   <data name="toolStripMenuItem14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 6</value>
+    <value>231, 6</value>
   </data>
   <data name="媒體申報ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+    <value>194, 34</value>
   </data>
   <data name="媒體申報ToolStripMenuItem.Text" xml:space="preserve">
     <value>媒體申報</value>
   </data>
   <data name="員工個人受訓資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 22</value>
+    <value>294, 34</value>
   </data>
   <data name="員工個人受訓資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>員工個人受訓資料</value>
   </data>
   <data name="學員受訓排名表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 22</value>
+    <value>294, 34</value>
   </data>
   <data name="學員受訓排名表ToolStripMenuItem.Text" xml:space="preserve">
     <value>學員受訓排名表</value>
   </data>
   <data name="教育訓練資料明細表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 22</value>
+    <value>294, 34</value>
   </data>
   <data name="教育訓練資料明細表ToolStripMenuItem.Text" xml:space="preserve">
     <value>教育訓練資料明細表</value>
   </data>
   <data name="教育訓練ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+    <value>194, 34</value>
   </data>
   <data name="教育訓練ToolStripMenuItem1.Text" xml:space="preserve">
     <value>教育訓練</value>
   </data>
   <data name="考核資料明細表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>254, 34</value>
   </data>
   <data name="考核資料明細表ToolStripMenuItem.Text" xml:space="preserve">
     <value>考核資料明細表</value>
   </data>
   <data name="考核ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+    <value>194, 34</value>
   </data>
   <data name="考核ToolStripMenuItem.Text" xml:space="preserve">
     <value>考核</value>
   </data>
   <data name="報表列印RToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 23</value>
+    <value>133, 31</value>
   </data>
   <data name="報表列印RToolStripMenuItem.Text" xml:space="preserve">
     <value>報表列印(&amp;R)</value>
   </data>
   <data name="自訂查詢QtoolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 23</value>
+    <value>136, 31</value>
   </data>
   <data name="自訂查詢QtoolStripMenuItem.Text" xml:space="preserve">
     <value>自訂查詢(&amp;Q)</value>
   </data>
   <data name="視窗WToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 23</value>
+    <value>100, 31</value>
   </data>
   <data name="視窗WToolStripMenuItem.Text" xml:space="preserve">
     <value>視窗(&amp;W)</value>
   </data>
   <data name="系統設定ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
+    <value>374, 34</value>
   </data>
   <data name="系統設定ToolStripMenuItem.Text" xml:space="preserve">
     <value>系統設定</value>
   </data>
   <data name="通知設定ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
+    <value>374, 34</value>
   </data>
   <data name="通知設定ToolStripMenuItem.Text" xml:space="preserve">
     <value>通知設定</value>
   </data>
   <data name="卡鐘格式設定ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
+    <value>374, 34</value>
   </data>
   <data name="卡鐘格式設定ToolStripMenuItem.Text" xml:space="preserve">
     <value>卡鐘格式設定</value>
@@ -1783,106 +1783,106 @@
     <value>False</value>
   </data>
   <data name="toolStripMenuItem15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>255, 6</value>
+    <value>371, 6</value>
   </data>
   <data name="重新登錄ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
+    <value>374, 34</value>
   </data>
   <data name="重新登錄ToolStripMenuItem.Text" xml:space="preserve">
     <value>重新登錄</value>
   </data>
   <data name="更改密碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
+    <value>374, 34</value>
   </data>
   <data name="更改密碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>更改密碼</value>
   </data>
   <data name="使用者資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
+    <value>374, 34</value>
   </data>
   <data name="使用者資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>使用者資料</value>
   </data>
   <data name="資料群組代碼toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
+    <value>374, 34</value>
   </data>
   <data name="資料群組代碼toolStripMenuItem.Text" xml:space="preserve">
     <value>資料群組代碼</value>
   </data>
   <data name="權限群組設定ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
+    <value>374, 34</value>
   </data>
   <data name="權限群組設定ToolStripMenuItem.Text" xml:space="preserve">
     <value>權限群組設定</value>
   </data>
   <data name="使用者權限設定ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
+    <value>374, 34</value>
   </data>
   <data name="使用者權限設定ToolStripMenuItem.Text" xml:space="preserve">
     <value>使用者權限設定</value>
   </data>
   <data name="助理權限設定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
+    <value>374, 34</value>
   </data>
   <data name="助理權限設定toolStripMenuItem.Text" xml:space="preserve">
     <value>助理權限設定</value>
   </data>
   <data name="程式資料設定ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
+    <value>374, 34</value>
   </data>
   <data name="程式資料設定ToolStripMenuItem.Text" xml:space="preserve">
     <value>程式資料設定</value>
   </data>
   <data name="資料異動記錄ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
+    <value>374, 34</value>
   </data>
   <data name="資料異動記錄ToolStripMenuItem.Text" xml:space="preserve">
     <value>資料異動記錄</value>
   </data>
   <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>255, 6</value>
+    <value>371, 6</value>
   </data>
   <data name="toolStripMenuItem33.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
+    <value>374, 34</value>
   </data>
   <data name="toolStripMenuItem33.Text" xml:space="preserve">
     <value>系統代碼設定</value>
   </data>
   <data name="自定義欄位維護toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
+    <value>374, 34</value>
   </data>
   <data name="自定義欄位維護toolStripMenuItem.Text" xml:space="preserve">
     <value>自定義欄位維護</value>
   </data>
   <data name="查詢條件設定toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
+    <value>374, 34</value>
   </data>
   <data name="查詢條件設定toolStripMenuItem.Text" xml:space="preserve">
     <value>查詢條件設定</value>
   </data>
   <data name="toolStripMenuItem16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>255, 6</value>
+    <value>371, 6</value>
   </data>
   <data name="產生出勤鎖檔記錄作業ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
+    <value>374, 34</value>
   </data>
   <data name="產生出勤鎖檔記錄作業ToolStripMenuItem.Text" xml:space="preserve">
     <value>產生出勤鎖檔記錄作業</value>
   </data>
   <data name="取消出勤鎖檔記錄作業ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
+    <value>374, 34</value>
   </data>
   <data name="取消出勤鎖檔記錄作業ToolStripMenuItem.Text" xml:space="preserve">
     <value>取消出勤鎖檔記錄作業</value>
   </data>
   <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>255, 6</value>
+    <value>371, 6</value>
   </data>
   <data name="toolStripSeparator4.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="計薪前出勤鎖檔記錄作業ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
+    <value>374, 34</value>
   </data>
   <data name="計薪前出勤鎖檔記錄作業ToolStripMenuItem.Text" xml:space="preserve">
     <value>計薪前出勤鎖檔記錄作業</value>
@@ -1891,7 +1891,7 @@
     <value>False</value>
   </data>
   <data name="取消計薪前出勤鎖檔記錄作業ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
+    <value>374, 34</value>
   </data>
   <data name="取消計薪前出勤鎖檔記錄作業ToolStripMenuItem.Text" xml:space="preserve">
     <value>取消計薪前出勤鎖檔記錄作業</value>
@@ -1900,85 +1900,85 @@
     <value>False</value>
   </data>
   <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>255, 6</value>
+    <value>371, 6</value>
   </data>
   <data name="薪資鎖檔記錄作業ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
+    <value>374, 34</value>
   </data>
   <data name="薪資鎖檔記錄作業ToolStripMenuItem.Text" xml:space="preserve">
     <value>薪資鎖檔記錄作業</value>
   </data>
   <data name="系統維護SToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 23</value>
+    <value>131, 31</value>
   </data>
   <data name="系統維護SToolStripMenuItem.Text" xml:space="preserve">
     <value>系統維護(&amp;S)</value>
   </data>
   <data name="信件管理ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="信件管理ToolStripMenuItem.Text" xml:space="preserve">
     <value>信件管理</value>
   </data>
   <data name="記錄管理ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="記錄管理ToolStripMenuItem.Text" xml:space="preserve">
     <value>記錄管理</value>
   </data>
   <data name="郵件參數ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="郵件參數ToolStripMenuItem.Text" xml:space="preserve">
     <value>郵件參數</value>
   </data>
   <data name="報表參數ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="報表參數ToolStripMenuItem.Text" xml:space="preserve">
     <value>報表參數</value>
   </data>
   <data name="計算公式ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+    <value>194, 34</value>
   </data>
   <data name="計算公式ToolStripMenuItem.Text" xml:space="preserve">
     <value>計算公式</value>
   </data>
   <data name="薪資工具ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="薪資工具ToolStripMenuItem.Text" xml:space="preserve">
     <value>薪資工具</value>
   </data>
   <data name="自訂查詢設定ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="自訂查詢設定ToolStripMenuItem.Text" xml:space="preserve">
     <value>自訂查詢設定</value>
   </data>
   <data name="版本ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>234, 34</value>
   </data>
   <data name="版本ToolStripMenuItem.Text" xml:space="preserve">
     <value>版本</value>
   </data>
   <data name="工具ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 23</value>
+    <value>91, 31</value>
   </data>
   <data name="工具ToolStripMenuItem.Text" xml:space="preserve">
     <value>工具(&amp;T)</value>
   </data>
   <data name="toolStripCbxCompany.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 23</value>
+    <value>298, 31</value>
   </data>
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
   <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 1, 0, 1</value>
+    <value>6, 2, 0, 2</value>
   </data>
   <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>784, 25</value>
+    <value>1176, 35</value>
   </data>
   <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1999,21 +1999,21 @@
     <value>1</value>
   </data>
   <data name="toolStripStatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 19</value>
+    <value>258, 27</value>
   </data>
   <data name="toolStripStatusLabel1.Text" xml:space="preserve">
     <value>        登錄者代號:   </value>
   </data>
   <data name="toolStripStatusLabel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 19</value>
+    <value>258, 27</value>
   </data>
   <data name="toolStripStatusLabel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 19</value>
+    <value>258, 27</value>
   </data>
   <data name="toolStripDropDownButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
         YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
         0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
         bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
@@ -2029,7 +2029,7 @@
     <value>Magenta</value>
   </data>
   <data name="toolStripDropDownButton1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 22</value>
+    <value>132, 31</value>
   </data>
   <data name="toolStripDropDownButton1.Text" xml:space="preserve">
     <value>讀取權限(00)</value>
@@ -2037,7 +2037,7 @@
   <data name="toolStripDropDownButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
         YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
         0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
         bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
@@ -2053,7 +2053,7 @@
     <value>Magenta</value>
   </data>
   <data name="toolStripDropDownButton2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 22</value>
+    <value>132, 31</value>
   </data>
   <data name="toolStripDropDownButton2.Text" xml:space="preserve">
     <value>寫入權限(00)</value>
@@ -2064,7 +2064,7 @@
   <data name="toolStripUserList.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
         YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
         0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
         bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
@@ -2080,7 +2080,7 @@
     <value>Magenta</value>
   </data>
   <data name="toolStripUserList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 22</value>
+    <value>114, 31</value>
   </data>
   <data name="toolStripUserList.Text" xml:space="preserve">
     <value>                    </value>
@@ -2091,7 +2091,7 @@
   <data name="btnMenuManagement.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
         YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
         0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
         bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
@@ -2107,7 +2107,7 @@
     <value>Magenta</value>
   </data>
   <data name="btnMenuManagement.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 22</value>
+    <value>103, 31</value>
   </data>
   <data name="btnMenuManagement.Text" xml:space="preserve">
     <value>選單管理</value>
@@ -2116,10 +2116,13 @@
     <value>False</value>
   </data>
   <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 537</value>
+    <value>0, 808</value>
+  </data>
+  <data name="statusStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 21, 0</value>
   </data>
   <data name="statusStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>784, 24</value>
+    <value>1176, 34</value>
   </data>
   <data name="statusStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2149,13 +2152,504 @@
     <value>25</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 12</value>
+    <value>9, 18</value>
+  </data>
+  <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        /9j/4AAQSkZJRgABAgEAAAAAAAD/7gAOQWRvYmUAZAAAAAAB/9sAQwABAQEBAQEBAQEBAQEBAQEBAQEB
+        AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAgICAgICAgICAgIDAwMDAwMDAwMD/9sAQwEBAQEBAQECAQEC
+        AgIBAgIDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMD/8IAEQgB
+        LAGQAwERAAIRAQMRAf/EAB0AAQACAgMBAQAAAAAAAAAAAAABAgMEBQYHCAn/xAAyEAABBAIABAQFBAID
+        AQEAAAADAQIEBQAGEBESE0AUFQcgITEiFjBQIySAQaAyF3Al/8QAHAEBAAIDAQEBAAAAAAAAAAAAAAQF
+        AQMGAgcI/8QAWBEAAQMCAwQGAwgMCgYLAAAAAgEDBBEFACESMTITBkFR0SKSFCBhFRBQcYFCUmIjMECR
+        obHBgtMklDUH8OFyMzR0JaUWlnBzk9SVNoDx0kNjROTV5Rc3/8QAShIAAQMBBQMGCgcDDAMBAAAAAREC
+        AwAhMUESBFEiExBhcZGxMkCBocHRQlKSMxTw4WJyIzQF0uKTIFCAoIKiskNTcyQVwmSUNf/EAC4TAQAC
+        AgECBAUFAQEBAQEAAAEAESExQVFhEHGBkUDwobHBIDBQ0eHxgGBwoP/aAAwDAQACEAMQAAAB/b4AAAAA
+        AAAAAAAAAAAAAAAAAAAGEAAAAAAAAAAAAAAAAAAAAAAgkAAAAAAAAAAAAAAAAAAAAAAAAgEgAAAAAAAA
+        AAAAAAAAAAAAAEEgFC4AAAAAAAAAAAAAAAAAAABBIBUsAYzIAAAADF6x0S30+EdfE9n5aV6hQSAAAAAA
+        AAAAAAAIBIKFiQYzIAAAAcJK8/lP+iKX3zjZf5//AGSBbD75+PWP358dnweCdjD6pZaO81HvnYnvvlPJ
+        0N2rq9lD7vTzuGmRNXbp6Df876BQ3m9o3cfKgcPOqOInUu9p9+s8X9VAEAkFSwKFiQYy5IAAAPzu+0xP
+        COt8dnr9+rsev82+fOy8/pJ8P39EuNfFSdPHb9fjnU1/278ntui3ELnYvn0igsPHus5/2Tk7v51+g8P2
+        SBu190P3Xhe78v6viNKTWcZMqPVOS7/vPPdmIJIILEFS4KAuQULFgAAAfjT+mXvXIeufh+vVOfYPbwzq
+        9ncqzxz0XVn8+cfrVz0XX6DTeuFmRfHuqqPdeQn4/Wra8efK+o5mfUTsUHb6lzHSb2n15X1/zv0nmew5
+        ONK5yvtuerrypYgqXIKGQFCDIQYyxcAAAH5Hfoed77yOPlXvZv6E/Hq/wLrZfz91+37N+bQe9VWnd1ef
+        F+p1dvrvHMR9P0vwkn5t7yr+m+AtfnbuqHY8+PKuo5ufUH2fkeg7rT2vIx93iXdfMvb+G+kS8b0eXy0K
+        1qXIKlypQygxgyFShYuAAAD5w7OV+SP6C6XR2b/0d+M0f5tfZ+h9MpYn7V/mnkekWmz0el0+Ddbt9+5D
+        V8/dlq2vGuzVbOrhJkbtlds7HB96W+L0e7o/ov593fl/Ucj16ypvceF+jgVILlCDIUKGYgxkmQoULlwA
+        AAD5g7ez/P36z032X84pfnDsrT9IvjfK+h1EbhpGzmY+vX9uO27OYj69XZnR2euS0+OpWWu+M9kg+9TZ
+        g88xG96O7Xx+/XzsLfT1jhpcTJr9ctHlaEiJuRply5iIMxUxly5jKGUsAAAAAAAfIXfdN9e8DzPzx1l5
+        5xcTPWqKs+buys/Nrv19WcJS+Y32OGlx/VqGL4V18DZQvYObx1yxr+g31D9h/K+u+TPqnzP7O+P/AFDw
+        TvvmuxmHzEXb9J/LPtu0QYSxlKGEzklDCbJIAAAAAAPCumuvL7qz+v8AgeT+b+u6H37lqLyO/s/kfvr3
+        V3aP0P8AkXK/En0+x5HXE+qOCi/D/wBXh+pUWj0Gn119x/M+ipvceQsvHeu5XttVK61c8xzMZ2yotfoD
+        519Y2DGYDaBjMJtlChjNoAAAAAAGns9ef2k/0Crg+S3lv2eHE6dYS/Qqqv4WTs1dnne1a+vzM8pp1dgh
+        6+g3HjkNWv0mj2eb30DB71dnrd/DS4nb6+Vwc+tx518PJr/XuU7eDCVNooYiDZMZjINkAAAAAAAAAAAA
+        AgqVKgyFyDEauG5lcxGsbpJjNc2SxQwmYygAAAAAAAAAAAgkAAAgqYjVw3cshjNbDJlslDEYcN7KhjMB
+        vgAAAAAAAAAAAAqQSAQVMZgLYbuUFDXMeHI5UMZq4bmVihhJw28gAAAAAAAAABBIAIKlSCpBYzAqYzWK
+        4cllQoawN0oYzVw5HKwAAAAAAAAAABUEkgAAEFShjNTDPlvFChgNbGeUzipjNYym4AAAAAAAAAAAAQVI
+        JABBBUxmuWw3crlChgNTGeVzgUMBr4crlIAAAAAAAAABBIABBUqVKlSAWNgkqVKGthrM8tnAoYTTxnlM
+        4ygAAAAAAAEEgAFQSSAAAACCpUqYjTwuzyWcQUMJpYzyGcbQAAAAAAAAAAABBQEkgkgAggqQYjWwozvZ
+        xnKlDCaOM8hnG4AAAAAAAAAAQCQACpUqBgyEFSpiMeFstkzlSpQ18NJnk842wAAAAAAAAAACCpJYAAFS
+        hBUggkyGQqQQUMZq4YGeXzjMAAAAAAAAAAAACpUkkkEgAEEEEAqVKGuauM7bHI5SAAAAAAAAAAAAACCp
+        UEgAAgEEFChgwws52OQyuAAAAAAAAAAAAAAACCpQqQSQCCpQx4QXM2W0SAAAAAAAAAAAAAAAAAACCpUg
+        gFi5YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//2gAIAQEAAQUC7hM7hM7hM7hM
+        7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7h
+        M7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hM7hP8A6g97Rtu9lq6Gob7zas51
+        LuWt36/ttjYRKmDs252+62XvJJHCrOeI9Wr7de5RzSOFLdlny9d9wK58bZdxp62s1m/r7OC2dDfMuJa1
+        9Tp0uwsNbNOhx5B7+hjF/Jtbwe9Vn5B+S65ke7ppZi7LrwXk3TVhZ+d0hMi7BazZP6CeB959ge+V7bQP
+        Udy93LDzm4TdCHB0ovs7WxW7jo9lppfb+/fsWse521Oqay3o9gnhffv2sUi0178KobnWLQ2sf3N09xpX
+        lNOpYvkaeb/c9yiU1QYkGHY3Z/xq+ykjPJsAKytjEJcaEhZ+z6mGu1TYtdrdei7LRTj/AKifAn6PuMdx
+        919kIHVPtvbGBd2+2xmPst/0S43G092tmqpUP2RKZay4oSwl2DcoVtPt9/1upq7vatRuZLvcfTmoDRa+
+        Q7dtX8o38Fymqqaj2b8rtJNguvc3fj2QiTNWj1230M2D63qubrc0T9bi2erR4zbvWWrFtKyc/wCBPjT4
+        E/R92658HctQX8e9pvbeB6lukT/9T3Q1vdCO90fcmg/H9p9la18bW70oi7/I3R9mafqAJW2R7W39vHe4
+        VtEsdJCJoBbJ/e9wcpv7nuH7d/z1lA6gt4exj16HT7uRa/S4mvU4IvolLm31lb5r0Wnz0anwECDFficU
+        4/74p8Cfo+5enu2mmLKnsYGSeM/23I+m0BCPa+gqLjcretr41TXydUhT7wEcEUVb/f8AccgxmHs2mjsw
+        /wDl+i5/5ho2f+Y6PlBRE06q0aCgtKrtUoa6Fb6zWSIcyu23Y1y3jbY6ZBob6VccVxOC4nFPrxTiuJ9P
+        0d19savaXWvtnulU/Y6i1r/aug9ndmsn63rFRq0HGWEIs3GiEx0GwhWcf6Yw4CLCsIdkIpRgHOfT21RE
+        mUkKKGTHkMgT4dnFjT4cwuGkxo2eqVmfXHOaxsKzr7HJs2NAB8mpElxp8dcT6cG8Vxv04p9P19GuBWu9
+        5OtfcCDH0j89harr91c7HWWFnXa8nkaFCayoNR0+6BqkQjVqSTLKQJ2hnrYoSzIVLFXeQ6hE1Z9dUOml
+        hSX6/tkl1bCiT6WfZa5JjyazabyQtzdsPIk0QK8V59V4LjfpwXE+ngty2E8VljVh9vJAyMKPc5xL2Q50
+        Wrge3ACD1GruRNfsVr5yptbKHRVU6Y64yeS6josaFX6rRCCOn1yPUO2f3Gs6gVVZMjXSabTsLV7tNt4E
+        WvqLusu9QimNZ2IxnsG0tM+51CvqB1TOK/B/vj/v9aQNxga9qtbr2HACUCu05tLWa/rdZrUW40+Zdnm1
+        ZCVlTq1ZUybXUa2zkzddDZxoek1cMFVrI4SSaeMSjjaUyLHiakKLbpBhNlF1Jpch6fHr2Fo60lrU64WH
+        YJT17bQWtVwItXrkKqiU+rBrJHBcZ814LjPrxb9fGcs5LnJ2dGI1E4quKquVrelOC/PETknBy41OScFx
+        n0/YeeKufc/GtRqcHO5YNvFcb9zuP1XxfPOfDnnPOedWdXPEGq59OLncsY3r+By41vSnBVwaeN5Zyzku
+        dLs6Fztt+Dnjn8sYxX/A5cG3n8C/NUTkn7Iq4r+eMF8CrjU7i8XLgm/sfPOrFfiDc7GtRvwK7E5lVERq
+        cFXGp3HeN5ZyXPnnzz55yfnQ7O03ERE+DnjnY1HFVERqcFXF5uVrUan7PzxVxxMaFXZ9OKrjnYMfQnje
+        fw8/g55zxz8RpCYwbWfAq452CF0eN5Z8+HPjzznnPOeK7OpVztPXGjY34VdiqrlGJGfsPJM6c6c6VzoX
+        O3nbTOhqfFzxz8a15cYxrE/bOeK7OpXKwH7Vz4c86sV+c3OxAc8REb+xcs5cOfDnw55zzqzqz7lztPXE
+        CxP2npTOlM6EzoTOhudDc5J/lJ//2gAIAQIAAQUC/wAAURVWJAkTJK6vYZKq50P9uAEkgsCsjVQNYYpD
+        8LujY1nCVFaEc2mOj4FXJPInwzRzKEqCii78m1EAFg0JXsZBmkb6bY46jk+n+m2OEgzQsbV2L2to7Z+f
+        j09uFrIYBeJ1eGiDvDdms1wXarRXCltG7Kd61tsGybcREhT6GvSQeNLhhckNK5zATfVZkWwjtsP46qhH
+        3LWWTvShfxa82XKahjR4bPUoOTSo2vfKkka2HsCsjVVw+Tb1lnKsjVVjHH4mlajavaTfxR70sWPXvVA1
+        FtGrQa9COMm0o3vxpaFyHWljijU86QeJX2UVnodmuOtzMyosO4vrOS5MuZX+mRmASfyT1DDNFaPkVE8J
+        /I22UUKe2zLFtyFWBarhocuO3xGvGQtbY/3NgujdmtJ/BRTa1qUVLM83A2YyPmxWq2oZWIBobJw698eP
+        dJSxyAtXOVzoP8VLkr+KjvftkTUnRS1zp5ZdK3v3JbCY8vnpuU0qT2vPTc89NwkmQZPEUlj5CSjBKrmt
+        elyiSbb5cpciPXRzGfIKyeUUVz3Pcb+KlRVasGzcB3r9tnr9vn5Bb5NmJaSbg3Vbns5pyxLGQMoZFVX8
+        IZKlAnnwBQvGVt2eCgLquOkOQAt7K2KEFJk2ROJiiIg8VzlQoiBditcmEEQKoiuUPmY0kg5RSOY9ilCQ
+        BHhKNuNGQmeWkcERVU0aRHwISyCYYJY5PGWYHBrMGCqI6y9LJOlR48Qwgml53ZXKb1WFjGdPIn9hBgY5
+        LdhyOaIsomU77Mli08nssMNJ1WNJBiAmAj2IyDk1MEfk4LmDHYEkOgeLr4rXqIzrZqoqLXjSM37zFt3I
+        s80dypDB2zgCSUcQ/L4FIzs6ymnynOWTOfJSBRAkukx1JEy1lK2RThinIeXDkQrYjEjRnOHHWbMbCuZM
+        x0rxTV6XSpppeNc5jiz1kGlSzTHx57I7RmRDHmmOwE8wWDmOA8lmcjjzlJjJL2yn2iveSyUkbulUbbNW
+        4W1eZUnSGxpU9Dg82fyrrKQ8sqyPKNMtnzB/8I3/2gAIAQMAAQUC/wAAnPaxvmWY0jH/ALcq8ke5xFMn
+        y6M6MG9eLXKqsMnIxmtYEjXN6m9Rn9sMJ5CRXEG1zpkQbvUIGJeRksPVKzBWEAzyXVQJxNooBYu5VDsj
+        39pLk+JJ88az5q3mvRnRnRiY/wCjmqqKvXjujsscJVCnOTPXlEC3oET77ZY0dyjCeU9a2bkIKusBw4gn
+        Enauj5t5r4oWvXdHX0sbYaWYfxPTzxU5cE+icsaxccnLOWLiryRytXO6PPLtXJQM8lgQhBK84ZxHQuar
+        AwTi1bI9zXmB6hS5tFhVupQT9fABLfX2LGs62aTxA05oqcykTpYvyE4X8IvvYb/sifb08s5Z9ML82YX7
+        pGC+6dXfMcfyp2WDYY4t07s04q6EwXp8DNhhQ1N6XWZ6TV4CDCjO8QJ/S5GJnRh06j9GE6RNVepevk3F
+        /wCuK3nnaHnlwrnk464IXlhw2coY4UYbJMEDxmj2U/hOFcqaPWWRrDxgZLhYyTHfgnMdMJNCzCFeV2dD
+        kbwcxzFzkuK1W8Hs62tb0Nz64iovBXNbndFwVURAyASMOcMYf0wEgMoXjJYlHDxo4T3S/KOkGEML2scX
+        F68J/IX7sVMdjkx7WJkpAIBwx9ZBuWNPeoRoWKU9e9hI9zPL52zaQxasURlr4uIBHYN6z0VFRYg+y37i
+        PnqnmSCXGD5Pa1Xu5dOfLguNRvcluZ2yo0uRQoo7IhxDFGlBlVYnrJltaSR6fAfP1+HXtheKReSnkkPj
+        XK1STO8WRJLJcKWwKNJ/ISQ8iMO9qITpVSuVVdz4cs6Pu6U5rH542GjMWMJTAhqI3lQeZbWRmih1UeIG
+        BRjgl/4Rv//aAAgBAgIGPwL+gCgvr5WOyW1VsRNtd6HrP7NLPGcm0Wjyef8Am4QxBZHGjK7enDVLvRsF
+        T6x193WVPZyW0dZogid5vnHo5YNAxq69287aM3dZ6abFo41ysGZyjedibTURfG75YuClLMvTT5DE5mm4
+        hy7MU8lcYtPCJRcFqOHBzwOs1JDphlhaUxOFt/PTpGNJjZedi7azxwyuYcQ13or4E3uO9FDVMbLx8yOY
+        WEHmIxP02V+Xm9x3oriSwytjGJaQOyszYJcv3TVkDvGg7TX45ii+88eZac5+shdMBY1iuU7FHhTta7vH
+        dHRj1+apDi4Zev6loOxe4nzeanfp7WDhtVXLsHpso8LTlzBsJu92yiGgtlbeKdG34Z3h0H61FfNTfl4z
+        1uvTxXmvnNQ8nWTk2t/ygbF+92Dy/LteHazU7oPsxm9x2E1xmhNFFGQwZm4NQWLtttFA6xcpPth3YTWj
+        g2hz+s2VFsCnqB89SS+09x8tSu/1Z2t6t6srZJA0faNRN1D9W6Z8LXlJEG9hV+t/i1Hq9LJqWue8jekW
+        wfXWSSR7m87iaGUajIlm8buuo/mGS8LOFXYtuNSzsheWF1nQAnmozTRObGLz4VCB7PaTUWnGLieqzz02
+        EaV2VjUVThj3K1n6g7vZE8chp4e17p3HBE5rV6cKfrZhkDwgHSVu7Khcdh7RUzoRl0cGmcGDndiec0NT
+        wuJq/VBczK3YTvW9FST/AKgzNuO9cWvwG676qmbwgXSR5O+yxb/WpBGPfZ+1Q088Gmc6IZN5uY7tl+ap
+        p+Bp2cKEuVjEK9K3V+V0f8P66D+HDHomy+oMu8mxdlRy6rUCMyNzAZHGzxUn/YtQf+v+5X/6LP8A5/3K
+        jhl1zXvVGjgkWuTYB5adEyKV7WnvBjkNfB1Huv8ARUb9RHM2Jqnea4C4pfz06Tg6jecT3X4+KkMOoT7j
+        /RWeeKRjFvc0jt8Jaz1mEjz+eo9P6rco/wDM+SpTiRl67OymM9aaUu8TbO2oy0fjRtDj4+92r4qaT8Rm
+        6fF9VNhHqM8p+pK1Dmjekexg8W9XG/U3cKP2f8x3QMPHU02lAiiY5jYxzqri7aSK4+jSP9Q9aPB3O36d
+        O0/8hpaY2ucV6E89FxvNaufFxaz0/wCLk00WMkj39VnnqLT/AOlp2NoafR6UOibG0LwcylLbUprNZpmM
+        01uYmFLgcUqN3q5i7qBNOeJZAC4nvGvjS+8fTWr1Mkj3cPTlFJNpu7K+NL7zvTXxpfed6ayyyPc3nJPh
+        KSfl32Hm2GuK0NXb9dI8AiodEzuBB7xt8lJhRmIA5hicBTppO+4rTdPDuubJnzYqidlZnkl3PUMf+rK5
+        /u7tZm2OqbUzOcdW6LK032/QCvi/3Wfs18X+6z9mvi/3Wfs1pYwS5yNa6xN4m2pZNj/8KDzUZjI5pODS
+        QPFbX4ssnBcEPrWHYDjT5dI6WTUOYWhQAAuPJk10cplXvMOGxDZT9F+mskAlIzOei2XAJ4bwn7+m2Yjo
+        9FfEDT9qz6vLT9ZM9rYhmIJN/qjyUkCySdQ6/RXEnPQMB0cgmI/DJsPIhuFZJQj+S0GssoRyL11lba40
+        HMaePGVRLukU6V7HZ3Ek2HGkeCDXCmCSDCmvkCNeFHOOTcBPRXcf1HkQX0OOxzMwsUJXChBdIcOQxTAt
+        kGB8N0jdmZelyO5Gxh8+dxA7ovPjqR0r5Q9UsaE3bNvNURY55jcwPwzBbqY97pXRDeSbun3VNfL5py4l
+        eIALOYNvy+WkbNGSm7eAEubaL/Oali1DnN1TeFEvrDM/aL7Oejpl/UDJxO/lN11m/ditPjldxpIg7K6Q
+        lBltU32C2zbUbdRP3VzIH74wUZOu0WU+EztD3/Dyh7cpwFrEypReHOdGXgSOsty3VqJP1KSSJ+ZjQQN4
+        DecliX1E35mYuZCDltR26XK6289Box8Fs0t+8/KBtJ24UYtCyJkvrSNyMazrJeeclOakkkMrkBzFbejN
+        eNhuNGRkjOI8fiJa5kfstA9d93ZUmt+VZ8u1x4YykyFy2BVubiU6K+dn08IfK5zXHhuDmnAgl1q7UsNn
+        hnzeps0Ud/OfZHTU+mf8d7uIzpFmX3bKQ31/2eo7jO4Pafh4hW2RzvKacxvcYjR/ZCdtRtyE5YmD4OfD
+        2sw7KEjo0DVPwAzD2sxTqpsLPiONMZpN/PPnVx9SMIpOzMpFQSRx/jSveiyPTc8WPOKLrWvklt/tG0U9
+        HSDew1LWj3cOincPNla9pLjOJCMAiWi2vmGh3CDH24LlIvup0HzkbH5rg0vF3tZSOapWN1YagTJkK920
+        ZsuPTjWWaJ0kn3srANrjf9LqdK6L/jslDA0PIZ0o1o7CaGlmhREML2uLmluO861ObDmFQQshiaBwnKXP
+        70hRryAmIxJQEJWpdmdHmnyRgHunMXPTHmWtVHGXHR5mB2ICXdFoOxfCw4hQt1BrkbC25osaKD2FHCmT
+        Txsc5t+Gf7yfTsrNLcLgLgOYU0shj+Yb6xXrS6uNM0SLtW/bZXC3WQ+y0IPr8dcEhsmn9lwUekVI+BrW
+        52kY7oOy2sBCWtblF2VvqreAcbaj4LRGyLugKbVVVPPQ1b96QPzdJVaLzBp1JXufXT9MI4mB5HdCXVwi
+        53CGC2dVBINMo+x9dF0kOnL3Y5Le2vlGoIFU/a+8byPpsoaWGJsUGfMgUqUTHmr5Mn/j5lTYebZTpCmV
+        2RQLBud0DEeI02QoGMO60XC1ekk4nGnR8OOPO7M7KquI2qef+pHf/9oACAEDAgY/Av6AWY3VjVn83KaT
+        1aDeXK7lLz3KV5xpyEZ0oDMr0rIu9Tn7GmmvmKyGgxxAe67nrK+WMOG1wr48Pvt9NHSyOiGnyq1+cJzg
+        4D6ba/MQe+300IoZ4XynAPaT1A1kk1MIcPtit7Us8SnsBr/iN1Oo/wBuJx7ctMjh/TNS3TFwzPkLY8ox
+        OU3psX0eFJ/LQVlHdFKe6O2svrk1uX9FSP6BTqazY0VGPYjJ67KV0bCegVIYGaZsTZC0LGt1XaP+FUmj
+        1cWmc1jAd2MC09PNWeKKNr9oaAaPEOl4i27ov6qmOlkh+Y4TsqC0uQphtrT6WbUxtlay0bC4lx7abptN
+        qI3zuuAxx8NJ/lWUOY8mZrnhbbDTWZ3nM7E18Wb3qTM905Z61tlPZBCXhhTvAdtL8k7+N+9X5B38f96p
+        J4tCWsRXHjA2NXaT5KbLJLDG5w7pe1RVs+l99npqWLSywOnflADXNJ7wW7mpkPzGj3WgfEjwCbaUarRg
+        /wC5H6a4Wj1EEsoCox7XFNqA3W+FZeQc5pceRKWreTmpOSMbLeSR/stAp8ntyONGXUzlry42cTLYuxac
+        7S6hztRYg4q47FqRvrZQ3rIFNY6KIkNA7or4EPuN9FaHSRxRtMmqCo0DdbeLBdbX5eD3G+ivy2n/AIbf
+        RXE00MUb0RWtaCniHhNt1LyNiHJmpTSDb/ITCrquru+U1I668joprNo7aDMjSm0Ba/DjZxQVGFo6KZFq
+        Wxs04eHFCSSmHJxP0+WIRJ3XjHaoC1H+ofq0kRMIORsYKK6wkr9LvDUNrKvTpoyOIDbfRW5vGszuTP6p
+        5cr7Dy28hjdcaDRcOWzk3ild5vXyKbqPAe1+U2oVrjTuDYhieeylN1CfTuD4TcR4bD4/LbyBodJmPMPT
+        Tszn5lS7ZZTEJyloPPQJLi2/eu8lZN5dv1bKvFEO71lY8lgrNlsF9Ie8llRt07WvCONtxuFPPCjR0l+I
+        tRBZQfxTHHdY1SdibKEmsfI6PBjsznO8gaOYBaWOMRNU7oTypcdovFNikifwoz+GtjXyD13En4bL+2yo
+        tB85J8y9g4pDmtiaxLSiXu9ULzmv+u0+r1JjhY17AJmOY8YtIDLE9lVIt8M+Yms0zL+fmFSwu+K4529I
+        w6qQ3189N3G937Tvqr7TjTmi5tnVTRlNjB6i4bVpSLvsJ5VrKL63cT2cv1Vb2VkN6is/BLgm1PPTHGEu
+        tvzc+xcKzRyBjehXE7G0I2yfjPjLi7IC/o3ifMKOphlVbJmOaGkOwsbYvPj01PO+aZxImagazuxhXMBd
+        mwKWAKQVrSsytlyacySkjvDIGMUWjnTx1oppQwa/LI5mBOY733kaReqC7wtb6AKCMXNFwrM2xwpsszGF
+        wvwzdNZpLhcMB0UMsTOMPWt7K4kgz9NZbAzYAgrLYWbDRLQi1zVZy5razY135OugGvkQc9fMH4qWc3Rs
+        o6iSR0kuXLbgL8K+bA/Hyou3p202MLmaHoTafxO8TgfGKfE1XPkCOcbzYnQAB3QLBTZuLLLw2FrA5EaC
+        iogGz+pHf//aAAgBAQEGPwLfPxL243z8S9uN8/EvbjfPxL243z8S9uN8/EvbjfPxL243z8S9uN8/EuN8
+        /EuN8/EuN8/EuN8/EvbjfPxL243z8S9uN8/EvbjfPxL243z8S9uN8/EuN8/EvbjfPxL243z8S9uN8/Ev
+        bjfPxL243z8S43z8S43z8S43z8S43z8S43z8S43z8S9uN8/EvbjfPxL243z8S9uN8/EvbjfPxL243z8S
+        9uN8/EvbjfPxL243z8S9uN8/EuN8/EuN8/EuN8/EuN8/EuN8/EuN8/EvbjfPxL243z8S9uN8/Evb/pQI
+        3CEABFIzNUERFM1IiXJERMJepRm/Cc4HAWFw3yk+ZTWysdVdbaMTb71dVNOERYd9BF+UUWDpT4dFyIvv
+        YFu3XNkpBf8AlH9UaVXpQGX0BXqdOjUnvdJuM51GYsVtXXXF6kyQRT5TjhLpFNqktMNQWici216U1HhW
+        0CyMnXRbadmaP6Q+pL/JD5PWvLlhYybFTkaPmtwWAhxa9GaPn9z3EIVUSFUVFRaKipmioqbFTDFh5if4
+        vGVGrfdHi+t4q0FuJMP/ALziLkLi97VkVa1T3OYuZpE0meWIKHAtoKv6M+3b1I5922fWcV6otqm0ctqY
+        mTb9d/LlMuDzkCAUKR/Z9vqjcVgnmYio686ialXUW3KmLwEe7whvEeHKCPG47fmm53CUWUVgqrxGnVRV
+        FU6MW+MF4iXK6hbIz08WXmje4qNMjKdcbayBPMOU6kVaYct4yWSmtNDIcioaccGSVEF0m95AVV24uc5F
+        oUO3zJQrlvsR3HAyWqL3hxa510fWRNlsuPuu8JlnUJvuqx9WwDbaIkfT0Z4ixX5LLUmariRGDNBdkKyi
+        E7wgXM+GJZ4NiTe7RHfaXS4y/cobTrZfNNs3hMF+HH/MFk/4rA/P4ftT8u1jb1itvwbq1co7sdxxEXjM
+        ynUPgxnK10iq/J+kmP2/Zf8AisH8/gI8S72yU+5q0MR58V549IqZaG23SMtICqr6kwTTl6tguAqiY+cY
+        VRJFoQlQ10kKpmm3HevMVaV/mkee2dXBbOuP0Ju6XPqSDbZJ127OMjHVhltrla6MxTdAXpM82YRMNKqa
+        3fLOd5zQnQhV6ur7ahcuMmqMsNjPnIi5OPu6hitF0/UtIp9X1idWLOBJVuK6dwc+j5JsnmS/WkDD7CLU
+        bZCiQkps1ECzXPytUui/BiLzU9cXfNTG4Zx7akVNJrNfRGRR7ja1/RV4m5nsxHGdza1BkyRo02/GjChv
+        0BDBlHJ7RSNBuImXWnXiOTz7UyFKIhjTWUJpeK2iErTzJKSsu0zShEip07aQpb565kfVAml0nIjIP1hf
+        TeYMDX1lgrLblIrtdGtBq1vQoDpowb5F8hySZcJvZtVdqJgeX7VbI8fl/lpqHojTnVZDmmWwDT6MamVT
+        9B6SUlHW9vKi10Ddnre9C5f5SA7jNiOaT9pcxxBLytsYNvuvxIh0WtE1KaVHZRLe6/x+Yb3dGJl3kFa5
+        4vNOS7gEuXw5DkIRNWmWkBRbNda1pWuHgsSNcZllFd0WmVb1RkiRETXIhRkJFJEyRV2Y57uK7GXrXamV
+        /q0chkp/tGRX48Xgq0J4GIoZ0r5iUy24n+xUlxaodKeVt0JhU+k1HbAq+tSTFnZTNLRy/Mnrt7pzHHIS
+        +rdMfu4N121W111wlJxxyDGNwyXaRmTSkRLi8OW2DyhFgwLzOtcdJViR15wYagnGUmzEaHrx/N8kf5dL
+        87i5We627lp9uBBjPq5Bs7TH18skVsF4vEqiNCuEdjW+DHdGqI6xEYacSqUWhg2JJVMOcR2w8ZHT4qlE
+        ZU+LrXiKRcCqnr2r14uCwJtt815KT5cGG0AzkcA+CIqDSd5XNnVi1w3rtFaebYUnWyItQOvuuSHBXu7R
+        J3DcWJc4z8h1VRtoFLUaiKmtO70CP21fyP5MptlP5MeKwyP3gxe7saUGNEYggS7KynVfdovQoDEGvqLE
+        +4lzxAR25TnpCMDCYcUPMOqrccF9sornDFUFMqrTH7vOUmM2EuITnW8v6HYIw6BcT5jramnxYtbkebAi
+        WyFGJtzjlJKULz7ylINqODCsuJwm26VdCqouLXy1bZQXA7e8EiXLbMXQAmIxxWWeONRdeNHSJyi0FUSu
+        ezmNltRq3JiOso5q0cZ2O+Pf056V4I1pnjlxm5SAncwczc4WyVepYIvDWJAR18oMNDSoQoYqKBXbtVNi
+        I9Z/bZWawtpw50uJbb29dbiuYvwmFS1cGCyioqE5U1JKUyVUS12zlW4+R4dwgMuIlpmgkW08QlnP6bhb
+        6PKqJnTU6RFXbiwu+23W2LPdmrsbS2K+ueYcjtmkcRXyAoCgR1rnhSK6vCKbVK0XtET4VW3Yfulu5m5u
+        ht3t47uaW+6BBZdOf+kcXgDAA0qjmWvvImS4sFuTmLmm5Fer5EgrHut385HRkl0uPAyrDY8Zs3AoS5J1
+        Y/5x57/zD/6TD0ZLte7nfploF41u8jzqjbgk6EVJKRmqLxm6aVJcujF0hWjlh66N2qWsJ+Sl2gQ0V5BQ
+        lRG5WgsvVXBn/wDWsxCcMnD086iNTNdRlQbmiVVVx/8Am83/ADt/8ni4zYvIT8JlWUkXB4uZ4ktVahNu
+        mhfXyZLn1QGWQZr68sRZT11tUF2QyLpxHrrC40dSz4bmpxskNOnJMftfl/8AX7d+dxPZt8+0SJUhY7LY
+        RJUR12iyWldXSyalp4QrVdmI8dLvYF4DDTNfP29a8IBCteLVdmNQ3exCqbFGfARfuo7hWoVxgS3RBXCb
+        iy48g0bRRFTUGnCJAQiRK+v7Iv2WW/pVGrnHizWl+StGRiPJXr40ZV9WrF6vG49PG5vsnsJDc02eH8SS
+        W9SddfXixtqlQjyCnudQ+QbOS2q/C+2CfHi6P7zPLPL8S3p80Zt0Pzmrq1LGIxX4PVi7NPSXCtt4mSbX
+        HE3SVltyKXCtzjYV0iT/AJbRl0u4mA2OmHcf7ShUSgiEky4zKdCcGShIifNpiXcHBot0uBK1lvRoYIwJ
+        V/rCup8WOVGXXQbZs9qvl5fVwhBsRkgNvacdI6CiA4mXUuHLdyXD9uTBLhvXQ9bXL9vXpN+bl5skTNAZ
+        rq6Fxy7br3Jdvk+4Rbvcr/MdXhJ5dqNwIEaAyFEhxGJbi6UHaufUiBbeYBkXXlbVotnMDIE9ItzdaNw7
+        k0PeUW03V6tzVuA57LmMS27xOttuYeYcQwVw5LchW1Udw9DHeFaKnThplvcZbBoP5LYoI/eTHJFu+TCa
+        uN2cTq+rLgGSf66DRPh9zmyXtG2W21WoF/rIjLcRK5pR5gtmLvc9vtfmS7zkLrAnAbHoRKam1w/cr1zY
+        /ElzLjcHhi/4n9n8CMspzgB5QpIq0mlKp9FUxKesvNUybdKx24cdnmspZm49JZaL6luSpEgNkq/Fi4No
+        RG4saLAFVVSN1XnmI557SIm1JfXiMwdqtpmzHZaIygxiIybbEFJSVtVVSVMfsi2fqEX81jla3MQITCzr
+        8wTysxWWjOLGT9IbVW201NqL+aLlWmP2TbP1CL+ax+yrb+oxfzWFciwokY1HQpsR2WTUFVFUVJsBXTUU
+        y9Xor9qI5DCt3tfEfhJkiyWyRPMQ6/OdQEUPpimxFXBwXX5YNNkrZw3HXhACbOqtlHJdIqDg7KZLjiR3
+        nWDpp1suG0eldqagVFotMcx8zyDI5Mgp8oHnSVw3Rt8XgxRUjqpEU3WOfXhHBMkcQtaOISoaGi6kNC2o
+        SL04i2xt+TIWup+TIccfCDE1Dx5BK4S0RE2JlrKiYh22GGiLCYbjsj06W0pqNflOGuZL0kuJt3uCjNam
+        WZmyrbnmBVgY7U1J6kpqSqalIFFpRKUwDEVhmMw2lG2WGwZaBOoG20EBT4Mcxy94bHY7VZgX5KHPMrm5
+        p+mmmi9WzBtOgDrTgqDjbgobZgWRCYEiiQqnRjl2z2+DEYsMS9JcLrFaPygqwgmhi2jWk1N5HzSo0JK5
+        KmP2H/eV4/8AcMfsT+8rv/v+P2J/eV3/AN/xzjLJpuK2T9ynQGmnzf4VshxXXIWp0lJ3iIirWqquLPFV
+        SDzEBx1SCiGiXBx6RqFV1JqQX8sR4QW2HJGOGhH5kSG/KdzUtTzvlw1nn1JhVh2a2edjutS4Y8MYIHIY
+        LUAvPRQBzhL0pmi9OIUS7xLRbbbHuEadKWPKelSJIxiUkjtjp4aIarnq/iXCP2O42tuLwQBYNxjmo8ZC
+        NSeR9ho3++KplsSmIV45knW9wrW3IGBDtbbyMI5JDhuvOnIADrpplnmidWf245PiGlsvJJ3pAhqjTFRK
+        J5xlKLrypxB71NqFlgkWzuz203X7V+nA5TpFptPNj+U2OLTy7bbbNlzpTdsjzI8OK887HI1K6zidFsVV
+        sElt6FVaZl68Ad14Vjh5KSvEEiaY/wDhRWTVBX/WEFOpceStTGjVQpElyhypbiJTiSHaJWnQKUAehPck
+        W5uQBzorTT8iMleIy0/XgmeVERzTl7jjgNtgbqorpiAiTqilBVwkSpqKdeEl2+S3LjKbraPMrqBTZcJp
+        0UXp0OCqYquzGlt5pwttAcAlp10RVwb8GQEllt96MTjddHHjmrbwISoiHoNKVSqYceecBploCdddcJAb
+        bbbFSNwzKgiAClVXow4EidGW13RgmUkty2QbfadRdXAkatC1FF2YjQo9xgCxEjsxmRWbHVUaYbFptK8T
+        OgDhXI77L7YqokbLoOAhIiEqKQKqIqIuG5sB8ZMV1TRt8ELQfDcJo9OpBqiOAqVxMYjPg87AeSNMQNVG
+        X1bFzhKVNCmgElaKtNi5+4PmJDDGqunjOg1qpt06yStK4/aMH9bj/nPcUzIQAUqREqCIp1qq5ImHvITY
+        0zyxo28sZ4HkbNR1IikCqmaYOVMeCOwCghOuLQRVwxbBF/lGSJiqrRETNVyRETaq4blw325Ed3Vw3ml1
+        AWklAqL6iFU9Fftj94To58U7W3DPoOJaVmWxxxlelpx0UXLp9yZMdtHKyRYbMiS4a3afqSPHAnTJU8nS
+        vDDFmag2rl92I5HOaw9NuU1qU6Fxfdno4821EMBU/M1Si7McwBKgWpmbb7pOsSNcaU5bpLkVtoZXEcVr
+        jEwpOqNUHOmLhGiwrBBuDovWd6RyY0XteC4ptm8265cmYkdhkhaUSNFIgJRVOvA3hIvKkZiLHSI3yzLk
+        zXnJDKIWufMvAMpGG7KaDp7pM6a1Wuamb/Lt4aAJOu4NozBmyJXmhbV+5cKFIJvyDDS6abRbDYu3HL8+
+        zw4s6xym+a+aXoJ6nLc+Vqsqg2yESSLjUQXJpIihw0oddmlEw1eij/ulaiJaqJYva0BFSQ4vHN6QIWFw
+        nJgB9WgJki9K4tkuDEGwQ7y/AWfbLBGijJls3MkYWHCc/RGW35VQQnFFV0IqYur1p5ZAPNNxStgTJViU
+        7TKBUB92PKavhFp4SawQwc+u25Vrb7gPLcxyPbReO++fk2W5O3OO7QnpjpMXjzKTkfzQk7qatlO6rMY4
+        0aJLat0h/l+Cavg7HK4ONOSFbbBxBU+ItS1VRFTHK0blW02q9RvKXmfKjSn6wpjyBAtxPuFKakDrZcBa
+        UGlerF5eXlexMMz78/HauLRRll24nLmzCSJBDyqL5dlxtRRUNsaKq0TDEr25IskMCWO4EO2NXCTLdcFF
+        jMxycBxIpILRpXTRapmNM2pV+n3mZFHUkOx3ILncrhcnV1ADigyxGtUYeIncba197Ilwjka2sWhoX3mk
+        gsORD4XDKiccYf1ceSo5m0vfBclwzHftswY0Fxw7QMhsGoNyvDQ1G4S5DrrYDa7WBa8qp0nRNlts/wDi
+        mcdwkRWfbjrc2NFs8eBwv0h82AZBPMTUOjYas0zXLC2aFzBeXWbbGiy4TYXmFKgTGEWj7DrEeECM8E6I
+        rerUQrqyxT7bb5dsX1/NN7BWYLIKv9nxzqL93lkP9HZit6lBV2mmxaLjlK+RRMrRboRcs8xPIJKfk50j
+        zTNzcAdVBG7uG4563EFNuAdaMXGnQFxtwFQgMDTUBgSZEJCuS4a5Ds565dy4Z8wSmlQhs9jExKTxSSqB
+        Lmp3ABdqFnSqLgiyZhW6IpZbGosRmuVegGm8W+S+lJN2cm3mR6yucx6S2XxxyDF5e9qx4qzeYb3NVtef
+        XuXz+unO0I7c1aJwAqgKd7iLqGmJEJm7hIcmuRIgtM/vCk3sy48tgC/swrPDCSOhVrVwUTbnSiy7lLVG
+        4lvjK4qbFLQmlpluu1x06AKda4uUm/ols9mcqM2d2NbGOKbd55lmeabgQYrrocWd7NabbdDWlDIq0RMc
+        ywpl5cW22O22ZJqx+WbMU4W7204LqGAvjp8kwlTJtwl6Uw00nCmxbRZWjivGAmJ+zoKLHlhv6XPqkMVT
+        NF2YtyFBtDirFbcU5X7tbndHy4qcSp3EV0zN/I0yVNmWIvm24IOzLbcIMa3RuS5nL8WVThS33pHmxNl/
+        gsMqn5SfAo2t2RFWa/OtIrDb0OzQiBPjSXSSO3qkAHDayone6MRrl/gS5TmAiucF9+dFsrzTSPvaxWC5
+        cI74i5o4iKo98STFnkvclyJiuP8Amfa3tiK2zQp7jrMjyR3EXVSK3TLh1LRsWuBdhXiHaoxojWUMpt4l
+        yzPSEa2sqXBcNwVyyRUXPUiZpFhtXYFuNwtEq7S7g9aI8m8IgmDQRnHp8yT3yItNENttFTp24fucK8m+
+        j5uNcz2yfAYt0xmaA0YcGHCFGGpCuCWo9hJXNSrS+zXrvdpCujzFbwYYt9sFtuFZmAel22NJlOSzFs2p
+        OmrYArpAepMcuNcCPcPKWI7peZLrCEk1gIEeDbFfbM3WRUlHXprnprntxy1JfajNXZWLjJhKhcF50ZLh
+        FJ0gKh5lG47wp3kLQOzGr7nu09BE9BPs7zIPORzdacbCQ1o4rBGCiLzfEE2+I0q1SqKlcPvMq/Nuc1dV
+        xvFwc8xcZp5fzjy7jKKmQDQculc8OxpLTb8d9smnmXRQ23WzTSYGBVQhJFxdbVZ73d4Uecqrb0J5qWli
+        rVSC2+YbIkbNwlrqWvUqF38HHt7Zk6+fGnT5J8efcJC1Un5kku84aqq5ZClVoma4mBJ5pvLdmnL9fZow
+        wm2+CoCjkcZZMHJRl0kzTqWmG7ba579jFkGGWHoLUZw2ozCI2kcBlsvgI8JKIqd5OvrWehzrjdCbVorr
+        dpr0+ara7WwJxUYjhlsaAEwdxaeuFpu5ICe1bRMdiSSRtEEBeCpRZLelKUMFyxaI90mzZ3sqXHnGReXZ
+        G5SYwnwlnssMNsm0Lpa9AoKVFK1w39ZIkXJmXcrm1d5Si9JS7XJNJXN2PpSA/KYFB4etpUHRl04vRXCa
+        9epPMCtpc5ElmPGR9hqGkFqP5eGDTACkeqKqIirXEiwRqw4bttdtbXDq4UeM7HKMmjikSkrbZZVXDEZv
+        mXmwG47LTAC3dkbbEGgEBFtsY1GwRByToTEG7neLzcHIDUxplq6S0mCCzQBtw2y0Nq2ukM9tcHOGJFGa
+        6gi5LRhpJRiI6BE39PFIRDJErsw4h8xc1KLutDb9r9zSddQafLU00XZiOzFvnMrUeLo4UZLoiR0EFrw+
+        EMdE4a9KYW8ug47cOCjEdx10nQhURRVyCw5rajPH0qKdHrKrt1n3WZdZpw0gNuSQZZ4MTjeYNsW44gH1
+        jqIqqueWPbIMcO4LHWK482Zto81UVTjtgSNvEGnJSRVT4kxHjjxTOKFzRmU+oOvcS76/OPvhoGPJM+Js
+        MFGnRiVHA3n3pzfDmzXVHjuijSstgCCKNMMR21o22KaQTDDvtC4TvJRThwgmG0rUNh1W+IjQtNN940aR
+        Pg9CvoV94+jGa4yT0NI7fwetcU+76/donTin2D4feSg/GvQmMvjXr9DUu1fvJ6HqT+CehT3j7qVx31/J
+        T8a4y9DUuzoTr9fo+vp9DV8Sfb/RjoxvY6/h9LUW70D1/D6vR1r+T2+hROnFPeag5r6sajzXq6E7V9H6
+        KbfX6vR1L07Pg/j95aJn8GO8ulOpNvYmMk9GibqbV/F8OKJ6H0U29nvDsXGzGzG1E+/2Yzqv8PVjJKel
+        1B878SYonoaR2riif9fvXVzZ8z/tYy9CibV2Y+ku1fxJ6ver5qda/iTpx1l85dv8Xo0TNVxVczX73qT3
+        oyRVxmun769mNlV61z9LSGa/w24rtJdq/iT1e8e3G3G3G997HTjYn4fw/YMsh+d2deKD93pX4fe+gpVc
+        Vc7y/N+T/H7391FX8H3dmO+v5KduKIlPe3IV/BjNUT7+PnfD2bPevpx0+5s/6Uv/2gAIAQEDAT8h/YrV
+        q1atWrVvkv8AM+SfzPkn8z5r/P661atWrVvkv8/qrVq1at8k/mfJP5nyT+Z8k/mfJP5nyT+f261atWrV
+        q1atW+a/zPmv8z5J/M+SfzPkn8z5L/P8lWrVqz/JOoa/juX9B/Hc/oP2wqtBNtEPWrgjrWBsSoikVsXc
+        eIFL3dFH5KDz4q50VUxMq3X4014v73bh/qbeSDhBljZ3klwYw1puyhuDAYeYwsFYIY8JrMHl2DFBYksm
+        8mC6g658glHgay4DbAFBYox1ajl4LEIW2iy5/W1xY8hDNyVUeTHiGSWZCQXa69ygB6IgI5sck0+FKVgn
+        miFWAlCACNuIphg0XpT62HC3LACAjk9l4GmhivAnOUo4R0B8LoG21uAxohcOVtfgb7eCl79wENI6Jazy
+        N0XcUJg7l5lQe4nRulb4mRcZsxg62TfdagilK0HIheYDZy/bMNfoNfs1WspIUnIq2yuzQ3zeq7a+eH6z
+        erkbyFKUst3XiZWZB3f2HWVimMwqIi6gEx0VXgpAHIDFgpTjOxYEXHK+jVrlcNzPWIMO1hT0tXTISpas
+        4g9WgLNQp8JLEMybXYWOKGlajqEDUcjT8Zqi6tx86Ts9oViYAxgujsavUG+BK2o+4NiDqu5CY3Otgy7T
+        mVeVi9Hbazvv3rqvEaMBbe2IO1VZcGKPtDepgbHB4YK5K3XJ4orrKQdpBGsZQenOSZPko25bVXbFcpmO
+        SEYWCKBXtOiOv9SOkMaiq8QpQZT5HieJ4m/FnL54/Rp+y8Spe7onMFFb6wcUEXPNPkosQMzvR4vq6UMX
+        A+r6KdHEDOLfIRvcejWbUtpYUAvAKARsEgmBa5K8NAwu3JexmBBCLjE6wehtkBoPKt/j6MZkmwlGjb7A
+        u53Lw3Zl76GwhFM7yvBMvIBW1YIEbY0lziN1BjaJVjvzYAH9U1vKyNPUwXXgPNmKUBuc5CzqZNWZHHpF
+        eY8I/Qys4IdrNE3o21iOHDLVKkoDUuHhgPRYcVL83z1pSS3aPBcAvPRHAl2gFSsPXBdsqX2I0FLGLZQK
+        ZGoIihBz4HPgzl6fnwdQ2evi78Z14a/spuh/bCHVKZsDhJde7M7GLjjenSZRfVWGFjjzSINnSW7TlyvR
+        Vg86trS3HBBnJ1lf6nNASliXNX4uWLJuHEyXUa9UU0g976XKrIdBBAjwDa0XtSo7m5h24VxpOVqA29tI
+        tfGig50oILjXL1vFJSilAMCpCxqwqaAsObCoeRNwavG2UV38FUbQbCsWgSYWW5SZll0X/FUtGsZ9C+K2
+        tCaGopwMVL7V/WQNp/BtLRo6Im2iLi9zLmCd+VVV58J/F3fLUZI5AYY8UFx8Bl4DQUzKrHTw2fTwdTb0
+        eDqGn6Ofp4MdTX9kGXWOD/BbOioqUobyeOi7eUUesyR+r4ByvhZdYgp48y3ShK1YQ4m61JChWy13MXwI
+        3ohVAKqXLL81hSw0gZPdYu4Ebmy6JzNFWyzN0Nc95qToEpzAiI/5U5SZ2VqGHBPpZIqlCJMt9AWwcpID
+        gE8RDwajv7kg0nctL5gGnF5jzUKkTBisTLkWcHHBHfRxGBRQS6+c1toKNTlfO9qH0KKwl14GaGJZRIUW
+        fQ5Y11QBO4n1C2WWP0FNb6vi5+fgz8n9eLqc/B8H5v2hKscZm6LAcHCgvTfaqbBu0OekSP4ROY2q80vC
+        D2hs6OTB/WftwQVXJvR4HfNS61W3Likqu4wltbXhXzN0QhYiKaJjQTdWBLJOLIoFAAqrQBlVcAExtxwz
+        VdmouXSs/wCTaB8lTCxKi4JjRJIQBbDCqDOhZXMNdx3NuZ70WCXAmxE1DutRbBIKC1S+7dXQUpiCTWJW
+        x5p1uXBh4GIlhnKtFd0XWr8BggEREsTIjpHkY+oBcO1wHVmD2LBRt9mEUsTYhdx91mzL9WRUgWUAC0OA
+        CDAZeong46JFNXfPv4LNvZ4Pg+ovizV87+AwTXE0qnftU7Z1B6dSoZCSyl1fM1B/Ce6HAmZLjAfJsJzH
+        slUl1TucpC0Bo6I+z7E4OLcBeFfH+rsvxSAUOBhiQj0NaBqBCkPgWDthYPxbaRl3K/njQ9jQwhS2uxH5
+        vw6kZQdb9hNnMxh96mIs7Op7pM11OrGolv8AiIzuAWYUuEfjWEuKswDWU5ZXd0oOILUoUKzWrVYtavZO
+        WOplIHC4RGVe3Mfx4/OnpF0jkNIFouAVmjUyNwYhb3rvsDuJcdNMcHU/TwYpzdc+DFMB5R8GGD99FhrB
+        vsOURiCcDUJ8A0KgBeAoGzFa1BSxDCMUOjCR8TEPvSJmCKY20iwOqPEefYjjKsGsvzvmDm8zEKrh45Bg
+        qUagE03owh3OEKFHIAeSFzRkNuJPPtcSI2h1BaAUv1Rq8y7KuUq5X034IIai1eZ+CKyVime8ELbKmj5o
+        YINneSClQsBQl3UW1WlX3KD5XtFtV7D42narnkNttZkr5KYYQMMG3ojelAgSgqlgHGOX4CJHgxBd4yzC
+        UhsRErVLAW5XXjELAw6ZOyRRddxuFogsYGYLtc48nX1fBZknJZrEYzfcf6+DGbLv9s/vjaTlBsraL8WJ
+        iCn+a54gSo1wpdEOvV/3DFUImYUigQVYtWVo3Yp4G2S8EDmMjQZKg+UQldttzn1zESy0+xUmUOCbEUhM
+        N12CNBbGKqo1RaHmeaB39wS4L0VJBAp0JeQWFieXBUipVDUFsb/jQfORcEWS4rGL4IWICvajW5nu2QuB
+        xilondhGrxgAY3ohaQnixNQWKGEDPoADpBgOjslZMlfNqzvQsWAtRo1Soms6tsMPKQR5G+mk68R9bNOo
+        NJ6HAM6McPqVbxW6EYTV0ELlTBZxaecn2iySSzerR1qtYOIsUFnEwefPgxQWujB5viszT0x7/GVc808n
+        59J3vqmW30x/c0ZfXb7ufBfA2gXsIBQzyuV1ixY1G5V/r2IBDj5v1jGUShOdvmxjHUFH1f19Pib/AGLj
+        AkteHl+RZWtnZtdWLFlSIHkh8mXxUHuL58PFZr6n6c/F108S/wBAQRapH2/LomVwdX/T2gAAAGgwRYsA
+        bjqvHLcurt9/BYs4TbgO7olScsrv/kWMqll/I5fjay/DPnL/AFO59X9SzfsPzcOS/M/BRAAoAOhg8FjB
+        CKA1sm+/o7OfBYsplzg4feF8Fli3Kj8voQAGgr4jyl/s2S5cEjKpfR+XASlKd54MWLK4vPdl1dH56TRR
+        6eC+Dgd3sdXxSpUuXLly5feX4ESxpV0Fv0mW9YH6/wBkHojr1fN2y/BZVBqn/DdV9IAOg0fn18F8LCdx
+        9enq+Hv9VDKzofeV0vvPlZnn+0s6PNP7l+/IXA5HmtHtSAUA7FeFy4wJzMKwOerr1XvxCx0Gj8ryvgvg
+        IOT2A5XsQn6zyuV+IyS/3LJcuMUwjG1wBlXoG1jevYtl8xryJgAADAGAOx4L4CKZkoHLMw5+SOj4qvC5
+        fguWS5fgt8LjCSCczQHm+vQfoJlzuZPRwPKL4L4KrW4QG2eow8H5L+Hv9SPKV5pbyeC5fieaJgk+zgx6
+        uoaMOh8j6zK+4XpwekvwWL4VPLfYOq4ITb5z2fu+IqZJf67OPbEp1Zf/AI/2PSe07P2lvk/uddfrX2CG
+        l63+kwS/C4sZA5iPq0b7H/iUo81lOq5+Lrwtlyz9dkuX43FjWV8xtt2uO66CDu5KaefzPjqlPGZfWWfs
+        WeC4iMAczR75w81hHyv80PXd9Kh1IdAr5f4JPlL+cydfrPNL7zzSyUlYwz+cuHu1DQ3oZfgmYRXrPsjW
+        DH8PQ8E7H1Z5/vO97j+p3/d/k7T7v4nZ+ufvcA0B5Ff+pP/aAAgBAgMBPyH/AMAgjV6CUCD5PAdFKcVV
+        3BljPz7MLSD/ALLavZ/HYfwB88G14IMQovii0v8A2PPQ2c6t3b7T3lxpK0ZyiwdVyfFcjFZKqnwEnTXk
+        w7FGQ850yt7J3IqwhowazGh37F7Z8icjHgILCUukXeH0gAiorkOL6wlcr/IBlQkAXkBsl5c9pU0ioxwW
+        4viDyBYkPklHwOJXiwlODVPVrnu8NyDaQctotQFrXnCziLHYdTGu8+eo8iGtfbwbsFAPFpF9UrrRn4oN
+        83kjb1UerrKecQeumFq/8f8Az9ZZiB4G7FfUi6r5cDKlpZBzN2pHOHkeThwJ01DHr+tPIAeUA0lwviKd
+        wPaDliW7yFqnZ7KHhEqGDmB4v4zp35A07vptJJGvGNpsFYuqnAU15Xl7qYZtL5HCymcq+qPsn/d0TM73
+        6AT7hg84UAIHYuYnThmWiLip8p/qVTxyYOXFdEuyvAHstTXEMKMMV0VqA+16sKrN6VKnTkBSAu+kbSdl
+        UZrr1fiuZBPuPzKtwz6Ke9/aU3bwV0yuF7mP+4vrK8mveXPRnADBVjLyR76CiloT0GAtvPGx2uTa3Ro9
+        2DNsTvEY9576avlrafI31lfJQrnIMyMKHRO0drohWpYScNdEeZdagqwYjzdi0DRkOOMcktoflQg2ZA2G
+        Xwer6iORty8th6z8l7wV/wASkNIBtg1vwCCqKrLBWHlDOB2zEFdDBHJhx6vgMtrFPkCK2O8ypfMJcD20
+        AIrUAd5asBdDjs/E2ky33p9PonX6odj8qvSUbw3rF9TOgvRn/UwQ5WRlMgvaC6N+86PrR87jo4zebcGg
+        NOZcrBXUgC45DT2Pu9eSBdIOcrA60u+Md1IlS2aTl+ryfRAZRcCsCt3LwTE3JyvrO3Fe+Htbw72B9H6C
+        f9wAL+SdIRqptz9+9zI7IEgrbG0CEwAH9Cg+tENNINdt1vwDUYQKIb+XfV5+OTJVcm6MvrSucvxI2enu
+        vw3ns9iF0HkIW2b8x9J25Cl/eEEAsGKyaeViK0MarioOz4AHtH34LY1dvXr+DR2lqTNDs4+OEbOe1Kvm
+        s6aUvIVh1EGxMJ5MvcsXaq7xjkx2f0eWGBsDiLHMdVrRUQGmozrCjjzR/E3RvYWolNvjPYDKlPNvpBbX
+        tV5m7xxXlzZMs4tG8CrBg3neZbLFuB2Bpvnu7vHxho6v+n07sdKg5Oh5z1fsURUIQFNd7bXR0jLyV9VH
+        2MzvVowHQfd28vgrMccCm/bwAMugvXl0lvtQ07pLPp4D2Q7kOtYUd0LPch8FFAZVdBBsHo1R6kZt6tSt
+        46stFPCI/WNk1LWyyz6MZTkHqVfWr1e+MeFxj+hftPkr8TWGAjV8E5HBasa5+feCLYUN4FfoMBWjc2Bz
+        2Fln0fjVZwQ6Uw9w8KmaHXK+uVw28aEFRQ/2l/u9QBOBdXi8scSYKY6QQSObDAlnaC32+JFw903eS+io
+        TKlVecZLrue+yPeQDjJK0NM74eaxprnk7Sxpvmdowq1IXV5uhasIidtbXXIXrxToc1RyphQy0+YBy1u8
+        gZilYASymqwVWGD5T9yoXwD111gPXRlMuXEbbSwLZYOSihziJz5Xhw3hiMq2FhS0tdmyJcvqgcjllbpw
+        ZJZ+MJqDkpVzbyu1dXu6tNpLR0jizoO3Bc+J4LrEGz8Yqyu30tdZVX0OlkrNKj2bD0g8rYiNC0nRj8qu
+        u6Wnur27JApfkk/KzXq+mF90rB7Wup0n3xo3LHDWOon/AFl67zO3T/tewZe0LnOKQ2xhq5FOAq2Lj9Yq
+        ys9XAAcMGS2AGq2usZpH1jYNYrDsY+6ze5bV7aElhsV+j6LLpL2NgyybeuOYpbAtGaVhgXYvCMPv7b0F
+        Bmd9B0VGpdng5mlQHzExZwtm2vWKnClXbkcahuq0NDhsUqtlWKLQZLpKgHKltAJXTDEdcsugHLRi6K1C
+        KzB4ELuc2YbN9PizECDbTXDWae06YA/oTl7uY6BViYROSdMdV9w2HT1sgwxVWN03B94uFout8ZCx/sVL
+        UqMCs2sc+jMMFbp39cZXmYaFOPk3Ts8kzOsAZci6kaxbe2qiHDwxdE6ows35Rs2vYoV9lXzamK5XeKNl
+        dWKuuV2bW8uz3iQSVz7qDlvfpExrRdTnGm5YsQp2xz3S/wDFfIeb5S52BAB7AoXAv2oNDWroRVLixWsx
+        fIilA+YchvIJ9W64K5Kiti6yuB7w171Y5BbbDLNqFAwqMgqyYLPn/wDxHf/aAAgBAwMBPyH/AMA6yzeL
+        snb+n+5vOf44OIJwZ0f3Li68b8h8UOxwem2X1a8CtHHEw9qo5uU5V769/rBkBUuuaiB7Z7FyqYVWg5aw
+        UaqWvQouabryjDeYCnmLK9wDjQQq3k3b0L47IhuWt5BThRbSFoFexcQoqk0psacJybJ0/wAc3gdLbeq9
+        ELC8mKnL1ZpZ4t+KWrxlQZmpWVjNqzuJ6xlMPyTUqz114E3HKcPLbxGRWh2fgnyWUZnfqB7p+J2eHsQd
+        I9dt+RGzjtWX6TIsvo45w94nXy/OXOL2QcG3BgMh/sQLm3w5X5ZV53t6zQ7lVgUrbAHiOUAstghxwykc
+        0c3QVWOgvxRZfgjHEHkYgZ3EZZfmUC44mIxzG0uLNMS2/R/qXGyeBv0lZiaVYe1bjb5/2jQ8/OXrRyau
+        N6gTteUAmUtuuWCeWac9xzFeXgXGT3xAGlXJPDaZ9CMgsLrkooqd1Rt11mAN5eH2JTNeQ2VFxIuCClOQ
+        L1aHPxT13y6y5YO++1KgNC/7mxyYlSvgmT3VFZYxDniZxYyRzAoqDotvl7eA6d7nn7kMVQlL+FZXQ7dp
+        hQUTSoNOi4hCqN1bD6XFCiFe6KvUv3ALSnvTsnJTMcXUU3LK7g16DYlWGrBqwa1YdPiS63HYBKuEnGDB
+        7v8AUcK4lugPyx13MEGJLXFXLuCj3fAidSLb+pjufW/3Ha+R5xaMF5F4GJwlb9z+YXQjaF5tTQ2sNXRb
+        RrtqM0W6hxFVnm/PswNSkv1k3bZFY1iCpVwiWBHVY6mlZ+MxH9w8v6hGq9H+fWHrNhXfD6ZhVehwe7+J
+        cnyODwRUZqHrW/Grj0fPwQ2Mao01c3g3DANFMDQoDyPAQWaiiLJvw1B5mp/ynhYkByzhoFKj6fPtENJL
+        0Fge6hFBoEupTasaUfZE+NNXzedcu9eF4UB3nEBkgsAUU0z2l3XWSl69ZwzVzfUxblpuoext90vgbGNn
+        pnmF9AU92MYgYqDnZxrH1lBY8imz33K5AFXOL3G2OgWTY2OpSKYBrKewGtnMqK2VTHSw8Hj1IXL3WdyD
+        Rku4YWUyQrHVdGPUcmGUAEIIKwEAXXHLLUJ35iQMjG1sGgcqOGqAs2WhyDU+MXeVLq46y89pX1ivYpPt
+        DyuIgoQnCtF9Cu2y/wBMClv3iv8AcRxMfQH3uVLCj/mPtKpoWdePcr2gTYZWhnlz05eVxECGW+ekYCtH
+        1SgwtErGCsF8HNWOtygom1GZ6Ue83oxiDkO32ZqWxfHPODSvyhkD9dzAUCcrjfmbiLb0Awy1LXegvLah
+        FCQwKjIHKZUsZvbOxa7WclbM1a9xELzFZGgJQCh2TPxZGgA6dPaeWtx6HXuwOiixNjF6UqfZvz5YlhCi
+        gwPQcfeMaNK5dcqshCCm1LZXnCczF9/S/sfVZY50ZZ/Z6MQKornB2nEioUdDjrMSlBHMb8sCCyS995wh
+        38w7jQ/PiBA9Rr7VKergS35y4Xf+23ZGhAZbAUMtZ7SrCu0KU7DFKwp9irUOFVlqFXt8h2isYs1WAKNC
+        FRG85U8GGQgM8fT/APiN/9oADAMBAAIRAxEAABCSSSQASSSSSSQAACSSSSSQACSQAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAACAA
+        ACAAAAAX7gAAAAAAAAAAAACACQAAAAABF70RDwZc73AbgASAACAAAAAACNzzyUzNVjHR+gQSCQCQQAAA
+        ACeNDKdZU8LeZtIQSCAAQCQAAADidcTUNAWXY7AyAACQAAQQAAABw58x3Gew28PAAASCQQQQQAAAAaIQ
+        MFop0AMGM5RSCQQAQAAAAAAAAcJmWiDAixk8wAQCSCQAAAAAAAk/Jh7TVHKx0AQQCCSAAAAAAAXxVgF8
+        9Z/TAhQQAQCSAAAAAAAAAAAAAACQACMCAACAAAAAAAAAAAAAAAAAAQBgTCAeCEAAAAAAAAAAAAAAQSSc
+        QDgBgQYAAAAAAAAAACAASQSASQsQSyDwAAAAAAAAAAASQAAACQOgAKCUgAAAAAAAAAAACACSQQFgSHQC
+        eAAAAAAAAAAAAACAASGSQBoCRQAAAAAAAAQAAAQAAAAASSNQCKgAAAAAAAAAAAASQQSACCdUSTEAAAAA
+        AAAAAQAAAADQCCu0CDqgAAAAAAAAAAASAAACACwCQQNQAAAAAAAAAAAAAAAQAASSCQVOAAAAAAAAAAAA
+        AAQCAAAQAQdeAAAAAAAAAAAAAAAAQSQQCT92AAAAAAAAAAAAAAAAAAAAASCAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAD//aAAgBAQMBPxD9h06dOnTp06u2/S/FxYtGv17dOnTp06q0fw7d
+        OnTp1FixYsWK6dOnTp06dOnRuzf6NxYoULAXNHq/yV06dOsAeiPpr8/x58+fPjs8vtmO/Jj59P440evu
+        Z8XInWPKdfx/FOC+lf79P0LR9L9/0Kk/bS5HXuiLCQBa1Lg5dmbAeGQKKuiWhu0t7rFZ9upWDw1uIaRW
+        PfxNx8/OvF0+T9orHbHz6eO/p+WDYP6DOf2XB6AKJZBfNxYgRWIvvkah2z8pOo5OqtgswWFBWsX6/t+I
+        SYL+uklyAiWRQypSzlh7mfCTKgUAKiAAWquACAr4bsQBUojqNGSWRJtosdOxmNvA9qRlPTM2aQhMzrNB
+        EQZObPNuf/8AVEoABD39uw4DfyGKN04bSM509BU5ogBfeyxmgPaiwRhSBgLEKUExBdP5S4aIi9BcOLBU
+        IbS+SR5mWkZRPxs0iPbFJn4ekDFQJY90AUtB7BlYeLMaY6gNwGbDAsldAo8tY5eVtezOUM/SOnyftBsH
+        x5Hjv6fln0v+/n9GQ8vtj9moeBrriEUd7xkZTPQDNYCj1qk5uhwzprSICuHxResdYuiRwq5lEhatXybW
+        uyVBZN4HHNuAJCyAJnptx/iKRGPYFBhGlodyvxqyAuZxuGqqkYz9wklar5vf9+qB7MAjVAldFj5jKcNU
+        stl4u9rywqhE3gZA18uQ1oJwCJ2vKbfQKg0SKXcxbJjaqrDbcqlVVmDwzqrtFNGOGAsAIDVjGaFKrDKx
+        PmfHbRHBDL5BYe/QOXMbpLNolemoLBi1Y01jZSYBEcMq6WFstXMwiUq3NfWerLhzq1rAWFwHTMTGCoKC
+        UKZj3rJcQOUdpk8eXZT28HT5P2mr5+Dp8mfW/wC/jx39Pyzg7n2f14OnyfB2e1n1/ZQgYK6hopWVtWra
+        goDsFgXRdYoC6UN6a7AnwOEpRVF+Ex7eDQFC5RrAkDILQ1ikm4O++3u4qXjkmZNmCCGiNLI6toAUDhlD
+        aDVAtxXp0IbiArlIqi9ajauVIxib6TO5JiTWGOobgZFtmECblC12xNxd95sKMgFFohMRz1hHHtneUiV5
+        PO06ru0Abl8TFcCBQ0ygqpLBNkWjJocf9Z2KC3AEU/GMoA+tqr6xjaCACaETKWYy35QSXmyVVvVdq5Ks
+        CUiXveO8VMlMFekOkkDG65K25nXFEeZUkNORSCWQCaYasjc2Bjt81+9+Gj5M2Hb6v8eGzy++IsfX8PHd
+        6fabeY/Phs+d4jp8mfdf2UBepkld2+dhQSsjsOG19QRFuSqkmWdVrLlwyL3xuI6KY6ahaiUpsLKl3IBw
+        XKazO6cFC3KxQUh7XhgSJ6Zqy6MATxYLjaBVVfDeEotMq003VQLUPIgbVqwbFeUzDX7guVww21uoI1UV
+        BpaIZtnLYcR1IpUX4x6acSANAXwRjwdYQqIckyiizEXrenIPBUAYpYisoZlIoF1fShdJBdZtcS6PYyMC
+        YuUhGp4cQzEEtgh+/htJbujdrS/zJkaq5N8VS3KNHEAH4MbZJBJRKyK9FGBovKBYNcRKocUkhLFLQsd9
+        mn38Prf9/E+Y6WeH1n/Z7Ifs+K7eMs+d6+God5u9J91/ZSZpKrijYsQgg9nbDHpbOMdA4YN6gSJZIMgi
+        zBDzgyFqLGekVC2Ac9A2B6IgJsbzHTBAAOyRrRZSl8ecJVqnlgyGUKu8Lgyk9LrEJluB7dkkRorY6BTD
+        sykikOdLWSHtCS0JioKRJtsruq152aLgC1MC1LB1OT2RAIPWtGzxzqIRpJTGQVZKqr9ZdzTEuIIAACLT
+        eLZclKUqiEM/iMVIcGJo9Pwq1alDNLo8WKWZW9xSNbZcOSB/QNB9fT/s39Q+2PueC+gvz7TVeT2L+74P
+        IdPzMr9l6H+vBaFipe3vNV3D2L/Pg8h0/MWj1mjz+hT8ftUZWBFuxceABBU313rVFZvsKVMJEAEEd/Rk
+        amC+e44yv2yzoAZW/SY4KDXV4zv8Dp50YgeuEdwbVD4O5NPXftF6YiiNwigvNCgRaSlMw7KnhymAC1cB
+        FwAwqQIZYC1RZK8A9MS3FLJKxENCrQJJE5SALK4s+WOr4oQaI1kcDZ3RzahaXAYmEc2ffBMlIxA6KNvH
+        W2GbJmX/AIcyrYVKMYkQUrlNGQQoLYL2eHgwznwIICgGxMJBMiIJs87lQAl/va9yMErJt4ymnV1XkBCU
+        bK0WxOWngCUDFVaCHScSOr4WOUFY6lQvr6Q1dsW+rPevDc9dfj2JknQPuX28HgItHr/U5OoPK6/Hgtqx
+        5Xp+IK8u/u/PwCTBhC5jrlZNdi+Bp9vF2R0QkVQzMsmq0MIMB7t2HQYmGUnAelW6it2qOzf16D1cYcVD
+        YjVhE4L2/QzaDOgWkpJv9Iql3QpYGL26qUselNvdZma+S5xYxLDErVBD7aYBZoZohjZqt2aziGc5kf4f
+        iocSJAIoF9b9y9WPjxclW+Y29IuzdZGJBMr5BoAGWBBIOR82P8wGFFERp44FBkB8GZFkrcp8kT9ObLLU
+        E4NbuoAlI/NEtFsIjnJDsKOj73Y5ecYPfwdHn8sqPLPrxBRW2+nR9DwVr7TEvp6Q0egvzq36xUMWi48d
+        36/9goOgHsV+/RW4wPCaoNFTQTJ9SR+EqaIWA+MCt/UgpRkUZfbMdhGsLwlIWh/M4REJXFBWbGWezUdS
+        hny13gANVQXkbulzgAEtgbHJXbIGyQC2gngGVLg89SpZvaCw1O1NsnGU48WhNFawLU8LDNLDsMzBQ8q4
+        0tjbQFE9ZBk5iQa1jvVRcB1kgowiaCAO6S4HJcmDhVC3iAaBZmYCufH0IEYR1WZ6eGjZZow1lqu6TVll
+        CwNnibsGL8+Mm0aWfk4CWWeZTbAEBfhA6hUwITjkCSWuckkt1S2dLkeR9PDc+0aTpHle3yCAAGgA8goi
+        ofYio88RxnIvyPsB4PNdI8V1+0DpOT5ZPt++Cl4zgeAkxlcrNFjgGqqlKptXQVhfbbZ4DBJbEHq3aY+P
+        hO4YdgelWFpqQAfq31p0VBCpAoeYmdiyQGuE2CQaJrREAKJAFhN2M0eGl20mAmC6HI03glc7SQ7GWk94
+        gtyAIawYLmM9doQoAOvpGiKwCLcRbpLcio2ekC0EdnE/I/UsYXRkRIqk5WLWZqAQMJgTrDJZ0MYuwBBJ
+        XMCBtDbcaFPPqAPvGsEoDfe7KyHDRQBC2EA8CbuuOuhDZ5v/AA1l/MFgdEG+kDTNnM2QMjCGOEuRJyMZ
+        BbKAABQAA0AUB5E4j1/qGHY+8ZPl89seRj18Fb2JseDXnLP0bvUfUD6xaLi23Nzwa+e8PL1pra350fX4
+        xG3uKP0i+H6g/WPA+tT84pxdcr6UEtszoQ+q3ryqagcnl87qdrrwA7vSAWqX9CEB2FfMJwH14zC6WcnZ
+        C1lrWDglB34/uVc55ekymVBnHWjQZexNYpq3a7V3WWOjuxUd3UoV83L62Pqjflr0j4946PPEpV6/PpLc
+        7S/J/oPicN4+3v8AsINvpzPQPrDW2vv/AJLkirVrrJisfB60ZmXTQ5FTZwdAwSjzlHdfn2gIr3WOio82
+        9oJw+Xpg6xQLYvLKRfaOL0Om5e4l+RFovw3PBr57xsPpPYZXoEAADAYDsfEoO5Y29PnDLGGr7lP4nk+v
+        +SvI/PtPJ9f8jToeb/yPWvpj+icwH17xdzLW61to/NIodcsA9sKxspnmHVahgHYKCU4Mspvl+dxQo7sI
+        uGpNWTNq69WtyzyntH1jYC0AbUoPNZdNODcvfoMHYlj2Pm46x1+3+ygnT7xk2m/IHF2sr0+HWt/pQcIP
+        nFdWeWvrHhfUT7LHqrz/ALUtvD5Kr6Z01iq/K/CDbL91PW59RgoS0AHkABFDct7EAMYOv+RMqAXm9xcR
+        NJXQPfQ28m8B0D0AJZg195xHq/iCHOI1fhYnN4/Ce/ScXvFouVCrli9pIBydrGArQh6cvVXfxCJn2cQ6
+        yoI6f2Eu/l81F+Xz1iTv89ZtH04gXBDK9VocrQSwAUHlDTmqurgdHMUNxHy6ThHzYQc0RroLj5L+qbcO
+        6RogAAAGAMFHAEXll2eD592AC3r5xEoqGi9X7h7B1+KQ794s1ny37THFpXDZ9GD6j89pft9f7l+31/uX
+        7fPrF6aexE9V+e8SdDz/AKhNt/bzqL0h3FvNBwdYvkHIE6OWz/EouXbb9XtPOIPPpFXL/wAmHGDlhBzU
+        cusMeDnoi9Bl4EPA69S1O1Ta7WLyyzy+8pHMSzeHgZCD1+k9IAAAAFAYANAcB8Ng0478P9fqdgH567i2
+        lPqf3Eth9R+KiPN5F/Nxr/R+Evj5+H3joecPHcE/ScHOxD0aH1m8zuvY7Hus7KUIeaAWxQ2xbrB9Yg8+
+        kq2+RBVQHnFl2oqzVoKVRh0XVxBfnoLd5UWoyrlYvLOA1y/PEMNw8rVWvcPg8vL5zOhWX2fdNehj4L5/
+        5+neGJkMkOs9oI6f20u/l81FusRBt/uegfWDymBWqmUtAtDwQxdjF3Raw719XZCggAABgAoA9ovLLPL7
+        wwYZKZuk4L13eIDUnEMh0ah+456B8Hr9SHsxE3/kEcy/ITuPn6Svf6f3O99JXvK9GeT6z0vnvF6vuxPn
+        O4H3/vwwdUFdyVjd7AL1Wq6XZ1mHliqK2ZKgjoDvcR7HzuKG5bvB8+7CLphlCU6pugNHdoNsAYwVsR86
+        5e3wzfHt1/qAez0f1I1a7P41EtUPZ9sSrFHufeeT6/5K9H59ZXo/PvPJ9f8AIrsfPnHr9n9kF/rOUD6f
+        7LNXvLcuiDPVmTe79jaoNc35IoGhzgu7CD+QY9Pv4cJ7/O4JatsAG2vnUHNuKD0TrG/0ZxFyAs5oasHJ
+        J5rLwHw6Hz6y8H+kDzj6y71+lB2X5x6R5n7EI8R+t/1Hg96+88NvNf7LuB7L+5ZtelPzh7+lB9Z9ZnlP
+        U290rl4MYxR24xqL4xFXcSd/KdVo6fO4Rpr7w1seV1LQm9MIBpVv3wOt4mB26WU3SlvYOAPit4Y9PtNe
+        Z9IF384dZ7TvfSWdT3P02G2pRz+ftK92L4K+sVdssNxPGftOq0dPncKBtdPlnVnxqL26ztqEtA7KWW3Y
+        XpZ3DsdwAAAAAAKAMABgA+NQ7PXn3iXDscPvqYYCeZO4fb7/AK7Op7zvXHoPeL5a+kBtv57wjmvn3lxY
+        OfnMHuW0gr0F5FxgeOr5Bq8oeaCRfhC+Vra5XL/AoOEE75iNX9R7RHVfQ/WPKD0p71U8z3SfNcp1fWO6
+        /n1j8yf7Eunz7Qev4+feHdDl4Mr5BmBu18FnqhnooFp6OSfViR1ZfmYiF9RYAAABQAAHQDAfw7vJ5gxX
+        ftD7JFuny/sMV/BB/wAlBzr5l9xAuf1/ftMSf0L7A/8AUn//2gAIAQIDAT8Q/wDAL4EACquAAyq6CIyz
+        RUvpo1kWhVUVgXBa+VD3SdEBBV1UL8Fr0/jlXGG67VeAFGAVwQ0kqZD8OASytrqoZ0S7ikfJt8ngLyEk
+        RLEdicjySnAKTrt6AZNgRs8AFaNxwD0Gp2OHjBBRIxEVNekIvahssimaethRXSimhzBHUeVrXy2VrMW2
+        iesRZdSoFTogFTeIJqFM9SikwtolGbIFAM6geW1vpVaYIe5mwmkqYsEttJXLsl+qgdxTw5qLZwNLPAon
+        QuAXsE1XgxuGBgBaWgMpDxeoYgJYLQiCxNMraN1tt64ve9c1KR54lmst9bNXsq7IcEBMB6kwLoU4H4A/
+        ZAUrVM0U+MtuyjStKK7gVH716Ss1Kb3QnpVRxsbllExdhluMx2xG3OJe2UzbLENg7BTumFhAXnGDgX7E
+        MNFNMrg8CuHugwLzDRoBq0A4LkKSJRWzNVoqF6AUHMRui9ZRNgoFWra0Iaqmk19CoKUGl0MZcmYkVbMQ
+        XINpeY79j3y1+y4MG3Ms8vFF1cvYb4W5k6w13g70BA6GJxUd1kd30a7apVD3wODQBAOAAIi0ndIVBDsy
+        lJlzP+akEk3O8FrVA3gesRpoV1RsVapyWYczIukA4ARUBQFAFAVMJQU8NxBBVKzVU6hywUQquhBIEixC
+        AQLpbAO78VpYR81fqv8ANRW1nRujtOio79kb5ZIlEBcsF5QtzUzFObbNl1J9cOFhiA0AzgQ11owRLVBL
+        4RCWupFqFhRVGBKA5plm2LMd4t84sZbCiGypV2O1NoWmvQXwib8RQqwiFje6VahdYRcEQVUIJQab0Elk
+        AFE7sNougRfQl+IFziZFKtd28DKQeF3BYiYSBApxTDtXcVZshdpa1S7FJUDlsl4lBamcORZwNXNrEpoC
+        haNAVlhKJ7YRxZbcymC7FpWlAlcMZqdICZHMCKKJCEPZgCFilSGUmDkdRIQKra0UKviLW7YoPORpvMFu
+        BiWAUiQBtEqh+JOQRfnLeulQOlWbGYn1ahs9RuPG2mWooncqR5J8hiN091cB5ALzvkjFYwKnELTMVwY9
+        J1DlNqBf1uZ5rzUtUA8qGex+vaFSaAosLkqFlNkq9zCJ5ii4ar6BuDzYi+2E2AwMG2GOdAqq0cCWpi82
+        sbDX6ICAeAbCaRTMyNebSV+rMawodcKHzkYGi7x4ZZgA86mMZZnNNGBmP4EzolvK3Vl5wea3zxRRSih2
+        0r0tm5TBJqkcIQjlughhUQAHBtAEq1jQXBc0AAOABABoAAMAeCY4GkcfCPRWALBA5z4DHg0VSXAQAgAB
+        q6U0vxKVBeN0Lg6NFc3IKEAKdghQAFomxpW6mXFXSNmmgl53B2E0B24YAWqOFi9xWIFIpE0lYrVYlP8A
+        FVC2imVzdHOYGXHIPFq6DgKDgAYIRgLWJRAAATa1RrBGyvajdUKvmy+tccoLOzdg4dl1cNGJBQZEKRHS
+        NkY+IewlJXA0AKTOQfFKJvD1QcdSFyUoo1VEJVTyym9BaloBHebzLPW2LIcGDVubbgUZPvU1BLFCgXYu
+        A4KzIBzlBgW8oKeAqoCEWAmOiwts0BH14KmaojlklA0g/G0lIwmgW22zZdh2uq8F796ZPoDlgSZx4AUg
+        SrY1YurilU0AoPZlPJurNzKasWFupavFi1FlFRtBsrC1M25F458AV0jJAtoFqzlqrYhNmHQEid0PrAVo
+        yszqvaB7pDYL6NooLVg00nIQ75RFBQDKqgBlWiFVEsIymilNbA11j4agIWuGlpiFyYIsCoIAUUQeokKY
+        ioYK6lpQa2XkI7BbUsFWXRBsCmbUfBwO0vC3q6NXTV+D5FaEj4koBVXgDK9iZyzEgTZADh2INI1QUJrI
+        NodHkx8usBGraAyq6A5WU1WqVQWHcE6iPxuFB5KEB4SlOQ1jcbuAClAA2q1avtKCDWwjpAwVDaOgE3wu
+        g1NMFkJDTioCG0pAmUtKECZJTKqyzAClAs6HF5imU6G0sUsJW7bYApawRcrFUaLzUb4hRhWDWQlgIEQg
+        GpGklELFYohioYUBDJd7rtiBkcSieDtqxlR3EwfOgE6wnCUhm6TBp7BQwXRWtjBbVAGDasS8KggkKLFm
+        HOJ0C0K1FBRMCTCCDQ2EtClQ4IqZU35OprGAikaBV70NYRgVAhROpQltrbkqvsioWFIUDUJ5bJoKhiIf
+        GY5ob3hXjBNuVJFIAvQM1GrWy0U9TH7KQUg0iORHCOmYzAWBRFGFaz6cLYCxsY7/AHP6iMcPZoGezy6i
+        DCin3hIBNoYGW5ZoPFFdiysKRFhV0CFKD0tvzSbgLF1Pc2QXXHNUhYdLRE2kJXfbJqi6lpBrFbOQykAh
+        QrEOSQCV8FL0zgW2uIVtfmzJQuF4asLAgRCph2nc7RtSpmKXhdoTOCVP7vLO6kV0LYs1VjBSGuYswagL
+        W8AiDW1kVwIApRgTOMqhzEjo3+kCtFNAYM9cCkaZAUgNjaFGV6ACFhWwAXGJtryl9wYbm/FkhSLKULcK
+        BTYacI5jhT6rhnTtttlW1Q1AofWUFiGRHIkNveZisDQEAFAsoUga6tFdo2AAC5VFrRQd/wA7IqhYTQ4y
+        G2I1jHgrYetrRUFE0hp0LqZyA94u83axaULQyrVRcbGtRRqNRiQtQZcoWyrgKf0i+s9lxaXTs2oUJZqb
+        GrgzRBJTGGoJJiIA2qBRmg5j0wxmUlLotqyuWNTT8gQKDaRw5VtjnCVFZbNlVyULXMdFOuSpVusXfXMy
+        KQaWFZW04eKOkILSXoolyC9ANWkKGpKDGrAwBMilhA1eHVQjWbghFVSC9FMfIzKDm1tylStXWkOIPv1x
+        UwB1B/hjUNlIBVd7H/8APq/+AP5Hn/6f7f8Ayef/ANIv9iv/AGp//9oACAEDAwE/EP8AwCoLKCZzLVYN
+        3qsg4zvUHckeUcMPa4fZ36X/ABzxqLMJq0aPsep+hxB0Tn2KPuw7Jjmsw6JZwt+T+HxYaFTw7eq4O2Jn
+        LM2OmLMl25d4g4ACwpXGHkaaTiC8Vqo2oEhrLyLqLUXF8FgU3XeMHRXzUbxs1zEkZkCOqhVWDO3LEVCD
+        BCNO2iLWrjTspVugKPZI6AiC+HpY0YsiPZqq1mnfnPt6CvzUCQGkWBYq2i1WJYbAiUmEIAr8rrp3Wd2S
+        74uWALsFCpVtG1Wmm6BQrv1rjloUMhqYviSga5fPj2/MJQ037RugCoUd53WBxTMHgl5oq8j/AHUFGKsO
+        mZprj7u+yETk+g0dQ+rsmVmKuYRoegKoc5qCgMilj5tnlLi4T9T7gZj+k+mfuYdLXvIj9TMrzPPsKvbX
+        ubvEepaow7VUq8rDXTgjWVAp0wNjgxPuRTKmtrysttBLrKdIFbEBgSkDixRpyNOJTmKp2esNXdRVsquY
+        dTYGIJholYFm7DM3sMLSa0qHYJhSKVYJYQEmHM6H4rSNyidWKmX8+kvZofVj6q/T9/xAU6OP+Sg7xF3g
+        zDLNcusAnwHGjnZ/sZyApZaa4htuEwNmywVyujv5zBvA3gztKCilLgzjp0p5UkFJlcMVxjYCyaqisyuM
+        jnwtqh66XXpF2j6MiWtBMvafltJAxxT0ZTUyGSgVIRMidMs7AbFBwmIVux3/ACQprKBppJBUoDlWGzUc
+        VVLhW7eVuXmHbjUAWU0gSxR7NRpYCJTTw0wCzYH4grDY0/eUHwl/d9IPLpXvj7XLQ7D6YfepWbGWM059
+        l36Sgd89OfUqUXcPNz9qiJi7I89wD0Ry+n9w2xA8h1dJRjdw+o/iAQ0FS+eS9sPvXw50CPpZ7msddy09
+        2nUUD0sddfQPSPstUbBFZFbFYqWnIlI/JUGumMsa4hNq5FtVtveeY7kgEjSVqqWqquVY7wmQu6C/iCwF
+        Vg0axtD5y7Jecyc7I0IbprJshLFfEVfo3t0fTntEhhciVm+b8uYDpJ3L++IJmhcGKzP2MHIaelRnY4AD
+        oB+ehbM0TK/PQ47QKrChzaV9ohYq6y3u2fQx4VAKWSc6fJ1nPU3NcdjhEFRbdc2Z2rDYsKUwl7S7zWF3
+        xjiUHBb+LdG3PQjlYLUYWD2eck1Y1FK+COKYwJypWAtPgWkvEqUDIwZU1LVh8j0Qu23wBFVhHxus7Tuv
+        MfljokIJ0vKer9iiBhAgphLctqBeowt7ZF7hn0PmTOFWjAdA+62vL4MPEcBaDyvPgqgK0SoEg2w0LH1E
+        ZvBuA2Q7iQm5RR3SWPqesBQFplqoALGnflBhQaeAA+hLJeO1B+K12NXXzrwHEJ1RbytInsPl6wRLNR4R
+        rUAA5VwHdiwqhgGLBUmTSKWJdoFUCUUgleyO70j1ACqtAGVV0BtnS2iJCe6OiJ8bj2QZ6EZ2Enl4NOnT
+        BYA9TCokR2CiStbYM3EC+DQDWhdFAaXmU0CiZTSCCRzYNCWLw1WxoQDwh0XeS2itCk88gFXVxdnPdYDa
+        pt58w3jN3rzuALG3tH+5Q+C5rb2hrmoMnJ1H3FjmMZgNjNtxfLSYL1WG5nJ6KY0Bq7y3eScJk3BhLaMU
+        b4KjVSFXBxyuEINKovNpjID4KrABvBU05fBFuDYC9C3aytw2HLmVRsspyE2uXOhrm4kRkpTZoSMeo1ON
+        NrSbgRMCmAZhov3bjl7fGZwBY48idmgGllFI7wIpKbENWp7BrTEDKREpEaRHIjhJkkAwlRKtuoaTF0Qq
+        bre/5ZRS7Pyzp7Ix2buhwLBu5WylNxCVrEBSeXl0S6xdmZmt/a9jbEloqFbKlJ3EayVKpy0yr6Oe5M7W
+        CAr5v6o8DUgRdKt2NB9ScUGGQGNMCjgzxBHVKQy1l6DVGsiRYY9+myCpWM8lNwAKtEmoS1DgoRyyAv4G
+        sLIpLYCJnCCJtcZAyKe1aL2k3aQrknAYTRcGChuHgkQlSLoimSRPxi0AUxhQafFhHyrZQNqpGnTSNOEl
+        OMAWt25bXY5aoagfwIIBsRMiMIcuuAwNIUACgMZHGbIqP0UuBQZyqLWihLDkpyUYDBoeoMXFKAirssXZ
+        HDkTSWCHYuDq1k7shM3XDC9o4TmwzLyFgLXbuq3WLVc4qOlE6EcQdBzec3MeB8ArttbbdxKV2zQp8moh
+        SNBWcGukBYvmaFuN7hoa6woU7K4SqM1NajdU16kdCwYDBGyTyDNXuIA2x3ggIilF6GIK2IAFoloagSQA
+        GCgBR9CL4tOK2jCWfYhRI8FiRpAOVbkZu6rWyOkClOH+REc//QVL6fytR/S/xdS+n6XG9/xd1+kmi+f0
+        6/hMS/1tHnN/orr/ABdS61v9T/EhMEW/L9JF9v4nEt/VrPEX2/h7/YCa85d/x9cy+n8fqX0/kL/ir/8A
+        VP8A/9k=
+</value>
   </data>
   <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>None</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>784, 561</value>
+    <value>1176, 842</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2232,6 +2726,9 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>人事薪資考勤管理系統</value>
@@ -2540,6 +3037,12 @@
     <value>合同管理ToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;合同管理ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;員工規則設定ToolStripMenuItem.Name" xml:space="preserve">
+    <value>員工規則設定ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;員工規則設定ToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator7.Name" xml:space="preserve">
@@ -4113,12 +4616,6 @@
   </data>
   <data name="&gt;&gt;cardTableAdapter1.Type" xml:space="preserve">
     <value>JBHR.Dll.dsAttTableAdapters.CARDTableAdapter, JBHR.Dll, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;員工規則設定ToolStripMenuItem.Name" xml:space="preserve">
-    <value>員工規則設定ToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;員工規則設定ToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

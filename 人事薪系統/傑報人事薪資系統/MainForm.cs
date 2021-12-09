@@ -395,7 +395,7 @@ namespace JBHR
             {
                 if ((ctl) is MdiClient)
                 {
-                    string hex = "#E8EDF6";
+                    string hex = "#EEEEEE";// "#E8EDF6";
                     ctl.BackColor = System.Drawing.ColorTranslator.FromHtml(hex);
                 }
             }
