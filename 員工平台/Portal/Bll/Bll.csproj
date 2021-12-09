@@ -112,6 +112,7 @@
     <Compile Include="BillBoard\Vdb\BillboardsVdb.cs" />
     <Compile Include="Employee\Vdb\EffEmployeeViewVdb.cs" />
     <Compile Include="Employee\Vdb\EmployeeJobStatusAddChangeVdb.cs" />
+    <Compile Include="Employee\Vdb\EmployeeRuleVdb.cs" />
     <Compile Include="Employee\Vdb\EmployeeStartWorkDateVdb.cs" />
     <Compile Include="Employee\Vdb\PeopleApDateVdb.cs" />
     <Compile Include="Employee\Vdb\CurrentJobStatusVdb.cs" />

@@ -11,7 +11,7 @@
                 <asp:Panel runat="server" ID="pnlNews" Visible="false">
                     <div class="ibox">
                         <div class="ibox-title_sy3">
-                            <h5><i class="fa fa-bullhorn"></i> 公告欄</h5>
+                            <h5><i class="fa fa-bullhorn"></i><telerik:RadLabel runat="server" Text="公佈欄"></telerik:RadLabel></h5>
                             <div class="ibox-tools_icon">
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
@@ -48,7 +48,7 @@
                 <asp:Panel runat="server" ID="pnlCheck" Visible="false">
                     <div class="ibox">
                         <div class="ibox-title bg-primary">
-                            <h5><i class="fa fa-pencil "></i> 待審核 </h5>
+                            <h5><i class="fa fa-pencil "></i><telerik:RadLabel runat="server" Text=" 待審核"></telerik:RadLabel> </h5>
                             <span class="badge bg-muted text-navy">
                                 <asp:Label ID="lblSignCount" runat="server" Text="0"></asp:Label>
                             </span>
@@ -59,24 +59,19 @@
                             </div>
                         </div>
                         <div class="ibox-content">
-                            <telerik:RadListView ID="lvUserFormAssign" runat="server" RenderMode="Lightweight" ItemPlaceholderID="Container" OnItemCommand="lvUserFormAssign_ItemCommand" >
-                                <LayoutTemplate>
-                                    <table class="table table-hover no-margins">
-                                        <thead>
-                                            <tr>
-                                                <th>表單</th>
-                                                <th>表單單號</th>
-                                                <th>申請者</th>
-                                                <th>申請日期</th>
-                                                <th>審核</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="Container" runat="server">
-                                        </tbody>
-                                    </table>
-                                </LayoutTemplate>
+                            <telerik:RadListView ID="lvUserFormAssign" runat="server" RenderMode="Lightweight" OnItemCommand="lvUserFormAssign_ItemCommand">
+
                                 <ItemTemplate>
-                                    <tr>
+                                    <div class="row line">
+                                        <div class="col-lg-4"><strong>表單：</strong><%# Eval("FormName") %>,<%# Eval("ProcessFlowID") %></div>
+                                        <div class="col-lg-3"><strong>申請者：</strong><%# Eval("AppEmpID") %>,<%# Eval("AppEmpName") %></div>
+                                        <div class="col-lg-3"><strong>申請日期：</strong><%# Eval("AppDate","{0:yyyy/M/dd}") %></div>
+                                        <div class="col-lg-2">
+                                            <telerik:RadButton ID="btnUserFormAssign" runat="server" Text="檢視" CommandArgument='<%# Eval("ProcessApParmAuto") %>' CommandName='<%# Eval("FormCode") %>' CssClass="btn btn-outline btn-primary">
+                                            </telerik:RadButton>
+                                        </div>
+                                    </div>
+                                    <%--<tr>
                                         <td><%# Eval("FormName") %></td>
                                         <td><%# Eval("ProcessFlowID") %></td>
                                         <td><%# Eval("AppEmpID") %>,<%# Eval("AppEmpName") %></td>
@@ -85,45 +80,45 @@
                                             <telerik:RadButton ID="btnUserFormAssign" runat="server" Text="檢視" CommandArgument='<%# Eval("ProcessApParmAuto") %>' CommandName='<%# Eval("FormCode") %>' CssClass="btn btn-outline btn-primary">
                                             </telerik:RadButton>
                                         </td>
-                                    </tr>
+                                    </tr>--%>
                                 </ItemTemplate>
                             </telerik:RadListView>
                         </div>
                     </div>
                 </asp:Panel>
-                <div class="ibox">
+                <%--<div class="ibox">
                     <div class="ibox-title bg-primary">
-                            <h5><i class="fa fa-pencil "></i> 待審核 </h5>
-                            <span class="badge bg-muted text-navy">
-                                <asp:Label ID="Label1" runat="server" Text="0"></asp:Label>
-                            </span>
-                            <div class="ibox-tools_icon">
-                                <a class="collapse-link">
-                                    <i class="fa fa-chevron-up"></i>
-                                </a>
+                        <h5><i class="fa fa-pencil "></i>待審核 </h5>
+                        <span class="badge bg-muted text-navy">
+                            <asp:Label ID="Label1" runat="server" Text="0"></asp:Label>
+                        </span>
+                        <div class="ibox-tools_icon">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row line">
+                            <div class="col-lg-4"><strong>表單：</strong>從業人員晉升調任申請單,372067</div>
+                            <div class="col-lg-3"><strong>申請者：</strong>吳秀靜,A0902</div>
+                            <div class="col-lg-3"><strong>申請日期：</strong>2021/8/12</div>
+                            <div class="col-lg-2">
+                                <telerik:RadButton ID="btnExport" runat="server" Text="檢視" CssClass="btn-outline btn-primary" />
                             </div>
                         </div>
-                      <div class="ibox-content">
-                          <div class="row line">
-                              <div class="col-lg-4"><strong>表單：</strong>從業人員晉升調任申請單,372067</div>
-                              <div class="col-lg-3"><strong>申請者：</strong>吳秀靜,A0902</div>
-                              <div class="col-lg-3"><strong>申請日期：</strong>2021/8/12</div>
-                              <div class="col-lg-2">
-                                 <telerik:RadButton ID="btnExport" runat="server" Text="檢視" CssClass="btn-outline btn-primary" />
-                              </div>
-                          </div>
-                          
-                          <div class="row line">
-                              <div class="col-lg-4"><strong>表單：</strong>從業人員晉升調任申請單,372067</div>
-                              <div class="col-lg-3"><strong>申請者：</strong>吳秀靜,A0902</div>
-                              <div class="col-lg-3"><strong>申請日期：</strong>2021/8/12</div>
-                              <div class="col-lg-2">
-                                 <telerik:RadButton ID="RadButton1" runat="server" Text="檢視" CssClass="btn-outline btn-primary" />
-                              </div>
-                          </div>
-                          
-                      </div>
-                </div>
+
+                        <div class="row line">
+                            <div class="col-lg-4"><strong>表單：</strong>從業人員晉升調任申請單,372067</div>
+                            <div class="col-lg-3"><strong>申請者：</strong>吳秀靜,A0902</div>
+                            <div class="col-lg-3"><strong>申請日期：</strong>2021/8/12</div>
+                            <div class="col-lg-2">
+                                <telerik:RadButton ID="RadButton1" runat="server" Text="檢視" CssClass="btn-outline btn-primary" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>--%>
                 <%--<div class="ibox">
                          <div class="ibox-title_sy3">
                               <h5><i class="fa fa-bullhorn"></i> 公告欄</h5>
@@ -187,118 +182,118 @@
             <div class="col-lg-4">
                 <div class="row">
                     <div class="col-lg-12">
-                    <asp:Panel runat="server" ID="pnlAbn" Visible="false">
-                        <div class="ibox">
-                            <div class="ibox-title bg-danger">
-                                <h5><i class="fa fa-exclamation-triangle"></i> 異常資訊</h5>
-                                <div class="ibox-tools_icon">
-                                    <a class="collapse-link">
-                                        <i class="fa fa-chevron-up"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="ibox-content">
-                                <div class="row">
-                                    <div class="col col-6  col-lg-6 border-right">
-                                        <h1 class="no-margins font-bold text-danger">
-                                            <telerik:RadLabel runat="server" ID="lblAbnToday"></telerik:RadLabel>
-                                        </h1>
-                                        <div class="stat-percent font-bold">今日</div>
-                                        <small>人</small>
-                                    </div>
-
-                                    <div class="col col-6  col-lg-6 text-muted">
-                                        <h1 class="no-margins">
-                                            <telerik:RadLabel runat="server" ID="lblAbnYesterday"></telerik:RadLabel>
-                                        </h1>
-                                        <div class="stat-percent font-bold">昨日</div>
-                                        <small>人</small>
+                        <asp:Panel runat="server" ID="pnlAbn" Visible="false">
+                            <div class="ibox">
+                                <div class="ibox-title bg-danger">
+                                    <h5><i class="fa fa-exclamation-triangle"></i><telerik:RadLabel runat="server" Text=" 異常資訊"></telerik:RadLabel></h5>
+                                    <div class="ibox-tools_icon">
+                                        <a class="collapse-link">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </asp:Panel>
-                </div>
-                </div>
-                
-                <div class="row">
-                     <div class="col-lg-12">
-                    <asp:Panel runat="server" ID="pnlCard" Visible="false">
-                        <div class="ibox">
-                            <div class="ibox-title bg-info">
-                                <h5><i class="fa fa-id-card"></i> 班別資訊</h5>
-                                <div class="ibox-tools_icon">
-                                    <a class="collapse-link">
-                                        <i class="fa fa-chevron-up"></i>
-                                    </a>
+
+                                <div class="ibox-content">
+                                    <div class="row">
+                                        <div class="col col-6  col-lg-6 border-right">
+                                            <h1 class="no-margins font-bold text-danger">
+                                                <telerik:RadLabel runat="server" ID="lblAbnToday"></telerik:RadLabel>
+                                            </h1>
+                                            <div class="stat-percent font-bold">今日</div>
+                                            <small>人</small>
+                                        </div>
+
+                                        <div class="col col-6  col-lg-6 text-muted">
+                                            <h1 class="no-margins">
+                                                <telerik:RadLabel runat="server" ID="lblAbnYesterday"></telerik:RadLabel>
+                                            </h1>
+                                            <div class="stat-percent font-bold">昨日</div>
+                                            <small>人</small>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                        </asp:Panel>
+                    </div>
+                </div>
 
-                            <div class="ibox-content">
-                                <table class="table table-hover no-margins">
-                                    <thead>
-                                        <tr>
-                                            <th>出勤班別</th>
-                                            <th class="text-center">上班</th>
-                                            <th class="text-center">下班</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <telerik:RadLabel runat="server" ID="lblRote" />
-                                            </td>
-                                            <td class="text-center">
-                                                <telerik:RadLabel runat="server" ID="lblOnTime" />
-                                            </td>
-                                            <td class="text-center">
-                                                <telerik:RadLabel runat="server" ID="lblOffTime" />
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </asp:Panel>
-                </div>
-                </div>
-                
                 <div class="row">
                     <div class="col-lg-12">
-                    <asp:Panel runat="server" ID="pnlAbs" Visible="false">
-                        <div class="ibox">
-                            <div class="ibox-title bg-success">
-                                <h5><i class="fa fa-calendar"></i> 餘假資訊</h5>
-                                <div class="ibox-tools_icon">
-                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        <asp:Panel runat="server" ID="pnlCard" Visible="false">
+                            <div class="ibox">
+                                <div class="ibox-title bg-info">
+                                    <h5><i class="fa fa-id-card"></i><telerik:RadLabel runat="server" Text="班別資訊"></telerik:RadLabel></h5>
+                                    <div class="ibox-tools_icon">
+                                        <a class="collapse-link">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="ibox-content">
+                                    <table class="table table-hover no-margins">
+                                        <thead>
+                                            <tr>
+                                                <th><telerik:RadLabel runat="server" Text="出勤班別"></telerik:RadLabel></th>
+                                                <th class="text-center"><telerik:RadLabel runat="server" Text="上班"></telerik:RadLabel></th>
+                                                <th class="text-center"><telerik:RadLabel runat="server" Text="下班"></telerik:RadLabel></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <telerik:RadLabel runat="server" ID="lblRote" />
+                                                </td>
+                                                <td class="text-center">
+                                                    <telerik:RadLabel runat="server" ID="lblOnTime" />
+                                                </td>
+                                                <td class="text-center">
+                                                    <telerik:RadLabel runat="server" ID="lblOffTime" />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                            <div class="ibox-content">
-                                <ul class="stat-list">
-                                    <li>
-                                        <h1 class="no-margins font-bold text-navy text-success">
-                                            <telerik:RadLabel runat="server" ID="lblSpecialLeave"></telerik:RadLabel>
-                                        </h1>
-                                        <small>特休剩餘(h)&emsp;</small>
-                                        <%--<div class="stat-percent">
+                        </asp:Panel>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <asp:Panel runat="server" ID="pnlAbs" Visible="false">
+                            <div class="ibox">
+                                <div class="ibox-title bg-success">
+                                    <h5><i class="fa fa-calendar"></i><telerik:RadLabel runat="server" Text="餘假資訊"></telerik:RadLabel></h5>
+                                    <div class="ibox-tools_icon">
+                                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </div>
+                                </div>
+                                <div class="ibox-content">
+                                    <ul class="stat-list">
+                                        <li>
+                                            <h1 class="no-margins font-bold text-navy text-success">
+                                                <telerik:RadLabel runat="server" ID="lblSpecialLeave"></telerik:RadLabel>
+                                            </h1>
+                                            <small><telerik:RadLabel runat="server" Text="特休剩餘(h)"></telerik:RadLabel>&emsp;</small>
+                                            <%--<div class="stat-percent">
                                             <telerik:RadLabel runat="server" ID="lblSpecialLeaveTotal"></telerik:RadLabel>
                                             總(h)
                                         </div>
                                         <small>
                                             <telerik:RadLabel runat="server" ID="lblSpecialLeaveDate" />
                                             到期</small>--%>
-                                        <div class="progress progress-mini">
-                                            <telerik:RadLabel ID="lblSpecialLeaveBar" runat="server" CssClass="progress-bar progress-bar-success"></telerik:RadLabel>
-                                        </div>
-                                    </li>
+                                            <div class="progress progress-mini">
+                                                <telerik:RadLabel ID="lblSpecialLeaveBar" runat="server" CssClass="progress-bar progress-bar-success"></telerik:RadLabel>
+                                            </div>
+                                        </li>
 
-                                    <li>
-                                        <h1 class="no-margins font-bold text-navy text-success">
-                                            <telerik:RadLabel runat="server" ID="lblCompensatoryLeave" />
-                                        </h1>
-                                        <small>補休剩餘(h)&emsp;</small>
-                                        <%--<div class="stat-percent">
+                                        <li>
+                                            <h1 class="no-margins font-bold text-navy text-success">
+                                                <telerik:RadLabel runat="server" ID="lblCompensatoryLeave" />
+                                            </h1>
+                                            <small><telerik:RadLabel runat="server" Text="補休剩餘(h)"></telerik:RadLabel>&emsp;</small>
+                                            <%--<div class="stat-percent">
                                             <telerik:RadLabel runat="server" ID="lblCompensatoryLeaveTotal"></telerik:RadLabel>
                                             總(h)
                                         </div>
@@ -306,44 +301,42 @@
                                             <telerik:RadLabel runat="server" ID="lblCompensatoryLeaveDate"></telerik:RadLabel>
                                             到期
                                         </small>--%>
-                                        <div class="progress progress-mini">
-                                            <telerik:RadLabel runat="server" ID="lblCompensatoryLeaveBar" CssClass="progress-bar progress-bar-success"></telerik:RadLabel>
-                                        </div>
-                                    </li>
-                                </ul>
+                                            <div class="progress progress-mini">
+                                                <telerik:RadLabel runat="server" ID="lblCompensatoryLeaveBar" CssClass="progress-bar progress-bar-success"></telerik:RadLabel>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                    </asp:Panel>
-                </div>
+                        </asp:Panel>
+                    </div>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-12">
-                    <asp:Panel runat="server" ID="pnlOt" Visible="false">
-                        <div id="hour" class="ibox">
-                            <div class="ibox-title bg-warning">
-                                <h5><i class="fa fa-clock-o"></i> 本月加班時數</h5>
-                                <div class="ibox-tools_icon">
-                                    <a class="collapse-link">
-                                        <i class="fa fa-chevron-up"></i>
-                                    </a>
+                        <asp:Panel runat="server" ID="pnlOt" Visible="false">
+                            <div id="hour" class="ibox">
+                                <div class="ibox-title bg-warning">
+                                    <h5><i class="fa fa-clock-o"></i><telerik:RadLabel runat="server" Text="本月加班時數"></telerik:RadLabel></h5>
+                                    <div class="ibox-tools_icon">
+                                        <a class="collapse-link">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="ibox-content">
+                                    <h1 class="font-bold">
+                                        <telerik:RadLabel runat="server" ID="lblOtHour" />
+                                        <small class="text-muted">/ 46</small></h1>
+
+                                    <div class="text-center">
+                                        <div id="sparkline5"></div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="ibox-content">
-                                <h1 class="font-bold">
-                                    <telerik:RadLabel runat="server" ID="lblOtHour" />
-                                    <small class="text-muted">/ 46</small></h1>
-
-                                <div class="text-center">
-                                    <div id="sparkline5"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </asp:Panel>
+                        </asp:Panel>
+                    </div>
                 </div>
-                </div>
-
-                
             </div>
         </div>
     </div>

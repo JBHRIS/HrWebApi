@@ -66,10 +66,17 @@
                         <telerik:AjaxUpdatedControl ControlID="plMain" />
                     </UpdatedControls>
                 </telerik:AjaxSetting>
+                <telerik:AjaxSetting AjaxControlID="UpdatePanel">
+                    <UpdatedControls>
+                    </UpdatedControls>
+                </telerik:AjaxSetting>
             </AjaxSettings>
         </telerik:RadAjaxManager>
         <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" runat="server" Skin="Default">
         </telerik:RadAjaxLoadingPanel>
+        <asp:UpdatePanel runat="server" ID="UpdatePanel">
+
+        </asp:UpdatePanel>
         <telerik:RadCodeBlock ID="RadCodeBlock2" runat="server">
             <script language="javascript" type="text/javascript">
                 function exports() {
@@ -101,10 +108,10 @@
                                 </a>
                                 <telerik:RadLabel ID="TotalTime" runat="server" Text="" />
                                 <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                    <li><a class="dropdown-item" href="EmployeeBaseData.aspx">個人資料</a></li>
-                                    <li><a class="dropdown-item" href="EmployeeBaseChangePassword.aspx">更改密碼</a></li>
+                                    <li><a class="dropdown-item" href="EmployeeBaseData.aspx"><telerik:RadLabel runat="server" Text="個人資料"></telerik:RadLabel></a></li>
+                                    <li><a class="dropdown-item" href="EmployeeBaseChangePassword.aspx"><telerik:RadLabel runat="server" Text="更改密碼"></telerik:RadLabel></a></li>
                                     <li class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="Login.aspx?Param=Logout">登出</a></li>
+                                    <li><a class="dropdown-item" href="Login.aspx?Param=Logout"><telerik:RadLabel runat="server" Text="登出"></telerik:RadLabel></a></li>
                                 </ul>
                             </div>
                             <!--<div class="logo-element">
@@ -117,7 +124,7 @@
 
                 </div>
             </nav>
-
+            
             <div id="page-wrapper" class="gray-bg dashbard-1">
                 <div class="row border-bottom">
                     <nav class="navbar navbar-fixed-top" role="navigation" style="margin-bottom: 0; height: 63px;">
@@ -139,15 +146,13 @@
                             </div>
                         </div>
                         <ul class="nav navbar-top-links navbar-right">
-                            <asp:Panel runat="server" ID="plCountDown" Visible="false">
-                                <li class="text-danger text-pd"><strong>自動登出倒數</strong>
+                            <telerik:RadAjaxPanel  runat="server" ID="plCountDown" Visible="false">
+                                <li class="text-danger text-pd"><strong><telerik:RadLabel runat="server" Text="自動登出倒數"></telerik:RadLabel></strong>
                                     <strong>
-                                        <telerik:RadAjaxPanel runat="server">
                                             <asp:Timer ID="Timer" runat="server" Interval="1000"></asp:Timer>
                                             <telerik:RadLabel runat="server" ID="lblTime"></telerik:RadLabel>
-                                        </telerik:RadAjaxPanel>
                                     </strong></li>
-                            </asp:Panel>
+                            </telerik:RadAjaxPanel>
                             <li>
                                 <!--<span class="m-r-sm text-muted welcome-message">請勿將密碼告知任何人</span>-->
                                 <telerik:RadButton ID="btnExport" runat="server" Visible="False" Text="匯出頁面" OnClientClicking="exports" AutoPostBack="false" CssClass="btn btn-w-m fa" Style="color: #999c9e; font-weight: bolder; font-size: 14px;">
@@ -157,7 +162,7 @@
                             <li>
                                 <asp:Panel runat="server" ID="plLogOut">
                                     <a href="Login.aspx?Param=Logout" style="color: #999c9e; font-weight: bolder;">
-                                        <i class="fa fa-sign-out"></i>登出
+                                        <i class="fa fa-sign-out"></i><telerik:RadLabel runat="server" Text="登出"></telerik:RadLabel>
                                     </a>
                                 </asp:Panel>
                             </li>
