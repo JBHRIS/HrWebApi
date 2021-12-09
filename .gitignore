@@ -2,6 +2,8 @@
 # 這個 .gitignore 檔案由 Microsoft(R) Visual Studio 自動建立。
 ################################################################################
 
+bin/
+obj/
 /.vs
 /DynamicQRCode/DynamicQRCode/obj
 /Flow_WebApi
