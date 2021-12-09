@@ -113,13 +113,13 @@
     <Folder Include="Entity\edmx\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Standard\JBMODULE.MESSAGE\JBModule.Message.csproj">
+      <Project>{b94796b3-cedb-4083-95ad-e94ec30d15d5}</Project>
+      <Name>JBModule.Message</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\元件\JBMODULE.DATA\JBModule.Data.Linq\JBModule.Data.csproj">
       <Project>{05dac84f-258e-41fc-b490-0fccd4ab15b5}</Project>
       <Name>JBModule.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\JBMODULE.MESSAGE\JBModule.Message.csproj">
-      <Project>{B94796B3-CEDB-4083-95AD-E94EC30D15D5}</Project>
-      <Name>JBModule.Message</Name>
     </ProjectReference>
     <ProjectReference Include="..\JbHrDll\Bll\OldBll.csproj">
       <Project>{8ca51909-c65d-4042-9e3e-69821b495b3e}</Project>
