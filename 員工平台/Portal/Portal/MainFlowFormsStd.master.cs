@@ -467,8 +467,12 @@ namespace Portal
                 string DeptTree = "";
                 if (GetDeptTreeByJob != null)
                 {
-                    var oJob = new JobDao(dcHR.Connection);
-                    DeptTree = oJob.GetDeptTreeByJob(rEmpS.JobCode);
+                    //var oJob = new JobDao(dcHR.Connection);
+                    //DeptTree = oJob.GetDeptTreeByJob(rEmpS.JobCode);
+                    var SqlCommand = "Select DEPT_TREE from Job where JOB='" + rEmpS.JobCode + "'";//特殊欄位所以直接用SQL語法來寫
+                    var JobData = dcHR.ExecuteQuery<string>(SqlCommand).FirstOrDefault();
+                    if(JobData != null)
+                        DeptTree = JobData;
                 }
 
                 var rFormsApp = new FormsApp()

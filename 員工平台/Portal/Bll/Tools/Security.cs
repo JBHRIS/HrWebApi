@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Bll.Tools
 {
@@ -15,6 +16,8 @@ namespace Bll.Tools
     {
         private static byte[] key = { 0x21, 0x43, 0x65, 0x87, 0x09, 0xBA, 0xDC, 0xFE };
         private static byte[] IV = { 0x12, 0x34, 0x56, 0x78, 0x90, 0xAB, 0xCD, 0xEF };
+
+        
 
         /// <summary>
         /// 加密處理
@@ -221,4 +224,78 @@ namespace Bll.Tools
             return Str.ToString();
         }
     }
+    public class EncryptHepler
+    {
+        // 驗值 
+        static string saltValue = "84211021";
+        // 密碼值 
+        static public string pwdValue = @"J---B";
+
+        /// <summary>
+        /// 加密
+        /// </summary>
+        public string Encrypt(string input)
+        {
+            byte[] data = UTF8Encoding.UTF8.GetBytes(input);
+            byte[] salt = UTF8Encoding.UTF8.GetBytes(saltValue);
+
+            // AesManaged - 高級加密標準(AES) 對稱算法的管理類 
+            AesManaged aes = new AesManaged();
+            // Rfc2898DeriveBytes - 通過使用基於 HMACSHA1 的偽隨機數生成器，實現基於密碼的密鑰派生功能 (PBKDF2 - 一種基於密碼的密鑰派生函數) 
+            // 通過 密碼 和 salt 派生密鑰 
+            Rfc2898DeriveBytes rfc = new Rfc2898DeriveBytes(pwdValue, salt);
+
+            aes.BlockSize = aes.LegalBlockSizes[0].MaxSize;
+            aes.KeySize = aes.LegalKeySizes[0].MaxSize;
+            aes.Key = rfc.GetBytes(aes.KeySize / 8);
+            aes.IV = rfc.GetBytes(aes.BlockSize / 8);
+
+            // 用當前的 Key 屬性和初始化向量 IV 創建對稱加密器對象 
+            ICryptoTransform encryptTransform = aes.CreateEncryptor();
+            // 加密後的輸出流 
+            MemoryStream encryptStream = new MemoryStream();
+            // 將加密後的目標流（encryptStream）與加密轉換（encryptTransform）相連接 
+            CryptoStream encryptor = new CryptoStream
+                (encryptStream, encryptTransform, CryptoStreamMode.Write);
+
+            // 將一個字節序列寫入當前 CryptoStream （完成加密的過程）
+            encryptor.Write(data, 0, data.Length);
+            encryptor.Close();
+            // 將加密後所得到的流轉換成字節數組，再用Base64編碼將其轉換為字符串 
+            string encryptedString = Convert.ToBase64String(encryptStream.ToArray());
+            return encryptedString;
+        }
+        /// <summary>
+        /// 解密
+        /// </summary>
+        public string Decrypt(string input)
+        {
+            byte[] encryptBytes = Convert.FromBase64String(input);
+            byte[] salt = Encoding.UTF8.GetBytes(saltValue);
+            AesManaged aes = new AesManaged();
+            Rfc2898DeriveBytes rfc = new Rfc2898DeriveBytes(pwdValue, salt);
+
+            aes.BlockSize = aes.LegalBlockSizes[0].MaxSize;
+            aes.KeySize = aes.LegalKeySizes[0].MaxSize;
+            aes.Key = rfc.GetBytes(aes.KeySize / 8);
+            aes.IV = rfc.GetBytes(aes.BlockSize / 8);
+
+            // 用當前的 Key 屬性和初始化向量 IV 創建對稱解密器對象 
+            ICryptoTransform decryptTransform = aes.CreateDecryptor();
+            // 解密後的輸出流 
+            MemoryStream decryptStream = new MemoryStream();
+
+            // 將解密後的目標流（decryptStream）與解密轉換（decryptTransform）相連接 
+            CryptoStream decryptor = new CryptoStream(
+                decryptStream, decryptTransform, CryptoStreamMode.Write);
+            // 將一個字節序列寫入當前 CryptoStream （完成解密的過程） 
+            decryptor.Write(encryptBytes, 0, encryptBytes.Length);
+            decryptor.Close();
+
+            // 將解密後所得到的流轉換為字符串 
+            byte[] decryptBytes = decryptStream.ToArray();
+            string decryptedString = UTF8Encoding.UTF8.GetString(decryptBytes, 0, decryptBytes.Length);
+            return decryptedString;
+        }
+    }//class end
 }

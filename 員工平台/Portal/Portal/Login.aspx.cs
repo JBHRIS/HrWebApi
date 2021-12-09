@@ -5,12 +5,8 @@ using Dal.Dao.Share;
 using Dal.Dao.Token;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Net;
 using System.Web;
-using System.Web.Script.Serialization;
-using System.Web.UI;
 using System.Web.UI.WebControls.WebParts;
 using Telerik.Web.UI;
 
@@ -18,7 +14,6 @@ namespace Portal
 {
     public partial class Login : WebPageBase
     {
-        public string success { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             //登出
@@ -87,15 +82,6 @@ namespace Portal
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (!Validate())
-            {
-                lblMsg.Text = "機器人驗證未通過";
-                lblMsg.ForeColor = System.Drawing.Color.Red;
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "CaptchaReload", "$.getScript(\"https://www.google.com/recaptcha/api.js\", function () {});", true);
-                return;
-            }
-
-
             var Contents = "頁面：" + WebPage.GetActivePage + "｜名稱：" + WebPage.GetParentInfo();
             var SystemContents = "開始登入" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss fff");
             var AppName = Request.Url.ToString();
@@ -109,7 +95,6 @@ namespace Portal
             if (UserId.Length == 0 || UserPw.Length == 0)
             {
                 lblMsg.Text = "帳號或密碼錯誤，請重新輸入";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "CaptchaReload", "$.getScript(\"https://www.google.com/recaptcha/api.js\", function () {});", true);
                 return;
             }
 
@@ -186,21 +171,18 @@ namespace Portal
                     else
                     {
                         lblMsg.Text = "帳號或密碼錯誤，請重新輸入(Token Empty)";
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "CaptchaReload", "$.getScript(\"https://www.google.com/recaptcha/api.js\", function () {});", true);
                         return;
                     }
                 }
                 else
                 {
                     lblMsg.Text = "帳號或密碼錯誤，請重新輸入";
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "CaptchaReload", "$.getScript(\"https://www.google.com/recaptcha/api.js\", function () {});", true);
                     return;
                 }
             }
             else
             {
                 lblMsg.Text = "帳號或密碼錯誤，請重新輸入";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "CaptchaReload", "$.getScript(\"https://www.google.com/recaptcha/api.js\", function () {});", true);
                 return;
             }
 
@@ -208,7 +190,6 @@ namespace Portal
 
         protected void btnSpeedLogin_Click(object sender, EventArgs e)
         {
-
             var Contents = "頁面：" + WebPage.GetActivePage + "｜名稱：" + WebPage.GetParentInfo();
             var SystemContents = "開始登入" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss fff");
             var AppName = Request.Url.ToString();
@@ -304,37 +285,6 @@ namespace Portal
             }
 
 
-        }
-        public bool Validate()
-        {
-            string Response = Request.Form["g-recaptcha-response"];//Getting Response String Append to Post Method
-            bool Valid = false;
-            //Request to Google Server
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create
-            (" https://www.google.com/recaptcha/api/siteverify?secret=6LdzD_scAAAAADPn_JjwEiinZ_tBsBFrWFbhvAS6&response=" + Response);
-            try
-            {
-                //Google recaptcha Response
-                using (WebResponse wResponse = req.GetResponse())
-                {
-
-                    using (StreamReader readStream = new StreamReader(wResponse.GetResponseStream()))
-                    {
-                        string jsonResponse = readStream.ReadToEnd();
-
-                        JavaScriptSerializer js = new JavaScriptSerializer();
-                        Login data = js.Deserialize<Login>(jsonResponse);// Deserialize Json
-
-                        Valid = Convert.ToBoolean(data.success);
-                    }
-                }
-
-                return Valid;
-            }
-            catch (WebException ex)
-            {
-                throw ex;
-            }
         }
     }
 }
