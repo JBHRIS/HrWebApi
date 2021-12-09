@@ -406,6 +406,17 @@ namespace JBHRIS.Api.Dal.JBHR.Salary.View
             return sunHourBalance;
         }
 
+        public List<DateTime> GetDataPassList(string Nobr, DateTime beginDate, DateTime endDate)
+        {
+            List<DateTime> dList = (from btts in _unitOfWork.Repository<Basetts>().Reads()
+                                    join dpa in _unitOfWork.Repository<DataPa>().Reads() on btts.Saladr equals dpa.Saladr
+                                    where btts.Nobr == Nobr &&
+                                    (btts.Ddate >= DateTime.Now && btts.Adate <= DateTime.Now) &&
+                                    (dpa.DataPass >= beginDate && dpa.DataPass <= endDate)
+                                    select dpa).Select(p => p.DataPass).ToList();
+            
+            return dList;
+        }
 
         private DateTime FirstDayOfMonth
         {

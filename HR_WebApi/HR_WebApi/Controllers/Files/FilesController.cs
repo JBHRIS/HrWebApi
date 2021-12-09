@@ -19,6 +19,9 @@ using System.Data;
 using JBHRIS.Api.Service.Attendance;
 using JBHRIS.Api.Dal.Attendance.View;
 using JBHRIS.Api.Service.Attendance.Action;
+using JBHRIS.Api.Dal.Salary.View;
+using JBHRIS.Api.Dto.Attendance.View;
+using JBHRIS.Api.Service.Attendance.Normal;
 
 namespace HR_WebApi.Controllers
 {
@@ -34,14 +37,20 @@ namespace HR_WebApi.Controllers
         private IWorkScheduleCheckService _workScheduleCheckService;
         private IAttend_View_GetAttendRote _attend_View_GetAttendRote;
         private ITimetableGenerateService _timetableGenerateService;
+        private ISalary_View_SalaryView _salary_View_SalaryView;
+        private IAttendanceService _attendanceService;
 
-        public FilesController(IConfiguration configuration, IFilesService filesService, IWorkScheduleCheckService workScheduleCheckService, IAttend_View_GetAttendRote attend_View_GetAttendRote, ITimetableGenerateService timetableGenerateService)
+        public FilesController(IConfiguration configuration, IFilesService filesService, IWorkScheduleCheckService workScheduleCheckService,
+            IAttend_View_GetAttendRote attend_View_GetAttendRote, ITimetableGenerateService timetableGenerateService,
+            ISalary_View_SalaryView salary_View_SalaryView, IAttendanceService attendanceService)
         {
             _configuration = configuration;
             _filesService = filesService;
             _workScheduleCheckService = workScheduleCheckService;
             _attend_View_GetAttendRote = attend_View_GetAttendRote;
             _timetableGenerateService = timetableGenerateService;
+            _salary_View_SalaryView = salary_View_SalaryView;
+            _attendanceService = attendanceService;
         }
 
         /// <summary>
@@ -370,17 +379,38 @@ namespace HR_WebApi.Controllers
 
                     foreach (var tmtable in tmtableImportDtos.Where(p => p.State).ToList())
                     {
-                        if (ImportType == "Ignore")
-                            _filesService.ImportAttendExcelIgnore(new List<TmtableImportDto> { tmtable });
-                        else if (ImportType == "Delete")
-                            _filesService.ImportAttendExcelDelete(new List<TmtableImportDto> { tmtable });
-                        else
-                            _filesService.ImportAttendExcelCover(new List<TmtableImportDto> { tmtable });
-                        var timetableResult = _timetableGenerateService.Generate(new JBHRIS.Api.Dto.Attendance.Action.TimetableGenerateEntry { employeeList = new List<string> { tmtable.Nobr }, Yymm = tmtable.Yymm });
-                        if(!timetableResult.State)
+                        int Year = Convert.ToInt32(tmtable.Yymm.Substring(0, 4));
+                        int Month = Convert.ToInt32(tmtable.Yymm.Substring(4, 2));
+                        DateTime beginDate = new DateTime(Year, Month, 1);
+                        DateTime endDate = new DateTime(Year, Month, DateTime.DaysInMonth(Year, Month));
+                        //取得當月員工出勤鎖檔日期
+                        List<DateTime> lockAttDateList = _salary_View_SalaryView.GetDataPassList(tmtable.Nobr, beginDate, endDate);
+                        //確認當月某出勤鎖檔日有資料
+                        CheckDataHaveAttLockDto checkDataHaveAttLockDto = _attendanceService.CheckDataHaveAttLock(tmtable, lockAttDateList);
+                        bool haveLockData = checkDataHaveAttLockDto.haveLockData;
+                        string ErrorMessage = checkDataHaveAttLockDto.ErrorMessage; 
+
+                        if (haveLockData)
                         {
-                            tmtable.WorkScheduleIssues.Add(new JBHRIS.Api.Dto.Attendance.WorkScheduleIssueDto { ErrorMessage = timetableResult.Message });
+                            //當月某出勤鎖檔日有資料，不給匯入班表
+                            tmtable.WorkScheduleIssues.Add(new JBHRIS.Api.Dto.Attendance.WorkScheduleIssueDto { ErrorMessage = ErrorMessage });
                             apiResult.Result.Add(tmtable);
+                        }
+                        else
+                        {
+                            if (ImportType == "Ignore")
+                                _filesService.ImportAttendExcelIgnore(new List<TmtableImportDto> { tmtable });
+                            else if (ImportType == "Delete")
+                                _filesService.ImportAttendExcelDelete(new List<TmtableImportDto> { tmtable });
+                            else
+                                _filesService.ImportAttendExcelCover(new List<TmtableImportDto> { tmtable });
+
+                            var timetableResult = _timetableGenerateService.Generate(new JBHRIS.Api.Dto.Attendance.Action.TimetableGenerateEntry { employeeList = new List<string> { tmtable.Nobr }, Yymm = tmtable.Yymm });
+                            if (!timetableResult.State)
+                            {
+                                tmtable.WorkScheduleIssues.Add(new JBHRIS.Api.Dto.Attendance.WorkScheduleIssueDto { ErrorMessage = timetableResult.Message });
+                                apiResult.Result.Add(tmtable);
+                            }
                         }
                     }
                 }
@@ -398,7 +428,7 @@ namespace HR_WebApi.Controllers
         /// </summary>
         [Route("ImportAttendExcelCover")]
         [HttpPost, DisableRequestSizeLimit]
-        //[Authorize(Roles = "Files/ImportAttendExcelCover,Admin")]
+        [Authorize(Roles = "Files/ImportAttendExcelCover,Admin")]
         public ApiResult<List<TmtableImportDto>> ImportAttendExcelCover(IFormFile file, string sheetName)
         {
             return ImportAttendExcel(file, sheetName, "Cover");
