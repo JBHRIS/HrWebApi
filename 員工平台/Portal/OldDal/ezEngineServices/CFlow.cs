@@ -794,7 +794,7 @@ namespace ezEngineServices
             return isOK;
         }
 
-        // <summary>   
+        /// <summary>   
         /// 動態呼叫Web Service  
         /// </summary>   
         /// <param name="pUrl">WebService的http形式的位址，EX:http://www.yahoo.com/Service/Service.asmx </param>   
