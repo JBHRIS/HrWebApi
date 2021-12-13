@@ -158,11 +158,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JBMODULE.MESSAGE\JBModule.Message.csproj">
+    <ProjectReference Include="..\..\..\..\..\Standard\JBMODULE.MESSAGE\JBModule.Message.csproj">
       <Project>{b94796b3-cedb-4083-95ad-e94ec30d15d5}</Project>
       <Name>JBModule.Message</Name>
     </ProjectReference>
-    <ProjectReference Include="..\JBTools\JBTools.csproj">
+    <ProjectReference Include="..\..\..\..\..\Standard\JBTools\JBTools.csproj">
       <Project>{9a891671-4fc7-4ddf-a21d-21e3d563cee6}</Project>
       <Name>JBTools</Name>
     </ProjectReference>

@@ -28,5 +28,8 @@ namespace JBHRIS.Api.Service.Attendance.Normal
         ApiResult<string> InsertAttend(List<AttendDto> attendanceDtos);
 
         ApiResult<string> UpdateAttend(List<AttendDto> attendanceDtos);
+
+        CheckDataHaveAttLockDto CheckDataHaveAttLock(JBHRIS.Api.Dto.Files.TmtableImportDto tmtable, List<DateTime> lockAttDateList);
+
     }
 }

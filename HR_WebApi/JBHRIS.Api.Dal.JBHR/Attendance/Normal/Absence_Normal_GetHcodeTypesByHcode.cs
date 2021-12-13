@@ -29,6 +29,7 @@ namespace JBHRIS.Api.Dal.JBHR.Attendance.Normal
                                              from htg in htGrp.DefaultIfEmpty()
                                              where item.Contains(h.Htype) 
                                              && hcodeTypesByHcodeEntry.Flag.Contains(h.Flag)
+                                             && h.Sort > 0
                                              select new HcodeDto
                                              {
                                                 HCode = h.HCode1,

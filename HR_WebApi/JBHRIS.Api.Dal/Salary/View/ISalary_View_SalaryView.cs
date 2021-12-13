@@ -25,5 +25,13 @@ namespace JBHRIS.Api.Dal.Salary.View
         ApiResult<string> CheckSalaryPassWord(string Nobr, string Password);
         ApiResult<string> SetSalaryPassWord(string Nobr, string Password);
         ApiResult<string> DeleteSalaryPassWord(string Nobr);
+        /// <summary>
+        /// 取得員工出勤鎖檔日期
+        /// </summary>
+        /// <param name="Nobr"></param>
+        /// <param name="beginDate"></param>
+        /// <param name="endDate"></param>
+        /// <returns></returns>
+        List<DateTime> GetDataPassList(string Nobr,DateTime beginDate,DateTime endDate);
     }
 }

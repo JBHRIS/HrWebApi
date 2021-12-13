@@ -12,6 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using Telerik.Web.UI;
 using System.Text;
 using System.Text.RegularExpressions;
+using Bll.Tools;
 
 namespace Portal
 {
@@ -181,80 +182,7 @@ namespace Portal
             return de;
         }
 
-        public class EncryptHepler
-        {
-            // 驗值 
-            static string saltValue = "84211021";
-            // 密碼值 
-            static public string pwdValue = @"J---B";
-
-            /// <summary>
-            /// 加密
-            /// </summary>
-            public string Encrypt(string input)
-            {
-                byte[] data = System.Text.UTF8Encoding.UTF8.GetBytes(input);
-                byte[] salt = System.Text.UTF8Encoding.UTF8.GetBytes(saltValue);
-
-                // AesManaged - 高級加密標準(AES) 對稱算法的管理類 
-                System.Security.Cryptography.AesManaged aes = new System.Security.Cryptography.AesManaged();
-                // Rfc2898DeriveBytes - 通過使用基於 HMACSHA1 的偽隨機數生成器，實現基於密碼的密鑰派生功能 (PBKDF2 - 一種基於密碼的密鑰派生函數) 
-                // 通過 密碼 和 salt 派生密鑰 
-                System.Security.Cryptography.Rfc2898DeriveBytes rfc = new System.Security.Cryptography.Rfc2898DeriveBytes(pwdValue, salt);
-
-                aes.BlockSize = aes.LegalBlockSizes[0].MaxSize;
-                aes.KeySize = aes.LegalKeySizes[0].MaxSize;
-                aes.Key = rfc.GetBytes(aes.KeySize / 8);
-                aes.IV = rfc.GetBytes(aes.BlockSize / 8);
-
-                // 用當前的 Key 屬性和初始化向量 IV 創建對稱加密器對象 
-                System.Security.Cryptography.ICryptoTransform encryptTransform = aes.CreateEncryptor();
-                // 加密後的輸出流 
-                System.IO.MemoryStream encryptStream = new System.IO.MemoryStream();
-                // 將加密後的目標流（encryptStream）與加密轉換（encryptTransform）相連接 
-                System.Security.Cryptography.CryptoStream encryptor = new System.Security.Cryptography.CryptoStream
-                    (encryptStream, encryptTransform, System.Security.Cryptography.CryptoStreamMode.Write);
-
-                // 將一個字節序列寫入當前 CryptoStream （完成加密的過程）
-                encryptor.Write(data, 0, data.Length);
-                encryptor.Close();
-                // 將加密後所得到的流轉換成字節數組，再用Base64編碼將其轉換為字符串 
-                string encryptedString = Convert.ToBase64String(encryptStream.ToArray());
-                return encryptedString;
-            }
-            /// <summary>
-            /// 解密
-            /// </summary>
-            public string Decrypt(string input)
-            {
-                byte[] encryptBytes = Convert.FromBase64String(input);
-                byte[] salt = Encoding.UTF8.GetBytes(saltValue);
-                System.Security.Cryptography.AesManaged aes = new System.Security.Cryptography.AesManaged();
-                System.Security.Cryptography.Rfc2898DeriveBytes rfc = new System.Security.Cryptography.Rfc2898DeriveBytes(pwdValue, salt);
-
-                aes.BlockSize = aes.LegalBlockSizes[0].MaxSize;
-                aes.KeySize = aes.LegalKeySizes[0].MaxSize;
-                aes.Key = rfc.GetBytes(aes.KeySize / 8);
-                aes.IV = rfc.GetBytes(aes.BlockSize / 8);
-
-                // 用當前的 Key 屬性和初始化向量 IV 創建對稱解密器對象 
-                System.Security.Cryptography.ICryptoTransform decryptTransform = aes.CreateDecryptor();
-                // 解密後的輸出流 
-                System.IO.MemoryStream decryptStream = new System.IO.MemoryStream();
-
-                // 將解密後的目標流（decryptStream）與解密轉換（decryptTransform）相連接 
-                System.Security.Cryptography.CryptoStream decryptor = new System.Security.Cryptography.CryptoStream(
-                    decryptStream, decryptTransform, System.Security.Cryptography.CryptoStreamMode.Write);
-                // 將一個字節序列寫入當前 CryptoStream （完成解密的過程） 
-                decryptor.Write(encryptBytes, 0, encryptBytes.Length);
-                decryptor.Close();
-
-                // 將解密後所得到的流轉換為字符串 
-                byte[] decryptBytes = decryptStream.ToArray();
-                string decryptedString = UTF8Encoding.UTF8.GetString(decryptBytes, 0, decryptBytes.Length);
-                return decryptedString;
-            }
-        }//class end
+        
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {

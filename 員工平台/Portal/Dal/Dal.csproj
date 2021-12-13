@@ -149,6 +149,7 @@
     <Compile Include="Dao\Employee\AllPeopleByDept.cs" />
     <Compile Include="Dao\Employee\EffEmployeeViewDao.cs" />
     <Compile Include="Dao\Employee\EmployeeJobStatusAddChangeDao.cs" />
+    <Compile Include="Dao\Employee\EmployeeRuleDao.cs" />
     <Compile Include="Dao\Employee\EmployeeStartWorkDateDao.cs" />
     <Compile Include="Dao\Employee\PeopleApDateDao.cs" />
     <Compile Include="Dao\Employee\CurrentJobStatusDao.cs" />
@@ -213,7 +214,6 @@
     <Compile Include="Dao\PageApiVoid\DeletePageApiVoidDao.cs" />
     <Compile Include="Dao\PageApiVoid\InsertPageApiVoidDao.cs" />
     <Compile Include="Dao\PageApiVoid\PageToApiVoidViewDao.cs" />
-    <Compile Include="Dao\Performance\PerformanceDao.cs" />
     <Compile Include="Dao\RolePage\DeleteRolePageDao.cs" />
     <Compile Include="Dao\RolePage\InsertRolePageDao.cs" />
     <Compile Include="Dao\RolePage\RoleToPageViewDao.cs" />
@@ -386,6 +386,9 @@
     <None Include="dcApp.dbml.layout">
       <DependentUpon>dcApp.dbml</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dao\Performance\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

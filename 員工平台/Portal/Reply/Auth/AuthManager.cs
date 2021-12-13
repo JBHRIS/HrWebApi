@@ -58,11 +58,7 @@ public class AuthManager
     public void SignIn(User user, string OldId, CompanySettingRow CompanySetting)
     {
         SignOut();
-        if(user.AccessToken == "")
-        {
-            return;
-        }
-
+        
         //填入使用者資訊
         //var oUserdata = new UserdataDao();
         //var UserdataCond = new UserdataConditions();

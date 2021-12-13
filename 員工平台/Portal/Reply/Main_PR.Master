@@ -1,0 +1,116 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main_PR.master.cs" Inherits="Portal.Main_PR" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>JB數位客服</title>
+
+    <link href="Templates/Inspinia/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Templates/Inspinia/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/animate.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/style.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
+    <link href="styles/form_style.css" rel="stylesheet">
+    <link href="styles/pr_style.css" rel="stylesheet">
+    <link href="styles/redcontrol_form.css" rel="stylesheet">
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body class="top-navigation">
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server" EnablePageMethods="true">
+        </telerik:RadScriptManager>
+        <div id="wrapper">
+            <div id="page-wrapper" class="gray-bg">
+                <div class="row border-bottom white-bg">
+                    <nav class="navbar navbar-expand-lg navbar-static-top" role="navigation">
+
+                        <a href="#" class="navbar-brand">JB數位客服</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fa fa-reorder"></i>
+                        </button>
+
+                        <div class="navbar-collapse collapse" id="navbar">
+                            <ul class="nav navbar-nav mr-auto">
+                                <li class="dropdown">
+                                    <a aria-expanded="false" role="button" href="ProblemReturn.html" target="_blank">我要回報</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a aria-expanded="false" role="button" href="ProblemReturn_View.html" target="_blank">回報紀錄</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a aria-expanded="false" role="button" href="#">回覆管理</a>
+                                </li>
+
+                            </ul>
+                            <ul class="nav navbar-top-links navbar-right">
+                                <li>
+                                    <a href="login.html">
+                                        <i class="fa fa-sign-out"></i>登出
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="wrapper wrapper-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <div class="row">
+                        <div class="col-12 col-lg-10 copyright">
+                            <strong>Copyright</strong> &copy; 2021 傑報人力資源服務集團
+                            ｜ <a href="https://www.jbjob.com.tw/?page_id=320" target="_blank">隱私權保護政策</a>
+                            ｜ <a href="https://www.jbjob.com.tw/%e5%93%81%e8%b3%aa%e6%94%bf%e7%ad%96/" target="_blank">品質政策</a>
+                        </div>
+                        <div class="col-12 col-lg-2 text-right">
+                            Ver <strong>20210208</strong> 42384  
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Mainly scripts -->
+            <script src="Templates/Inspinia/js/jquery-3.1.1.min.js"></script>
+            <script src="Templates/Inspinia/js/popper.min.js"></script>
+            <script src="Templates/Inspinia/js/bootstrap.js"></script>
+            <script src="Templates/Inspinia/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+            <script src="Templates/Inspinia/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+            <!-- Custom and plugin javascript -->
+            <script src="Templates/Inspinia/js/inspinia.js"></script>
+            <script src="Templates/Inspinia/js/plugins/pace/pace.min.js"></script>
+
+            <!-- Flot -->
+            <script src="Templates/Inspinia/js/plugins/flot/jquery.flot.js"></script>
+            <script src="Templates/Inspinia/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+            <script src="Templates/Inspinia/js/plugins/flot/jquery.flot.resize.js"></script>
+
+            <!-- ChartJS-->
+            <script src="Templates/Inspinia/js/plugins/chartJs/Chart.min.js"></script>
+
+            <!-- Peity -->
+            <script src="Templates/Inspinia/js/plugins/peity/jquery.peity.min.js"></script>
+            <!-- Peity demo -->
+            <script src="Templates/Inspinia/js/demo/peity-demo.js"></script>
+
+        </div>
+    </form>
+</body>
+</html>

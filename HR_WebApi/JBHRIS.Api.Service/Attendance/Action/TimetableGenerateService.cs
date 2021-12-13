@@ -41,8 +41,13 @@ namespace JBHRIS.Api.Service.Attendance.Action
         }
         public ApiResult<List<TmtableDto>> Generate(TimetableGenerateEntry timetableGenerateEntry)
         {
+            return GenerateCore(timetableGenerateEntry,true);
+        }
+
+        public ApiResult<List<TmtableDto>> GenerateCore(TimetableGenerateEntry timetableGenerateEntry, bool genAttend)
+        {
             DateTime t1, t2;
-                t1 = DateTime.Now;
+            t1 = DateTime.Now;
             var results = new ApiResult<List<TmtableDto>>();
             results.Result = new List<TmtableDto>();
             int Year = Convert.ToInt32(timetableGenerateEntry.Yymm.Substring(0, 4));
@@ -78,7 +83,7 @@ namespace JBHRIS.Api.Service.Attendance.Action
             var tmtableImportList = _mapper.Map<List<TmtableImport>, List<TmtableImportDto>>(tmtableImportRepo.Reads().Where(p => timetableGenerateEntry.employeeList.Contains(p.Nobr) && p.Yymm == timetableGenerateEntry.Yymm).ToList());
             var employeeInfos_HoliCode = basettsRepo.GetCurrentOnJob(timetableGenerateEntry.employeeList, beginDate, endDate)
                 .Select(p => new EmployeeInfo_HoliCode { EmployeeId = p.Nobr, Adate = p.Adate, Ddate = p.Ddate.Value, Calendar = p.HoliCode, Rotet = p.Rotet, LastSequnce = -1 }).ToList();
-            if(!employeeInfos_HoliCode.Any())
+            if (!employeeInfos_HoliCode.Any())
             {
                 results.Message = "無法產生班表資料，" + String.Join(',', timetableGenerateEntry.employeeList);
                 results.State = false;
@@ -113,7 +118,11 @@ namespace JBHRIS.Api.Service.Attendance.Action
             results.State = true;
             results.Result.AddRange(tmtableList);
 
-            _attendanceGenerateService.Generate(timetableGenerateEntry.employeeList, beginDate, endDate);
+            if (genAttend)
+            {
+                _attendanceGenerateService.Generate(timetableGenerateEntry.employeeList, beginDate, endDate);
+            }
+
             t2 = DateTime.Now;
             results.Message = (t2 - t1).TotalSeconds.ToString();
             return results;

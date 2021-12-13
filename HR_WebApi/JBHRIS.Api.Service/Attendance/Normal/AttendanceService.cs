@@ -39,6 +39,43 @@ namespace JBHRIS.Api.Service.Attendance.Normal
             _attend_Normal_UpdateAttend = attend_Normal_UpdateAttend;
         }
 
+        public CheckDataHaveAttLockDto CheckDataHaveAttLock(JBHRIS.Api.Dto.Files.TmtableImportDto tmtable, List<DateTime> lockAttDateList)
+        {
+            CheckDataHaveAttLockDto checkDataHaveAttLockDto = new CheckDataHaveAttLockDto();
+            checkDataHaveAttLockDto.haveLockData = false;
+            checkDataHaveAttLockDto.ErrorMessage = tmtable.Yymm+"出勤鎖檔：";
+
+            int Year = Convert.ToInt32(tmtable.Yymm.Substring(0, 4));
+            int Month = Convert.ToInt32(tmtable.Yymm.Substring(4, 2));
+
+            int monthDay = DateTime.DaysInMonth(Year, Month);
+            List<DateTime> haveDataDate = new List<DateTime>();
+            for (int i = 1; i <= monthDay; i++)
+            {
+                var valueObj = tmtable.GetType().GetProperty("D" + i.ToString()).GetValue(tmtable);
+                if (valueObj != null && valueObj.ToString().Trim().Length > 0)
+                {
+                    haveDataDate.Add(new DateTime(Year, Month, i));
+                }
+            }
+
+            for (var i = 0; i < lockAttDateList.Count; i++)
+            {
+                var item = lockAttDateList[i];
+                for (var h = 0; h < haveDataDate.Count; h++)
+                {
+                    var hdata = haveDataDate[h];
+                    if (DateTime.Equals(item, hdata))
+                    {
+                        string andTxt = (i + 1) < lockAttDateList.Count ? "、" : "。";
+                        checkDataHaveAttLockDto.haveLockData = true;
+                        checkDataHaveAttLockDto.ErrorMessage += "D" + hdata.Day.ToString() + andTxt;
+                    }
+                }
+            }
+            return checkDataHaveAttLockDto;
+        }
+
         public List<AttendanceDto> GetAttendance(AttendanceRoteEntry attendanceEntry)
         {
             throw new NotImplementedException();

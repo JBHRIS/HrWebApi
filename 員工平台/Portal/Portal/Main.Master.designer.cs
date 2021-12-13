@@ -69,6 +69,15 @@ namespace Portal
         protected global::Telerik.Web.UI.RadAjaxLoadingPanel RadAjaxLoadingPanel1;
 
         /// <summary>
+        /// UpdatePanel 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel;
+
+        /// <summary>
         /// RadCodeBlock2 控制項。
         /// </summary>
         /// <remarks>
@@ -156,7 +165,7 @@ namespace Portal
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel plCountDown;
+        protected global::Telerik.Web.UI.RadAjaxPanel plCountDown;
 
         /// <summary>
         /// Timer 控制項。
