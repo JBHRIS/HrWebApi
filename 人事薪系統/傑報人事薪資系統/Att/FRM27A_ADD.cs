@@ -38,7 +38,7 @@ namespace JBHR.Att
                 }
             }
             db.SubmitChanges();
-            if (MessageBox.Show(string.Format("是否要執行刷卡轉出勤?"), "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (chkTransCard.Checked)
             {
                 object[] parameters = new object[] { keys };
                 BW.RunWorkerAsync(parameters);
