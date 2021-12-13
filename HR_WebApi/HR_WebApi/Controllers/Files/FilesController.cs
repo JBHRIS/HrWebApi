@@ -22,6 +22,7 @@ using JBHRIS.Api.Service.Attendance.Action;
 using JBHRIS.Api.Dal.Salary.View;
 using JBHRIS.Api.Dto.Attendance.View;
 using JBHRIS.Api.Service.Attendance.Normal;
+using JBHRIS.Api.Dto.Attendance.Action;
 
 namespace HR_WebApi.Controllers
 {
@@ -39,10 +40,11 @@ namespace HR_WebApi.Controllers
         private ITimetableGenerateService _timetableGenerateService;
         private ISalary_View_SalaryView _salary_View_SalaryView;
         private IAttendanceService _attendanceService;
+        private IAttendanceGenerateService _attendanceGenerateService;
 
         public FilesController(IConfiguration configuration, IFilesService filesService, IWorkScheduleCheckService workScheduleCheckService,
             IAttend_View_GetAttendRote attend_View_GetAttendRote, ITimetableGenerateService timetableGenerateService,
-            ISalary_View_SalaryView salary_View_SalaryView, IAttendanceService attendanceService)
+            ISalary_View_SalaryView salary_View_SalaryView, IAttendanceService attendanceService, IAttendanceGenerateService attendanceGenerateService)
         {
             _configuration = configuration;
             _filesService = filesService;
@@ -51,6 +53,7 @@ namespace HR_WebApi.Controllers
             _timetableGenerateService = timetableGenerateService;
             _salary_View_SalaryView = salary_View_SalaryView;
             _attendanceService = attendanceService;
+            _attendanceGenerateService = attendanceGenerateService;
         }
 
         /// <summary>
@@ -405,7 +408,29 @@ namespace HR_WebApi.Controllers
                             else
                                 _filesService.ImportAttendExcelCover(new List<TmtableImportDto> { tmtable });
 
-                            var timetableResult = _timetableGenerateService.Generate(new JBHRIS.Api.Dto.Attendance.Action.TimetableGenerateEntry { employeeList = new List<string> { tmtable.Nobr }, Yymm = tmtable.Yymm });
+                            DateTime genBeginDate = new DateTime(Year, Month, 1);
+                            DateTime genEndDate = new DateTime(Year, Month, DateTime.DaysInMonth(Year, Month));
+                            int monthDay = DateTime.DaysInMonth(int.Parse(tmtable.Yymm.Substring(0, 4)), int.Parse(tmtable.Yymm.Substring(4, 2)));
+                            bool firstDaySet = false;
+                            for (int i = 1; i <= monthDay; i++)
+                            {
+                                var valueObj = tmtable.GetType().GetProperty("D" + i.ToString()).GetValue(tmtable);
+                                if (valueObj != null && valueObj.ToString().Trim().Length > 0 && firstDaySet == false)
+                                {
+                                    genBeginDate = new DateTime(Year, Month, i);
+                                    genEndDate = new DateTime(Year, Month, i);
+                                    firstDaySet = true;
+                                }else if (valueObj != null && valueObj.ToString().Trim().Length > 0)
+                                {
+                                    genEndDate = new DateTime(Year, Month, i);
+                                }
+                            }
+
+                            List<string> employeeList = new List<string> { tmtable.Nobr };
+                            TimetableGenerateEntry timetableGenerateEntry = new TimetableGenerateEntry { employeeList = employeeList, Yymm = tmtable.Yymm };
+                            var timetableResult = _timetableGenerateService.GenerateCore(timetableGenerateEntry,false);
+                            _attendanceGenerateService.Generate(employeeList, genBeginDate, genEndDate);
+
                             if (!timetableResult.State)
                             {
                                 tmtable.WorkScheduleIssues.Add(new JBHRIS.Api.Dto.Attendance.WorkScheduleIssueDto { ErrorMessage = timetableResult.Message });

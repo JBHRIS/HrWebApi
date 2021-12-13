@@ -43,7 +43,7 @@ namespace JBHRIS.Api.Service.Attendance.Normal
         {
             CheckDataHaveAttLockDto checkDataHaveAttLockDto = new CheckDataHaveAttLockDto();
             checkDataHaveAttLockDto.haveLockData = false;
-            checkDataHaveAttLockDto.ErrorMessage = "出勤鎖檔：";
+            checkDataHaveAttLockDto.ErrorMessage = tmtable.Yymm+"出勤鎖檔：";
 
             int Year = Convert.ToInt32(tmtable.Yymm.Substring(0, 4));
             int Month = Convert.ToInt32(tmtable.Yymm.Substring(4, 2));

@@ -9,5 +9,6 @@ namespace JBHRIS.Api.Service.Attendance.Action
     public interface ITimetableGenerateService
     {
         ApiResult<List<TmtableDto>> Generate(TimetableGenerateEntry timetableGenerateEntry);
+        ApiResult<List<TmtableDto>> GenerateCore(TimetableGenerateEntry timetableGenerateEntry,bool genAttend);
     }
 }
