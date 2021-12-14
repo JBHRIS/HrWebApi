@@ -197,7 +197,7 @@ namespace JBHR.Reports.SalForm
                 //備註：將 SELECT 另外寫在根據條件呼叫該字串的地方，可判斷是否加入 DISTINCT 等內容
                 string sqlCmdSelect = " B.NOBR, A.NAME_C, A.NAME_E, A.BIRDT, F.JOB_DISP AS JOB, F.JOB_NAME, I.JOBL_DISP AS JOBL, I.JOB_NAME AS JOBL_NAME, B.INDT";
                 sqlCmdSelect += ", C.D_NAME, B.COMP, DBO.GETTOTALYEARS(B.NOBR, '" + date_t + "') AS WK_YRS5, B.EMPCD, B.OUDT, K.ROTET_DISP AS ROTET";
-                sqlCmdSelect += ", A.ACCOUNT_NO, B.JOBO, J.JOB_NAME AS JOBO_NAME " + d_ename;
+                sqlCmdSelect += ", B.RETCHOO, B.RETDATE, B.RETDATE1, A.ACCOUNT_NO, B.JOBO, J.JOB_NAME AS JOBO_NAME " + d_ename;
 
                 /// <summary>
                 /// 統一宣告 sqlCmdFrom 的共用語法內容
@@ -517,11 +517,22 @@ namespace JBHR.Reports.SalForm
                         newRow["Jobo"] = row8["jobo"].ToString();
                         newRow["Jobo_name"] = row8["jobo_name"].ToString();
                         newRow["account_no"] = row8["account_no"].ToString();
+                        newRow["retchoo"] = row8["retchoo"].ToString();
                         if (dept_type == "DEPT")
                             newRow["Dept"] = row8["dept"].ToString();
                         else
                             newRow["Dept"] = row8["depts"].ToString();
                         if (!row8.IsNull("oudt")) newRow["oudt"] = DateTime.Parse(row8["oudt"].ToString());
+
+                        if (!string.IsNullOrEmpty(row8["retdate"].ToString()))
+                        {
+                            newRow["retdate"] = DateTime.Parse(row8["retdate"].ToString());
+                        }
+                        if (!string.IsNullOrEmpty(row8["retdate1"].ToString()))
+                        {
+                            newRow["retdate1"] = DateTime.Parse(row8["retdate1"].ToString());
+                        }
+
                         newRow["Indt"] = DateTime.Parse(row8["indt"].ToString());
                         newRow["birdt"] = DateTime.Parse(row8["birdt"].ToString());  
                         //if (ttstype == "3")
@@ -788,6 +799,9 @@ namespace JBHR.Reports.SalForm
             ExporDt.Columns.Add("職級", typeof(string));
             ExporDt.Columns.Add("職級名稱", typeof(string));
             //if (order_type != "2") ExporDt.Columns.Add("班別", typeof(string));
+            ExporDt.Columns.Add("退休制度", typeof(string));
+            ExporDt.Columns.Add("加入新制日期", typeof(DateTime));
+            ExporDt.Columns.Add("開始提撥日", typeof(DateTime));
             ExporDt.Columns.Add("到職日期", typeof(DateTime));
             ExporDt.Columns.Add("離職日期", typeof(DateTime));
             ExporDt.Columns.Add("年資", typeof(decimal));
@@ -835,6 +849,27 @@ namespace JBHR.Reports.SalForm
                 aRow["職等名稱"] = Row01["jobl_name"].ToString();
                 aRow["職級"] = Row01["jobo"].ToString();
                 aRow["職級名稱"] = Row01["jobo_name"].ToString();
+
+                aRow["退休制度"] = Row01["retchoo"].ToString();
+
+                if (!string.IsNullOrEmpty(Row01["retdate"].ToString()))
+                {
+                    aRow["加入新制日期"] = DateTime.Parse(Row01["retdate"].ToString()).ToString("yyyy/MM/dd");
+                }
+                //else
+                //{
+                //    aRow["加入新制日期"] = "";
+                //}
+
+                if (!string.IsNullOrEmpty(Row01["retdate1"].ToString()))
+                {
+                    aRow["開始提撥日"] = DateTime.Parse(Row01["retdate1"].ToString()).ToString("yyyy/MM/dd");
+                }
+                //else
+                //{
+                //    aRow["開始提撥日"] = "";
+                //}
+
                 aRow["到職日期"] = DateTime.Parse(Row01["indt"].ToString()).ToString("yyyy/MM/dd");
                 if (!Row01.IsNull("oudt")) aRow["離職日期"] = DateTime.Parse(Row01["oudt"].ToString()).ToString("yyyy/MM/dd");
                 aRow["年資"] = decimal.Parse(Row01["wk_yrs"].ToString());
