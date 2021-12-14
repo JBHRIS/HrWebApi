@@ -51,58 +51,31 @@ namespace Portal
         protected global::Telerik.Web.UI.RadLabel lblTitle;
 
         /// <summary>
-        /// lblType 控制項。
+        /// lblQuestionCategory 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadLabel lblType;
+        protected global::Telerik.Web.UI.RadLabel lblQuestionCategory;
 
         /// <summary>
-        /// lblC 控制項。
+        /// lblContent 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadLabel lblC;
+        protected global::Telerik.Web.UI.RadLabel lblContent;
 
         /// <summary>
-        /// lblName2 控制項。
+        /// QuestionReplyData 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadLabel lblName2;
-
-        /// <summary>
-        /// lblDate2 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadLabel lblDate2;
-
-        /// <summary>
-        /// lblTime2 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadLabel lblTime2;
-
-        /// <summary>
-        /// lblC2 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadLabel lblC2;
+        protected global::Telerik.Web.UI.RadListView QuestionReplyData;
 
         /// <summary>
         /// btn 控制項。
@@ -139,5 +112,50 @@ namespace Portal
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::Telerik.Web.UI.RadButton btnAdd;
+
+        /// <summary>
+        /// lblUserCode 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUserCode;
+
+        /// <summary>
+        /// lblEmpID 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmpID;
+
+        /// <summary>
+        /// lblCompanyId 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCompanyId;
+
+        /// <summary>
+        /// lblEmpName 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmpName;
+
+        /// <summary>
+        /// lblRoleKey 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRoleKey;
     }
 }

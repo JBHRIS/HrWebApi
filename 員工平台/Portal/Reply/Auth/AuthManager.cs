@@ -17,7 +17,7 @@ public class AuthManager
 
     public static void SetCacheUser(User user)
     {
-        HttpContext.Current.Cache.Insert(CacheKey + user.UserCode, user, null, System.Web.Caching.Cache.NoAbsoluteExpiration, TimeSpan.FromMinutes(20), System.Web.Caching.CacheItemPriority.High, null);
+        HttpContext.Current.Cache.Insert(CacheKey + user.UserCode, user, null, System.Web.Caching.Cache.NoAbsoluteExpiration, TimeSpan.FromMinutes(60), System.Web.Caching.CacheItemPriority.High, null);
     }
 
     public void ClearCacheUser(string Id)

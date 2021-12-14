@@ -12,7 +12,7 @@ namespace JBHRIS.Api.Dal.ezFlow.Entity.Share
         public string Code { get; set; }
         public string Name { get; set; }
         public string Contents { get; set; }
-        public string RoleKey { get; set; }
+        public int RoleKey { get; set; }
         public string Note { get; set; }
         public string Status { get; set; }
         public string InsertMan { get; set; }

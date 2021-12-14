@@ -636,10 +636,6 @@ namespace JBHRIS.Api.Dal.ezFlow.Entity.Share
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.RoleKey)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
                 entity.Property(e => e.Status)
                     .IsRequired()
                     .HasMaxLength(50);
@@ -757,10 +753,6 @@ namespace JBHRIS.Api.Dal.ezFlow.Entity.Share
                     .HasMaxLength(50);
 
                 entity.Property(e => e.ReplyToCode)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.RoleKey)
                     .IsRequired()
                     .HasMaxLength(50);
 

@@ -15,7 +15,7 @@ namespace JBHRIS.Api.Dal.ezFlow.Entity.Share
         public string Key3 { get; set; }
         public string Name { get; set; }
         public string Content { get; set; }
-        public string RoleKey { get; set; }
+        public int RoleKey { get; set; }
         public string IpAddress { get; set; }
         public string ReplyToCode { get; set; }
         public string ParentCode { get; set; }

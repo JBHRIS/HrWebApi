@@ -18,7 +18,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-2 col-form-label">回報類型</label>
+                        <label class="col-lg-2 col-form-label" id="testlbl">回報類型</label>
                         <div class="col-lg-10">
                             <telerik:RadComboBox ID="txtReturnS" runat="server" Skin="Bootstrap"  Width="100%">
                             </telerik:RadComboBox>
@@ -38,11 +38,16 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
-                            <telerik:RadButton ID="btnAdd" runat="server" Text="送出" CssClass="btn btn-primary btn-md" />
+                            <telerik:RadButton ID="btnAdd" runat="server" Text="送出" CssClass="btn btn-primary btn-md" OnClick="btnAdd_Click" />
+                             <label runat="server" id="lblAddStatus"  style="color:red;"> </label>
                              &emsp;<span class="m-t-xs">IP：<telerik:RadLabel ID="lblIP" runat="server"  /></span>
                         </div>
                     </div>
-
+              <asp:Label ID="lblUserCode" runat="server" Visible="False"></asp:Label>
+              <asp:Label ID="lblEmpID" runat="server" Visible="False"></asp:Label>
+            <asp:Label ID="lblCompanyId" runat="server" Visible="False"></asp:Label>
+            <asp:Label ID="lblEmpName" runat="server" Visible="False"></asp:Label>
+            <asp:Label ID="lblRoleKey" runat="server" Visible="False"></asp:Label>
                 </div>
                 <div class="col-lg-5">
                     <h2>你可能還想知道....</h2>

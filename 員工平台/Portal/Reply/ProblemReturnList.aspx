@@ -7,7 +7,7 @@
         <div class="ibox-content">
             <div class="row">
                 <div class="col-lg-9">
-                    <h2>回報紀錄</h2>
+                    <h2>回報記錄</h2>
                 </div>
                 <div class="col-lg-3">
                     <telerik:RadComboBox ID="txtReturnS" runat="server" Skin="Bootstrap" Width="100%">
@@ -22,101 +22,73 @@
                 </div>
             </div>
 
+
             <div class="row m-t-lg">
                 <div class="col-lg-12">
-                    <table class="rwd-table">
-                        <tr>
-                            <th>標題</th>
-                            <th>回報類型</th>
-                            <th>填寫日期</th>
-                            <th>回覆日期</th>
-                            <th>動作</th>
-                        </tr>
+                    <telerik:RadAjaxPanel ID="plMain" runat="server" LoadingPanelID="RadAjaxLoadingPanel1" >
+                        <telerik:RadListView ID="lvMain" runat="server" ItemPlaceholderID="Container" OnItemCommand="lvMain_ItemCommand" OnNeedDataSource="lvMain_NeedDataSource">
+                            <LayoutTemplate>
+                                <table id="footable" class="footable table table-stripped" data-page-size="10" data-filter="#filterTaken">
+                                    <thead>
+                                        <tr>
+                                            <th>標題</th>
+                                            <th>回報類型</th>
+                                            <th>填寫日期</th>
+                                            <th>回覆日期</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Container" runat="server">
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="9">
+                                                <ul class="pagination float-right"></ul>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </LayoutTemplate>
 
-                        <tr>
-                            <td data-th="標題">標題限制30字標題限制30字標題限制30字標題限制30字</td>
-                            <td data-th="回報類型">系統操作 </td>
-                            <td data-th="填寫日期">2021/12/1</td>
-                            <td data-th="回覆日期">尚未回覆</td>
-                            <td data-th="動作">
-                                <telerik:RadButton ID="btnNextPage" runat="server" CssClass="btn btn-outline btn-link" Text="下一頁">
-                                    <Icon SecondaryIconCssClass="rbNext" />
-                                </telerik:RadButton>
-                            </td>
-                        </tr>
+                            <ItemTemplate>
 
-                        <tr>
-                            <td data-th="標題">標題限制30字標題限制30字標題限制30字標題限制30字</td>
-                            <td data-th="回報類型">系統操作 </td>
-                            <td data-th="填寫日期">2021/12/1</td>
-                            <td data-th="回覆日期">尚未回覆</td>
-                            <td data-th="動作">
-                                <telerik:RadButton ID="RadButton1" runat="server" CssClass="btn btn-outline btn-link" Text="下一頁">
-                                    <Icon SecondaryIconCssClass="rbNext" />
-                                </telerik:RadButton>
-                            </td>
-                        </tr>
+                                <tr class="gradeX">
+                                    <td data-th="標題"><%# Eval("TitleContent") %></td>
+                                    <td data-th="回報類型"><%# Eval("QuestionCategoryCode") %></td>
+                                    <td data-th="填寫日期"><%# Eval("DateE","{0:yyyy-MM-dd}") %></td>
+                                    <td data-th="回覆日期"><%# Eval("UpdateDate","{0:yyyy-MM-dd}") %></td>
+                                    <td data-th="操作">
+                                        <telerik:RadButton ID="btnCheck" runat="server" Text="查看" CommandArgument='<%# Eval("Code") %>' CssClass="btn-white btn btn-xs" OnClick="btnCheck_Click" />
+                                    </td>
+                                </tr>
 
-                        <tr>
-                            <td data-th="標題">標題限制30字標題限制30字標題限制30字標題限制30字</td>
-                            <td data-th="回報類型">系統操作 </td>
-                            <td data-th="填寫日期">2021/12/1</td>
-                            <td data-th="回覆日期">尚未回覆</td>
-                            <td data-th="動作">
-                                <telerik:RadButton ID="RadButton2" runat="server" CssClass="btn btn-outline btn-link" Text="下一頁">
-                                    <Icon SecondaryIconCssClass="rbNext" />
-                                </telerik:RadButton>
-                            </td>
-                        </tr>
-
-                    </table>
-                    <!--<telerik:RadListView ID="lvMain" runat="server">
-                        <LayoutTemplate>
-                            <table Class="rwd-table">
-                                <thead>
-                                    <tr>
-                                        <th>標題</th>
-                                        <th>回報類型</th>
-                                        <th>填寫日期</th>
-                                        <th>回覆日期</th>
-                                        <th>動做</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="Container" runat="server">
-                                    <tr>
-                                        <td>標題限制30字標題限制30字標題限制30字標題限制30字</td>
-                                        <td>下一頁</td>
-                                        <td>下一頁</td>
-                                        <td>下一頁</td>
-                                        <td>下一頁</td>
-                                    </tr>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <td colspan="9">
-                                            <ul class="pagination float-right"></ul>
-                                        </td>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </LayoutTemplate>
-                        <ItemTemplate>
-                            <tr class="gradeX">
-                                <td data-th="標題"><%# Eval("EmpId") %></td>
-                                <td data-th="回報類型"><%# Eval("EmpName") %></td>
-                                <td data-th="填寫日期"><%# Eval("DateA","{0:yyyy-MM-dd}") %></td>
-                                <td data-th="回覆日期"><%# Eval("AbnormalType") %></td>
-                                <td  data-th="動作">
-                                    <telerik:RadButton ID="btn_Delete" runat="server" Text="刪除" CssClass="btn-white btn btn-xs" />
-                                </td>
-                            </tr>
-                        </ItemTemplate>
-                        <EmptyDataTemplate>
-                        </EmptyDataTemplate>
-                    </telerik:RadListView>-->
+                            </ItemTemplate>
+                            <EmptyDataTemplate>
+                                無任何回報記錄
+                            </EmptyDataTemplate>
+                        </telerik:RadListView>
+                    </telerik:RadAjaxPanel>
+                    <asp:Label ID="lblUserCode" runat="server" Visible="False"></asp:Label>
+                    <asp:Label ID="lblEmpID" runat="server" Visible="False"></asp:Label>
+                    <asp:Label ID="lblCompanyId" runat="server" Visible="False" Text="999"></asp:Label>
+                    <asp:Label ID="lblEmpName" runat="server" Visible="False"></asp:Label>
+                    <asp:Label ID="lblRoleKey" runat="server" Visible="False"></asp:Label>
 
                 </div>
             </div>
         </div>
     </div>
+
+
+</asp:Content>
+<asp:Content ID="Content3" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
+    <script src="Templates/Inspinia/js/plugins/footable/footable.all.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('.footable').footable();
+        });
+    </script>
+
 </asp:Content>

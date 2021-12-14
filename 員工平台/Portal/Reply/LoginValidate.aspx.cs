@@ -17,10 +17,10 @@ namespace Reply
             if (!IsPostBack)
             {
                 var oEncryptHepler = new EncryptHepler();
-                var CompanyId = "";
-                var EmpId = "";
-                var EmpName = "";
-                var Role = 2;
+                var CompanyId = "999";
+                var EmpId = "528";
+                var EmpName = "Aron";
+                var Role = 8;
                 //以上值用資料帶入
                 if (Request.QueryString["Param"] != null && Request.QueryString["Param"] != "")
                 {
@@ -36,10 +36,12 @@ namespace Reply
                 var CompanySetting = oShareCompany.GetCompanySetting(CompanyId);
 
                 var oUser = new User();
-                oUser.UserCode = CompanyId + EmpId;
-                oUser.CompanyId = CompanyId;
-                oUser.EmpName = EmpName;
-                oUser.RoleKey = Role;
+                oUser.UserCode ="999" + "528";
+                oUser.EmpId = EmpId;
+                oUser.CompanyId ="999";
+                oUser.EmpName = "Aron";
+                oUser.RoleKey = 8;
+                
                 _AuthManager.SignIn(oUser, oUser.UserCode, CompanySetting);
                 Response.Redirect("ProblemReturn.aspx");
             }

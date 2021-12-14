@@ -765,7 +765,7 @@ namespace JBHRIS.Api.Dal.ezFlow.Entity.ezFlow
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.RoleId).HasMaxLength(50);
+                entity.Property(e => e.RoleId).HasMaxLength(100);
 
                 entity.Property(e => e.SignState)
                     .IsRequired()
@@ -881,7 +881,7 @@ namespace JBHRIS.Api.Dal.ezFlow.Entity.ezFlow
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.RoleId).HasMaxLength(50);
+                entity.Property(e => e.RoleId).HasMaxLength(100);
 
                 entity.Property(e => e.SignState)
                     .IsRequired()
@@ -1016,7 +1016,7 @@ namespace JBHRIS.Api.Dal.ezFlow.Entity.ezFlow
 
                 entity.Property(e => e.ReasonChange).IsRequired();
 
-                entity.Property(e => e.RoleId).HasMaxLength(50);
+                entity.Property(e => e.RoleId).HasMaxLength(100);
 
                 entity.Property(e => e.SchoolCode)
                     .IsRequired()
@@ -1148,7 +1148,7 @@ namespace JBHRIS.Api.Dal.ezFlow.Entity.ezFlow
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.RoleId).HasMaxLength(50);
+                entity.Property(e => e.RoleId).HasMaxLength(100);
 
                 entity.Property(e => e.SignState)
                     .IsRequired()
@@ -1263,7 +1263,7 @@ namespace JBHRIS.Api.Dal.ezFlow.Entity.ezFlow
                     .IsRequired()
                     .HasMaxLength(200);
 
-                entity.Property(e => e.RoleId).HasMaxLength(50);
+                entity.Property(e => e.RoleId).HasMaxLength(100);
 
                 entity.Property(e => e.SchoolCode)
                     .IsRequired()
@@ -1505,7 +1505,7 @@ namespace JBHRIS.Api.Dal.ezFlow.Entity.ezFlow
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.RoleId).HasMaxLength(50);
+                entity.Property(e => e.RoleId).HasMaxLength(100);
 
                 entity.Property(e => e.RoteCode)
                     .IsRequired()
@@ -1592,7 +1592,7 @@ namespace JBHRIS.Api.Dal.ezFlow.Entity.ezFlow
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.RoleId).HasMaxLength(50);
+                entity.Property(e => e.RoleId).HasMaxLength(100);
 
                 entity.Property(e => e.RotetCode)
                     .IsRequired()
@@ -1655,7 +1655,7 @@ namespace JBHRIS.Api.Dal.ezFlow.Entity.ezFlow
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.RoleId).HasMaxLength(50);
+                entity.Property(e => e.RoleId).HasMaxLength(100);
 
                 entity.Property(e => e.RoteCodeB)
                     .IsRequired()
@@ -1775,7 +1775,7 @@ namespace JBHRIS.Api.Dal.ezFlow.Entity.ezFlow
 
                 entity.Property(e => e.RoleId)
                     .IsRequired()
-                    .HasMaxLength(50);
+                    .HasMaxLength(100);
 
                 entity.Property(e => e.Status)
                     .IsRequired()
