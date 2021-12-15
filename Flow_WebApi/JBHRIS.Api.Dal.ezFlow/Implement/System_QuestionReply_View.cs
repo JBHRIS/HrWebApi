@@ -151,7 +151,7 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
         {
             bool result = false;
             List<QuestionReply> newQuestionReply = (from bn in this._context.QuestionReplies
-                                                    where bn.Code == Code
+                                                    where bn.Code == Code && bn.Send==false
                                                     select new QuestionReply
                                                     {
                                                         AutoKey = bn.AutoKey,
@@ -161,7 +161,7 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                                                         Key2 = bn.Key2,
                                                         Key3 = bn.Key3,
                                                         Name = bn.Name,
-                                                        Content = bn.Content,
+                                                        Content = QRContent,
                                                         RoleKey = bn.RoleKey,
                                                         IpAddress = bn.IpAddress,
                                                         ReplyToCode = bn.ReplyToCode,
