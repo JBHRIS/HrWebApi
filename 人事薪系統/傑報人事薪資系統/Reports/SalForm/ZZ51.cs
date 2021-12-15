@@ -1,4 +1,24 @@
-﻿using System;
+﻿/* ======================================================================================================
+ * 功能名稱：年度所得資料列印
+ * 功能代號：ZZ51
+ * 功能路徑：報表列印 > 媒體申報 > 年度所得資料列印
+ * 檔案路徑：~\Customer\JBHR2\人事薪系統\傑報人事薪資系統\Reports\SalForm\ZZ51.cs
+ * 功能用途：
+ *  
+ * 
+ * 版本記錄：
+ * ======================================================================================================
+ *    日期           人員           版本           說明
+ * ------------------------------------------------------------------------------------------------------
+ * 2021/12/15    Daniel Chih    Ver 1.0.01     1. 新增條件篩選項：所得格式
+ * 
+ * 
+ * ======================================================================================================
+ * 
+ * 最後修改：Daniel Chih (0492) - 2021/12/15
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,10 +45,15 @@ namespace JBHR.Reports.SalForm
             Sal.Function.SetAvaliableBase(this.salaryDS.BASE);
             nobr_b.Text = Sal.BaseValue.MinNobr;
             nobr_e.Text = Sal.BaseValue.MaxNobr;
+
             dept_b.DataSource = JBHR.Reports.ReportClass.GetDept(MainForm.COMPANY);
             dept_e.DataSource = JBHR.Reports.ReportClass.GetDept(MainForm.COMPANY);
             dept_e.SelectedIndex = dept_e.Items.Count - 1;
-            
+
+            yrformat_b.DataSource = JBHR.Reports.ReportClass.GetYRFormat();
+            yrformat_e.DataSource = JBHR.Reports.ReportClass.GetYRFormat();
+            yrformat_e.SelectedIndex = yrformat_e.Items.Count - 1;
+
             reporttype.SelectedIndex = 0;
             ordertype.SelectedIndex = 0;
 
@@ -49,6 +74,10 @@ namespace JBHR.Reports.SalForm
                 string nobre = nobr_e.Text;
                 string deptb = (dept_b.SelectedIndex == -1) ? "" : dept_b.SelectedValue.ToString();
                 string depte = (dept_e.SelectedIndex == -1) ? "" : dept_e.SelectedValue.ToString();
+
+                string yrformatb = (yrformat_b.SelectedIndex == -1) ? "" : yrformat_b.SelectedValue.ToString();
+                string yrformate = (yrformat_e.SelectedIndex == -1) ? "" : yrformat_e.SelectedValue.ToString();
+
                 string _year = year.Text;
                 string sernob = ser_nob.Text;
                 string sernoe = ser_noe.Text;
@@ -84,7 +113,7 @@ namespace JBHR.Reports.SalForm
 
                 string report_type = reporttype.SelectedIndex.ToString();
                 bool _exportexcel = ExportExcel.Checked;
-                zz51_report = new ZZ51_Report(nobrb, nobre, deptb, depte, _year, sernob, sernoe, typedata, order_type, report_type, _exportexcel, MainForm.USER_NAME, MainForm.COMPANY_NAME, MainForm.COMPANY, yrtaxList, yrparameters);
+                zz51_report = new ZZ51_Report(nobrb, nobre, deptb, depte, _year, sernob, sernoe, yrformatb, yrformate, typedata, order_type, report_type, _exportexcel, MainForm.USER_NAME, MainForm.COMPANY_NAME, MainForm.COMPANY, yrtaxList, yrparameters);
                 zz51_report.Show();
                 
             }
