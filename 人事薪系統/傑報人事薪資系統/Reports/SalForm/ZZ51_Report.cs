@@ -1,4 +1,24 @@
-﻿using System;
+﻿/* ======================================================================================================
+ * 功能名稱：年度所得資料列印
+ * 功能代號：ZZ51
+ * 功能路徑：報表列印 > 媒體申報 > 年度所得資料列印
+ * 檔案路徑：~\Customer\JBHR2\人事薪系統\傑報人事薪資系統\Reports\SalForm\ZZ51_Report.cs
+ * 功能用途：
+ *  
+ * 
+ * 版本記錄：
+ * ======================================================================================================
+ *    日期           人員           版本           說明
+ * ------------------------------------------------------------------------------------------------------
+ * 2021/12/15    Daniel Chih    Ver 1.0.01     1. 新增條件篩選項：所得格式
+ * 
+ * 
+ * ======================================================================================================
+ * 
+ * 最後修改：Daniel Chih (0492) - 2021/12/15
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,17 +33,17 @@ namespace JBHR.Reports.SalForm
     public partial class ZZ51_Report : JBControls.JBForm
     {
         SalDataSet ds = new SalDataSet();
-        string nobr_b, nobr_e, dept_b, dept_e, year, ser_nob, ser_noe, type_data, ordertype, reporttype, username, comp_name, CompId;
+        string nobr_b, nobr_e, dept_b, dept_e, year, ser_nob, ser_noe, yrformat_b, yrformat_e, type_data, ordertype, reporttype, username, comp_name, CompId;
         bool exportexcel;
         List<JBModule.Data.Linq.YRTAX> yrtaxlist;
         Dictionary<string, object> yrparameters;
-        public ZZ51_Report(string nobrb, string nobre, string deptb, string depte, string _year, string sernob, string sernoe, string typedata, string _ordertype, string _reporttype, bool _exportexcel, string _username, string compname, string _CompId, List<JBModule.Data.Linq.YRTAX> YrtaxList, Dictionary<string, object> YrParameters)
+        public ZZ51_Report(string nobrb, string nobre, string deptb, string depte, string _year, string sernob, string sernoe, string yrformatb, string yrformate, string typedata, string _ordertype, string _reporttype, bool _exportexcel, string _username, string compname, string _CompId, List<JBModule.Data.Linq.YRTAX> YrtaxList, Dictionary<string, object> YrParameters)
         {
             InitializeComponent();
             nobr_b = nobrb; nobr_e = nobre; dept_b = deptb; dept_e = depte; year = _year; ser_nob = sernob;
             ser_noe = sernoe; type_data = typedata; ordertype = _ordertype; reporttype = _reporttype;
             exportexcel = _exportexcel; username = _username; comp_name = compname; CompId = _CompId;
-            yrtaxlist = YrtaxList; yrparameters = YrParameters;
+            yrtaxlist = YrtaxList; yrparameters = YrParameters; yrformat_b = yrformatb; yrformat_e = yrformate;
         }
 
         private void ZZ51_Report_Load(object sender, EventArgs e)
@@ -40,6 +60,7 @@ namespace JBHR.Reports.SalForm
                     sqlCmd += " left outer join dept e on b.dept=e.d_no";
                     sqlCmd += " where c.nobr=b.nobr and a.nobr=b.nobr ";
                     sqlCmd += string.Format(@" and c.year='{0}'", year);
+                    sqlCmd += string.Format(@" and c.format between '{0}' and '{1}'", yrformat_b, yrformat_e);
                     sqlCmd += string.Format(@" and '{0}' between b.adate and b.ddate", date_b);
                     sqlCmd += string.Format(@" and c.nobr between '{0}' and '{1}'", nobr_b, nobr_e);
                     sqlCmd += string.Format(@" and c.series between '{0}' and '{1}'", ser_nob, ser_noe);
@@ -85,6 +106,7 @@ namespace JBHR.Reports.SalForm
                                       && (!type_data4 || f.BASE.COUNT_MA)
                                       && (!type_tr2 || !y.T_OK)
                                       && (!type_tr3 || y.T_OK)
+                                      && y.FORMAT.CompareTo(yrformat_b) >= 0 && y.FORMAT.CompareTo(yrformat_e) <= 0
                                       select new
                                       {
                                           f.Dept,

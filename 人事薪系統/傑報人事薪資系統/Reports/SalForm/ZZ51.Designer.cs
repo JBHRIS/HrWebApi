@@ -65,6 +65,10 @@
             this.baseDS = new JBHR.Sal.BaseDS();
             this.nobr_b = new JBControls.PopupTextBox();
             this.nobr_e = new JBControls.PopupTextBox();
+            this.yrformat_e = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.yrformat_b = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salaryDS)).BeginInit();
@@ -78,7 +82,7 @@
             this.reporttype.FormattingEnabled = true;
             this.reporttype.Items.AddRange(new object[] {
             "年度所得資料"});
-            this.reporttype.Location = new System.Drawing.Point(104, 224);
+            this.reporttype.Location = new System.Drawing.Point(104, 247);
             this.reporttype.Name = "reporttype";
             this.reporttype.Size = new System.Drawing.Size(120, 20);
             this.reporttype.TabIndex = 18;
@@ -87,7 +91,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label13.Location = new System.Drawing.Point(40, 228);
+            this.label13.Location = new System.Drawing.Point(40, 251);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(63, 13);
             this.label13.TabIndex = 444;
@@ -102,7 +106,7 @@
             "身分證號",
             "工號",
             "公司+工號"});
-            this.ordertype.Location = new System.Drawing.Point(104, 196);
+            this.ordertype.Location = new System.Drawing.Point(104, 219);
             this.ordertype.Name = "ordertype";
             this.ordertype.Size = new System.Drawing.Size(80, 20);
             this.ordertype.TabIndex = 17;
@@ -111,7 +115,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label9.Location = new System.Drawing.Point(40, 200);
+            this.label9.Location = new System.Drawing.Point(40, 223);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 13);
             this.label9.TabIndex = 443;
@@ -187,6 +191,7 @@
             this.ser_noe.Name = "ser_noe";
             this.ser_noe.PasswordChar = '\0';
             this.ser_noe.ReadOnly = false;
+            this.ser_noe.ShowCalendarButton = true;
             this.ser_noe.Size = new System.Drawing.Size(80, 23);
             this.ser_noe.TabIndex = 7;
             this.ser_noe.ValidType = JBControls.TextBox.EValidType.String;
@@ -215,6 +220,7 @@
             this.ser_nob.Name = "ser_nob";
             this.ser_nob.PasswordChar = '\0';
             this.ser_nob.ReadOnly = false;
+            this.ser_nob.ShowCalendarButton = true;
             this.ser_nob.Size = new System.Drawing.Size(80, 23);
             this.ser_nob.TabIndex = 6;
             this.ser_nob.ValidType = JBControls.TextBox.EValidType.String;
@@ -243,6 +249,7 @@
             this.year.Name = "year";
             this.year.PasswordChar = '\0';
             this.year.ReadOnly = false;
+            this.year.ShowCalendarButton = true;
             this.year.Size = new System.Drawing.Size(40, 23);
             this.year.TabIndex = 1;
             this.year.ValidType = JBControls.TextBox.EValidType.Integer;
@@ -260,7 +267,7 @@
             // ExportExcel
             // 
             this.ExportExcel.AutoSize = true;
-            this.ExportExcel.Location = new System.Drawing.Point(104, 260);
+            this.ExportExcel.Location = new System.Drawing.Point(104, 283);
             this.ExportExcel.Name = "ExportExcel";
             this.ExportExcel.Size = new System.Drawing.Size(78, 16);
             this.ExportExcel.TabIndex = 19;
@@ -270,7 +277,7 @@
             // LeaveForm
             // 
             this.LeaveForm.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.LeaveForm.Location = new System.Drawing.Point(261, 287);
+            this.LeaveForm.Location = new System.Drawing.Point(261, 310);
             this.LeaveForm.Name = "LeaveForm";
             this.LeaveForm.Size = new System.Drawing.Size(75, 23);
             this.LeaveForm.TabIndex = 21;
@@ -280,7 +287,7 @@
             // 
             // Create_Report
             // 
-            this.Create_Report.Location = new System.Drawing.Point(109, 287);
+            this.Create_Report.Location = new System.Drawing.Point(109, 310);
             this.Create_Report.Name = "Create_Report";
             this.Create_Report.Size = new System.Drawing.Size(75, 23);
             this.Create_Report.TabIndex = 20;
@@ -455,6 +462,7 @@
             this.nobr_b.Location = new System.Drawing.Point(104, 36);
             this.nobr_b.Name = "nobr_b";
             this.nobr_b.ReadOnly = false;
+            this.nobr_b.ShowDisplayName = true;
             this.nobr_b.Size = new System.Drawing.Size(75, 22);
             this.nobr_b.TabIndex = 2;
             this.nobr_b.ValueMember = "nobr";
@@ -474,16 +482,65 @@
             this.nobr_e.Location = new System.Drawing.Point(280, 36);
             this.nobr_e.Name = "nobr_e";
             this.nobr_e.ReadOnly = false;
+            this.nobr_e.ShowDisplayName = true;
             this.nobr_e.Size = new System.Drawing.Size(75, 22);
             this.nobr_e.TabIndex = 3;
             this.nobr_e.ValueMember = "nobr";
             this.nobr_e.WhereCmd = "";
             // 
+            // yrformat_e
+            // 
+            this.yrformat_e.DisplayMember = "m_fmt_name";
+            this.yrformat_e.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.yrformat_e.FormattingEnabled = true;
+            this.yrformat_e.Location = new System.Drawing.Point(280, 193);
+            this.yrformat_e.Name = "yrformat_e";
+            this.yrformat_e.Size = new System.Drawing.Size(130, 20);
+            this.yrformat_e.TabIndex = 446;
+            this.yrformat_e.ValueMember = "m_format";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3.Location = new System.Drawing.Point(242, 198);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(21, 13);
+            this.label3.TabIndex = 448;
+            this.label3.Text = "至";
+            // 
+            // yrformat_b
+            // 
+            this.yrformat_b.DisplayMember = "m_fmt_name";
+            this.yrformat_b.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.yrformat_b.FormattingEnabled = true;
+            this.yrformat_b.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.yrformat_b.Location = new System.Drawing.Point(104, 193);
+            this.yrformat_b.Name = "yrformat_b";
+            this.yrformat_b.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.yrformat_b.Size = new System.Drawing.Size(130, 20);
+            this.yrformat_b.TabIndex = 445;
+            this.yrformat_b.ValueMember = "m_format";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label5.Location = new System.Drawing.Point(40, 197);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 13);
+            this.label5.TabIndex = 447;
+            this.label5.Text = "所得格式";
+            // 
             // ZZ51
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(474, 328);
+            this.ClientSize = new System.Drawing.Size(445, 352);
+            this.Controls.Add(this.yrformat_e);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.yrformat_b);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.nobr_b);
             this.Controls.Add(this.nobr_e);
             this.Controls.Add(this.reporttype);
@@ -563,5 +620,9 @@
         private JBHR.Sal.BaseDS baseDS;
         private JBControls.PopupTextBox nobr_b;
         private JBControls.PopupTextBox nobr_e;
+        internal System.Windows.Forms.ComboBox yrformat_e;
+        private System.Windows.Forms.Label label3;
+        internal System.Windows.Forms.ComboBox yrformat_b;
+        private System.Windows.Forms.Label label5;
     }
 }
