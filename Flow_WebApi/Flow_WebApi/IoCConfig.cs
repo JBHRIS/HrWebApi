@@ -29,6 +29,7 @@ namespace Flow_WebApi
             //services.AddDbContext<JBHRIS.Api.Dal.HRM.Entity.HR.JBHRContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:HRConnectionStrings"]));
             services.AddDbContext<JBHRIS.Api.Dal.ezFlow.Entity.ezFlow.ezFlowContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:ezFlowConnectionStrings"]));
             //services.AddDbContext<JBHRIS.Api.Dal.OldezFlow.Entity.ezFlow.OldezFlowContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:OldezFlowConnectionStrings"]));
+			services.AddDbContext<JBHRIS.Api.Dal.ezFlow.Entity.Share.ShareContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:ShareConnectionStrings"]));																																								   
 
 
 
@@ -54,7 +55,10 @@ namespace Flow_WebApi
             services.AddScoped<JBHRIS.Api.Service.Interface.System.IProcessIdInterface, JBHRIS.Api.Service.Implement.System.ProcessIdService>();
             services.AddScoped<JBHRIS.Api.Service.Interface.System.ISysVarInterface, JBHRIS.Api.Service.Implement.System.SysVarService>();
             services.AddScoped<JBHRIS.Api.Service.Interface.System.IFlowControlInterface, JBHRIS.Api.Service.Implement.System.FlowControlService>();
-
+            services.AddScoped<JBHRIS.Api.Service.Interface.System.QuestionDefaultMessageInterFace, JBHRIS.Api.Service.Implement.System.QuestionDefaultMessageService>();
+            services.AddScoped<JBHRIS.Api.Service.Interface.System.QuestionMainInterFace, JBHRIS.Api.Service.Implement.System.QuestionMainService>();
+            services.AddScoped<JBHRIS.Api.Service.Interface.System.QuestionReplyInterFace, JBHRIS.Api.Service.Implement.System.QuestionReplyService>();
+            services.AddScoped<JBHRIS.Api.Service.Interface.System.QuestionCategoryInterFace, JBHRIS.Api.Service.Implement.System.QuestionCategoryService>();
             services.AddScoped<JBHRIS.Api.Service.Interface.FlowMainInte.IFlowMainIntegrationHandleInterface, JBHRIS.Api.Service.Implement.FlowMainInte.FlowMainIntegrationHandle>();
 
 
@@ -88,6 +92,10 @@ namespace Flow_WebApi
             services.AddScoped<JBHRIS.Api.Dal.Interface.ISystem_ProcessId_View, JBHRIS.Api.Dal.ezFlow.Implement.System_ProcessId_View>();
             services.AddScoped<JBHRIS.Api.Dal.Interface.ISystem_SysVar_View, JBHRIS.Api.Dal.ezFlow.Implement.System_SysVar_View>();
             services.AddScoped<JBHRIS.Api.Dal.Interface.ISystem_FlowControl_View, JBHRIS.Api.Dal.ezFlow.Implement.System_FlowControl_View>();
+            services.AddScoped<JBHRIS.Api.Dal.Interface.ISystem_QuestionDefaultMessage_View, JBHRIS.Api.Dal.ezFlow.Implement.System_QuestionDefaultMessage_View>();
+            services.AddScoped<JBHRIS.Api.Dal.Interface.ISystem_QuestionMain_View, JBHRIS.Api.Dal.ezFlow.Implement.System_QuestionMain_View>();
+            services.AddScoped<JBHRIS.Api.Dal.Interface.ISystem_QuestionReply_View, JBHRIS.Api.Dal.ezFlow.Implement.System_QuestionReply_View>();
+            services.AddScoped<JBHRIS.Api.Dal.Interface.ISystem_QuestionCategory_View, JBHRIS.Api.Dal.ezFlow.Implement.System_QuestionCategory_View>();
 
 
             services.AddScoped<JBHRIS.Api.Dal.Interface.IFlowMainIntegrationHandler_Interface, JBHRIS.Api.Dal.ezFlow.Implement.FlowMainIntegrationHandler>();

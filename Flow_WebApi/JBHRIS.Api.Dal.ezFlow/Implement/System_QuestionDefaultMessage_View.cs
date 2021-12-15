@@ -133,15 +133,15 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                                                                       select new QuestionDefaultMessage
                                                                       {
                                                                           AutoKey = bn.AutoKey,
-                                                                          CompanyId = vdb.CompanyId,
-                                                                          Code = vdb.Code,
+                                                                          CompanyId = bn.CompanyId,
+                                                                          Code = bn.Code,
                                                                           Name = vdb.Name,
                                                                           Contents = vdb.Contents,
-                                                                          RoleKey = vdb.RoleKey,
-                                                                          Note = vdb.Note,
-                                                                          Status = vdb.Status,
-                                                                          InsertMan = vdb.InsertMan,
-                                                                          InsertDate = vdb.InsertDate,
+                                                                          RoleKey = bn.RoleKey,
+                                                                          Note = bn.Note,
+                                                                          Status = bn.Status,
+                                                                          InsertMan = bn.InsertMan,
+                                                                          InsertDate = bn.InsertDate,
                                                                           UpdateMan = vdb.UpdateMan,
                                                                           UpdateDate = vdb.UpdateDate,
                                                                       }).ToList();
