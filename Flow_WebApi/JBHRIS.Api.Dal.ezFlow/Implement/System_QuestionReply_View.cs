@@ -22,7 +22,7 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
 
 
 
-        public List<QuestionReplyVdb> GetQuestionReplyByCode(string QMainCode)
+        public List<QuestionReplyVdb> GetQuestionReplyByQuestionMainCode(string QMainCode)
         {
 
             List<QuestionReplyVdb> result = (from bn in this._context.QuestionReplies
@@ -55,6 +55,40 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
             return result;
             // return result;
         }
+        public List<QuestionReplyVdb> GetQuestionReplyByParentCode(string Code)
+        {
+
+            List<QuestionReplyVdb> result = (from bn in this._context.QuestionReplies
+                                             where bn.ParentCode == Code
+                                             select new QuestionReplyVdb
+                                             {
+                                                 AutoKey = bn.AutoKey,
+                                                 Code = bn.Code,
+                                                 QuestionMainCode = bn.QuestionMainCode,
+                                                 Key1 = bn.Key1,
+                                                 Key2 = bn.Key2,
+                                                 Key3 = bn.Key3,
+                                                 Name = bn.Name,
+                                                 Content = bn.Content,
+                                                 RoleKey = bn.RoleKey,
+                                                 IpAddress = bn.IpAddress,
+                                                 ReplyToCode = bn.ReplyToCode,
+                                                 ParentCode = bn.ParentCode,
+                                                 Send = bn.Send,
+                                                 Note = bn.Note,
+                                                 Status = bn.Status,
+                                                 InsertMan = bn.InsertMan,
+                                                 InsertDate = bn.InsertDate ?? new DateTime(),
+                                                 UpdateMan = bn.UpdateMan,
+                                                 UpdateDate = bn.InsertDate ?? new DateTime(),
+                                             }).ToList();
+
+
+
+            return result;
+            // return result;
+        }
+
         public bool InsertQuestionReply(QuestionReplyVdb vdb)
         {           
             bool result = false;

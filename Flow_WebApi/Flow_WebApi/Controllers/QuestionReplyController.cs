@@ -24,20 +24,20 @@ namespace Flow_WebApi.Controllers
         }
 
         /// <summary>
-        /// 根據Code取得所有回覆單
+        /// 根據QuestionMainCode取得所有回覆單
         /// </summary>
         /// <param name="Code"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("GetQuestionReplyByCode")]
-        public ApiResult<List<QuestionReplyVdb>> GetQuestionReply(string Code)
+        [Route("GetQuestionReplyByQuestionMainCode")]
+        public ApiResult<List<QuestionReplyVdb>> GetQuestionReplyByQuestionMainCode(string Code)
         {
             ApiResult<List<QuestionReplyVdb>> mapiResult = new ApiResult<List<QuestionReplyVdb>>();
 
             mapiResult.State = false;
             try
             {
-                mapiResult.Result = this._QuestionReplyInterface.GetQuestionReplyByCode(Code);
+                mapiResult.Result = this._QuestionReplyInterface.GetQuestionReplyByQuestionMainCode(Code);
                 mapiResult.State = true;
             }
             catch (Exception ex)
@@ -48,6 +48,37 @@ namespace Flow_WebApi.Controllers
 
             return mapiResult;
         }
+
+
+
+        /// <summary>
+        /// 根據ParentCode取得所有回覆單
+        /// </summary>
+        /// <param name="ParentCode"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetQuestionReplyByParentCode")]
+        public ApiResult<List<QuestionReplyVdb>> GetQuestionReplyByParentCode(string ParentCode)
+        {
+            ApiResult<List<QuestionReplyVdb>> mapiResult = new ApiResult<List<QuestionReplyVdb>>();
+
+            mapiResult.State = false;
+            try
+            {
+                mapiResult.Result = this._QuestionReplyInterface.GetQuestionReplyByQuestionMainCode(ParentCode);
+                mapiResult.State = true;
+            }
+            catch (Exception ex)
+            {
+
+                mapiResult.Message = ex.Message;
+            }
+
+            return mapiResult;
+        }
+
+
+
         /// <summary>
         /// 新增回覆
         /// </summary>

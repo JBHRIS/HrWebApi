@@ -12,19 +12,19 @@ using System.Threading.Tasks;
 
 namespace Dal.Dao.Share
 {
-    public class ShareGetQuestionReplyByCodeDao : BaseWebAPI<ShareGetQuestionReplyByCodeApiRow>
+    public class ShareGetQuestionReplyByParentCodeDao : BaseWebAPI<ShareGetQuestionReplyByQuestionMainCodeApiRow>
     {
 
-        public ShareGetQuestionReplyByCodeDao() : base()
+        public ShareGetQuestionReplyByParentCodeDao() : base()
         {
-            this.restURL = "/api/QuestionReply/GetQuestionReplyByCode";
+            this.restURL = "/api/QuestionReply/GetQuestionReplyByParentCode";
             this.ApiSetting = "Flow";
             IsCollectionType = false;
             EncodingType = EnctypeMethod.JSON;
             NeedSaveData = true;
         }
 
-        public async Task<APIResult> PostAsync(ShareGetQuestionReplyByCodeConditions Cond, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<APIResult> PostAsync(ShareGetQuestionReplyByQuestionMainCodeConditions Cond, CancellationToken cancellationToken = default(CancellationToken))
         {
             AuthenticationHeaderBearerTokenValue = Cond.AccessToken;
 
@@ -46,7 +46,7 @@ namespace Dal.Dao.Share
             return mr;
         }
 
-        public APIResult Post(ShareGetQuestionReplyByCodeConditions Cond, CancellationToken cancellationToken = default(CancellationToken))
+        public APIResult Post(ShareGetQuestionReplyByQuestionMainCodeConditions Cond, CancellationToken cancellationToken = default(CancellationToken))
         {
             AuthenticationHeaderBearerTokenValue = Cond.AccessToken;
 
@@ -69,7 +69,7 @@ namespace Dal.Dao.Share
             return mr;
         }
 
-        public async Task<APIResult> GetDataAsync(ShareGetQuestionReplyByCodeConditions Cond, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<APIResult> GetDataAsync(ShareGetQuestionReplyByQuestionMainCodeConditions Cond, CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var Vdb = await PostAsync(Cond, cancellationToken);
@@ -84,7 +84,7 @@ namespace Dal.Dao.Share
             return Vdb;
         }
 
-        public APIResult GetData(ShareGetQuestionReplyByCodeConditions Cond, CancellationToken cancellationToken = default(CancellationToken))
+        public APIResult GetData(ShareGetQuestionReplyByQuestionMainCodeConditions Cond, CancellationToken cancellationToken = default(CancellationToken))
         {
             var Vdb = Post(Cond, cancellationToken);
 
@@ -95,7 +95,7 @@ namespace Dal.Dao.Share
                     if (Vdb.Payload != null && Vdb.Data != null)
                     {
                         //實作DTO轉換
-                        var oSource = Vdb.Data as ShareGetQuestionReplyByCodeApiRow;
+                        var oSource = Vdb.Data as ShareGetQuestionReplyByQuestionMainCodeApiRow;
                         if (oSource != null)
                         {
                             Vdb.Status = oSource.state;
@@ -107,12 +107,12 @@ namespace Dal.Dao.Share
                                 if (oSource != null)
                                 {
                                     var rsSource = oSource.result;
-                                    var rsTarget = new List<ShareGetQuestionReplyByCodeRow>();
+                                    var rsTarget = new List<ShareGetQuestionReplyByQuestionMainCodeRow>();
 
                                     //把api的Data轉成我們的Data
                                     foreach (var rSource in rsSource)
                                     {
-                                        var rTarget = new ShareGetQuestionReplyByCodeRow();
+                                        var rTarget = new ShareGetQuestionReplyByQuestionMainCodeRow();
                                         rTarget.AutoKey = rSource.AutoKey;
                                         rTarget.Code = rSource.Code;
                                         rTarget.QuestionMainCode = rSource.QuestionMainCode;

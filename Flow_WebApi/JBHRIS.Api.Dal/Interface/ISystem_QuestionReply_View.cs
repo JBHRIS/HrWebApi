@@ -8,7 +8,9 @@ namespace JBHRIS.Api.Dal.Interface
     public interface ISystem_QuestionReply_View
     {
 
-        List<QuestionReplyVdb> GetQuestionReplyByCode(string QMainCode);
+        List<QuestionReplyVdb> GetQuestionReplyByQuestionMainCode(string QMainCode);
+
+        List<QuestionReplyVdb> GetQuestionReplyByParentCode(string ParentCode);
 
         bool InsertQuestionReply(QuestionReplyVdb vdb);
 

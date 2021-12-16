@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Bll.Share.Vdb
 {
-  public  class ShareGetQuestionReplyByCode
+  public  class ShareGetQuestionReplyByParentCode
     {
     }
-    public class ShareGetQuestionReplyByCodeConditions : DataConditions
+    public class ShareGetQuestionReplyByParentCodeConditions : DataConditions
     {
         
            public string Code { get; set; }
@@ -19,7 +19,7 @@ namespace Bll.Share.Vdb
      
     }
 
-    public class ShareGetQuestionReplyByCodeApiRow : StandardDataBaseApiRow
+    public class ShareGetQuestionReplyByParentCodeApiRow : StandardDataBaseApiRow
     {
 
 
@@ -49,10 +49,10 @@ namespace Bll.Share.Vdb
         public string UpdateMan { get; set; }
 
         public DateTime UpdateDate { get; set; }
-        public List<ShareGetQuestionReplyByCodeApiRow> result { get; set; }
+        public List<ShareGetQuestionReplyByQuestionMainCodeApiRow> result { get; set; }
 
     }
-    public class ShareGetQuestionReplyByCodeRow
+    public class ShareGetQuestionReplyByParentCodeRow
     {
 
         public int AutoKey { get; set; }

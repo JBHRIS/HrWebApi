@@ -222,7 +222,8 @@
     <Compile Include="Share\Vdb\ShareGetQuestionMainByCompanyVdb.cs" />
     <Compile Include="Share\Vdb\ShareGetQuestionMainByEmpIDVdb.cs" />
     <Compile Include="Share\Vdb\ShareGetQuestionMainVdb.cs" />
-    <Compile Include="Share\Vdb\ShareGetQuestionReplyByCodeVdb.cs" />
+    <Compile Include="Share\Vdb\ShareGetQuestionReplyByParentCodeVdb.cs" />
+    <Compile Include="Share\Vdb\ShareGetQuestionReplyByQuestionMainCodeVdb.cs" />
     <Compile Include="Share\Vdb\ShareInsertQuestionDefaultMessageVdb.cs" />
     <Compile Include="Share\Vdb\ShareInsertQuestionMainVdb.cs" />
     <Compile Include="Share\Vdb\ShareInsertQuestionReplyVdb.cs" />
@@ -281,8 +282,40 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="bin\Debug\Bll.dll.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="bin\Debug\Bll.dll" />
+    <Content Include="bin\Debug\Bll.pdb" />
+    <Content Include="bin\Debug\BouncyCastle.Crypto.dll" />
+    <Content Include="bin\Debug\BouncyCastle.Crypto.xml" />
+    <Content Include="bin\Debug\HtmlAgilityPack.dll" />
+    <Content Include="bin\Debug\HtmlAgilityPack.pdb" />
+    <Content Include="bin\Debug\HtmlAgilityPack.xml" />
+    <Content Include="bin\Debug\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="bin\Debug\ICSharpCode.SharpZipLib.pdb" />
+    <Content Include="bin\Debug\ICSharpCode.SharpZipLib.xml" />
+    <Content Include="bin\Debug\JWT.dll" />
+    <Content Include="bin\Debug\JWT.pdb" />
+    <Content Include="bin\Debug\JWT.xml" />
+    <Content Include="bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll" />
+    <Content Include="bin\Debug\Microsoft.IdentityModel.JsonWebTokens.xml" />
+    <Content Include="bin\Debug\Microsoft.IdentityModel.Logging.dll" />
+    <Content Include="bin\Debug\Microsoft.IdentityModel.Logging.xml" />
+    <Content Include="bin\Debug\Microsoft.IdentityModel.Tokens.dll" />
+    <Content Include="bin\Debug\Microsoft.IdentityModel.Tokens.xml" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="bin\Debug\NPOI.dll" />
+    <Content Include="bin\Debug\NPOI.OOXML.dll" />
+    <Content Include="bin\Debug\NPOI.OpenXml4Net.dll" />
+    <Content Include="bin\Debug\NPOI.OpenXmlFormats.dll" />
+    <Content Include="bin\Debug\System.IdentityModel.Tokens.Jwt.dll" />
+    <Content Include="bin\Debug\System.IdentityModel.Tokens.Jwt.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

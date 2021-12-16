@@ -15,11 +15,15 @@ namespace JBHRIS.Api.Service.Implement.System
             this._ISystem_QuestionReply_View = system_QuestionReply_View;
         }
 
-        public List<QuestionReplyVdb> GetQuestionReplyByCode(string QMainCode)
+        public List<QuestionReplyVdb> GetQuestionReplyByQuestionMainCode(string QMainCode)
         {
-            return this._ISystem_QuestionReply_View.GetQuestionReplyByCode(QMainCode);
+            return this._ISystem_QuestionReply_View.GetQuestionReplyByQuestionMainCode(QMainCode);
         }
-        
+        public List<QuestionReplyVdb> GetQuestionReplyByParentCode(string ParentCode)
+        {
+            return this._ISystem_QuestionReply_View.GetQuestionReplyByParentCode(ParentCode);
+        }
+
         public bool InsertQuestionReply(QuestionReplyVdb vdb)
         {
             return this._ISystem_QuestionReply_View.InsertQuestionReply(vdb);

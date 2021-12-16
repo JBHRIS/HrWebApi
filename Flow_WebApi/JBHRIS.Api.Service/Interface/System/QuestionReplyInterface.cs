@@ -7,7 +7,8 @@ namespace JBHRIS.Api.Service.Interface.System
 {
     public interface QuestionReplyInterFace
     {
-        List<QuestionReplyVdb> GetQuestionReplyByCode(string QMainCode);
+        List<QuestionReplyVdb> GetQuestionReplyByQuestionMainCode(string QMainCode);
+        List<QuestionReplyVdb> GetQuestionReplyByParentCode(string ParentCode);
 
         bool InsertQuestionReply(QuestionReplyVdb vdb);
 
