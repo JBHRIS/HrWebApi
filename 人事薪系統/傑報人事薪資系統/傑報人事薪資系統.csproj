@@ -212,6 +212,18 @@
     <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus.Designer.cs">
       <DependentUpon>Hunya_ABPersonalBonus.cs</DependentUpon>
     </Compile>
+    <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus_Calculate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus_Calculate.Designer.cs">
+      <DependentUpon>Hunya_ABPersonalBonus_Calculate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus_Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus_Import.Designer.cs">
+      <DependentUpon>Hunya_ABPersonalBonus_Import.cs</DependentUpon>
+    </Compile>
     <Compile Include="AnnualBonus\HunyaCustom\Hunya_AnnualBonus.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -219,6 +231,10 @@
     </Compile>
     <Compile Include="AnnualBonus\HunyaCustom\Repository\Hunya_ABPersonalAppraisalDto.cs" />
     <Compile Include="AnnualBonus\HunyaCustom\Repository\Hunya_ABPersonalAppraisalRepo.cs" />
+    <Compile Include="AnnualBonus\HunyaCustom\Repository\Hunya_ABPersonalBonusDto.cs" />
+    <Compile Include="AnnualBonus\HunyaCustom\Repository\Hunya_ABPersonalBonusRepo.cs" />
+    <Compile Include="AnnualBonus\HunyaCustom\Repository\Hunya_ABYearEndAppraisalDto.cs" />
+    <Compile Include="AnnualBonus\HunyaCustom\Repository\Hunya_ABYearEndAppraisalRepo.cs" />
     <Compile Include="Att\AbsentEntitle.cs" />
     <Compile Include="Att\AbsentTaken.cs" />
     <Compile Include="Att\Attendance\Dto\ScheduleTypeDto.cs" />
@@ -2515,6 +2531,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus.resx">
       <DependentUpon>Hunya_ABPersonalBonus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus_Calculate.resx">
+      <DependentUpon>Hunya_ABPersonalBonus_Calculate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus_Import.resx">
+      <DependentUpon>Hunya_ABPersonalBonus_Import.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Att\CopyBonusSetting.resx">
       <DependentUpon>CopyBonusSetting.cs</DependentUpon>

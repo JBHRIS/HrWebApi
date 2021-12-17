@@ -79,25 +79,16 @@ namespace JBHR.Dividend.HunyaCustom
                 //    }
                 //}
 
-                if (!int.TryParse(TargetRow["考績年度"].ToString(), out int YYYY))
-                {
-                    TargetRow["錯誤註記"] += "考績年度非正確西元年格式.";
-                    return false;
-                }
+                if (!int.TryParse(TargetRow["考績年度"].ToString(), out int YYYY) && !(YYYY >= 1753 && YYYY <= 9998))
+                    TargetRow["錯誤註記"] += "考績年度非正確西元年格式(1753-9998).";
 
                 if (ColumnValidate(TargetRow, "考績等第", TransferCheckDataField.DisplayCode, out Msg))
-                {
                     TargetRow["考績等第"] = Msg;
-                }
-                //else
-                //{
-                //    if (TargetRow.Table != null && TargetRow.Table.Columns.Contains("錯誤註記"))
-                //    {
-                //        TargetRow["錯誤註記"] += Msg;
-                //    }
-                //}
 
-                return true;
+                if (string.IsNullOrWhiteSpace(TargetRow["錯誤註記"].ToString()))
+                    return true;
+                else
+                    return false;
             }
 
             public override bool ImportData(DataRow TransferRow, string RepeatSelectionString, out string ErrorMsg)
@@ -109,13 +100,13 @@ namespace JBHR.Dividend.HunyaCustom
                     int YYYY = int.Parse(TransferRow["考績年度"].ToString());
                     //string DIVDAppraisalCode = string.Empty;
                     ColumnValidate(TransferRow, "考績等第", TransferCheckDataField.RealCode, out string DIVDAppraisalCode);
-                    Guid GID = Guid.NewGuid();
 
                     Repository.Hunya_DIVDPersonalAppraisalDto Hunya_DIVDPersonalAppraisalDto = new Repository.Hunya_DIVDPersonalAppraisalDto
                     {
                         EmployeeID = EmployeeID,
                         YYYY = YYYY,
                         DIVDAppraisalCode = DIVDAppraisalCode,
+                        GID = Guid.NewGuid(),
                         KeyDate = DateTime.Now,
                         KeyMan = MainForm.USER_NAME,
                     };

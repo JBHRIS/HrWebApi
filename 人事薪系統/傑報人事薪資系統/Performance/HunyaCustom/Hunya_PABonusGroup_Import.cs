@@ -83,18 +83,12 @@ namespace JBHR.Performance.HunyaCustom
                 //}
 
                 if (ColumnValidate(TargetRow, "績效獎金群組", TransferCheckDataField.DisplayCode, out Msg))
-                {
                     TargetRow["績效獎金群組"] = Msg;
-                }
-                //else
-                //{
-                //    if (TargetRow.Table != null && TargetRow.Table.Columns.Contains("錯誤註記"))
-                //    {
-                //        TargetRow["錯誤註記"] += Msg;
-                //    }
-                //}
 
-                return true;
+                if (string.IsNullOrWhiteSpace(TargetRow["錯誤註記"].ToString()))
+                    return true;
+                else
+                    return false;
             }
 
             public override bool ImportData(DataRow TransferRow, string RepeatSelectionString, out string ErrorMsg)
@@ -115,6 +109,7 @@ namespace JBHR.Performance.HunyaCustom
                         YYMM_B = YYMM_B,
                         YYMM_E = YYMM_E,
                         PAGroupCode = PAGroupCode,
+                        GID = Guid.NewGuid(),
                         KeyDate = DateTime.Now,
                         KeyMan = MainForm.USER_NAME,
                     };

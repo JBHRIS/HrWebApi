@@ -108,7 +108,7 @@ namespace JBHR.Dividend.HunyaCustom
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(320, 213);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(320, 214);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // lbPAPAYYMM
@@ -305,7 +305,7 @@ namespace JBHR.Dividend.HunyaCustom
             this.toolStripProgressBar,
             this.tSSLabelSplit,
             this.tSSLabelProcess});
-            this.statusStrip.Location = new System.Drawing.Point(0, 228);
+            this.statusStrip.Location = new System.Drawing.Point(0, 229);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.statusStrip.Size = new System.Drawing.Size(344, 22);
@@ -315,7 +315,7 @@ namespace JBHR.Dividend.HunyaCustom
             // 
             // Hunya_DIVDPersonalBonus_Calculator
             // 
-            this.ClientSize = new System.Drawing.Size(344, 250);
+            this.ClientSize = new System.Drawing.Size(344, 251);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.statusStrip);
             this.FormSize = JBControls.JBForm.FormSizeType.Custom;

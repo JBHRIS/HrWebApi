@@ -10,20 +10,21 @@ using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 
-namespace JBHR.Dividend.HunyaCustom
+namespace JBHR.AnnualBonus.HunyaCustom
 {
-    public partial class Hunya_DIVDPersonalBonus_Calculator : JBControls.JBForm
+    public partial class Hunya_ABPersonalBonus_Calculate : JBControls.JBForm
     {
-        public Hunya_DIVDPersonalBonus_Calculator()
+        public Hunya_ABPersonalBonus_Calculate()
         {
             InitializeComponent();
         }
+
         JBControls.MultiSelectionDialog mdEmp = new JBControls.MultiSelectionDialog();
         JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
         JBModule.Data.ApplicationConfigSettings acg = null;
         string topic = "";
         CheckYYMMFormatControl CYYMMFC = new CheckYYMMFormatControl();
-        private void Hunya_DIVDPersonalBonus_Calculator_Load(object sender, EventArgs e)
+        private void Hunya_ABPersonalBonus_Calculator_Load(object sender, EventArgs e)
         {
             topic = this.Text;
             EmpInitial();
@@ -36,13 +37,13 @@ namespace JBHR.Dividend.HunyaCustom
             txtSeq.Text = "2";
             CYYMMFC.AddControl(txtEnrichYYMM, true);
             acg = null; acg = new JBModule.Data.ApplicationConfigSettings(this.Name, MainForm.COMPANY);
-            acg.CheckParameterAndSetDefault("DIVDSALCODE", "紅利獎金代碼", "", "指定轉入補扣發的紅利獎金代碼", "ComboBox", "select sal_code,sal_code_disp+'-'+sal_name from salcode where dbo.getcodefilter('SALCODE',SAL_CODE,@userid,@comp,@admin)=1", "String");
+            acg.CheckParameterAndSetDefault("ABSALCODE", "年終獎金代碼", "", "指定轉入補扣發的年終獎金代碼", "ComboBox", "select sal_code,sal_code_disp+'-'+sal_name from salcode where dbo.getcodefilter('SALCODE',SAL_CODE,@userid,@comp,@admin)=1", "String");
             SystemFunction.SetComboBoxItems(cbxDIVDSALCODE, CodeFunction.GetSalCode(), true, true, true);
-            cbxDIVDSALCODE.SelectedValue = acg.GetConfig("DIVDSALCODE").GetString();
+            cbxDIVDSALCODE.SelectedValue = acg.GetConfig("ABSALCODE").GetString();
 
             int YYYY = DateTime.Now.AddYears(-1).Year;
             nudDIVDYYYY.Value = YYYY;
-            txtBasicBonus.Text = "0.00";
+            //txtBasicBonus.Text = "0.00";
             SetEmpList();
             nudDIVDYYYY.Focus();
         }
@@ -104,8 +105,8 @@ namespace JBHR.Dividend.HunyaCustom
         {
             JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
             int YYYY = (int)nudDIVDYYYY.Value;
-            decimal BasicBonus = decimal.Parse(txtBasicBonus.Text);
-            DateTime BDate = new DateTime(YYYY,1,1);
+            //decimal BasicBonus = decimal.Parse(txtBasicBonus.Text);
+            DateTime BDate = new DateTime(YYYY, 1, 1);
             DateTime EDate = new DateTime(YYYY, 12, 31);
             DateTime BDate_Att = new DateTime(YYYY, 1, 1);
             DateTime EDate_Att = new DateTime(YYYY, 12, 31);
@@ -128,7 +129,7 @@ namespace JBHR.Dividend.HunyaCustom
             object[] parameters = e.Argument as object[];
             List<string> EmployeeListAll = parameters[0] as List<string>;
             int YYYY = (parameters[1] as int?).Value;
-            decimal BasicBonus = (parameters[2] as decimal?).Value;
+            //decimal BasicBonus = (parameters[2] as decimal?).Value;
             int DayOfYear = (new DateTime(YYYY, 12, 31)).DayOfYear;
             DateTime BDate = (parameters[3] as DateTime?).GetValueOrDefault(DateTime.Today);
             DateTime EDate = (parameters[4] as DateTime?).GetValueOrDefault(DateTime.Today);
@@ -156,10 +157,10 @@ namespace JBHR.Dividend.HunyaCustom
                     cond.Parameters.Add("userid", MainForm.USER_ID);
                     cond.Parameters.Add("comp", MainForm.COMPANY);
                     cond.Parameters.Add("admin", MainForm.ADMIN);
-                    var ParamsList = dbBW.AppConfig.Where(p => p.Category == "Hunya_DIVDPersonalBonusParams").Select(p => new { p.Code, p.Value }).ToList();
+                    var ParamsList = dbBW.AppConfig.Where(p => p.Category == "Hunya_ABPersonalBonusParams").Select(p => new { p.Code, p.Value }).ToList();
                     foreach (var Parameter in ParamsList)
                         cond.Parameters.Add(Parameter.Code, Parameter.Value);
-                    var moduleList = dbBW.AppConfig.Where(p => p.Category == "Hunya_DIVDPersonalBonusParamsBySQLFunction").OrderBy(p => p.Sort);
+                    var moduleList = dbBW.AppConfig.Where(p => p.Category == "Hunya_ABPersonalBonusParamsBySQLFunction").OrderBy(p => p.Sort);
                     List<JBModule.Data.Factory.Formula.IFormulaFunction> GetDataList = new List<JBModule.Data.Factory.Formula.IFormulaFunction>();
                     int total = moduleList.Count();
                     int count = 0;
@@ -186,14 +187,14 @@ namespace JBHR.Dividend.HunyaCustom
                     Dictionary<string, object> FormulaParams = new Dictionary<string, object>();
                     FormulaParams = FormulaFunctionRepo.CheckFormulaFunction(cond.Parameters);
 
-                    //var deleteSql = from a in dbBW.Hunya_DIVDPersonalBonus
+                    //var deleteSql = from a in dbBW.Hunya_ABPersonalBonus
                     //                where EmployeeList.Contains(a.EmployeeID)
                     //                && a.YYMM == PAYYMM
                     //                select a;
-                    //dbBW.Hunya_DIVDPersonalBonus.DeleteAllOnSubmit(deleteSql);
+                    //dbBW.Hunya_ABPersonalBonus.DeleteAllOnSubmit(deleteSql);
                     //dbBW.SubmitChanges();
 
-                    List<JBModule.Data.Linq.Hunya_DIVDPersonalBonus> bppb = new List<JBModule.Data.Linq.Hunya_DIVDPersonalBonus>();
+                    List<JBModule.Data.Linq.Hunya_ABPersonalBonus> bppb = new List<JBModule.Data.Linq.Hunya_ABPersonalBonus>();
                     var DIVDFunctionList = dbBW.SALFUNCTION.Where(p => p.CALCTYPE == "DIVD").OrderBy(q => q.SORT).ToList();
                     total = EmployeeList.Count * DIVDFunctionList.Count();
                     count = 0;
@@ -242,7 +243,7 @@ namespace JBHR.Dividend.HunyaCustom
                             {
                                 var result = Microsoft.JScript.Eval.JScriptEvaluate(Script, Engine);
                                 decimal defDecimal = 0;
-                                JBModule.Data.Linq.Hunya_DIVDPersonalBonus personalBonus = new JBModule.Data.Linq.Hunya_DIVDPersonalBonus()
+                                JBModule.Data.Linq.Hunya_ABPersonalBonus personalBonus = new JBModule.Data.Linq.Hunya_ABPersonalBonus()
                                 {
                                     EmployeeID = Employee,
                                     YYYY = YYYY,
@@ -259,7 +260,7 @@ namespace JBHR.Dividend.HunyaCustom
                                     KeyDate = DateTime.Now,
                                     GID = Guid.NewGuid(),
                                 };
-                                //dbBW.Hunya_DIVDPersonalBonus.InsertOnSubmit(personalBonus);
+                                //dbBW.Hunya_ABPersonalBonus.InsertOnSubmit(personalBonus);
                                 bppb.Add(personalBonus);
                             }
                             catch (Exception evalex)
@@ -271,9 +272,9 @@ namespace JBHR.Dividend.HunyaCustom
                         //dbBW.SubmitChanges();
                     }
 
-                    string deleteSql = "DELETE Hunya_DIVDPersonalBonus WHERE EmployeeID in @EmployeeList and YYYY = @YYYY";
+                    string deleteSql = "DELETE Hunya_ABPersonalBonus WHERE EmployeeID in @EmployeeList and YYYY = @YYYY";
                     object param = new { EmployeeList, YYYY };
-                    string errMsg = "寫入紅利獎金異常.";
+                    string errMsg = "寫入年終獎金異常.";
                     dbBW.BulkInsertWithDelete(dbBW, bppb, deleteSql, param, errMsg);
                     //var enrichDelSql = db.ENRICH.Where(p => p.YYMM == EnrichYYMM && p.SAL_CODE == PASALCODE && p.SEQ == SEQ && EmployeeList.Contains(p.NOBR) && p.IMPORT);
                     //db.ENRICH.DeleteAllOnSubmit(enrichDelSql);
@@ -282,7 +283,7 @@ namespace JBHR.Dividend.HunyaCustom
                     List<JBModule.Data.Linq.ENRICH> enrich = new List<JBModule.Data.Linq.ENRICH>();
                     total = EmployeeList.Count;
                     count = 0;
-                    var bonusLinq = db.Hunya_DIVDPersonalBonus.Where(p => EmployeeList.Contains(p.EmployeeID) && p.YYYY == YYYY).ToList();
+                    var bonusLinq = db.Hunya_ABPersonalBonus.Where(p => EmployeeList.Contains(p.EmployeeID) && p.YYYY == YYYY).ToList();
                     foreach (var Employee in EmployeeList)
                     {
                         BW.ReportProgress(Convert.ToInt32(Convert.ToDecimal(count) / Convert.ToDecimal(total) * 100), "正在轉入" + Employee + "補扣發");
@@ -301,7 +302,7 @@ namespace JBHR.Dividend.HunyaCustom
                                 IMPORT = true,
                                 KEY_DATE = DateTime.Now,
                                 KEY_MAN = MainForm.USER_NAME,
-                                MEMO = "由計算員工紅利獎金轉入" + (string.IsNullOrEmpty(bonusLinqbyEmp.First().Memo) ? string.Empty : "-" + bonusLinqbyEmp.First().Memo),
+                                MEMO = "由計算員工年終獎金轉入" + (string.IsNullOrEmpty(bonusLinqbyEmp.First().Memo) ? string.Empty : "-" + bonusLinqbyEmp.First().Memo),
                             };
                             //db.ENRICH.InsertOnSubmit(enrichByEmployee);
                             enrich.Add(enrichByEmployee);
@@ -311,7 +312,7 @@ namespace JBHR.Dividend.HunyaCustom
                     //db.SubmitChanges();
                     deleteSql = "DELETE enrich WHERE nobr in @EmployeeList and YYMM = @YYMM and SAL_CODE = @SAL_CODE and SEQ = @SEQ and IMPORT = 1 ";
                     param = new { EmployeeList, YYMM = EnrichYYMM, SAL_CODE = DIVDSALCODE, SEQ };
-                    errMsg = "紅利轉補扣發異常.";
+                    errMsg = "年終轉補扣發異常.";
                     dbBW.BulkInsertWithDelete(dbBW, enrich, deleteSql, param, errMsg);
                 }
 
@@ -352,5 +353,6 @@ namespace JBHR.Dividend.HunyaCustom
         {
             SetEmpList();
         }
+
     }
 }

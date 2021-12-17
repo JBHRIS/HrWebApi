@@ -5,31 +5,29 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace JBHR.AnnualBonus.HunyaCustom
 {
-    public partial class Hunya_ABPersonalAppraisal_Import : JBControls.U_FIELD
+    public partial class Hunya_ABPersonalBonus_Import : JBControls.U_FIELD
     {
         CheckControl cc;//必填欄位
-        public Hunya_ABPersonalAppraisal_Import()
+        public Hunya_ABPersonalBonus_Import()
         {
             InitializeComponent();
             BindingControls.Add(cbxEmployeeID);
             BindingControls.Add(cbxEmployeeName);
             BindingControls.Add(cbxYYYY);
-            BindingControls.Add(cbxABTypeCode);
             BindingControls.Add(cbxABScore);
             BindingControls.Add(cbxABLevelCode);
+            BindingControls.Add(cbxABRealLevel);
         }
 
-        private void Hunya_ABPersonalAppraisal_Import_Load(object sender, EventArgs e)
+        private void Hunya_ABPersonalBonus_Import_Load(object sender, EventArgs e)
         {
             cc = new CheckControl();
             cc.AddControl(cbxEmployeeID);
             cc.AddControl(cbxYYYY);
-            cc.AddControl(cbxABTypeCode);
-            cc.AddControl(cbxABScore);
-            cc.AddControl(cbxABLevelCode);
         }
 
         private void btnImport_Click(object sender, EventArgs e)
@@ -64,8 +62,10 @@ namespace JBHR.AnnualBonus.HunyaCustom
             this.Close();
         }
 
-        public class Hunya_ABPersonalAppraisal_ImportData : JBControls.ImportTransfer
+        public class Hunya_ABPersonalBonus_ImportData : JBControls.ImportTransfer
         {
+            JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
+            public List<JBModule.Data.Linq.Hunya_ABLevelCode> hunya_ABLevelCodes = new List<JBModule.Data.Linq.Hunya_ABLevelCode>();
             public override bool TransferToRow(DataRow SourceRow, DataRow TargetRow)
             {
                 if (ColumnValidate(TargetRow, "員工編號", TransferCheckDataField.RealCode, out string Msg))
@@ -82,15 +82,51 @@ namespace JBHR.AnnualBonus.HunyaCustom
                 //        TargetRow["錯誤註記"] += Msg;
                 //    }
                 //}
-
-                if (!int.TryParse(TargetRow["考績年度"].ToString(), out int YYYY) && !(YYYY >= 1753 && YYYY <= 9998))
+                string EmployeeID = TargetRow["員工編號"].ToString();
+                List<JBModule.Data.Linq.Hunya_ABYearEndAppraisal> HAYAList = new List<JBModule.Data.Linq.Hunya_ABYearEndAppraisal>(); 
+                if (!int.TryParse(TargetRow["考績年度"].ToString(), out int YYYY) && !(YYYY >= 1753 && YYYY <=9998))
                     TargetRow["錯誤註記"] += "考績年度非正確西元年格式(1753-9998).";
+                else
+                    HAYAList = db.Hunya_ABYearEndAppraisal.Where(p => p.EmployeeID == EmployeeID && p.YYYY == YYYY).ToList();
 
-                if (ColumnValidate(TargetRow, "考績種類", TransferCheckDataField.DisplayCode, out Msg))
-                    TargetRow["考績種類"] = Msg;
+                if (TargetRow["年度考績"] != null)
+                {
+                    if (!decimal.TryParse(TargetRow["年度考績"].ToString(), out decimal ABSocre))
+                        TargetRow["錯誤註記"] += "年度考績非正確數字格式.";
+                }
+                else
+                {
+                    decimal ABSocre = 0;
+                    ABSocre = HAYAList.Sum(p => p.ABScore) / HAYAList.Count;
+                    TargetRow["年度考績"] = ABSocre;
+                    TargetRow["警告註記"] += string.Format("年度考績由系統產生."); 
+                }
+                if (TargetRow["年度評等"] != null)
+                {
+                    if (ColumnValidate(TargetRow, "年度評等", TransferCheckDataField.DisplayCode, out Msg))
+                        TargetRow["年度評等"] = Msg;
+                    else
+                        TargetRow["錯誤註記"] += string.Format("{0}.", Msg);
+                }
+                else
+                {
+                    if (hunya_ABLevelCodes.FirstOrDefault(p => p.ABLevelBonusRate <= 1.0M) != null)
+                        TargetRow["年度評等"] = hunya_ABLevelCodes.First(p => p.ABLevelBonusRate <= 1.0M).ABLevelCode_DISP;
+                    else if (hunya_ABLevelCodes.Count != 0)
+                        TargetRow["年度評等"] = hunya_ABLevelCodes.First().ABLevelCode_DISP;
+                    else
+                        TargetRow["錯誤註記"] += string.Format("沒有考績等第設定.");
+                }
 
-                if (ColumnValidate(TargetRow, "考績等第", TransferCheckDataField.DisplayCode, out Msg))
-                    TargetRow["考績等第"] = Msg;
+                if (TargetRow["實際評等"] != null)
+                {
+                    if (ColumnValidate(TargetRow, "實際評等", TransferCheckDataField.DisplayCode, out Msg))
+                        TargetRow["實際評等"] = Msg;
+                    else
+                        TargetRow["錯誤註記"] += string.Format("{0}.", Msg);
+                }
+                else
+                    TargetRow["實際評等"] = TargetRow["年度評等"];
 
                 if (string.IsNullOrWhiteSpace(TargetRow["錯誤註記"].ToString()))
                     return true;
@@ -106,53 +142,38 @@ namespace JBHR.AnnualBonus.HunyaCustom
                     string EmployeeID = TransferRow["員工編號"].ToString();
                     int YYYY = int.Parse(TransferRow["考績年度"].ToString());
                     //string ABAppraisalCode = string.Empty;
-                    ColumnValidate(TransferRow, "考績種類", TransferCheckDataField.RealCode, out string ABTypeCode);
+                    ColumnValidate(TransferRow, "年度評等", TransferCheckDataField.RealCode, out string ABLevelCode);
                     decimal ABSocre = decimal.Parse(TransferRow["考績分數"].ToString());
-                    ColumnValidate(TransferRow, "考績等第", TransferCheckDataField.RealCode, out string ABLevelCode);
+                    ColumnValidate(TransferRow, "實際評等", TransferCheckDataField.RealCode, out string RealLevelCode);
                     Guid GID = Guid.NewGuid();
 
-                    Repository.Hunya_ABPersonalAppraisalDto Hunya_ABPersonalAppraisalDto = new Repository.Hunya_ABPersonalAppraisalDto
+                    Repository.Hunya_ABYearEndAppraisalDto Hunya_ABYearEndAppraisalDto = new Repository.Hunya_ABYearEndAppraisalDto
                     {
                         EmployeeID = EmployeeID,
                         YYYY = YYYY,
-                        ABTypeCode = ABTypeCode,
                         ABSocre = ABSocre,
                         ABLevelCode = ABLevelCode,
+                        RealLevelCode = RealLevelCode,
                         GID = Guid.NewGuid(),
                         KeyDate = DateTime.Now,
                         KeyMan = MainForm.USER_NAME,
                     };
-                    Repository.Hunya_ABPersonalAppraisalRepo Hunya_ABPersonalAppraisalRepo = new Repository.Hunya_ABPersonalAppraisalRepo();
-                    var OverlapHunya_ABPersonalAppraisal = Hunya_ABPersonalAppraisalRepo.GetOverlapHunya_ABPersonalAppraisal(Hunya_ABPersonalAppraisalDto);
-                    bool Changed = false;
-                    if (OverlapHunya_ABPersonalAppraisal.Count > 0)
+                    Repository.Hunya_ABYearEndAppraisalRepo Hunya_ABYearEndAppraisalRepo = new Repository.Hunya_ABYearEndAppraisalRepo();
+                    var OverlapHunya_ABYearEndAppraisal = Hunya_ABYearEndAppraisalRepo.GetOverlapHunya_ABYearEndAppraisal(Hunya_ABYearEndAppraisalDto);
+                    if (OverlapHunya_ABYearEndAppraisal.Count > 0)
                     {
                         if (RepeatSelectionString == JBControls.U_IMPORT.Allow_Repeat_Delete_String)
-                            Changed = Hunya_ABPersonalAppraisalRepo.DeleteHunya_ABPersonalAppraisal(Hunya_ABPersonalAppraisalDto, out ErrorMsg);
+                            Hunya_ABYearEndAppraisalRepo.DeleteHunya_ABYearEndAppraisal(Hunya_ABYearEndAppraisalDto, out ErrorMsg);
                         else if (RepeatSelectionString == JBControls.U_IMPORT.Allow_Repeat_Override_String)
-                            Changed = Hunya_ABPersonalAppraisalRepo.UpdateHunya_ABPersonalAppraisal(Hunya_ABPersonalAppraisalDto, out ErrorMsg);
+                            Hunya_ABYearEndAppraisalRepo.UpdateHunya_ABYearEndAppraisal(Hunya_ABYearEndAppraisalDto, out ErrorMsg);
                         else
                         {
-                            ErrorMsg += "已存在相同的個人年度考績資料.";
+                            ErrorMsg += "已存在相同的年度平均考績資料.";
                             return false;
                         }
                     }
                     else
-                        Changed = Hunya_ABPersonalAppraisalRepo.InsertHunya_ABPersonalAppraisal(Hunya_ABPersonalAppraisalDto, out ErrorMsg);
-
-                    if (Changed)
-                    {
-                        Repository.Hunya_ABPersonalBonusDto Hunya_ABPersonalBonusDto = new Repository.Hunya_ABPersonalBonusDto
-                        {
-                            EmployeeID = EmployeeID,
-                            YYYY = YYYY,
-                        };
-                        Repository.Hunya_ABPersonalBonusRepo Hunya_ABPersonalBonusRepo = new Repository.Hunya_ABPersonalBonusRepo();
-                        var OverlapHunya_ABPersonalBonus = Hunya_ABPersonalBonusRepo.GetOverlapHunya_ABPersonalBonus(Hunya_ABPersonalBonusDto);
-                        if (OverlapHunya_ABPersonalBonus.Count > 0)
-                            Hunya_ABPersonalBonusRepo.DeleteHunya_ABPersonalBonus(Hunya_ABPersonalBonusDto, out ErrorMsg);
-                    }
-
+                        Hunya_ABYearEndAppraisalRepo.InsertHunya_ABYearEndAppraisal(Hunya_ABYearEndAppraisalDto, out ErrorMsg);
                     return true;
                 }
                 catch (Exception ex)

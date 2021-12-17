@@ -28,10 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnCalculate = new System.Windows.Forms.Button();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.JQABPersonalBonus = new JBControls.JBQuery();
+            this.v_BASEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hunya_AnnualBonus = new JBHR.AnnualBonus.HunyaCustom.Hunya_AnnualBonus();
+            this.v_BASETableAdapter = new JBHR.AnnualBonus.HunyaCustom.Hunya_AnnualBonusTableAdapters.V_BASETableAdapter();
+            this.hunya_ABLevelCodeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hunya_ABLevelCodeTableAdapter = new JBHR.AnnualBonus.HunyaCustom.Hunya_AnnualBonusTableAdapters.Hunya_ABLevelCodeTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.v_BASEBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hunya_AnnualBonus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hunya_ABLevelCodeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCalculate
@@ -42,6 +51,7 @@
             this.btnCalculate.TabIndex = 16;
             this.btnCalculate.Text = "計算年終獎金";
             this.btnCalculate.UseVisualStyleBackColor = true;
+            this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
             // 
             // dgv
             // 
@@ -70,6 +80,32 @@
             this.JQABPersonalBonus.SortString = "";
             this.JQABPersonalBonus.SourceTable = null;
             this.JQABPersonalBonus.TabIndex = 14;
+            this.JQABPersonalBonus.RowDelete += new JBControls.JBQuery.RowDeleteEventHandler(this.JQABPersonalBonus_RowDelete);
+            this.JQABPersonalBonus.RowInsert += new JBControls.JBQuery.RowInsertEventHandler(this.JQABPersonalBonus_RowInsert);
+            this.JQABPersonalBonus.RowUpdate += new JBControls.JBQuery.RowUpdateEventHandler(this.JQABPersonalBonus_RowUpdate);
+            // 
+            // v_BASEBindingSource
+            // 
+            this.v_BASEBindingSource.DataMember = "V_BASE";
+            this.v_BASEBindingSource.DataSource = this.hunya_AnnualBonus;
+            // 
+            // hunya_AnnualBonus
+            // 
+            this.hunya_AnnualBonus.DataSetName = "Hunya_AnnualBonus";
+            this.hunya_AnnualBonus.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // v_BASETableAdapter
+            // 
+            this.v_BASETableAdapter.ClearBeforeFill = true;
+            // 
+            // hunya_ABLevelCodeBindingSource
+            // 
+            this.hunya_ABLevelCodeBindingSource.DataMember = "Hunya_ABLevelCode";
+            this.hunya_ABLevelCodeBindingSource.DataSource = this.hunya_AnnualBonus;
+            // 
+            // hunya_ABLevelCodeTableAdapter
+            // 
+            this.hunya_ABLevelCodeTableAdapter.ClearBeforeFill = true;
             // 
             // Hunya_ABPersonalBonus
             // 
@@ -80,7 +116,11 @@
             this.FormSize = JBControls.JBForm.FormSizeType.Custom;
             this.Name = "Hunya_ABPersonalBonus";
             this.Text = "Hunya_ABPersonalBonus";
+            this.Load += new System.EventHandler(this.Hunya_ABPersonalBonus_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.v_BASEBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hunya_AnnualBonus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hunya_ABLevelCodeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -90,5 +130,10 @@
         private System.Windows.Forms.Button btnCalculate;
         private System.Windows.Forms.DataGridView dgv;
         private JBControls.JBQuery JQABPersonalBonus;
+        private System.Windows.Forms.BindingSource v_BASEBindingSource;
+        private Hunya_AnnualBonus hunya_AnnualBonus;
+        private Hunya_AnnualBonusTableAdapters.V_BASETableAdapter v_BASETableAdapter;
+        private System.Windows.Forms.BindingSource hunya_ABLevelCodeBindingSource;
+        private Hunya_AnnualBonusTableAdapters.Hunya_ABLevelCodeTableAdapter hunya_ABLevelCodeTableAdapter;
     }
 }
