@@ -14,7 +14,7 @@ namespace JBModule.Data
         private SqlConnection sqlConn = null;
 
         private SqlHelper() { }
-
+        //傳入連線字串
         public SqlHelper(string ConnectionStringsSection)
         {
             sqlConn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings[ConnectionStringsSection].ConnectionString);
