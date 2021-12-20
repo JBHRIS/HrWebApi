@@ -830,13 +830,19 @@ namespace Dal.Dao
 
                         if (DoCall)
                         {
+                            //var oConnection = new ConnectionDao();
+                            //var ConnectionCondition = new ConnectionConditions();
+                            //ConnectionCondition.DbName = CompanySetting.HrApiConnection;
+                            //var LoginTokenResult = oConnection.GetData(ConnectionCondition);
+                            //var LoginToken = LoginTokenResult.Payload.ToString();
+
                             //var oRefreshToken = new RefreshTokenDao();
                             //var RefreshTokenCond = new RefreshTokenConditions();
-                            //RefreshTokenCond.AccessToken = this.AuthenticationHeaderBearerTokenValue;
+                            //RefreshTokenCond.AccessToken = LoginToken;
                             //RefreshTokenCond.RefreshToken = RefreshToken;
                             //RefreshTokenCond.CompanySetting = CompanySetting;
                             //RefreshTokenCond.refreshToken = RefreshToken;
-                            //var rs = oRefreshToken.GetData(RefreshTokenCond, token);
+                            //var rs = oRefreshToken.GetData(RefreshTokenCond);
 
                             //if (rs.Status)
                             //{

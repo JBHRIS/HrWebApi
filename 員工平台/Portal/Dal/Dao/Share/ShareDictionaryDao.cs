@@ -652,5 +652,30 @@ namespace Dal.Dao.Share
 
             return Vdb;
         }
+        /// <summary>
+        /// 取得翻譯文字
+        /// </summary>
+        /// <param name="PageCode">頁面名稱</param>
+        /// <param name="Text">控制項ID，或文字</param>
+        /// <param name="TransCode">翻譯代碼</param>
+        /// <param name="LanguageCode">語言代碼</param>
+        /// <returns></returns>
+        public string TextTranslate(string PageCode, string Text, string TransCode,string LanguageCode)
+        {
+            switch (TransCode)
+            {
+                case "1":
+                    string Translated = (from c in dcShare.ShareDictionary
+                                         where c.GroupCode == PageCode && c.Code == Text
+                                         select c.Name2).FirstOrDefault();
+                    return Translated;
+                default:
+                    string Translate = (from c in dcShare.ShareDictionary
+                                         where c.GroupCode == PageCode && c.Name1 == Text
+                                         select c.Name2).FirstOrDefault();
+                    return Translate;
+            }
+            
+        }
     }
 }

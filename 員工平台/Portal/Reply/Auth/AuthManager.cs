@@ -58,38 +58,39 @@ public class AuthManager
     public void SignIn(User user, string OldId, CompanySettingRow CompanySetting)
     {
         SignOut();
-        
+
         //填入使用者資訊
-        //var oUserdata = new UserdataDao();
-        //var UserdataCond = new UserdataConditions();
-        //UserdataCond.AccessToken = user.AccessToken;
-        //UserdataCond.RefreshToken = user.RefreshToken;
-        //UserdataCond.CompanySetting = CompanySetting;
-        //var rs = oUserdata.GetData(UserdataCond);
+        var oUserdata = new UserdataDao();
+        var UserdataCond = new UserdataConditions();
+        UserdataCond.AccessToken = user.AccessToken;
+        UserdataCond.RefreshToken = user.RefreshToken;
+        UserdataCond.CompanySetting = CompanySetting;
+        var rs = oUserdata.GetData(UserdataCond);
 
-        //if (rs.Status)
-        //{
-        //    if (rs.Data != null)
-        //    {
-        //        var rUserdata = rs.Data as UserdataRow;
-        //        if (rUserdata != null)
-        //        {
-        //            user.EmpId = rUserdata.EmpId;
-        //            user.EmpName = rUserdata.EmpName;
-        //            user.EmpEmail = "";
-        //            user.Dept = rUserdata.Dept;
-        //            user.EmpDeptName = rUserdata.DeptName;
-        //            user.EmpDeptCode = rUserdata.DeptCode;
-        //            user.EmpCompanyCode = rUserdata.CompanyCode;
-        //            user.EmpJobName = rUserdata.JobName;
-        //            user.Role = rUserdata.Role;
-        //            user.Connection = rUserdata.Connection;
-        //            user.UserCode = user.Connection + user.EmpId;
-
-        //            user.ListDataGroupsCode = rUserdata.ListDataGroupsCode;
-        //        }
-        //    }
-        //}
+        if (rs.Status)
+        {
+            if (rs.Data != null)
+            {
+                var rUserdata = rs.Data as UserdataRow;
+                if (rUserdata != null)
+                {
+                    user.EmpId = rUserdata.EmpId;
+                    user.EmpName = rUserdata.EmpName;
+                    user.EmpEmail = "";
+                    user.Dept = rUserdata.Dept;
+                    user.EmpDeptName = rUserdata.DeptName;
+                    user.EmpDeptCode = rUserdata.DeptCode;
+                    user.EmpCompanyCode = rUserdata.CompanyCode;
+                    user.EmpJobName = rUserdata.JobName;
+                    user.Role = rUserdata.Role;
+                    user.Connection = rUserdata.Connection;
+                    user.UserCode = user.Connection + user.EmpId;
+                    if (user.Role.Contains("HR") || user.Role.Contains("Hr"))
+                        user.RoleKey = 8;
+                    user.ListDataGroupsCode = rUserdata.ListDataGroupsCode;
+                }
+            }
+        }
         //UnobtrusiveSession.Session["AccessToken"] = user.AccessToken;
         DateTime deadLine = DateTime.Now.AddDays(1);
         //var oUserToken = new UserToken();
@@ -109,7 +110,7 @@ public class AuthManager
             //是否將 Cookie 設定成 Session Cookie，如果是則會在瀏覽器關閉後移除
             false,
             //將要記錄的使用者資訊轉換為 JSON 字串
-            JsonConvert.SerializeObject(user),
+            JsonConvert.SerializeObject(user.UserCode),
             //儲存 Cookie 的路徑
             FormsAuthentication.FormsCookiePath);
 

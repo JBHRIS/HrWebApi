@@ -2636,7 +2636,11 @@ namespace Portal
                 rsAppS.FirstOrDefault().DateAppoint = oAppointChangeLog.DateAppoint;
                 rsAppS.FirstOrDefault().SignState = rAppM.SignState;
                 rsAppS.FirstOrDefault().Status = rAppM.Status;
-
+                if (UnobtrusiveSession.Session["LsSalaryData"] == null && oAppoint.AllowSalary)
+                {
+                    lblErrorMsg.Text = "資料已過期，請重新整理後再送出";
+                    return;
+                }
                 var LsSalaryData = UnobtrusiveSession.Session["LsSalaryData"] as List<TextValueRow>;
                 foreach (var SalaryData in LsSalaryData)
                 {

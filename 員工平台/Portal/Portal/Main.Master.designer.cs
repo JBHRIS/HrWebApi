@@ -141,6 +141,33 @@ namespace Portal
         protected global::Telerik.Web.UI.RadLabel TotalTime;
 
         /// <summary>
+        /// lblPersonalData 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblPersonalData;
+
+        /// <summary>
+        /// lblChangePassword 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblChangePassword;
+
+        /// <summary>
+        /// lblLogOut 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblLogOut;
+
+        /// <summary>
         /// phMenu 控制項。
         /// </summary>
         /// <remarks>
@@ -148,6 +175,15 @@ namespace Portal
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder phMenu;
+
+        /// <summary>
+        /// txtSearch 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadTextBox txtSearch;
 
         /// <summary>
         /// TopSearch 控制項。
@@ -168,6 +204,15 @@ namespace Portal
         protected global::Telerik.Web.UI.RadAjaxPanel plCountDown;
 
         /// <summary>
+        /// lblCountDown 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblCountDown;
+
+        /// <summary>
         /// Timer 控制項。
         /// </summary>
         /// <remarks>
@@ -186,6 +231,33 @@ namespace Portal
         protected global::Telerik.Web.UI.RadLabel lblTime;
 
         /// <summary>
+        /// plLanguage 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel plLanguage;
+
+        /// <summary>
+        /// btnChinese 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton btnChinese;
+
+        /// <summary>
+        /// btnEnglish 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton btnEnglish;
+
+        /// <summary>
         /// btnExport 控制項。
         /// </summary>
         /// <remarks>
@@ -202,6 +274,15 @@ namespace Portal
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel plLogOut;
+
+        /// <summary>
+        /// lblLogOut1 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblLogOut1;
 
         /// <summary>
         /// plSiteMap 控制項。

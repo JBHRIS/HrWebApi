@@ -277,7 +277,7 @@ namespace Portal
         private void SetDeptAdmin()//部門名稱取得
         {
             OldDal.Dao.Bas.DeptDao oDeptDao = new OldDal.Dao.Bas.DeptDao(dcHR.Connection);
-            var rsDept = oDeptDao.GetDeptm();
+            var rsDept = oDeptDao.GetDept();
 
             ddlDeptAdmin.DataSource = rsDept;
             ddlDeptAdmin.DataTextField = "Name";
@@ -738,7 +738,7 @@ namespace Portal
         private void SetDeptCoordinator()//部門名稱取得
         {
             OldDal.Dao.Bas.DeptDao oDeptDao = new OldDal.Dao.Bas.DeptDao(dcHR.Connection);
-            var rsDept = oDeptDao.GetDeptm();
+            var rsDept = oDeptDao.GetDept();
 
             ddlDeptCoordinator.DataSource = rsDept;
             ddlDeptCoordinator.DataTextField = "Name";
@@ -756,7 +756,7 @@ namespace Portal
 
                 List<OldBll.Bas.Vdb.BaseTable> rsDeptPeople = new List<OldBll.Bas.Vdb.BaseTable>();
                 if (rsBas != null)
-                    rsDeptPeople = oBasDao.GetBaseByDept(rsBas.DeptmCode, "2", false, true);
+                    rsDeptPeople = oBasDao.GetBaseByDept(rsBas.DeptmCode, "1", false, true);
 
 
                 txtNameCoordinator.DataSource = rsDeptPeople;
@@ -772,7 +772,7 @@ namespace Portal
 
                 List<OldBll.Bas.Vdb.BaseTable> rsDeptPeople = new List<OldBll.Bas.Vdb.BaseTable>();
                 if (rsBas != null)
-                    rsDeptPeople = oBasDao.GetBaseByDept(Deptm, "2", false, true);
+                    rsDeptPeople = oBasDao.GetBaseByDept(Deptm, "1", false, true);
 
 
                 txtNameCoordinator.DataSource = rsDeptPeople;
@@ -1077,6 +1077,8 @@ namespace Portal
         //}
         protected void lvMain_ItemCommand(object sender, Telerik.Web.UI.RadListViewCommandEventArgs e)
         {
+            //var btn = sender as RadButton;
+            //btn.Target = "_blank";
             var ca = e.CommandArgument;
             var cn = e.CommandName;
             if (cn == "ViewImage")

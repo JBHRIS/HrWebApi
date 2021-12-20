@@ -195,7 +195,7 @@ namespace Portal
                 oUser.AccessToken = AccessToken;
                 oUser.RefreshToken = RefreshToken;
 
-                _AuthManager.SignIn(oUser, UserCodeOld,CompanySetting);
+                _AuthManager.SignIn(oUser, oUser.UserCode,CompanySetting);
 
                 //撰寫歡迎訊息
                 {
@@ -232,7 +232,7 @@ namespace Portal
                     Response.Redirect(ReturnUrl);
                 }
 
-                Response.Redirect("Index.aspx", false);
+                Response.Redirect("ProblemReturnList.aspx", false);
             }
             else
             {
@@ -243,71 +243,71 @@ namespace Portal
             return Pass;
         }
 
-        protected void btnOAuth2Login_Click(object sender, EventArgs e)
-        {
-            var CommandName = ((RadButton)sender).CommandName;
+        //protected void btnOAuth2Login_Click(object sender, EventArgs e)
+        //{
+        //    var CommandName = ((RadButton)sender).CommandName;
 
-            //已經登入的狀態 就不允許登入
-            if (_User.LoginStatus == "1")
-            {
-                _AuthManager.SignOut();
-                //var oMessageShow = oMainDao.MessageShow("0903000009");
-                //lblMsg.Text = oMessageShow?.Contents ?? "目前是登入狀態，請先登出，如果您要綁定，請到個人帳號進行綁定";
-                //return;
-            }
+        //    //已經登入的狀態 就不允許登入
+        //    if (_User.LoginStatus == "1")
+        //    {
+        //        _AuthManager.SignOut();
+        //        //var oMessageShow = oMainDao.MessageShow("0903000009");
+        //        //lblMsg.Text = oMessageShow?.Contents ?? "目前是登入狀態，請先登出，如果您要綁定，請到個人帳號進行綁定";
+        //        //return;
+        //    }
 
-            var loginWith = CommandName;
-            var scope = "";
-            var state = Guid.NewGuid().ToString();
-            var redirect_uri = "";
-            var clientId = "";
-            var AuthUrl = "";
+        //    var loginWith = CommandName;
+        //    var scope = "";
+        //    var state = Guid.NewGuid().ToString();
+        //    var redirect_uri = "";
+        //    var clientId = "";
+        //    var AuthUrl = "";
 
-            switch (CommandName)
-            {
-                case "Google":
-                    {
-                        UnobtrusiveSession.Session["DefaultOAuth2Google"] = null;
-                        var DefaultOAuth2 = AccessData.DefaultOAuth2Google;
+        //    switch (CommandName)
+        //    {
+        //        case "Google":
+        //            {
+        //                UnobtrusiveSession.Session["DefaultOAuth2Google"] = null;
+        //                var DefaultOAuth2 = AccessData.DefaultOAuth2Google;
 
-                        scope = DefaultOAuth2.Scope;
-                        state = Guid.NewGuid().ToString();
-                        redirect_uri = HttpUtility.UrlEncode(DefaultOAuth2.RedirectUrl);
-                        clientId = DefaultOAuth2.ClientId;
-                        AuthUrl = DefaultOAuth2.AuthUrl;
-                    }
-                    break;
-                case "Facebook":
-                    {
-                        UnobtrusiveSession.Session["DefaultOAuth2Facebook"] = null;
-                        var DefaultOAuth2 = AccessData.DefaultOAuth2Facebook;
+        //                scope = DefaultOAuth2.Scope;
+        //                state = Guid.NewGuid().ToString();
+        //                redirect_uri = HttpUtility.UrlEncode(DefaultOAuth2.RedirectUrl);
+        //                clientId = DefaultOAuth2.ClientId;
+        //                AuthUrl = DefaultOAuth2.AuthUrl;
+        //            }
+        //            break;
+        //        case "Facebook":
+        //            {
+        //                UnobtrusiveSession.Session["DefaultOAuth2Facebook"] = null;
+        //                var DefaultOAuth2 = AccessData.DefaultOAuth2Facebook;
 
-                        scope = DefaultOAuth2.Scope;
-                        state = Guid.NewGuid().ToString();
-                        redirect_uri = HttpUtility.UrlEncode(DefaultOAuth2.RedirectUrl);
-                        clientId = DefaultOAuth2.ClientId;
-                        AuthUrl = DefaultOAuth2.AuthUrl;
-                    }
-                    break;
-                case "Line":
-                    {
-                        UnobtrusiveSession.Session["DefaultOAuth2Line"] = null;
-                        var DefaultOAuth2 = AccessData.DefaultOAuth2Line;
+        //                scope = DefaultOAuth2.Scope;
+        //                state = Guid.NewGuid().ToString();
+        //                redirect_uri = HttpUtility.UrlEncode(DefaultOAuth2.RedirectUrl);
+        //                clientId = DefaultOAuth2.ClientId;
+        //                AuthUrl = DefaultOAuth2.AuthUrl;
+        //            }
+        //            break;
+        //        case "Line":
+        //            {
+        //                UnobtrusiveSession.Session["DefaultOAuth2Line"] = null;
+        //                var DefaultOAuth2 = AccessData.DefaultOAuth2Line;
 
-                        scope = DefaultOAuth2.Scope;
-                        state = Guid.NewGuid().ToString();
-                        redirect_uri = HttpUtility.UrlEncode(DefaultOAuth2.RedirectUrl);
-                        clientId = DefaultOAuth2.ClientId;
-                        AuthUrl = DefaultOAuth2.AuthUrl;
-                    }
-                    break;
-            }
+        //                scope = DefaultOAuth2.Scope;
+        //                state = Guid.NewGuid().ToString();
+        //                redirect_uri = HttpUtility.UrlEncode(DefaultOAuth2.RedirectUrl);
+        //                clientId = DefaultOAuth2.ClientId;
+        //                AuthUrl = DefaultOAuth2.AuthUrl;
+        //            }
+        //            break;
+        //    }
 
-            var Url = $"{AuthUrl}?scope={scope}&state={state}&redirect_uri={redirect_uri}&response_type=code&client_id={clientId}&approval_prompt=force";
+        //    var Url = $"{AuthUrl}?scope={scope}&state={state}&redirect_uri={redirect_uri}&response_type=code&client_id={clientId}&approval_prompt=force";
 
-            UnobtrusiveSession.Session["state"] = state;
-            UnobtrusiveSession.Session["loginWith"] = loginWith;
-            Response.Redirect(Url);
-        }
+        //    UnobtrusiveSession.Session["state"] = state;
+        //    UnobtrusiveSession.Session["loginWith"] = loginWith;
+        //    Response.Redirect(Url);
+        //}
     }
 }

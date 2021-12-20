@@ -807,8 +807,8 @@ namespace Portal
                     Cond02 = sDay,
                     Cond03 = Rote,
                     Cond04 = rEmpS.Auth ? "1" : "0",
-                    Cond05 = rDept != null ? rDept.Tree : "0" //被申請者的部門層級
-
+                    Cond05 = rDept != null ? rDept.Tree : "0", //被申請者的部門層級
+                    Cond06 = rsApp.First().HolidayCode
                 };
 
 

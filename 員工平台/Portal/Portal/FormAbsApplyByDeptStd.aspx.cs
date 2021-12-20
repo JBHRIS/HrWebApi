@@ -467,6 +467,12 @@ namespace Portal
                     lblMsg.Text = "您的開始或結束時間沒有輸入正確";
                     return;
                 }
+                if (Convert.ToInt32(txtTimeB.Text) >= 2400 || Convert.ToInt32(txtTimeE.Text) >= 2400)
+                {
+                    lblMsg.Text = "請用24小時輸入";
+                    return;
+
+                }
 
                 if (txtNote.Text.Length >= 100)
                 {
@@ -558,7 +564,7 @@ namespace Portal
                     lblMsg.Text = "人事資料重複";
                     return;
                 }
-                var Calculate = oAbsDao.GetCalculate(Nobr, Hcode, DateB, DateE, TimeB, TimeE, true, true, 0, false, "", false);
+                var Calculate = oAbsDao.GetCalculate(Nobr, Hcode, DateB, DateE, TimeB, TimeE, true, true, 0, false, "", true);
 
                 if (Calculate.TotalUse <= 0)
                 {

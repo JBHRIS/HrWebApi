@@ -436,7 +436,7 @@ namespace OldDal.Dao.Att
         /// <param name="sSerno">序號</param>
         /// <param name="bTime24">24小時計算</param>
         /// <returns>int</returns>
-        public int OtSave(string sNobr, string sOtCat, DateTime dDateB, DateTime dDateE, string sTimeB, string sTimeE, decimal iHour, string sOtrcd, string sRoteCode, string sDeptsCode = "", string sAbstCode = "", string sNote = "", string sKeyMan = "System", string sSerno = "", bool bTime24 = false)
+        public int OtSave(string sNobr, string sOtCat, DateTime dDateB, DateTime dDateE, string sTimeB, string sTimeE, decimal iHour, string sOtrcd, string sRoteCode, string sDeptsCode = "", string sAbstCode = "", string sNote = "", string sKeyMan = "System", string sSerno = "", bool bTime24 = false, DateTime? dDateA = null, DateTime? dDateD = null)
         {
             if (bTime24)
                 ConvertTime24To48(sNobr, ref dDateB, ref dDateE, ref sTimeB, ref sTimeE);
@@ -475,11 +475,16 @@ namespace OldDal.Dao.Att
             DateTime DateTimeB = dDateB.Date.AddMinutes(OldBll.Tools.TimeTrans.ConvertHhMmToMinutes(sTimeB));
             DateTime DateTimeE = dDateB.Date.AddMinutes(OldBll.Tools.TimeTrans.ConvertHhMmToMinutes(sTimeE));
 
-            //補休失效日
-            DateTime dDateD = new DateTime(dDateB.Year, 12, 31).Date;
-            if (dDateB.Month <= 6)
-                dDateD = new DateTime(dDateB.Year, 6, 30).Date;
+            if (dDateA == null)
+            {
+                dDateA = dDateB;
+            }
 
+            //補休失效日
+            if (dDateD == null)
+            {
+                dDateD = new DateTime(dDateB.Year, 12, 31).Date;
+            }
             //檢查重複資料
             var rsOt = GetOt(sNobr, dDateB.AddDays(-1).Date, dDateB.AddDays(1).Date);
             if (!rsOt.Where(p => p.Date == dDateB.Date && p.TimeB == sTimeB).Any())
@@ -509,7 +514,7 @@ namespace OldDal.Dao.Att
                     rOT.NOTE = sNote.Length > 100 ? sNote.Substring(0, 99) : sNote;// +";" + oOtDetail.sRote;
                     rOT.YYMM = sYYMM;
                     rOT.OTRCD = sOtrcd;
-                    rOT.OT_EDATE = dDateD;
+                    rOT.OT_EDATE = dDateD.GetValueOrDefault();
                     rOT.OT_ROTE = sRoteCode;
                     rOT.SERNO = sSerno;
                     dcHr.OT.InsertOnSubmit(rOT);
@@ -524,16 +529,16 @@ namespace OldDal.Dao.Att
                 sAbstCode = sAbstCode.Length > 0 ? sAbstCode : "W2";
 
                 OldDal.Dao.Att.AbsDao oAbsDao = new AbsDao(dcHr.Connection);
-                var rsAbst = oAbsDao.GetAbst(sNobr, dDateB, sAbstCode);
+                var rsAbst = oAbsDao.GetAbst(sNobr, dDateA.GetValueOrDefault(), sAbstCode);
 
                 //檢查是否有重複
-                if (!rsAbst.Where(p => p.DateB.Date == dDateB.Date && p.TimeB == sTimeB).Any())
+                if (!rsAbst.Where(p => p.DateB.Date == dDateA.GetValueOrDefault().Date && p.TimeB == sTimeB).Any())
                 {
                     var rABS = new ABS();
                     OldBll.Tools.DefaultData.SetRowDefaultValue(rABS);
                     rABS.NOBR = sNobr;
-                    rABS.BDATE = dDateB;
-                    rABS.EDATE = dDateD;
+                    rABS.BDATE = dDateA.GetValueOrDefault();
+                    rABS.EDATE = dDateD.GetValueOrDefault();
                     rABS.BTIME = sTimeB;
                     rABS.ETIME = sTimeE;
                     rABS.H_CODE = sAbstCode;

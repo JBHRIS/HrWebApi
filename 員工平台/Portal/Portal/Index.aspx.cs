@@ -528,6 +528,7 @@ namespace Portal
                                 }
                             }
                             lvUserFormAssign.DataSource = rFlowSign;
+                            lvUserFormAssign.DataBind();
                         }
                     }
                 }

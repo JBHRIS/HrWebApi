@@ -137,7 +137,7 @@ namespace Portal
             var SigninCond = new SigninConditions();
             SigninCond.AccessToken = LoginToken;
             SigninCond.UserId = UserId;
-            SigninCond.Password = UserPw;
+            SigninCond.Password = Uri.EscapeDataString(UserPw);
             SigninCond.CompanySetting = CompanySetting;
             var Result = oSignin.GetData(SigninCond);
 
