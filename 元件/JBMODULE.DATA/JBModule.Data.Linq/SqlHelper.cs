@@ -12,7 +12,7 @@ namespace JBModule.Data
     public class SqlHelper
     {
         private SqlConnection sqlConn = null;
-
+        
         private SqlHelper() { }
 
         public SqlHelper(string ConnectionStringsSection)
@@ -39,7 +39,7 @@ namespace JBModule.Data
                 throw e;
             }
         }
-
+        //執行指令
         public int ExecuteNonQuery(string cmdText)
         {
             int ret = 0;
