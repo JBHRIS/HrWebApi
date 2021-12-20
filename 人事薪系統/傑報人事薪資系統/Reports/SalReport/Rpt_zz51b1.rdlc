@@ -1,183 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
-  <DataSources>
-    <DataSource Name="DummyDataSource">
-      <ConnectionProperties>
-        <DataProvider>SQL</DataProvider>
-        <ConnectString>Data Source=jb-develop;Initial Catalog=waferhr;Persist Security Info=True;User ID=jb;Password=JB8421</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>73d6fc05-8c54-48cf-9cb3-6b3541179925</rd:DataSourceID>
-    </DataSource>
-  </DataSources>
-  <DataSets>
-    <DataSet Name="SalDataSet_zz51">
-      <Fields>
-        <Field Name="nobr">
-          <DataField>nobr</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="name_c">
-          <DataField>name_c</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="id">
-          <DataField>id</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="id1">
-          <DataField>id1</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="f0103">
-          <DataField>f0103</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="series">
-          <DataField>series</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="format">
-          <DataField>format</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="acc_no">
-          <DataField>acc_no</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="post_code">
-          <DataField>post_code</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="addr_2">
-          <DataField>addr_2</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="year_b">
-          <DataField>year_b</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="year_e">
-          <DataField>year_e</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="tot_amt">
-          <DataField>tot_amt</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="rel_amt">
-          <DataField>rel_amt</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="tax_amt">
-          <DataField>tax_amt</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="ret_amt">
-          <DataField>ret_amt</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="dept">
-          <DataField>dept</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="d_name">
-          <DataField>d_name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="f0407">
-          <DataField>f0407</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="mark">
-          <DataField>mark</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="idcode">
-          <DataField>idcode</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="err_mark">
-          <DataField>err_mark</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DummyDataSource</DataSourceName>
-        <CommandText />
-        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
-      </Query>
-      <rd:DataSetInfo>
-        <rd:DataSetName>SalDataSet</rd:DataSetName>
-        <rd:TableName>zz51</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
       <Tablix Name="table1">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.7874in</Width>
+              <Width>2cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.88583in</Width>
+              <Width>2.25001cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.19685in</Width>
+              <Width>0.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.19685in</Width>
+              <Width>0.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.3937in</Width>
+              <Width>1cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.19685in</Width>
+              <Width>0.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.19685in</Width>
+              <Width>0.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.27559in</Width>
+              <Width>0.7cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.23622in</Width>
+              <Width>0.6cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.43307in</Width>
+              <Width>1.1cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.45276in</Width>
+              <Width>1.15001cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.19685in</Width>
+              <Width>0.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.19685in</Width>
+              <Width>0.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.19685in</Width>
+              <Width>0.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.19685in</Width>
+              <Width>0.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.19685in</Width>
+              <Width>0.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.19685in</Width>
+              <Width>0.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.47244in</Width>
+              <Width>1.2cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.47244in</Width>
+              <Width>1.2cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.23622in</Height>
+              <Height>0.6cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -302,7 +190,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.21654in</Height>
+              <Height>0.55001cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -426,7 +314,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.19685in</Height>
+              <Height>0.5cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -547,7 +435,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.31496in</Height>
+              <Height>0.8cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -736,7 +624,7 @@ Categrory of INcome</Value>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.23622in</Height>
+              <Height>0.6cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -917,7 +805,7 @@ Categrory of INcome</Value>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.15748in</Height>
+              <Height>0.4cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1143,7 +1031,7 @@ Categrory of INcome</Value>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.15748in</Height>
+              <Height>0.4cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1347,7 +1235,7 @@ Categrory of INcome</Value>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.23622in</Height>
+              <Height>0.6cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1632,7 +1520,7 @@ Categrory of INcome</Value>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.27559in</Height>
+              <Height>0.7cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1802,7 +1690,7 @@ Categrory of INcome</Value>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.19685in</Height>
+              <Height>0.5cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1935,7 +1823,7 @@ Categrory of INcome</Value>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.19685in</Height>
+              <Height>0.5cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -2079,7 +1967,7 @@ Year of Payment</Value>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.31496in</Height>
+              <Height>0.8cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -2222,7 +2110,7 @@ Year of Payment</Value>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.35433in</Height>
+              <Height>0.9cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -2398,7 +2286,7 @@ Withholding Rate</Value>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.23622in</Height>
+              <Height>0.6cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -2577,7 +2465,7 @@ Withholding Rate</Value>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25591in</Height>
+              <Height>0.65001cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -2785,7 +2673,7 @@ Withholding Rate</Value>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.19685in</Height>
+              <Height>0.5cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -2988,7 +2876,7 @@ Withholding Rate</Value>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.03937in</Height>
+              <Height>0.1cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -3054,7 +2942,7 @@ Withholding Rate</Value>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.23622in</Height>
+              <Height>0.6cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -3162,7 +3050,7 @@ Withholding Rate</Value>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.24803in</Height>
+              <Height>0.63cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -3297,7 +3185,7 @@ Withholding Rate</Value>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.24803in</Height>
+              <Height>0.63cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -3429,7 +3317,7 @@ Withholding Rate</Value>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.24803in</Height>
+              <Height>0.63cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -3573,7 +3461,7 @@ Withholding Rate</Value>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.49213in</Height>
+              <Height>1.25001cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -4221,7 +4109,7 @@ Withholding Rate</Value>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.11811in</Height>
+              <Height>0.3cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -4862,7 +4750,7 @@ Withholding Rate</Value>
         <DataSetName>SalDataSet_zz51</DataSetName>
         <Left>1cm</Left>
         <Height>13.74cm</Height>
-        <Width>16.2cm</Width>
+        <Width>16.19999cm</Width>
         <Style>
           <FontFamily>標楷體</FontFamily>
         </Style>
@@ -4871,6 +4759,145 @@ Withholding Rate</Value>
     <Height>13.74cm</Height>
     <Style />
   </Body>
+  <Width>20.5cm</Width>
+  <Page>
+    <PageHeader>
+      <Height>0.5cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <Style />
+    </PageHeader>
+    <PageHeight>29.5cm</PageHeight>
+    <PageWidth>21cm</PageWidth>
+    <InteractiveHeight>29.7cm</InteractiveHeight>
+    <ColumnSpacing>1cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DummyDataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=jb-develop;Initial Catalog=waferhr;Persist Security Info=True;User ID=jb;Password=JB8421</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>73d6fc05-8c54-48cf-9cb3-6b3541179925</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="SalDataSet_zz51">
+      <Query>
+        <DataSourceName>DummyDataSource</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="dept">
+          <DataField>dept</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="d_name">
+          <DataField>d_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="d_ename">
+          <DataField>d_ename</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="nobr">
+          <DataField>nobr</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="name_c">
+          <DataField>name_c</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="name_e">
+          <DataField>name_e</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="id">
+          <DataField>id</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="id1">
+          <DataField>id1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="f0103">
+          <DataField>f0103</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="f0407">
+          <DataField>f0407</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="mark">
+          <DataField>mark</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="idcode">
+          <DataField>idcode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="err_mark">
+          <DataField>err_mark</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="series">
+          <DataField>series</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="format">
+          <DataField>format</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="acc_no">
+          <DataField>acc_no</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="post_code">
+          <DataField>post_code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="addr_2">
+          <DataField>addr_2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="year_b">
+          <DataField>year_b</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="year_e">
+          <DataField>year_e</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="tot_amt">
+          <DataField>tot_amt</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="rel_amt">
+          <DataField>rel_amt</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="tax_amt">
+          <DataField>tax_amt</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="ret_amt">
+          <DataField>ret_amt</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>SalDataSet</rd:DataSetName>
+        <rd:SchemaPath>C:\JB-GitHub\customer\JBHR2\人事薪系統\傑報人事薪資系統\Reports\SalForm\SalDataSet.xsd</rd:SchemaPath>
+        <rd:TableName>zz51b</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
   <ReportParameters>
     <ReportParameter Name="Compman">
       <DataType>String</DataType>
@@ -4893,22 +4920,8 @@ Withholding Rate</Value>
       <Prompt>Report_Year</Prompt>
     </ReportParameter>
   </ReportParameters>
-  <Width>20.5cm</Width>
-  <Page>
-    <PageHeader>
-      <Height>0.5cm</Height>
-      <PrintOnFirstPage>true</PrintOnFirstPage>
-      <PrintOnLastPage>true</PrintOnLastPage>
-      <Style />
-    </PageHeader>
-    <PageHeight>29.5cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
-    <InteractiveHeight>29.7cm</InteractiveHeight>
-    <ColumnSpacing>1cm</ColumnSpacing>
-    <Style />
-  </Page>
   <Language>zh-TW</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
-  <rd:ReportID>5b65657a-bc63-495b-ba93-d843aafebf3e</rd:ReportID>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>5b65657a-bc63-495b-ba93-d843aafebf3e</rd:ReportID>
 </Report>

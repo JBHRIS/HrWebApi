@@ -832,67 +832,6 @@
             <param name="bTimeStr">是否為上午時段 True = 是</param>
             <returns>string</returns>
         </member>
-        <member name="M:JBHR.Dll.Att.rowAttendRote(System.String,System.DateTime)">
-            <summary>
-            當天的上班區間
-            </summary>
-            <param name="sNobr">工號</param>
-            <param name="dDate">出勤日期</param>
-            <returns>AttendRote</returns>
-        </member>
-        <member name="M:JBHR.Dll.Att.TransCard(System.String,System.String,System.String,System.String,System.DateTime,System.DateTime,System.String,System.Boolean,System.Boolean,System.Boolean)">
-            <summary>
-            刷卡轉出勤
-            </summary>
-            <param name="sNobrB">開始工號</param>
-            <param name="sNobrE">結束工號</param>
-            <param name="sDeptB">開始部門</param>
-            <param name="sDeptE">結束部門</param>
-            <param name="dDateB">開始日期</param>
-            <param name="dDateE">結束日期</param>
-            <param name="sKeyMan">登錄者</param>
-            <param name="bAttCard">轉換刷卡時間</param>
-            <param name="bAttEnd">判斷異常</param>
-            <param name="bEzAttCard">簡單轉換True = 簡單(一天多筆的情況，才需要複雜的判斷)，False 則會參考資料庫來判斷(Parts)</param>
-            <returns>bool</returns>
-        </member>
-        <member name="M:JBHR.Dll.Att.TransCard(System.String,System.String,System.String,System.String,System.DateTime,System.DateTime,System.String,System.Boolean,System.Boolean,System.Boolean,System.String)">
-            <summary>
-            刷卡轉出勤(HR系統專用)
-            </summary>
-            <param name="sNobrB">開始工號</param>
-            <param name="sNobrE">結束工號</param>
-            <param name="sDeptB">開始部門</param>
-            <param name="sDeptE">結束部門</param>
-            <param name="dDateB">開始日期</param>
-            <param name="dDateE">結束日期</param>
-            <param name="sKeyMan">登錄者</param>
-            <param name="bAttCard">轉換刷卡時間</param>
-            <param name="bAttEnd">判斷異常</param>
-            <param name="bEzAttCard">簡單轉換True = 簡單(一天多筆的情況，才需要複雜的判斷)，False 則會參考資料庫來判斷(Parts)</param>
-            <param name="sRoteCode">班別</param>
-            <returns>bool</returns>
-        </member>
-        <member name="M:JBHR.Dll.Att.TransCard(System.String,System.String,System.String,System.String,System.DateTime,System.DateTime,System.String,System.Boolean,System.Boolean,System.Boolean,System.String,System.String,System.Boolean,System.String)">
-            <summary>
-            刷卡轉出勤
-            </summary>
-            <param name="sNobrB">開始工號</param>
-            <param name="sNobrE">結束工號</param>
-            <param name="sDeptB">開始部門</param>
-            <param name="sDeptE">結束部門</param>
-            <param name="dDateB">開始日期</param>
-            <param name="dDateE">結束日期</param>
-            <param name="sKeyMan">登錄者</param>
-            <param name="bAttCard">轉換刷卡時間</param>
-            <param name="bAttEnd">判斷異常</param>
-            <param name="bEzAttCard">簡單轉換True = 簡單(一天多筆的情況，才需要複雜的判斷)，False 則會參考資料庫來判斷(Parts)</param>
-            <param name="sUserID">登入者工號</param>
-            <param name="sComp">公司別</param>
-            <param name="bAdmin">是否管理權限</param>
-            <param name="sRoteCode">班別</param>
-            <returns>bool</returns>
-        </member>
         <member name="T:JBHR.Dll.Att.AbsCheck">
             <summary>
             請假檢查
@@ -1010,6 +949,36 @@
         <member name="T:JBHR.Dll.Att.AbsCal">
             <summary>
             請假相關計算
+            </summary>
+        </member>
+        <member name="T:JBHR.Dll.Att.AbsCal.AbsDetail">
+            <summary>
+            請假詳細結構資料
+            </summary>
+        </member>
+        <member name="M:JBHR.Dll.Att.AbsCal.AbsDetail.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="T:JBHR.Dll.Att.AbsCal.AbsDetail.DayDate">
+            <summary>
+            每一天的日期
+            </summary>
+        </member>
+        <member name="M:JBHR.Dll.Att.AbsCal.AbsDetail.DayDate.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="T:JBHR.Dll.Att.AbsCal.AbsDetail.DayDate.DayRes">
+            <summary>
+            每一天的休息時間
+            </summary>
+        </member>
+        <member name="M:JBHR.Dll.Att.AbsCal.AbsDetail.DayDate.DayRes.#ctor">
+            <summary>
+            建構子
             </summary>
         </member>
         <member name="M:JBHR.Dll.Att.AbsCal.SetDayRes(System.DateTime,System.String,System.String)">
@@ -1261,36 +1230,6 @@
             <param name="iException">例外時數</param>
             <returns>bool</returns>
         </member>
-        <member name="T:JBHR.Dll.Att.AbsCal.AbsDetail">
-            <summary>
-            請假詳細結構資料
-            </summary>
-        </member>
-        <member name="M:JBHR.Dll.Att.AbsCal.AbsDetail.#ctor">
-            <summary>
-            建構子
-            </summary>
-        </member>
-        <member name="T:JBHR.Dll.Att.AbsCal.AbsDetail.DayDate">
-            <summary>
-            每一天的日期
-            </summary>
-        </member>
-        <member name="M:JBHR.Dll.Att.AbsCal.AbsDetail.DayDate.#ctor">
-            <summary>
-            建構子
-            </summary>
-        </member>
-        <member name="T:JBHR.Dll.Att.AbsCal.AbsDetail.DayDate.DayRes">
-            <summary>
-            每一天的休息時間
-            </summary>
-        </member>
-        <member name="M:JBHR.Dll.Att.AbsCal.AbsDetail.DayDate.DayRes.#ctor">
-            <summary>
-            建構子
-            </summary>
-        </member>
         <member name="T:JBHR.Dll.Att.Absc">
             <summary>
             銷假所需
@@ -1367,6 +1306,21 @@
         <member name="T:JBHR.Dll.Att.OtCal">
             <summary>
             加班相關計算
+            </summary>
+        </member>
+        <member name="M:JBHR.Dll.Att.OtCal.OtDetail.#ctor">
+            <summary>
+            建構子
+            </summary>
+        </member>
+        <member name="T:JBHR.Dll.Att.OtCal.OtDetail.DayRes">
+            <summary>
+            休息時間
+            </summary>
+        </member>
+        <member name="M:JBHR.Dll.Att.OtCal.OtDetail.DayRes.#ctor">
+            <summary>
+            建構子
             </summary>
         </member>
         <member name="M:JBHR.Dll.Att.OtCal.SetDayRes(JBHR.Dll.Att.OtCal.OtDetail.DayRes[],System.DateTime,System.DateTime,System.DateTime,System.String,System.String)">
@@ -1547,21 +1501,6 @@
             <param name="iException">例外時數</param>
             <returns>bool</returns>
         </member>
-        <member name="M:JBHR.Dll.Att.OtCal.OtDetail.#ctor">
-            <summary>
-            建構子
-            </summary>
-        </member>
-        <member name="T:JBHR.Dll.Att.OtCal.OtDetail.DayRes">
-            <summary>
-            休息時間
-            </summary>
-        </member>
-        <member name="M:JBHR.Dll.Att.OtCal.OtDetail.DayRes.#ctor">
-            <summary>
-            建構子
-            </summary>
-        </member>
         <member name="T:JBHR.Dll.Att.ShiftRote">
             <summary>
             調班
@@ -1627,6 +1566,67 @@
             <param name="sKeyMan">登錄者</param>
             <param name="sSerno">表單編號</param>
             <param name="bTransAtt">重新轉換班表</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:JBHR.Dll.Att.rowAttendRote(System.String,System.DateTime)">
+            <summary>
+            當天的上班區間
+            </summary>
+            <param name="sNobr">工號</param>
+            <param name="dDate">出勤日期</param>
+            <returns>AttendRote</returns>
+        </member>
+        <member name="M:JBHR.Dll.Att.TransCard(System.String,System.String,System.String,System.String,System.DateTime,System.DateTime,System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            刷卡轉出勤
+            </summary>
+            <param name="sNobrB">開始工號</param>
+            <param name="sNobrE">結束工號</param>
+            <param name="sDeptB">開始部門</param>
+            <param name="sDeptE">結束部門</param>
+            <param name="dDateB">開始日期</param>
+            <param name="dDateE">結束日期</param>
+            <param name="sKeyMan">登錄者</param>
+            <param name="bAttCard">轉換刷卡時間</param>
+            <param name="bAttEnd">判斷異常</param>
+            <param name="bEzAttCard">簡單轉換True = 簡單(一天多筆的情況，才需要複雜的判斷)，False 則會參考資料庫來判斷(Parts)</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:JBHR.Dll.Att.TransCard(System.String,System.String,System.String,System.String,System.DateTime,System.DateTime,System.String,System.Boolean,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            刷卡轉出勤(HR系統專用)
+            </summary>
+            <param name="sNobrB">開始工號</param>
+            <param name="sNobrE">結束工號</param>
+            <param name="sDeptB">開始部門</param>
+            <param name="sDeptE">結束部門</param>
+            <param name="dDateB">開始日期</param>
+            <param name="dDateE">結束日期</param>
+            <param name="sKeyMan">登錄者</param>
+            <param name="bAttCard">轉換刷卡時間</param>
+            <param name="bAttEnd">判斷異常</param>
+            <param name="bEzAttCard">簡單轉換True = 簡單(一天多筆的情況，才需要複雜的判斷)，False 則會參考資料庫來判斷(Parts)</param>
+            <param name="sRoteCode">班別</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:JBHR.Dll.Att.TransCard(System.String,System.String,System.String,System.String,System.DateTime,System.DateTime,System.String,System.Boolean,System.Boolean,System.Boolean,System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            刷卡轉出勤
+            </summary>
+            <param name="sNobrB">開始工號</param>
+            <param name="sNobrE">結束工號</param>
+            <param name="sDeptB">開始部門</param>
+            <param name="sDeptE">結束部門</param>
+            <param name="dDateB">開始日期</param>
+            <param name="dDateE">結束日期</param>
+            <param name="sKeyMan">登錄者</param>
+            <param name="bAttCard">轉換刷卡時間</param>
+            <param name="bAttEnd">判斷異常</param>
+            <param name="bEzAttCard">簡單轉換True = 簡單(一天多筆的情況，才需要複雜的判斷)，False 則會參考資料庫來判斷(Parts)</param>
+            <param name="sUserID">登入者工號</param>
+            <param name="sComp">公司別</param>
+            <param name="bAdmin">是否管理權限</param>
+            <param name="sRoteCode">班別</param>
             <returns>bool</returns>
         </member>
         <member name="T:JBHR.Dll.Att.TransAtt">
@@ -1727,6 +1727,32 @@
             <summary>
             工具(時間轉換,寄信)
             </summary>
+        </member>
+        <member name="T:JBHR.Dll.Tools.EncodeTool">
+            <summary>
+            編碼工具
+            </summary>
+        </member>
+        <member name="M:JBHR.Dll.Tools.EncodeTool.Encode(System.String)">
+            <summary>
+            編碼
+            </summary>
+            <param name="sData">要編碼字串</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:JBHR.Dll.Tools.EncodeTool.Decode(System.String)">
+            <summary>
+            解碼
+            </summary>
+            <param name="sData">要解碼字串</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:JBHR.Dll.Tools.EncodeTool.QueryValue(System.String)">
+            <summary>
+            解碼後轉成Hashtable
+            </summary>
+            <param name="sDo">解碼後的字串</param>
+            <returns></returns>
         </member>
         <member name="M:JBHR.Dll.Tools.MessageShowAlert(System.String)">
             <summary>
@@ -1907,49 +1933,6 @@
             </summary>
             <param name="targetTable">DataTable</param>
             <returns>static</returns>
-        </member>
-        <member name="T:JBHR.Dll.Tools.EncodeTool">
-            <summary>
-            編碼工具
-            </summary>
-        </member>
-        <member name="M:JBHR.Dll.Tools.EncodeTool.Encode(System.String)">
-            <summary>
-            編碼
-            </summary>
-            <param name="sData">要編碼字串</param>
-            <returns>string</returns>
-        </member>
-        <member name="M:JBHR.Dll.Tools.EncodeTool.Decode(System.String)">
-            <summary>
-            解碼
-            </summary>
-            <param name="sData">要解碼字串</param>
-            <returns>string</returns>
-        </member>
-        <member name="M:JBHR.Dll.Tools.EncodeTool.QueryValue(System.String)">
-            <summary>
-            解碼後轉成Hashtable
-            </summary>
-            <param name="sDo">解碼後的字串</param>
-            <returns></returns>
-        </member>
-        <member name="T:ObjectShredder`1">
-            <summary>
-            Summary description for clsObjectShredder
-            </summary>
-        </member>
-        <member name="M:ObjectShredder`1.Shred(System.Collections.Generic.IEnumerable{`0},System.Data.DataTable,System.Nullable{System.Data.LoadOption})">
-            <summary>
-            Loads a DataTable from a sequence of objects.
-            </summary>
-            <param name="source">The sequence of objects to load into the DataTable.</param>
-            <param name="table">The input table. The schema of the table must match that 
-            the type T.  If the table is null, a new table is created with a schema 
-            created from the public properties and fields of the type T.</param>
-            <param name="options">Specifies how values from the source sequence will be applied to 
-            existing rows in the table.</param>
-            <returns>A DataTable created from the source sequence.</returns>
         </member>
         <member name="T:JBHR.Dll.dsAtt">
              <summary>
@@ -2995,6 +2978,23 @@
              <summary>
             Used to sort self-referenced table's rows
             </summary>
+        </member>
+        <member name="T:ObjectShredder`1">
+            <summary>
+            Summary description for clsObjectShredder
+            </summary>
+        </member>
+        <member name="M:ObjectShredder`1.Shred(System.Collections.Generic.IEnumerable{`0},System.Data.DataTable,System.Nullable{System.Data.LoadOption})">
+            <summary>
+            Loads a DataTable from a sequence of objects.
+            </summary>
+            <param name="source">The sequence of objects to load into the DataTable.</param>
+            <param name="table">The input table. The schema of the table must match that 
+            the type T.  If the table is null, a new table is created with a schema 
+            created from the public properties and fields of the type T.</param>
+            <param name="options">Specifies how values from the source sequence will be applied to 
+            existing rows in the table.</param>
+            <returns>A DataTable created from the source sequence.</returns>
         </member>
     </members>
 </doc>

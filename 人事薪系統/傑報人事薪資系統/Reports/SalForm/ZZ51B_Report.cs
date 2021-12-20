@@ -169,12 +169,12 @@ namespace JBHR.Reports.SalForm
                     Row["tax_amt"] = Math.Round(JBModule.Data.CDecryp.Number(Convert.ToDecimal(Row["tax_amt"].ToString())), MidpointRounding.AwayFromZero);
                     Row["ret_amt"] = Math.Round(JBModule.Data.CDecryp.Number(Convert.ToDecimal(Row["ret_amt"].ToString())), MidpointRounding.AwayFromZero);
                     
-                    ds.Tables["ZZ51B"].ImportRow(Row);
+                    ds.Tables["zz51b"].ImportRow(Row);
                 }
                 rq_yrtax = null;
                 if (exportexcel)
                 {
-                    Export(ds.Tables["ZZ51B"]);
+                    Export(ds.Tables["zz51b"]);
                     this.Close();
                 }
                 else
@@ -186,8 +186,8 @@ namespace JBHR.Reports.SalForm
                     if (reporttype == "0")
                     {
                         RptViewer.LocalReport.ReportPath = _rptpath + "Rpt_zz51b.rdlc";
-                        RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Company", comp_name) });
                         RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Year", year) });
+                        RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Company", comp_name) });
                         RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("UserName", username) });
                     }
                     else
@@ -206,7 +206,7 @@ namespace JBHR.Reports.SalForm
                         RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Compaddr", compaddr) });
                         RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Compman", compman) });
                     }
-                    RptViewer.LocalReport.DataSources.Add(new ReportDataSource("SalDataSet_zz51b", ds.Tables["zz51b"]));
+                    RptViewer.LocalReport.DataSources.Add(new ReportDataSource("SalDataSet_zz51", ds.Tables["zz51b"]));
                     RptViewer.SetDisplayMode(DisplayMode.PrintLayout);
                     RptViewer.ZoomMode = ZoomMode.FullPage;
                     //RptViewer.ZoomPercent = JBHR.Reports.ReportClass.GetReportPercent();
