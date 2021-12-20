@@ -8,6 +8,7 @@ using System.Configuration;
 
 namespace JBModule.Data
 {
+    //連線輔助工具
     public class SqlHelper
     {
         private SqlConnection sqlConn = null;
