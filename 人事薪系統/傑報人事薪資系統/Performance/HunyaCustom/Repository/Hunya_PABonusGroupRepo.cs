@@ -21,14 +21,16 @@ namespace JBHR.Performance.HunyaCustom.Repository
             msg = "";
             try
             {
-                JBModule.Data.Linq.Hunya_PABonusGroup hunya_PABonusGroup = new JBModule.Data.Linq.Hunya_PABonusGroup();
-                hunya_PABonusGroup.EmployeeID = PABonusGroupDto.EmployeeID;
-                hunya_PABonusGroup.YYMM_B = PABonusGroupDto.YYMM_B;
-                hunya_PABonusGroup.YYMM_E = PABonusGroupDto.YYMM_E;
-                hunya_PABonusGroup.PAGroupCode = PABonusGroupDto.PAGroupCode;
-                hunya_PABonusGroup.GID = PABonusGroupDto.GID;
-                hunya_PABonusGroup.KeyDate = PABonusGroupDto.KeyDate;
-                hunya_PABonusGroup.KeyMan = PABonusGroupDto.KeyMan;
+                JBModule.Data.Linq.Hunya_PABonusGroup hunya_PABonusGroup = new JBModule.Data.Linq.Hunya_PABonusGroup
+                {
+                    EmployeeID = PABonusGroupDto.EmployeeID,
+                    YYMM_B = PABonusGroupDto.YYMM_B,
+                    YYMM_E = PABonusGroupDto.YYMM_E,
+                    PAGroupCode = PABonusGroupDto.PAGroupCode,
+                    GID = PABonusGroupDto.GID,
+                    KeyDate = PABonusGroupDto.KeyDate,
+                    KeyMan = PABonusGroupDto.KeyMan
+                };
                 db.Hunya_PABonusGroup.InsertOnSubmit(hunya_PABonusGroup);
                 db.SubmitChanges();
                 return true;
@@ -44,14 +46,16 @@ namespace JBHR.Performance.HunyaCustom.Repository
             msg = "";
             try
             {
-                JBModule.Data.Linq.Hunya_PABonusGroup hunya_PABonusGroup = new JBModule.Data.Linq.Hunya_PABonusGroup();
-                hunya_PABonusGroup.EmployeeID = PABonusGroupDto.EmployeeID;
-                hunya_PABonusGroup.YYMM_B = PABonusGroupDto.YYMM_B;
-                hunya_PABonusGroup.YYMM_E = PABonusGroupDto.YYMM_E;
-                hunya_PABonusGroup.PAGroupCode = PABonusGroupDto.PAGroupCode;
-                hunya_PABonusGroup.GID = PABonusGroupDto.GID;
-                hunya_PABonusGroup.KeyDate = PABonusGroupDto.KeyDate;
-                hunya_PABonusGroup.KeyMan = PABonusGroupDto.KeyMan;
+                JBModule.Data.Linq.Hunya_PABonusGroup hunya_PABonusGroup = new JBModule.Data.Linq.Hunya_PABonusGroup
+                {
+                    EmployeeID = PABonusGroupDto.EmployeeID,
+                    YYMM_B = PABonusGroupDto.YYMM_B,
+                    YYMM_E = PABonusGroupDto.YYMM_E,
+                    PAGroupCode = PABonusGroupDto.PAGroupCode,
+                    GID = PABonusGroupDto.GID,
+                    KeyDate = PABonusGroupDto.KeyDate,
+                    KeyMan = PABonusGroupDto.KeyMan
+                };
                 var PABonusGroup = GetOverlapHunya_PABonusGroup(PABonusGroupDto);
                 if (PABonusGroup.Any())
                 {

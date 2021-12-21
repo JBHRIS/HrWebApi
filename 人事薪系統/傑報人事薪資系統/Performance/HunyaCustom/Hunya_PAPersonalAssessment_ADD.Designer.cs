@@ -30,7 +30,7 @@ namespace JBHR.Performance.HunyaCustom
         private void InitializeComponent()
         {
             this.btnCancel = new System.Windows.Forms.Button();
-            this.lbPAPAYYMM = new System.Windows.Forms.Label();
+            this.lbPAYYMM = new System.Windows.Forms.Label();
             this.lbEmp = new System.Windows.Forms.Label();
             this.btnEmp = new System.Windows.Forms.Button();
             this.cbxPALevelCode = new System.Windows.Forms.ComboBox();
@@ -42,7 +42,7 @@ namespace JBHR.Performance.HunyaCustom
             this.btnSave = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lbGuid = new System.Windows.Forms.Label();
-            this.txtPAPAYYMM = new System.Windows.Forms.TextBox();
+            this.txtPAYYMM = new System.Windows.Forms.TextBox();
             this.lbPALevelCode = new System.Windows.Forms.Label();
             this.BW = new System.ComponentModel.BackgroundWorker();
             this.statusStrip.SuspendLayout();
@@ -60,16 +60,16 @@ namespace JBHR.Performance.HunyaCustom
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // lbPAPAYYMM
+            // lbPAYYMM
             // 
-            this.lbPAPAYYMM.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lbPAPAYYMM.AutoSize = true;
-            this.lbPAPAYYMM.ForeColor = System.Drawing.Color.Black;
-            this.lbPAPAYYMM.Location = new System.Drawing.Point(50, 9);
-            this.lbPAPAYYMM.Name = "lbPAPAYYMM";
-            this.lbPAPAYYMM.Size = new System.Drawing.Size(53, 12);
-            this.lbPAPAYYMM.TabIndex = 6;
-            this.lbPAPAYYMM.Text = "考核年月";
+            this.lbPAYYMM.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lbPAYYMM.AutoSize = true;
+            this.lbPAYYMM.ForeColor = System.Drawing.Color.Black;
+            this.lbPAYYMM.Location = new System.Drawing.Point(50, 9);
+            this.lbPAYYMM.Name = "lbPAYYMM";
+            this.lbPAYYMM.Size = new System.Drawing.Size(53, 12);
+            this.lbPAYYMM.TabIndex = 6;
+            this.lbPAYYMM.Text = "考核年月";
             // 
             // lbEmp
             // 
@@ -170,8 +170,8 @@ namespace JBHR.Performance.HunyaCustom
             this.tableLayoutPanel1.Controls.Add(this.btnCancel, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.lbGuid, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.btnSave, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.lbPAPAYYMM, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txtPAPAYYMM, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbPAYYMM, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtPAYYMM, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lbEmp, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.cbxPALevelCode, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnEmp, 1, 1);
@@ -200,14 +200,14 @@ namespace JBHR.Performance.HunyaCustom
             this.lbGuid.TabIndex = 9;
             this.lbGuid.Text = "編號";
             // 
-            // txtPAPAYYMM
+            // txtPAYYMM
             // 
-            this.txtPAPAYYMM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPAPAYYMM.Location = new System.Drawing.Point(109, 4);
-            this.txtPAPAYYMM.Name = "txtPAPAYYMM";
-            this.txtPAPAYYMM.Size = new System.Drawing.Size(100, 22);
-            this.txtPAPAYYMM.TabIndex = 0;
-            this.txtPAPAYYMM.Leave += new System.EventHandler(this.txtPAPAYYMM_Leave);
+            this.txtPAYYMM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPAYYMM.Location = new System.Drawing.Point(109, 4);
+            this.txtPAYYMM.Name = "txtPAYYMM";
+            this.txtPAYYMM.Size = new System.Drawing.Size(100, 22);
+            this.txtPAYYMM.TabIndex = 0;
+            this.txtPAYYMM.Leave += new System.EventHandler(this.txtPAYYMM_Leave);
             // 
             // lbPALevelCode
             // 
@@ -251,7 +251,7 @@ namespace JBHR.Performance.HunyaCustom
         #endregion
 
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Label lbPAPAYYMM;
+        private System.Windows.Forms.Label lbPAYYMM;
         private System.Windows.Forms.Label lbEmp;
         private System.Windows.Forms.Button btnEmp;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -263,7 +263,7 @@ namespace JBHR.Performance.HunyaCustom
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar;
         private System.Windows.Forms.ToolStripStatusLabel tSSLabelSplit;
         private System.ComponentModel.BackgroundWorker BW;
-        private System.Windows.Forms.TextBox txtPAPAYYMM;
+        private System.Windows.Forms.TextBox txtPAYYMM;
         private System.Windows.Forms.Label lbPALevelCode;
         private System.Windows.Forms.Label lbGuid;
     }

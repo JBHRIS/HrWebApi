@@ -29,7 +29,7 @@ namespace JBHR.Performance.HunyaCustom
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbPAPAYYMM = new System.Windows.Forms.Label();
+            this.lbPAYYMM = new System.Windows.Forms.Label();
             this.lbPADept = new System.Windows.Forms.Label();
             this.btnPADept = new System.Windows.Forms.Button();
             this.tSSLabelProcess = new System.Windows.Forms.ToolStripStatusLabel();
@@ -54,16 +54,16 @@ namespace JBHR.Performance.HunyaCustom
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lbPAPAYYMM
+            // lbPAYYMM
             // 
-            this.lbPAPAYYMM.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lbPAPAYYMM.AutoSize = true;
-            this.lbPAPAYYMM.ForeColor = System.Drawing.Color.Black;
-            this.lbPAPAYYMM.Location = new System.Drawing.Point(50, 9);
-            this.lbPAPAYYMM.Name = "lbPAPAYYMM";
-            this.lbPAPAYYMM.Size = new System.Drawing.Size(53, 12);
-            this.lbPAPAYYMM.TabIndex = 9;
-            this.lbPAPAYYMM.Text = "考核年月";
+            this.lbPAYYMM.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lbPAYYMM.AutoSize = true;
+            this.lbPAYYMM.ForeColor = System.Drawing.Color.Black;
+            this.lbPAYYMM.Location = new System.Drawing.Point(50, 9);
+            this.lbPAYYMM.Name = "lbPAYYMM";
+            this.lbPAYYMM.Size = new System.Drawing.Size(53, 12);
+            this.lbPAYYMM.TabIndex = 9;
+            this.lbPAYYMM.Text = "考核年月";
             // 
             // lbPADept
             // 
@@ -99,7 +99,7 @@ namespace JBHR.Performance.HunyaCustom
             this.toolStripProgressBar,
             this.tSSLabelSplit,
             this.tSSLabelProcess});
-            this.statusStrip.Location = new System.Drawing.Point(0, 228);
+            this.statusStrip.Location = new System.Drawing.Point(0, 229);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.statusStrip.Size = new System.Drawing.Size(344, 22);
@@ -128,7 +128,7 @@ namespace JBHR.Performance.HunyaCustom
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel1.Controls.Add(this.cbxPASALCODE, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.lbPAPAYYMM, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbPAYYMM, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtPAYYMM, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lbPADept, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnPADept, 1, 1);
@@ -153,7 +153,7 @@ namespace JBHR.Performance.HunyaCustom
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(320, 213);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(320, 214);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // cbxPASALCODE
@@ -289,7 +289,7 @@ namespace JBHR.Performance.HunyaCustom
             // 
             // Hunya_PAPersonalBonus_Calculator
             // 
-            this.ClientSize = new System.Drawing.Size(344, 250);
+            this.ClientSize = new System.Drawing.Size(344, 251);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormSize = JBControls.JBForm.FormSizeType.Custom;
@@ -308,7 +308,7 @@ namespace JBHR.Performance.HunyaCustom
         }
 
         #endregion
-        private System.Windows.Forms.Label lbPAPAYYMM;
+        private System.Windows.Forms.Label lbPAYYMM;
         private System.Windows.Forms.Label lbPADept;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TextBox txtPAYYMM;

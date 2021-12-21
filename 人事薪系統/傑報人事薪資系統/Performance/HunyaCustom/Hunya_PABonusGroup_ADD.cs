@@ -144,6 +144,7 @@ namespace JBHR.Performance.HunyaCustom
                               };
                     dt.Merge(sql.ToList().CopyToDataTable());
                 }
+                dt.DefaultView.Sort = "員工編號 ASC";
                 mdEmp.SetControl(btnEmp, dt, "員工編號");
                 mdEmp.SelectedValues.Clear();
                 btnEmp.Text = "請選擇需設定的人員";

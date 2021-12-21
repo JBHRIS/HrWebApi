@@ -1,28 +1,29 @@
-﻿using JBTools.Extend;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Linq;
+using JBTools.Extend;
 
-namespace JBHR.Dividend.HunyaCustom
+namespace JBHR.AnnualBonus.HunyaCustom
 {
-    public partial class Hunya_DIVDPersonalAppraisal_ADD : JBControls.JBForm
+    public partial class Hunya_ABPersonalAppraisal_ADD : JBControls.JBForm
     {
-        public Hunya_DIVDPersonalAppraisal_ADD()
+        public Hunya_ABPersonalAppraisal_ADD()
         {
             InitializeComponent();
         }
-        JBControls.MultiSelectionDialog mdEmp = new JBControls.MultiSelectionDialog();
-        JBModule.Data.Linq.Hunya_DIVDPersonalAppraisal instanceNew = new JBModule.Data.Linq.Hunya_DIVDPersonalAppraisal();
+
+        readonly JBControls.MultiSelectionDialog mdEmp = new JBControls.MultiSelectionDialog();
+        JBModule.Data.Linq.Hunya_ABPersonalAppraisal instanceNew = new JBModule.Data.Linq.Hunya_ABPersonalAppraisal();
         string topic = "";
         public int Autokey = -1;//-1 = ADD , other = EDIT
         public string EmployeeID = string.Empty;
 
-        private void Hunya_DIVDPersonalAppraisal_ADD_Load(object sender, EventArgs e)
+        private void Hunya_ABPersonalAppraisal_ADD_Load(object sender, EventArgs e)
         {
             topic = this.Text;
             EmpInitial();
@@ -31,15 +32,16 @@ namespace JBHR.Dividend.HunyaCustom
         private void EmpInitial()
         {
             JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
-            if (CodeFunction.GetHunya_DIVDAppraisalCode().Count == 0)
+            if (CodeFunction.GetHunya_ABLevelCode().Count == 0)
                 btnSave.Enabled = false;
-            SystemFunction.SetComboBoxItems(cbxDIVDAppraisalCode, CodeFunction.GetHunya_DIVDAppraisalCode(), false, true, true, true);
+            SystemFunction.SetComboBoxItems(cbxABTypeCode, CodeFunction.GetHunya_ABTypeCode(), false, true, true, true);
+            SystemFunction.SetComboBoxItems(cbxABLevelCode, CodeFunction.GetHunya_ABLevelCode(), false, true, true, true);
             int YYYY = DateTime.Now.AddYears(-1).Year;
             if (Autokey == -1 && EmployeeID == string.Empty)
             {
-                nudDIVDYYYY.Value = YYYY;
+                nudABYYYY.Value = YYYY;
                 SetEmpList();
-                nudDIVDYYYY.Focus();
+                cbxABLevelCode.Focus();
             }
             else
             {
@@ -59,30 +61,29 @@ namespace JBHR.Dividend.HunyaCustom
                               };
                 if (Autokey != -1)
                 {
-                    instanceNew = db.Hunya_DIVDPersonalAppraisal.SingleOrDefault(p => p.AK == Autokey);
+                    instanceNew = db.Hunya_ABPersonalAppraisal.SingleOrDefault(p => p.AK == Autokey);
                     var emp = emplist.First(p => p.員工編號 == instanceNew.EmployeeID);
                     mdEmp.SelectedValues.Add(emp.員工編號);
                     btnEmp.Text = emp.員工編號 + "-" + emp.姓名;
-                    nudDIVDYYYY.Value = instanceNew.YYYY;
+                    nudABYYYY.Value = instanceNew.YYYY;
+                    cbxABTypeCode.SelectedValue = instanceNew.ABTypeCode;
+                    nudABScore.Value = instanceNew.ABScore;
+                    cbxABLevelCode.SelectedValue = instanceNew.ABLevelCode;
                     txtGuid.Text = instanceNew.GID.ToString();
-                    cbxDIVDAppraisalCode.SelectedValue = instanceNew.DIVDAppraisalCode;
                     topic = emp.編制部門 + '-' + btnEmp.Text;
                 }
                 else
                 {
                     var emp = emplist.First(p => p.員工編號 == EmployeeID);
                     btnEmp.Text = emp.員工編號 + "-" + emp.姓名;
-                    nudDIVDYYYY.Value = YYYY;
-                    cbxDIVDAppraisalCode.SelectedIndex = 0;
+                    nudABYYYY.Value = YYYY;
+                    cbxABTypeCode.SelectedIndex = 0;
+                    nudABScore.Value = 0.00M;
+                    cbxABLevelCode.SelectedIndex = 0;
                     topic = emp.編制部門 + '-' + btnEmp.Text;
                 }
                 this.Text = topic;
             }
-        }
-
-        private void btnEmp_Click(object sender, EventArgs e)
-        {
-            //SetEmpList();
         }
 
         void SetEmpList()
@@ -90,11 +91,10 @@ namespace JBHR.Dividend.HunyaCustom
             if (Autokey == -1 && EmployeeID == string.Empty)
             {
                 JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
-                int YYYY = (int)nudDIVDYYYY.Value;
+                int YYYY = (int)nudABYYYY.Value;
                 DateTime bdate = new DateTime(YYYY, 1, 1);
-                DateTime edate = new DateTime(YYYY, 12, 31);
+                DateTime edate = bdate.AddYears(1).AddDays(-1);
                 var AttendByNobr = db.ATTEND.Where(p => p.ADATE >= bdate && p.ADATE <= edate).GroupBy(p => p.NOBR).Select(p => p.Key).ToList();
-                //var AttendByNobr = db.BASE.Select(p => p.NOBR).ToList();
                 DataTable dt = new DataTable();
                 var TTSCODE = new string[] { "1", "4", "6" };
                 foreach (var item in AttendByNobr.Split(1000))
@@ -105,16 +105,19 @@ namespace JBHR.Dividend.HunyaCustom
                               join mt in db.MTCODE on bts.TTSCODE equals mt.CODE
                               join mt1 in db.MTCODE on b.SEX equals mt1.CODE
                               join h in (
-                                   from a in db.Hunya_DIVDPersonalAppraisal
-                                   join b in db.Hunya_DIVDAppraisalCode on a.DIVDAppraisalCode equals b.DIVDAppraisalCode
-                                   where item.Contains(a.EmployeeID)
-                                   && a.YYYY == YYYY
-                                   select new
-                                   {
-                                       員工編號 = a.EmployeeID,
-                                       考績年度 = a.YYYY,
-                                       考績等第 = b.DIVDAppraisalCode_Name
-                                   }
+                                    from a in db.Hunya_ABPersonalAppraisal
+                                    join b in db.Hunya_ABLevelCode on a.ABLevelCode equals b.ABLevelCode
+                                    join mt in db.MTCODE on a.ABTypeCode equals mt.CODE
+                                    where a.YYYY == YYYY
+                                    && mt.CATEGORY == "Hunya_ABAppraisalTypeCode"
+                                    select new
+                                    {
+                                        員工編號 = a.EmployeeID,
+                                        考績年度 = a.YYYY.ToString(),
+                                        考績種類 = mt.NAME,
+                                        考績分數 = a.ABScore.ToString(),
+                                        考績等第 = b.ABLevelCode_Name
+                                    }
                               ) on b.NOBR equals h.員工編號 into g
                               from result in g.DefaultIfEmpty()
                               where item.Contains(b.NOBR)
@@ -126,7 +129,9 @@ namespace JBHR.Dividend.HunyaCustom
                               {
                                   員工編號 = b.NOBR,
                                   員工姓名 = b.NAME_C,
-                                  考績年度 = result != null ? result.考績年度.ToString() : string.Empty,
+                                  考績年度 = result.考績年度,
+                                  考績種類 = result.考績種類,
+                                  考績分數 = result.考績分數,
                                   考績等第 = result.考績等第,
                                   異動狀態 = TTSCODE.Contains(mt.CODE) ? "在職" : mt.NAME,
                                   異動日期 = TTSCODE.Contains(mt.CODE) ? null : bts.OUDT != null ? bts.OUDT : bts.STDT != null ? bts.STDT : null,
@@ -147,18 +152,20 @@ namespace JBHR.Dividend.HunyaCustom
         private void btnSave_Click(object sender, EventArgs e)
         {
             List<string> EmployeeList = mdEmp.SelectedValues.Distinct().ToList();
-            int YYYY = (int)nudDIVDYYYY.Value;
-            string DIVDAppraisalCode = cbxDIVDAppraisalCode.SelectedValue.ToString();
+            int YYYY = (int)nudABYYYY.Value;
+            string ABTypeCode = cbxABTypeCode.SelectedValue.ToString();
+            decimal ABScore = nudABScore.Value;
+            string ABLevelCode = cbxABLevelCode.SelectedValue.ToString();
             bool ReplaceSW = true;
             if (Autokey == -1 && EmployeeID == string.Empty)
             {
                 JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
-                List<JBModule.Data.Linq.Hunya_DIVDPersonalAppraisal> instanceRp = new List<JBModule.Data.Linq.Hunya_DIVDPersonalAppraisal>();
+                List<JBModule.Data.Linq.Hunya_ABPersonalAppraisal> instanceRp = new List<JBModule.Data.Linq.Hunya_ABPersonalAppraisal>();
                 foreach (var item in EmployeeList.Split(1000))
-                    instanceRp.AddRange(db.Hunya_DIVDPersonalAppraisal.Where(p => item.Contains(p.EmployeeID) && p.YYYY == YYYY));
+                    instanceRp.AddRange(db.Hunya_ABPersonalAppraisal.Where(p => item.Contains(p.EmployeeID) && p.YYYY == YYYY && p.ABTypeCode == ABTypeCode));
                 if (instanceRp.Any())
                 {
-                    if (MessageBox.Show("指定年度已有考績資料，Yes = 覆蓋重複資料, No = 取消並顯示重複.", Resources.All.DialogTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    if (MessageBox.Show("指定年度已有同種類類的考績資料，Yes = 覆蓋重複資料, No = 取消並顯示重複.", Resources.All.DialogTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         JBModule.Message.DbLog.WriteLog("OverLapDel", instanceRp, this.Name, -1);
                     else
                     {
@@ -168,7 +175,7 @@ namespace JBHR.Dividend.HunyaCustom
                 }
                 if (ReplaceSW)
                 {
-                    object[] PARMS = new object[] { EmployeeList, YYYY, DIVDAppraisalCode, instanceRp };
+                    object[] PARMS = new object[] { EmployeeList, YYYY, ABTypeCode, ABScore, ABLevelCode, instanceRp };
                     BW.RunWorkerAsync(PARMS);
                     this.tableLayoutPanel1.Enabled = false;
                 }
@@ -180,11 +187,13 @@ namespace JBHR.Dividend.HunyaCustom
                 {
                     if (Autokey == -1)
                     {
-                        instanceNew = new JBModule.Data.Linq.Hunya_DIVDPersonalAppraisal
+                        instanceNew = new JBModule.Data.Linq.Hunya_ABPersonalAppraisal
                         {
                             EmployeeID = EmployeeID,
                             YYYY = YYYY,
-                            DIVDAppraisalCode = DIVDAppraisalCode,
+                            ABTypeCode = ABTypeCode,
+                            ABScore = ABScore,
+                            ABLevelCode = ABLevelCode,
                             GID = Guid.NewGuid(),
                             KeyMan = MainForm.USER_NAME,
                             KeyDate = DateTime.Now,
@@ -193,19 +202,21 @@ namespace JBHR.Dividend.HunyaCustom
                     else
                     {
                         instanceNew.YYYY = YYYY;
-                        instanceNew.DIVDAppraisalCode = DIVDAppraisalCode;
+                        instanceNew.ABTypeCode = ABTypeCode;
+                        instanceNew.ABScore= ABScore;
+                        instanceNew.ABLevelCode = ABLevelCode;
                         instanceNew.KeyMan = MainForm.USER_NAME;
                         instanceNew.KeyDate = DateTime.Now;
                     }
                     JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
-                    List<JBModule.Data.Linq.Hunya_DIVDPersonalAppraisal> instanceRp = new List<JBModule.Data.Linq.Hunya_DIVDPersonalAppraisal>();
-                    instanceRp.AddRange(db.Hunya_DIVDPersonalAppraisal.Where(p => p.EmployeeID == instanceNew.EmployeeID && p.YYYY == YYYY && p.AK != Autokey).ToList());
+                    List<JBModule.Data.Linq.Hunya_ABPersonalAppraisal> instanceRp = new List<JBModule.Data.Linq.Hunya_ABPersonalAppraisal>();
+                    instanceRp.AddRange(db.Hunya_ABPersonalAppraisal.Where(p => p.EmployeeID == instanceNew.EmployeeID && p.YYYY == YYYY && p.ABTypeCode == ABTypeCode && p.AK != Autokey).ToList());
                     if (instanceRp.Any())
                     {
-                        if (MessageBox.Show("指定年度已有考績資料，Yes = 覆蓋重複資料, No = 取消並顯示重複.", Resources.All.DialogTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        if (MessageBox.Show("指定年度已有相同種類的考績資料，Yes = 覆蓋重複資料, No = 取消並顯示重複.", Resources.All.DialogTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
                             JBModule.Message.DbLog.WriteLog("OverLapUpdate", instanceRp, this.Name, -1);
-                            Repository.Hunya_DIVDPersonalAppraisalRepo.DataSaveRule(instanceRp, instanceNew, db);
+                            Repository.Hunya_ABPersonalAppraisalRepo.DataSaveRule(instanceRp, instanceNew, db);
                         }
                         else
                         {
@@ -219,7 +230,7 @@ namespace JBHR.Dividend.HunyaCustom
                         instanceNew.KeyDate = DateTime.Now;
 
                         if (Autokey == -1)
-                            db.Hunya_DIVDPersonalAppraisal.InsertOnSubmit(instanceNew);
+                            db.Hunya_ABPersonalAppraisal.InsertOnSubmit(instanceNew);
 
                         db.SubmitChanges();
                         this.Close();
@@ -234,17 +245,22 @@ namespace JBHR.Dividend.HunyaCustom
             }
         }
 
-        private void ShowRepeatData(List<JBModule.Data.Linq.Hunya_DIVDPersonalAppraisal> instanceRp)
+        private void ShowRepeatData(List<JBModule.Data.Linq.Hunya_ABPersonalAppraisal> instanceRp)
         {
             JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
             JBHR.Sal.PreviewForm frm = new JBHR.Sal.PreviewForm();
+            var ABLevelCodeList = db.Hunya_ABLevelCode.ToList();
+            var ABTypeCodeList = db.MTCODE.Where(p => p.CATEGORY == "Hunya_ABAppraisalTypeCode").ToList();
             var sql = from ir in instanceRp
-                      join hplc in db.Hunya_DIVDAppraisalCode.ToList() on ir.DIVDAppraisalCode equals hplc.DIVDAppraisalCode
+                      join ablc in ABLevelCodeList on ir.ABLevelCode equals ablc.ABLevelCode
+                      join abtc in ABTypeCodeList on ir.ABTypeCode equals abtc.CODE
                       select new
                       {
                           員工編號 = ir.EmployeeID,
                           考績年度 = ir.YYYY,
-                          考績等第 = hplc.DIVDAppraisalCode_Disp + "-" + hplc.DIVDAppraisalCode_Name,
+                          考績種類 = abtc.CODE + "-" + abtc.NAME,
+                          考績分數 = ir.ABScore,
+                          考績等第 = ablc.ABLevelCode_DISP + "-" + ablc.ABLevelCode_Name,
                       };
             frm.DataTable = sql.CopyToDataTable();
             frm.Form_Title = "重複的資料";
@@ -256,11 +272,14 @@ namespace JBHR.Dividend.HunyaCustom
             JBModule.Data.Linq.HrDBDataContext dbBW = new JBModule.Data.Linq.HrDBDataContext();
             object[] parameters = e.Argument as object[];
             List<string> EmployeeList = parameters[0] as List<string>;
-            int YYYY = (parameters[1] as int?).Value;
-            string DIVDAppraisalCode = parameters[2] as string;
-            List<JBModule.Data.Linq.Hunya_DIVDPersonalAppraisal> RepeatList = new List<JBModule.Data.Linq.Hunya_DIVDPersonalAppraisal>();
-            foreach (var item in EmployeeList.Split(1000))
-                RepeatList.AddRange(dbBW.Hunya_DIVDPersonalAppraisal.Where(p => item.Contains(p.EmployeeID) && p.YYYY == YYYY));
+            int YYYY =  int.Parse(parameters[1].ToString());
+            string ABTypeCode = parameters[2] as string;
+            decimal ABScore = decimal.Parse(parameters[3].ToString());
+            string ABLevelCode = parameters[4] as string;
+            //List<JBModule.Data.Linq.Hunya_ABPersonalAppraisal> RepeatList = new List<JBModule.Data.Linq.Hunya_ABPersonalAppraisal>();
+            //foreach (var item in EmployeeList.Split(1000))
+            //    RepeatList.AddRange(dbBW.Hunya_ABPersonalAppraisal.Where(p => item.Contains(p.EmployeeID) && p.YYYY == YYYY));
+            List<JBModule.Data.Linq.Hunya_ABPersonalAppraisal> RepeatList = parameters[5] as List<JBModule.Data.Linq.Hunya_ABPersonalAppraisal>;
             string msg = "";
             try
             {
@@ -272,23 +291,25 @@ namespace JBHR.Dividend.HunyaCustom
                 {
                     DateTime keydate = DateTime.Now;
                     BW.ReportProgress(Convert.ToInt32(Convert.ToDecimal(count) / Convert.ToDecimal(total) * 100), "正在產生" + Employee + "個人考核資料");
-                    JBModule.Data.Linq.Hunya_DIVDPersonalAppraisal instanceBW = new JBModule.Data.Linq.Hunya_DIVDPersonalAppraisal()
+                    JBModule.Data.Linq.Hunya_ABPersonalAppraisal instanceBW = new JBModule.Data.Linq.Hunya_ABPersonalAppraisal()
                     {
                         EmployeeID = Employee,
                         YYYY = YYYY,
-                        DIVDAppraisalCode = DIVDAppraisalCode,
+                        ABTypeCode = ABTypeCode,
+                        ABScore = ABScore,
+                        ABLevelCode = ABLevelCode,
                         GID = Guid.NewGuid(),
                         KeyDate = keydate,
                         KeyMan = keyman,
                     };
-                    List<JBModule.Data.Linq.Hunya_DIVDPersonalAppraisal> instanceRp = RepeatList.Where(p => p.EmployeeID == Employee).ToList();
+                    List<JBModule.Data.Linq.Hunya_ABPersonalAppraisal> instanceRp = RepeatList.Where(p => p.EmployeeID == Employee).ToList();
                     if (instanceRp.Any())
                     {
                         JBModule.Message.DbLog.WriteLog("OverLapUpdate", instanceRp, this.Name, -1);
-                        Repository.Hunya_DIVDPersonalAppraisalRepo.DataSaveRule(instanceRp, instanceBW, dbBW);
+                        Repository.Hunya_ABPersonalAppraisalRepo.DataSaveRule(instanceRp, instanceBW, dbBW);
                     }
                     JBModule.Message.DbLog.WriteLog("Insert", instanceBW, this.Name, instanceBW.AK);
-                    dbBW.Hunya_DIVDPersonalAppraisal.InsertOnSubmit(instanceBW);
+                    dbBW.Hunya_ABPersonalAppraisal.InsertOnSubmit(instanceBW);
                     dbBW.SubmitChanges();
                     count++;
                 }
@@ -319,13 +340,12 @@ namespace JBHR.Dividend.HunyaCustom
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void nudDIVDYYYY_Leave(object sender, EventArgs e)
+        private void nudABYYYY_Leave(object sender, EventArgs e)
         {
             SetEmpList();
         }

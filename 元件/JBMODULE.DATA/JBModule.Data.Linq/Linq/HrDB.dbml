@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HUNYAHR" Class="HrDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP\SQLEXPRESS;Initial Catalog=SINHERHR_CN;Persist Security Info=True;User ID=jb" SettingsObjectName="JBModule.Data.Properties.Settings" SettingsPropertyName="FEFCHR_DConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=192.168.1.12;Initial Catalog=HUNYAHR;Persist Security Info=True;User ID=jb" SettingsObjectName="JBModule.Data.Properties.Settings" SettingsPropertyName="FEFCHR_DConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.BASE" Member="BASE">
     <Type Name="BASE">
       <Column Name="NOBR" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -4669,6 +4669,61 @@
       <Column Name="NOFOOD1" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.Hunya_ABLevelCode" Member="Hunya_ABLevelCode">
+    <Type Name="Hunya_ABLevelCode">
+      <Column Name="AK" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ABLevelCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ABLevelCode_DISP" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ABLevelCode_Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ABLevelBonusRate" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="KeyMan" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="KeyDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="GID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Hunya_ABPersonalAppraisal" Member="Hunya_ABPersonalAppraisal">
+    <Type Name="Hunya_ABPersonalAppraisal">
+      <Column Name="AK" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="YYYY" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ABTypeCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ABScore" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="ABLevelCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="KeyMan" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="KeyDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="GID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Hunya_ABYearEndAppraisal" Member="Hunya_ABYearEndAppraisal">
+    <Type Name="Hunya_ABYearEndAppraisal">
+      <Column Name="AK" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="YYYY" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ABScore" Type="System.Decimal" DbType="Decimal(16,4) NOT NULL" CanBeNull="false" />
+      <Column Name="ABLevelCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RealLevelCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="KeyMan" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="KeyDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="GID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Hunya_ABPersonalBonus" Member="Hunya_ABPersonalBonus">
+    <Type Name="Hunya_ABPersonalBonus">
+      <Column Name="AK" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="YYYY" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DailySalary" Type="System.Decimal" DbType="Decimal(16,4) NOT NULL" CanBeNull="false" />
+      <Column Name="BonusDays" Type="System.Decimal" DbType="Decimal(16,4) NOT NULL" CanBeNull="false" />
+      <Column Name="MeritDays" Type="System.Decimal" DbType="Decimal(16,4) NOT NULL" CanBeNull="false" />
+      <Column Name="BonusRate" Type="System.Decimal" DbType="Decimal(16,4) NOT NULL" CanBeNull="false" />
+      <Column Name="OnJobDays" Type="System.Decimal" DbType="Decimal(16,4) NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(16,4) NOT NULL" CanBeNull="false" />
+      <Column Name="Memo" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="KeyMan" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="KeyDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="GID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Function Name="dbo.GetHolidayYears" Method="GetHolidayYears" IsComposable="true">
     <Parameter Name="nobr" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />
@@ -4796,5 +4851,16 @@
     <Parameter Name="EmployeeId" Parameter="employeeId" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="CheckDate" Parameter="checkDate" Type="System.DateTime" DbType="DateTime" />
     <Return Type="System.DateTime" />
+  </Function>
+  <Function Name="dbo.Hunya_GetPAOnJobDays" Method="Hunya_GetPAOnJobDays" IsComposable="true">
+    <Parameter Name="EmployeeList" Parameter="employeeList" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="AttDateB" Parameter="attDateB" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="AttDateE" Parameter="attDateE" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="YYMM" Parameter="yYMM" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="Hunya_GetPAOnJobDaysResult">
+      <Column Name="員工編號" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="應出勤數" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="每月天數" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

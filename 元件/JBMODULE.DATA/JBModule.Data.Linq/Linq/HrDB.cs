@@ -88,10 +88,11 @@ namespace JBModule.Data.Linq
                     db.BulkInsertAll(entities, DbConnection, DbTransaction);
                     DbTransaction.Commit();
                 }
-                catch
+                catch (Exception ex)
                 {
-                    JBModule.Message.TextLog.WriteLog(errMsg);
+                    JBModule.Message.TextLog.WriteLog(string.Format("{0}¡G{1}", errMsg, ex.Message));
                     DbTransaction.Rollback();
+                    result = false;
                 }
             }
             finally

@@ -36,7 +36,7 @@ namespace JBHR.Dividend.HunyaCustom
             txtSeq.Text = "2";
             CYYMMFC.AddControl(txtEnrichYYMM, true);
             acg = null; acg = new JBModule.Data.ApplicationConfigSettings(this.Name, MainForm.COMPANY);
-            acg.CheckParameterAndSetDefault("DIVDSALCODE", "績效獎金代碼", "", "指定轉入補扣發的績效獎金代碼", "ComboBox", "select sal_code,sal_code_disp+'-'+sal_name from salcode where dbo.getcodefilter('SALCODE',SAL_CODE,@userid,@comp,@admin)=1", "String");
+            acg.CheckParameterAndSetDefault("DIVDSALCODE", "紅利獎金代碼", "", "指定轉入補扣發的紅利獎金代碼", "ComboBox", "select sal_code,sal_code_disp+'-'+sal_name from salcode where dbo.getcodefilter('SALCODE',SAL_CODE,@userid,@comp,@admin)=1", "String");
             SystemFunction.SetComboBoxItems(cbxDIVDSALCODE, CodeFunction.GetSalCode(), true, true, true);
             cbxDIVDSALCODE.SelectedValue = acg.GetConfig("DIVDSALCODE").GetString();
 
@@ -95,6 +95,7 @@ namespace JBHR.Dividend.HunyaCustom
                           };
                 dt.Merge(sql.ToList().CopyToDataTable());
             }
+            dt.DefaultView.Sort = "員工編號 ASC";
             mdEmp.SetControl(btnEmp, dt, "員工編號");
             //mdEmp.SelectedValues.Clear();
             //btnEmp.Text = "請選擇需設定的人員";

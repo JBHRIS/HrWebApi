@@ -21,13 +21,15 @@ namespace JBHR.Dividend.HunyaCustom.Repository
             msg = "";
             try
             {
-                JBModule.Data.Linq.Hunya_DIVDPersonalAppraisal Hunya_DIVDPersonalAppraisal = new JBModule.Data.Linq.Hunya_DIVDPersonalAppraisal();
-                Hunya_DIVDPersonalAppraisal.EmployeeID = PAPersonalAssessmentDto.EmployeeID;
-                Hunya_DIVDPersonalAppraisal.YYYY = PAPersonalAssessmentDto.YYYY;
-                Hunya_DIVDPersonalAppraisal.DIVDAppraisalCode = PAPersonalAssessmentDto.DIVDAppraisalCode;
-                Hunya_DIVDPersonalAppraisal.GID = PAPersonalAssessmentDto.GID;
-                Hunya_DIVDPersonalAppraisal.KeyDate = PAPersonalAssessmentDto.KeyDate;
-                Hunya_DIVDPersonalAppraisal.KeyMan = PAPersonalAssessmentDto.KeyMan;
+                JBModule.Data.Linq.Hunya_DIVDPersonalAppraisal Hunya_DIVDPersonalAppraisal = new JBModule.Data.Linq.Hunya_DIVDPersonalAppraisal
+                {
+                    EmployeeID = PAPersonalAssessmentDto.EmployeeID,
+                    YYYY = PAPersonalAssessmentDto.YYYY,
+                    DIVDAppraisalCode = PAPersonalAssessmentDto.DIVDAppraisalCode,
+                    GID = PAPersonalAssessmentDto.GID,
+                    KeyDate = PAPersonalAssessmentDto.KeyDate,
+                    KeyMan = PAPersonalAssessmentDto.KeyMan
+                };
                 db.Hunya_DIVDPersonalAppraisal.InsertOnSubmit(Hunya_DIVDPersonalAppraisal);
                 db.SubmitChanges();
                 return true;
@@ -43,13 +45,15 @@ namespace JBHR.Dividend.HunyaCustom.Repository
             msg = "";
             try
             {
-                JBModule.Data.Linq.Hunya_DIVDPersonalAppraisal Hunya_DIVDPersonalAppraisal = new JBModule.Data.Linq.Hunya_DIVDPersonalAppraisal();
-                Hunya_DIVDPersonalAppraisal.EmployeeID = PAPersonalAssessmentDto.EmployeeID;
-                Hunya_DIVDPersonalAppraisal.YYYY = PAPersonalAssessmentDto.YYYY;
-                Hunya_DIVDPersonalAppraisal.DIVDAppraisalCode = PAPersonalAssessmentDto.DIVDAppraisalCode;
-                Hunya_DIVDPersonalAppraisal.GID = PAPersonalAssessmentDto.GID;
-                Hunya_DIVDPersonalAppraisal.KeyDate = PAPersonalAssessmentDto.KeyDate;
-                Hunya_DIVDPersonalAppraisal.KeyMan = PAPersonalAssessmentDto.KeyMan;
+                JBModule.Data.Linq.Hunya_DIVDPersonalAppraisal Hunya_DIVDPersonalAppraisal = new JBModule.Data.Linq.Hunya_DIVDPersonalAppraisal
+                {
+                    EmployeeID = PAPersonalAssessmentDto.EmployeeID,
+                    YYYY = PAPersonalAssessmentDto.YYYY,
+                    DIVDAppraisalCode = PAPersonalAssessmentDto.DIVDAppraisalCode,
+                    GID = PAPersonalAssessmentDto.GID,
+                    KeyDate = PAPersonalAssessmentDto.KeyDate,
+                    KeyMan = PAPersonalAssessmentDto.KeyMan
+                };
                 var PAPersonalAssessment = GetOverlapHunya_DIVDPersonalAppraisal(PAPersonalAssessmentDto);
                 if (PAPersonalAssessment.Any())
                 {
