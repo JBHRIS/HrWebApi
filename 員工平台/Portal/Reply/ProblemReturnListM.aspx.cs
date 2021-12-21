@@ -21,7 +21,7 @@ namespace Portal
             {
                 SetUserInfo();
                 SetDefault();
-
+                txtReturnS_DataBind();
             }
         }
         private void SetUserInfo()
@@ -66,6 +66,25 @@ namespace Portal
 
             }
         }
+        private void txtReturnS_DataBind()
+        {
+            var oGetQuestionCategoryDao = new ShareGetQuestionCategoryDao();
+            var GetQuestionCategoryCond = new ShareGetQuestionCategoryConditions();
+            var result = oGetQuestionCategoryDao.GetData(GetQuestionCategoryCond);
+            var rsDataSource = result.Data as List<ShareGetQuestionCategoryRow>;
+
+            if (rsDataSource != null)
+            {
+                txtReturnS.DataSource = rsDataSource;
+                txtReturnS.DataTextField = "Name";
+                txtReturnS.DataValueField = "Code";
+                txtReturnS.DataBind();
+                //txtReturnS.SelectedIndex = 0;
+            }
+            txtReturnS.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "任何", Value = "0" });
+            txtReturnS.SelectedIndex = 0;
+
+        }
         protected void btnCheck_Click(object sender, EventArgs e)
         {
             RadButton button = sender as RadButton;
@@ -81,5 +100,22 @@ namespace Portal
             Response.Redirect("MessageList.aspx");
 
         }
+
+        protected void txtReturnS_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
+        {
+            var selectitem = sender as RadComboBox;
+            lvMain.FilterExpressions.Clear();
+            if (selectitem.SelectedValue != "0")
+            {
+
+
+                RadListViewContainsFilterExpression expression = new RadListViewContainsFilterExpression("QuestionCategoryCode");
+                expression.CurrentValue = selectitem.SelectedValue;
+                lvMain.FilterExpressions.Add(expression);
+
+            }
+            lvMain.Rebind();
+        }
     }
+
 }

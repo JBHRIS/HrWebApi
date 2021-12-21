@@ -19,9 +19,9 @@ namespace Portal
         {
             if (!IsPostBack)
             {
-                SetUserInfo();
-                txtReturnS_DataBind();
                 
+                txtReturnS_DataBind();
+                SetUserInfo();
             }
             
 
@@ -39,12 +39,29 @@ namespace Portal
         }
         private void txtReturnS_DataBind()
         {
+            var oGetQuestionCategoryDao = new ShareGetQuestionCategoryDao();
+            var GetQuestionCategoryCond = new ShareGetQuestionCategoryConditions();
+            var result = oGetQuestionCategoryDao.GetData(GetQuestionCategoryCond);
+            var rsDataSource = result.Data as List<ShareGetQuestionCategoryRow>;
             
-            txtReturnS.DataTextField = "A";
-            txtReturnS.DataValueField = "1";
+            if (rsDataSource != null)
+            {
+                txtReturnS.DataSource = rsDataSource;
+                txtReturnS.DataTextField = "Name";
+                txtReturnS.DataValueField = "Code";
+                txtReturnS.DataBind();
+                txtReturnS.SelectedIndex = 0;
+            }
+           
+           
         }
         public void btnAdd_Click(object sender, EventArgs e)
         {
+            if (txtTitle.Text == ""||txtContent.Text=="")
+            {
+                lblAddStatus.InnerText = "未輸入標題或回報內容";
+                return;
+            }
             var oQuestionMain = new ShareInsertQuestionMainDao();
             var InsertQuestionCond = new ShareInsertQuestionMainConditions();
           
@@ -58,7 +75,7 @@ namespace Portal
             InsertQuestionCond.Name = lblEmpName.Text;
             InsertQuestionCond.TitleContent = txtTitle.Text;
             InsertQuestionCond.Content = txtContent.Text;
-            InsertQuestionCond.QuestionCategoryCode = "1";
+            InsertQuestionCond.QuestionCategoryCode = txtReturnS.SelectedValue;
             InsertQuestionCond.IpAddress = lblIP.Text;          
             InsertQuestionCond.DateE = DateTime.Now;
             InsertQuestionCond.Complete = false;

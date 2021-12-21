@@ -13,14 +13,14 @@
                     </div>
                     <div class="col-lg-5">
                         <div class="row">
-                            <div class="col-lg-4 text-right">
+                            <div class="col-lg-4 text-right m-b-xs">
                                 <telerik:RadButton ID="btnAdd" runat="server" Text="建立" OnClick="btnAdd_Click" CssClass="btn btn-primary btn-md m-t-xs">
                                     <Icon PrimaryIconCssClass="rbAdd" />
                                 </telerik:RadButton>
                             </div>
                             <div class="col-lg-8">
-                                <telerik:RadComboBox ID="txtReturnS" runat="server" Skin="Bootstrap" Width="100%">
-                                </telerik:RadComboBox>
+                                 <input type="text" class="form-control form-control-sm m-b-xs" id="filter"
+                                    placeholder="搜尋表格內的字串">
                                 <!--<select class="form-control m-b" name="account">
                                  <option>未回覆</option>
                                  <option>操作問題</option>
@@ -36,9 +36,9 @@
                 <div class="row m-t-lg">
                     <div class="col-lg-12">
 
-                        <telerik:RadListView ID="lvMain" runat="server" ItemPlaceholderID="Container" OnItemCommand="lvMain_ItemCommand" OnNeedDataSource="lvMain_NeedDataSource" >
+                        <telerik:RadListView ID="lvMain" runat="server" ItemPlaceholderID="Container" OnItemCommand="lvMain_ItemCommand" OnNeedDataSource="lvMain_NeedDataSource">
                             <LayoutTemplate>
-                                <table class="rwd-table">
+                                 <table id="footable" class="footable table table-stripped rwd-table" data-page-size="10" data-filter="#filter">
                                     <thead>
                                         <tr>
                                             <th class="col-lg-2">標題</th>
@@ -52,18 +52,12 @@
                                     </thead>
                                     <tbody id="Container" runat="server">
                                         <tr>
-                                            <td>標題</td>
-                                            <td>內容長度限制內容長度限制內容長度限制內容長度限制</td>
-                                            <td>下一頁</td>
-                                            <td>下一頁</td>
-                                            <td>下一頁</td>
-                                            <td>下一頁</td>
-                                            <td>下一頁</td>
                                         </tr>
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <td colspan="9">
+                                            <td>
+                                                    <td colspan="9">
                                                 <ul class="pagination float-right"></ul>
                                             </td>
                                         </tr>
@@ -71,7 +65,8 @@
                                 </table>
                             </LayoutTemplate>
                             <ItemTemplate>
-                                <tr class="gradeX">
+                               
+                                <tr class="gradeX" >
 
                                     <td data-th="標題"><%# Eval("Name") %></td>
                                     <td data-th="內容"><%# Eval("Contents") %></td>
@@ -79,11 +74,16 @@
                                     <td data-th="新增人員"><%# Eval("InsertMan") %></td>
                                     <td data-th="更新日期"><%# Eval("UpdateDate","{0:yyyy-MM-dd}") %></td>
                                     <td data-th="更新人員"><%# Eval("UpdateMan") %></td>
-                                    <td data-th="動作">
-                                        <telerik:RadButton ID="btnUpdate" CommandArgument='<%# Eval("Code") %>' CommandName="Update" runat="server" Text="編輯" CssClass="btn-white btn btn-xs"/>
-                                        <telerik:RadButton ID="btnDelete" CommandArgument='<%# Eval("Code") %>' CommandName="Delete" runat="server" Text="刪除" CssClass="btn-white btn btn-xs" />
+                                    <td data-th="操作">
+                                        <telerik:RadButton ID="btnUpdate" CommandArgument='<%# Eval("Code") %>' CommandName="Update" runat="server" Text="編輯" CssClass="btn btn-white btn-xs" >
+                                            <Icon PrimaryIconCssClass="rbEdit" /> 
+                                        </telerik:RadButton>
+                                        <telerik:RadButton ID="btnDelete" CommandArgument='<%# Eval("Code") %>' CommandName="Delete" runat="server" Text="刪除" CssClass="btn btn-white btn-xs" >
+                                            <Icon PrimaryIconCssClass="rbRemove" />
+                                        </telerik:RadButton>   
                                     </td>
                                 </tr>
+                                    
                             </ItemTemplate>
                             <EmptyDataTemplate>
                             </EmptyDataTemplate>
@@ -92,10 +92,23 @@
                         <asp:Label ID="lblEmpID" runat="server" Visible="False"></asp:Label>
                         <asp:Label ID="lblCompanyId" runat="server" Visible="False"></asp:Label>
                         <asp:Label ID="lblEmpName" runat="server" Visible="False"></asp:Label>
-                        <asp:Label ID="lblRoleKey" runat="server" Visible="False" Text="8"></asp:Label>
+                        <asp:Label ID="lblRoleKey" runat="server" Visible="False"></asp:Label>
                     </div>
                 </div>
             </div>
         </telerik:RadAjaxPanel>
     </div>
+</asp:Content>
+<asp:Content ID="Content3" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
+    <script src="Templates/Inspinia/js/plugins/footable/footable.all.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('.footable').footable();
+        });
+
+
+    </script>
+
 </asp:Content>

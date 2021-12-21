@@ -65,6 +65,8 @@ namespace Portal
                     GetQuestionDefaultMessageCond.RoleKey = _User.RoleKey.ToString();
                     var rsGQDM = oGetQuestionDefaultMessage.GetData(GetQuestionDefaultMessageCond).Data as List<ShareGetQuestionDefaultMessageByRoleKeyRow>;
                     lvMain.DataSource = rsGQDM;
+                    var Script = "$(document).ready(function() {$('.footable').footable();});";
+                    ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);
 
                 }
                 catch (Exception ex)

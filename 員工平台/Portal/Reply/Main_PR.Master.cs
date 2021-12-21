@@ -14,8 +14,9 @@ namespace Portal
         {
             if (!this.IsPostBack)
             {
-                Page.PreRenderComplete += Page_PreRenderComplete;
+                
             }
+            Page.PreRenderComplete += Page_PreRenderComplete;
         }
         private void Page_PreRenderComplete(object sender, EventArgs e)
         {

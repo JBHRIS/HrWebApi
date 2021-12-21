@@ -9,7 +9,7 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>JB數位客服</title>
-    <link href="Templates/Inspinia/css/plugins/footable/footable.core.css" rel="stylesheet">
+    <!--<link href="Templates/Inspinia/css/plugins/footable/footable.core.css" rel="stylesheet">-->
     <link href="Templates/Inspinia/css/bootstrap.min.css" rel="stylesheet">
     <link href="Templates/Inspinia/font-awesome/css/font-awesome.css" rel="stylesheet">
 
@@ -21,20 +21,22 @@
     <link href="styles/Main.css" rel="stylesheet">
     <link href="styles/style.css" rel="stylesheet">
 
+    <link href="Fonts/FontAwesome.ttf" rel="stylesheet" />
+    <link href="Images/favicon.ico" rel="shortcut icon">
     <link href="Templates/Inspinia/css/plugins/colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet">
     <link href="Templates/Inspinia/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
     <link href="Templates/Inspinia/css/plugins/clockpicker/clockpicker.css" rel="stylesheet">
     <link href="Templates/Inspinia/css/plugins/select2/select2.min.css" rel="stylesheet">
     <link href="Templates/Inspinia/css/plugins/select2/select2-bootstrap4.min.css" rel="stylesheet">
-    <link href="styles/form_style.css" rel="stylesheet">
-    <link href="Templates/Inspinia/css/bootstrap.min.css" rel="stylesheet">
-    <link href="Templates/Inspinia/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link href="Templates/Inspinia/css/animate.css" rel="stylesheet">
-    <link href="Templates/Inspinia/css/style.css" rel="stylesheet">
-    <link href="styles/style.css" rel="stylesheet">
-    <link href="styles/form_style.css" rel="stylesheet">
-    <link href="styles/pr_style.css" rel="stylesheet">
-    <link href="styles/redcontrol_form.css" rel="stylesheet">
+    
+    <link href="styles/form_style.css" rel="stylesheet" />
+
+    <style>
+        .table td, .table th {
+            border-top:0 !important;
+        }
+    </style>
+    
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>

@@ -86,8 +86,12 @@ namespace Portal
                 UpdateQuestionDefaultMessageCond.RefreshToken = _User.RefreshToken;
                 UpdateQuestionDefaultMessageCond.CompanySetting = CompanySetting;
                 UpdateQuestionDefaultMessageCond.Code = Request.QueryString["Code"];
-                
-
+                UpdateQuestionDefaultMessageCond.Name = txtTitle.Text;
+                UpdateQuestionDefaultMessageCond.Contents = txtContent.Text;
+                UpdateQuestionDefaultMessageCond.UpdateMan = _User.EmpName;
+                UpdateQuestionDefaultMessageCond.UpdateDate = DateTime.Now;
+                oUpdateQuestionDefaultMessage.GetData(UpdateQuestionDefaultMessageCond);
+                lblAddStatus.InnerText = "資料更新成功";
             }
             else
             {
@@ -112,9 +116,9 @@ namespace Portal
                 oQuestionDefaultMessage.GetData(InsertQuestionDefaultMessageCond);
                 lblAddStatus.InnerText = "新增成功";
             }
+
             
-
-
+            Response.Redirect("MessageList.aspx");
 
 
         }
@@ -130,9 +134,7 @@ namespace Portal
             RadButton button = sender as RadButton;
             txtTitle.Text = button.CommandName;
             txtContent.Text = button.CommandArgument;
-            var Script = "$(document).ready(function() {$('.footable').footable();});";
-            ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);
-
+            
         }
 
       

@@ -124,6 +124,7 @@
     <Content Include="App_Data\RadCaptcha\X.wav" />
     <Content Include="App_Data\RadCaptcha\Y.wav" />
     <Content Include="App_Data\RadCaptcha\Z.wav" />
+    <Content Include="LoginBind.aspx" />
     <Content Include="LoginValidate.aspx" />
     <Content Include="MessageList.aspx" />
     <Content Include="MessageNew.aspx" />
@@ -1591,6 +1592,13 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ClassLibrary\UnobtrusiveSession.cs" />
+    <Compile Include="LoginBind.aspx.cs">
+      <DependentUpon>LoginBind.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginBind.aspx.designer.cs">
+      <DependentUpon>LoginBind.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LoginValidate.aspx.cs">
       <DependentUpon>LoginValidate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1655,6 +1663,13 @@
       <DependentUpon>ProblemReturnView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Single.Master.cs">
+      <DependentUpon>Single.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Single.Master.designer.cs">
+      <DependentUpon>Single.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\RadSpell\de-DE.tdf" />
@@ -1756,6 +1771,7 @@
     <Content Include="Templates\Inspinia\locales\en.json" />
     <Content Include="Templates\Inspinia\locales\es.json" />
     <Content Include="Templates\Inspinia\pdf\example.pdf" />
+    <Content Include="Single.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1802,7 +1818,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

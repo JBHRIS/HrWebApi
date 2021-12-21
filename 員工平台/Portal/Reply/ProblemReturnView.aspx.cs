@@ -56,17 +56,6 @@ namespace Portal
                     lblQuestionCategory.Text = Data.QuestionCategoryCode;
                     lblContent.Text = Data.Content;
 
-                    var oGetQuestionReply = new ShareGetQuestionReplyByCodeDao();
-                    var GetQuestionReplyCond = new ShareGetQuestionReplyByCodeConditions();
-                    GetQuestionReplyCond.AccessToken = _User.AccessToken;
-                    GetQuestionReplyCond.RefreshToken = _User.RefreshToken;
-                    GetQuestionReplyCond.CompanySetting = CompanySetting;
-                    GetQuestionReplyCond.Code = Request.QueryString["Code"];
-                    var rsGQR = oGetQuestionReply.GetData(GetQuestionReplyCond);
-                    var rsQM = rsGQR.Data as List<ShareGetQuestionReplyByCodeRow>;
-                    QuestionReplyData.DataSource = rsQM;
-                    QuestionReplyData.DataBind();
-                   
                 }
                 catch (Exception ex)
                 { 
@@ -79,6 +68,30 @@ namespace Portal
            
 
 
+        }
+
+        protected void lvMain_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
+        {
+          
+            try
+            {
+             
+
+                var oGetQuestionReply = new ShareGetQuestionReplyByQuestionMainCodeDao();
+                var GetQuestionReplyCond = new ShareGetQuestionReplyByQuestionMainCodeConditions();
+                GetQuestionReplyCond.AccessToken = _User.AccessToken;
+                GetQuestionReplyCond.RefreshToken = _User.RefreshToken;
+                GetQuestionReplyCond.CompanySetting = CompanySetting;
+                GetQuestionReplyCond.Code = Request.QueryString["Code"];
+                var rsGQR = oGetQuestionReply.GetData(GetQuestionReplyCond);
+                var rsQM = rsGQR.Data as List<ShareGetQuestionReplyByQuestionMainCodeRow>;
+                QuestionReplyData.DataSource = rsQM;
+                
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
         protected void btnAdd_Click(object sender, EventArgs e)
         {
@@ -114,12 +127,89 @@ namespace Portal
 
             }
             catch (Exception ex)
-            { 
-            
+            {
+              
             }
                 
             
 
+        }
+        public void btnPage_Click(object sender, EventArgs e)
+        {
+
+            Response.Redirect("ProblemReturnList.aspx");
+
+        }
+        protected void lvMain_ItemCommand(object sender, RadListViewCommandEventArgs e)
+        {
+
+
+            var CN = e.CommandName;
+            var CA = e.CommandArgument;
+            if (CN == "Add")
+            {
+                var oInsertQuestionReply = new ShareInsertQuestionReplyDao();
+                var InsertQuestionReplyCond = new ShareInsertQuestionReplyConditions();
+                InsertQuestionReplyCond.AccessToken = _User.AccessToken;
+                InsertQuestionReplyCond.RefreshToken = _User.RefreshToken;
+                InsertQuestionReplyCond.CompanySetting = CompanySetting;
+                InsertQuestionReplyCond.AutoKey = 0;
+                InsertQuestionReplyCond.Code = Guid.NewGuid().ToString();
+                InsertQuestionReplyCond.QuestionMainCode = Request.QueryString["Code"];
+                InsertQuestionReplyCond.Key1 = lblEmpID.Text;
+                InsertQuestionReplyCond.Key2 = lblEmpID.Text;
+                InsertQuestionReplyCond.Key3 = lblEmpID.Text;
+                InsertQuestionReplyCond.Name = lblEmpName.Text;
+                InsertQuestionReplyCond.Content = txtContent.Text;
+                InsertQuestionReplyCond.RoleKey = Int32.Parse(lblRoleKey.Text);
+                InsertQuestionReplyCond.IpAddress = WebPage.GetClientIP(Context);
+                InsertQuestionReplyCond.ReplyToCode = "";
+                InsertQuestionReplyCond.ParentCode = Request.QueryString["Code"];
+                InsertQuestionReplyCond.Send = true;
+                InsertQuestionReplyCond.Status = "1";
+                InsertQuestionReplyCond.Note = "";
+                InsertQuestionReplyCond.InsertMan = lblEmpName.Text;
+                InsertQuestionReplyCond.InsertDate = DateTime.Now;
+                InsertQuestionReplyCond.UpdateMan = lblEmpName.Text;
+                InsertQuestionReplyCond.UpdateDate = DateTime.Now;
+
+                oInsertQuestionReply.GetData(InsertQuestionReplyCond);
+                lblAddStatus.InnerText="送出成功";
+                txtContent.Text = "";
+                QuestionReplyData.Rebind();
+            }
+            else if (CN == "Reply")
+            {
+                var oInsertQuestionReply = new ShareInsertQuestionReplyDao();
+                var InsertQuestionReplyCond = new ShareInsertQuestionReplyConditions();
+                InsertQuestionReplyCond.AccessToken = _User.AccessToken;
+                InsertQuestionReplyCond.RefreshToken = _User.RefreshToken;
+                InsertQuestionReplyCond.CompanySetting = CompanySetting;
+                InsertQuestionReplyCond.AutoKey = 0;
+                InsertQuestionReplyCond.Code = Guid.NewGuid().ToString();
+                InsertQuestionReplyCond.QuestionMainCode = Request.QueryString["Code"];
+                InsertQuestionReplyCond.Key1 = lblEmpID.Text;
+                InsertQuestionReplyCond.Key2 = lblEmpID.Text;
+                InsertQuestionReplyCond.Key3 = lblEmpID.Text;
+                InsertQuestionReplyCond.Name = lblEmpName.Text;
+                InsertQuestionReplyCond.Content = txtContent.Text;
+                InsertQuestionReplyCond.RoleKey = Int32.Parse(lblRoleKey.Text);
+                InsertQuestionReplyCond.IpAddress = WebPage.GetClientIP(Context);
+                InsertQuestionReplyCond.ReplyToCode = "";
+                InsertQuestionReplyCond.ParentCode = CA.ToString();
+                InsertQuestionReplyCond.Send = true;
+                InsertQuestionReplyCond.Status = "1";
+                InsertQuestionReplyCond.Note = "";
+                InsertQuestionReplyCond.InsertMan = lblEmpName.Text;
+                InsertQuestionReplyCond.InsertDate = DateTime.Now;
+                InsertQuestionReplyCond.UpdateMan = lblEmpName.Text;
+                InsertQuestionReplyCond.UpdateDate = DateTime.Now;
+
+                oInsertQuestionReply.GetData(InsertQuestionReplyCond);
+                QuestionReplyData.Rebind();
+
+            }
+            
         }
     }
 }

@@ -69,49 +69,40 @@ namespace Portal
         protected global::Telerik.Web.UI.RadLabel lblContent;
 
         /// <summary>
-        /// btnMessage 控制項。
+        /// plMain 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btnMessage;
+        protected global::Telerik.Web.UI.RadAjaxPanel plMain;
 
         /// <summary>
-        /// cbHR 控制項。
+        /// ChkFirst 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadCheckBox cbHR;
+        protected global::Telerik.Web.UI.RadCheckBox ChkFirst;
 
         /// <summary>
-        /// cbStytle 控制項。
+        /// ChkSecond 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadCheckBox cbStytle;
+        protected global::Telerik.Web.UI.RadCheckBox ChkSecond;
 
         /// <summary>
-        /// cbQ 控制項。
+        /// ChkThird 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadCheckBox cbQ;
-
-        /// <summary>
-        /// cbBoth 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadCheckBox cbBoth;
+        protected global::Telerik.Web.UI.RadCheckBox ChkThird;
 
         /// <summary>
         /// RadButton2 控制項。

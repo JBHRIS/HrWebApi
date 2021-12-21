@@ -53,7 +53,8 @@ namespace Portal
 
                         var rsQM = rsGetQuestionMain.Data as List<ShareGetQuestionDefaultMessageByRoleKeyRow>;
                         lvMain.DataSource = rsQM;
-                        
+                        var Script = "$(document).ready(function() {$('.footable').footable();});";
+                        ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);
                     }
 
                 }
@@ -133,5 +134,7 @@ namespace Portal
 
             Response.Redirect("MessageNew.aspx?Active=Update&&Code="+button.CommandArgument);
         }
+
+      
     }
 }

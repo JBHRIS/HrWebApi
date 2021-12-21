@@ -29,114 +29,133 @@
             </p>
         </div>
     </div>
-
+     <telerik:RadAjaxPanel ID="plMain" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
     <div class="row">
-        <div class="col-lg-12">
-            <div class="ibox">
-                <div class="ibox-content">
-                    <div class="request_bg">
-                        <div class="row">
-                            <div class="form-group  col-lg-6">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <h3>訊息回覆</h3>
-                                    </div>
-                                    <div class="col-lg-6 text-right">
-                                        <telerik:RadButton ID="btnMessage" runat="server" CssClass="slect_cans btn btn-outline btn-md btn-w-m" Text="選擇罐頭訊息" />
-                                        <!--點選選擇罐頭訊息後，右邊會跳出預設罐頭訊息，使用者點選罐頭訊息後能修改罐頭訊息-->
-                                    </div>
-                                </div>
-
-                                <div class="form-group row form-inline">
-                                    <label class="col-lg-3 col-form-label text-left">問題轉交或回覆</label>
-                                    <div class="col-lg-9">
-                                        <div class="row">
-                                            <telerik:RadCheckBox ID="cbHR" runat="server" Skin="Bootstrap" Text="HR" />
-                                            &ensp;
-                                                <telerik:RadCheckBox ID="cbStytle" runat="server" Skin="Bootstrap" Text="系統商" />
-                                            &ensp;
-                                                <telerik:RadCheckBox ID="cbQ" runat="server" Skin="Bootstrap" Text="提問者" />
-                                            &ensp;
-                                                <telerik:RadCheckBox ID="cbBoth" runat="server" Skin="Bootstrap" Text="系統商及提問者" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
+       
+            <div class="col-lg-12">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <div class="request_bg">
+                            <div class="row">
+                                <div class="form-group  col-lg-6">
                                     <div class="row">
-                                        <label class="col-lg-2 col-form-label">選擇人員</label>
-                                        <div class="col-lg-8">
+                                        <div class="col-lg-6">
+                                            <h3>訊息回覆</h3>
                                         </div>
-                                        <div class="col-lg-2 text-right">
-                                            <telerik:RadButton ID="RadButton2" runat="server" CssClass="slect_cans btn btn-outline btn-md btn-w-m" Text="編輯" />
+                                        <div class="col-lg-6 text-right">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row form-inline">
+                                        <label class="col-lg-3 col-form-label text-left">問題轉交或回覆</label>
+                                        <div class="col-lg-9">
+                                            <div class="row">
+                                                <telerik:RadCheckBox ID="ChkFirst" AutoPostBack="false" runat="server" Skin="Bootstrap" Text="HR" />
+                                                &ensp;
+                                                <telerik:RadCheckBox ID="ChkSecond" AutoPostBack="false" runat="server" Skin="Bootstrap" Text="提問者" />
+                                                &ensp;
+                                                <telerik:RadCheckBox ID="ChkThird" AutoPostBack="false" runat="server" Skin="Bootstrap" Text="HR及提問者" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <label class="col-lg-2 col-form-label">選擇人員</label>
+                                            <div class="col-lg-8">
+                                            </div>
+                                            <div class="col-lg-2 text-right">
+                                                <telerik:RadButton ID="RadButton2" runat="server" CssClass="slect_cans btn btn-outline btn-md btn-w-m" Text="編輯" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-12">
+                                            <telerik:RadTextBox ID="txtContent" runat="server" EmptyMessage="請填寫您想回報的內容..."
+                                                TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="3">
+                                            </telerik:RadTextBox>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-lg-12">
-                                        <telerik:RadTextBox ID="txtContent" runat="server" EmptyMessage="請填寫您想回報的內容..."
-                                            TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="3">
-                                        </telerik:RadTextBox>
-                                    </div>
-                                </div>
-                            </div>
 
 
-                            <div class="col-lg-6">
-                                <telerik:RadListView ID="lvMain" runat="server" ItemPlaceholderID="Container">
-                                    <LayoutTemplate>
-                                        <table id="footable" class="footable table table-stripped" data-page-size="3" data-filter="#filterTaken">
-                                            <thead>
-                                            </thead>
-                                            <tbody id="Container" runat="server">
+                                <div class="col-lg-6">
+                                    <h5>選擇罐頭訊息後編輯成想要的文字</h5>
+                                    <telerik:RadListView ID="lvMain" runat="server" ItemPlaceholderID="Container">
+                                        <LayoutTemplate>
+                                            <table id="footable" class="footable table table-stripped" data-page-size="3" data-filter="#filterTaken">
+                                                <thead>
+                                                </thead>
+                                                <tbody id="Container" runat="server">
 
-                                                <telerik:RadLabel ID="lblName2" runat="server" CssClass="name_font" Text="標題" />
-                                                <br />
-                                                <telerik:RadLabel ID="lblDate2" runat="server" CssClass="text-muted" Text="內容" />
-                                            </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <td colspan="9">
-                                                        <ul class="pagination float-right"></ul>
-                                                    </td>
+                                                    <telerik:RadLabel ID="lblName2" runat="server" CssClass="name_font" Text="標題" />
+                                                    <br />
+                                                    <telerik:RadLabel ID="lblDate2" runat="server" CssClass="text-muted" Text="內容" />
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <td colspan="9">
+                                                            <ul class="pagination float-right"></ul>
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </LayoutTemplate>
+                                        <ItemTemplate>
+                                            <tr>
+                                            <div class="ibox-content">
+                                                <div class="row">
+                                                    <div class="col-lg-9">
+                                                        <div>
+                                                            <telerik:RadLabel ID="RadLabel1" runat="server" CssClass="product-name" Text='<%# Eval("Name")%>' />
+                                                        </div>
+                                                        <div class="small m-t-xs">
+                                                            <telerik:RadLabel ID="RadLabel2" runat="server" CssClass="text-muted" Text='<%# Eval("Contents")%>' />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-3  m-t-xs text-center">
+                                                        <telerik:RadButton ID="SetDefaultMessage" runat="server" Text="選擇" CommandName='<%# Eval("Name") %>' CommandArgument='<%# Eval("Contents") %>' CssClass="btn-white btn btn-xs" OnClick="SetDefaultMessage" />
+                                                    </div>
+                                                </div>
+                                            </div>
                                                 </tr>
-                                            </tfoot>
-                                        </table>
-                                    </LayoutTemplate>
-                                    <ItemTemplate>
-                                        <tr>
-                                            <td>標題 : 
-                                                    <telerik:RadLabel ID="lblName2" runat="server" CssClass="name_font" Text='<%# Eval("Name")%>' />
-
-                                                <td>內容 : 
-                                                     <telerik:RadLabel ID="lblDate2" runat="server" CssClass="text-muted" Text='<%# Eval("Contents")%>' />
-                                                </td>
-                                            <td>
-                                                <telerik:RadButton ID="SetDefaultMessage" runat="server" Text="選擇" CommandName='<%# Eval("Name") %>' CommandArgument='<%# Eval("Contents") %>' CssClass="btn-white btn btn-xs" OnClick="SetDefaultMessage" />
-                                            </td>
-
-                                        </tr>
-                                    </ItemTemplate>
-                                    <EmptyDataTemplate>
-                                        無任何預設訊息
-                                    </EmptyDataTemplate>
-                                </telerik:RadListView>
-                            </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <telerik:RadButton ID="btnDraft" runat="server" Text="儲存草稿" CssClass="btn btn-outline btn-primary btn-md" />
-                                <telerik:RadButton ID="btnAdd" runat="server" Text="送出" CssClass="btn btn-primary btn-md" />
+                                        </ItemTemplate>
+                                        <EmptyDataTemplate>
+                                            無任何預設訊息
+                                        </EmptyDataTemplate>
+                                    </telerik:RadListView>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <telerik:RadButton ID="btnDraft" runat="server" Text="儲存草稿" CssClass="btn btn-outline btn-primary btn-md" />
+                                        <telerik:RadButton ID="btnAdd" runat="server" Text="送出" CssClass="btn btn-primary btn-md" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
+            </div>
+        
     </div>
+    </telerik:RadAjaxPanel>
     <asp:Label ID="lblUserCode" runat="server" Visible="False"></asp:Label>
     <asp:Label ID="lblEmpID" runat="server" Visible="False"></asp:Label>
     <asp:Label ID="lblCompanyId" runat="server" Visible="False"></asp:Label>
     <asp:Label ID="lblEmpName" runat="server" Visible="False"></asp:Label>
     <asp:Label ID="lblRoleKey" runat="server" Visible="False"></asp:Label>
+</asp:Content>
+
+<asp:Content ID="Content3" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
+    <script src="Templates/Inspinia/js/plugins/footable/footable.all.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('.footable').footable();
+        });
+    </script>
+
 </asp:Content>

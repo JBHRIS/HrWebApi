@@ -22,6 +22,7 @@ namespace JBHRIS.Api.Dto.FlowMainInte.Vdb
         public string TitleContent { get; set; }
         public string Content { get; set; }
         public string QuestionCategoryCode { get; set; }
+        public string QuestionCategoryName { get; set; }
         public string IpAddress { get; set; }
         public DateTime DateE { get; set; }
 

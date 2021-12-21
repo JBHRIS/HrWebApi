@@ -15,7 +15,9 @@
                             <telerik:RadButton ID="btnAdd" runat="server" Text="預設訊息設定" OnClick="btnSet_Click" CssClass="btn btn-primary btn-md m-t-xs" />
                         </div>
                         <div class="col-lg-8">
-                            <telerik:RadComboBox ID="txtReturnS" runat="server" Skin="Bootstrap" Width="100%">
+                            <telerik:RadComboBox ID="txtReturnS" runat="server" Skin="Bootstrap" AllowCustomText="True"
+                                AutoPostBack="false" EnableVirtualScrolling="True" ItemsPerRequest="10" Filter="Contains"
+                                LoadingMessage="載入中…" Width="100%" OnSelectedIndexChanged="txtReturnS_SelectedIndexChanged">
                             </telerik:RadComboBox>
                             <!--<select class="form-control m-b" name="account">
                                  <option>未回覆</option>
@@ -31,10 +33,10 @@
 
             <div class="row m-t-lg">
                 <div class="col-lg-12">
-                   <telerik:RadAjaxPanel ID="plMain" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
-                        <telerik:RadListView ID="lvMain" runat="server" ItemPlaceholderID="Container" >
+                    <telerik:RadAjaxPanel ID="plMain" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
+                        <telerik:RadListView ID="lvMain" runat="server" ItemPlaceholderID="Container">
                             <LayoutTemplate>
-                                <table id="footable" class="footable table table-stripped" data-page-size="10" data-filter="#filterTaken">
+                                <table id="footable" class="footable table table-stripped rwd-table" data-page-size="10" data-filter="#filterTaken">
                                     <thead>
                                         <tr>
                                             <th>標題</th>
@@ -64,13 +66,15 @@
                                     <td data-th="填寫日期"><%# Eval("DateE","{0:yyyy-MM-dd}") %></td>
                                     <td data-th="回覆日期"><%# Eval("UpdateDate","{0:yyyy-MM-dd}") %></td>
                                     <td data-th="操作">
-                                        <telerik:RadButton ID="btnCheck" runat="server" Text="查看" CommandArgument='<%# Eval("Code") %>' CssClass="btn-white btn btn-xs" Onclick="btnCheck_Click" />
+                                        <telerik:RadButton ID="btnCheck" runat="server" Text="查看" CommandArgument='<%# Eval("Code") %>' CssClass="btn btn-outline btn-primary btn-xs" OnClick="btnCheck_Click">
+                                            <Icon SecondaryIconCssClass="rbNext" />
+                                        </telerik:RadButton>
                                     </td>
                                 </tr>
 
                             </ItemTemplate>
                             <EmptyDataTemplate>
-                                 無任何回報記錄
+                                無任何回報記錄
                             </EmptyDataTemplate>
                         </telerik:RadListView>
                     </telerik:RadAjaxPanel>

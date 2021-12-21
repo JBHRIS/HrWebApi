@@ -98,7 +98,9 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
         {
 
             List<QuestionMainVdb> result = (from bn in this._context.QuestionMains
-                                            where bn.CompanyId==CompanyId
+                                            join cn in this._context.ShareCodes on bn.QuestionCategoryCode equals cn.Code into ps
+                                            from cn in ps.DefaultIfEmpty()
+                                            where bn.CompanyId==CompanyId && cn.GroupCode == "ReplyCode" 
                                             select new QuestionMainVdb
                                             {
                                                 AutoKey = bn.AutoKey,
@@ -112,6 +114,7 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                                                 TitleContent = bn.TitleContent,
                                                 Content = bn.Content,
                                                 QuestionCategoryCode = bn.QuestionCategoryCode,
+                                                QuestionCategoryName =cn.Name,
                                                 IpAddress = bn.IpAddress,
                                                 DateE = bn.DateE,
                                                 Complete = bn.Complete,
