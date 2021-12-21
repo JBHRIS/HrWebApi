@@ -143,7 +143,7 @@ namespace JBHR.AnnualBonus.HunyaCustom
                     int YYYY = int.Parse(TransferRow["考績年度"].ToString());
                     //string ABAppraisalCode = string.Empty;
                     ColumnValidate(TransferRow, "年度評等", TransferCheckDataField.RealCode, out string ABLevelCode);
-                    decimal ABSocre = decimal.Parse(TransferRow["考績分數"].ToString());
+                    decimal ABSocre = decimal.Parse(TransferRow["年度考績"].ToString());
                     ColumnValidate(TransferRow, "實際評等", TransferCheckDataField.RealCode, out string RealLevelCode);
                     Guid GID = Guid.NewGuid();
 

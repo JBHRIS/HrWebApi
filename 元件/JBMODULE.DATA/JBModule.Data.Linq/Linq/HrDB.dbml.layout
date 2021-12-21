@@ -250,7 +250,7 @@
         <elementListCompartment Id="604a85f0-08af-4629-b5f8-27ba52ca58ef" absoluteBounds="18.265000000596046, 3.4600000008940697, 1.9700000000000002, 1.7164815266927083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(14.75 : 3.8187505); (18.46875 : 3.8187505); (18.46875 : 3.45)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(14.75 : 3.8187505); (17.8209630729167 : 3.8187505 : JumpStart); (17.9876297395833 : 3.8187505 : JumpEnd); (18.46875 : 3.8187505); (18.46875 : 3.45)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HrDBDataContext/COMP/COMP_U_DATAGROUP" />
       <nodes>
         <classShapeMoniker Id="eb3fd6cd-0a99-4ebb-9b54-f56ff05b2acc" />
@@ -340,7 +340,7 @@
         <elementListCompartment Id="3af78ad2-611d-4110-90a7-ed86bcb85f51" absoluteBounds="3.5150000005960464, 5.33500000089407, 1.9700000000000002, 5.4123636881510411" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 5.0687475); (3.19791666666667 : 5.0687475 : JumpStart); (3.36458333333333 : 5.0687475 : JumpEnd); (3.5 : 5.0687475)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 5.0687475); (3.5 : 5.0687475)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HrDBDataContext/BASE/BASE_ABS1" />
       <nodes>
         <classShapeMoniker Id="02f1b079-32b1-41ba-b4ef-c6d416eb5e0b" />
@@ -379,7 +379,7 @@
         <classShapeMoniker Id="879488a4-a47d-4224-9e41-35e286494c64" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 3.05767007692308); (3.5 : 3.05767007692308)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 3.05767007692308); (3.5 : 3.05767007692308)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HrDBDataContext/HCODE/HCODE_ABS" />
       <nodes>
         <classShapeMoniker Id="fa0237cf-4dd1-4f2e-8e2a-106cf78a588b" />
@@ -688,28 +688,28 @@
         <classShapeMoniker Id="f46691b8-844b-4794-926c-30bbd71f382d" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.75 : 12.575); (9.125 : 12.95); (11.6666666666667 : 12.95 : JumpStart); (11.8333333333333 : 12.95 : JumpEnd); (13.5 : 12.95); (13.5 : 14.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(8.75 : 12.575); (9.125 : 12.95); (13.5 : 12.95); (13.5 : 14.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HrDBDataContext/NotifyMsgTpl/NotifyMsgTpl_JBSystemEventTriggerMsg" />
       <nodes>
         <classShapeMoniker Id="12e5160a-8202-4856-ad25-d41f4e0d030f" />
         <classShapeMoniker Id="f46691b8-844b-4794-926c-30bbd71f382d" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11.5 : 10.35); (11.6666666666667 : 10.35 : JumpStart); (11.8333333333333 : 10.35 : JumpEnd); (12.25 : 10.35)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(11.5 : 10.35); (12.25 : 10.35)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HrDBDataContext/NotifyMsgTarget/NotifyMsgTarget_NotifyMsgTargetType" />
       <nodes>
         <classShapeMoniker Id="06574578-76c1-4b19-9902-09dea130562a" />
         <classShapeMoniker Id="5464da59-464b-43d0-9449-9c0bda007c07" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.75 : 6.94238361538461); (9.125 : 7.31738361538461); (9.125 : 9.75); (9.13541666666667 : 9.75 : JumpStart); (9.30208333333333 : 9.75 : JumpEnd); (11.6666666666667 : 9.75 : JumpStart); (11.8333333333333 : 9.75 : JumpEnd); (11.875 : 9.75); (12.25 : 10.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(8.75 : 6.94238361538461); (9.125 : 7.31738361538461); (9.125 : 9.75); (9.19791666666667 : 9.75 : JumpStart); (9.36458333333333 : 9.75 : JumpEnd); (11.875 : 9.75); (12.25 : 10.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HrDBDataContext/NotifyType/NotifyType_NotifyMsgTargetType" />
       <nodes>
         <classShapeMoniker Id="b3395008-c5c9-4617-b67d-6d33fc7ab3c6" />
         <classShapeMoniker Id="5464da59-464b-43d0-9449-9c0bda007c07" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.75 : 10.35); (9.5 : 10.35)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(8.75 : 10.35); (9.19791666666667 : 10.35 : JumpStart); (9.36458333333333 : 10.35 : JumpEnd); (9.5 : 10.35)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HrDBDataContext/NotifyTargetType/NotifyTargetType_NotifyMsgTarget" />
       <nodes>
         <classShapeMoniker Id="88a61372-72b8-472e-bdb6-1cf54fdc2201" />
@@ -723,7 +723,7 @@
         <classShapeMoniker Id="4e8a744c-1d76-45e9-8e4e-4e29b7a98235" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.75 : 10.5528451538462); (9.40625 : 11.2090951538462); (9.40625 : 12.0385192307692); (9.5 : 12.1322692307692)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(8.75 : 10.5528451538462); (9.22232443490112 : 11.0251695887473 : JumpStart); (9.34017556509888 : 11.1430207189451 : JumpEnd); (9.40625 : 11.2090951538462); (9.40625 : 12.0385192307692); (9.5 : 12.1322692307692)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HrDBDataContext/NotifyTargetType/NotifyTargetType_NotifyMsgTplTarget1" />
       <nodes>
         <classShapeMoniker Id="88a61372-72b8-472e-bdb6-1cf54fdc2201" />
@@ -744,14 +744,14 @@
         <classShapeMoniker Id="1b6c0ee8-dca6-47a4-9991-0ee9b18af70b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.75 : 6.92784515384615); (9.28125 : 7.45909515384615); (9.28125 : 11.75); (9.32291666666667 : 11.75 : JumpStart); (9.48958333333333 : 11.75 : JumpEnd); (11.6666666666667 : 11.75 : JumpStart); (11.8333333333333 : 11.75 : JumpEnd); (11.875 : 11.75); (12.25 : 12.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(8.75 : 6.92784515384615); (9.28125 : 7.45909515384615); (9.28125 : 11.75); (11.875 : 11.75); (12.25 : 12.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HrDBDataContext/NotifyType/NotifyType_NotifyMsgTplTargetType" />
       <nodes>
         <classShapeMoniker Id="b3395008-c5c9-4617-b67d-6d33fc7ab3c6" />
         <classShapeMoniker Id="1b6c0ee8-dca6-47a4-9991-0ee9b18af70b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.75 : 8.17784515384615); (9.21875 : 8.64659515384615); (9.21875 : 9.84375); (9.5 : 10.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(8.75 : 8.17784515384615); (9.06607443490112 : 8.49391958874727 : JumpStart); (9.18392556509888 : 8.61177071894503 : JumpEnd); (9.21875 : 8.64659515384615); (9.21875 : 9.84375); (9.22232443490112 : 9.84732443490112 : JumpStart); (9.34017556509888 : 9.96517556509888 : JumpEnd); (9.5 : 10.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HrDBDataContext/NotifyMsg/NotifyMsg_NotifyMsgTarget" />
       <nodes>
         <classShapeMoniker Id="7e442c08-f12a-494a-8e71-1f8592e62a75" />
@@ -765,14 +765,14 @@
         <classShapeMoniker Id="08e8d9f4-8df2-4b93-8f27-4f5ff575b587" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.75 : 6.68267007692308); (9.5 : 6.68267007692308)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(8.75 : 6.68267007692308); (9.10416666666667 : 6.68267007692308 : JumpStart); (9.27083333333333 : 6.68267007692308 : JumpEnd); (9.5 : 6.68267007692308)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HrDBDataContext/NotifyType/NotifyType_NotifyMsgDetail" />
       <nodes>
         <classShapeMoniker Id="b3395008-c5c9-4617-b67d-6d33fc7ab3c6" />
         <classShapeMoniker Id="08e8d9f4-8df2-4b93-8f27-4f5ff575b587" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.75 : 7.93267007692308); (9.5 : 7.93267007692308)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(8.75 : 7.93267007692308); (9.04166666666667 : 7.93267007692308 : JumpStart); (9.36458333333333 : 7.93267007692308 : JumpEnd); (9.5 : 7.93267007692308)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HrDBDataContext/NotifyMsg/NotifyMsg_NotifyMsgDetail" />
       <nodes>
         <classShapeMoniker Id="7e442c08-f12a-494a-8e71-1f8592e62a75" />
@@ -807,14 +807,14 @@
         <classShapeMoniker Id="dfed670e-a0fe-4ecc-8a1e-0c7632792b18" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 14.96875); (6.19791666666667 : 14.96875 : JumpStart); (6.36458333333333 : 14.96875 : JumpEnd); (6.62880969230769 : 14.96875); (6.62880969230769 : 5.325)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.75 : 14.96875); (6.62880969230769 : 14.96875); (6.62880969230769 : 5.325)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HrDBDataContext/JOB/JOB_BASETTS" />
       <nodes>
         <classShapeMoniker Id="482c7c9f-edc5-4da3-9f26-4949e5bf7576" />
         <classShapeMoniker Id="dfed670e-a0fe-4ecc-8a1e-0c7632792b18" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.73892307692308 : 5.325); (3.125 : 5.71107692307693); (3.125 : 11.5); (3.22232443490112 : 11.5973244349011 : JumpStart); (3.34017556509888 : 11.7151755650989 : JumpEnd); (3.5 : 11.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.73892307692308 : 5.325); (3.125 : 5.71107692307693); (3.125 : 11.5); (3.5 : 11.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HrDBDataContext/BASE/BASE_CARD" />
       <nodes>
         <classShapeMoniker Id="02f1b079-32b1-41ba-b4ef-c6d416eb5e0b" />

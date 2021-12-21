@@ -4852,4 +4852,15 @@
     <Parameter Name="CheckDate" Parameter="checkDate" Type="System.DateTime" DbType="DateTime" />
     <Return Type="System.DateTime" />
   </Function>
+  <Function Name="dbo.Hunya_GetPAOnJobDays" Method="Hunya_GetPAOnJobDays" IsComposable="true">
+    <Parameter Name="EmployeeList" Parameter="employeeList" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="AttDateB" Parameter="attDateB" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="AttDateE" Parameter="attDateE" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="YYMM" Parameter="yYMM" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="Hunya_GetPAOnJobDaysResult">
+      <Column Name="員工編號" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="應出勤數" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="每月天數" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

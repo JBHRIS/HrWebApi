@@ -15,10 +15,26 @@ namespace JBHR.AnnualBonus.HunyaCustom
         {
             InitializeComponent();
         }
-
+        JBModule.Data.ApplicationConfigSettings acg = null;
         private void Hunya_ABPersonalBonus_Load(object sender, EventArgs e)
         {
-
+            this.v_BASETableAdapter.Fill(this.hunya_AnnualBonus.V_BASE);
+            this.hunya_ABLevelCodeTableAdapter.Fill(this.hunya_AnnualBonus.Hunya_ABLevelCode, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN);
+            acg = null; acg = new JBModule.Data.ApplicationConfigSettings(this.Name, MainForm.COMPANY);
+            acg.CheckParameterAndSetDefault("ABFault1", "大過扣發天數", "10"
+               , "指定大過年終獎金扣發天數", "TextBox", "", "Decimal");
+            acg.CheckParameterAndSetDefault("ABFault2", "小過扣發天數", "3"
+               , "指定小過年終獎金扣發天數", "TextBox", "", "Decimal");
+            acg.CheckParameterAndSetDefault("ABFault3", "申誡扣發天數", "1"
+               , "指定警告年終獎金扣發天數", "TextBox", "", "Decimal");
+            acg.CheckParameterAndSetDefault("ABAward1", "大功加發天數", "10"
+               , "指定大功年終獎金扣發天數", "TextBox", "", "Decimal");
+            acg.CheckParameterAndSetDefault("ABAward2", "小功加發天數", "3"
+               , "指定小功年終獎金扣發天數", "TextBox", "", "Decimal");
+            acg.CheckParameterAndSetDefault("ABAward3", "嘉獎加發天數", "1"
+               , "指定嘉獎年終獎金扣發天數", "TextBox", "", "Decimal");
+            acg.CheckParameterAndSetDefault("ChildBirthCode", "指定分娩假代碼", ""
+               , "指定分娩假代碼", "TextBox", "", "string");
         }
 
         private void JQABPersonalBonus_RowInsert(object sender, JBControls.JBQuery.RowInsertEventArgs e)
@@ -93,15 +109,8 @@ namespace JBHR.AnnualBonus.HunyaCustom
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
-
+            Hunya_ABPersonalBonus_Calculator frm = new Hunya_ABPersonalBonus_Calculator();
+            frm.ShowDialog();
         }
-
-
-
-
-
-
-
-
     }
 }

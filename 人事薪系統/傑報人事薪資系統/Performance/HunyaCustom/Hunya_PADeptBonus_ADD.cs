@@ -113,7 +113,7 @@ namespace JBHR.Performance.HunyaCustom
                                a.部門群組,
                            };
 
-                mdPADept.SetControl(btnPADept, dept.CopyToDataTable(), "_PADept");
+                mdPADept.SetControl(btnPADept, dept.OrderBy(p => p.編制部門).CopyToDataTable(), "_PADept");
                 mdPADept.SelectedValues.Clear();
                 btnPADept.Text = "請選擇需計算的部門";
             }

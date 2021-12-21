@@ -37,6 +37,7 @@
             this.v_BASETableAdapter = new JBHR.AnnualBonus.HunyaCustom.Hunya_AnnualBonusTableAdapters.V_BASETableAdapter();
             this.hunya_ABLevelCodeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hunya_ABLevelCodeTableAdapter = new JBHR.AnnualBonus.HunyaCustom.Hunya_AnnualBonusTableAdapters.Hunya_ABLevelCodeTableAdapter();
+            this.btnConfig = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_BASEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hunya_AnnualBonus)).BeginInit();
@@ -45,7 +46,7 @@
             // 
             // btnCalculate
             // 
-            this.btnCalculate.Location = new System.Drawing.Point(663, 18);
+            this.btnCalculate.Location = new System.Drawing.Point(663, 12);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(109, 20);
             this.btnCalculate.TabIndex = 16;
@@ -82,7 +83,6 @@
             this.JQABPersonalBonus.TabIndex = 14;
             this.JQABPersonalBonus.RowDelete += new JBControls.JBQuery.RowDeleteEventHandler(this.JQABPersonalBonus_RowDelete);
             this.JQABPersonalBonus.RowInsert += new JBControls.JBQuery.RowInsertEventHandler(this.JQABPersonalBonus_RowInsert);
-            this.JQABPersonalBonus.RowUpdate += new JBControls.JBQuery.RowUpdateEventHandler(this.JQABPersonalBonus_RowUpdate);
             // 
             // v_BASEBindingSource
             // 
@@ -107,9 +107,22 @@
             // 
             this.hunya_ABLevelCodeTableAdapter.ClearBeforeFill = true;
             // 
+            // btnConfig
+            // 
+            this.btnConfig.BackgroundImage = global::JBHR.Properties.Resources.Settings_icon;
+            this.btnConfig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnConfig.Location = new System.Drawing.Point(747, 66);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Size = new System.Drawing.Size(25, 23);
+            this.btnConfig.TabIndex = 31;
+            this.btnConfig.TabStop = false;
+            this.btnConfig.Tag = "Hunya_ABPersonalBonus";
+            this.btnConfig.UseVisualStyleBackColor = true;
+            // 
             // Hunya_ABPersonalBonus
             // 
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.btnConfig);
             this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.JQABPersonalBonus);
@@ -135,5 +148,6 @@
         private Hunya_AnnualBonusTableAdapters.V_BASETableAdapter v_BASETableAdapter;
         private System.Windows.Forms.BindingSource hunya_ABLevelCodeBindingSource;
         private Hunya_AnnualBonusTableAdapters.Hunya_ABLevelCodeTableAdapter hunya_ABLevelCodeTableAdapter;
+        private System.Windows.Forms.Button btnConfig;
     }
 }

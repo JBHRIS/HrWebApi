@@ -3103,6 +3103,12 @@ namespace JBModule.Data.Linq
 		{
 			return ((System.Nullable<System.DateTime>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeId, checkDate).ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Hunya_GetPAOnJobDays", IsComposable=true)]
+		public IQueryable<Hunya_GetPAOnJobDaysResult> Hunya_GetPAOnJobDays([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployeeList", DbType="NVarChar(MAX)")] string employeeList, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AttDateB", DbType="Date")] System.Nullable<System.DateTime> attDateB, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AttDateE", DbType="Date")] System.Nullable<System.DateTime> attDateE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="YYMM", DbType="NVarChar(50)")] string yYMM)
+		{
+			return this.CreateMethodCallQuery<Hunya_GetPAOnJobDaysResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeList, attDateB, attDateE, yYMM);
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BASE")]
@@ -100374,6 +100380,68 @@ namespace JBModule.Data.Linq
 				if ((this._DATAGROUP != value))
 				{
 					this._DATAGROUP = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Hunya_GetPAOnJobDaysResult
+	{
+		
+		private string _員工編號;
+		
+		private System.Nullable<int> _應出勤數;
+		
+		private System.Nullable<decimal> _每月天數;
+		
+		public Hunya_GetPAOnJobDaysResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_員工編號", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string 員工編號
+		{
+			get
+			{
+				return this._員工編號;
+			}
+			set
+			{
+				if ((this._員工編號 != value))
+				{
+					this._員工編號 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_應出勤數", DbType="Int")]
+		public System.Nullable<int> 應出勤數
+		{
+			get
+			{
+				return this._應出勤數;
+			}
+			set
+			{
+				if ((this._應出勤數 != value))
+				{
+					this._應出勤數 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_每月天數", DbType="Decimal(38,0)")]
+		public System.Nullable<decimal> 每月天數
+		{
+			get
+			{
+				return this._每月天數;
+			}
+			set
+			{
+				if ((this._每月天數 != value))
+				{
+					this._每月天數 = value;
 				}
 			}
 		}

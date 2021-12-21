@@ -212,11 +212,11 @@
     <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus.Designer.cs">
       <DependentUpon>Hunya_ABPersonalBonus.cs</DependentUpon>
     </Compile>
-    <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus_Calculate.cs">
+    <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus_Calculator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus_Calculate.Designer.cs">
-      <DependentUpon>Hunya_ABPersonalBonus_Calculate.cs</DependentUpon>
+    <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus_Calculator.Designer.cs">
+      <DependentUpon>Hunya_ABPersonalBonus_Calculator.cs</DependentUpon>
     </Compile>
     <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus_Import.cs">
       <SubType>Form</SubType>
@@ -2532,8 +2532,8 @@
     <EmbeddedResource Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus.resx">
       <DependentUpon>Hunya_ABPersonalBonus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus_Calculate.resx">
-      <DependentUpon>Hunya_ABPersonalBonus_Calculate.cs</DependentUpon>
+    <EmbeddedResource Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus_Calculator.resx">
+      <DependentUpon>Hunya_ABPersonalBonus_Calculator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus_Import.resx">
       <DependentUpon>Hunya_ABPersonalBonus_Import.cs</DependentUpon>
