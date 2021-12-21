@@ -86,7 +86,7 @@ namespace JBHR.AnnualBonus.HunyaCustom
                 if (!int.TryParse(TargetRow["考績年度"].ToString(), out int YYYY) && !(YYYY >= 1753 && YYYY <= 9998))
                     TargetRow["錯誤註記"] += "考績年度非正確西元年格式(1753-9998).";
 
-                if (ColumnValidate(TargetRow, "考績種類", TransferCheckDataField.DisplayCode, out Msg))
+                if (ColumnValidate(TargetRow, "考績種類", TransferCheckDataField.DisplayName, out Msg))
                     TargetRow["考績種類"] = Msg;
 
                 if (ColumnValidate(TargetRow, "考績等第", TransferCheckDataField.DisplayCode, out Msg))

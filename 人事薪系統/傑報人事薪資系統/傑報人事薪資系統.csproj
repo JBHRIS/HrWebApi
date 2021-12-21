@@ -270,7 +270,6 @@
     </Compile>
     <Compile Include="Att\dsAtt.cs">
       <DependentUpon>dsAtt.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Att\dsAtt.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -863,7 +862,6 @@
     </Compile>
     <Compile Include="Bas\BasDS.cs">
       <DependentUpon>BasDS.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Bas\BasDS.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1381,7 +1379,6 @@
     <Compile Include="Dto\RoteDto.cs" />
     <Compile Include="EXA\exaDS.cs">
       <DependentUpon>exaDS.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="EXA\exaDS1.Designer.cs" />
     <Compile Include="EXA\FRM81.cs">

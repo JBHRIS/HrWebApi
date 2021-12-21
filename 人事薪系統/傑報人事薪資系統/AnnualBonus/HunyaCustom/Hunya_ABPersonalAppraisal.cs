@@ -72,7 +72,7 @@ namespace JBHR.AnnualBonus.HunyaCustom
 
             frm.DataTransfer.CheckData = new Dictionary<string, List<JBControls.CheckImportData>>();
             frm.DataTransfer.CheckData.Add("員工編號", this.hunya_AnnualBonus.V_BASE.Select(p => new JBControls.CheckImportData { DisplayCode = p.NOBR, RealCode = p.NOBR, DisplayName = p.NAME_C }).ToList());
-            frm.DataTransfer.CheckData.Add("考績種類", CodeFunction.GetHunya_ABTypeCode(false).Select(p => new JBControls.CheckImportData { DisplayCode = p.Key, RealCode = p.Value, DisplayName = p.Value }).ToList());
+            frm.DataTransfer.CheckData.Add("考績種類", CodeFunction.GetHunya_ABTypeCode(false).Select(p => new JBControls.CheckImportData { DisplayCode = p.Key, RealCode = p.Key, DisplayName = p.Value }).ToList());
             frm.DataTransfer.CheckData.Add("考績等第", this.hunya_AnnualBonus.Hunya_ABLevelCode.Select(p => new JBControls.CheckImportData { DisplayCode = p.ABLevelCode_DISP, RealCode = p.ABLevelCode, DisplayName = p.ABLevelCode_Name }).ToList());
 
             frm.DataTransfer.ColumnList = new Dictionary<string, Type>();
