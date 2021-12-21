@@ -29,15 +29,18 @@
             </p>
         </div>
     </div>
-     <telerik:RadAjaxPanel ID="plMain" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
+   
     <div class="row">
        
             <div class="col-lg-12">
                 <div class="ibox">
                     <div class="ibox-content">
                         <div class="request_bg">
+                              
                             <div class="row">
+                               
                                 <div class="form-group  col-lg-6">
+                                     <telerik:RadAjaxPanel ID="plMain" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <h3>訊息回覆</h3>
@@ -50,11 +53,11 @@
                                         <label class="col-lg-3 col-form-label text-left">問題轉交或回覆</label>
                                         <div class="col-lg-9">
                                             <div class="row">
-                                                <telerik:RadCheckBox ID="ChkFirst" AutoPostBack="false" runat="server" Skin="Bootstrap" Text="HR" />
+                                                <telerik:RadRadioButton ID="RadioFirst" AutoPostBack="true" runat="server"   Checked="true" Text="提問者" Value="4" OnCheckedChanged="RadioFirst_CheckedChanged" />
                                                 &ensp;
-                                                <telerik:RadCheckBox ID="ChkSecond" AutoPostBack="false" runat="server" Skin="Bootstrap" Text="提問者" />
+                                                <telerik:RadRadioButton ID="RadioSecond" AutoPostBack="true" runat="server"   Text="HR" Value="8" OnCheckedChanged="RadioSecond_CheckedChanged"/>
                                                 &ensp;
-                                                <telerik:RadCheckBox ID="ChkThird" AutoPostBack="false" runat="server" Skin="Bootstrap" Text="HR及提問者" />
+                                                <telerik:RadRadioButton ID="RadioThird" AutoPostBack="true" runat="server"   Text="提問者及HR" Value="4" OnCheckedChanged="RadioThird_CheckedChanged" />
                                             </div>
                                         </div>
                                     </div>
@@ -76,12 +79,13 @@
                                             </telerik:RadTextBox>
                                         </div>
                                     </div>
+                                           </telerik:RadAjaxPanel>
                                 </div>
-
+                                   
 
                                 <div class="col-lg-6">
                                     <h5>選擇罐頭訊息後編輯成想要的文字</h5>
-                                    <telerik:RadListView ID="lvMain" runat="server" ItemPlaceholderID="Container">
+                                    <telerik:RadListView ID="lvMain" runat="server" OnItemCommand="lvMain_ItemCommand" OnNeedDataSource="lvMain_NeedDataSource" ItemPlaceholderID="Container">
                                         <LayoutTemplate>
                                             <table id="footable" class="footable table table-stripped" data-page-size="3" data-filter="#filterTaken">
                                                 <thead>
@@ -124,15 +128,18 @@
                                         <EmptyDataTemplate>
                                             無任何預設訊息
                                         </EmptyDataTemplate>
+
                                     </telerik:RadListView>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <telerik:RadButton ID="btnDraft" runat="server" Text="儲存草稿" CssClass="btn btn-outline btn-primary btn-md" />
-                                        <telerik:RadButton ID="btnAdd" runat="server" Text="送出" CssClass="btn btn-primary btn-md" />
+                                        <telerik:RadButton ID="btnDraft" runat="server" Text="儲存草稿" CssClass="btn btn-outline btn-primary btn-md" CommandName="Draft" OnClick="btnAdd_Click" />
+                                        <telerik:RadButton ID="btnAdd" runat="server" Text="送出" CssClass="btn btn-primary btn-md" CommandName="Add"  OnClick="btnAdd_Click" />
                                     </div>
                                 </div>
+                                      
                             </div>
+                                   
                         </div>
                     </div>
                 </div>
@@ -140,7 +147,7 @@
             </div>
         
     </div>
-    </telerik:RadAjaxPanel>
+   
     <asp:Label ID="lblUserCode" runat="server" Visible="False"></asp:Label>
     <asp:Label ID="lblEmpID" runat="server" Visible="False"></asp:Label>
     <asp:Label ID="lblCompanyId" runat="server" Visible="False"></asp:Label>
@@ -156,6 +163,7 @@
         $(document).ready(function () {
             $('.footable').footable();
         });
+        
     </script>
-
+    
 </asp:Content>

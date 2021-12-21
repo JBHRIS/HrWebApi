@@ -12,19 +12,19 @@ using System.Threading.Tasks;
 
 namespace Dal.Dao.Share
 {
-    public class ShareGetQuestionDefaultMessageByRoleKeyDao : BaseWebAPI<ShareGetQuestionDefaultMessageByRoleKeyApiRow>
+    public class ShareGetQuestionCategoryDao : BaseWebAPI<ShareGetQuestionCategoryApiRow>
     {
 
-        public ShareGetQuestionDefaultMessageByRoleKeyDao() : base()
+        public ShareGetQuestionCategoryDao() : base()
         {
-            this.restURL = "/api/QuestionDefaultMessage/GetQuestionDefaultMessageByRoleKey";
+            this.restURL = "/api/QuestionCategory/GetQuestionCategory";
             this.ApiSetting = "Flow";
             IsCollectionType = false;
             EncodingType = EnctypeMethod.JSON;
             NeedSaveData = true;
         }
 
-        public async Task<APIResult> PostAsync(ShareGetQuestionDefaultMessageByRoleKeyConditions Cond, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<APIResult> PostAsync(ShareGetQuestionCategoryConditions Cond, CancellationToken cancellationToken = default(CancellationToken))
         {
             AuthenticationHeaderBearerTokenValue = Cond.AccessToken;
 
@@ -36,9 +36,8 @@ namespace Dal.Dao.Share
 
             #region 要傳遞的參數
             HTTPPayloadDictionary dic = new HTTPPayloadDictionary();
-            dic.Add("RoleKey", Cond.RoleKey);
 
-
+           
             #endregion
 
             var mr = await this.SendAsync(dic, HttpMethod.Get, RefreshToken, cancellationToken);
@@ -46,7 +45,7 @@ namespace Dal.Dao.Share
             return mr;
         }
 
-        public APIResult Post(ShareGetQuestionDefaultMessageByRoleKeyConditions Cond, CancellationToken cancellationToken = default(CancellationToken))
+        public APIResult Post(ShareGetQuestionCategoryConditions Cond, CancellationToken cancellationToken = default(CancellationToken))
         {
             AuthenticationHeaderBearerTokenValue = Cond.AccessToken;
 
@@ -58,9 +57,8 @@ namespace Dal.Dao.Share
 
             #region 要傳遞的參數
             HTTPPayloadDictionary dic = new HTTPPayloadDictionary();
-            dic.Add("RoleKey", Cond.RoleKey);
 
-            this.CompanySetting = Cond.CompanySetting;
+           
 
             #endregion
 
@@ -69,7 +67,7 @@ namespace Dal.Dao.Share
             return mr;
         }
 
-        public async Task<APIResult> GetDataAsync(ShareGetQuestionDefaultMessageByRoleKeyConditions Cond, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<APIResult> GetDataAsync(ShareGetQuestionCategoryConditions Cond, CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var Vdb = await PostAsync(Cond, cancellationToken);
@@ -84,7 +82,7 @@ namespace Dal.Dao.Share
             return Vdb;
         }
 
-        public APIResult GetData(ShareGetQuestionDefaultMessageByRoleKeyConditions Cond, CancellationToken cancellationToken = default(CancellationToken))
+        public APIResult GetData(ShareGetQuestionCategoryConditions Cond, CancellationToken cancellationToken = default(CancellationToken))
         {
             var Vdb = Post(Cond, cancellationToken);
 
@@ -95,7 +93,7 @@ namespace Dal.Dao.Share
                     if (Vdb.Payload != null && Vdb.Data != null)
                     {
                         //實作DTO轉換
-                        var oSource = Vdb.Data as ShareGetQuestionDefaultMessageByRoleKeyApiRow;
+                        var oSource = Vdb.Data as ShareGetQuestionCategoryApiRow;
                         if (oSource != null)
                         {
                             Vdb.Status = oSource.state;
@@ -107,32 +105,19 @@ namespace Dal.Dao.Share
                                 if (oSource != null)
                                 {
                                     var rsSource = oSource.result;
-                                    var rsTarget = new List<ShareGetQuestionDefaultMessageByRoleKeyRow>();
+                                    var rsTarget = new List<ShareGetQuestionCategoryRow>();
 
                                     //把api的Data轉成我們的Data
                                     foreach (var rSource in rsSource)
                                     {
-                                        var rTarget = new ShareGetQuestionDefaultMessageByRoleKeyRow();
-                                        rTarget.AutoKey = rSource.AutoKey;
-                                        rTarget.CompanyId = rSource.CompanyId;
+                                        var rTarget = new ShareGetQuestionCategoryRow();
                                         rTarget.Code = rSource.Code;
                                         rTarget.Name = rSource.Name;
-                                        rTarget.Contents = rSource.Contents;
-                                        rTarget.RoleKey = rSource.RoleKey;
-                                        rTarget.Note = rSource.Note;
-                                        rTarget.Status = rSource.Status;
-                                        rTarget.InsertMan = rSource.InsertMan;
-                                        rTarget.InsertDate = rSource.InsertDate.Value;
-                                        rTarget.UpdateMan = rSource.UpdateMan;
-                                        rTarget.UpdateDate = rSource.UpdateDate.Value;
                                         rsTarget.Add(rTarget);
                                     }
 
                                     Vdb.Data = rsTarget;
-
-
                                 }
-
                             }
                         }
                     }

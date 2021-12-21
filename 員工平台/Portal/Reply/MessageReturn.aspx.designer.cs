@@ -78,31 +78,31 @@ namespace Portal
         protected global::Telerik.Web.UI.RadAjaxPanel plMain;
 
         /// <summary>
-        /// ChkFirst 控制項。
+        /// RadioFirst 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadCheckBox ChkFirst;
+        protected global::Telerik.Web.UI.RadRadioButton RadioFirst;
 
         /// <summary>
-        /// ChkSecond 控制項。
+        /// RadioSecond 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadCheckBox ChkSecond;
+        protected global::Telerik.Web.UI.RadRadioButton RadioSecond;
 
         /// <summary>
-        /// ChkThird 控制項。
+        /// RadioThird 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadCheckBox ChkThird;
+        protected global::Telerik.Web.UI.RadRadioButton RadioThird;
 
         /// <summary>
         /// RadButton2 控制項。

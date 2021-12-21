@@ -36,8 +36,21 @@ namespace Portal
 
 
         }
+
         private void SetDefault()
         {
+            if (_User.RoleKey == 8)
+            { 
+            
+            }
+           
+
+
+        }
+
+        protected void lvMain_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
+        {
+
             if (Request.QueryString["Code"] != null)
             {
                 try
@@ -77,10 +90,16 @@ namespace Portal
 
 
             }
-
-
-
         }
+        protected void lvMain_ItemCommand(object sender, RadListViewCommandEventArgs e)
+        {
+            
+           
+        }
+
+
+
+
         public void btnSet_Click(object sender, EventArgs e)
         {
             var Script = "$(document).ready(function() {$('.footable').footable();});";
@@ -102,6 +121,85 @@ namespace Portal
             catch (Exception ex)
             {
 
+            }
+        }
+
+             
+
+       
+
+        
+
+        protected void RadioFirst_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioSecond.Checked = false;
+            RadioThird.Checked = false;
+        }
+
+        protected void RadioSecond_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioFirst.Checked = false;
+            RadioThird.Checked = false;
+        }
+
+        protected void RadioThird_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioFirst.Checked = false;
+            RadioSecond.Checked = false;
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (Request.QueryString["Code"] != null)
+            {
+                RadButton button = sender as RadButton;
+                var CN = button.CommandName;
+                
+                var oInsertQuestionReply = new ShareInsertQuestionReplyDao();
+                var InsertQuestionReplyCond = new ShareInsertQuestionReplyConditions();
+                InsertQuestionReplyCond.AccessToken = _User.AccessToken;
+                InsertQuestionReplyCond.RefreshToken = _User.RefreshToken;
+                InsertQuestionReplyCond.CompanySetting = CompanySetting;
+                InsertQuestionReplyCond.AutoKey = 0;
+                InsertQuestionReplyCond.Code = Guid.NewGuid().ToString();
+                InsertQuestionReplyCond.QuestionMainCode = Request.QueryString["Code"];
+                InsertQuestionReplyCond.Key1 = lblEmpID.Text;
+                InsertQuestionReplyCond.Key2 = lblEmpID.Text;
+                InsertQuestionReplyCond.Key3 = lblEmpID.Text;
+                InsertQuestionReplyCond.Name = lblEmpName.Text;
+                InsertQuestionReplyCond.Content = txtContent.Text;
+                InsertQuestionReplyCond.RoleKey = Int32.Parse(lblRoleKey.Text);
+                InsertQuestionReplyCond.IpAddress = WebPage.GetClientIP(Context);
+                InsertQuestionReplyCond.ReplyToCode = "";
+                InsertQuestionReplyCond.ParentCode = Request.QueryString["Code"];
+                InsertQuestionReplyCond.Send = true;
+                InsertQuestionReplyCond.Status = "1";
+                InsertQuestionReplyCond.Note = "";
+                InsertQuestionReplyCond.InsertMan = lblEmpName.Text;
+                InsertQuestionReplyCond.InsertDate = DateTime.Now;
+                if (RadioFirst.Checked.Value)
+                {
+                    InsertQuestionReplyCond.RoleKey = Int32.Parse(RadioFirst.Value);
+                }
+                else if (RadioSecond.Checked.Value)
+                {
+                    InsertQuestionReplyCond.RoleKey = Int32.Parse(RadioSecond.Value);
+                }
+                else
+                {
+                    InsertQuestionReplyCond.RoleKey = Int32.Parse(RadioThird.Value);
+                }
+
+                if (CN == "Draft")
+                {
+                    InsertQuestionReplyCond.Send = false;
+                }
+                else
+                {
+                    InsertQuestionReplyCond.Send = true;
+                }
+
+                oInsertQuestionReply.GetData(InsertQuestionReplyCond);
             }
         }
     }

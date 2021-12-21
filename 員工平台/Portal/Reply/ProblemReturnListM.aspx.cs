@@ -20,7 +20,7 @@ namespace Portal
             if (!IsPostBack)
             {
                 SetUserInfo();
-                SetDefault();
+               
                 txtReturnS_DataBind();
             }
         }
@@ -34,7 +34,30 @@ namespace Portal
 
 
         }
-        private void SetDefault()
+     
+
+
+        private void txtReturnS_DataBind()
+        {
+            var oGetQuestionCategoryDao = new ShareGetQuestionCategoryDao();
+            var GetQuestionCategoryCond = new ShareGetQuestionCategoryConditions();
+            var result = oGetQuestionCategoryDao.GetData(GetQuestionCategoryCond);
+            var rsDataSource = result.Data as List<ShareGetQuestionCategoryRow>;
+
+            if (rsDataSource != null)
+            {
+                txtReturnS.DataSource = rsDataSource;
+                txtReturnS.DataTextField = "Name";
+                txtReturnS.DataValueField = "Code";
+                txtReturnS.DataBind();
+                //txtReturnS.SelectedIndex = 0;
+            }
+            txtReturnS.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "任何", Value = "0" });
+            txtReturnS.SelectedIndex = 0;
+
+        }
+
+        protected void lvMain_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
         {
             var oGetQuestionMain = new ShareGetQuestionMainByCompanyDao();
             var GetquestionMainCond = new ShareGetQuestionMainByCompanyConditions();
@@ -65,24 +88,13 @@ namespace Portal
             {
 
             }
-        }
-        private void txtReturnS_DataBind()
-        {
-            var oGetQuestionCategoryDao = new ShareGetQuestionCategoryDao();
-            var GetQuestionCategoryCond = new ShareGetQuestionCategoryConditions();
-            var result = oGetQuestionCategoryDao.GetData(GetQuestionCategoryCond);
-            var rsDataSource = result.Data as List<ShareGetQuestionCategoryRow>;
 
-            if (rsDataSource != null)
-            {
-                txtReturnS.DataSource = rsDataSource;
-                txtReturnS.DataTextField = "Name";
-                txtReturnS.DataValueField = "Code";
-                txtReturnS.DataBind();
-                //txtReturnS.SelectedIndex = 0;
-            }
-            txtReturnS.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "任何", Value = "0" });
-            txtReturnS.SelectedIndex = 0;
+
+
+        }
+
+        protected void lvMain_ItemCommand(object sender, RadListViewCommandEventArgs e)
+        {
 
         }
         protected void btnCheck_Click(object sender, EventArgs e)

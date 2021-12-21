@@ -216,6 +216,7 @@
     <Compile Include="Share\Vdb\ShareDeleteQuestionDefaultMessageVdb.cs" />
     <Compile Include="Share\Vdb\ShareDictionaryVdb.cs" />
     <Compile Include="Share\Vdb\ShareDisplayMessageVdb.cs" />
+    <Compile Include="Share\Vdb\ShareGetQuestionCategoryVdb.cs" />
     <Compile Include="Share\Vdb\ShareGetQuestionDefaultMessageByRoleKeyVdb.cs" />
     <Compile Include="Share\Vdb\ShareGetQuestionDefaultMessageVdb.cs" />
     <Compile Include="Share\Vdb\ShareGetQuestionMainByCodeVdb.cs" />

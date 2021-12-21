@@ -45,10 +45,10 @@ namespace Bll.Share.Vdb
         public string Status { get; set; }
         public string InsertMan { get; set; }
 
-        public DateTime InsertDate { get; set; }
+        public DateTime? InsertDate { get; set; }
         public string UpdateMan { get; set; }
 
-        public DateTime UpdateDate { get; set; }
+        public DateTime? UpdateDate { get; set; }
         public List<ShareGetQuestionReplyByQuestionMainCodeApiRow> result { get; set; }
 
     }
@@ -76,10 +76,10 @@ namespace Bll.Share.Vdb
         public string Status { get; set; }
         public string InsertMan { get; set; }
 
-        public DateTime InsertDate { get; set; }
+        public DateTime? InsertDate { get; set; }
         public string UpdateMan { get; set; }
 
-        public DateTime UpdateDate { get; set; }
+        public DateTime? UpdateDate { get; set; }
 
     }
 }

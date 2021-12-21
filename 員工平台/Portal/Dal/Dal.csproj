@@ -242,6 +242,7 @@
     <Compile Include="Dao\Share\ShareDeleteQuestionDefaultMessageVdbDao.cs" />
     <Compile Include="Dao\Share\ShareDictionaryDao.cs" />
     <Compile Include="Dao\Share\ShareDisplayMessageDao.cs" />
+    <Compile Include="Dao\Share\ShareGetQuestionCategoryVdbDao.cs" />
     <Compile Include="Dao\Share\ShareGetQuestionDefaultMessageByRoleKeyVdbDao.cs" />
     <Compile Include="Dao\Share\ShareGetQuestionDefaultMessageVdbDao.cs" />
     <Compile Include="Dao\Share\ShareGetQuestionMainByCodeVdbDao.cs" />
@@ -330,7 +331,89 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <Content Include="bin\Debug\Autofac.dll" />
+    <Content Include="bin\Debug\Bll.dll" />
+    <Content Include="bin\Debug\Bll.pdb" />
+    <Content Include="bin\Debug\BouncyCastle.Crypto.dll" />
+    <Content Include="bin\Debug\BouncyCastle.Crypto.xml" />
+    <Content Include="bin\Debug\Dal.dll" />
+    <Content Include="bin\Debug\Dal.pdb" />
+    <Content Include="bin\Debug\Dapper.dll" />
+    <Content Include="bin\Debug\Dapper.xml" />
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\HtmlAgilityPack.dll" />
+    <Content Include="bin\Debug\HtmlAgilityPack.pdb" />
+    <Content Include="bin\Debug\HtmlAgilityPack.xml" />
+    <Content Include="bin\Debug\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="bin\Debug\ICSharpCode.SharpZipLib.pdb" />
+    <Content Include="bin\Debug\ICSharpCode.SharpZipLib.xml" />
+    <Content Include="bin\Debug\JBHRIS.BLL.dll" />
+    <Content Include="bin\Debug\JBHRIS.BLL.pdb" />
+    <Content Include="bin\Debug\JBModule.Data.dll" />
+    <Content Include="bin\Debug\JBModule.Data.pdb" />
+    <Content Include="bin\Debug\JBModule.dll" />
+    <Content Include="bin\Debug\JBModule.Message.dll" />
+    <Content Include="bin\Debug\JBModule.Message.pdb" />
+    <Content Include="bin\Debug\JBModule.pdb" />
+    <Content Include="bin\Debug\JBTools.dll" />
+    <Content Include="bin\Debug\JBTools.pdb" />
+    <Content Include="bin\Debug\JWT.dll" />
+    <Content Include="bin\Debug\JWT.pdb" />
+    <Content Include="bin\Debug\JWT.xml" />
+    <Content Include="bin\Debug\Microsoft.Data.Sqlite.dll" />
+    <Content Include="bin\Debug\Microsoft.Data.Sqlite.xml" />
+    <Content Include="bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll" />
+    <Content Include="bin\Debug\Microsoft.IdentityModel.JsonWebTokens.xml" />
+    <Content Include="bin\Debug\Microsoft.IdentityModel.Logging.dll" />
+    <Content Include="bin\Debug\Microsoft.IdentityModel.Logging.xml" />
+    <Content Include="bin\Debug\Microsoft.IdentityModel.Tokens.dll" />
+    <Content Include="bin\Debug\Microsoft.IdentityModel.Tokens.xml" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="bin\Debug\NPOI.dll" />
+    <Content Include="bin\Debug\NPOI.OOXML.dll" />
+    <Content Include="bin\Debug\NPOI.OpenXml4Net.dll" />
+    <Content Include="bin\Debug\NPOI.OpenXmlFormats.dll" />
+    <Content Include="bin\Debug\OldBll.dll" />
+    <Content Include="bin\Debug\OldBll.pdb" />
+    <Content Include="bin\Debug\OldDal.dll" />
+    <Content Include="bin\Debug\OldDal.pdb" />
+    <Content Include="bin\Debug\runtimes\win-arm\native\e_sqlite3.dll" />
+    <Content Include="bin\Debug\runtimes\win-x64\native\e_sqlite3.dll" />
+    <Content Include="bin\Debug\runtimes\win-x86\native\e_sqlite3.dll" />
+    <Content Include="bin\Debug\SQLitePCLRaw.batteries_v2.dll" />
+    <Content Include="bin\Debug\SQLitePCLRaw.core.dll" />
+    <Content Include="bin\Debug\SQLitePCLRaw.nativelibrary.dll" />
+    <Content Include="bin\Debug\SQLitePCLRaw.provider.dynamic_cdecl.dll" />
+    <Content Include="bin\Debug\System.Buffers.dll" />
+    <Content Include="bin\Debug\System.Buffers.xml" />
+    <Content Include="bin\Debug\System.Data.SQLite.dll" />
+    <Content Include="bin\Debug\System.Data.SQLite.EF6.dll" />
+    <Content Include="bin\Debug\System.Data.SQLite.EF6.Migrations.dll" />
+    <Content Include="bin\Debug\System.Data.SQLite.Linq.dll" />
+    <Content Include="bin\Debug\System.Data.SQLite.xml" />
+    <Content Include="bin\Debug\System.IdentityModel.Tokens.Jwt.dll" />
+    <Content Include="bin\Debug\System.IdentityModel.Tokens.Jwt.xml" />
+    <Content Include="bin\Debug\System.Memory.dll" />
+    <Content Include="bin\Debug\System.Memory.xml" />
+    <Content Include="bin\Debug\System.Numerics.Vectors.dll" />
+    <Content Include="bin\Debug\System.Numerics.Vectors.xml" />
+    <Content Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.xml" />
+    <Content Include="bin\Debug\x64\SQLite.Interop.dll" />
+    <Content Include="bin\Debug\x86\SQLite.Interop.dll" />
     <Content Include="Data\slMain.db" />
+    <None Include="bin\Debug\Bll.dll.config" />
+    <None Include="bin\Debug\Dal.dll.config" />
+    <None Include="bin\Debug\JBHRIS.BLL.dll.config" />
+    <None Include="bin\Debug\JBModule.Data.dll.config" />
+    <None Include="bin\Debug\JBModule.dll.config" />
+    <None Include="bin\Debug\JBModule.Message.dll.config" />
+    <None Include="bin\Debug\JBTools.dll.config" />
+    <None Include="bin\Debug\OldDal.dll.config" />
     <None Include="dcApp.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>dcApp.designer.cs</LastGenOutput>
@@ -404,6 +487,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\Debug\Data\" />
+    <Folder Include="bin\Debug\SQL\" />
+    <Folder Include="bin\Release\" />
     <Folder Include="Dao\Performance\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
