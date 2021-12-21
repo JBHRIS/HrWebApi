@@ -156,8 +156,8 @@ namespace Portal
                         r.Value = HCodeData.Hcode;
                         result.Add(r);
                     }
-
-                    HCode = rs[0].Hcode;
+                    if (rs.Count > 0)
+                        HCode = rs[0].Hcode;
                 }
             }
 
@@ -236,7 +236,7 @@ namespace Portal
                 {
                     key.Add(r.Value, r.Value);
                 }
-                
+
             }
             var AbsContainsSelf = (from c in dcFlow.FormsExtend
                                    where c.FormsCode == "Abs" && c.Code == "AbsContainsSelf" && c.Active == true

@@ -48,7 +48,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>21.12.16.%2a</ApplicationVersion>
+    <ApplicationVersion>21.12.20.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -214,6 +214,7 @@
     </Compile>
     <Compile Include="Att\dsAtt.cs">
       <DependentUpon>dsAtt.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Att\dsAtt.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -806,6 +807,7 @@
     </Compile>
     <Compile Include="Bas\BasDS.cs">
       <DependentUpon>BasDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Bas\BasDS.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1323,6 +1325,7 @@
     <Compile Include="Dto\RoteDto.cs" />
     <Compile Include="EXA\exaDS.cs">
       <DependentUpon>exaDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="EXA\exaDS1.Designer.cs" />
     <Compile Include="EXA\FRM81.cs">
@@ -4304,8 +4307,14 @@
     <EmbeddedResource Include="Reports\SalForm\ZZ4Y_Report.resx">
       <DependentUpon>ZZ4Y_Report.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SalForm\ZZ51B.resx">
+      <DependentUpon>ZZ51B.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\SalForm\ZZ51.resx">
       <DependentUpon>ZZ51.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SalForm\ZZ51B_Report.resx">
+      <DependentUpon>ZZ51B_Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\SalForm\ZZ51_Report.resx">
       <DependentUpon>ZZ51_Report.cs</DependentUpon>
@@ -4749,6 +4758,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Reports\SalReport\Rpt_zz4211t_subtotal.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\SalReport\Rpt_zz51b1.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\SalReport\Rpt_zz51b.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="Reports\TraForm\ZZ91.resx">
@@ -6496,11 +6511,23 @@
     <Compile Include="Reports\SalForm\ZZ4Y_Report.Designer.cs">
       <DependentUpon>ZZ4Y_Report.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\SalForm\ZZ51B.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SalForm\ZZ51B.Designer.cs">
+      <DependentUpon>ZZ51B.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\SalForm\ZZ51.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reports\SalForm\ZZ51.Designer.cs">
       <DependentUpon>ZZ51.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SalForm\ZZ51B_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SalForm\ZZ51B_Report.Designer.cs">
+      <DependentUpon>ZZ51B_Report.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\SalForm\ZZ51_Report.cs">
       <SubType>Form</SubType>

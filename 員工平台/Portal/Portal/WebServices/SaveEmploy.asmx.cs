@@ -112,7 +112,7 @@ namespace Portal.WebServices
             OldDal.Dao.Att.AbsDao oAbsDao = new OldDal.Dao.Att.AbsDao(dcHR.Connection);
             OldDal.Dao.Att.OtDao oOtDao = new OldDal.Dao.Att.OtDao(dcHR.Connection);
 
-            string sSubject = "【通知】(" + rAppM.EmpId + ")" + rAppM.EmpName + " 之" + rForm.Name;
+            string sSubject = "【通知】(" + rsAppS.First().EmpId + ")" + rsAppS.First().EmpName + " 之" + rForm.Name;
             string sBody = "";
             string sInfo = "";
 

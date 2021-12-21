@@ -255,7 +255,7 @@ namespace JBHR.Med
                 }
             }
 
-            Reports.SalForm.ZZ51 frm = new Reports.SalForm.ZZ51();
+            Reports.SalForm.ZZ51B frm = new Reports.SalForm.ZZ51B();
             frm.yrtaxList = yrtaxList;
             frm.yrparameters = new Dictionary<string, object>();
             frm.ShowDialog();

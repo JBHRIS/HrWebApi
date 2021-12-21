@@ -49,6 +49,8 @@ namespace Portal
                     dcFlow.Connection.ConnectionString = CompanySetting.ConnFlow;
                 }
             }
+            Reply_Click();
+
             DateTime Begin = DateTime.Now;
             if (!this.IsPostBack)
             {
@@ -56,7 +58,7 @@ namespace Portal
                 var LocalPath = System.IO.Path.GetFileName(Request.PhysicalPath);
                 if (LocalPath == "Index.aspx")
                     plSiteMap.Visible = false;
-                
+
                 UnobtrusiveSession.Session["ReturnUrl"] = WebPage.GetActivePage;
                 if (Request.Cookies[FormsAuthentication.FormsCookieName] == null || Request.Cookies[FormsAuthentication.FormsCookieName].Value == "")
                 {
@@ -139,7 +141,14 @@ namespace Portal
                     base.OnInit(e);
                     Response.Redirect(Request.PhysicalPath);
                 }
-                //ChangeLanguage();
+                var Language = (from c in dcFlow.FormsExtend
+                                where c.FormsCode == "Common" && c.Active == true && c.Code == "Language"
+                                select c).FirstOrDefault();
+                if (Language != null)
+                {
+                    plLanguage.Visible = true;
+                    ChangeLanguage();
+                }
                 var IsShowExport = (from c in dcFlow.FormsExtend
                                     where c.FormsCode == "Common" && c.Active == true && c.Code == "IsShowExport"
                                     select c).FirstOrDefault();
@@ -154,12 +163,11 @@ namespace Portal
                 UnobtrusiveSession.Session["SystemPage"] = null;
                 LoadData();
             }
-
             var TimeCountDown = (from c in dcFlow.FormsExtend
                                  where c.FormsCode == "Common" && c.Code == "TimeCountDown" && c.Active == true
                                  select c).FirstOrDefault();
             if (TimeCountDown != null)
-            { 
+            {
                 CountDown();
                 plCountDown.Visible = true;
             }
@@ -220,13 +228,13 @@ namespace Portal
             else
             {
                 string strMsg = "權限已到期，是否繼續?", strUrl_Yes = "", strUrl_No = "../Portal?Param=Logout";
-                ScriptManager.RegisterClientScriptBlock(this.UpdatePanel , typeof(UpdatePanel), "test", "if ( window.confirm('" + strMsg + "')) { } else {window.location.href='" + strUrl_No + "' };", true);
+                ScriptManager.RegisterClientScriptBlock(this.UpdatePanel, typeof(UpdatePanel), "test", "if ( window.confirm('" + strMsg + "')) { } else {window.location.href='" + strUrl_No + "' };", true);
                 //Response.Write("<script Language='JavaScript'>if ( window.confirm('" + strMsg + "')) { window.location.href='" + strUrl_Yes +
                 //                        "' } else {window.location.href='" + strUrl_No + "' };</script>");
                 var userData = Request.Cookies[FormsAuthentication.FormsCookieName];
                 var userTicket = FormsAuthentication.Decrypt(userData.Value);
                 UserToken user = JsonConvert.DeserializeObject<UserToken>(userTicket.UserData);
-                if (user.RefreshToken != null || user.RefreshToken != "")
+                if (user.RefreshToken != null && user.RefreshToken != "")
                 {
                     if (Request.Cookies["CompanyId"] != null && Request.Cookies["CompanyId"].Value != "")
                     {
@@ -489,7 +497,7 @@ namespace Portal
                 {
                     break;
                 }
-               
+
                 Item.Text = rSystemPage.FileTitle;
                 Item.Value = rSystemPage.Code;
 
@@ -658,13 +666,16 @@ namespace Portal
 
         protected void TopSearch_Click(object sender, EventArgs e)
         {
-            var search = Request.Form["top-search"];
-            Response.Redirect("SearchResult.aspx?Search=" + search);
+            var search = txtSearch.Text;
+            if(search != null && search != "")
+                Response.Redirect("SearchResult.aspx?Search=" + search);
         }
         protected void Reply_Click()
         {
             var oEncryptHepler = new EncryptHepler();
             var ReplySite = System.Web.Configuration.WebConfigurationManager.AppSettings["ReplySite"];
+            var AccessToken = _User.AccessToken;
+            var RefreshToken = _User.RefreshToken;
             var CompanyId = CompanySetting.AccountCode;
             var EmpId = _User.EmpId;
             var EmpName = _User.EmpName;
@@ -673,6 +684,8 @@ namespace Portal
             {
                 Role = 8;
                 var UserData = new List<string>();
+                UserData.Add(AccessToken);
+                UserData.Add(RefreshToken);
                 UserData.Add(CompanyId);
                 UserData.Add(EmpId);
                 UserData.Add(EmpName);
@@ -683,6 +696,8 @@ namespace Portal
             else
             {
                 var UserData = new List<string>();
+                UserData.Add(AccessToken);
+                UserData.Add(RefreshToken);
                 UserData.Add(CompanyId);
                 UserData.Add(EmpId);
                 UserData.Add(EmpName);
@@ -691,7 +706,7 @@ namespace Portal
                 Response.Redirect(ReplySite + "?Param=" + Server.UrlEncode(oEncryptHepler.Encrypt(Parameter)));
             }
         }
-        
+
         private void ChangeLanguage()
         {
             foreach (Control Ctl in this.Controls)
@@ -709,31 +724,59 @@ namespace Portal
                 if (Ctl is RadListView)
                 {
                     var ListView = Ctl as RadListView;
-                    
+                    foreach (var item in ListView.Items)
+                        FindSubControl(item);
                 }
                 foreach (Control Ctl1 in Ctl.Controls)
-                {
                     //繼續往下找(遞迴)
                     FindSubControl(Ctl1);
-                }
-                
+
             }
             else
             {
-                if (Ctl is RadLabel)
+                var oShareDictionary = new ShareDictionaryDao();
+
+                if (Request.Cookies["Language"] != null && Request.Cookies["Language"].Value != "")
                 {
-                    var Label = Ctl as RadLabel;
-                    if(Label.Text == "公佈欄")
-                        Label.Text = "Billboard";
-                }
+                    var LanguageCookie = Request.Cookies["Language"].Value;
                 
-                if (Ctl is RadButton)
-                {
-                    var Button = Ctl as RadButton;
-                    if (Button.Text == "送出")
-                        Button.Text = "Submit";
+                    if (Ctl is RadLabel)
+                    {
+                        var Label = Ctl as RadLabel;
+                        var TransText = oShareDictionary.TextTranslate("Portal", Label.ID, "1", LanguageCookie);
+                        if (TransText != "" && TransText != null)
+                            Label.Text = TransText;
+
+
+                    }
+
+                    if (Ctl is RadButton)
+                    {
+                        var Button = Ctl as RadButton;
+                        var TransText = oShareDictionary.TextTranslate("Portal", Button.ID, "1", LanguageCookie);
+                        if (TransText != "" && TransText != null)
+                            Button.Text = TransText;
+                    }
+
+                    if (Ctl is RadTextBox)
+                    {
+                        var TextBox = Ctl as RadTextBox;
+                        var TransText = oShareDictionary.TextTranslate("Portal", TextBox.EmptyMessage, "", LanguageCookie);
+                        if (TransText != "" && TransText != null)
+                            TextBox.EmptyMessage = TransText;
+                    } 
                 }
             }
         }
+
+        protected void Language(object sender, EventArgs e)
+        {
+            var btn = sender as RadButton;
+            var lan = btn.CommandName;
+            HttpContext.Current.Response.Cookies.Add(new HttpCookie("Language", lan));
+            Response.Redirect("Index.aspx");
+        }
+
+        
     }
 }

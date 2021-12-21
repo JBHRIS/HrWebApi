@@ -8,12 +8,13 @@ using System.Configuration;
 
 namespace JBModule.Data
 {
+    //連線輔助工具
     public class SqlHelper
     {
         private SqlConnection sqlConn = null;
-
+        
         private SqlHelper() { }
-
+        //傳入連線字串
         public SqlHelper(string ConnectionStringsSection)
         {
             sqlConn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings[ConnectionStringsSection].ConnectionString);
@@ -38,7 +39,7 @@ namespace JBModule.Data
                 throw e;
             }
         }
-
+        //執行指令
         public int ExecuteNonQuery(string cmdText)
         {
             int ret = 0;

@@ -366,7 +366,7 @@ namespace Portal
             UserFormAssignCond.RealSignEmpID = "";
             UserFormAssignCond.RealSignRoleID = "";
             UserFormAssignCond.FlowTreeID = ddlForm.SelectedValue == "0" ? "" : ddlForm.SelectedValue;
-            UserFormAssignCond.SignDate = DateTime.Now.Date.ToString();
+            UserFormAssignCond.SignDate = DateTime.Now.Date.ToShortDateString();
 
             var rsUserFormAssign = oUserFormAssignDao.GetData(UserFormAssignCond);
             var rUserFormAssign = new List<UserFormAssignRow>();

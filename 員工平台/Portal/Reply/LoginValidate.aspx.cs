@@ -17,6 +17,8 @@ namespace Reply
             if (!IsPostBack)
             {
                 var oEncryptHepler = new EncryptHepler();
+                var AccessToken = "";
+                var RefreshToken = "";
                 var CompanyId = "999";
                 var EmpId = "528";
                 var EmpName = "Aron";
@@ -26,21 +28,25 @@ namespace Reply
                 {
                     var Parameter = oEncryptHepler.Decrypt(Request.QueryString["Param"]);
                     var UserData = JsonConvert.DeserializeObject<List<string>>(Parameter);
-                    CompanyId = UserData[0];
-                    EmpId = UserData[1];
-                    EmpName = UserData[2];
-                    Role = Convert.ToInt32(UserData[3]);
+                    AccessToken = UserData[0];
+                    RefreshToken = UserData[1];
+                    CompanyId = UserData[2];
+                    EmpId = UserData[3];
+                    EmpName = UserData[4];
+                    Role = Convert.ToInt32(UserData[5]);
                 }
 
                 var oShareCompany = new ShareCompanyDao();
                 var CompanySetting = oShareCompany.GetCompanySetting(CompanyId);
 
                 var oUser = new User();
-                oUser.UserCode ="999" + "528";
+                oUser.AccessToken = AccessToken;
+                oUser.RefreshToken = RefreshToken;
+                oUser.UserCode = CompanyId + EmpId;
                 oUser.EmpId = EmpId;
-                oUser.CompanyId ="999";
-                oUser.EmpName = "Aron";
-                oUser.RoleKey = 8;
+                oUser.CompanyId = CompanyId;
+                oUser.EmpName = EmpName;
+                oUser.RoleKey = Role;
                 
                 _AuthManager.SignIn(oUser, oUser.UserCode, CompanySetting);
                 Response.Redirect("ProblemReturn.aspx");

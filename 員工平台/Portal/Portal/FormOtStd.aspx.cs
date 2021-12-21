@@ -517,6 +517,13 @@ namespace Portal
                 return;
             }
 
+            if (Convert.ToInt32(TimeB) >= 2400 || Convert.ToInt32(TimeE) >= 2400)
+            {
+                lblErrorMsg.Text = "請用24小時輸入";
+                return;
+
+            }
+
             var RoteH = "";
             var RoteHName = "";
             var rBasM = oBasDao.GetBaseByNobr(lblNobrAppM.Text, DateB).FirstOrDefault();

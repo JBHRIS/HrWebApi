@@ -18,6 +18,7 @@
                     <telerik:AjaxUpdatedControl ControlID="lblError" LoadingPanelID="RadAjaxLoadingPanel1" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
+            
         </AjaxSettings>
     </telerik:RadAjaxManagerProxy>
     <asp:Panel runat="server" ID="plAudit" Visible="false">
@@ -127,7 +128,7 @@
             <div class="col-md-2">
                 <label class=" col-form-label">到職日期</label>
                 <telerik:RadLabel ID="lblDateIn" CssClass="form-control" runat="server" Text="2021/01/02" />
-            </div> 
+            </div>
             <div class="col-md-2">
                 <label class=" col-form-label">異動項目</label>
                 <telerik:RadLabel ID="lblChangeItem" CssClass="form-control" runat="server" />
@@ -296,38 +297,53 @@
                     </div>
                 </div>
                 <div class="col-lg-12">
-                    <telerik:RadListView ID="lvSalary" OnNeedDataSource="lvSalary_NeedDataSource" OnDataBound="lvSalary_DataBound" runat="server" RenderMode="Lightweight" ItemPlaceholderID="Container">
-                        <LayoutTemplate>
-                            <table class="footable table table-stripped" data-filter="#filter">
-                                <thead>
-                                    <tr>
-                                        <th>薪資項目</th>
-                                        <th>原金額</th>
-                                        <th>金額</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="Container" runat="server">
-                                </tbody>
-                            </table>
-                        </LayoutTemplate>
-                        <ItemTemplate>
-                            <tr>
-                                <td>
-                                    <telerik:RadLabel runat="server" ID="SalaryName" Text='<%# Eval("Text") %>'></telerik:RadLabel>
-                                    <telerik:RadLabel runat="server" ID="SalaryCode" Text='<%#Eval("Column1") %>' Visible="false"></telerik:RadLabel>
-                                </td>
-                                <td>
-                                    <telerik:RadLabel runat="server" ID="Amount" Text='<%# Eval("Value") %>'></telerik:RadLabel>
-                                </td>
-                                <td>
-                                    <telerik:RadTextBox runat="server" ID="Salary" CssClass="form-control" InputType="Number"></telerik:RadTextBox></td>
-                            </tr>
-                        </ItemTemplate>
-                        <EmptyDataTemplate>
-                            目前並無任何薪資資料
-                        </EmptyDataTemplate>
+                    <telerik:RadAjaxPanel runat="server" ID="plSalaryListView" LoadingPanelID="RadAjaxLoadingPanel1" >
+                        <telerik:RadListView ID="lvSalary" OnNeedDataSource="lvSalary_NeedDataSource" OnDataBound="lvSalary_DataBound" runat="server" RenderMode="Lightweight" ItemPlaceholderID="Container">
+                            <LayoutTemplate>
+                                <table class="footable table table-stripped" data-filter="#filter">
+                                    <thead>
+                                        <tr>
+                                            <th>薪資項目</th>
+                                            <th>原金額</th>
+                                            <th>金額</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Container" runat="server">
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td>
+                                                <telerik:RadLabel runat="server" Text="總計"></telerik:RadLabel>
+                                            </td>
+                                            <td>
+                                                <telerik:RadLabel runat="server" ID="lblAmountSum"></telerik:RadLabel>
+                                            </td>
+                                            <td>
+                                                <telerik:RadLabel runat="server" ID="lblSalarySum"></telerik:RadLabel>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </LayoutTemplate>
+                            <ItemTemplate>
+                                <tr>
+                                    <td>
+                                        <telerik:RadLabel runat="server" ID="SalaryName" Text='<%# Eval("Text") %>'></telerik:RadLabel>
+                                        <telerik:RadLabel runat="server" ID="SalaryCode" Text='<%#Eval("Column1") %>' Visible="false"></telerik:RadLabel>
+                                    </td>
+                                    <td>
+                                        <telerik:RadLabel runat="server" ID="Amount" Text='<%# Eval("Value") %>'></telerik:RadLabel>
+                                    </td>
+                                    <td>
+                                        <telerik:RadTextBox runat="server" ID="Salary" CssClass="form-control" OnTextChanged="Salary_TextChanged" AutoPostBack="true" InputType="Number"></telerik:RadTextBox></td>
+                                </tr>
+                            </ItemTemplate>
+                            <EmptyDataTemplate>
+                                目前並無任何薪資資料
+                            </EmptyDataTemplate>
 
-                    </telerik:RadListView>
+                        </telerik:RadListView>
+                    </telerik:RadAjaxPanel>
                 </div>
 
             </div>

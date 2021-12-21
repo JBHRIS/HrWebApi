@@ -293,4 +293,118 @@
 
 
 
+/* -- 員工異動行事曆 -- */
+
+	/* 試用期滿 */
+	.tryfull:before {
+		content: "●";
+		margin-right: 8px;
+		color: #217bb8;
+		font-size: 18px;
+	}
+
+	/* 留停 */
+	.stop:before {
+		content: "●";
+		margin-right: 8px;
+		color: #f8ac59;
+		font-size: 18px;
+	}
+
+	/* 離職 */
+	.resign:before {
+		content: "●";
+		margin-right: 8px;
+		color: #ed5565;
+		font-size: 18px;
+	}
+
+	/* 新進 */
+	.newpeople:before {
+		content: "●";
+		margin-right: 8px;
+		color: #1ab394;
+		font-size: 18px;
+	}
+
+	span a {
+		color: #676A6C;
+	}
+
+	span a:hover {
+		color: #676A6C;
+		text-decoration: underline;
+	}
+
+/* 表格RWD */
+.rwd-table {
+	background: #fff;
+	overflow: hidden;
+}
+
+	.rwd-table tr:nth-of-type(2n) {
+		background: #efefef;
+		border-bottom: 1px solid #efefef;
+	}
+
+	.rwd-table th,
+	.rwd-table td {
+		margin: 0.5em 1em;
+	}
+
+.rwd-table {
+	min-width: 100%;
+}
+
+	.rwd-table th {
+		display: none;
+	}
+
+	.rwd-table td {
+		display: block;
+	}
+
+		.rwd-table td:before {
+			content: attr(data-th) " : ";
+			font-weight: bold;
+			width: 5.5em;
+			display: inline-block;
+		}
+
+	.rwd-table th, .rwd-table td {
+		text-align: left;
+	}
+
+		.rwd-table th, .rwd-table td:before {
+			color: #212529;
+			font-weight: bold;
+			/*background-color: #efefef;*/
+		}
+
+@media (min-width: 480px) {
+	.rwd-table td:before {
+		display: none;
+	}
+
+	.rwd-table th, .rwd-table td {
+		display: table-cell;
+		padding: 0.25em 0.5em;
+	}
+
+		.rwd-table th:first-child,
+		.rwd-table td:first-child {
+			padding-left: 0;
+		}
+
+		.rwd-table th:last-child,
+		.rwd-table td:last-child {
+			padding-right: 0;
+		}
+
+	.rwd-table th,
+	.rwd-table td {
+		padding: 1em !important;
+	}
+}
+
 

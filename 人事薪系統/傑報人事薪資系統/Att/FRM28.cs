@@ -454,28 +454,36 @@ namespace JBHR.Att
         }
         decimal CheckAbsHrs()
         {
-            string nobr = ptxNobr.Text;
-            string hcode = ptxHcode.SelectedValue.ToString();
-            DateTime Bdate;
-            Bdate = Convert.ToDateTime(txtDateB.Text);
-            //JBHR.BLL.AbsInfoFactory aif = new BLL.AbsInfoFactory();
-            //JBHR.BLL.AbsInfoQueryCondition condition = new BLL.AbsInfoQueryCondition();
-            //condition.Adate = Bdate;
-            //condition.EmployeeID = nobr;
-            //condition.HolidayCode = hcode;
-            //var absInfo = aif.getInfo(condition);
-            JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
-            var sql = from a in db.ABS
-                      join b in db.HCODE on a.H_CODE equals b.H_CODE
-                      join c in db.HCODE on b.HTYPE equals c.HTYPE
-                      where a.NOBR == nobr && Bdate >= a.BDATE && Bdate <= a.EDATE
-                      && c.H_CODE == hcode
-                      && b.FLAG == "+"
-                      select new { a.BDATE, a.EDATE, a.Balance };
-            txtCurrentHrs.Text = "-1";
-            if (sql.Any())
-                txtCurrentHrs.Text = sql.Sum(p => p.Balance).ToString();
-            return Convert.ToDecimal(txtCurrentHrs.Text);
+            if (ptxHcode.SelectedValue != null)
+            {
+                string nobr = ptxNobr.Text;
+                string hcode = ptxHcode.SelectedValue.ToString();
+                DateTime Bdate;
+                Bdate = Convert.ToDateTime(txtDateB.Text);
+                //JBHR.BLL.AbsInfoFactory aif = new BLL.AbsInfoFactory();
+                //JBHR.BLL.AbsInfoQueryCondition condition = new BLL.AbsInfoQueryCondition();
+                //condition.Adate = Bdate;
+                //condition.EmployeeID = nobr;
+                //condition.HolidayCode = hcode;
+                //var absInfo = aif.getInfo(condition);
+                JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
+                var sql = from a in db.ABS
+                          join b in db.HCODE on a.H_CODE equals b.H_CODE
+                          join c in db.HCODE on b.HTYPE equals c.HTYPE
+                          where a.NOBR == nobr && Bdate >= a.BDATE && Bdate <= a.EDATE
+                          && c.H_CODE == hcode
+                          && b.FLAG == "+"
+                          select new { a.BDATE, a.EDATE, a.Balance };
+                txtCurrentHrs.Text = String.Empty;
+                if (sql.Any())
+                    txtCurrentHrs.Text = sql.Sum(p => p.Balance).ToString();
+                return txtCurrentHrs.Text != String.Empty ? Convert.ToDecimal(txtCurrentHrs.Text) : 0.0M; 
+            }
+            else
+            {
+                txtCurrentHrs.Text = string.Empty;
+                return 0.0M;
+            }
         }
 
         private void fullDataCtrl1_BeforeDel(object sender, JBControls.FullDataCtrl.BeforeEventArgs e)
@@ -697,6 +705,7 @@ namespace JBHR.Att
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             lblSum.Text = Sal.Function.ColumnsSum(dataGridView1, e.ColumnIndex);
+            CheckAbsHrs();
         }
 
 
@@ -1303,6 +1312,16 @@ namespace JBHR.Att
                 else return absd.ABSADD;
             }
             return "";
+        }
+
+        private void fullDataCtrl1_AfterQuery(object sender, JBControls.FullDataCtrl.AfterEventArgs e)
+        {
+            CheckAbsHrs();
+        }
+
+        private void fullDataCtrl1_AfterShow(object sender, JBControls.FullDataCtrl.AfterEventArgs e)
+        {
+            CheckAbsHrs();
         }
 
         private void bnImport_Click(object sender, EventArgs e)

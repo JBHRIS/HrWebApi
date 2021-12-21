@@ -76,7 +76,7 @@ namespace Portal
                     if (rsProcessFlowID != null)
                         lblProcessID.Text = rsProcessFlowID.ProcessFlow_id.ToString();
                 }
-                if (_User.Role.Contains("Hr"))
+                if (_User.Role.Contains("Hr")||_User.Role.Contains("HR"))
                 {
                     plAudit.Visible = true;
                 }
@@ -302,12 +302,12 @@ namespace Portal
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
             var LsSalaryData = new List<TextValueRow>();
-            if (lblChangeItem.Text == "晉升" && (txtPerformance1.Text == "" || txtPerformance2.Text == ""))
-            {
-                lblError.Text = "請填寫主管評核";
-                lblError.CssClass = "badge badge-danger animated shake";
-                return;
-            }
+            //if (lblChangeItem.Text == "晉升" && (txtPerformance1.Text == "" || txtPerformance2.Text == ""))
+            //{
+            //    lblError.Text = "請填寫主管評核";
+            //    lblError.CssClass = "badge badge-danger animated shake";
+            //    return;
+            //}
 
             if (!txtDateAppoint.SelectedDate.HasValue || ddlDept.Text == "" || ddlDeptm.Text == "" || ddlJob.Text == "" || ddlJobl.Text == "")
             {
@@ -376,18 +376,27 @@ namespace Portal
                 {
                     Salary.Value = AccessData.DESDecrypt(Salary.Value, "JBSalary", lblCode.Text.Substring(0, 8));
                 }
+                
                 lvSalary.DataSource = SalaryData;
             }
         }
 
         protected void lvSalary_DataBound(object sender, EventArgs e)
         {
+            int AmountSum = 0;
+            int SalarySum = 0;
             foreach (var r in lvSalary.Items)
             {
                 var Salary = r.FindControl("Salary") as RadTextBox;
                 var Amount = r.FindControl("Amount") as RadLabel;
                 Salary.Text = Amount.Text;
+                SalarySum += Convert.ToInt32(Salary.Text);
+                AmountSum += Convert.ToInt32(Amount.Text);
             }
+            var lblSalarySum = lvSalary.FindControl("lblSalarySum") as RadLabel;
+            var lblAmountSum = lvSalary.FindControl("lblAmountSum") as RadLabel;
+            lblSalarySum.Text = SalarySum.ToString();
+            lblAmountSum.Text = AmountSum.ToString();
         }
         
         protected void lvSalaryLog_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
@@ -409,6 +418,22 @@ namespace Portal
                 rsSalaryLog.Add(rSalaryLog);
             }
             lvSalaryLog.DataSource = rsSalaryLog;
+        }
+        protected void SalarySumChange()
+        {
+            int SalarySum = 0;
+            foreach (var r in lvSalary.Items)
+            {
+                var Salary = r.FindControl("Salary") as RadTextBox;
+                SalarySum += Convert.ToInt32(Salary.Text);
+            }
+            var lblSalarySum = lvSalary.FindControl("lblSalarySum") as RadLabel;
+            lblSalarySum.Text = SalarySum.ToString();
+        }
+
+        protected void Salary_TextChanged(object sender, EventArgs e)
+        {
+            SalarySumChange(); 
         }
     }
 }

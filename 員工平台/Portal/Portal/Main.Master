@@ -35,12 +35,12 @@
             max-width: 100%;
             height: auto;
         }
-        
+
         thead tr {
             white-space: nowrap;
         }
     </style>
-   <!-- <style type="text/css">
+    <!-- <style type="text/css">
         .kendo-pdf-hide-pseudo-elements:after,
         .kendo-pdf-hide-pseudo-elements:before {
             display: none !important;
@@ -75,7 +75,6 @@
         <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" runat="server" Skin="Default">
         </telerik:RadAjaxLoadingPanel>
         <asp:UpdatePanel runat="server" ID="UpdatePanel">
-
         </asp:UpdatePanel>
         <telerik:RadCodeBlock ID="RadCodeBlock2" runat="server">
             <script language="javascript" type="text/javascript">
@@ -108,10 +107,16 @@
                                 </a>
                                 <telerik:RadLabel ID="TotalTime" runat="server" Text="" />
                                 <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                    <li><a class="dropdown-item" href="EmployeeBaseData.aspx"><telerik:RadLabel runat="server" Text="個人資料"></telerik:RadLabel></a></li>
-                                    <li><a class="dropdown-item" href="EmployeeBaseChangePassword.aspx"><telerik:RadLabel runat="server" Text="更改密碼"></telerik:RadLabel></a></li>
+                                    <li><a class="dropdown-item" href="EmployeeBaseData.aspx">
+                                        <telerik:RadLabel ID="lblPersonalData" runat="server" Text="個人資料"></telerik:RadLabel>
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="EmployeeBaseChangePassword.aspx">
+                                        <telerik:RadLabel ID="lblChangePassword" runat="server" Text="更改密碼"></telerik:RadLabel>
+                                    </a></li>
                                     <li class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="Login.aspx?Param=Logout"><telerik:RadLabel runat="server" Text="登出"></telerik:RadLabel></a></li>
+                                    <li><a class="dropdown-item" href="Login.aspx?Param=Logout">
+                                        <telerik:RadLabel ID="lblLogOut" runat="server" Text="登出"></telerik:RadLabel>
+                                    </a></li>
                                 </ul>
                             </div>
                             <!--<div class="logo-element">
@@ -124,7 +129,7 @@
 
                 </div>
             </nav>
-            
+
             <div id="page-wrapper" class="gray-bg dashbard-1">
                 <div class="row border-bottom">
                     <nav class="navbar navbar-fixed-top" role="navigation" style="margin-bottom: 0; height: 63px;">
@@ -134,7 +139,8 @@
                                 <div class="row">
                                     <div class="col-9 col-lg-9  d-none d-sm-block">
                                         <div class="form-group" style="width: 100%">
-                                            <input type="text" placeholder="你想搜尋什麼..." class="form-control" name="top-search" id="top-search" />
+                                            <%--<input type="text" placeholder="你想搜尋什麼..." class="form-control" name="top-search" id="top-search" />--%>
+                                            <telerik:RadTextBox runat="server" CssClass="form-control" ID="txtSearch" EmptyMessage="你想搜尋什麼..."></telerik:RadTextBox>
                                         </div>
                                     </div>
                                     <div class="d-none d-sm-block">
@@ -146,13 +152,28 @@
                             </div>
                         </div>
                         <ul class="nav navbar-top-links navbar-right">
-                            <telerik:RadAjaxPanel  runat="server" ID="plCountDown" Visible="false">
-                                <li class="text-danger text-pd"><strong><telerik:RadLabel runat="server" Text="自動登出倒數"></telerik:RadLabel></strong>
+                            <telerik:RadAjaxPanel runat="server" ID="plCountDown" Visible="false">
+                                <li class="text-danger text-pd"><strong>
+                                    <telerik:RadLabel ID="lblCountDown" runat="server" Text="自動登出倒數"></telerik:RadLabel>
+                                </strong>
                                     <strong>
-                                            <asp:Timer ID="Timer" runat="server" Interval="1000"></asp:Timer>
-                                            <telerik:RadLabel runat="server" ID="lblTime"></telerik:RadLabel>
+                                        <asp:Timer ID="Timer" runat="server" Interval="1000"></asp:Timer>
+                                        <telerik:RadLabel runat="server" ID="lblTime"></telerik:RadLabel>
                                     </strong></li>
                             </telerik:RadAjaxPanel>
+                            <asp:Panel runat="server" ID="plLanguage" Visible="false">
+                                <li class="dropdown">
+                                    <button class="count-info btn dropdown-toggle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="語系選擇" data-toggle="dropdown" type="button"><i class="fa fa-globe icon_16"></i></button>
+                                    <ul class="dropdown-menu float-right">
+                                        <li><a class="dropdown-item">
+                                            <telerik:RadButton ID="btnChinese" OnClick="Language" CommandName="" runat="server" Text="繁體中文" CssClass="btn" />
+                                        </a></li>
+                                        <li><a class="dropdown-item">
+                                            <telerik:RadButton ID="btnEnglish" OnClick="Language" CommandName="EN" runat="server" Text="English" CssClass="btn" />
+                                        </a></li>
+                                    </ul>
+                                </li>
+                            </asp:Panel>
                             <li>
                                 <!--<span class="m-r-sm text-muted welcome-message">請勿將密碼告知任何人</span>-->
                                 <telerik:RadButton ID="btnExport" runat="server" Visible="False" Text="匯出頁面" OnClientClicking="exports" AutoPostBack="false" CssClass="btn btn-w-m fa" Style="color: #999c9e; font-weight: bolder; font-size: 14px;">
@@ -162,7 +183,8 @@
                             <li>
                                 <asp:Panel runat="server" ID="plLogOut">
                                     <a href="Login.aspx?Param=Logout" style="color: #999c9e; font-weight: bolder;">
-                                        <i class="fa fa-sign-out"></i><telerik:RadLabel runat="server" Text="登出"></telerik:RadLabel>
+                                        <i class="fa fa-sign-out"></i>
+                                        <telerik:RadLabel runat="server" ID="lblLogOut1" Text="登出"></telerik:RadLabel>
                                     </a>
                                 </asp:Panel>
                             </li>
@@ -187,11 +209,15 @@
                     </asp:ContentPlaceHolder>
                 </asp:Panel>
                 <div class="footer fixed">
-                    <div class="float-right">
-                        Ver <strong>20210208</strong> 42384
-                    </div>
-                    <div>
-                        <strong>Copyright</strong> 傑報 &copy; 2021
+                    <div class="row">
+                        <div class="col-12 col-lg-10 copyright">
+                            <strong>Copyright</strong> &copy; 2021 傑報人力資源服務集團
+                            ｜ <a href="https://www.jbjob.com.tw/?page_id=320" target="_blank">隱私權保護政策</a>
+                            ｜ <a href="https://www.jbjob.com.tw/%e5%93%81%e8%b3%aa%e6%94%bf%e7%ad%96/" target="_blank">品質政策</a>
+                        </div>
+                        <div class="float-right">
+                            Ver <strong>20210208</strong> 42384
+                        </div>
                     </div>
                 </div>
             </div>

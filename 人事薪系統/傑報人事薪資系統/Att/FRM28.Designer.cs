@@ -89,6 +89,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblUnit = new System.Windows.Forms.Label();
             this.txtTotalHours = new JBControls.TextBox();
+            this.txtGuid = new JBControls.TextBox();
             this.buttonGen = new System.Windows.Forms.Button();
             this.bnImport = new System.Windows.Forms.Button();
             this.checkBoxABSD = new System.Windows.Forms.CheckBox();
@@ -103,7 +104,6 @@
             this.aBSTableAdapter = new JBHR.Att.dsAttTableAdapters.ABSTableAdapter();
             this.aTTCARDTableAdapter = new JBHR.Att.dsAttTableAdapters.ATTCARDTableAdapter();
             this.hCODETableAdapter = new JBHR.Att.dsAttTableAdapters.HCODETableAdapter();
-            this.txtGuid = new JBControls.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -878,6 +878,26 @@
             this.txtTotalHours.TabIndex = 9;
             this.txtTotalHours.ValidType = JBControls.TextBox.EValidType.Decimal;
             // 
+            // txtGuid
+            // 
+            this.txtGuid.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.txtGuid.CaptionLabel = null;
+            this.txtGuid.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtGuid.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.aBSBindingSource, "Guid", true));
+            this.txtGuid.DecimalPlace = 2;
+            this.txtGuid.Enabled = false;
+            this.txtGuid.IsEmpty = true;
+            this.txtGuid.Location = new System.Drawing.Point(292, 169);
+            this.txtGuid.Mask = "";
+            this.txtGuid.MaxLength = 50;
+            this.txtGuid.Name = "txtGuid";
+            this.txtGuid.PasswordChar = '\0';
+            this.txtGuid.ReadOnly = false;
+            this.txtGuid.ShowCalendarButton = true;
+            this.txtGuid.Size = new System.Drawing.Size(100, 22);
+            this.txtGuid.TabIndex = 13;
+            this.txtGuid.ValidType = JBControls.TextBox.EValidType.String;
+            // 
             // buttonGen
             // 
             this.buttonGen.Location = new System.Drawing.Point(721, 48);
@@ -984,6 +1004,8 @@
             this.fullDataCtrl1.AfterSave += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterSave);
             this.fullDataCtrl1.AfterCancel += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterCancel);
             this.fullDataCtrl1.AfterExport += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterExport);
+            this.fullDataCtrl1.AfterQuery += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterQuery);
+            this.fullDataCtrl1.AfterShow += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterShow);
             // 
             // dEPTSBindingSource
             // 
@@ -1013,26 +1035,6 @@
             // hCODETableAdapter
             // 
             this.hCODETableAdapter.ClearBeforeFill = true;
-            // 
-            // txtGuid
-            // 
-            this.txtGuid.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.txtGuid.CaptionLabel = null;
-            this.txtGuid.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtGuid.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.aBSBindingSource, "Guid", true));
-            this.txtGuid.DecimalPlace = 2;
-            this.txtGuid.Enabled = false;
-            this.txtGuid.IsEmpty = true;
-            this.txtGuid.Location = new System.Drawing.Point(292, 169);
-            this.txtGuid.Mask = "";
-            this.txtGuid.MaxLength = 50;
-            this.txtGuid.Name = "txtGuid";
-            this.txtGuid.PasswordChar = '\0';
-            this.txtGuid.ReadOnly = false;
-            this.txtGuid.ShowCalendarButton = true;
-            this.txtGuid.Size = new System.Drawing.Size(100, 22);
-            this.txtGuid.TabIndex = 13;
-            this.txtGuid.ValidType = JBControls.TextBox.EValidType.String;
             // 
             // FRM28
             // 

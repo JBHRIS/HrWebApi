@@ -199,30 +199,30 @@ namespace Portal
 
                 //撰寫歡迎訊息
                 {
-                    var Code = Guid.NewGuid().ToString();
+                    //var Code = Guid.NewGuid().ToString();
 
-                    var oMessageShow = oMainDao.MessageShow("0803000001");
-                    var oSystemUserNotify = new SystemUserNotifyDao();
-                    var oSystemUserNotifyInsert = new SystemUserNotifyInsertRow();
-                    oSystemUserNotifyInsert.IpAddress = WebPage.GetClientIP(Context);
-                    oSystemUserNotifyInsert.AppName = Request.Url.ToString();
-                    oSystemUserNotifyInsert.InsertMan = _User.UserCode;
-                    oSystemUserNotifyInsert.ListSystemUserNotify = new List<SystemUserNotifyRow>();
-                    var rSystemUserNotify = new SystemUserNotifyRow();
-                    rSystemUserNotify.Code = Code;
-                    rSystemUserNotify.UserCode = UserCodeNew;
-                    rSystemUserNotify.UserCodeSend = "01";
-                    rSystemUserNotify.UserName = "系統管理者";
-                    rSystemUserNotify.NotifyTypeCode = "01";
-                    rSystemUserNotify.AppName = "Login";
-                    rSystemUserNotify.AppCode = UserCodeNew;
-                    rSystemUserNotify.TitleContents = oMessageShow?.TitleContents ?? "歡迎回來";
-                    rSystemUserNotify.Contents = oMessageShow?.Contents ?? "今天簽到了嗎？";
-                    rSystemUserNotify.IsRead = false;
-                    rSystemUserNotify.DateA = DateTime.Now.Date;
-                    rSystemUserNotify.DateD = DateTime.Now.Date;
-                    oSystemUserNotifyInsert.ListSystemUserNotify.Add(rSystemUserNotify);
-                    oSystemUserNotify.SystemUserNotifyInsert(oSystemUserNotifyInsert);
+                    //var oMessageShow = oMainDao.MessageShow("0803000001");
+                    //var oSystemUserNotify = new SystemUserNotifyDao();
+                    //var oSystemUserNotifyInsert = new SystemUserNotifyInsertRow();
+                    //oSystemUserNotifyInsert.IpAddress = WebPage.GetClientIP(Context);
+                    //oSystemUserNotifyInsert.AppName = Request.Url.ToString();
+                    //oSystemUserNotifyInsert.InsertMan = _User.UserCode;
+                    //oSystemUserNotifyInsert.ListSystemUserNotify = new List<SystemUserNotifyRow>();
+                    //var rSystemUserNotify = new SystemUserNotifyRow();
+                    //rSystemUserNotify.Code = Code;
+                    //rSystemUserNotify.UserCode = UserCodeNew;
+                    //rSystemUserNotify.UserCodeSend = "01";
+                    //rSystemUserNotify.UserName = "系統管理者";
+                    //rSystemUserNotify.NotifyTypeCode = "01";
+                    //rSystemUserNotify.AppName = "Login";
+                    //rSystemUserNotify.AppCode = UserCodeNew;
+                    //rSystemUserNotify.TitleContents = oMessageShow?.TitleContents ?? "歡迎回來";
+                    //rSystemUserNotify.Contents = oMessageShow?.Contents ?? "今天簽到了嗎？";
+                    //rSystemUserNotify.IsRead = false;
+                    //rSystemUserNotify.DateA = DateTime.Now.Date;
+                    //rSystemUserNotify.DateD = DateTime.Now.Date;
+                    //oSystemUserNotifyInsert.ListSystemUserNotify.Add(rSystemUserNotify);
+                    //oSystemUserNotify.SystemUserNotifyInsert(oSystemUserNotifyInsert);
                 }
 
                 if (UnobtrusiveSession.Session["ReturnUrl"] != null)

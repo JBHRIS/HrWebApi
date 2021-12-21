@@ -23,7 +23,7 @@ namespace Dal.Dao.Token
 
         public async Task<APIResult> PostAsync(RefreshTokenConditions Cond, CancellationToken cancellationToken = default(CancellationToken))
         {
-            AuthenticationHeaderBearerTokenValue = Cond.refreshToken;
+            AuthenticationHeaderBearerTokenValue = Cond.AccessToken;
 
             //移除敏感資料
             var AccessToken = Cond.AccessToken;
@@ -44,7 +44,7 @@ namespace Dal.Dao.Token
 
         public  APIResult Post(RefreshTokenConditions Cond, CancellationToken cancellationToken = default(CancellationToken))
         {
-            AuthenticationHeaderBearerTokenValue = Cond.refreshToken;
+            AuthenticationHeaderBearerTokenValue = Cond.AccessToken;
 
             //移除敏感資料
             var AccessToken = Cond.AccessToken;
