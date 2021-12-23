@@ -38,5 +38,6 @@ namespace Bll.FormView.Vdb
         public string Agent { get; set; }
         public string FormState { get; set; }
         public string FlowId { get; set; }
+        public string SignEmpId { get; set; }
     }
 }

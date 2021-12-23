@@ -503,6 +503,36 @@ namespace Portal
                               }).Distinct().ToList();
 
                     break;
+                case "3"://正在審核
+                    result = (from App in dcFlow.FormsApp
+                              join Process in dcFlow.ProcessFlow on App.idProcess equals Process.id
+                              join Form in dcFlow.Forms on App.FormsCode equals Form.Code
+                              join ApView in dcFlow.ProcessApView on App.idProcess equals ApView.ProcessFlow_id
+                              join Node in dcFlow.ProcessNode on App.idProcess equals Node.ProcessFlow_id
+                              join Check in dcFlow.ProcessCheck on Node.auto equals Check.ProcessNode_auto
+                              where App.DateTimeA > DateB && App.DateTimeA < DateE
+                              && (Nobr == "" || Check.Emp_idDefault == Nobr)
+                              && App.SignState == "1"
+                              && (ProcessId == "" || App.ProcessID == ProcessId)
+                              && (FormsCode == "" || App.FormsCode == FormsCode)
+                              && Node.isFinish != true
+                              orderby Check.adate descending
+                              select new FormViewRow
+                              {
+                                  ProcessId = App.ProcessID,
+                                  ADate = App.DateTimeA,
+                                  Application = App.EmpId + "," + App.EmpName,
+                                  EmpId = Check.Emp_idDefault,
+                                  FlowCode = Form.Code,
+                                  FlowName = Form.Name,
+                                  DateB = App.DateTimeA,
+                                  DateE = (!Process.isCancel.Value && !Process.isError.Value && !Process.isFinish.Value) ? null : App.DateTimeD,
+                                  ApViewAuto = ApView.auto.ToString(),
+                                  FormState = !(bool)Process.isError ? App.SignState != "1" ? App.SignState != "2" ? App.SignState != "3" ? App.SignState != "7" ? App.SignState == "4" ? "已作廢" : "" : "已抽單" : "已完成" : "已駁回" : "進行中" : "異常",
+                              }).Distinct().ToList();
+
+
+                    break;
             }
 
             List<string> EmpId = new List<string> { };
@@ -546,6 +576,28 @@ namespace Portal
                 {
                     result.Remove(c);
                 }
+            }
+
+            foreach (var c in result)
+            {
+                string SignEmpId = "";
+                var rsProcessNode = (from pn in dcFlow.ProcessNode
+                                     join pc in dcFlow.ProcessCheck on pn.auto equals pc.ProcessNode_auto
+                                     where pn.ProcessFlow_id.ToString() == c.ProcessId
+                                     orderby pc.adate.Value descending
+                                     select pc).FirstOrDefault();
+
+                if (rsProcessNode != null)
+                {
+                    var rEmp = (from emp in dcFlow.Emp
+                                where emp.id == rsProcessNode.Emp_idDefault
+                                select emp).FirstOrDefault();
+
+                    if (rEmp != null)
+                        SignEmpId = rEmp.id + "," + rEmp.name;
+                }
+
+                c.SignEmpId = SignEmpId;//目前簽核主管
             }
 
             //foreach (var r in result)
@@ -885,6 +937,58 @@ namespace Portal
                               }).Distinct().ToList();
 
                     break;
+                case "3"://正在審核
+                    result = (from App in dcFlow.FormsApp
+                              join Process in dcFlow.ProcessFlow on App.idProcess equals Process.id
+                              join Form in dcFlow.Forms on App.FormsCode equals Form.Code
+                              join ApView in dcFlow.ProcessApView on App.idProcess equals ApView.ProcessFlow_id
+                              join Node in dcFlow.ProcessNode on App.idProcess equals Node.ProcessFlow_id
+                              join Check in dcFlow.ProcessCheck on Node.auto equals Check.ProcessNode_auto
+                              where App.DateTimeA > DateB && App.DateTimeA < DateE
+                              && (Nobr == "" || Check.Emp_idDefault == Nobr)
+                              && App.SignState == "1"
+                              && (ProcessId == "" || App.ProcessID == ProcessId)
+                              && (FormsCode == "" || App.FormsCode == FormsCode)
+                              && Node.isFinish != true
+                              orderby Check.adate descending
+                              select new FormViewRow
+                              {
+                                  ProcessId = App.ProcessID,
+                                  ADate = App.DateTimeA,
+                                  Application = App.EmpId + "," + App.EmpName,
+                                  EmpId = Check.Emp_idDefault,
+                                  FlowCode = Form.Code,
+                                  FlowName = Form.Name,
+                                  DateB = App.DateTimeA,
+                                  DateE = (!Process.isCancel.Value && !Process.isError.Value && !Process.isFinish.Value) ? null : App.DateTimeD,
+                                  ApViewAuto = ApView.auto.ToString(),
+                                  FormState = !(bool)Process.isError ? App.SignState != "1" ? App.SignState != "2" ? App.SignState != "3" ? App.SignState != "7" ? App.SignState == "4" ? "已作廢" : "" : "已抽單" : "已完成" : "已駁回" : "進行中" : "異常",
+                              }).Distinct().ToList();
+
+
+                    break;
+            }
+
+            foreach (var c in result)
+            {
+                string SignEmpId = "";
+                var rsProcessNode = (from pn in dcFlow.ProcessNode
+                                     join pc in dcFlow.ProcessCheck on pn.auto equals pc.ProcessNode_auto
+                                     where pn.ProcessFlow_id.ToString() == c.ProcessId
+                                     orderby pc.adate.Value descending
+                                     select pc).FirstOrDefault();
+
+                if (rsProcessNode != null)
+                {
+                    var rEmp = (from emp in dcFlow.Emp
+                                where emp.id == rsProcessNode.Emp_idDefault
+                                select emp).FirstOrDefault();
+
+                    if (rEmp != null)
+                        SignEmpId = rEmp.id + "," + rEmp.name;
+                }
+
+                c.SignEmpId = SignEmpId;//目前簽核主管
             }
 
 
@@ -1030,6 +1134,28 @@ namespace Portal
                               }).Distinct().ToList();
 
                     break;
+            }
+
+            foreach (var c in result)
+            {
+                string SignEmpId = "";
+                var rsProcessNode = (from pn in dcFlow.ProcessNode
+                                     join pc in dcFlow.ProcessCheck on pn.auto equals pc.ProcessNode_auto
+                                     where pn.ProcessFlow_id.ToString() == c.ProcessId
+                                     orderby pc.adate.Value descending
+                                     select pc).FirstOrDefault();
+
+                if (rsProcessNode != null)
+                {
+                    var rEmp = (from emp in dcFlow.Emp
+                                where emp.id == rsProcessNode.Emp_idDefault
+                                select emp).FirstOrDefault();
+
+                    if (rEmp != null)
+                        SignEmpId = rEmp.id + "," + rEmp.name;
+                }
+
+                c.SignEmpId = SignEmpId;//目前簽核主管
             }
 
             lvMain.DataSource = result.OrderByDescending(p => p.ProcessId);
@@ -1228,6 +1354,26 @@ namespace Portal
                 ckbNoShowMyProcessEmp.Visible = true;
             else
                 ckbNoShowMyProcessEmp.Visible = false;
+        }
+
+        protected void ddlRoleAdmin_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
+        {
+            ddlStateAdmin.Enabled = true;
+            if (e.Value == "3")
+            {
+                ddlStateAdmin.Items.FindItemByValue("1").Selected = true;
+                ddlStateAdmin.Enabled = false;
+            }
+        }
+
+        protected void ddlRoleCoordinator_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
+        {
+            ddlStateCoordinator.Enabled = true;
+            if (e.Value == "3")
+            {
+                ddlStateCoordinator.Items.FindItemByValue("1").Selected = true;
+                ddlStateCoordinator.Enabled = false;
+            }
         }
     }
 }

@@ -67,6 +67,7 @@
                                             <telerik:RadComboBoxItem runat="server" Text="申請者" Value="0" />
                                             <telerik:RadComboBoxItem runat="server" Text="被申請者" Value="1" />
                                             <telerik:RadComboBoxItem runat="server" Text="審核者" Value="2" />
+                                            <telerik:RadComboBoxItem runat="server" Text="目前審核者" Value="3" />
                                         </Items>
                                     </telerik:RadComboBox>
                                 </div>
@@ -130,11 +131,12 @@
                                 </div>
                                 <div class="col-sm-3">
                                     <label class="col-form-label">角色</label>
-                                    <telerik:RadComboBox ID="ddlRoleCoordinator" runat="server" Culture="zh-TW" EnableVirtualScrolling="True" Skin="Bootstrap" AutoPostBack="True" Width="100%">
+                                    <telerik:RadComboBox ID="ddlRoleCoordinator" runat="server" Culture="zh-TW" EnableVirtualScrolling="True" Skin="Bootstrap" AutoPostBack="True" Width="100%" OnSelectedIndexChanged="ddlRoleCoordinator_SelectedIndexChanged">
                                         <Items>
                                             <telerik:RadComboBoxItem runat="server" Text="申請者" Value="0" />
                                             <telerik:RadComboBoxItem runat="server" Text="被申請者" Value="1" />
                                             <telerik:RadComboBoxItem runat="server" Text="審核者" Value="2" />
+                                            <telerik:RadComboBoxItem runat="server" Text="目前審核者" Value="3" />
                                         </Items>
                                     </telerik:RadComboBox>
                                 </div>
@@ -197,11 +199,12 @@
                                 </div>
                                 <div class="col-sm-3">
                                     <label class="col-form-label">角色</label>
-                                    <telerik:RadComboBox ID="ddlRoleAdmin" runat="server" Culture="zh-TW" EnableVirtualScrolling="True" Skin="Bootstrap" AutoPostBack="True" Width="100%">
+                                    <telerik:RadComboBox ID="ddlRoleAdmin" runat="server" Culture="zh-TW" EnableVirtualScrolling="True" Skin="Bootstrap" AutoPostBack="True" Width="100%" OnSelectedIndexChanged="ddlRoleAdmin_SelectedIndexChanged">
                                         <Items>
                                             <telerik:RadComboBoxItem runat="server" Text="申請者" Value="0" />
                                             <telerik:RadComboBoxItem runat="server" Text="被申請者" Value="1" />
                                             <telerik:RadComboBoxItem runat="server" Text="審核者" Value="2" />
+                                            <telerik:RadComboBoxItem runat="server" Text="目前審核者" Value="3" />
                                         </Items>
                                     </telerik:RadComboBox>
                                 </div>
@@ -346,7 +349,9 @@
                                                                 <div class="col col-xs-6">
                                                                     <%--<span>共計：<%#Eval("Use") %><%#Eval("Unit") %></span><br>
                                                             <span>代理人：<%#Eval("Agent") %></span>--%>
-                                                                    <span>表單狀態:<%#Eval("FormState") %></span>
+                                                                    <span>表單狀態：<%#Eval("FormState") %></span>
+                                                                    <br />
+                                                                    <span>簽核主管：<%#Eval("SignEmpId") %></span>
                                                                 </div>
                                                             </div>
                                                         </div>
