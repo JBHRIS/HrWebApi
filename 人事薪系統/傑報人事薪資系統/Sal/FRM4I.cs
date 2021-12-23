@@ -61,7 +61,7 @@ namespace JBHR.Sal
             acg.CheckParameterAndSetDefault("InEndDateNextMonth", "次月到職截止日", "N", "次月到職截止日設定", "TextBox", "", "Int");
             acg.CheckParameterAndSetDefault("DeductWage", "已發扣回代碼", "", "指定已發扣回代碼來回沖借支", "ComboBox", "select sal_code,sal_code_disp+'-'+sal_name from salcode where dbo.getcodefilter('SALCODE',SAL_CODE,@userid,@comp,@admin)=1", "String");
             acg.CheckParameterAndSetDefault("PersonMaxOT_hrs", "加班工時以節金時數計", "False", "False:加班工時以法定工時(46)小時數計 True:加班工時節金時數計", "ComboBox", "select 'True' value , 'True' union select 'False', 'False'", "String");
-
+            acg.CheckParameterAndSetDefault("DailyHrsMaxSW", "加班超過日工時上限算應稅", "False", "當延長工時超過每日工時上限後，超過部分會算應稅。", "ComboBox", "select 'True' value , 'True' union select 'False', 'False'", "String");
             //    acg.CheckParameterAndSetDefault("SalNonFrqSEQ", "非經常性薪資期別", "", "指定非經常性薪資期別", "TextBox", "", "String");
             //acg.CheckParameterAndSetDefault("AbsCode", "曠職代碼", "", "指定曠職代碼來判斷曠職不給全勤", "ComboBox", "select h_code,h_code_disp+'-'+h_name from hcode where dbo.getcodefilter('HCODE',H_CODE,@userid,@comp,@admin)=1", "String");
             //this.sALCODETableAdapter.Fill(this.salaryDS.SALCODE, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN);

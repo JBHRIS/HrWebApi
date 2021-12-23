@@ -35,7 +35,8 @@ namespace JBHR.Sal.Core
             AppConfig.CheckParameterAndSetDefault("AvgWorkDays", "平均月出勤天數", "22"
                 , "設定輪班津貼、環境津貼、夜班伙食等，在計算加班費基礎時，以日給額乘上平均出勤天數作為加班基礎", "TextBox"
                 , "", "String");
-            acg = new JBModule.Data.ApplicationConfigSettings("FRM4P", MainForm.COMPANY);
+            acg = new JBModule.Data.ApplicationConfigSettings("FRM4I", MainForm.COMPANY);
+            bool DailyHrsMaxSW = acg.GetConfig("DailyHrsMaxSW").GetString("False") == "True" ? true : false;
             DateTime d1, d2;
             d1 = DateTime.Now;
             JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
@@ -127,6 +128,7 @@ namespace JBHR.Sal.Core
                              OT_ROTE = (a.OT_ROTE == null || a.OT_ROTE.Trim().Length == 0) ? f.ROTE : a.OT_ROTE,//避免加班班別沒填
                              //ROTE = d,
                              AttRote = f.ROTE,//出勤班別用來判斷當天是不是
+                             WKHrs = d.WK_HRS,
                              //OTRATE_CODE = hd.OTRATECD != null ? hd.OTRATECD : a.Key.OTRATE_CODE,
                              SYS_OT = a.SYS_OT,
                              NOFOOD = a.NOFOOD,
@@ -227,6 +229,7 @@ namespace JBHR.Sal.Core
                 int MonthDays = itsMon.GetDays();
                 var roteBonusOfNobr = from a in roteBonus where a.NOBR == gp.Key select a;
                 decimal RoteMonthAmt = 0, RoteDayAmt = 0, StationAmt = 0, FoodAmt = 0;
+                decimal NoTaxHoursOfWDay = 0;
                 foreach (var rBonus in roteBonusOfNobr)
                 {
                     JBTools.Intersection its = new JBTools.Intersection();
@@ -257,13 +260,16 @@ namespace JBHR.Sal.Core
                     if (r.ot.OTRATE_CODE.Trim().Length > 0)//如果加班資料上面有指定
                         OTRATE_CODE = r.ot.OTRATE_CODE.Trim();
                     otrcd = SalaryVar.GetOtRateCode(OTRATE_CODE);//取得加班比率設定
-                    OtTaxRate otr = new OtTaxRate(r.AttRote, r.ot.SYS_OT || r.SYS_OT || r.DefaultOtrateCode != OTRATE_CODE);
+                    OtTaxRate otr = new OtTaxRate(r.AttRote, r.ot.SYS_OT || r.SYS_OT || r.DefaultOtrateCode != OTRATE_CODE, DailyHrsMaxSW);
                     if (tmpDate != r.ot.BDATE)
                     {
+                        otr.DailyMaxHrs = new string[] { "00", "0X", "0Z" }.Contains(r.AttRote) ? otr.DailyMaxHrs : otr.DailyMaxHrs - r.WKHrs;
                         tmpDate = r.ot.BDATE;
                         var Ottemp = RV_OT1.Where(p => p.NOBR == tmpNobr && p.BDATE == tmpDate);
                         TodayOtHrs = Ottemp.Any() ? Ottemp.Sum(p => p.OT_HRS) : 0;//0;//不同天，就歸零(以依照日期排序)    
+                        NoTaxHoursOfWDay = otr.DailyMaxHrs <= 0 ? 0 : otr.DailyMaxHrs - TodayOtHrs > 0 ? otr.DailyMaxHrs - TodayOtHrs : 0;
                     }
+                    otr.DailyMaxHrs = NoTaxHoursOfWDay;
                     //拆比率
                     overtime.SetOtRate(r.ot, otrcd, TodayOtHrs, r.AttRote, r.SYS_OT);
                     TodayOtHrs += r.ot.REST_HRS;
@@ -298,7 +304,7 @@ namespace JBHR.Sal.Core
                     //ot.NOP_W_167 = otrcd.OT167WRATE;
                     //ot.NOP_W_200 = otrcd.OT200WRATE;
                     //}
-
+                    NoTaxHoursOfWDay = otr.DailyMaxHrs;
                     if (ChkDate != r.ot.BDATE)//每天重計
                     {
                         DayBonus = 0;
