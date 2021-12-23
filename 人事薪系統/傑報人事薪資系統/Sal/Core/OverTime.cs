@@ -411,18 +411,26 @@ namespace JBHR.Sal.Core.OvertTime
     {
         string ATT_ROTE = "";
         decimal NoTaxHoursOfDay = 0;
+        public decimal DailyMaxHrs = 12;
         decimal not_hrs = 0;
         decimal tot_hrs = 0;
         decimal noTaxMax = 0;
         bool SYS_OT = false;
-        public OtTaxRate(string att_rote, bool sys_ot)//以每天為基準
+        bool DailyHrsMaxSW = false;
+        public OtTaxRate(string att_rote, bool sys_ot, bool dailyHrsMaxSW = false)//以每天為基準
         {
             this.ATT_ROTE = att_rote;
             this.SYS_OT = sys_ot;
             if (this.ATT_ROTE == "00" || this.ATT_ROTE == "0Z")
             {
                 NoTaxHoursOfDay = 8;//設定假日免稅上限
+                DailyMaxHrs = 4;
             }
+            DailyHrsMaxSW = dailyHrsMaxSW;
+            //else if (this.ATT_ROTE == "0X")
+            //    DailyMaxHrs = 12;
+            //else
+            //    DailyMaxHrs = 4;
         }
         public decimal SetOtTax(decimal NOTAXMAX, decimal Hrs)
         {
@@ -438,12 +446,20 @@ namespace JBHR.Sal.Core.OvertTime
             NoTaxHoursOfDay -= FreeNoTaxHrs;
             //if (this.ATT_ROTE != "00" && this.ATT_ROTE != "0Z")//如果不是假日班且非系統加班，必須再判斷免稅時數有無超出每月上限
             {
-                decimal i, j;
+                decimal i, j, k;
                 i = NoTaxHrs <= NOTAXMAX ? NoTaxHrs : NOTAXMAX;//如果時數小於剩餘的免稅時數，就全部都是免稅，否則就是剩餘時數
                 j = NoTaxHrs <= NOTAXMAX ? 0 : NoTaxHrs - NOTAXMAX;//時數小於剩餘時數，無應稅時數，否則就是
                 NoTaxHrs = i;
                 NOTAXMAX -= NoTaxHrs;//沖抵免稅時數                
                 TaxHrs += j;//如果超出的部分，在累加到應稅裡
+                if (DailyHrsMaxSW)//if (this.ATT_ROTE != "00" && this.ATT_ROTE != "0Z")
+                {
+                    k = NoTaxHrs - DailyMaxHrs;
+                    NoTaxHrs = k > 0 ? DailyMaxHrs : NoTaxHrs;
+                    TaxHrs = k > 0 ? TaxHrs + k : TaxHrs;
+                    DailyMaxHrs = k > 0 ? 0 : DailyMaxHrs - NoTaxHrs;
+                    NOTAXMAX += k > 0 ? k : 0;
+                }
             }
             not_hrs = NoTaxHrs + FreeNoTaxHrs;
             tot_hrs = TaxHrs;
