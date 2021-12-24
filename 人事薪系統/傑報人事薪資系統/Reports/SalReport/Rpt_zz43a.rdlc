@@ -12,7 +12,7 @@
               <Width>1.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.65001cm</Width>
+              <Width>2cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.9cm</Width>
@@ -4438,7 +4438,7 @@
         <DataSetName>SalDataSet_zz439</DataSetName>
         <Left>0.5cm</Left>
         <Height>4.6746cm</Height>
-        <Width>19.47647cm</Width>
+        <Width>19.82646cm</Width>
         <Style>
           <FontFamily>標楷體</FontFamily>
           <FontSize>8pt</FontSize>
