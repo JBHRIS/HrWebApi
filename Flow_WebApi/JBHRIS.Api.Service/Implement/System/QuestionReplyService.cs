@@ -19,9 +19,9 @@ namespace JBHRIS.Api.Service.Implement.System
         {
             return this._ISystem_QuestionReply_View.GetQuestionReplyByQuestionMainCode(QMainCode);
         }
-        public List<QuestionReplyVdb> GetQuestionReplyByParentCode(string ParentCode)
+        public List<QuestionReplyVdb> GetQuestionReplyByCode(string Code)
         {
-            return this._ISystem_QuestionReply_View.GetQuestionReplyByParentCode(ParentCode);
+            return this._ISystem_QuestionReply_View.GetQuestionReplyByCode(Code);
         }
 
         public bool InsertQuestionReply(QuestionReplyVdb vdb)

@@ -52,20 +52,20 @@ namespace Flow_WebApi.Controllers
 
 
         /// <summary>
-        /// 根據ParentCode取得所有回覆單
+        /// 根據Code取得回覆單
         /// </summary>
-        /// <param name="ParentCode"></param>
+        /// <param name="Code"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("GetQuestionReplyByParentCode")]
-        public ApiResult<List<QuestionReplyVdb>> GetQuestionReplyByParentCode(string ParentCode)
+        [Route("GetQuestionReplyByCode")]
+        public ApiResult<List<QuestionReplyVdb>> GetQuestionReplyByCode(string Code)
         {
             ApiResult<List<QuestionReplyVdb>> mapiResult = new ApiResult<List<QuestionReplyVdb>>();
 
             mapiResult.State = false;
             try
             {
-                mapiResult.Result = this._QuestionReplyInterface.GetQuestionReplyByQuestionMainCode(ParentCode);
+                mapiResult.Result = this._QuestionReplyInterface.GetQuestionReplyByCode(Code);
                 mapiResult.State = true;
             }
             catch (Exception ex)

@@ -55,11 +55,11 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
             return result;
             // return result;
         }
-        public List<QuestionReplyVdb> GetQuestionReplyByParentCode(string Code)
+        public List<QuestionReplyVdb> GetQuestionReplyByCode(string Code)
         {
 
             List<QuestionReplyVdb> result = (from bn in this._context.QuestionReplies
-                                             where bn.ParentCode == Code
+                                             where bn.Code == Code
                                              select new QuestionReplyVdb
                                              {
                                                  AutoKey = bn.AutoKey,
