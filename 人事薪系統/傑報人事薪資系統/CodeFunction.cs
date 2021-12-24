@@ -1524,6 +1524,33 @@ namespace JBHR
             var lst = sql.AsEnumerable().ToDictionary(p => p.Key, p => p.Value);
             return lst;
         }
+
+        public static Dictionary<string, string> GetHunya_ABTypeCode()
+        {
+            return GetHunya_ABTypeCode(true);
+        }
+
+        public static Dictionary<string, string> GetHunya_ABTypeCode(bool ValueWithKey)
+        {
+            var db = new JBModule.Data.Linq.HrDBDataContext();
+            var sql = from a in db.MTCODE
+                      where a.CATEGORY == "Hunya_ABAppraisalABTypeCode"
+                      orderby a.SORT
+                      select new { Key = a.CODE, Value = ValueWithKey ? a.CODE + "-" + a.NAME : a.NAME };
+            var lst = sql.AsEnumerable().ToDictionary(p => p.Key, p => p.Value);
+            return lst;
+        }
+
+        public static Dictionary<string, string> GetHunya_ABLevelCode()
+        {
+            var db = new JBModule.Data.Linq.HrDBDataContext();
+            var sql = from a in db.Hunya_ABLevelCode
+                      where db.GetCodeFilter("Hunya_ABLevelCode", a.ABLevelCode, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                      orderby a.ABLevelCode_DISP
+                      select new { Key = a.ABLevelCode, Value = a.ABLevelCode_DISP + "-" + a.ABLevelCode_Name };
+            var lst = sql.AsEnumerable().ToDictionary(p => p.Key, p => p.Value);
+            return lst;
+        }
         #endregion
     }
 }

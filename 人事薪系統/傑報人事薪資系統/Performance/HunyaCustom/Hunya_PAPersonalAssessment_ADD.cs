@@ -32,12 +32,12 @@ namespace JBHR.Performance.HunyaCustom
             JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
             if (CodeFunction.GetHunya_PALevelCode().Count == 0)
                 btnSave.Enabled = false;
-            CYYMMFC.AddControl(txtPAPAYYMM, true);
+            CYYMMFC.AddControl(txtPAYYMM, true);
             SystemFunction.SetComboBoxItems(cbxPALevelCode, CodeFunction.GetHunya_PALevelCode(), false, true, true, true);
             Sal.Core.SalaryDate sd = new JBHR.Sal.Core.SalaryDate(DateTime.Now.Date);
             if (Autokey == -1 && EmployeeID == string.Empty)
             {
-                txtPAPAYYMM.Text = sd.YYMM;
+                txtPAYYMM.Text = sd.YYMM;
                 //SetEmpList();
                 cbxPALevelCode.Focus();
             }
@@ -63,7 +63,7 @@ namespace JBHR.Performance.HunyaCustom
                     var emp = emplist.First(p => p.員工編號 == instanceNew.EmployeeID);
                     mdEmp.SelectedValues.Add(emp.員工編號);
                     btnEmp.Text = emp.員工編號 + "-" + emp.姓名;
-                    txtPAPAYYMM.Text = instanceNew.YYMM.ToString();
+                    txtPAYYMM.Text = instanceNew.YYMM.ToString();
                     txtGuid.Text = instanceNew.GID.ToString();
                     cbxPALevelCode.SelectedValue = instanceNew.PALevelCode;
                     topic = emp.編制部門 + '-' + btnEmp.Text;
@@ -72,7 +72,7 @@ namespace JBHR.Performance.HunyaCustom
                 {
                     var emp = emplist.First(p => p.員工編號 == EmployeeID);
                     btnEmp.Text = emp.員工編號 + "-" + emp.姓名;
-                    txtPAPAYYMM.Text = sd.YYMM;
+                    txtPAYYMM.Text = sd.YYMM;
                     cbxPALevelCode.SelectedIndex = 0;
                     topic = emp.編制部門 + '-' + btnEmp.Text;
                 }
@@ -90,7 +90,7 @@ namespace JBHR.Performance.HunyaCustom
             if (Autokey == -1 && EmployeeID == string.Empty)
             {
                 JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
-                string YYMM = txtPAPAYYMM.Text;
+                string YYMM = txtPAYYMM.Text;
                 Sal.Core.SalaryDate sd = new JBHR.Sal.Core.SalaryDate(YYMM);
                 DateTime bdate = sd.FirstDayOfAttend;
                 DateTime edate = sd.LastDayOfAttend;
@@ -145,7 +145,7 @@ namespace JBHR.Performance.HunyaCustom
         private void btnSave_Click(object sender, EventArgs e)
         {
             List<string> EmployeeList = mdEmp.SelectedValues.Distinct().ToList();
-            string YYMM = txtPAPAYYMM.Text;
+            string YYMM = txtPAYYMM.Text;
             string PALevelCode = cbxPALevelCode.SelectedValue.ToString();
             bool ReplaceSW = true;
             if (Autokey == -1 && EmployeeID == string.Empty)
@@ -324,7 +324,7 @@ namespace JBHR.Performance.HunyaCustom
             this.Close();
         }
 
-        private void txtPAPAYYMM_Leave(object sender, EventArgs e)
+        private void txtPAYYMM_Leave(object sender, EventArgs e)
         {
             SetEmpList();
         }

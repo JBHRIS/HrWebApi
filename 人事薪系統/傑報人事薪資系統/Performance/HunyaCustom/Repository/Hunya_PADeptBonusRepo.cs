@@ -21,14 +21,16 @@ namespace JBHR.Performance.HunyaCustom.Repository
             msg = "";
             try
             {
-                JBModule.Data.Linq.Hunya_PADeptBonus hunya_PADeptBonus = new JBModule.Data.Linq.Hunya_PADeptBonus();
-                hunya_PADeptBonus.PADept = PADeptBonusDto.PADept;
-                hunya_PADeptBonus.YYMM_B = PADeptBonusDto.YYMM_B;
-                hunya_PADeptBonus.YYMM_E = PADeptBonusDto.YYMM_E;
-                hunya_PADeptBonus.PABasicBonus = PADeptBonusDto.PABasicBonus;
-                hunya_PADeptBonus.GID = PADeptBonusDto.GID;
-                hunya_PADeptBonus.KeyDate = PADeptBonusDto.KeyDate;
-                hunya_PADeptBonus.KeyMan = PADeptBonusDto.KeyMan;
+                JBModule.Data.Linq.Hunya_PADeptBonus hunya_PADeptBonus = new JBModule.Data.Linq.Hunya_PADeptBonus
+                {
+                    PADept = PADeptBonusDto.PADept,
+                    YYMM_B = PADeptBonusDto.YYMM_B,
+                    YYMM_E = PADeptBonusDto.YYMM_E,
+                    PABasicBonus = PADeptBonusDto.PABasicBonus,
+                    GID = PADeptBonusDto.GID,
+                    KeyDate = PADeptBonusDto.KeyDate,
+                    KeyMan = PADeptBonusDto.KeyMan
+                };
                 db.Hunya_PADeptBonus.InsertOnSubmit(hunya_PADeptBonus);
                 db.SubmitChanges();
                 return true;
@@ -44,14 +46,16 @@ namespace JBHR.Performance.HunyaCustom.Repository
             msg = "";
             try
             {
-                JBModule.Data.Linq.Hunya_PADeptBonus hunya_PADeptBonus = new JBModule.Data.Linq.Hunya_PADeptBonus();
-                hunya_PADeptBonus.PADept = PADeptBonusDto.PADept;
-                hunya_PADeptBonus.YYMM_B = PADeptBonusDto.YYMM_B;
-                hunya_PADeptBonus.YYMM_E = PADeptBonusDto.YYMM_E;
-                hunya_PADeptBonus.PABasicBonus = PADeptBonusDto.PABasicBonus;
-                hunya_PADeptBonus.GID = PADeptBonusDto.GID;
-                hunya_PADeptBonus.KeyDate = PADeptBonusDto.KeyDate;
-                hunya_PADeptBonus.KeyMan = PADeptBonusDto.KeyMan;
+                JBModule.Data.Linq.Hunya_PADeptBonus hunya_PADeptBonus = new JBModule.Data.Linq.Hunya_PADeptBonus
+                {
+                    PADept = PADeptBonusDto.PADept,
+                    YYMM_B = PADeptBonusDto.YYMM_B,
+                    YYMM_E = PADeptBonusDto.YYMM_E,
+                    PABasicBonus = PADeptBonusDto.PABasicBonus,
+                    GID = PADeptBonusDto.GID,
+                    KeyDate = PADeptBonusDto.KeyDate,
+                    KeyMan = PADeptBonusDto.KeyMan
+                };
                 var PADeptBonus = GetOverlapHunya_PADeptBonus(PADeptBonusDto);
                 if (PADeptBonus.Any())
                 {

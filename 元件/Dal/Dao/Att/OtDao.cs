@@ -305,7 +305,7 @@ namespace Dal.Dao.Att
         /// <param name="bCalculateRes">扣除休息時數</param>
         /// <param name="bTime24">24小時計算</param>
         /// <returns>decimal</returns>
-        public decimal GetCalculate(string sNobr, string sOtCat, DateTime dDateB, DateTime dDateE, string sTimeB, string sTimeE, string sOtrcd, decimal iException = 0, string sRoteCode = "", bool bCalculateRes = true, bool bTime24 = false)
+        public decimal GetCalculate(string sNobr, string sOtCat, DateTime dDateB, DateTime dDateE, string sTimeB, string sTimeE, string sOtrcd, decimal iException = 0, string sRoteCode = "", bool bCalculateRes = true, bool bTime24 = false,decimal iMin = 0 ,decimal iInterval = 0)
         {
             if (bTime24)
                 ConvertTime24To48(sNobr, ref dDateB, ref dDateE, ref sTimeB, ref sTimeE);
@@ -409,7 +409,7 @@ namespace Dal.Dao.Att
                             if (sTimeB.CompareTo(rRote.OffTime) <= 0)
                                 ElasticityMin = rAttend.ElasticityMin;
 
-                        Vdb = oOt.GetCalculate(sTimeB, sTimeE, rsRes, 0, 0.5M, (ElasticityMin));
+                        Vdb = oOt.GetCalculate(sTimeB, sTimeE, rsRes, iMin, iInterval, (ElasticityMin));
                     }
                 }
             }

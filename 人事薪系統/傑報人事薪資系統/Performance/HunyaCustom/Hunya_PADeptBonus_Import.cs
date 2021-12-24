@@ -81,7 +81,10 @@ namespace JBHR.Performance.HunyaCustom
                 //    }
                 //}
 
-                return true;
+                if (string.IsNullOrWhiteSpace(TargetRow["錯誤註記"].ToString()))
+                    return true;
+                else
+                    return false;
             }
 
             public override bool ImportData(DataRow TransferRow, string RepeatSelectionString, out string ErrorMsg)
@@ -94,7 +97,6 @@ namespace JBHR.Performance.HunyaCustom
                     string YYMM_B = TransferRow["考核年月起"].ToString();
                     string YYMM_E = TransferRow["考核年月迄"].ToString();
                     Decimal PABasicBonus = JBModule.Data.CEncrypt.Number(decimal.Parse(TransferRow["基本獎金"].ToString()));
-                    Guid GID = Guid.NewGuid();
 
                     Repository.Hunya_PADeptBonusDto Hunya_PADeptBonusDto = new Repository.Hunya_PADeptBonusDto
                     {
@@ -102,6 +104,7 @@ namespace JBHR.Performance.HunyaCustom
                         YYMM_B = YYMM_B,
                         YYMM_E = YYMM_E,
                         PABasicBonus = PABasicBonus,
+                        GID = Guid.NewGuid(),
                         KeyDate = DateTime.Now,
                         KeyMan = MainForm.USER_NAME,
                     };

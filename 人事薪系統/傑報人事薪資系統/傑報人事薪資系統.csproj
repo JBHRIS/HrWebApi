@@ -47,8 +47,8 @@
     <PublisherName>傑報資訊</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>21.12.20.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>21.12.24.1</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -89,6 +89,7 @@
     <Reference Include="ChineseConverter">
       <HintPath>..\..\..\..\Standard\ThirdPartyLib\Traditional Chinese to Simplified Chinese Conversion Library and Add-In Tool\ChineseConverter.dll</HintPath>
     </Reference>
+    <Reference Include="CodeEngine.Framework.QueryBuilder, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Standard\JBHRIS\JBHRIS.BLL\JBHRIS.BLL\bin\Debug\Dapper.dll</HintPath>
@@ -173,6 +174,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Standard\ThirdPartyLib\Telerik\WinForm\Telerik.WinControls.GridView.dll</HintPath>
     </Reference>
+    <Reference Include="Telerik.WinControls.PivotGrid, Version=2017.2.613.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="Telerik.WinControls.Themes.VisualStudio2012Light">
       <HintPath>..\..\..\..\Standard\ThirdPartyLib\Telerik\WinForm\Telerik.WinControls.Themes.VisualStudio2012Light.dll</HintPath>
     </Reference>
@@ -180,8 +182,62 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Standard\ThirdPartyLib\Telerik\WinForm\Telerik.WinControls.UI.dll</HintPath>
     </Reference>
+    <Reference Include="TelerikData, Version=2017.2.613.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnnualBonus\HunyaCustom\Code\Hunya_ABLevelCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnnualBonus\HunyaCustom\Code\Hunya_ABLevelCode.Designer.cs">
+      <DependentUpon>Hunya_ABLevelCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalAppraisal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalAppraisal.Designer.cs">
+      <DependentUpon>Hunya_ABPersonalAppraisal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalAppraisal_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalAppraisal_ADD.Designer.cs">
+      <DependentUpon>Hunya_ABPersonalAppraisal_ADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalAppraisal_Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalAppraisal_Import.Designer.cs">
+      <DependentUpon>Hunya_ABPersonalAppraisal_Import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus.Designer.cs">
+      <DependentUpon>Hunya_ABPersonalBonus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus_Calculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus_Calculator.Designer.cs">
+      <DependentUpon>Hunya_ABPersonalBonus_Calculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus_Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus_Import.Designer.cs">
+      <DependentUpon>Hunya_ABPersonalBonus_Import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnnualBonus\HunyaCustom\Hunya_AnnualBonus.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Hunya_AnnualBonus.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AnnualBonus\HunyaCustom\Repository\Hunya_ABPersonalAppraisalDto.cs" />
+    <Compile Include="AnnualBonus\HunyaCustom\Repository\Hunya_ABPersonalAppraisalRepo.cs" />
+    <Compile Include="AnnualBonus\HunyaCustom\Repository\Hunya_ABPersonalBonusDto.cs" />
+    <Compile Include="AnnualBonus\HunyaCustom\Repository\Hunya_ABPersonalBonusRepo.cs" />
+    <Compile Include="AnnualBonus\HunyaCustom\Repository\Hunya_ABYearEndAppraisalDto.cs" />
+    <Compile Include="AnnualBonus\HunyaCustom\Repository\Hunya_ABYearEndAppraisalRepo.cs" />
     <Compile Include="Att\AbsentEntitle.cs" />
     <Compile Include="Att\AbsentTaken.cs" />
     <Compile Include="Att\Attendance\Dto\ScheduleTypeDto.cs" />
@@ -214,7 +270,6 @@
     </Compile>
     <Compile Include="Att\dsAtt.cs">
       <DependentUpon>dsAtt.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Att\dsAtt.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -807,7 +862,6 @@
     </Compile>
     <Compile Include="Bas\BasDS.cs">
       <DependentUpon>BasDS.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Bas\BasDS.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1325,7 +1379,6 @@
     <Compile Include="Dto\RoteDto.cs" />
     <Compile Include="EXA\exaDS.cs">
       <DependentUpon>exaDS.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="EXA\exaDS1.Designer.cs" />
     <Compile Include="EXA\FRM81.cs">
@@ -1800,6 +1853,17 @@
     <Content Include="Resources\ICON\favicon_C.ico" />
     <Content Include="Resources\ICON\傑報資訊_icon_01.png" />
     <Content Include="Resources\ICON\傑報資訊_icon_02.png" />
+    <None Include="AnnualBonus\HunyaCustom\Hunya_AnnualBonus.xsc">
+      <DependentUpon>Hunya_AnnualBonus.xsd</DependentUpon>
+    </None>
+    <None Include="AnnualBonus\HunyaCustom\Hunya_AnnualBonus.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Hunya_AnnualBonus.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="AnnualBonus\HunyaCustom\Hunya_AnnualBonus.xss">
+      <DependentUpon>Hunya_AnnualBonus.xsd</DependentUpon>
+    </None>
     <None Include="Bll.Att.Vdb.HcodeTable.datasource" />
     <None Include="Bll.Flow.Vdb.CheckAgentDefaultTable.datasource" />
     <None Include="Bll.Flow.Vdb.FlowAbsTable.datasource" />
@@ -2456,6 +2520,27 @@
     <None Include="Att\dcView.dbml.layout">
       <DependentUpon>dcView.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="AnnualBonus\HunyaCustom\Code\Hunya_ABLevelCode.resx">
+      <DependentUpon>Hunya_ABLevelCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalAppraisal.resx">
+      <DependentUpon>Hunya_ABPersonalAppraisal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalAppraisal_ADD.resx">
+      <DependentUpon>Hunya_ABPersonalAppraisal_ADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalAppraisal_Import.resx">
+      <DependentUpon>Hunya_ABPersonalAppraisal_Import.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus.resx">
+      <DependentUpon>Hunya_ABPersonalBonus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus_Calculator.resx">
+      <DependentUpon>Hunya_ABPersonalBonus_Calculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnnualBonus\HunyaCustom\Hunya_ABPersonalBonus_Import.resx">
+      <DependentUpon>Hunya_ABPersonalBonus_Import.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Att\CopyBonusSetting.resx">
       <DependentUpon>CopyBonusSetting.cs</DependentUpon>
     </EmbeddedResource>
@@ -7917,7 +8002,7 @@
       <Name>Dll</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\元件\JBMODULE.DATA\JBModule.Data.Linq\JBModule.Data.csproj">
-      <Project>{05DAC84F-258E-41FC-B490-0FCCD4AB15B5}</Project>
+      <Project>{05dac84f-258e-41fc-b490-0fccd4ab15b5}</Project>
       <Name>JBModule.Data</Name>
     </ProjectReference>
   </ItemGroup>
@@ -7929,6 +8014,7 @@
     <WCFMetadataStorage Include="Service References\HPX_WebService\" />
     <WCFMetadataStorage Include="Service References\JBHRService\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

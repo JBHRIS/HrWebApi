@@ -80,18 +80,12 @@ namespace JBHR.Performance.HunyaCustom
                 //}
 
                 if (ColumnValidate(TargetRow, "考核等級", TransferCheckDataField.DisplayCode, out Msg))
-                {
                     TargetRow["考核等級"] = Msg;
-                }
-                //else
-                //{
-                //    if (TargetRow.Table != null && TargetRow.Table.Columns.Contains("錯誤註記"))
-                //    {
-                //        TargetRow["錯誤註記"] += Msg;
-                //    }
-                //}
 
-                return true;
+                if (string.IsNullOrWhiteSpace(TargetRow["錯誤註記"].ToString()))
+                    return true;
+                else
+                    return false;
             }
 
             public override bool ImportData(DataRow TransferRow, string RepeatSelectionString, out string ErrorMsg)
@@ -103,13 +97,13 @@ namespace JBHR.Performance.HunyaCustom
                     string YYMM = TransferRow["考核年月"].ToString();
                     //string PALevelCode = string.Empty;
                     ColumnValidate(TransferRow, "考核等級", TransferCheckDataField.RealCode, out string PALevelCode);
-                    Guid GID = Guid.NewGuid();
 
                     Repository.Hunya_PAPersonalAssessmentDto Hunya_PAPersonalAssessmentDto = new Repository.Hunya_PAPersonalAssessmentDto
                     {
                         EmployeeID = EmployeeID,
                         YYMM = YYMM,
                         PALevelCode = PALevelCode,
+                        GID = Guid.NewGuid(),
                         KeyDate = DateTime.Now,
                         KeyMan = MainForm.USER_NAME,
                     };

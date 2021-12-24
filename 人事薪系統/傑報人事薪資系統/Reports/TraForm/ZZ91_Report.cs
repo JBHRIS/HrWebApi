@@ -70,7 +70,10 @@ namespace JBHR.Reports.TraForm
                         aRow["course"] = Row["course"].ToString().Trim();
                         aRow["date_b"] = DateTime.Parse(Row["date_b"].ToString());
                         aRow["date_e"] = DateTime.Parse(Row["date_e"].ToString());
-                        aRow["tr_hrs"] = decimal.Parse(Row["tr_hrs"].ToString());
+
+                        //aRow["tr_hrs"] = decimal.Parse(Row["tr_hrs"].ToString());
+                        aRow["tr_hrs"] = Row["tr_hrs"].ToString().ToDecimal();
+
                         aRow["at_hrs"] = decimal.Parse(Row["at_hrs"].ToString());
                         aRow["tr_type"] = Row["tr_type"].ToString();
                         aRow["cos_fee"] = decimal.Round(decimal.Parse(Row["cos_fee"].ToString()),0);
@@ -132,6 +135,25 @@ namespace JBHR.Reports.TraForm
                 this.Close();
             }
         }
+
+
+        public static decimal get_decimal(string input)
+        {
+            decimal output = 0;
+
+            if (string.IsNullOrEmpty(input))
+            {
+                output = 0;
+            }
+            else
+            {
+                output = decimal.Parse(input.Trim());
+            }
+
+            return output;
+        }
+
+
 
         void Export(DataTable DT)
         {

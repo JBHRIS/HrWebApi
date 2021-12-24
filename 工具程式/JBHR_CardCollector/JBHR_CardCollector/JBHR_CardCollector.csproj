@@ -79,7 +79,7 @@
       <Name>Dal</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\元件\JBMODULE.DATA\JBModule.Data.Linq\JBModule.Data.csproj">
-      <Project>{05DAC84F-258E-41FC-B490-0FCCD4AB15B5}</Project>
+      <Project>{05dac84f-258e-41fc-b490-0fccd4ab15b5}</Project>
       <Name>JBModule.Data</Name>
     </ProjectReference>
   </ItemGroup>

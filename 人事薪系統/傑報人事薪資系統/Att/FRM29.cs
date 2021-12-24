@@ -137,9 +137,15 @@ namespace JBHR.Att
                 txtYymm.Focus();
                 return;
             }
-            var OtratecdByNobr = dbGlobal.OTRATECD.Where(p => p.OTRATE_CODE == cbxOtRate.SelectedValue.ToString()).FirstOrDefault();//20190904 新增判斷是否有設定不可同時申請加班及換休 by 志穎
-            
-            if ( Convert.ToDecimal(txtOtHours.Text) > 0 && Convert.ToDecimal(txtRestHours.Text) > 0 && (OtratecdByNobr != null && OtratecdByNobr.FIXPER == true))
+            //var OtratecdByNobr = dbGlobal.OTRATECD.Where(p => p.OTRATE_CODE == cbxOtRate.SelectedValue.ToString()).FirstOrDefault();//20190904 新增判斷是否有設定不可同時申請加班及換休 by 志穎
+            //if (OtratecdByNobr == null)
+            //{
+            //    DateTime BDate = DateTime.Parse(txtBdate.Text);
+            //    string OtRate =  dbGlobal.BASETTS.Where(p => p.NOBR == ptxNobr.Text && p.ADATE >= BDate && p.DDATE.Value <= BDate).FirstOrDefault().CALOT;
+            //    OtratecdByNobr = dbGlobal.OTRATECD.Where(p => p.OTRATE_CODE == OtRate).FirstOrDefault();
+            //}
+            JBModule.Data.Linq.OTRATECD OtratecdByNobr = GetOTRATECDByNOBR(ptxNobr.Text, DateTime.Parse(txtBdate.Text), cbxOtRate.SelectedValue.ToString());
+            if ( Convert.ToDecimal(txtOtHours.Text) > 0 && Convert.ToDecimal(txtRestHours.Text) > 0 && OtratecdByNobr != null && OtratecdByNobr.FIXPER == true)
             {
                 MessageBox.Show("加班時數及補休時數只能擇一申請，如需調整請至加班比率代碼進行更改", Resources.All.DialogTitle, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 e.Cancel = true;
@@ -212,7 +218,7 @@ namespace JBHR.Att
                 }
             }
 
-            decimal CheckHours = CheckOtHours();
+            decimal CheckHours = CheckOtHours(OtratecdByNobr);
             //需重新檢查加班總時數
             //if (CheckHours != Convert.ToDecimal(txtOtHours.Text) + Convert.ToDecimal(txtRestHours.Text))
             //{
@@ -549,7 +555,7 @@ namespace JBHR.Att
 
         }
 
-        decimal CheckOtHours()
+        decimal CheckOtHours(JBModule.Data.Linq.OTRATECD OtratecdByNobr)
         {
             string t1, t2;
             DateTime d1;
@@ -562,7 +568,7 @@ namespace JBHR.Att
                 JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
 
                 Dal.Dao.Att.OtDao oOtDao = new Dal.Dao.Att.OtDao(db.Connection);
-                var Calculate = oOtDao.GetCalculate(ptxNobr.Text, "1", d1, d1, t1, t2, "", 0, cbxOtRote.SelectedValue.ToString(), true, true);
+                var Calculate = oOtDao.GetCalculate(ptxNobr.Text, "1", d1, d1, t1, t2, "", 0, cbxOtRote.SelectedValue.ToString(), true, true, OtratecdByNobr.MIN_HOURS / 60M, OtratecdByNobr.OTUNIT / 60M);
                 TotalHours = Calculate;
             }
             catch { }
@@ -659,8 +665,23 @@ namespace JBHR.Att
         }
         void OtCalc()
         {
-            txtOtHours.Text = CheckOtHours().ToString();
+            JBModule.Data.Linq.OTRATECD OtratecdByNobr = GetOTRATECDByNOBR(ptxNobr.Text, DateTime.Parse(txtBdate.Text), cbxOtRate.SelectedValue.ToString());
+            txtOtHours.Text = CheckOtHours(OtratecdByNobr).ToString();
         }
+
+        private JBModule.Data.Linq.OTRATECD GetOTRATECDByNOBR(string nobr,DateTime bdate,string otratecd)
+        {
+            var OtratecdByNobr = dbGlobal.OTRATECD.Where(p => p.OTRATE_CODE == otratecd).FirstOrDefault();//20190904 新增判斷是否有設定不可同時申請加班及換休 by 志穎
+            if (OtratecdByNobr == null)
+            {
+                DateTime BDate = bdate;
+                otratecd = dbGlobal.BASETTS.Where(p => p.NOBR == nobr && p.ADATE <= BDate && p.DDATE.Value >= BDate).FirstOrDefault().CALOT;
+                OtratecdByNobr = dbGlobal.OTRATECD.Where(p => p.OTRATE_CODE == otratecd).FirstOrDefault();
+            }
+
+            return OtratecdByNobr;
+        }
+
         void GridBind()
         {
             //foreach (var itm in this.dsAtt.OT)

@@ -55,6 +55,7 @@ namespace JBHR.Performance.HunyaCustom
             Sal.Core.SalaryDate sd = new JBHR.Sal.Core.SalaryDate(PAYYMM);
             var dept = (from a in db.View_Hunya_PADeptBonus
                         where a.考核年月起.CompareTo(PAYYMM) <= 0 && a.考核年月迄.CompareTo(PAYYMM) >= 0
+                        orderby a.部門代碼
                         select new
                         {
                             _PADept = a.部門實際代碼,

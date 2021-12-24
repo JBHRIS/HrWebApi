@@ -780,6 +780,18 @@ namespace JBModule.Data.Linq
     partial void InsertOT1(OT1 instance);
     partial void UpdateOT1(OT1 instance);
     partial void DeleteOT1(OT1 instance);
+    partial void InsertHunya_ABLevelCode(Hunya_ABLevelCode instance);
+    partial void UpdateHunya_ABLevelCode(Hunya_ABLevelCode instance);
+    partial void DeleteHunya_ABLevelCode(Hunya_ABLevelCode instance);
+    partial void InsertHunya_ABPersonalAppraisal(Hunya_ABPersonalAppraisal instance);
+    partial void UpdateHunya_ABPersonalAppraisal(Hunya_ABPersonalAppraisal instance);
+    partial void DeleteHunya_ABPersonalAppraisal(Hunya_ABPersonalAppraisal instance);
+    partial void InsertHunya_ABYearEndAppraisal(Hunya_ABYearEndAppraisal instance);
+    partial void UpdateHunya_ABYearEndAppraisal(Hunya_ABYearEndAppraisal instance);
+    partial void DeleteHunya_ABYearEndAppraisal(Hunya_ABYearEndAppraisal instance);
+    partial void InsertHunya_ABPersonalBonus(Hunya_ABPersonalBonus instance);
+    partial void UpdateHunya_ABPersonalBonus(Hunya_ABPersonalBonus instance);
+    partial void DeleteHunya_ABPersonalBonus(Hunya_ABPersonalBonus instance);
     #endregion
 		
 		public HrDBDataContext() : 
@@ -2940,6 +2952,38 @@ namespace JBModule.Data.Linq
 			}
 		}
 		
+		public System.Data.Linq.Table<Hunya_ABLevelCode> Hunya_ABLevelCode
+		{
+			get
+			{
+				return this.GetTable<Hunya_ABLevelCode>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Hunya_ABPersonalAppraisal> Hunya_ABPersonalAppraisal
+		{
+			get
+			{
+				return this.GetTable<Hunya_ABPersonalAppraisal>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Hunya_ABYearEndAppraisal> Hunya_ABYearEndAppraisal
+		{
+			get
+			{
+				return this.GetTable<Hunya_ABYearEndAppraisal>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Hunya_ABPersonalBonus> Hunya_ABPersonalBonus
+		{
+			get
+			{
+				return this.GetTable<Hunya_ABPersonalBonus>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetHolidayYears", IsComposable=true)]
 		public System.Nullable<decimal> GetHolidayYears([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string nobr, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="DateTime")] System.Nullable<System.DateTime> date)
 		{
@@ -3058,6 +3102,12 @@ namespace JBModule.Data.Linq
 		public System.Nullable<System.DateTime> GetAnnualLeaveEndDate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployeeId", DbType="NVarChar(50)")] string employeeId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CheckDate", DbType="DateTime")] System.Nullable<System.DateTime> checkDate)
 		{
 			return ((System.Nullable<System.DateTime>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeId, checkDate).ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Hunya_GetPAOnJobDays", IsComposable=true)]
+		public IQueryable<Hunya_GetPAOnJobDaysResult> Hunya_GetPAOnJobDays([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployeeList", DbType="NVarChar(MAX)")] string employeeList, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AttDateB", DbType="Date")] System.Nullable<System.DateTime> attDateB, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AttDateE", DbType="Date")] System.Nullable<System.DateTime> attDateE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="YYMM", DbType="NVarChar(50)")] string yYMM)
+		{
+			return this.CreateMethodCallQuery<Hunya_GetPAOnJobDaysResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeList, attDateB, attDateE, yYMM);
 		}
 	}
 	
@@ -4525,7 +4575,7 @@ namespace JBModule.Data.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PHOTO", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PHOTO", DbType="Image", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary PHOTO
 		{
 			get
@@ -4565,7 +4615,7 @@ namespace JBModule.Data.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_up1_file", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_up1_file", DbType="Image", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary up1_file
 		{
 			get
@@ -4605,7 +4655,7 @@ namespace JBModule.Data.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_up2_file", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_up2_file", DbType="Image", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary up2_file
 		{
 			get
@@ -4645,7 +4695,7 @@ namespace JBModule.Data.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_up3_file", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_up3_file", DbType="Image", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary up3_file
 		{
 			get
@@ -4685,7 +4735,7 @@ namespace JBModule.Data.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_up4_file", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_up4_file", DbType="Image", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary up4_file
 		{
 			get
@@ -4725,7 +4775,7 @@ namespace JBModule.Data.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_up5_file", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_up5_file", DbType="Image", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary up5_file
 		{
 			get
@@ -99045,6 +99095,1094 @@ namespace JBModule.Data.Linq
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Hunya_ABLevelCode")]
+	public partial class Hunya_ABLevelCode : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _AK;
+		
+		private string _ABLevelCode;
+		
+		private string _ABLevelCode_DISP;
+		
+		private string _ABLevelCode_Name;
+		
+		private decimal _ABLevelBonusRate;
+		
+		private string _KeyMan;
+		
+		private System.DateTime _KeyDate;
+		
+		private System.Guid _GID;
+		
+    #region 擴充性方法定義
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAKChanging(int value);
+    partial void OnAKChanged();
+    partial void OnABLevelCodeChanging(string value);
+    partial void OnABLevelCodeChanged();
+    partial void OnABLevelCode_DISPChanging(string value);
+    partial void OnABLevelCode_DISPChanged();
+    partial void OnABLevelCode_NameChanging(string value);
+    partial void OnABLevelCode_NameChanged();
+    partial void OnABLevelBonusRateChanging(decimal value);
+    partial void OnABLevelBonusRateChanged();
+    partial void OnKeyManChanging(string value);
+    partial void OnKeyManChanged();
+    partial void OnKeyDateChanging(System.DateTime value);
+    partial void OnKeyDateChanged();
+    partial void OnGIDChanging(System.Guid value);
+    partial void OnGIDChanged();
+    #endregion
+		
+		public Hunya_ABLevelCode()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AK", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int AK
+		{
+			get
+			{
+				return this._AK;
+			}
+			set
+			{
+				if ((this._AK != value))
+				{
+					this.OnAKChanging(value);
+					this.SendPropertyChanging();
+					this._AK = value;
+					this.SendPropertyChanged("AK");
+					this.OnAKChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ABLevelCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ABLevelCode
+		{
+			get
+			{
+				return this._ABLevelCode;
+			}
+			set
+			{
+				if ((this._ABLevelCode != value))
+				{
+					this.OnABLevelCodeChanging(value);
+					this.SendPropertyChanging();
+					this._ABLevelCode = value;
+					this.SendPropertyChanged("ABLevelCode");
+					this.OnABLevelCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ABLevelCode_DISP", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ABLevelCode_DISP
+		{
+			get
+			{
+				return this._ABLevelCode_DISP;
+			}
+			set
+			{
+				if ((this._ABLevelCode_DISP != value))
+				{
+					this.OnABLevelCode_DISPChanging(value);
+					this.SendPropertyChanging();
+					this._ABLevelCode_DISP = value;
+					this.SendPropertyChanged("ABLevelCode_DISP");
+					this.OnABLevelCode_DISPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ABLevelCode_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ABLevelCode_Name
+		{
+			get
+			{
+				return this._ABLevelCode_Name;
+			}
+			set
+			{
+				if ((this._ABLevelCode_Name != value))
+				{
+					this.OnABLevelCode_NameChanging(value);
+					this.SendPropertyChanging();
+					this._ABLevelCode_Name = value;
+					this.SendPropertyChanged("ABLevelCode_Name");
+					this.OnABLevelCode_NameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ABLevelBonusRate", DbType="Decimal(16,2) NOT NULL")]
+		public decimal ABLevelBonusRate
+		{
+			get
+			{
+				return this._ABLevelBonusRate;
+			}
+			set
+			{
+				if ((this._ABLevelBonusRate != value))
+				{
+					this.OnABLevelBonusRateChanging(value);
+					this.SendPropertyChanging();
+					this._ABLevelBonusRate = value;
+					this.SendPropertyChanged("ABLevelBonusRate");
+					this.OnABLevelBonusRateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KeyMan", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string KeyMan
+		{
+			get
+			{
+				return this._KeyMan;
+			}
+			set
+			{
+				if ((this._KeyMan != value))
+				{
+					this.OnKeyManChanging(value);
+					this.SendPropertyChanging();
+					this._KeyMan = value;
+					this.SendPropertyChanged("KeyMan");
+					this.OnKeyManChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KeyDate", DbType="DateTime NOT NULL")]
+		public System.DateTime KeyDate
+		{
+			get
+			{
+				return this._KeyDate;
+			}
+			set
+			{
+				if ((this._KeyDate != value))
+				{
+					this.OnKeyDateChanging(value);
+					this.SendPropertyChanging();
+					this._KeyDate = value;
+					this.SendPropertyChanged("KeyDate");
+					this.OnKeyDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GID", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid GID
+		{
+			get
+			{
+				return this._GID;
+			}
+			set
+			{
+				if ((this._GID != value))
+				{
+					this.OnGIDChanging(value);
+					this.SendPropertyChanging();
+					this._GID = value;
+					this.SendPropertyChanged("GID");
+					this.OnGIDChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Hunya_ABPersonalAppraisal")]
+	public partial class Hunya_ABPersonalAppraisal : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _AK;
+		
+		private string _EmployeeID;
+		
+		private int _YYYY;
+		
+		private string _ABTypeCode;
+		
+		private decimal _ABScore;
+		
+		private string _ABLevelCode;
+		
+		private string _KeyMan;
+		
+		private System.DateTime _KeyDate;
+		
+		private System.Guid _GID;
+		
+    #region 擴充性方法定義
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAKChanging(int value);
+    partial void OnAKChanged();
+    partial void OnEmployeeIDChanging(string value);
+    partial void OnEmployeeIDChanged();
+    partial void OnYYYYChanging(int value);
+    partial void OnYYYYChanged();
+    partial void OnABTypeCodeChanging(string value);
+    partial void OnABTypeCodeChanged();
+    partial void OnABScoreChanging(decimal value);
+    partial void OnABScoreChanged();
+    partial void OnABLevelCodeChanging(string value);
+    partial void OnABLevelCodeChanged();
+    partial void OnKeyManChanging(string value);
+    partial void OnKeyManChanged();
+    partial void OnKeyDateChanging(System.DateTime value);
+    partial void OnKeyDateChanged();
+    partial void OnGIDChanging(System.Guid value);
+    partial void OnGIDChanged();
+    #endregion
+		
+		public Hunya_ABPersonalAppraisal()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AK", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int AK
+		{
+			get
+			{
+				return this._AK;
+			}
+			set
+			{
+				if ((this._AK != value))
+				{
+					this.OnAKChanging(value);
+					this.SendPropertyChanging();
+					this._AK = value;
+					this.SendPropertyChanged("AK");
+					this.OnAKChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					this.OnEmployeeIDChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeID = value;
+					this.SendPropertyChanged("EmployeeID");
+					this.OnEmployeeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YYYY", DbType="Int NOT NULL")]
+		public int YYYY
+		{
+			get
+			{
+				return this._YYYY;
+			}
+			set
+			{
+				if ((this._YYYY != value))
+				{
+					this.OnYYYYChanging(value);
+					this.SendPropertyChanging();
+					this._YYYY = value;
+					this.SendPropertyChanged("YYYY");
+					this.OnYYYYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ABTypeCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ABTypeCode
+		{
+			get
+			{
+				return this._ABTypeCode;
+			}
+			set
+			{
+				if ((this._ABTypeCode != value))
+				{
+					this.OnABTypeCodeChanging(value);
+					this.SendPropertyChanging();
+					this._ABTypeCode = value;
+					this.SendPropertyChanged("ABTypeCode");
+					this.OnABTypeCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ABScore", DbType="Decimal(16,2) NOT NULL")]
+		public decimal ABScore
+		{
+			get
+			{
+				return this._ABScore;
+			}
+			set
+			{
+				if ((this._ABScore != value))
+				{
+					this.OnABScoreChanging(value);
+					this.SendPropertyChanging();
+					this._ABScore = value;
+					this.SendPropertyChanged("ABScore");
+					this.OnABScoreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ABLevelCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ABLevelCode
+		{
+			get
+			{
+				return this._ABLevelCode;
+			}
+			set
+			{
+				if ((this._ABLevelCode != value))
+				{
+					this.OnABLevelCodeChanging(value);
+					this.SendPropertyChanging();
+					this._ABLevelCode = value;
+					this.SendPropertyChanged("ABLevelCode");
+					this.OnABLevelCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KeyMan", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string KeyMan
+		{
+			get
+			{
+				return this._KeyMan;
+			}
+			set
+			{
+				if ((this._KeyMan != value))
+				{
+					this.OnKeyManChanging(value);
+					this.SendPropertyChanging();
+					this._KeyMan = value;
+					this.SendPropertyChanged("KeyMan");
+					this.OnKeyManChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KeyDate", DbType="DateTime NOT NULL")]
+		public System.DateTime KeyDate
+		{
+			get
+			{
+				return this._KeyDate;
+			}
+			set
+			{
+				if ((this._KeyDate != value))
+				{
+					this.OnKeyDateChanging(value);
+					this.SendPropertyChanging();
+					this._KeyDate = value;
+					this.SendPropertyChanged("KeyDate");
+					this.OnKeyDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GID", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid GID
+		{
+			get
+			{
+				return this._GID;
+			}
+			set
+			{
+				if ((this._GID != value))
+				{
+					this.OnGIDChanging(value);
+					this.SendPropertyChanging();
+					this._GID = value;
+					this.SendPropertyChanged("GID");
+					this.OnGIDChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Hunya_ABYearEndAppraisal")]
+	public partial class Hunya_ABYearEndAppraisal : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _AK;
+		
+		private string _EmployeeID;
+		
+		private int _YYYY;
+		
+		private decimal _ABScore;
+		
+		private string _ABLevelCode;
+		
+		private string _RealLevelCode;
+		
+		private string _KeyMan;
+		
+		private System.DateTime _KeyDate;
+		
+		private System.Guid _GID;
+		
+    #region 擴充性方法定義
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAKChanging(int value);
+    partial void OnAKChanged();
+    partial void OnEmployeeIDChanging(string value);
+    partial void OnEmployeeIDChanged();
+    partial void OnYYYYChanging(int value);
+    partial void OnYYYYChanged();
+    partial void OnABScoreChanging(decimal value);
+    partial void OnABScoreChanged();
+    partial void OnABLevelCodeChanging(string value);
+    partial void OnABLevelCodeChanged();
+    partial void OnRealLevelCodeChanging(string value);
+    partial void OnRealLevelCodeChanged();
+    partial void OnKeyManChanging(string value);
+    partial void OnKeyManChanged();
+    partial void OnKeyDateChanging(System.DateTime value);
+    partial void OnKeyDateChanged();
+    partial void OnGIDChanging(System.Guid value);
+    partial void OnGIDChanged();
+    #endregion
+		
+		public Hunya_ABYearEndAppraisal()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AK", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int AK
+		{
+			get
+			{
+				return this._AK;
+			}
+			set
+			{
+				if ((this._AK != value))
+				{
+					this.OnAKChanging(value);
+					this.SendPropertyChanging();
+					this._AK = value;
+					this.SendPropertyChanged("AK");
+					this.OnAKChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					this.OnEmployeeIDChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeID = value;
+					this.SendPropertyChanged("EmployeeID");
+					this.OnEmployeeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YYYY", DbType="Int NOT NULL")]
+		public int YYYY
+		{
+			get
+			{
+				return this._YYYY;
+			}
+			set
+			{
+				if ((this._YYYY != value))
+				{
+					this.OnYYYYChanging(value);
+					this.SendPropertyChanging();
+					this._YYYY = value;
+					this.SendPropertyChanged("YYYY");
+					this.OnYYYYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ABScore", DbType="Decimal(16,4) NOT NULL")]
+		public decimal ABScore
+		{
+			get
+			{
+				return this._ABScore;
+			}
+			set
+			{
+				if ((this._ABScore != value))
+				{
+					this.OnABScoreChanging(value);
+					this.SendPropertyChanging();
+					this._ABScore = value;
+					this.SendPropertyChanged("ABScore");
+					this.OnABScoreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ABLevelCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ABLevelCode
+		{
+			get
+			{
+				return this._ABLevelCode;
+			}
+			set
+			{
+				if ((this._ABLevelCode != value))
+				{
+					this.OnABLevelCodeChanging(value);
+					this.SendPropertyChanging();
+					this._ABLevelCode = value;
+					this.SendPropertyChanged("ABLevelCode");
+					this.OnABLevelCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RealLevelCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string RealLevelCode
+		{
+			get
+			{
+				return this._RealLevelCode;
+			}
+			set
+			{
+				if ((this._RealLevelCode != value))
+				{
+					this.OnRealLevelCodeChanging(value);
+					this.SendPropertyChanging();
+					this._RealLevelCode = value;
+					this.SendPropertyChanged("RealLevelCode");
+					this.OnRealLevelCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KeyMan", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string KeyMan
+		{
+			get
+			{
+				return this._KeyMan;
+			}
+			set
+			{
+				if ((this._KeyMan != value))
+				{
+					this.OnKeyManChanging(value);
+					this.SendPropertyChanging();
+					this._KeyMan = value;
+					this.SendPropertyChanged("KeyMan");
+					this.OnKeyManChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KeyDate", DbType="DateTime NOT NULL")]
+		public System.DateTime KeyDate
+		{
+			get
+			{
+				return this._KeyDate;
+			}
+			set
+			{
+				if ((this._KeyDate != value))
+				{
+					this.OnKeyDateChanging(value);
+					this.SendPropertyChanging();
+					this._KeyDate = value;
+					this.SendPropertyChanged("KeyDate");
+					this.OnKeyDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GID", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid GID
+		{
+			get
+			{
+				return this._GID;
+			}
+			set
+			{
+				if ((this._GID != value))
+				{
+					this.OnGIDChanging(value);
+					this.SendPropertyChanging();
+					this._GID = value;
+					this.SendPropertyChanged("GID");
+					this.OnGIDChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Hunya_ABPersonalBonus")]
+	public partial class Hunya_ABPersonalBonus : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _AK;
+		
+		private string _EmployeeID;
+		
+		private int _YYYY;
+		
+		private decimal _DailySalary;
+		
+		private decimal _BonusDays;
+		
+		private decimal _MeritDays;
+		
+		private decimal _BonusRate;
+		
+		private decimal _OnJobDays;
+		
+		private decimal _Amount;
+		
+		private string _Memo;
+		
+		private string _KeyMan;
+		
+		private System.DateTime _KeyDate;
+		
+		private System.Guid _GID;
+		
+    #region 擴充性方法定義
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAKChanging(int value);
+    partial void OnAKChanged();
+    partial void OnEmployeeIDChanging(string value);
+    partial void OnEmployeeIDChanged();
+    partial void OnYYYYChanging(int value);
+    partial void OnYYYYChanged();
+    partial void OnDailySalaryChanging(decimal value);
+    partial void OnDailySalaryChanged();
+    partial void OnBonusDaysChanging(decimal value);
+    partial void OnBonusDaysChanged();
+    partial void OnMeritDaysChanging(decimal value);
+    partial void OnMeritDaysChanged();
+    partial void OnBonusRateChanging(decimal value);
+    partial void OnBonusRateChanged();
+    partial void OnOnJobDaysChanging(decimal value);
+    partial void OnOnJobDaysChanged();
+    partial void OnAmountChanging(decimal value);
+    partial void OnAmountChanged();
+    partial void OnMemoChanging(string value);
+    partial void OnMemoChanged();
+    partial void OnKeyManChanging(string value);
+    partial void OnKeyManChanged();
+    partial void OnKeyDateChanging(System.DateTime value);
+    partial void OnKeyDateChanged();
+    partial void OnGIDChanging(System.Guid value);
+    partial void OnGIDChanged();
+    #endregion
+		
+		public Hunya_ABPersonalBonus()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AK", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int AK
+		{
+			get
+			{
+				return this._AK;
+			}
+			set
+			{
+				if ((this._AK != value))
+				{
+					this.OnAKChanging(value);
+					this.SendPropertyChanging();
+					this._AK = value;
+					this.SendPropertyChanged("AK");
+					this.OnAKChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					this.OnEmployeeIDChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeID = value;
+					this.SendPropertyChanged("EmployeeID");
+					this.OnEmployeeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YYYY", DbType="Int NOT NULL")]
+		public int YYYY
+		{
+			get
+			{
+				return this._YYYY;
+			}
+			set
+			{
+				if ((this._YYYY != value))
+				{
+					this.OnYYYYChanging(value);
+					this.SendPropertyChanging();
+					this._YYYY = value;
+					this.SendPropertyChanged("YYYY");
+					this.OnYYYYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DailySalary", DbType="Decimal(16,4) NOT NULL")]
+		public decimal DailySalary
+		{
+			get
+			{
+				return this._DailySalary;
+			}
+			set
+			{
+				if ((this._DailySalary != value))
+				{
+					this.OnDailySalaryChanging(value);
+					this.SendPropertyChanging();
+					this._DailySalary = value;
+					this.SendPropertyChanged("DailySalary");
+					this.OnDailySalaryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BonusDays", DbType="Decimal(16,4) NOT NULL")]
+		public decimal BonusDays
+		{
+			get
+			{
+				return this._BonusDays;
+			}
+			set
+			{
+				if ((this._BonusDays != value))
+				{
+					this.OnBonusDaysChanging(value);
+					this.SendPropertyChanging();
+					this._BonusDays = value;
+					this.SendPropertyChanged("BonusDays");
+					this.OnBonusDaysChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MeritDays", DbType="Decimal(16,4) NOT NULL")]
+		public decimal MeritDays
+		{
+			get
+			{
+				return this._MeritDays;
+			}
+			set
+			{
+				if ((this._MeritDays != value))
+				{
+					this.OnMeritDaysChanging(value);
+					this.SendPropertyChanging();
+					this._MeritDays = value;
+					this.SendPropertyChanged("MeritDays");
+					this.OnMeritDaysChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BonusRate", DbType="Decimal(16,4) NOT NULL")]
+		public decimal BonusRate
+		{
+			get
+			{
+				return this._BonusRate;
+			}
+			set
+			{
+				if ((this._BonusRate != value))
+				{
+					this.OnBonusRateChanging(value);
+					this.SendPropertyChanging();
+					this._BonusRate = value;
+					this.SendPropertyChanged("BonusRate");
+					this.OnBonusRateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OnJobDays", DbType="Decimal(16,4) NOT NULL")]
+		public decimal OnJobDays
+		{
+			get
+			{
+				return this._OnJobDays;
+			}
+			set
+			{
+				if ((this._OnJobDays != value))
+				{
+					this.OnOnJobDaysChanging(value);
+					this.SendPropertyChanging();
+					this._OnJobDays = value;
+					this.SendPropertyChanged("OnJobDays");
+					this.OnOnJobDaysChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Decimal(16,4) NOT NULL")]
+		public decimal Amount
+		{
+			get
+			{
+				return this._Amount;
+			}
+			set
+			{
+				if ((this._Amount != value))
+				{
+					this.OnAmountChanging(value);
+					this.SendPropertyChanging();
+					this._Amount = value;
+					this.SendPropertyChanged("Amount");
+					this.OnAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Memo", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Memo
+		{
+			get
+			{
+				return this._Memo;
+			}
+			set
+			{
+				if ((this._Memo != value))
+				{
+					this.OnMemoChanging(value);
+					this.SendPropertyChanging();
+					this._Memo = value;
+					this.SendPropertyChanged("Memo");
+					this.OnMemoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KeyMan", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string KeyMan
+		{
+			get
+			{
+				return this._KeyMan;
+			}
+			set
+			{
+				if ((this._KeyMan != value))
+				{
+					this.OnKeyManChanging(value);
+					this.SendPropertyChanging();
+					this._KeyMan = value;
+					this.SendPropertyChanged("KeyMan");
+					this.OnKeyManChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KeyDate", DbType="DateTime NOT NULL")]
+		public System.DateTime KeyDate
+		{
+			get
+			{
+				return this._KeyDate;
+			}
+			set
+			{
+				if ((this._KeyDate != value))
+				{
+					this.OnKeyDateChanging(value);
+					this.SendPropertyChanging();
+					this._KeyDate = value;
+					this.SendPropertyChanged("KeyDate");
+					this.OnKeyDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GID", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid GID
+		{
+			get
+			{
+				return this._GID;
+			}
+			set
+			{
+				if ((this._GID != value))
+				{
+					this.OnGIDChanging(value);
+					this.SendPropertyChanging();
+					this._GID = value;
+					this.SendPropertyChanged("GID");
+					this.OnGIDChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	public partial class ReadRuleTableResult
 	{
 		
@@ -99242,6 +100380,68 @@ namespace JBModule.Data.Linq
 				if ((this._DATAGROUP != value))
 				{
 					this._DATAGROUP = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Hunya_GetPAOnJobDaysResult
+	{
+		
+		private string _員工編號;
+		
+		private System.Nullable<int> _應出勤數;
+		
+		private System.Nullable<decimal> _每月天數;
+		
+		public Hunya_GetPAOnJobDaysResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_員工編號", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string 員工編號
+		{
+			get
+			{
+				return this._員工編號;
+			}
+			set
+			{
+				if ((this._員工編號 != value))
+				{
+					this._員工編號 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_應出勤數", DbType="Int")]
+		public System.Nullable<int> 應出勤數
+		{
+			get
+			{
+				return this._應出勤數;
+			}
+			set
+			{
+				if ((this._應出勤數 != value))
+				{
+					this._應出勤數 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_每月天數", DbType="Decimal(38,0)")]
+		public System.Nullable<decimal> 每月天數
+		{
+			get
+			{
+				return this._每月天數;
+			}
+			set
+			{
+				if ((this._每月天數 != value))
+				{
+					this._每月天數 = value;
 				}
 			}
 		}

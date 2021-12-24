@@ -21,13 +21,15 @@ namespace JBHR.Performance.HunyaCustom.Repository
             msg = "";
             try
             {
-                JBModule.Data.Linq.Hunya_PAPersonalAssessment hunya_PAPersonalAssessment = new JBModule.Data.Linq.Hunya_PAPersonalAssessment();
-                hunya_PAPersonalAssessment.EmployeeID = PAPersonalAssessmentDto.EmployeeID;
-                hunya_PAPersonalAssessment.YYMM = PAPersonalAssessmentDto.YYMM;
-                hunya_PAPersonalAssessment.PALevelCode = PAPersonalAssessmentDto.PALevelCode;
-                hunya_PAPersonalAssessment.GID = PAPersonalAssessmentDto.GID;
-                hunya_PAPersonalAssessment.KeyDate = PAPersonalAssessmentDto.KeyDate;
-                hunya_PAPersonalAssessment.KeyMan = PAPersonalAssessmentDto.KeyMan;
+                JBModule.Data.Linq.Hunya_PAPersonalAssessment hunya_PAPersonalAssessment = new JBModule.Data.Linq.Hunya_PAPersonalAssessment
+                {
+                    EmployeeID = PAPersonalAssessmentDto.EmployeeID,
+                    YYMM = PAPersonalAssessmentDto.YYMM,
+                    PALevelCode = PAPersonalAssessmentDto.PALevelCode,
+                    GID = PAPersonalAssessmentDto.GID,
+                    KeyDate = PAPersonalAssessmentDto.KeyDate,
+                    KeyMan = PAPersonalAssessmentDto.KeyMan
+                };
                 db.Hunya_PAPersonalAssessment.InsertOnSubmit(hunya_PAPersonalAssessment);
                 db.SubmitChanges();
                 return true;
@@ -43,13 +45,15 @@ namespace JBHR.Performance.HunyaCustom.Repository
             msg = "";
             try
             {
-                JBModule.Data.Linq.Hunya_PAPersonalAssessment hunya_PAPersonalAssessment = new JBModule.Data.Linq.Hunya_PAPersonalAssessment();
-                hunya_PAPersonalAssessment.EmployeeID = PAPersonalAssessmentDto.EmployeeID;
-                hunya_PAPersonalAssessment.YYMM = PAPersonalAssessmentDto.YYMM;
-                hunya_PAPersonalAssessment.PALevelCode = PAPersonalAssessmentDto.PALevelCode;
-                hunya_PAPersonalAssessment.GID = PAPersonalAssessmentDto.GID;
-                hunya_PAPersonalAssessment.KeyDate = PAPersonalAssessmentDto.KeyDate;
-                hunya_PAPersonalAssessment.KeyMan = PAPersonalAssessmentDto.KeyMan;
+                JBModule.Data.Linq.Hunya_PAPersonalAssessment hunya_PAPersonalAssessment = new JBModule.Data.Linq.Hunya_PAPersonalAssessment
+                {
+                    EmployeeID = PAPersonalAssessmentDto.EmployeeID,
+                    YYMM = PAPersonalAssessmentDto.YYMM,
+                    PALevelCode = PAPersonalAssessmentDto.PALevelCode,
+                    GID = PAPersonalAssessmentDto.GID,
+                    KeyDate = PAPersonalAssessmentDto.KeyDate,
+                    KeyMan = PAPersonalAssessmentDto.KeyMan
+                };
                 var PAPersonalAssessment = GetOverlapHunya_PAPersonalAssessment(PAPersonalAssessmentDto);
                 if (PAPersonalAssessment.Any())
                 {
