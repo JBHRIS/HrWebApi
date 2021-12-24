@@ -16,7 +16,7 @@ namespace Bll.Share.Vdb
           
            public string CompanyID { get; set; }
         
-           public string sNobr { get; set; }   
+           public string EmpId { get; set; }   
         
      
     }

@@ -81,5 +81,7 @@ namespace Bll.Share.Vdb
 
         public DateTime? UpdateDate { get; set; }
 
+        public string DataView { get; set; }
+
     }
 }

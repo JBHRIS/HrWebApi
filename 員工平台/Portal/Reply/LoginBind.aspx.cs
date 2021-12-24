@@ -161,7 +161,7 @@ namespace Portal
                 }
             }
 
-            if ( PassApi)
+            if (Pass||PassApi)
             {
                 //超過效期
                 var DateA = rUser.DateA.Date;
@@ -232,7 +232,7 @@ namespace Portal
                     Response.Redirect(ReturnUrl);
                 }
 
-                Response.Redirect("ProblemReturnList.aspx", false);
+                Response.Redirect("ProblemReturn.aspx", false);
             }
             else
             {

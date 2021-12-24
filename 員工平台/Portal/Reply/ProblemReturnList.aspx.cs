@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dal.Dao.Share;
 using Bll.Share.Vdb;
+using Bll.Token.Vdb;
 using Dal;
 using Telerik.Web.UI;
 using Dal.Dao.Flow;
@@ -58,13 +59,40 @@ namespace Portal
         }
         protected void lvMain_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
         {
-            var oGetQuestionMain = new ShareGetQuestionMainByCompanyDao();
-            var GetquestionMainCond = new ShareGetQuestionMainByCompanyConditions();
-            GetquestionMainCond.AccessToken = _User.AccessToken;
-            GetquestionMainCond.RefreshToken = _User.RefreshToken;
-            GetquestionMainCond.CompanySetting = CompanySetting;
-            GetquestionMainCond.CompanyID = _User.CompanyId;
-            var rsGetQuestionMain = oGetQuestionMain.GetData(GetquestionMainCond);
+            APIResult rsGetQuestionMain = new APIResult();
+            if (_User.RoleKey == 2)
+            {
+                var oGetQuestionMain = new ShareGetQuestionMainByCompanyDao();
+                var GetquestionMainCond = new ShareGetQuestionMainByCompanyConditions();
+                GetquestionMainCond.AccessToken = _User.AccessToken;
+                GetquestionMainCond.RefreshToken = _User.RefreshToken;
+                GetquestionMainCond.CompanySetting = CompanySetting;
+                GetquestionMainCond.CompanyID = _User.CompanyId;
+                rsGetQuestionMain=oGetQuestionMain.GetData(GetquestionMainCond);
+            }
+            else if (_User.RoleKey == 8)
+            {
+                var oGetQuestionMain = new ShareGetQuestionMainByCompanyDao();
+                var GetquestionMainCond = new ShareGetQuestionMainByCompanyConditions();
+                GetquestionMainCond.AccessToken = _User.AccessToken;
+                GetquestionMainCond.RefreshToken = _User.RefreshToken;
+                GetquestionMainCond.CompanySetting = CompanySetting;
+                GetquestionMainCond.CompanyID = _User.CompanyId;
+                rsGetQuestionMain = oGetQuestionMain.GetData(GetquestionMainCond);
+
+            }
+            else if (_User.RoleKey == 64)
+            {
+                var oGetQuestionMain = new ShareGetQuestionMainByEmpIDDao();
+                var GetquestionMainCond = new ShareGetQuestionMainByEmpIDConditions();
+                GetquestionMainCond.AccessToken = _User.AccessToken;
+                GetquestionMainCond.RefreshToken = _User.RefreshToken;
+                GetquestionMainCond.CompanySetting = CompanySetting;
+                GetquestionMainCond.CompanyID = _User.CompanyId;
+                GetquestionMainCond.EmpId = _User.EmpId;
+               rsGetQuestionMain = oGetQuestionMain.GetData(GetquestionMainCond);
+            }
+        
 
             try
             {
@@ -73,7 +101,7 @@ namespace Portal
                     if (rsGetQuestionMain.Data != null)
                     {
 
-                        var rsQM = rsGetQuestionMain.Data as List<ShareGetQuestionMainByCompanyRow>;
+                        var rsQM = rsGetQuestionMain.Data as List<ShareGetQuestionMainByCompanyRow>;                      
                         lvMain.DataSource = rsQM;
                         var Script = "$(document).ready(function() {$('.footable').footable();});";
                         ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);

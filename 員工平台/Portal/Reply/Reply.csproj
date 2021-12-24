@@ -1592,6 +1592,9 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ClassLibrary\UnobtrusiveSession.cs" />
+    <Compile Include="HandlerFileUploadDropzone.ashx.cs">
+      <DependentUpon>HandlerFileUploadDropzone.ashx</DependentUpon>
+    </Compile>
     <Compile Include="LoginBind.aspx.cs">
       <DependentUpon>LoginBind.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1676,6 +1679,7 @@
     <Content Include="App_Data\RadSpell\en-US.tdf" />
     <Content Include="App_Data\RadSpell\fr-FR.tdf" />
     <Content Include="Main_PR.Master" />
+    <Content Include="HandlerFileUploadDropzone.ashx" />
     <None Include="packages.config" />
     <Content Include="Templates\Inspinia\css\bootstrap.css.map" />
     <Content Include="Templates\Inspinia\css\bootstrap.min.css.map" />
@@ -1818,7 +1822,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

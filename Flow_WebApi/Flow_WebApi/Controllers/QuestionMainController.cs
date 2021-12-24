@@ -32,14 +32,14 @@ namespace Flow_WebApi.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("GetQuestionMain")]
-        public ApiResult<List<QuestionMainVdb>> GetQuestionMain(string User, string CompanyId, string sNobr)
+        public ApiResult<List<QuestionMainVdb>> GetQuestionMain()
         {
             ApiResult<List<QuestionMainVdb>> mapiResult = new ApiResult<List<QuestionMainVdb>>();
 
             mapiResult.State = false;
             try
             {
-                mapiResult.Result = this._QuestionMainInterface.GetQuestionMain(User,CompanyId,sNobr);
+                mapiResult.Result = this._QuestionMainInterface.GetQuestionMain();
                 mapiResult.State = true;
             }
             catch (Exception ex)

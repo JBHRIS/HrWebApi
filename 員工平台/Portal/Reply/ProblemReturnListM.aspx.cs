@@ -17,6 +17,10 @@ namespace Portal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (_User.RoleKey!=2&&_User.RoleKey!=8)
+            {
+                Response.Redirect("ProblemReturn.aspx");
+            }
             if (!IsPostBack)
             {
                 SetUserInfo();

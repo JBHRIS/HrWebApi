@@ -20,9 +20,9 @@ namespace Portal
             if (!IsPostBack)
             {
                 SetUserInfo();
-                SetDefault();
+              
             }
-                
+            SetDefault();
         }
 
         private void SetUserInfo()
@@ -40,12 +40,26 @@ namespace Portal
         private void SetDefault()
         {
             if (_User.RoleKey == 8)
-            { 
-            
+            {
+                RadioSecond.Text = "系統商";
+                RadioSecond.Value = "10"; //HR(8)與系統商(2)
+                RadioThird.Text = "提問者及系統商";
+                RadioThird.Value = "74"; //提問者(64)HR(8)系統商(2)
             }
-           
+            else if (_User.RoleKey == 2)
+            {
+                RadioSecond.Text = "HR";
+                RadioSecond.Value = "10";//HR(8)與系統商(2)
+                RadioThird.Text = "提問者及HR";
+                RadioSecond.Value = "74";//提問者(64)HR(8)系統商(2)
+            }
 
 
+        }
+
+        private void SetDraft()
+        { 
+        
         }
 
         protected void lvMain_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
@@ -200,6 +214,7 @@ namespace Portal
                 }
 
                 oInsertQuestionReply.GetData(InsertQuestionReplyCond);
+                Response.Redirect("ProblemReturnListM");
             }
         }
     }

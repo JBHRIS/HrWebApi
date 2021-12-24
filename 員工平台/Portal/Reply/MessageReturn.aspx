@@ -6,9 +6,9 @@
     <div class="social-feed-box">
         <div class="social-avatar">
             <div class="media-body">
-                <label>姓名:</label>
+              <%--  <label>姓名:</label>--%>
                 <telerik:RadLabel ID="lblName" runat="server" CssClass="name_font" Text="" />
-                <label>日期:</label>
+               <%-- <label>日期:</label>--%>
                 <telerik:RadLabel ID="lblDate" runat="server" CssClass="text-muted" Text="" />
                 &ensp;-&ensp;
                 <telerik:RadLabel ID="lblTime" runat="server" CssClass="text-muted" Text="" />
@@ -16,15 +16,15 @@
         </div>
         <div class="social-body">
             <p>
-                <label>標題 :</label>
+                <%--<label>標題 :</label>--%>
                 <telerik:RadLabel ID="lblTitle" runat="server" Text="" />
             </p>
             <p>
-                <label>回覆類型 :</label>
+                <%--<label>回覆類型 :</label>--%>
                 <telerik:RadLabel ID="lblQuestionCategory" runat="server" Text="" />
             </p>
             <p>
-                <label>內容 :</label>
+                <%--<label>內容 :</label>--%>
                 <telerik:RadLabel ID="lblContent" runat="server" Text="" />
             </p>
         </div>
@@ -53,9 +53,9 @@
                                         <label class="col-lg-3 col-form-label text-left">問題轉交或回覆</label>
                                         <div class="col-lg-9">
                                             <div class="row">
-                                                <telerik:RadRadioButton ID="RadioFirst" AutoPostBack="true" runat="server"   Checked="true" Text="提問者" Value="4" OnCheckedChanged="RadioFirst_CheckedChanged" />
+                                                <telerik:RadRadioButton ID="RadioFirst" AutoPostBack="true" runat="server"   Checked="true" Text="提問者" Value="74" OnCheckedChanged="RadioFirst_CheckedChanged" />
                                                 &ensp;
-                                                <telerik:RadRadioButton ID="RadioSecond" AutoPostBack="true" runat="server"   Text="HR" Value="8" OnCheckedChanged="RadioSecond_CheckedChanged"/>
+                                                <telerik:RadRadioButton ID="RadioSecond" AutoPostBack="true" runat="server"   Text="HR" Value="10" OnCheckedChanged="RadioSecond_CheckedChanged"/>
                                                 &ensp;
                                                 <telerik:RadRadioButton ID="RadioThird" AutoPostBack="true" runat="server"   Text="提問者及HR" Value="4" OnCheckedChanged="RadioThird_CheckedChanged" />
                                             </div>

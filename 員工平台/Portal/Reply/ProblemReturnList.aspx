@@ -7,15 +7,21 @@
         <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
             <div class="ibox-content">
                 <div class="row">
-                    <div class="col-lg-9">
+                    <div class="col-lg-7">
                         <h2>回報記錄</h2>
                     </div>
-                    <div class="col-lg-3">
-
-                        <telerik:RadComboBox ID="txtReturnS" runat="server" class="txtReturnS" Skin="Bootstrap" AllowCustomText="True"
+                   
+                           <div class="col-lg-5">
+                                <div class="row">
+                        <div class="col-lg-4"></div>
+                        <div class="col-lg-8 text-right">
+                            <telerik:RadComboBox ID="txtReturnS" runat="server" class="txtReturnS" Skin="Bootstrap" AllowCustomText="True"
                             AutoPostBack="true" EnableVirtualScrolling="True" ItemsPerRequest="10" Filter="Contains"
                             LoadingMessage="載入中…" Width="100%" OnSelectedIndexChanged="txtReturnS_SelectedIndexChanged">
                         </telerik:RadComboBox>
+
+                        </div>
+                        
                         <!--<select class="form-control m-b" name="account">
                                  <option>未回覆</option>
                                  <option>操作問題</option>
@@ -23,7 +29,11 @@
                                  <option>建議</option>
                                  <option>其他</option>
                     </select>-->
+                                    </div>
                     </div>
+                        
+                        
+                 
                 </div>
 
 
