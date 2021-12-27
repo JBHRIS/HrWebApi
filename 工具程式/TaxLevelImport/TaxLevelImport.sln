@@ -5,13 +5,13 @@ VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxLevelImport", "TaxLevelImport\TaxLevelImport.csproj", "{0DF249C1-D9A5-4A77-877E-7542AA1B0283}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JBModule", "..\..\..\Standard\JBModule\JBModule\JBModule.csproj", "{DBE7BF84-0030-418D-981D-30D7C4F6FF3A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JBModule", "..\..\..\..\Standard\JBModule\JBModule\JBModule.csproj", "{DBE7BF84-0030-418D-981D-30D7C4F6FF3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JBModule.Message", "..\..\..\Standard\JBMODULE.MESSAGE\JBModule.Message.csproj", "{B94796B3-CEDB-4083-95AD-E94EC30D15D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JBModule.Message", "..\..\..\..\Standard\JBMODULE.MESSAGE\JBModule.Message.csproj", "{B94796B3-CEDB-4083-95AD-E94EC30D15D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JBTools", "..\..\..\standard\JBTools\JBTools.csproj", "{9A891671-4FC7-4DDF-A21D-21E3D563CEE6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JBTools", "..\..\..\..\standard\JBTools\JBTools.csproj", "{9A891671-4FC7-4DDF-A21D-21E3D563CEE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JBHRIS.BLL", "..\..\..\standard\JBHRIS\JBHRIS.BLL\JBHRIS.BLL\JBHRIS.BLL.csproj", "{18B233B7-6C64-4257-B2B3-945606E97187}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JBHRIS.BLL", "..\..\..\..\standard\JBHRIS\JBHRIS.BLL\JBHRIS.BLL\JBHRIS.BLL.csproj", "{18B233B7-6C64-4257-B2B3-945606E97187}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

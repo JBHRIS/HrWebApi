@@ -15,19 +15,19 @@ namespace TaxLevelImport
     {
 
         bool IsFoxpro = false;
-        string YEAR = "2021";
-        string FileName = "Tax2021.xlsx";//所得稅級距表檔名
+        string YEAR = "2022";
+        string FileName = "Tax2022.xlsx";//所得稅級距表檔名
         string Dir = "";
         string MainFile = "Main.ini";
-        int AMT_L = 24000;//自2021年(民國110年)1月1日起，基本工資月薪將調漲為24,000元，時薪調漲為160元
-        int SUPPLEMIN = 24000;//基本工資自2021年(民國110年)1月1日起從每月23,800元調整為24,000元，「勞工保險投保薪資分級表」配合基本工資調整同步修正。原分級表第1級23,800元刪除，原第2級24,000元遞移為第1級，其餘投保薪資金額均未修正並依序遞移，修正後分級表為15級。
+        int AMT_L = 25250;//自2022年(民國111年)1月1日起，基本工資月薪將調漲為25,250元，時薪調漲為168元
+        int SUPPLEMIN = 25250;//基本工資自2022年(民國111年)1月1日起從每月24,000元調整為25,250元，「勞工保險投保薪資分級表」配合基本工資調整同步修正。原分級表第1級24,0000元刪除，原第2級25,250元遞移為第1級，其餘投保薪資金額均未修正並依序遞移，修正後分級表為14級。
         double LastSUPPLEINSLABRATE = 0.0191;//調整前補充保險費率
         double ThisSUPPLEINSLABRATE = 0.0211;//調整後補充保險費率，自2021年(民國110年)1月1日起由1.91%調漲為2.11%
         double compersoncnt = 1.58;//平均眷口數，自2020年(民國109)年1月1日起調整平均眷口數為0.58人
         double LastNORMALRATE = 0.1;//調整前勞工保險普通事故保險費率
         double ThisNORMALRATE = 0.105;//調整後勞工保險普通事故保險費率，自2021年(民國110年)1月1日起由10%調整為10.5%
         double EFF_RATE = 0.0517;//公司健保費率，自2021年(民國110年)起費率調整為5.17%
-        int FORSALBASD = 36000;//因配合基本薪資調整，非居住者基本工資1.5倍金額由35700->36000
+        int FORSALBASD = 37875;//因配合基本薪資調整，非居住者基本工資1.5倍金額由36000->37875
         List<string> Supplemin_M_FORMAT = new List<string>() { "50" };
         int SUPPLEMIN1 = 20000;//單次給付金達20000元
         List<string> Supplemin_M_FORMAT1 = new List<string>() { "9A", "9B", "51", "52", "54", "5A", "5B", "5C" };
@@ -87,7 +87,8 @@ namespace TaxLevelImport
             //string FullName = Dir + @"\" + FileName;
             //string MainFile = "";
             DateTime ExpireDate = new DateTime(2017, 5, 31);
-            string Server = "", DataBase = "", Id = "jb", Pwd = "JB8421";
+            string Server = "", DataBase = "", Id = "jb", Pwd = "46T_dh-6zZ";
+            //string Server = "", DataBase = "", Id = "jb", Pwd = "JB8421";
             try
             {
                 RefreshState("檢查HR程式版本", 10);
@@ -235,7 +236,6 @@ namespace TaxLevelImport
                             MainFile = ofd.FileName;
                             if (File.Exists(MainFile))
                             {
-                                YEAR = (Convert.ToInt32(YEAR) - 1911).ToString();
                                 RefreshState("Visual FoxPro", 12);
                                 IsFoxpro = true;
                                 StreamReader sr = File.OpenText(MainFile);
@@ -378,8 +378,13 @@ namespace TaxLevelImport
                     #region 更新所得稅級距表
                     if (ConfigSetting.AppSettingValue("NeedTaxLvl") == "1")
                     {
+                        var _YEAR = YEAR;
+                        if (IsFoxpro)
+                        {
+                            _YEAR = (Convert.ToInt32(YEAR) - 1911).ToString();
+                        }
                         RefreshState("清空相同年度級距表", 24);
-                        string DeleteCommand = "DELETE TAXLVL WHERE YEAR=" + YEAR;
+                        string DeleteCommand = "DELETE TAXLVL WHERE YEAR=" + _YEAR;
                         db.ExecuteCommand(DeleteCommand, new object[] { });
                         RefreshState("OK", 26);
 
@@ -408,7 +413,7 @@ namespace TaxLevelImport
                                 r.PER9 = Convert.ToDouble(it["per9"]);
                                 r.PER10 = Convert.ToDouble(it["per10"]);
                                 //r.PER11 = Convert.ToDecimal(it["per11"]);
-                                r.YEAR = YEAR;
+                                r.YEAR = _YEAR;
                                 db.TAXLVL1.InsertOnSubmit(r);
                             }
                             else
@@ -430,13 +435,13 @@ namespace TaxLevelImport
                                 r.PER9 = Convert.ToDecimal(it["per9"]);
                                 r.PER10 = Convert.ToDecimal(it["per10"]);
                                 r.PER11 = Convert.ToDecimal(it["per11"]);
-                                r.YEAR = YEAR;
+                                r.YEAR = _YEAR;
                                 db.TAXLVL.InsertOnSubmit(r);
                             }
                         }
                         db.SubmitChanges();
                         RefreshState("級距表匯入完成", 40);
-                        string UpdateTaxLvCode = "UPDATE TAXLVL SET AMT_H=9999999999 WHERE AMT_H=500000.00 AND YEAR=" + YEAR;
+                        string UpdateTaxLvCode = "UPDATE TAXLVL SET AMT_H=9999999999 WHERE AMT_H=500000.00 AND YEAR=" + _YEAR;
                         RefreshState("修改所得稅最大級距", 45);
 
                         try
@@ -737,6 +742,23 @@ namespace TaxLevelImport
                         JBModule.Message.TextLog.WriteLog("完成-保險級距{0}失效更新", SUPPLEMIN);
                         RefreshState("完成-保險級距更新", 99);
                         if (!i)
+                        {
+                            RefreshState(@"更新異常，請至 C:\TEMP\Error\Log\ 查閱相關訊息", 99);
+                            return;
+                        }
+                    }
+                    #endregion
+
+                    #region 保險級距新增
+                    if (ConfigSetting.AppSettingValue("InsertInsurlv") == "1")
+                    {
+                        JBModule.Message.TextLog.WriteLog(string.Format("開始進行-保險級距{0}新增", SUPPLEMIN));
+
+                        InsurlvUpdate lu = new InsurlvUpdate(new SqlConnection(e.Argument.ToString()));
+                        bool b = lu.addNewInsurlv(SUPPLEMIN, EFF_RATE, YEAR);
+                        JBModule.Message.TextLog.WriteLog("完成-保險級距{0}新增", SUPPLEMIN);
+                        RefreshState("完成-保險級距新增", 99);
+                        if (!b)
                         {
                             RefreshState(@"更新異常，請至 C:\TEMP\Error\Log\ 查閱相關訊息", 99);
                             return;
