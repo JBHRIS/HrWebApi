@@ -65,7 +65,7 @@ namespace Portal
                     {
                         btnHelpful.Enabled = false;
                         btnHelpless.Enabled = false;
-
+                        
                     }
                 }
                 catch (Exception ex)
@@ -172,6 +172,8 @@ namespace Portal
                     btnWtReply.Disabled = true;
                     btnHelpful.Enabled = false;
                     btnHelpless.Enabled = false;
+                    btnDraft.Enabled = false;
+                    btnAdd.Enabled = false;
 
                     foreach (var control in QuestionReplyData.Items)
                     {
@@ -513,8 +515,7 @@ namespace Portal
             oUpdateQuestionMain.GetData(UpdateQuestionMainCond);
 
             pCompleteStatus.Style.Remove("display");
-            btnHelpful.Enabled = false;
-            btnHelpless.Enabled = false;
+           
 
             foreach (var control in QuestionReplyData.Items)
             {
@@ -527,7 +528,10 @@ namespace Portal
             }
             var Script = "$('.btnReply').hide();";
             ScriptManager.RegisterStartupScript(this, typeof(Button), "btnhide", Script, true);
-
+            btnHelpful.Enabled = false;
+            btnHelpless.Enabled = false;
+            btnDraft.Enabled = false;
+            btnAdd.Enabled = false;
         }
 
     }
