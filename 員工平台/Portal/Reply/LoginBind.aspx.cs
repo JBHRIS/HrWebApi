@@ -73,7 +73,7 @@ namespace Portal
             ValidateBaseRedirect(UserId, UserPw);
         }
 
-        public bool ValidateBaseRedirect(string AccountCode, string AccountPassword, string CompanyAccountCode = "demo")
+        public bool ValidateBaseRedirect(string AccountCode, string AccountPassword, string CompanyAccountCode = "")
         {
             var Pass = false;
 
@@ -139,9 +139,20 @@ namespace Portal
             SigninCond.UserId = AccountCode;
             SigninCond.Password = AccountPassword;
             SigninCond.CompanySetting = CompanySetting;
-            var Result = oSignin.GetData(SigninCond);
-
-            var AccessToken = "";
+            var Result = oSignin.GetData(SigninCond);          
+            HttpContext.Current.Response.Cookies.Add(new HttpCookie("CompanyId", CompanyAccountCode));
+            UnobtrusiveSession.Session["CompanySetting"] = CompanySetting;
+            var oClientGetToken = new ClientGetTokenDao();
+            var ClientGetTokenCondition = new ClientGetTokenConditions();
+            ClientGetTokenCondition.ClientId = "JbFlow";
+            var ClientTokenData = oClientGetToken.GetData(ClientGetTokenCondition);
+            string ClientToken = "";
+            if (ClientTokenData.Status && ClientTokenData.Data != null)
+            {
+                var r = ClientTokenData.Data as ClientGetTokenRow;
+                ClientToken = r.AccessToken;
+            }
+            var AccessToken = ClientToken;
             var RefreshToken = "";
 
             var PassApi = false;
@@ -195,7 +206,7 @@ namespace Portal
                 oUser.AccessToken = AccessToken;
                 oUser.RefreshToken = RefreshToken;
 
-                _AuthManager.SignIn(oUser, oUser.UserCode,CompanySetting);
+                _AuthManager.SignIn(oUser, oUser.UserCode,CompanySetting,true);
 
                 //撰寫歡迎訊息
                 {

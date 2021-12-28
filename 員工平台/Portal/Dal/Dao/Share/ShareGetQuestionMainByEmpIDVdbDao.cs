@@ -58,6 +58,7 @@ namespace Dal.Dao.Share
 
             #region 要傳遞的參數
             HTTPPayloadDictionary dic = new HTTPPayloadDictionary();
+            if(Cond.CompanyID != "")
             dic.Add("CompanyID", Cond.CompanyID);
             dic.Add("sNobr", Cond.EmpId);
             this.CompanySetting = Cond.CompanySetting;

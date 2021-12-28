@@ -48,7 +48,7 @@ namespace Reply
                 oUser.EmpName = EmpName;
                 oUser.RoleKey = Role;
                 
-                _AuthManager.SignIn(oUser, oUser.UserCode, CompanySetting);
+                _AuthManager.SignIn(oUser, oUser.UserCode, CompanySetting,true);
                 Response.Redirect("ProblemReturn.aspx");
             }
         }

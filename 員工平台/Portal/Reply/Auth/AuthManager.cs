@@ -55,42 +55,47 @@ public class AuthManager
     }
 
     //登入
-    public void SignIn(User user, string OldId, CompanySettingRow CompanySetting)
+    public void SignIn(User user, string OldId, CompanySettingRow CompanySetting,bool isShare)
     {
         SignOut();
 
-        //填入使用者資訊
-        var oUserdata = new UserdataDao();
-        var UserdataCond = new UserdataConditions();
-        UserdataCond.AccessToken = user.AccessToken;
-        UserdataCond.RefreshToken = user.RefreshToken;
-        UserdataCond.CompanySetting = CompanySetting;
-        var rs = oUserdata.GetData(UserdataCond);
 
-        if (rs.Status)
+        if (!isShare)
         {
-            if (rs.Data != null)
+            //填入使用者資訊
+            var oUserdata = new UserdataDao();
+            var UserdataCond = new UserdataConditions();
+            UserdataCond.AccessToken = user.AccessToken;
+            UserdataCond.RefreshToken = user.RefreshToken;
+            UserdataCond.CompanySetting = CompanySetting;
+            var rs = oUserdata.GetData(UserdataCond);
+
+            if (rs.Status)
             {
-                var rUserdata = rs.Data as UserdataRow;
-                if (rUserdata != null)
+                if (rs.Data != null)
                 {
-                    user.EmpId = rUserdata.EmpId;
-                    user.EmpName = rUserdata.EmpName;
-                    user.EmpEmail = "";
-                    user.Dept = rUserdata.Dept;
-                    user.EmpDeptName = rUserdata.DeptName;
-                    user.EmpDeptCode = rUserdata.DeptCode;
-                    user.EmpCompanyCode = rUserdata.CompanyCode;
-                    user.EmpJobName = rUserdata.JobName;
-                    user.Role = rUserdata.Role;
-                    user.Connection = rUserdata.Connection;
-                    user.UserCode = user.Connection + user.EmpId;
-                    if (user.Role.Contains("HR") || user.Role.Contains("Hr"))
-                        user.RoleKey = 8;
-                    user.ListDataGroupsCode = rUserdata.ListDataGroupsCode;
+                    var rUserdata = rs.Data as UserdataRow;
+                    if (rUserdata != null)
+                    {
+                        user.EmpId = rUserdata.EmpId;
+                        user.EmpName = rUserdata.EmpName;
+                        user.EmpEmail = "";
+                        user.Dept = rUserdata.Dept;
+                        user.EmpDeptName = rUserdata.DeptName;
+                        user.EmpDeptCode = rUserdata.DeptCode;
+                        user.EmpCompanyCode = rUserdata.CompanyCode;
+                        user.EmpJobName = rUserdata.JobName;
+                        user.Role = rUserdata.Role;
+                        user.Connection = rUserdata.Connection;
+                        user.UserCode = user.Connection + user.EmpId;
+                        if (user.Role.Contains("HR") || user.Role.Contains("Hr"))
+                            user.RoleKey = 8;
+                        user.ListDataGroupsCode = rUserdata.ListDataGroupsCode;
+                    }
                 }
             }
         }
+        
         //UnobtrusiveSession.Session["AccessToken"] = user.AccessToken;
         DateTime deadLine = DateTime.Now.AddDays(1);
         //var oUserToken = new UserToken();

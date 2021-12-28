@@ -11,6 +11,8 @@ using Telerik.Web.UI;
 using Dal.Dao.Flow;
 using System.Windows;
 using Bll.Tools;
+using Dal.Dao.Files;
+using Bll.Files.Vdb;
 
 namespace Portal
 {
@@ -26,6 +28,8 @@ namespace Portal
 
 
             }
+            UnobtrusiveSession.Session["AccessToken"] = _User.AccessToken;
+            UnobtrusiveSession.Session["RefeshToken"] = _User.RefreshToken;
         }
         private void SetUserInfo()
         {
@@ -82,7 +86,7 @@ namespace Portal
 
             try
             {
-               
+
 
                 var oGetQuestionMain = new ShareGetQuestionMainByCodeDao();
                 var GetQuestionMainCond = new ShareGetQuestionMainByCodeConditions();
@@ -91,7 +95,7 @@ namespace Portal
                 GetQuestionMainCond.CompanySetting = CompanySetting;
                 GetQuestionMainCond.Code = Request.QueryString["Code"];
                 var QuestionMain = (oGetQuestionMain.GetData(GetQuestionMainCond).Data as List<ShareGetQuestionMainByCodeRow>).FirstOrDefault();
-              
+
 
                 var oGetQuestionReply = new ShareGetQuestionReplyByQuestionMainCodeDao();
                 var GetQuestionReplyCond = new ShareGetQuestionReplyByQuestionMainCodeConditions();
@@ -189,6 +193,29 @@ namespace Portal
             }
         }
 
+        protected void DataUpload_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
+        {
+            var oFilesByFileTicket = new FilesByFileTicketDao();
+            var FilesByFileTicketCond = new FilesByFileTicketConditions();
+            var result = new List<FilesByFileTicketRow>();
+            FilesByFileTicketCond.AccessToken = _User.AccessToken;
+            FilesByFileTicketCond.RefreshToken = _User.RefreshToken;
+            FilesByFileTicketCond.CompanySetting = CompanySetting;
+            FilesByFileTicketCond.fileTicket = Request.QueryString["Code"];
+            var Result = oFilesByFileTicket.GetData(FilesByFileTicketCond);
+            if (Result.Status)
+            {
+                if (Result.Data != null)
+                {
+                   result = Result.Data as List<FilesByFileTicketRow>;
+                }
+            }
+            DataUpload.DataSource = result;
+        }
+        protected void DataUpload_ItemCommand(object sender, RadListViewCommandEventArgs e)
+        {
+
+        }
 
 
         protected void btnAdd_Click(object sender, EventArgs e)
@@ -451,7 +478,7 @@ namespace Portal
             GetQuestionMainCond.Code = Request.QueryString["Code"];
             GetQuestionMainCond.AccessToken = _User.AccessToken;
             GetQuestionMainCond.RefreshToken = _User.RefreshToken;
-            GetQuestionMainCond.CompanySetting = CompanySetting;         
+            GetQuestionMainCond.CompanySetting = CompanySetting;
             var rsGQM = oGetQuestionMain.GetData(GetQuestionMainCond).Data as List<ShareGetQuestionMainByCodeRow>;
             var data = rsGQM.FirstOrDefault();
             var oUpdateQuestionMain = new ShareUpdateQuestionMainDao();
@@ -481,14 +508,14 @@ namespace Portal
             UpdateQuestionMainCond.AccessToken = _User.AccessToken;
             UpdateQuestionMainCond.RefreshToken = _User.RefreshToken;
             UpdateQuestionMainCond.CompanySetting = CompanySetting;
-            UpdateQuestionMainCond.Code= Request.QueryString["Code"];
-                  
+            UpdateQuestionMainCond.Code = Request.QueryString["Code"];
+
             oUpdateQuestionMain.GetData(UpdateQuestionMainCond);
 
             pCompleteStatus.Style.Remove("display");
             btnHelpful.Enabled = false;
             btnHelpless.Enabled = false;
-            
+
             foreach (var control in QuestionReplyData.Items)
             {
                 var target = control.FindControl("btnReplyAdd") as RadButton;

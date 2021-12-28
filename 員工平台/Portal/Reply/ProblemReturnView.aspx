@@ -31,9 +31,59 @@
                 </p>
 
             </div>
-
+            <div id="iboxContent" class="ibox">
+                <div class="ibox-title">
+                    <h5>附件列表</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="fullscreen-link">
+                            <i class="fa fa-expand"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
+                        <telerik:RadListView ID="DataUpload" runat="server" RenderMode="Lightweight" ItemPlaceholderID="Container" OnNeedDataSource="DataUpload_NeedDataSource"  OnItemCommand="DataUpload_ItemCommand">
+                            <LayoutTemplate>
+                                <table class="footable table table-stripped" data-page-size="10" data-filter="#filter">
+                                    <thead>
+                                        <tr>
+                                            <th>檔名</th>
+                                            <th data-hide="phone,tablet">大小</th>
+                                            <th>動作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Container" runat="server">
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="5">
+                                                <ul class="pagination float-right"></ul>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </LayoutTemplate>
+                            <ItemTemplate>
+                                  <tr class="gradeX">
+                                                    <td><%#Eval("FileName") %></td>
+                                                    <td><%#Eval("FileSize") %></td>
+                                                    <td>
+                                                        <asp:Button ID="btnDownload" runat="server" CommandArgument='<%#Eval("FileId") %>' Width="60%" OnClientClick='<%#"download(\""+Eval("FileId")+"\");" %>' CommandName="Download" Text="下載" CssClass="btn-white btn btn-xs" />
+                                                    </td>
+                                                </tr>
+                            </ItemTemplate>
+                            <EmptyDataTemplate>
+                                目前並無上傳任何檔案
+                            </EmptyDataTemplate>
+                        </telerik:RadListView>
+                    </telerik:RadAjaxPanel>
+                </div>
+            </div>
             <button id="btnWtReply" type="button" runat="server" data-toggle="collapse" data-target="#demo" class="btn btn-white btn-w-m m-b-xs">我要回覆</button>
-            
+
             <div class="social-footer">
 
                 <telerik:RadListView ID="QuestionReplyData" runat="server" ItemPlaceholderID="Container" OnItemCommand="lvMain_ItemCommand" OnNeedDataSource="QuestionReplyData_NeedDataSource">
@@ -109,7 +159,7 @@
                             TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="3">
                         </telerik:RadTextBox>
 
-                        <telerik:RadButton ID="btnDraft"  runat="server" Text="儲存草稿" CssClass="btn btn-outline btn-primary btn-md" CommandName="Draft" OnClick="btnAdd_Click" />
+                        <telerik:RadButton ID="btnDraft" runat="server" Text="儲存草稿" CssClass="btn btn-outline btn-primary btn-md" CommandName="Draft" OnClick="btnAdd_Click" />
                         <telerik:RadButton ID="btnAdd" runat="server" Text="送出" CssClass="btn btn-primary btn-primary btn-md" OnClick="btnAdd_Click" />
 
                         <label runat="server" id="lblAddStatus" style="color: red;"></label>
@@ -136,7 +186,33 @@
     <script src="Templates/Inspinia/js/plugins/footable/footable.all.min.js"></script>
 
     <script>
+        function download(FileId) {
 
+            //檔案下載網址
+            var url = "Download.ashx?openExternalBrowser=1";
 
-</script>
+            //產生 form
+            var form = document.createElement("form");
+
+            form.method = "GET";
+            form.action = url;
+
+            //如果想要另開視窗可加上target
+            //form.target = "_blank";
+
+            //index為要下載的檔案編號，存入hidden跟表單一起送出
+            var input = document.createElement("input");
+            input.type = "hidden";
+            input.name = "index";
+            input.value = FileId;
+            form.appendChild(input);
+
+            //送出表單並移除 form
+            var body = document.getElementsByTagName("body")[0];
+            body.appendChild(form);
+            form.submit();
+            form.remove();
+        };
+
+    </script>
 </asp:Content>
