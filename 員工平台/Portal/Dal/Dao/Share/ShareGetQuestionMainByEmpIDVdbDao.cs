@@ -37,7 +37,7 @@ namespace Dal.Dao.Share
             #region 要傳遞的參數
             HTTPPayloadDictionary dic = new HTTPPayloadDictionary();
             dic.Add("CompanyID", Cond.CompanyID);
-            dic.Add("EmpID", Cond.EmpId);
+            dic.Add("sNobr", Cond.EmpId);
           
             #endregion
 
@@ -59,7 +59,7 @@ namespace Dal.Dao.Share
             #region 要傳遞的參數
             HTTPPayloadDictionary dic = new HTTPPayloadDictionary();
             dic.Add("CompanyID", Cond.CompanyID);
-            dic.Add("EmpID", Cond.EmpId);
+            dic.Add("sNobr", Cond.EmpId);
             this.CompanySetting = Cond.CompanySetting;
 
             #endregion
@@ -128,6 +128,7 @@ namespace Dal.Dao.Share
                                         rTarget.Name = rSource.Name;
                                         rTarget.Note = rSource.Note;
                                         rTarget.QuestionCategoryCode = rSource.QuestionCategoryCode;
+                                        rTarget.QuestionCategoryName = rSource.QuestionCategoryName;
                                         rTarget.Status = rSource.Status;
                                         rTarget.SystemCategoryCode = rSource.SystemCategoryCode;
                                         rTarget.TitleContent = rSource.TitleContent;

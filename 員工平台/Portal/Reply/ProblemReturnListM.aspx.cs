@@ -56,7 +56,7 @@ namespace Portal
                 txtReturnS.DataBind();
                 //txtReturnS.SelectedIndex = 0;
             }
-            txtReturnS.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "任何", Value = "0" });
+            txtReturnS.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "所有類型", Value = "0" });
             txtReturnS.SelectedIndex = 0;
 
         }

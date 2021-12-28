@@ -35,6 +35,7 @@ namespace Bll.Share.Vdb
         public string TitleContent { get; set; }
         public string Content { get; set; }
         public string QuestionCategoryCode { get; set; }
+        public string QuestionCategoryName { get; set; }
         public string IpAddress { get; set; }
         public DateTime DateE { get; set; }
         public bool Complete { get; set; }
@@ -61,6 +62,7 @@ namespace Bll.Share.Vdb
         public string TitleContent { get; set; }
         public string Content { get; set; }
         public string QuestionCategoryCode { get; set; }
+        public string QuestionCategoryName { get; set; }
         public string IpAddress { get; set; }
         public DateTime DateE { get; set; }
         public bool Complete { get; set; }

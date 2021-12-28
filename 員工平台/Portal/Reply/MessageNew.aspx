@@ -182,8 +182,7 @@
         $(document).ready(function () {
             var isPostBack = <%=this.IsPostBack.ToString().ToLower()%>;
             if (isPostBack) {
-                $('#titlelength').text('(' + $('#ctl00_ContentPlaceHolder1_txtTitle').val().length + '/30)')
-                isTyping = false;
+                $('#titlelength').text('(' + $('#ctl00_ContentPlaceHolder1_txtTitle').val().length + '/30)')            
                 $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/80)')
                 isTyping = false;
             }

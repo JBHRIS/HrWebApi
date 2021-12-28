@@ -101,8 +101,8 @@ namespace Portal
             {
                 lblAddStatus.InnerText = "送出成功!";
             }
-        
-            
+
+            Response.Redirect("ProblemReturnList.aspx");
 
         }
         public void btnUpload_Click(object sender, EventArgs e)

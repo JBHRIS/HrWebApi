@@ -32,11 +32,12 @@
 
             </div>
 
-
+            <button id="btnWtReply" type="button" runat="server" data-toggle="collapse" data-target="#demo" class="btn btn-white btn-w-m m-b-xs">我要回覆</button>
+            
             <div class="social-footer">
- 
-                     <telerik:RadListView ID="QuestionReplyData" runat="server" ItemPlaceholderID="Container" OnItemCommand="lvMain_ItemCommand" OnNeedDataSource="lvMain_NeedDataSource">
-                    
+
+                <telerik:RadListView ID="QuestionReplyData" runat="server" ItemPlaceholderID="Container" OnItemCommand="lvMain_ItemCommand" OnNeedDataSource="QuestionReplyData_NeedDataSource">
+
                     <LayoutTemplate>
                         <div id="Container" runat="server">
                             <telerik:RadLabel ID="lblName2" runat="server" CssClass="name_font" Text="" />
@@ -58,18 +59,17 @@
                                 <telerik:RadLabel ID="lblName2" runat="server" CssClass="name_font" Text='<%# Eval("Name") %>' />
                                 <telerik:RadLabel ID="lblC2" runat="server" Text='<%# Eval("Content") %>' />
                                 <br />
-                               
-                                <button type="button" class="btn btn-link fa comment_icon text-blue" data-toggle="collapse" aria-controls='<%# Eval("Code") %>' data-target='#rep<%# Eval("Code") %>'>回覆</button>
-                                <telerik:RadLabel ID="lblDate2" runat="server" CssClass="text-muted" Text='<%# Eval("InsertDate","{0:yyyy-MM-dd}") %>' />
-                                
-                                <telerik:RadLabel ID="lblTime2" runat="server" CssClass="text-muted" Text='<%# Eval("InsertDate","{0:HH:ss}") %>' />
-                                
-                                <br />
-                                   <div  class="social-comment">
-                                        <%# Eval("DataView")  %> 
 
-                                   </div>                                 
-                                
+                                <button type="button" id="btnReply" class="btnReply btn btn-link fa comment_icon text-blue" data-toggle="collapse" aria-controls='<%# Eval("Code") %>' data-target='#rep<%# Eval("Code") %>'>回覆</button>
+                                <telerik:RadLabel ID="lblDate2" runat="server" CssClass="text-muted" Text='<%# Eval("InsertDate","{0:yyyy-MM-dd}") %>' />
+
+                                <telerik:RadLabel ID="lblTime2" runat="server" CssClass="text-muted" Text='<%# Eval("InsertDate","{0:HH:ss}") %>' />
+
+                                <br />
+                                <div class="social-comment">
+                                    <%# Eval("DataView")  %>
+                                </div>
+
                             </div>
                             <div id='rep<%# Eval("Code")%>' class="collapse">
                                 <div class="form-group">
@@ -78,22 +78,28 @@
                                         TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="3">
                                     </telerik:RadTextBox>
 
-                                    <telerik:RadButton  class="btnadd" runat="server" Text="送出" CssClass="btn btn-primary btn-md m-t-md" CommandArgument='<%# Eval("Code") %>' CommandName="ReplyAdd" />
+                                    <telerik:RadButton ID="btnReplyAdd" class="btnadd" runat="server" Text="送出" CssClass="btn btn-primary btn-md m-t-md" CommandArgument='<%# Eval("Code") %>' CommandName="ReplyAdd" />
                                 </div>
                             </div>
                         </div>
-                          
+
                     </ItemTemplate>
 
                 </telerik:RadListView>
-                
+
 
                 <div id="Useful" runat="server" class="row col-lg-12">
 
                     <div class="request_box form-inline">
                         <span class="ask_font">這個回覆對您有幫助嗎？</span>
-                        <button type="button" class="btn btn-white btn-w-m m-b-xs">有幫助</button>
-                        <button type="button" class="btn btn-white btn-w-m m-b-xs" data-toggle="collapse" data-target="#demo">沒有</button>
+                        <telerik:RadButton ID="btnHelpful" runat="server" Text="有幫助" CssClass="btn btn-white btn-w-m m-b-xs" OnClick="btnHelpful_Click" />
+                        <telerik:RadButton ID="btnHelpless" runat="server" Text="沒有" CssClass="btn btn-white btn-w-m m-b-xs" data-toggle="collapse" data-target="#demo" OnClick="btnHelpful_Click" />
+                        <%-- <button id="btnHelpless" type="button" class="btn btn-white btn-w-m m-b-xs" runat="server" data-toggle="collapse" data-target="#demo">沒有</button>--%>
+                        <div class="hr-line-dashed"></div>
+                        <p id="pCompleteStatus" runat="server" style="display: none" class="text-success">
+                            此筆回報單已經結案！<br>
+                            如後續有相關問題，請重新建立回報單，感謝您的使用！
+                        </p>
                     </div>
 
                 </div>
@@ -102,7 +108,10 @@
                         <telerik:RadTextBox ID="txtContent" runat="server" EmptyMessage="請填寫您想回報的內容..."
                             TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="3">
                         </telerik:RadTextBox>
-                        <telerik:RadButton ID="btnAdd" runat="server" Text="送出" CssClass="btn btn-primary btn-md m-t-md" OnClick="btnAdd_Click" />
+
+                        <telerik:RadButton ID="btnDraft"  runat="server" Text="儲存草稿" CssClass="btn btn-outline btn-primary btn-md" CommandName="Draft" OnClick="btnAdd_Click" />
+                        <telerik:RadButton ID="btnAdd" runat="server" Text="送出" CssClass="btn btn-primary btn-primary btn-md" OnClick="btnAdd_Click" />
+
                         <label runat="server" id="lblAddStatus" style="color: red;"></label>
                     </div>
                     <div class="form-group">
@@ -127,10 +136,7 @@
     <script src="Templates/Inspinia/js/plugins/footable/footable.all.min.js"></script>
 
     <script>
-        $('.btnReply').click(function{
-            
 
-        })
-        
-    </script>
+
+</script>
 </asp:Content>

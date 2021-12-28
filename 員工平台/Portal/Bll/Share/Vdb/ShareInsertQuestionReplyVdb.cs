@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Bll.Share.Vdb
 {
-  public  class ShareInsertGetQuestionReply
+  public  class ShareInsertQuestionReply
     {
     }
     public class ShareInsertQuestionReplyConditions : DataConditions

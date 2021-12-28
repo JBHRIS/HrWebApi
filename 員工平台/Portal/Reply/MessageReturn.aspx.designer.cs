@@ -15,6 +15,15 @@ namespace Portal
     {
 
         /// <summary>
+        /// RadAjaxPanel1 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel1;
+
+        /// <summary>
         /// lblName 控制項。
         /// </summary>
         /// <remarks>
@@ -69,13 +78,40 @@ namespace Portal
         protected global::Telerik.Web.UI.RadLabel lblContent;
 
         /// <summary>
-        /// plMain 控制項。
+        /// QuestionReplyData 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadAjaxPanel plMain;
+        protected global::Telerik.Web.UI.RadListView QuestionReplyData;
+
+        /// <summary>
+        /// RadTextBox1 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadTextBox RadTextBox1;
+
+        /// <summary>
+        /// RadButton1 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton RadButton1;
+
+        /// <summary>
+        /// lblAddStatus 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblAddStatus;
 
         /// <summary>
         /// RadioFirst 控制項。
@@ -105,13 +141,22 @@ namespace Portal
         protected global::Telerik.Web.UI.RadRadioButton RadioThird;
 
         /// <summary>
-        /// RadButton2 控制項。
+        /// RadioFourth 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadButton RadButton2;
+        protected global::Telerik.Web.UI.RadRadioButton RadioFourth;
+
+        /// <summary>
+        /// txtReturnS 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadComboBox txtReturnS;
 
         /// <summary>
         /// txtContent 控制項。
@@ -148,6 +193,15 @@ namespace Portal
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::Telerik.Web.UI.RadButton btnAdd;
+
+        /// <summary>
+        /// DraftStatus 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DraftStatus;
 
         /// <summary>
         /// lblUserCode 控制項。

@@ -52,7 +52,7 @@ namespace Portal
                 txtReturnS.DataBind();
                 //txtReturnS.SelectedIndex = 0;
             }
-            txtReturnS.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "任何", Value = "0" });
+            txtReturnS.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "所有類型", Value = "0" });
             txtReturnS.SelectedIndex = 0;
 
 
@@ -60,6 +60,7 @@ namespace Portal
         protected void lvMain_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
         {
             APIResult rsGetQuestionMain = new APIResult();
+            
             if (_User.RoleKey == 2)
             {
                 var oGetQuestionMain = new ShareGetQuestionMainByCompanyDao();
@@ -69,6 +70,7 @@ namespace Portal
                 GetquestionMainCond.CompanySetting = CompanySetting;
                 GetquestionMainCond.CompanyID = _User.CompanyId;
                 rsGetQuestionMain=oGetQuestionMain.GetData(GetquestionMainCond);
+               
             }
             else if (_User.RoleKey == 8)
             {
@@ -100,9 +102,23 @@ namespace Portal
                 {
                     if (rsGetQuestionMain.Data != null)
                     {
+                        
+                        if (_User.RoleKey == 2)
+                        {
+                            var rsQM = rsGetQuestionMain.Data as List<ShareGetQuestionMainByCompanyRow>;
+                            lvMain.DataSource = rsQM;
+                        }
+                        else if (_User.RoleKey == 8)
+                        {
+                            var rsQM = rsGetQuestionMain.Data as List<ShareGetQuestionMainByCompanyRow>;
+                            lvMain.DataSource = rsQM;
+                        }
+                        if (_User.RoleKey == 64)
+                        {
+                            var rsQM = rsGetQuestionMain.Data as List<ShareGetQuestionMainByEmpIDRow>;
+                            lvMain.DataSource = rsQM;
+                        }
 
-                        var rsQM = rsGetQuestionMain.Data as List<ShareGetQuestionMainByCompanyRow>;                      
-                        lvMain.DataSource = rsQM;
                         var Script = "$(document).ready(function() {$('.footable').footable();});";
                         ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);
 

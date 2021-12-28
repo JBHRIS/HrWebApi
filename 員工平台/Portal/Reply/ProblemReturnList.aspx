@@ -70,7 +70,7 @@
 
                                     <tr class="gradeX">
                                         <td data-th="標題"><%# Eval("TitleContent") %></td>
-                                        <td data-th="回報類型"><%# Eval("QuestionCategoryCode") %></td>
+                                        <td data-th="回報類型"><%# Eval("QuestionCategoryName") %></td>
                                         <td data-th="填寫日期"><%# Eval("DateE","{0:yyyy-MM-dd}") %></td>
                                         <td data-th="回覆日期"><%# Eval("UpdateDate","{0:yyyy-MM-dd}") %></td>
                                         <td data-th="操作">

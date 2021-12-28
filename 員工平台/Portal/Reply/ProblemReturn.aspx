@@ -12,8 +12,8 @@
                         <i class="fa fa-exclamation-circle"></i>本問題回報服務需3個工作天
                     </div>
                     <div class="form-group">
-                        <label>標題<small id="titlelength" class="text-navy">(0/30)</small></label>
-                        <telerik:RadTextBox ID="txtTitle" runat="server" EmptyMessage="請輸入標題..." Skin="Bootstrap" Width="100%" />
+                        <label>標題<small id="titlelength" style="color:#1ab394">(0/30)</small><label runat="server" id="lblAddStatus" style="color: red;"></label></label>
+                        <telerik:RadTextBox ID="txtTitle" runat="server" EmptyMessage="請輸入標題..." Skin="Bootstrap" Width="100%" />                      
                     </div>
                     <div class="form-group">
                         <label id="testlbl">回報類型</label>
@@ -23,7 +23,7 @@
                         </telerik:RadComboBox>
                     </div>
                     <div class="form-group">
-                        <label>內容<small id="contentlength" class="text-navy">(0/80)</small></label>
+                        <label>內容<small id="contentlength" style="color:#1ab394">(0/80)</small></label>
                         <telerik:RadTextBox ID="txtContent" runat="server" EmptyMessage="請填寫您想回報的內容..."
                             TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="3">
                         </telerik:RadTextBox>
@@ -63,7 +63,7 @@
                             <telerik:RadButton ID="btnAdd" runat="server" Text="送出" CssClass="btn btn-primary btn-md" OnClick="btnAdd_Click" />
                             <span class="m-t-xs">IP：<telerik:RadLabel ID="lblIP" runat="server" /></span>
 
-                            <label runat="server" id="lblAddStatus" style="color: red;"></label>
+                           
                         </div>
 
 
@@ -139,11 +139,45 @@
                 }
             });
         }
+
+
     </script>
 
     <script>
         $(document).ready(function () {
             $('.footable').footable();
+            var isPostBack = <%=this.IsPostBack.ToString().ToLower()%>;
+            if (isPostBack) {
+                $('#titlelength').text('(' + $('#ctl00_ContentPlaceHolder1_txtTitle').val().length + '/30)')
+                isTyping = false;
+                if ($('#ctl00_ContentPlaceHolder1_txtContent').val().length > 80) {
+                    $('#contentlength').css('color', 'red')
+
+                    $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/80)')
+                    isTyping = false;
+                }
+                else {
+                    $('#contentlength').css('color', '#1ab394')
+                    $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/80)')
+                    isTyping = false;
+                }
+                if ($('#ctl00_ContentPlaceHolder1_txtTitle').val().length > 30) {
+                    $('#titlelength').css('color', 'red')
+                    $('#titlelength').text('(' + $('#ctl00_ContentPlaceHolder1_txtTitle').val().length + '/30)')
+                    isTyping = false;
+                }
+                else {
+                    $('#titlelength').css('color', '#1ab394')
+                    $('#titlelength').text('(' + $('#ctl00_ContentPlaceHolder1_txtTitle').val().length + '/30)')
+                    isTyping = false;
+                }
+            }
+            else {
+                $('#titlelength').text('(0/30)')
+                $('#contentlength').text('(0/80)')
+                isTyping = false;
+
+            }
         });
         var isTyping
 

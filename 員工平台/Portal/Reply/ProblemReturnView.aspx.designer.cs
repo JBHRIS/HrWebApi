@@ -78,6 +78,15 @@ namespace Portal
         protected global::Telerik.Web.UI.RadLabel lblContent;
 
         /// <summary>
+        /// btnWtReply 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnWtReply;
+
+        /// <summary>
         /// QuestionReplyData 控制項。
         /// </summary>
         /// <remarks>
@@ -96,6 +105,33 @@ namespace Portal
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Useful;
 
         /// <summary>
+        /// btnHelpful 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton btnHelpful;
+
+        /// <summary>
+        /// btnHelpless 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton btnHelpless;
+
+        /// <summary>
+        /// pCompleteStatus 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pCompleteStatus;
+
+        /// <summary>
         /// txtContent 控制項。
         /// </summary>
         /// <remarks>
@@ -103,6 +139,15 @@ namespace Portal
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::Telerik.Web.UI.RadTextBox txtContent;
+
+        /// <summary>
+        /// btnDraft 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton btnDraft;
 
         /// <summary>
         /// btnAdd 控制項。

@@ -130,6 +130,7 @@ namespace Dal.Dao.Share
                                         rTarget.Name = rSource.Name;
                                         rTarget.Note = rSource.Note;
                                         rTarget.QuestionCategoryCode = rSource.QuestionCategoryCode;
+                                        rTarget.QuestionCategoryName = rSource.QuestionCategoryName;
                                         rTarget.Status = rSource.Status;
                                         rTarget.SystemCategoryCode = rSource.SystemCategoryCode;
                                         rTarget.TitleContent = rSource.TitleContent;

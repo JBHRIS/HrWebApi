@@ -223,7 +223,7 @@
     <Compile Include="Share\Vdb\ShareGetQuestionMainByCompanyVdb.cs" />
     <Compile Include="Share\Vdb\ShareGetQuestionMainByEmpIDVdb.cs" />
     <Compile Include="Share\Vdb\ShareGetQuestionMainVdb.cs" />
-    <Compile Include="Share\Vdb\ShareGetQuestionReplyByParentCodeVdb.cs" />
+    <Compile Include="Share\Vdb\ShareGetQuestionReplyByCodeVdb.cs" />
     <Compile Include="Share\Vdb\ShareGetQuestionReplyByQuestionMainCodeVdb.cs" />
     <Compile Include="Share\Vdb\ShareInsertQuestionDefaultMessageVdb.cs" />
     <Compile Include="Share\Vdb\ShareInsertQuestionMainVdb.cs" />

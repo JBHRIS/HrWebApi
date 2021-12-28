@@ -15,6 +15,15 @@ namespace Portal
     {
 
         /// <summary>
+        /// lblAddStatus 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblAddStatus;
+
+        /// <summary>
         /// txtTitle 控制項。
         /// </summary>
         /// <remarks>
@@ -94,15 +103,6 @@ namespace Portal
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::Telerik.Web.UI.RadLabel lblIP;
-
-        /// <summary>
-        /// lblAddStatus 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblAddStatus;
 
         /// <summary>
         /// lblUserCode 控制項。
