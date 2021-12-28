@@ -13,10 +13,11 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <ManifestCertificateThumbprint>81091AC2C2EAE4BD9B4C8A5BEB7F1DE8A2DA46EC</ManifestCertificateThumbprint>
-    <ManifestKeyFile>jbhrcodesinging.pfx</ManifestKeyFile>
+    <ManifestCertificateThumbprint>8ABB46ABFB6288E26CAA94FF1B75631F2B586E28</ManifestCertificateThumbprint>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
     <SignAssembly>false</SignAssembly>
     <ApplicationIcon>cbtml-4mq5p-001.ico</ApplicationIcon>
     <FileUpgradeFlags>
@@ -48,7 +49,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>21.12.24.1</ApplicationVersion>
+    <ApplicationVersion>21.12.27.1</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
