@@ -28,6 +28,8 @@ namespace JBHRIS.Api.Dal.JBHR.Salary.View
                          join sc in _unitOfWork.Repository<Salcode>().Reads() on sb.SalCode equals sc.SalCode1
                          where sb.Nobr == Nobr &&
                          CheckDate.Date >= sb.Adate && CheckDate.Date <= sb.Ddate
+                         && sc.Sort > 0 && sc.Sort != null
+                         orderby sc.Sort ascending 
                          select new GetSalaryChangeDto
                          {
                              Nobr = sb.Nobr,
