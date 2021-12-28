@@ -70,13 +70,13 @@ namespace Portal
                 return;
             }
 
-            ValidateBaseRedirect(UserId, UserPw);
+            ValidateBaseRedirect(UserId, UserPw,"demo");
         }
 
         public bool ValidateBaseRedirect(string AccountCode, string AccountPassword, string CompanyAccountCode = "")
         {
             var Pass = false;
-
+            bool isShare = false;
             //加密的密碼
             var EncryptAccountPasswordSHA512 = AccountPassword.ToSHA512();
 
@@ -116,6 +116,7 @@ namespace Portal
                 rUser.DateD = rSystemUser.DateD;
 
                 Pass = true;
+               
             }
             else
             {
@@ -206,7 +207,7 @@ namespace Portal
                 oUser.AccessToken = AccessToken;
                 oUser.RefreshToken = RefreshToken;
 
-                _AuthManager.SignIn(oUser, oUser.UserCode,CompanySetting,true);
+                _AuthManager.SignIn(oUser, oUser.UserCode,CompanySetting,Pass);
 
                 //撰寫歡迎訊息
                 {
