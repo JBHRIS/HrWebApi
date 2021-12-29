@@ -2359,6 +2359,9 @@
     <Content Include="SqlStorage\sql\2021110502_CreateFunction_GetAnnualLeaveEndDate.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="SqlStorage\sql\2021222801_AlterSQLFunction_About_UserReadDataGroupList.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="SqlStorage\sql\AlterSalcode.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
