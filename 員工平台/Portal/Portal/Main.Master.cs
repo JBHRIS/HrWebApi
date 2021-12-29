@@ -49,7 +49,6 @@ namespace Portal
                     dcFlow.Connection.ConnectionString = CompanySetting.ConnFlow;
                 }
             }
-            Reply_Click();
 
             DateTime Begin = DateTime.Now;
             if (!this.IsPostBack)
@@ -156,6 +155,11 @@ namespace Portal
                 {
                     btnExport.Visible = true;
                 }
+                var ReplyRedirect = (from c in dcFlow.FormsExtend
+                                     where c.FormsCode == "Common" && c.Active == true && c.Code == "ReplyRedirect"
+                                     select c).FirstOrDefault();
+                if (ReplyRedirect != null)
+                    btnReply.Visible = true;
 
                 var ActivePage = Request.Url;
                 if (_User.LoginStatus != "1")
@@ -472,6 +476,20 @@ namespace Portal
                 ActivePageCode = rSystemPage.Code;
 
                 lblSiteMapName.Text = rSystemPage.FileTitle;
+                var Language = (from c in dcFlow.FormsExtend
+                                where c.FormsCode == "Common" && c.Active == true && c.Code == "Language"
+                                select c).FirstOrDefault();
+                var oShareDictionary = new ShareDictionaryDao();
+                if (Language != null)
+                {
+                    if (Request.Cookies["Language"] != null && Request.Cookies["Language"].Value != "")
+                    {
+                        var LanguageCookie = Request.Cookies["Language"].Value;
+                        var TextChange = oShareDictionary.TextTranslate("Portal", rSystemPage.Code, "1", LanguageCookie);
+                        if (TextChange != null && TextChange != "")
+                            lblSiteMapName.Text = TextChange;
+                    }
+                }
             }
 
             SetNodeValues(rsSystemPage, "", ItemLevel, ListActivePageCode, ref HtmlMenu);
@@ -497,9 +515,24 @@ namespace Portal
                 {
                     break;
                 }
-
                 Item.Text = rSystemPage.FileTitle;
                 Item.Value = rSystemPage.Code;
+
+                var Language = (from c in dcFlow.FormsExtend
+                                where c.FormsCode == "Common" && c.Active == true && c.Code == "Language"
+                                select c).FirstOrDefault();
+                var oShareDictionary = new ShareDictionaryDao();
+                if (Language != null)
+                {
+                    if (Request.Cookies["Language"] != null && Request.Cookies["Language"].Value != "")
+                    {
+                        var LanguageCookie = Request.Cookies["Language"].Value;
+                        var TextChange = oShareDictionary.TextTranslate("Portal", Code, "1", LanguageCookie);
+                        if (TextChange != null && TextChange != "")
+                            Item.Text = TextChange;
+                    }
+                }
+                
 
                 var FilePath = rSystemPage.FilePath;
                 var FileName = rSystemPage.FileName;
@@ -527,7 +560,7 @@ namespace Portal
         /// <param name="HtmlMenu"></param>
         private void SetNodeValues(List<SystemPageRow> ListSystemPage, string ParentCode, int ItemLevel, List<string> ListActivePageCode, ref string HtmlMenu)
         {
-            var rsSystemPage = ListSystemPage.Where(p => p.ParentCode == ParentCode).OrderBy(p => p.Sort).ToList();
+            var rsSystemPage = ListSystemPage.Where(p => p.ParentCode == ParentCode).OrderBy(p => p.Sort).ToList(); 
             foreach (var rSystemPage in rsSystemPage)
             {
                 var Code = rSystemPage.Code;
@@ -538,7 +571,9 @@ namespace Portal
                 var RoleKey = rSystemPage.RoleKey;
 
                 var FilePath = rSystemPage.FilePath;
+                
                 var FileName = rSystemPage.FileName;
+                
                 var LinkUrl = FilePath + FileName;
                 string OpenNewWin = "";
                 if (!Href)
@@ -550,6 +585,22 @@ namespace Portal
 
                 var PathCode = rSystemPage.PathCode;
                 var FileTitle = rSystemPage.FileTitle;
+
+                var Language = (from c in dcFlow.FormsExtend
+                                where c.FormsCode == "Common" && c.Active == true && c.Code == "Language"
+                                select c).FirstOrDefault();
+                var oShareDictionary = new ShareDictionaryDao();
+                if (Language != null)
+                {
+                    if (Request.Cookies["Language"] != null && Request.Cookies["Language"].Value != "")
+                    {
+                        var LanguageCookie = Request.Cookies["Language"].Value;
+
+                        var TextChange = oShareDictionary.TextTranslate("Portal", Code, "1", LanguageCookie);
+                        if (TextChange != null && TextChange != "")
+                            FileTitle = TextChange;
+                    }
+                }
 
                 var SubItem = ListSystemPage.Any(p => (p.ParentCode == Code && p.FileName != ""));
                 //var AllSubItem = ListSystemPage.Where(p => p.ParentCode == Code).ToList();
@@ -680,7 +731,7 @@ namespace Portal
             var EmpId = _User.EmpId;
             var EmpName = _User.EmpName;
             var Role = 64;
-            if (_User.Role.Contains("HR") || _User.Role.Contains("Hr"))
+            if (_User.Role != null && (_User.Role.Contains("HR") || _User.Role.Contains("Hr")))
             {
                 Role = 8;
                 var UserData = new List<string>();
@@ -777,6 +828,74 @@ namespace Portal
             Response.Redirect("Index.aspx");
         }
 
-        
+        protected void btnReply_Click(object sender, EventArgs e)
+        {
+            var userData = Request.Cookies[FormsAuthentication.FormsCookieName];
+            var userTicket = FormsAuthentication.Decrypt(userData.Value);
+            UserToken user = JsonConvert.DeserializeObject<UserToken>(userTicket.UserData);
+            if (user.RefreshToken != null && user.RefreshToken != "")
+            {
+                if (Request.Cookies["CompanyId"] != null && Request.Cookies["CompanyId"].Value != "")
+                {
+
+
+                    var oShareCompany = new ShareCompanyDao();
+                    var CompanySetting = oShareCompany.GetCompanySetting(Request.Cookies["CompanyId"].Value);
+
+                    this.CompanySetting = CompanySetting;
+                    var oConnection = new ConnectionDao();
+                    var ConnectionCondition = new ConnectionConditions();
+                    ConnectionCondition.DbName = CompanySetting.HrApiConnection;
+                    var LoginTokenResult = oConnection.GetData(ConnectionCondition);
+                    var LoginToken = LoginTokenResult.Payload.ToString();
+
+                    var oRefreshToken = new RefreshTokenDao();
+                    var RefreshTokenCond = new RefreshTokenConditions();
+                    RefreshTokenCond.AccessToken = LoginToken;
+                    RefreshTokenCond.RefreshToken = user.RefreshToken;
+                    RefreshTokenCond.refreshToken = user.RefreshToken;
+                    var rs = oRefreshToken.GetData(RefreshTokenCond);
+                    if (rs.Status)
+                    {
+                        if (rs.Data != null)
+                        {
+                            var rSignin = rs.Data as SigninRow;
+                            _User.AccessToken = rSignin.AccessToken;
+                            _User.RefreshToken = rSignin.RefreshToken;
+                        }
+                    }
+                    _AuthManager.SignIn(_User, _User.UserCode, CompanySetting);
+                }
+
+                else
+                {
+                    var oRefreshToken = new RefreshTokenDao();
+                    var RefreshTokenCond = new RefreshTokenConditions();
+                    RefreshTokenCond.RefreshToken = user.RefreshToken;
+                    RefreshTokenCond.refreshToken = user.RefreshToken;
+                    var rs = oRefreshToken.GetData(RefreshTokenCond);
+                    if (rs.Status)
+                    {
+                        if (rs.Data != null)
+                        {
+                            var rSignin = rs.Data as SigninRow;
+                            _User.AccessToken = rSignin.AccessToken;
+                            _User.RefreshToken = rSignin.RefreshToken;
+                        }
+                    }
+                    _AuthManager.SignIn(_User, _User.UserCode, CompanySetting);
+                }
+            }
+            var _Pic = new WebsitesScreenshot.WebsitesScreenshot();
+            var content = phPdf.FindControl("Content2") as Content;            
+            //WebsitesScreenshot.WebsitesScreenshot.Result _Result = _Pic.CaptureHTML(phPdf.h);
+            //if (_Result == WebsitesScreenshot.WebsitesScreenshot.Result.Captured)
+            //{
+            //    _Pic.ImageFormat = WebsitesScreenshot.WebsitesScreenshot.ImageFormats.JPG;
+
+            //    _Pic.GetImage();
+            //}
+            Reply_Click();
+        }
     }
 }

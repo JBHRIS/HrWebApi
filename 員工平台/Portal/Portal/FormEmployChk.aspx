@@ -40,7 +40,7 @@
                     <telerik:RadTextBox runat="server" ID="lblExperienced" CssClass="form-control" Enabled="false" TextMode="MultiLine" Rows="4" Width="100%"></telerik:RadTextBox>
                 </div>
             </div>
- 
+
             <div class="row form-group">
                 <div class="col-md-2">
                     <label class=" col-form-label">試用日期</label>
@@ -156,7 +156,7 @@
                     <div class="bg-muted  p-xs b-r-sm">試用期後考核</div>
                 </div>
             </div>
-            
+
             <div class="row form-group">
                 <div class="col-md-2">
                     <label class=" col-form-label">事假時數</label>
@@ -184,10 +184,10 @@
                 </div>
             </div>
 
-	    <telerik:RadListView runat="server" ID="lvPerformanceLog" RenderMode="Lightweight" ItemPlaceholderID="Container">
+            <telerik:RadListView runat="server" ID="lvPerformanceLog" RenderMode="Lightweight" ItemPlaceholderID="Container">
                 <LayoutTemplate>
-                    <table class="footable table table-stripped" data-filter="#filter" style="border:1px solid #e7eaec;">
-                        <thead style="background-color:#f9f9f9;">
+                    <table class="footable table table-stripped" data-filter="#filter" style="border: 1px solid #e7eaec;">
+                        <thead style="background-color: #f9f9f9;">
                             <tr>
                                 <th>新進人員之學習精神及工作態度、品行等之評核</th>
                                 <th>新進人員專業知識之評核</th>
@@ -327,39 +327,53 @@
                     </div>
                 </telerik:RadAjaxPanel>
             </div>
-            <telerik:RadListView runat="server" ID="lvSalary" RenderMode="Lightweight" ItemPlaceholderID="Container" OnNeedDataSource="lvSalary_NeedDataSource" OnDataBound="lvSalary_DataBound">
-                <LayoutTemplate>
-                    <table class="footable table table-stripped" data-filter="#filter" style="border:1px solid #e7eaec;">
-                        <thead style="background-color:#f9f9f9;">
-                            <tr>
-                                <th>薪資項目</th>
-                                <th>原金額</th>
-                                <th>金額</th>
-                            </tr>
-                        </thead>
-                        <tbody id="Container" runat="server">
-                        </tbody>
-                    </table>
-                </LayoutTemplate>
-                <ItemTemplate>
-                    <tr>
-                        <td>
-                            <telerik:RadLabel runat="server" ID="SalaryName" Text='<%# Eval("Text") %>'></telerik:RadLabel>
-                            <telerik:RadLabel runat="server" ID="SalaryCode" Text='<%#Eval("Column1") %>' Visible="false"></telerik:RadLabel>
-                        </td>
-                        <td>
-                            <telerik:RadLabel runat="server" ID="Amount" Text='<%# Eval("Value") %>'></telerik:RadLabel>
-                        </td>
-                        <td>
-                            <telerik:RadTextBox runat="server" ID="Salary" CssClass="form-control" InputType="Number"></telerik:RadTextBox></td>
-                    </tr>
-                </ItemTemplate>
-                <EmptyDataTemplate>
-                    目前並無任何薪資資料
-                </EmptyDataTemplate>
+            <telerik:RadAjaxPanel runat="server" ID="plSalaryListView" LoadingPanelID="RadAjaxLoadingPanel1">
+                <telerik:RadListView runat="server" ID="lvSalary" RenderMode="Lightweight" ItemPlaceholderID="Container" OnNeedDataSource="lvSalary_NeedDataSource" OnDataBound="lvSalary_DataBound">
+                    <LayoutTemplate>
+                        <table class="footable table table-stripped" data-filter="#filter" style="border: 1px solid #e7eaec;">
+                            <thead style="background-color: #f9f9f9;">
+                                <tr>
+                                    <th>薪資項目</th>
+                                    <th>原金額</th>
+                                    <th>金額</th>
+                                </tr>
+                            </thead>
+                            <tbody id="Container" runat="server">
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>
+                                        <telerik:RadLabel runat="server" Text="總計"></telerik:RadLabel>
+                                    </td>
+                                    <td>
+                                        <telerik:RadLabel runat="server" ID="lblAmountSum"></telerik:RadLabel>
+                                    </td>
+                                    <td>
+                                        <telerik:RadLabel runat="server" ID="lblSalarySum"></telerik:RadLabel>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </LayoutTemplate>
+                    <ItemTemplate>
+                        <tr>
+                            <td>
+                                <telerik:RadLabel runat="server" ID="SalaryName" Text='<%# Eval("Text") %>'></telerik:RadLabel>
+                                <telerik:RadLabel runat="server" ID="SalaryCode" Text='<%#Eval("Column1") %>' Visible="false"></telerik:RadLabel>
+                            </td>
+                            <td>
+                                <telerik:RadLabel runat="server" ID="Amount" Text='<%# Eval("Value") %>'></telerik:RadLabel>
+                            </td>
+                            <td>
+                                <telerik:RadTextBox runat="server" ID="Salary" CssClass="form-control" OnTextChanged="Salary_TextChanged" AutoPostBack="true" InputType="Number"></telerik:RadTextBox></td>
+                        </tr>
+                    </ItemTemplate>
+                    <EmptyDataTemplate>
+                        目前並無任何薪資資料
+                    </EmptyDataTemplate>
 
-            </telerik:RadListView>
-            
+                </telerik:RadListView>
+            </telerik:RadAjaxPanel>
             <br />
             <telerik:RadButton ID="btnCheck" runat="server" CssClass="btn-primary" Text="確認" OnClick="btnCheck_Click"></telerik:RadButton>
             <telerik:RadLabel runat="server" ID="lblError" CssClass="badge badge-danger"></telerik:RadLabel>
@@ -433,7 +447,7 @@
                         <telerik:RadListView ID="lvSalaryLog" runat="server" OnNeedDataSource="lvSalaryLog_NeedDataSource" RenderMode="Lightweight" ItemPlaceholderID="Container">
                             <LayoutTemplate>
                                 <div class="table-responsive">
-                                    <table class="table table-striped" data-page-size="10" data-filter="#filter" >
+                                    <table class="table table-striped" data-page-size="10" data-filter="#filter">
                                         <thead>
                                             <tr>
                                                 <th>異動人員</th>

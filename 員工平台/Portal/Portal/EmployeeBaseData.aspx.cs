@@ -103,7 +103,7 @@ namespace Portal
                     lblEmpMarried.Text = Res.EmpMarried;
 
                     lblDeptName.Text = Res.DeptName;
-                    lblDeptA.Text = Res.CostDept;
+                    lblDeptS.Text = Res.CostDept;
                     lblJobName.Text = Res.JobName;
                     lblSalary.Text = Res.Salary;
                     lblCellphone.Text = Res.Cellphone;
@@ -161,7 +161,7 @@ namespace Portal
                         lblSubject.Text = Res.EducationList[0].ObjectName;
                         lblEntryDate.Text = Res.EducationList[0].EnterDate;
                         lblGraduatedDate.Text = Res.EducationList[0].GraduateDate;
-                        lblIsGraguated.Text = Res.EducationList[0].IsGraduated;
+                        lblIsGraduated.Text = Res.EducationList[0].IsGraduated;
                     }
                     else
                     {
@@ -170,7 +170,7 @@ namespace Portal
                         lblSubject.Text = "";
                         lblEntryDate.Text = "";
                         lblGraduatedDate.Text = "";
-                        lblIsGraguated.Text = "";
+                        lblIsGraduated.Text = "";
                     }
                     if (Res.EducationList.Count > 1)
                     {
@@ -213,7 +213,7 @@ namespace Portal
                     lblEmpMarried.Text = "";
 
                     lblDeptName.Text = Res.DeptName;
-                    lblDeptA.Text = Res.CostDept;
+                    lblDeptS.Text = Res.CostDept;
                     lblJobName.Text = Res.JobName;
                     lblSalary.Text = Res.Salary;
                     lblCellphone.Text = Res.Cellphone;
@@ -268,7 +268,7 @@ namespace Portal
                         lblSubject.Text = Res.EducationList[0].ObjectName;
                         lblEntryDate.Text = Res.EducationList[0].EnterDate;
                         lblGraduatedDate.Text = Res.EducationList[0].GraduateDate;
-                        lblIsGraguated.Text = Res.EducationList[0].IsGraduated;
+                        lblIsGraduated.Text = Res.EducationList[0].IsGraduated;
                     }
                     else
                     {
@@ -277,7 +277,7 @@ namespace Portal
                         lblSubject.Text = "";
                         lblEntryDate.Text = "";
                         lblGraduatedDate.Text = "";
-                        lblIsGraguated.Text = "";
+                        lblIsGraduated.Text = "";
                     }
                     if (Res.EducationList.Count > 1)
                     {

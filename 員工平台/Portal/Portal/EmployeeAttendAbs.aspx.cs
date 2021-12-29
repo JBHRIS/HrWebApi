@@ -15,7 +15,7 @@ using System.Text;
 namespace Portal
 {
     public partial class EmployeeAttendAbs : WebPageBase
-    { 
+    {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
@@ -37,9 +37,9 @@ namespace Portal
         {
             var LocalPath = System.IO.Path.GetFileName(Request.PhysicalPath);
             var MenuList = AccessData.GetListSystemPage(_User, CompanySetting);
-            
+
             var FormCode = MenuList.Where(p => p.FileName == LocalPath).Select(p => p.Code).FirstOrDefault();
-            var FormAttribute = MenuList.Where(p => p.ParentCode == FormCode).Select(p=>p.Code).ToList();
+            var FormAttribute = MenuList.Where(p => p.ParentCode == FormCode).Select(p => p.Code).ToList();
             if (FormAttribute.Contains("AbsViewExport"))
             {
                 btnExportExcelEntitle.Visible = true;
@@ -131,7 +131,7 @@ namespace Portal
             DateTime DateNow = DateTime.Now.Date;
             txtDateB.SelectedDate = new DateTime(DateNow.Year, DateNow.Month, 1);
             txtDateE.SelectedDate = new DateTime(DateNow.Year, DateNow.Month, DateTime.DaysInMonth(DateNow.Year, DateNow.Month));
-            
+
         }
         protected void btnSearch_Click(object sender, EventArgs e)
         {
@@ -236,33 +236,35 @@ namespace Portal
 
             var rs = new List<AbsenceTakenViewRow>();
 
-
-            //向api取得驗証
-            var oAbsenceTakenView = new AbsenceTakenViewDao();
-            var AbsenceTakenViewCond = new AbsenceTakenViewConditions();
-            AbsenceTakenViewCond.AccessToken = _User.AccessToken;
-            AbsenceTakenViewCond.RefreshToken = _User.RefreshToken;
-            AbsenceTakenViewCond.CompanySetting = CompanySetting;
-            AbsenceTakenViewCond.leaveCodeList = ListLeaveCode;
-            AbsenceTakenViewCond.employeeList = ListEmpId;
-            AbsenceTakenViewCond.dateBegin = DateB;
-            AbsenceTakenViewCond.dateEnd = DateE;
-
-            var Result = oAbsenceTakenView.GetData(AbsenceTakenViewCond);
-
-            if (Result.Status)
+            if (ListLeaveCode.Count != 0)
             {
-                if (Result.Data != null)
+
+                //向api取得驗証
+                var oAbsenceTakenView = new AbsenceTakenViewDao();
+                var AbsenceTakenViewCond = new AbsenceTakenViewConditions();
+                AbsenceTakenViewCond.AccessToken = _User.AccessToken;
+                AbsenceTakenViewCond.RefreshToken = _User.RefreshToken;
+                AbsenceTakenViewCond.CompanySetting = CompanySetting;
+                AbsenceTakenViewCond.leaveCodeList = ListLeaveCode;
+                AbsenceTakenViewCond.employeeList = ListEmpId;
+                AbsenceTakenViewCond.dateBegin = DateB;
+                AbsenceTakenViewCond.dateEnd = DateE;
+
+                var Result = oAbsenceTakenView.GetData(AbsenceTakenViewCond);
+
+                if (Result.Status)
                 {
-                    rs = Result.Data as List<AbsenceTakenViewRow>;
+                    if (Result.Data != null)
+                    {
+                        rs = Result.Data as List<AbsenceTakenViewRow>;
+                    }
                 }
             }
-
             lvMainTaken.DataSource = rs;
 
             var Script = "$(document).ready(function() {$('.footable').footable();});";
             ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);
-            
+
         }
         protected void lvMainEntitle_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
         {
@@ -341,25 +343,27 @@ namespace Portal
             var DateE = txtDateE.SelectedDate.GetValueOrDefault(DateB);
 
             var rs = new List<AbsenceEntitleViewRow>();
-
-            //向api取得驗証得到表單資訊
-            var oAbsenceEntitleView = new AbsenceEntitleViewDao();
-            var AbsenceEntitleViewCond = new AbsenceEntitleViewConditions();
-            AbsenceEntitleViewCond.AccessToken = _User.AccessToken;
-            AbsenceEntitleViewCond.RefreshToken = _User.RefreshToken;
-            AbsenceEntitleViewCond.CompanySetting = CompanySetting;
-            AbsenceEntitleViewCond.leaveCodeList = ListLeaveCode;
-            AbsenceEntitleViewCond.employeeList = ListEmpId;
-            AbsenceEntitleViewCond.dateBegin = DateB;
-            AbsenceEntitleViewCond.dateEnd = DateE;
-
-            var Result = oAbsenceEntitleView.GetData(AbsenceEntitleViewCond);
-
-            if (Result.Status)
+            if (ListLeaveCode.Count != 0)
             {
-                if (Result.Data != null)
+                //向api取得驗証得到表單資訊
+                var oAbsenceEntitleView = new AbsenceEntitleViewDao();
+                var AbsenceEntitleViewCond = new AbsenceEntitleViewConditions();
+                AbsenceEntitleViewCond.AccessToken = _User.AccessToken;
+                AbsenceEntitleViewCond.RefreshToken = _User.RefreshToken;
+                AbsenceEntitleViewCond.CompanySetting = CompanySetting;
+                AbsenceEntitleViewCond.leaveCodeList = ListLeaveCode;
+                AbsenceEntitleViewCond.employeeList = ListEmpId;
+                AbsenceEntitleViewCond.dateBegin = DateB;
+                AbsenceEntitleViewCond.dateEnd = DateE;
+
+                var Result = oAbsenceEntitleView.GetData(AbsenceEntitleViewCond);
+
+                if (Result.Status)
                 {
-                    rs = Result.Data as List<AbsenceEntitleViewRow>;
+                    if (Result.Data != null)
+                    {
+                        rs = Result.Data as List<AbsenceEntitleViewRow>;
+                    }
                 }
             }
 

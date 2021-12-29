@@ -132,8 +132,8 @@ namespace Portal
                         lblAbsenteeism.Text = AbsData.Where(p => p.Text == "曠職").Select(p => p.Value).FirstOrDefault();
                         lblLate.Text = AbsData.Where(p => p.Text == "遲到").Select(p => p.Value).FirstOrDefault();
                         lblEarlyOut.Text = AbsData.Where(p => p.Text == "早退").Select(p => p.Value).FirstOrDefault();
-                        var SalaryData = JsonConvert.DeserializeObject<List<TextValueRow>>(rFormAppEmploy.ChangeLogs.Last().SalaryContent);
-                        lblCode.Text = rFormAppEmploy.ChangeLogs.Last().EmployCode;
+                        var SalaryData = JsonConvert.DeserializeObject<List<TextValueRow>>(rFormAppEmploy.ChangeLogs.First().SalaryContent);
+                        lblCode.Text = rFormAppEmploy.ChangeLogs.First().EmployCode;
                         foreach (var Salary in SalaryData)
                         {
                             Salary.Value = AccessData.DESDecrypt(Salary.Value, "JBSalary", lblCode.Text.Substring(0, 8));
@@ -280,15 +280,16 @@ namespace Portal
         protected void btnCheck_Click(object sender, EventArgs e)
         {
             var LsSalaryData = new List<TextValueRow>();
-            if (txtPerformance1.Text == "" || txtPerformance2.Text == "" || txtPerformance3.Text == "")
-            {
-                lblError.Text = "請填寫主管評核";
-                lblError.CssClass = "badge badge-danger animated shake";
-                return;
-            }
+            
             if (ddlResult.SelectedItem.Text == "" || ddlResult.SelectedValue == "00")
             {
                 lblError.Text = "請選擇結果";
+                lblError.CssClass = "badge badge-danger animated shake";
+                return;
+            }
+            if ((txtPerformance1.Text == "" || txtPerformance2.Text == "" || txtPerformance3.Text == "") && ddlResult.SelectedValue=="04")
+            {
+                lblError.Text = "不予任用時，請填寫主管評核";
                 lblError.CssClass = "badge badge-danger animated shake";
                 return;
             }
@@ -340,24 +341,68 @@ namespace Portal
             oEmployChangeLog.Note = "";
             oEmployChangeLog.Status = "1";
             oEmployChangeLog.InsertMan = _User.EmpName;
-            oEmployChangeLog.InsertDate = DateTime.Now.Date;
+            oEmployChangeLog.InsertDate = DateTime.Now;
             oEmployChangeLog.UpdateMan = _User.EmpName;
-            oEmployChangeLog.UpdateDate = DateTime.Now.Date;
+            oEmployChangeLog.UpdateDate = DateTime.Now;
             UnobtrusiveSession.Session["EmployChangeLog"] = oEmployChangeLog;
             UnobtrusiveSession.Session["LsSalaryData"] = LsSalaryData;
             lblError.Text = "確認成功";
-            lblError.CssClass = "badge badge-primary";
+            lblError.CssClass = "badge badge-primary animated shake";
             
         }
 
         protected void lvSalary_DataBound(object sender, EventArgs e)
         {
+            int Count = 0;
+            int AmountSum = 0;
+            int SalarySum = 0;
+            var oFormAppEmployDao = new FormsAppEmployByProcessIdDao();
+            var FormAppEmployCond = new FormsAppEmployByProcessIdConditions();
+
+            FormAppEmployCond.AccessToken = _User.AccessToken;
+            FormAppEmployCond.RefreshToken = _User.RefreshToken;
+            FormAppEmployCond.CompanySetting = CompanySetting;
+            FormAppEmployCond.ProcessFlowID = lblProcessID.Text;
+            FormAppEmployCond.Sign = true;
+            FormAppEmployCond.SignState = "";
+            FormAppEmployCond.Status = UnobtrusiveSession.Session["RequestName"].ToString() == "View" ? "" : "1";
+
+            var rsFormAppEmploy = oFormAppEmployDao.GetData(FormAppEmployCond);
+            var rFormAppEmploy = new FormsAppEmployByProcessIdRow();
+            if (rsFormAppEmploy.Status)
+            {
+                if (rsFormAppEmploy.Data != null)
+                {
+                    rFormAppEmploy = rsFormAppEmploy.Data as FormsAppEmployByProcessIdRow;
+                    
+                }
+            }
             foreach (var r in lvSalary.Items)
             {
+
                 var Salary = r.FindControl("Salary") as RadTextBox;
                 var Amount = r.FindControl("Amount") as RadLabel;
-                Salary.Text = Amount.Text;
+                if (rFormAppEmploy != null)
+                {
+                    var SalaryData = JsonConvert.DeserializeObject<List<TextValueRow>>(rFormAppEmploy.ChangeLogs.Last().SalaryContent);
+                    lblCode.Text = rFormAppEmploy.ChangeLogs.Last().EmployCode;
+                    foreach (var SalaryD in SalaryData)
+                    {
+                        SalaryD.Value = AccessData.DESDecrypt(SalaryD.Value, "JBSalary", lblCode.Text.Substring(0, 8));
+                    }
+                    Salary.Text = SalaryData[Count].Value;
+                }
+                Count++;
+                //Salary.Text = Amount.Text;
+                SalarySum += Convert.ToInt32(Salary.Text);
+                AmountSum += Convert.ToInt32(Amount.Text);
             }
+            var lblSalarySum = lvSalary.FindControl("lblSalarySum") as RadLabel;
+            var lblAmountSum = lvSalary.FindControl("lblAmountSum") as RadLabel;
+            if (lblSalarySum != null)
+                lblSalarySum.Text = SalarySum.ToString();
+            if (lblAmountSum != null)
+                lblAmountSum.Text = AmountSum.ToString();
         }
 
         protected void lvSalaryLog_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
@@ -367,6 +412,40 @@ namespace Portal
                                select c).ToList();
             var gSalaryLog = lsSalaryLog.GroupBy(p => p.InsertMan).ToList();
             var rsSalaryLog = new List<SalaryLog>();
+            var oFormAppEmployDao = new FormsAppEmployByProcessIdDao();
+            var FormAppEmployCond = new FormsAppEmployByProcessIdConditions();
+
+            FormAppEmployCond.AccessToken = _User.AccessToken;
+            FormAppEmployCond.RefreshToken = _User.RefreshToken;
+            FormAppEmployCond.CompanySetting = CompanySetting;
+            FormAppEmployCond.ProcessFlowID = lblProcessID.Text;
+            FormAppEmployCond.Sign = true;
+            FormAppEmployCond.SignState = "";
+            FormAppEmployCond.Status = UnobtrusiveSession.Session["RequestName"].ToString() == "View" ? "" : "1";
+
+            var rsFormAppEmploy = oFormAppEmployDao.GetData(FormAppEmployCond);
+            var rFormAppEmploy = new FormsAppEmployByProcessIdRow();
+            if (rsFormAppEmploy.Status)
+            {
+                if (rsFormAppEmploy.Data != null)
+                {
+                    rFormAppEmploy = rsFormAppEmploy.Data as FormsAppEmployByProcessIdRow;
+                    if (rFormAppEmploy != null)
+                    {
+                        var SalaryData = JsonConvert.DeserializeObject<List<TextValueRow>>(rFormAppEmploy.ChangeLogs.First().SalaryContent);
+                        lblCode.Text = rFormAppEmploy.ChangeLogs.First().EmployCode;
+                        var rSalaryLog = new SalaryLog();
+                        rSalaryLog.InsertMan = rFormAppEmploy.ChangeLogs.First().InsertMan;
+                        rSalaryLog.InsertDate = rFormAppEmploy.ChangeLogs.First().InsertDate;
+                        foreach (var Data in SalaryData)
+                        {
+                            rSalaryLog.SalaryData += Data.Text + ":" + AccessData.DESDecrypt(Data.Value, "JBSalary", lblCode.Text.Substring(0, 8)) + ";";
+                            
+                        }
+                        rsSalaryLog.Add(rSalaryLog);
+                    }
+                }
+            }
             foreach (var r in gSalaryLog)
             {
                 var rSalaryLog = new SalaryLog();
@@ -379,6 +458,22 @@ namespace Portal
                 rsSalaryLog.Add(rSalaryLog);
             }
             lvSalaryLog.DataSource = rsSalaryLog;
+        }
+        protected void SalarySumChange()
+        {
+            int SalarySum = 0;
+            foreach (var r in lvSalary.Items)
+            {
+                var Salary = r.FindControl("Salary") as RadTextBox;
+                SalarySum += Convert.ToInt32(Salary.Text);
+            }
+            var lblSalarySum = lvSalary.FindControl("lblSalarySum") as RadLabel;
+            lblSalarySum.Text = SalarySum.ToString();
+        }
+
+        protected void Salary_TextChanged(object sender, EventArgs e)
+        {
+            SalarySumChange();
         }
     }
 }

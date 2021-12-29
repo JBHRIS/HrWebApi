@@ -207,6 +207,7 @@ namespace Portal
             var EmployeeInfoViewCond = new EmployeeInfoViewConditions();
             EmployeeInfoViewCond.AccessToken = _User.AccessToken;
             EmployeeInfoViewCond.RefreshToken = _User.RefreshToken;
+            EmployeeInfoViewCond.CompanySetting = CompanySetting;
             EmployeeInfoViewCond.ListEmpId = ListEmpid;
             var Result = oEmployeeInfoView.GetData(EmployeeInfoViewCond);
 
@@ -247,6 +248,7 @@ namespace Portal
             var EmployeeStartWorkDayCond = new EmployeeStartWorkDateConditions();
             EmployeeStartWorkDayCond.AccessToken = _User.AccessToken;
             EmployeeStartWorkDayCond.RefreshToken = _User.RefreshToken;
+            EmployeeStartWorkDayCond.CompanySetting = CompanySetting;
             EmployeeStartWorkDayCond.EmployeeID = lblNobrAppM.Text;
             var rsEmpWorkStartDay = oEmployeeStartWorkDay.GetData(EmployeeStartWorkDayCond);
 

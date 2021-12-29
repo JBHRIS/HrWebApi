@@ -67,7 +67,7 @@
                     <div class="ibox-content">
                         <telerik:RadAjaxPanel ID="plSearch" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">員工工號</label>
+                                <label class="col-sm-2 col-form-label"><telerik:RadLabel runat="server" ID="lblEmpDic" Text="員工工號"></telerik:RadLabel></label>
                                 <div class="col-sm-10 col-lg-4">
                                     <telerik:RadComboBox runat="server" Skin="Bootstrap" AutoPostBack="true" OnSelectedIndexChanged="ddlEmp_SelectedIndexChanged"
                                         Placeholder="請選擇..."
@@ -79,7 +79,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">出勤種類</label>
+                                <label class="col-sm-2 col-form-label"><telerik:RadLabel runat="server" ID="lblAttendTypeDic" Text="出勤種類"></telerik:RadLabel></label>
                                 <div class="col-sm-10 col-form-label">
                                     <telerik:RadCheckBoxList ID="cblAttendType" runat="server" Direction="Horizontal" AutoPostBack="true" ClientEvents-OnLoad="OnClientLoad" Skin="MyCustomSkin" EnableEmbeddedSkins="false"  OnSelectedIndexChanged="cblAttendType_SelectedIndexChanged" />
                                 </div>
@@ -91,7 +91,7 @@
             <div class="col-lg-12">
                 <div class="ibox" id="calendar">
                     <div class="ibox-title">
-                        <h5>內容</h5>
+                        <h5><telerik:RadLabel runat="server" ID="lblContentDic" Text="內容"></telerik:RadLabel></h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
