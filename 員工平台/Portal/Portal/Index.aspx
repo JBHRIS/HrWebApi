@@ -11,7 +11,7 @@
                 <asp:Panel runat="server" ID="pnlNews" Visible="false">
                     <div class="ibox">
                         <div class="ibox-title_sy3">
-                            <h5><i class="fa fa-bullhorn"></i><telerik:RadLabel runat="server" ID="lblBillboard" Text="&nbsp;公佈欄"></telerik:RadLabel></h5>
+                            <h5><i class="fa fa-bullhorn"></i> <telerik:RadLabel runat="server" ID="lblBillboard" Text="公佈欄"></telerik:RadLabel></h5>
                             <div class="ibox-tools_icon">
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
@@ -48,7 +48,7 @@
                 <asp:Panel runat="server" ID="pnlCheck" Visible="false">
                     <div class="ibox">
                         <div class="ibox-title bg-primary">
-                            <h5><i class="fa fa-pencil "></i><telerik:RadLabel runat="server" ID="lblUserFormAssign" Text=" 待審核"></telerik:RadLabel> </h5>
+                            <h5><i class="fa fa-pencil "></i> <telerik:RadLabel runat="server" ID="lblUserFormAssign" Text=" 待審核"></telerik:RadLabel> </h5>
                             <span class="badge bg-muted text-navy">
                                 <asp:Label ID="lblSignCount" runat="server" Text="0"></asp:Label>
                             </span>
@@ -222,7 +222,7 @@
                         <asp:Panel runat="server" ID="pnlCard" Visible="false">
                             <div class="ibox">
                                 <div class="ibox-title bg-info">
-                                    <h5><i class="fa fa-id-card"></i><telerik:RadLabel runat="server" ID="lblRoteInformation" Text="班別資訊"></telerik:RadLabel></h5>
+                                    <h5><i class="fa fa-id-card"></i> <telerik:RadLabel runat="server" ID="lblRoteInformation" Text="班別資訊"></telerik:RadLabel></h5>
                                     <div class="ibox-tools_icon">
                                         <a class="collapse-link">
                                             <i class="fa fa-chevron-up"></i>
@@ -264,7 +264,7 @@
                         <asp:Panel runat="server" ID="pnlAbs" Visible="false">
                             <div class="ibox">
                                 <div class="ibox-title bg-success">
-                                    <h5><i class="fa fa-calendar"></i><telerik:RadLabel runat="server" ID="lblBalanceInformation" Text="餘假資訊"></telerik:RadLabel></h5>
+                                    <h5><i class="fa fa-calendar"></i> <telerik:RadLabel runat="server" ID="lblBalanceInformation" Text="餘假資訊"></telerik:RadLabel></h5>
                                     <div class="ibox-tools_icon">
                                         <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </div>
@@ -317,7 +317,7 @@
                         <asp:Panel runat="server" ID="pnlOt" Visible="false">
                             <div id="hour" class="ibox">
                                 <div class="ibox-title bg-warning">
-                                    <h5><i class="fa fa-clock-o"></i><telerik:RadLabel runat="server" ID="lblOtHourThisMonth" Text="本月加班時數"></telerik:RadLabel></h5>
+                                    <h5><i class="fa fa-clock-o"></i> <telerik:RadLabel runat="server" ID="lblOtHourThisMonth" Text="本月加班時數"></telerik:RadLabel></h5>
                                     <div class="ibox-tools_icon">
                                         <a class="collapse-link">
                                             <i class="fa fa-chevron-up"></i>

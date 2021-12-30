@@ -100,34 +100,52 @@ namespace Portal
         }
         public void txtNameAppS_DataBind()
         {
-            var rs = AccessData.GetPeopleByDeptTree(_User, CompanySetting);
-            var rs1 = AccessData.GetDeptListEmp(_User, CompanySetting);
-            var result = rs.Union(rs1).ToList();
-            var key = new Dictionary<string, string>();
-            foreach (var r in result.ToArray())
+            var AbscOnlyShowSelf = (from c in dcFlow.FormsExtend
+                                  where c.FormsCode == "Absc" && c.Code == "AbscOnlyShowSelf" && c.Active == true
+                                  select c).FirstOrDefault();
+            if (AbscOnlyShowSelf == null)
             {
-                if (key.ContainsKey(r.Value))
+                var rs = AccessData.GetPeopleByDeptTree(_User, CompanySetting);
+                var rs1 = AccessData.GetDeptListEmp(_User, CompanySetting);
+                var result = rs.Union(rs1).ToList();
+                var key = new Dictionary<string, string>();
+                foreach (var r in result.ToArray())
                 {
-                    result.Remove(r);
+                    if (key.ContainsKey(r.Value))
+                    {
+                        result.Remove(r);
+                    }
+                    else
+                    {
+                        key.Add(r.Value, r.Value);
+                    }
                 }
-                else
-                {
-                    key.Add(r.Value, r.Value);
-                }
-            }
 
-            if (result.Count == 0)
+                if (result.Count == 0)
+                {
+                    var TextValueData = new Bll.TextValueRow();
+                    TextValueData.Text = _User.EmpName + "," + _User.EmpId;
+                    TextValueData.Value = _User.EmpId;
+                    result.Add(TextValueData);
+                }
+
+                txtNameAppS.DataSource = result;
+                txtNameAppS.DataTextField = "Text";
+                txtNameAppS.DataValueField = "Value";
+                txtNameAppS.DataBind();
+            }
+            else
             {
-                var TextValueData = new Bll.TextValueRow();
-                TextValueData.Text = _User.EmpName + "," + _User.EmpId;
-                TextValueData.Value = _User.EmpId;
-                result.Add(TextValueData);
+                var result = new List<Bll.TextValueRow>();
+                var rs = new Bll.TextValueRow();
+                rs.Text = _User.EmpName + "," + _User.EmpId;
+                rs.Value = _User.EmpId;
+                result.Add(rs);
+                txtNameAppS.DataSource = result;
+                txtNameAppS.DataTextField = "Text";
+                txtNameAppS.DataValueField = "Value";
+                txtNameAppS.DataBind();
             }
-
-            txtNameAppS.DataSource = result;
-            txtNameAppS.DataTextField = "Text";
-            txtNameAppS.DataValueField = "Value";
-            txtNameAppS.DataBind();
             if (txtNameAppS.FindItemByValue(_User.EmpId) != null)
                 txtNameAppS.FindItemByValue(_User.EmpId).Selected = true;
         }

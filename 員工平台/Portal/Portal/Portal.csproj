@@ -150,6 +150,10 @@
       <HintPath>..\lib\RCAJAX\2020.3.915.45\AdditionalLibraries\Bin45\Telerik.Windows.Zip.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="WebsitesScreenshot, Version=1.8.0.0, Culture=neutral, PublicKeyToken=a86c4eea080940bd, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Windows\Websites_Screenshot_DLL\WebsitesScreenshot.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="zxing, Version=0.16.6.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
       <HintPath>..\packages\ZXing.Net.0.16.6\lib\net47\zxing.dll</HintPath>
@@ -220,13 +224,10 @@
     <Content Include="AuthRoleWithMenu.aspx" />
     <Content Include="AuthUserView.aspx" />
     <Content Include="AuthRoleWithUser.aspx" />
-    <Content Include="bin\Autofac.Configuration.dll" />
     <Content Include="bin\Autofac.dll" />
-    <Content Include="bin\Autofac.xml" />
     <Content Include="bin\Bll.dll" />
     <Content Include="bin\Bll.pdb" />
     <Content Include="bin\BouncyCastle.Crypto.dll" />
-    <Content Include="bin\BouncyCastle.Crypto.xml" />
     <Content Include="bin\Dal.dll" />
     <Content Include="bin\Dal.pdb" />
     <Content Include="bin\Dapper.dll" />
@@ -238,8 +239,6 @@
     <Content Include="bin\HtmlAgilityPack.pdb" />
     <Content Include="bin\HtmlAgilityPack.xml" />
     <Content Include="bin\ICSharpCode.SharpZipLib.dll" />
-    <Content Include="bin\ICSharpCode.SharpZipLib.pdb" />
-    <Content Include="bin\ICSharpCode.SharpZipLib.xml" />
     <Content Include="bin\JBHRIS.BLL.dll" />
     <Content Include="bin\JBHRIS.BLL.pdb" />
     <Content Include="bin\JBModule.Data.dll" />
@@ -251,16 +250,10 @@
     <Content Include="bin\JBTools.dll" />
     <Content Include="bin\JBTools.pdb" />
     <Content Include="bin\JWT.dll" />
-    <Content Include="bin\JWT.pdb" />
-    <Content Include="bin\JWT.xml" />
     <Content Include="bin\Microsoft.IdentityModel.JsonWebTokens.dll" />
-    <Content Include="bin\Microsoft.IdentityModel.JsonWebTokens.xml" />
     <Content Include="bin\Microsoft.IdentityModel.Logging.dll" />
-    <Content Include="bin\Microsoft.IdentityModel.Logging.xml" />
     <Content Include="bin\Microsoft.IdentityModel.Tokens.dll" />
-    <Content Include="bin\Microsoft.IdentityModel.Tokens.xml" />
     <Content Include="bin\Newtonsoft.Json.dll" />
-    <Content Include="bin\Newtonsoft.Json.xml" />
     <Content Include="bin\NPOI.dll" />
     <Content Include="bin\NPOI.OOXML.dll" />
     <Content Include="bin\NPOI.OpenXml4Net.dll" />
@@ -282,27 +275,19 @@
     <Content Include="bin\System.Data.SQLite.dll" />
     <Content Include="bin\System.Data.SQLite.xml" />
     <Content Include="bin\System.IdentityModel.Tokens.Jwt.dll" />
-    <Content Include="bin\System.IdentityModel.Tokens.Jwt.xml" />
     <Content Include="bin\Telerik.Web.Design.dll" />
     <Content Include="bin\Telerik.Web.Spreadsheet.dll" />
-    <Content Include="bin\Telerik.Web.Spreadsheet.xml" />
     <Content Include="bin\Telerik.Web.UI.dll" />
     <Content Include="bin\Telerik.Web.UI.Skins.dll" />
-    <Content Include="bin\Telerik.Web.UI.xml" />
     <Content Include="bin\Telerik.Windows.Documents.Core.dll" />
-    <Content Include="bin\Telerik.Windows.Documents.Core.xml" />
     <Content Include="bin\Telerik.Windows.Documents.Flow.dll" />
-    <Content Include="bin\Telerik.Windows.Documents.Flow.xml" />
     <Content Include="bin\Telerik.Windows.Documents.Spreadsheet.dll" />
     <Content Include="bin\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll" />
-    <Content Include="bin\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.xml" />
-    <Content Include="bin\Telerik.Windows.Documents.Spreadsheet.xml" />
     <Content Include="bin\Telerik.Windows.Zip.dll" />
-    <Content Include="bin\Telerik.Windows.Zip.xml" />
+    <Content Include="bin\WebsitesScreenshot.dll" />
+    <Content Include="bin\WebsitesScreenshot.XML" />
     <Content Include="bin\zxing.dll" />
     <Content Include="bin\zxing.presentation.dll" />
-    <Content Include="bin\zxing.presentation.xml" />
-    <Content Include="bin\zxing.xml" />
     <Content Include="FormAbsApplyByDeptStd.aspx" />
     <Content Include="FormAbsWithApiStd.aspx" />
     <Content Include="FormAgent.aspx" />
@@ -2810,6 +2795,10 @@
       <Project>{B94796B3-CEDB-4083-95AD-E94EC30D15D5}</Project>
       <Name>JBModule.Message</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Standard\JBModule\JBModule\JBModule.csproj">
+      <Project>{dbe7bf84-0030-418d-981d-30d7c4f6ff3a}</Project>
+      <Name>JBModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\元件\JBMODULE.DATA\JBModule.Data.Linq\JBModule.Data.csproj">
       <Project>{05dac84f-258e-41fc-b490-0fccd4ab15b5}</Project>
       <Name>JBModule.Data</Name>
@@ -2858,7 +2847,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
