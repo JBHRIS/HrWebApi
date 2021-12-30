@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+     
     <div class="ibox">
         <div class="ibox-content">
             <div class="row">
@@ -12,8 +12,8 @@
                         <i class="fa fa-exclamation-circle"></i>本問題回報服務需3個工作天
                     </div>
                     <div class="form-group">
-                        <label>標題<small id="titlelength" style="color:#1ab394">(0/30)</small><label runat="server" id="lblAddStatus" style="color: red;"></label></label>
-                        <telerik:RadTextBox ID="txtTitle" runat="server" EmptyMessage="請輸入標題..." Skin="Bootstrap" Width="100%" />                      
+                        <label>標題 <small id="titlelength" style="color: #1ab394">(0/30)</small><label runat="server" id="lblAddStatus" style="color: red;"></label></label>
+                        <telerik:RadTextBox ID="txtTitle" runat="server" EmptyMessage="請輸入標題..." Skin="Bootstrap" Width="100%" />
                     </div>
                     <div class="form-group">
                         <label id="testlbl">回報類型</label>
@@ -23,9 +23,9 @@
                         </telerik:RadComboBox>
                     </div>
                     <div class="form-group">
-                        <label>內容<small id="contentlength" style="color:#1ab394">(0/80)</small></label>
+                        <label>內容 <small id="contentlength" style="color: #1ab394">(0/80)</small></label>
                         <telerik:RadTextBox ID="txtContent" runat="server" EmptyMessage="請填寫您想回報的內容..."
-                            TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="3">
+                            TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="4">
                         </telerik:RadTextBox>
                     </div>
                     <%--<div class="form-group row">
@@ -35,38 +35,39 @@
 
                         </div>
                     </div>--%>
-                    <div class="ibox-content">
-                                    <label class="alert alert-danger"><i class="fa fa-info-circle"></i>檔案大小限制為10MB</label>
-                                    <label class="alert alert-danger"><i class="fa fa-info-circle"></i>檔案格式限制 jpg、jpeg、png</label>
-
-                                    <div id="dZUpload" class="dropzone" style="border: 1px dashed #1ab394;">
-                                        <div class="dz-default dz-message">
-                                            請按這裡上傳檔案
-                                        </div>
-                                    </div>
-
-                                    <div class="hr-line-dashed"></div>
-                                    <div class="form-group row">
-                                        <telerik:RadAjaxPanel ID="plUpload" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
-                                            <div class="col-sm-2 col-sm-offset-2">
-                                                <telerik:RadButton ID="btnUpload" runat="server" Text="上傳" OnClick="btnUpload_Click" CssClass="btn btn-primary btn-sm" />
-                                            </div>
-                                            <div>
-                                                <telerik:RadLabel ID="lblMsg" runat="server" />
-                                                <telerik:RadLabel ID="lblKey" runat="server" Visible="false" />
-                                            </div>
-                                        </telerik:RadAjaxPanel>
-                                    </div>
+                    <div class="form-group">
+                        <label>附件
+                            <br />
+                            <span class="text-danger"><i class="fa fa-info-circle"></i>檔案大小限制為10MB；格式限制 jpg、jpeg、png</span></label>
+                        <div id="dZUpload" class="dropzone" style="border: 1px solid #e5e6e7;">
+                            <div class="dz-default dz-message text-center m-t-md">
+                                <i class="fa fa-cloud-upload fa-2x text-primary"></i>
+                                <br />
+                                請按這裡上傳檔案
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <telerik:RadAjaxPanel ID="plUpload" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
+                            <div class="row">
+                                <div class="col-sm-2 col-sm-offset-2">
+                                    <telerik:RadButton ID="btnUpload" runat="server" Text="上傳檔案" CssClass="btn btn-primary btn-outline" OnClick="btnUpload_Click" />
                                 </div>
+                                <div class="col-sm-8">
+                                    <telerik:RadLabel ID="lblMsg" runat="server" />
+                                    <telerik:RadLabel ID="lblKey" runat="server" Visible="false" />
+                                </div>
+                            </div>
+                        </telerik:RadAjaxPanel>
+                    </div>
+                    <div class="hr-line-dashed"></div>
                     <div class="row">
                         <div class="col-lg-12">
                             <telerik:RadButton ID="btnAdd" runat="server" Text="送出" CssClass="btn btn-primary btn-md" OnClick="btnAdd_Click" />
                             <span class="m-t-xs">IP：<telerik:RadLabel ID="lblIP" runat="server" /></span>
 
-                           
+
                         </div>
-
-
 
                     </div>
                     <asp:Label ID="lblUserCode" runat="server" Visible="False"></asp:Label>
@@ -75,6 +76,7 @@
                     <asp:Label ID="lblEmpName" runat="server" Visible="False"></asp:Label>
                     <asp:Label ID="lblRoleKey" runat="server" Visible="False"></asp:Label>
                 </div>
+
                 <div class="col-lg-5">
                     <h2>你可能還想知道....</h2>
                     <span class="keyword_tag">特殊假別</span>
@@ -90,14 +92,15 @@
                     </div>
                 </div>
             </div>
-        </div>
+       </div>
     </div>
+ 
 
 
 </asp:Content>
 <asp:Content ID="Content3" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
     <script src="Templates/Inspinia/js/plugins/footable/footable.all.min.js"></script>
-     <script src="Templates/Inspinia/js/plugins/dropzone/dropzone.js"></script>
+    <script src="Templates/Inspinia/js/plugins/dropzone/dropzone.js"></script>
     <script type="text/javascript">
         DropzoneInit();
 

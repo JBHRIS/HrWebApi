@@ -90,6 +90,8 @@ public class AuthManager
                         user.UserCode = user.Connection + user.EmpId;
                         if (user.Role.Contains("HR") || user.Role.Contains("Hr"))
                             user.RoleKey = 8;
+                        if (user.Role.Contains("Admin") || user.Role.Contains("admin"))
+                            user.RoleKey = 2;
                         user.ListDataGroupsCode = rUserdata.ListDataGroupsCode;
                     }
                 }

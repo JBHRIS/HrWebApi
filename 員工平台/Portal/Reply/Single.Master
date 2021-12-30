@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>員工入口平台</title>
+    <title>數位客服平台</title>
 
     <link href="Templates/Inspinia/css/bootstrap.min.css" rel="stylesheet">
     <link href="Templates/Inspinia/font-awesome/css/font-awesome.css" rel="stylesheet">

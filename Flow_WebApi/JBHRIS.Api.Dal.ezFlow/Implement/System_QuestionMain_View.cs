@@ -216,7 +216,7 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                 newQuestionMain.InsertMan = vdb.InsertMan;
                 newQuestionMain.InsertDate = DateTime.Parse(vdb.InsertDate);
                 newQuestionMain.UpdateMan = vdb.UpdateMan;
-                newQuestionMain.UpdateDate = Convert.ToDateTime(vdb.InsertDate);
+                newQuestionMain.UpdateDate = Convert.ToDateTime(vdb.UpdateDate);
                 _context.QuestionMains.Add(newQuestionMain);
                 _context.SaveChanges();
                 result = true;
@@ -308,7 +308,7 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                                                           InsertMan = bn.InsertMan,
                                                           InsertDate = Convert.ToDateTime(bn.InsertDate),
                                                           UpdateMan = bn.UpdateMan,
-                                                          UpdateDate = Convert.ToDateTime(bn.InsertDate),
+                                                          UpdateDate = Convert.ToDateTime(bn.UpdateDate),
                                                       }).ToList();
 
             try

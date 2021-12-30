@@ -70,13 +70,13 @@ namespace Portal
                 return;
             }
 
-            ValidateBaseRedirect(UserId, UserPw,"demo");
+            ValidateBaseRedirect(UserId, UserPw,"");
         }
 
         public bool ValidateBaseRedirect(string AccountCode, string AccountPassword, string CompanyAccountCode = "")
         {
             var Pass = false;
-            bool isShare = false;
+          
             //加密的密碼
             var EncryptAccountPasswordSHA512 = AccountPassword.ToSHA512();
 

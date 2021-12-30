@@ -94,7 +94,7 @@ namespace Portal
             InsertQuestionCond.InsertMan = _User.EmpName;
             InsertQuestionCond.InsertDate = DateTime.Now;
             InsertQuestionCond.UpdateMan = "";
-            InsertQuestionCond.UpdateDate = DateTime.Now;
+           
 
             var result = oQuestionMain.GetData(InsertQuestionCond);
             if (result.Status)
@@ -107,9 +107,10 @@ namespace Portal
         }
         public void btnUpload_Click(object sender, EventArgs e)
         {
+            
             if (UnobtrusiveSession.Session["Files"] != null)
             {
-
+               
                 var Files = (HttpFileCollection)UnobtrusiveSession.Session["Files"];
 
                 string dirFullPath = HttpContext.Current.Server.MapPath("~/Upload/");
@@ -163,14 +164,12 @@ namespace Portal
                   
                 }
                 UnobtrusiveSession.Session["Files"] = null;
+                //var Script = "Sys.Application.add_load(DropzoneInit);";
+                //ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "DropzoneInit", Script, true);
 
-                var Script = "Sys.Application.add_load(DropzoneInit);";
-                ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "DropzoneInit", Script, true);
-
-               
             }
             else
-            {
+            {             
                 lblMsg.CssClass = "badge badge-danger animated shake";
                 lblMsg.Text = "上傳失敗";
             }

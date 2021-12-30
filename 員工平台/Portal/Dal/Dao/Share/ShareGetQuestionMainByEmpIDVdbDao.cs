@@ -118,6 +118,14 @@ namespace Dal.Dao.Share
                                         rTarget.Code = rSource.Code;
                                         rTarget.CompanyId = rSource.CompanyId;
                                         rTarget.Complete = rSource.Complete;
+                                        if (rSource.Complete)
+                                        {
+                                            rTarget.CompleteStatus = "已結單";
+                                        }
+                                        else
+                                        {
+                                            rTarget.CompleteStatus = "尚未結單";
+                                        }
                                         rTarget.Content = rSource.Content;
                                         rTarget.DateE = rSource.DateE;
                                         rTarget.InsertDate = rSource.InsertDate;
