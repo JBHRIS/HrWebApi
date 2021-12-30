@@ -57,6 +57,7 @@ namespace JBHR.Att
                , "補休有效期限為當年12月31日", "ComboBox", "select 'True' value , 'True' union select 'False', 'False'", "String");
             AppConfig.CheckParameterAndSetDefault("ComposeEndEqulAnnualEnd", "補休效期同特休推算方式", "false"
                , "補休有校期限同特休有效期限(此設定會比RestHoursEqu1231優先)", "ComboBox", "select 'True' value , 'True' union select 'False', 'False'", "String");
+            AppConfig.CheckParameterAndSetDefault("CalcMode", "進位模式", "Floor", "當出現無窮小數時的進位方式", "ComboBox", "select  'Floor' value,'無條件捨去' union select 'Round' value,'四捨五入' union select 'Ceiling' value,'無條件進位'", "String");
             AppConfig = new JBModule.Data.ApplicationConfigSettings("FRM211", MainForm.COMPANY);
             CompseCode = AppConfig.GetConfig("ComposeLeaveGetCode").GetString();
 
@@ -569,6 +570,14 @@ namespace JBHR.Att
 
                 Dal.Dao.Att.OtDao oOtDao = new Dal.Dao.Att.OtDao(db.Connection);
                 var Calculate = oOtDao.GetCalculate(ptxNobr.Text, "1", d1, d1, t1, t2, "", 0, cbxOtRote.SelectedValue.ToString(), true, true, OtratecdByNobr.MIN_HOURS / 60M, OtratecdByNobr.OTUNIT / 60M);
+                AppConfig = new JBModule.Data.ApplicationConfigSettings("FRM29", MainForm.COMPANY);
+                var CalcMode = AppConfig.GetConfig("CalcMode").GetString("Floor");
+                if (CalcMode == "Ceiling")
+                    Calculate = Math.Ceiling(Calculate * 100) / 100M;
+                else if (CalcMode == "Round")
+                    Calculate = Math.Round(Calculate, 2);
+                else
+                    Calculate = Math.Floor(Calculate * 100) / 100M;
                 TotalHours = Calculate;
             }
             catch { }
