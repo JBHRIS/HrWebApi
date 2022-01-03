@@ -27,6 +27,7 @@ namespace JBHR.AnnualBonus.HunyaCustom
         JBControls.MultiSelectionDialog mdExEmp = new JBControls.MultiSelectionDialog();
         JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
         JBModule.Data.ApplicationConfigSettings acg = null;
+        JBModule.Data.ApplicationConfigSettings appcofig = null;
         string topic = "";
         CheckYYMMFormatControl CYYMMFC = new CheckYYMMFormatControl();
         private void Hunya_ABPersonalBonus_Calculator_Load(object sender, EventArgs e)
@@ -41,7 +42,8 @@ namespace JBHR.AnnualBonus.HunyaCustom
             txtEnrichYYMM.Text = sd.YYMM;
             txtSeq.Text = "2";
             CYYMMFC.AddControl(txtEnrichYYMM, true);
-            acg = null; acg = new JBModule.Data.ApplicationConfigSettings(this.Name, MainForm.COMPANY);
+            appcofig = new JBModule.Data.ApplicationConfigSettings("Hunya_ABPersonalBonus", MainForm.COMPANY);
+            acg = new JBModule.Data.ApplicationConfigSettings(this.Name, MainForm.COMPANY);
             acg.CheckParameterAndSetDefault("ABOUTCDList", "指定離職原因代碼", "", "指定離職照發年終的離職原因代碼", "TextBox", "", "String");
             acg.CheckParameterAndSetDefault("ABSalBasdList", "指定基本薪資代碼", "", "指定一日薪資所含的基本薪資代碼", "TextBox", "", "String");
             acg.CheckParameterAndSetDefault("ABMaternityCode", "指定分娩假代碼", "", "指定套用分娩假規則的假別代碼", "TextBox", "", "String");
@@ -122,6 +124,7 @@ namespace JBHR.AnnualBonus.HunyaCustom
         void SetEmpList()
         {
             JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
+            List<string> ABEMPCDList = appcofig.GetConfig("ABEMPCD").GetString("01").Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
             int YYYY = (int)nudABYYYY.Value;
             DateTime bdate = new DateTime(YYYY, 1, 1);
             DateTime edate = new DateTime(YYYY, 12, 31);
@@ -136,6 +139,7 @@ namespace JBHR.AnnualBonus.HunyaCustom
                           join jl in db.JOBL on bts.JOBL equals jl.JOBL1
                           join mt in db.MTCODE on bts.TTSCODE equals mt.CODE
                           join mt1 in db.MTCODE on b.SEX equals mt1.CODE
+                          join emp in db.EMPCD on bts.EMPCD equals emp.EMPCD1
                           join result in (
                                from a in db.Hunya_ABYearEndAppraisal
                                join b in db.Hunya_ABLevelCode on a.RealLevelCode equals b.ABLevelCode
@@ -149,11 +153,12 @@ namespace JBHR.AnnualBonus.HunyaCustom
                                }
                           ) on b.NOBR equals result.員工編號 //into g
                           //from result in g.DefaultIfEmpty()
-                          where true 
+                          where true
                           //&& item.Contains(b.NOBR)
                           && edate >= bts.ADATE && edate <= bts.DDATE.Value
                           && mt.CATEGORY == "TTSCODE"
                           && mt1.CATEGORY == "SEX"
+                          && ABEMPCDList.Contains(emp.EMPCD1)
                           && (bts.OUDT == null || ABOUTCDList.Contains(bts.OUTCD))
                           && db.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Select(p => p.DATAGROUP).Contains(bts.SALADR)
                           select new
@@ -202,6 +207,7 @@ namespace JBHR.AnnualBonus.HunyaCustom
             JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
             int YYYY = (int)nudABYYYY.Value;
             acg.CheckParameterAndSetDefault(String.Format("{0}_ABExEmpList",YYYY.ToString()), String.Format("指定{0}年比例例外人員", YYYY.ToString()), "", "按比例配發例外人員", "TextBox", "", "String");
+            List<string> ABEMPCDList = appcofig.GetConfig("ABEMPCD").GetString("01").Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
             DateTime bdate = new DateTime(YYYY, 1, 1);
             DateTime edate = new DateTime(YYYY, 12, 31);
             var AttendByNobr = db.ATTEND.Where(p => p.ADATE >= bdate && p.ADATE <= edate).GroupBy(p => p.NOBR).Select(p => p.Key).ToList();
@@ -220,6 +226,7 @@ namespace JBHR.AnnualBonus.HunyaCustom
                           from oc in oc1.DefaultIfEmpty()
                           join mt in db.MTCODE on bts.TTSCODE equals mt.CODE
                           join mt1 in db.MTCODE on b.SEX equals mt1.CODE
+                          join emp in db.EMPCD on bts.EMPCD equals emp.EMPCD1
                           join result in (
                                from a in db.Hunya_ABYearEndAppraisal
                                join b in db.Hunya_ABLevelCode on a.RealLevelCode equals b.ABLevelCode
@@ -239,6 +246,7 @@ namespace JBHR.AnnualBonus.HunyaCustom
                           && edate >= bts.ADATE && edate <= bts.DDATE.Value
                           && mt.CATEGORY == "TTSCODE"
                           && mt1.CATEGORY == "SEX"
+                          && ABEMPCDList.Contains(emp.EMPCD1)
                           //&& (OJD.每月天數 / DayOfYear != 1)
                           && (bts.OUDT == null || ABOUTCDList.Contains(bts.OUTCD))
                           && db.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Select(p => p.DATAGROUP).Contains(bts.SALADR)
@@ -320,13 +328,13 @@ namespace JBHR.AnnualBonus.HunyaCustom
             string SEQ = txtSeq.Text;
             string Memo = txtMemo.Text;
 
-            acg = new JBModule.Data.ApplicationConfigSettings("Hunya_ABPersonalBonus", MainForm.COMPANY);
-            decimal ABAward1 = acg.GetConfig("ABAward1").GetDecimal(10);
-            decimal ABAward2 = acg.GetConfig("ABAward2").GetDecimal(3);
-            decimal ABAward3 = acg.GetConfig("ABAward3").GetDecimal(1);
-            decimal ABFault1 = acg.GetConfig("ABFault1").GetDecimal(10);
-            decimal ABFault2 = acg.GetConfig("ABFault2").GetDecimal(3);
-            decimal ABFault3 = acg.GetConfig("ABFault3").GetDecimal(1);
+            //acg = new JBModule.Data.ApplicationConfigSettings("Hunya_ABPersonalBonus", MainForm.COMPANY);
+            decimal ABAward1 = appcofig.GetConfig("ABAward1").GetDecimal(10);
+            decimal ABAward2 = appcofig.GetConfig("ABAward2").GetDecimal(3);
+            decimal ABAward3 = appcofig.GetConfig("ABAward3").GetDecimal(1);
+            decimal ABFault1 = appcofig.GetConfig("ABFault1").GetDecimal(10);
+            decimal ABFault2 = appcofig.GetConfig("ABFault2").GetDecimal(3);
+            decimal ABFault3 = appcofig.GetConfig("ABFault3").GetDecimal(1);
 
             object[] PARMS = new object[] {
                 EmployeeList, YYYY, BonusDays, ABSalBasdList, ABDivisor, ABExEmpList, ABOUTCDList,  BDate, EDate, BDate_Att, EDate_Att, ABSALCODE, EnrichYYMM, SEQ, Memo,
