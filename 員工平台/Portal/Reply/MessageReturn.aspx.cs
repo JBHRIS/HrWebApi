@@ -20,8 +20,8 @@ namespace Portal
         {
             if (!IsPostBack)
             {
-                SetUserInfo();
-
+               
+                txtReturnS_DataBind();
             }
             SetDefault();
         }
@@ -61,8 +61,22 @@ namespace Portal
 
         }
 
-        private void SetDraft()
+        private void txtReturnS_DataBind()
         {
+            var oGetGetSystemUserDao = new ShareGetSystemUserDao();
+            var GetGetSystemUserCond = new ShareGetSystemUserConditions();
+            var result = oGetGetSystemUserDao.GetData(GetGetSystemUserCond);
+            var rsDataSource = result.Data as List<ShareGetSystemUserRow>;
+
+            if (rsDataSource != null)
+            {
+                txtReturnS.DataSource = rsDataSource;
+                txtReturnS.DataTextField = "UserName";
+                txtReturnS.DataValueField = "Code";
+                txtReturnS.DataBind();
+                //txtReturnS.SelectedIndex = 0;
+            }
+           
 
         }
 
@@ -116,6 +130,15 @@ namespace Portal
             {
 
 
+                var oGetQuestionMain = new ShareGetQuestionMainByCodeDao();
+                var GetQuestionMainCond = new ShareGetQuestionMainByCodeConditions();
+                GetQuestionMainCond.AccessToken = _User.AccessToken;
+                GetQuestionMainCond.RefreshToken = _User.RefreshToken;
+                GetQuestionMainCond.CompanySetting = CompanySetting;
+                GetQuestionMainCond.Code = Request.QueryString["Code"];
+                var QuestionMain = (oGetQuestionMain.GetData(GetQuestionMainCond).Data as List<ShareGetQuestionMainByCodeRow>).FirstOrDefault();
+
+
                 var oGetQuestionReply = new ShareGetQuestionReplyByQuestionMainCodeDao();
                 var GetQuestionReplyCond = new ShareGetQuestionReplyByQuestionMainCodeConditions();
                 GetQuestionReplyCond.AccessToken = _User.AccessToken;
@@ -123,12 +146,12 @@ namespace Portal
                 GetQuestionReplyCond.CompanySetting = CompanySetting;
                 GetQuestionReplyCond.Code = Request.QueryString["Code"];
                 var rsGQR = oGetQuestionReply.GetData(GetQuestionReplyCond);
-                var Draft = (rsGQR.Data as List<ShareGetQuestionReplyByQuestionMainCodeRow>).Where(x => x.Key1 == _User.EmpId).Where(x=>x.Send==false).FirstOrDefault();
-
+                var Draft = (rsGQR.Data as List<ShareGetQuestionReplyByQuestionMainCodeRow>).Where(x => x.Key1 == _User.EmpId).Where(x => x.Send == false).FirstOrDefault();
                 var rsQM = rsGQR.Data as List<ShareGetQuestionReplyByQuestionMainCodeRow>;
                 var Reply = rsQM.Where(data => data.ParentCode == Request.QueryString["Code"]);
                 Reply = Reply.Where(x => x.Send == true);
                 var rsViewrsQM = new List<ShareGetQuestionReplyByQuestionMainCodeRow>();
+
                 if (Draft != null)
                 {
                     txtContent.Text = Draft.Content;
@@ -145,7 +168,14 @@ namespace Portal
                 }
                 var dataview = rsViewrsQM.GroupBy(x => x.ParentCode);
                 Reply = Reply.Where(x => Security.GetRoleKeyToBinaryKey(x.RoleKey).Contains(_User.RoleKey));
-
+                //if (Reply.Count() != 0)
+                //{
+                //    Useful.Style.Remove("display");
+                //}
+                //else
+                //{
+                //    btnWtReply.Style.Remove("display");
+                //}
 
 
                 foreach (var Data in Reply)
@@ -156,27 +186,43 @@ namespace Portal
                         {
                             foreach (var DataDetail in v)
                             {
-                                if (DataDetail.Send == true)
-                                {
-                                    Data.DataView +=
-                               "<div class=\"media-body\">" +
-                              "<span class = \"name_font\" />" + DataDetail.Name + " </span>" +
-                              "<span >" + DataDetail.Content + "</span><br>" +
-                              "<button type = \"button\" class=\"btn btn-link fa comment_icon text-blue\" data-toggle=\"collapse\" data-target=\"#rep" + DataDetail.ParentCode + "\">回覆</button>" +
-                              "<span class=\"text-muted\">" + DataDetail.InsertDate.Value.ToString("yyyy-MM-dd") + " </span>" +
-                              "<span class=\"text-muted\">" + DataDetail.InsertDate.Value.ToString("HH: ss") + "</span><br>" +
-                              "</div><br>";
-                                }
-                              
+
+                                Data.DataView +=
+                            "<div class=\"media-body\">" +
+                           "<span class = \"name_font\" />" + DataDetail.Name + " </span>" +
+                           "<span >" + DataDetail.Content + "</span><br>" +
+                           "<button ID=\"btnSubReply\" type = \"button\" class=\"btnReply btn btn-link fa comment_icon text-blue\" data-toggle=\"collapse\" data-target=\"#rep" + DataDetail.ParentCode + "\">回覆</button>" +
+                           "<span class=\"text-muted\">" + DataDetail.InsertDate.Value.ToString("yyyy-MM-dd") + " </span>" +
+                           "<span class=\"text-muted\">" + DataDetail.InsertDate.Value.ToString("HH: ss") + "</span><br>" +
+                           "</div><br>";
+
+
+
+
+
+
+
                             }
                         }
                     }
                 }
 
-
-
-
                 QuestionReplyData.DataSource = Reply;
+                if (QuestionMain.Complete)
+                {
+                    RadioFirst.Enabled = false;
+                    RadioSecond.Enabled = false;
+                    RadioThird.Enabled = false;
+                    RadioFourth.Enabled = false;
+                    
+                    btnAdd.Enabled = false;
+                    btnDraft.Enabled = false;
+                    txtContent.Text = "此筆回報單已結單";
+                    txtContent.Style.Add("class", "text-success");
+                    txtContent.Enabled = false;
+                    var Script = "$('.btnDefaultMessage').hide();";
+                    ScriptManager.RegisterStartupScript(this, typeof(Button), "btnhide", Script, true);
+                }
 
             }
             catch (Exception ex)
@@ -223,7 +269,7 @@ namespace Portal
                 InsertQuestionReplyCond.UpdateDate = DateTime.Now;
 
                 oInsertQuestionReply.GetData(InsertQuestionReplyCond);
-                lblAddStatus.InnerText = "送出成功";
+                
                 txtContent.Text = "";
                 QuestionReplyData.Rebind();
             }
@@ -418,9 +464,13 @@ namespace Portal
                 {
                     InsertQuestionReplyCond.RoleKey = Int32.Parse(RadioSecond.Value);
                 }
-                else
+                else if (RadioThird.Checked.Value)
                 {
                     InsertQuestionReplyCond.RoleKey = Int32.Parse(RadioThird.Value);
+                }
+                else
+                {
+                    InsertQuestionReplyCond.RoleKey = Int32.Parse(RadioFourth.Value);
                 }
 
 

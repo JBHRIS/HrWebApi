@@ -358,6 +358,15 @@ namespace JBHR.Att
                     //true 扣除休息時間
                     var OtratecdByNobr = OtrateCDList.Where(p => p.OTRATE_CODE == itm.BASETTS.CALOT).FirstOrDefault();
                     var ot_calc = oOtDao.GetCalculate(itm.BASETTS.NOBR, "1", itm.ATTEND.ADATE, itm.ATTEND.ADATE, (BeginTime), (EndTime), "", 0, OTrote, isEat, true, OtratecdByNobr.MIN_HOURS / 60M, OtratecdByNobr.OTUNIT / 60M);
+
+                    JBModule.Data.ApplicationConfigSettings acg = new JBModule.Data.ApplicationConfigSettings("FRM29", MainForm.COMPANY);
+                    var CalcMode = acg.GetConfig("CalcMode").GetString("Floor");
+                    if (CalcMode == "Ceiling")
+                        ot_calc = Math.Ceiling(ot_calc * 100) / 100M;
+                    else if (CalcMode == "Round")
+                        ot_calc = Math.Round(ot_calc, 2);
+                    else
+                        ot_calc = Math.Floor(ot_calc * 100) / 100M;
                     otHour = ot_calc;
                     //if (ot_calc > Convert.ToDecimal(HoliRestMaxHour) && !isEat && isHoli)
                     //    otHour = ot_calc - Convert.ToDecimal(HoliRestMaxHour);

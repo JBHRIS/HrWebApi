@@ -49,6 +49,7 @@
     </Reference>
     <Reference Include="PresentationFramework" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -1606,6 +1607,9 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ClassLibrary\UnobtrusiveSession.cs" />
+    <Compile Include="Download.ashx.cs">
+      <DependentUpon>Download.ashx</DependentUpon>
+    </Compile>
     <Compile Include="HandlerFileUploadDropzone.ashx.cs">
       <DependentUpon>HandlerFileUploadDropzone.ashx</DependentUpon>
     </Compile>
@@ -1694,6 +1698,7 @@
     <Content Include="App_Data\RadSpell\fr-FR.tdf" />
     <Content Include="Main_PR.Master" />
     <Content Include="HandlerFileUploadDropzone.ashx" />
+    <Content Include="Download.ashx" />
     <None Include="packages.config" />
     <Content Include="Templates\Inspinia\css\bootstrap.css.map" />
     <Content Include="Templates\Inspinia\css\bootstrap.min.css.map" />

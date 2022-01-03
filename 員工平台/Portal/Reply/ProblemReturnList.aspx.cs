@@ -54,7 +54,10 @@ namespace Portal
             }
             txtReturnS.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "所有類型", Value = "0" });
             txtReturnS.SelectedIndex = 0;
-
+            txtReturnX.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "所有類型", Value = "0" });
+            txtReturnX.Items.Insert(1, new Telerik.Web.UI.RadComboBoxItem { Text = "已結單", Value = "0" });
+            txtReturnX.Items.Insert(2, new Telerik.Web.UI.RadComboBoxItem { Text = "尚未結單", Value = "0" });
+            txtReturnX.SelectedIndex = 0;
 
         }
         protected void lvMain_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
@@ -63,8 +66,8 @@ namespace Portal
             
             if (_User.RoleKey == 2)
             {
-                var oGetQuestionMain = new ShareGetQuestionMainByCompanyDao();
-                var GetquestionMainCond = new ShareGetQuestionMainByCompanyConditions();
+                var oGetQuestionMain = new ShareGetQuestionMainDao();
+                var GetquestionMainCond = new ShareGetQuestionMainConditions();
                 GetquestionMainCond.AccessToken = _User.AccessToken;
                 GetquestionMainCond.RefreshToken = _User.RefreshToken;
                 GetquestionMainCond.CompanySetting = CompanySetting;
@@ -94,8 +97,8 @@ namespace Portal
                 GetquestionMainCond.EmpId = _User.EmpId;
                rsGetQuestionMain = oGetQuestionMain.GetData(GetquestionMainCond);
             }
-        
 
+            
             try
             {
                 if (rsGetQuestionMain.Status)
@@ -105,18 +108,19 @@ namespace Portal
                         
                         if (_User.RoleKey == 2)
                         {
-                            var rsQM = rsGetQuestionMain.Data as List<ShareGetQuestionMainByCompanyRow>;
-                            lvMain.DataSource = rsQM;
+                            var rsQM = rsGetQuestionMain.Data as List<ShareGetQuestionMainRow>;
+                          
+                            lvMain.DataSource = rsQM.OrderByDescending(x => x.InsertDate);
                         }
                         else if (_User.RoleKey == 8)
                         {
                             var rsQM = rsGetQuestionMain.Data as List<ShareGetQuestionMainByCompanyRow>;
-                            lvMain.DataSource = rsQM;
+                            lvMain.DataSource = rsQM.OrderByDescending(x => x.InsertDate);
                         }
                         if (_User.RoleKey == 64)
                         {
                             var rsQM = rsGetQuestionMain.Data as List<ShareGetQuestionMainByEmpIDRow>;
-                            lvMain.DataSource = rsQM;
+                            lvMain.DataSource = rsQM.OrderByDescending(x => x.InsertDate);
                         }
 
                         var Script = "$(document).ready(function() {$('.footable').footable();});";
@@ -153,14 +157,18 @@ namespace Portal
         {
             var selectitem = sender as RadComboBox;
             lvMain.FilterExpressions.Clear();
-            if (selectitem.SelectedValue!="0") 
+            if (txtReturnS.SelectedValue != "0")
             {
-                
+                RadListViewContainsFilterExpression expression1 = new RadListViewContainsFilterExpression("QuestionCategoryCode");
+                expression1.CurrentValue = txtReturnS.SelectedValue;
+                lvMain.FilterExpressions.Add(expression1);
 
-                RadListViewContainsFilterExpression expression = new RadListViewContainsFilterExpression("QuestionCategoryCode");
-                expression.CurrentValue = selectitem.SelectedValue;
-                lvMain.FilterExpressions.Add(expression);
-               
+            }
+            if (txtReturnX.SelectedValue != "0")
+            {
+                RadListViewContainsFilterExpression expression2 = new RadListViewContainsFilterExpression("CompleteStatus");
+                expression2.CurrentValue = txtReturnX.SelectedValue;
+                lvMain.FilterExpressions.Add(expression2);
             }
             lvMain.Rebind();
         }

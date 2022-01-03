@@ -14,6 +14,8 @@ using Dal.Dao.WorkFromHome;
 using Bll.WorkFromHome.Vdb;
 using System.ComponentModel;
 using OldDal.Dao.Bas;
+using Dal.Dao.Employee;
+using Bll.Employee.Vdb;
 
 namespace Portal
 {
@@ -162,11 +164,11 @@ namespace Portal
 
             var FormExtend = (from c in dcFlow.FormsExtend
                               where c.FormsCode == "Abs" && c.Code == "CheckFile" && c.Active == true
-                              select c).FirstOrDefault();
+                              select c).ToList();
             if (FormExtend != null)
             {
                 var HCodeList = new List<string>();
-                HCodeList = FormExtend.Column1.Split(';').ToList();
+                HCodeList = FormExtend.Select(p => p.Column1).ToList();
                 foreach (var rApp in rsApp)
                 {
                     if (HCodeList.Contains(rApp.HolidayCode))
@@ -3590,25 +3592,46 @@ namespace Portal
                     if (EDynamic != null && EDynamic.Column1 != null && EDynamic.Column1 != "" && EDynamic.Column2 != null && EDynamic.Column2 != "")
                     {
 
-                        var rEmp = (from role in dcFlow.Role
-                                    join emp in dcFlow.Emp on role.Emp_id equals emp.id
-                                    join dept in dcFlow.Dept on role.Dept_id equals dept.id
-                                    join pos in dcFlow.Pos on role.Pos_id equals pos.id
-                                    where role.Emp_id == EDynamic.Column2
-                                    select new
-                                    {
-                                        RoleId = role.id,
-                                        EmpNobr = emp.id,
-                                        EmpName = emp.name,
-                                        DeptCode = dept.id,
-                                        DeptName = dept.name,
-                                        JobCode = pos.id,
-                                        JobName = pos.name,
-                                        Auth = role.deptMg.Value,
-                                    }).FirstOrDefault();
-                        if (rEmp != null)
-                            oService.SaveDynamic(iProcessID, EDynamic.Column1, rEmp.EmpNobr, rEmp.RoleId);
+                        var NodeConfirm = (from c in dcFlow.wfDynamic
+                                           where c.idProcess == iProcessID && c.idFlowNode == EDynamic.Column2
+                                           select c).FirstOrDefault();
+                        if (NodeConfirm != null)
+                            continue;
 
+                        var oCurrentJobStatus = new CurrentJobStatusDao();
+                        var CurrentJobStatusCond = new CurrentJobStatusConditions();
+                        CurrentJobStatusCond.AccessToken = _User.AccessToken;
+                        CurrentJobStatusCond.RefreshToken = _User.RefreshToken;
+                        CurrentJobStatusCond.CompanySetting = CompanySetting;
+                        CurrentJobStatusCond.nobr = rsApp.First().EmpId;
+                        CurrentJobStatusCond.Adate = DateTime.Now.Date;
+                        var rsStatus = oCurrentJobStatus.GetData(CurrentJobStatusCond);
+                        var rsTTS = new CurrentJobStatusRow();
+                        if (rsStatus.Status && rsStatus.Data != null)
+                        {
+                            rsTTS = rsStatus.Data as CurrentJobStatusRow;
+                        }
+                        if (EDynamic.Column3 != null && (EDynamic.Column3 == "" || EDynamic.Column3 == rsTTS.Result.Saladr))
+                        {
+                            var rEmp = (from role in dcFlow.Role
+                                        join emp in dcFlow.Emp on role.Emp_id equals emp.id
+                                        join dept in dcFlow.Dept on role.Dept_id equals dept.id
+                                        join pos in dcFlow.Pos on role.Pos_id equals pos.id
+                                        where role.Emp_id == EDynamic.Column2
+                                        select new
+                                        {
+                                            RoleId = role.id,
+                                            EmpNobr = emp.id,
+                                            EmpName = emp.name,
+                                            DeptCode = dept.id,
+                                            DeptName = dept.name,
+                                            JobCode = pos.id,
+                                            JobName = pos.name,
+                                            Auth = role.deptMg.Value,
+                                        }).FirstOrDefault();
+                            if (rEmp != null)
+                                oService.SaveDynamic(iProcessID, EDynamic.Column1, rEmp.EmpNobr, rEmp.RoleId);
+                        }
                     }
                 }
                 string sInfo = "";
@@ -3638,10 +3661,10 @@ namespace Portal
                     oEmployChangeLog.SalaryContent = UnobtrusiveSession.Session["SalaryData"].ToString();
                     oEmployChangeLog.Note = "";
                     oEmployChangeLog.Status = "1";
-                    oEmployChangeLog.InsertMan = _User.EmpId;
-                    oEmployChangeLog.InsertDate = DateTime.Now.Date;
-                    oEmployChangeLog.UpdateMan = _User.EmpId;
-                    oEmployChangeLog.UpdateDate = DateTime.Now.Date;
+                    oEmployChangeLog.InsertMan = _User.EmpName;
+                    oEmployChangeLog.InsertDate = DateTime.Now;
+                    oEmployChangeLog.UpdateMan = _User.EmpName;
+                    oEmployChangeLog.UpdateDate = DateTime.Now;
                     dcFlow.FormsAppEmployChangeLog.InsertOnSubmit(oEmployChangeLog);
 
                     var rsFormsAppInfo = (from c in dcFlow.FormsAppInfo
@@ -3794,7 +3817,7 @@ namespace Portal
                     Note = "",
                     Status = "1",
                     InsertDate = DateTime.Now,
-                    InsertMan = rEmpM.EmpNobr,
+                    InsertMan = rEmpM.EmpName,
                     UpdateDate = null,
                     UpdateMan = null,
                     Cond01 = rDept != null ? rDept.Tree : "0", //目前所簽核到的部門
@@ -3925,25 +3948,46 @@ namespace Portal
                 {
                     if (EADynamic != null && EADynamic.Column1 != null && EADynamic.Column1 != "" && EADynamic.Column2 != null && EADynamic.Column2 != "")
                     {
+                        var NodeConfirm = (from c in dcFlow.wfDynamic
+                                           where c.idProcess == iProcessID && c.idFlowNode == EADynamic.Column2
+                                           select c).FirstOrDefault();
+                        if (NodeConfirm != null)
+                            continue;
 
-                        var rEmp = (from role in dcFlow.Role
-                                    join emp in dcFlow.Emp on role.Emp_id equals emp.id
-                                    join dept in dcFlow.Dept on role.Dept_id equals dept.id
-                                    join pos in dcFlow.Pos on role.Pos_id equals pos.id
-                                    where role.Emp_id == EADynamic.Column2
-                                    select new
-                                    {
-                                        RoleId = role.id,
-                                        EmpNobr = emp.id,
-                                        EmpName = emp.name,
-                                        DeptCode = dept.id,
-                                        DeptName = dept.name,
-                                        JobCode = pos.id,
-                                        JobName = pos.name,
-                                        Auth = role.deptMg.Value,
-                                    }).FirstOrDefault();
-                        if (rEmp != null)
-                            oService.SaveDynamic(iProcessID, EADynamic.Column1, rEmp.EmpNobr, rEmp.RoleId);
+                        var oCurrentJobStatus = new CurrentJobStatusDao();
+                        var CurrentJobStatusCond = new CurrentJobStatusConditions();
+                        CurrentJobStatusCond.AccessToken = _User.AccessToken;
+                        CurrentJobStatusCond.RefreshToken = _User.RefreshToken;
+                        CurrentJobStatusCond.CompanySetting = CompanySetting;
+                        CurrentJobStatusCond.nobr = rsApp.First().EmpId;
+                        CurrentJobStatusCond.Adate = DateTime.Now.Date;
+                        var rsStatus = oCurrentJobStatus.GetData(CurrentJobStatusCond);
+                        var rsTTS = new CurrentJobStatusRow();
+                        if (rsStatus.Status && rsStatus.Data != null)
+                        {
+                            rsTTS = rsStatus.Data as CurrentJobStatusRow;
+                        }
+                        if (EADynamic.Column3 != null && (EADynamic.Column3 == "" || EADynamic.Column3 == rsTTS.Result.Saladr))
+                        {
+                            var rEmp = (from role in dcFlow.Role
+                                        join emp in dcFlow.Emp on role.Emp_id equals emp.id
+                                        join dept in dcFlow.Dept on role.Dept_id equals dept.id
+                                        join pos in dcFlow.Pos on role.Pos_id equals pos.id
+                                        where role.Emp_id == EADynamic.Column2
+                                        select new
+                                        {
+                                            RoleId = role.id,
+                                            EmpNobr = emp.id,
+                                            EmpName = emp.name,
+                                            DeptCode = dept.id,
+                                            DeptName = dept.name,
+                                            JobCode = pos.id,
+                                            JobName = pos.name,
+                                            Auth = role.deptMg.Value,
+                                        }).FirstOrDefault();
+                            if (rEmp != null)
+                                oService.SaveDynamic(iProcessID, EADynamic.Column1, rEmp.EmpNobr, rEmp.RoleId);
+                        }
 
                     }
                 }
@@ -3974,10 +4018,10 @@ namespace Portal
                     oEmployChangeLog.SalaryContent = UnobtrusiveSession.Session["SalaryData"].ToString();
                     oEmployChangeLog.Note = "";
                     oEmployChangeLog.Status = "1";
-                    oEmployChangeLog.InsertMan = _User.EmpId;
-                    oEmployChangeLog.InsertDate = DateTime.Now.Date;
-                    oEmployChangeLog.UpdateMan = _User.EmpId;
-                    oEmployChangeLog.UpdateDate = DateTime.Now.Date;
+                    oEmployChangeLog.InsertMan = _User.EmpName;
+                    oEmployChangeLog.InsertDate = DateTime.Now;
+                    oEmployChangeLog.UpdateMan = _User.EmpName;
+                    oEmployChangeLog.UpdateDate = DateTime.Now;
                     dcFlow.FormsAppEmployChangeLog.InsertOnSubmit(oEmployChangeLog);
 
                     var rsFormsAppInfo = (from c in dcFlow.FormsAppInfo
@@ -4129,7 +4173,7 @@ namespace Portal
                     Note = "",
                     Status = "1",
                     InsertDate = DateTime.Now,
-                    InsertMan = rEmpM.EmpNobr,
+                    InsertMan = rEmpM.EmpName,
                     UpdateDate = null,
                     UpdateMan = null,
                     Cond01 = rDept != null ? rDept.Tree : "0", //目前所簽核到的部門
@@ -4265,7 +4309,26 @@ namespace Portal
                 {
                     if (ADynamic != null && ADynamic.Column1 != null && ADynamic.Column1 != "" && ADynamic.Column2 != null && ADynamic.Column2 != "")
                     {
-                        if (ADynamic.Column3 != null && (ADynamic.Column3 == "" || ADynamic.Column3 == rBasM.Comp))
+                        var NodeConfirm = (from c in dcFlow.wfDynamic
+                                           where c.idProcess == iProcessID && c.idFlowNode == ADynamic.Column2
+                                           select c).FirstOrDefault();
+                        if (NodeConfirm != null)
+                            continue;
+
+                        var oCurrentJobStatus = new CurrentJobStatusDao();
+                        var CurrentJobStatusCond = new CurrentJobStatusConditions();
+                        CurrentJobStatusCond.AccessToken = _User.AccessToken;
+                        CurrentJobStatusCond.RefreshToken = _User.RefreshToken;
+                        CurrentJobStatusCond.CompanySetting = CompanySetting;
+                        CurrentJobStatusCond.nobr = rsApp.First().EmpId;
+                        CurrentJobStatusCond.Adate = DateTime.Now.Date;
+                        var rsStatus = oCurrentJobStatus.GetData(CurrentJobStatusCond);
+                        var rsTTS = new CurrentJobStatusRow();
+                        if (rsStatus.Status && rsStatus.Data != null)
+                        {
+                            rsTTS = rsStatus.Data as CurrentJobStatusRow;
+                        }
+                        if (ADynamic.Column3 != null && (ADynamic.Column3 == "" || ADynamic.Column3 == rsTTS.Result.Saladr))
                         {
                             var rEmp = (from role in dcFlow.Role
                                         join emp in dcFlow.Emp on role.Emp_id equals emp.id
@@ -4340,10 +4403,10 @@ namespace Portal
                     oFormsAppAppointChangeLog.SalaryContent = "";
                     oFormsAppAppointChangeLog.Note = "";
                     oFormsAppAppointChangeLog.Status = "1";
-                    oFormsAppAppointChangeLog.InsertMan = _User.EmpId;
-                    oFormsAppAppointChangeLog.InsertDate = DateTime.Now.Date;
-                    oFormsAppAppointChangeLog.UpdateMan = _User.EmpId;
-                    oFormsAppAppointChangeLog.UpdateDate = DateTime.Now.Date;
+                    oFormsAppAppointChangeLog.InsertMan = _User.EmpName;
+                    oFormsAppAppointChangeLog.InsertDate = DateTime.Now;
+                    oFormsAppAppointChangeLog.UpdateMan = _User.EmpName;
+                    oFormsAppAppointChangeLog.UpdateDate = DateTime.Now;
                     dcFlow.FormsAppAppointChangeLog.InsertOnSubmit(oFormsAppAppointChangeLog);
 
                     var rsFormsAppInfo = (from c in dcFlow.FormsAppInfo
@@ -4493,7 +4556,7 @@ namespace Portal
                     Note = "",
                     Status = "1",
                     InsertDate = DateTime.Now,
-                    InsertMan = rEmpM.EmpNobr,
+                    InsertMan = rEmpM.EmpName,
                     UpdateDate = null,
                     UpdateMan = null,
                     Cond01 = rDept != null ? rDept.Tree : "0", //目前所簽核到的部門

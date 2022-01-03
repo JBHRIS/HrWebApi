@@ -225,6 +225,7 @@
     <Compile Include="Share\Vdb\ShareGetQuestionMainVdb.cs" />
     <Compile Include="Share\Vdb\ShareGetQuestionReplyByCodeVdb.cs" />
     <Compile Include="Share\Vdb\ShareGetQuestionReplyByQuestionMainCodeVdb.cs" />
+    <Compile Include="Share\Vdb\ShareGetSystemUserVdb.cs" />
     <Compile Include="Share\Vdb\ShareInsertQuestionDefaultMessageVdb.cs" />
     <Compile Include="Share\Vdb\ShareInsertQuestionMainVdb.cs" />
     <Compile Include="Share\Vdb\ShareInsertQuestionReplyVdb.cs" />

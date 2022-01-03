@@ -409,7 +409,7 @@ namespace Dal.Dao.Att
                             if (sTimeB.CompareTo(rRote.OffTime) <= 0)
                                 ElasticityMin = rAttend.ElasticityMin;
 
-                        Vdb = oOt.GetCalculate(sTimeB, sTimeE, rsRes, iMin, iInterval, (ElasticityMin));
+                        Vdb = oOt.GetCalculate(sTimeB, sTimeE, rsRes, iMin, iInterval, ElasticityMin, false);
                     }
                 }
             }

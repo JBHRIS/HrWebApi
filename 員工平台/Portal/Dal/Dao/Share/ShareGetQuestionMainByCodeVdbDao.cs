@@ -117,6 +117,14 @@ namespace Dal.Dao.Share
                                         rTarget.Code = rSource.Code;
                                         rTarget.CompanyId = rSource.CompanyId;
                                         rTarget.Complete = rSource.Complete;
+                                        if (rSource.Complete)
+                                        {
+                                            rTarget.CompleteStatus = "已結單";
+                                        }
+                                        else
+                                        {
+                                            rTarget.CompleteStatus = "尚未結單";
+                                        }
                                         rTarget.Content = rSource.Content;
                                         rTarget.DateE = rSource.DateE;
                                         rTarget.InsertDate = rSource.InsertDate;
@@ -131,7 +139,7 @@ namespace Dal.Dao.Share
                                         rTarget.QuestionCategoryName = rSource.QuestionCategoryName;
                                         rTarget.Status = rSource.Status;
                                         rTarget.SystemCategoryCode = rSource.SystemCategoryCode;
-                                        rTarget.TitleContent = rSource.TitleContent;
+                                        rTarget.TitleContent = rSource.TitleContent;                                     
                                         rTarget.UpdateDate = rSource.UpdateDate;
                                         rTarget.UpdateMan = rSource.UpdateMan;
                                         rsTarget.Add(rTarget);

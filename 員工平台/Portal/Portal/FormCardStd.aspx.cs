@@ -159,25 +159,44 @@ namespace Portal
         }
         public void txtNameAppS_DataBind()
         {
-            var rs = AccessData.GetPeopleByDeptTree(_User, CompanySetting);
-            var rs1 = AccessData.GetDeptListEmp(_User, CompanySetting);
-            var result = rs.Union(rs1).ToList();
-            var key = new Dictionary<string, string>();
-            foreach (var r in result.ToArray())
+            var CardOnlyShowSelf = (from c in dcFlow.FormsExtend
+                                   where c.FormsCode == "Card" && c.Code == "CardOnlyShowSelf" && c.Active == true
+                                   select c).FirstOrDefault();
+            if (CardOnlyShowSelf == null)
             {
-                if (key.ContainsKey(r.Value))
+                var rs = AccessData.GetPeopleByDeptTree(_User, CompanySetting);
+                var rs1 = AccessData.GetDeptListEmp(_User, CompanySetting);
+                var result = rs.Union(rs1).ToList();
+                var key = new Dictionary<string, string>();
+                foreach (var r in result.ToArray())
                 {
-                    result.Remove(r);
+                    if (key.ContainsKey(r.Value))
+                    {
+                        result.Remove(r);
+                    }
+                    else
+                    {
+                        key.Add(r.Value, r.Value);
+                    }
                 }
-                else
-                {
-                    key.Add(r.Value, r.Value);
-                }
+
+                txtNameAppS.DataSource = result;
+                txtNameAppS.DataTextField = "Text";
+                txtNameAppS.DataValueField = "Value";
+                txtNameAppS.DataBind();
             }
-            txtNameAppS.DataSource = result;
-            txtNameAppS.DataTextField = "Text";
-            txtNameAppS.DataValueField = "Value";
-            txtNameAppS.DataBind();
+            else
+            {
+                var result = new List<Bll.TextValueRow>();
+                var rs = new Bll.TextValueRow();
+                rs.Text = _User.EmpName + "," + _User.EmpId;
+                rs.Value = _User.EmpId;
+                result.Add(rs);
+                txtNameAppS.DataSource = result;
+                txtNameAppS.DataTextField = "Text";
+                txtNameAppS.DataValueField = "Value";
+                txtNameAppS.DataBind();
+            }
 
         }
         #endregion

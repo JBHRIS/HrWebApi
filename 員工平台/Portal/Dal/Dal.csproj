@@ -248,6 +248,7 @@
     <Compile Include="Dao\Share\ShareGetQuestionMainByCodeVdbDao.cs" />
     <Compile Include="Dao\Share\ShareGetQuestionMainByCompanyVdbDao.cs" />
     <Compile Include="Dao\Share\ShareGetQuestionMainByEmpIDVdbDao.cs" />
+    <Compile Include="Dao\Share\ShareGetSystemUserVdbDao.cs" />
     <Compile Include="Dao\Share\ShareGetQuestionMainVdbDao.cs" />
     <Compile Include="Dao\Share\ShareGetQuestionReplyByCodeVdbDao.cs" />
     <Compile Include="Dao\Share\ShareGetQuestionReplyByQuestionMainCodeVdbDao.cs" />

@@ -34,7 +34,8 @@ namespace Portal
                 txtDateB.SelectedDate = DateTime.Now.Date;
                 txtDateE.SelectedDate = DateTime.Now.Date;
                 lblNobrAppM.Text = _User.EmpId;
-
+                txtTimeB.Text = "0000";
+                txtTimeE.Text = "0000";
                 SetDefault();
                 SetInfoAppM();
 
@@ -168,7 +169,7 @@ namespace Portal
         private void ddlDepts_DataBind()
         {
             OldDal.Dao.Bas.DeptDao oDeptDao = new OldDal.Dao.Bas.DeptDao(dcHR.Connection);
-            var rsDept = oDeptDao.GetDept();
+            var rsDept = oDeptDao.GetDepts();
 
             ddlDepts.DataSource = rsDept;
             ddlDepts.DataTextField = "Name";
@@ -177,25 +178,44 @@ namespace Portal
         }
         public void txtNameAppS_DataBind()
         {
-            var rs = AccessData.GetPeopleByDeptTree(_User, CompanySetting);
-            var rs1 = AccessData.GetDeptListEmp(_User, CompanySetting);
-            var result = rs.Union(rs1).ToList();
-            var key = new Dictionary<string, string>();
-            foreach (var r in result.ToArray())
+            var OtOnlyShowSelf = (from c in dcFlow.FormsExtend
+                                    where c.FormsCode == "Ot" && c.Code == "OtOnlyShowSelf" && c.Active == true
+                                    select c).FirstOrDefault();
+            if (OtOnlyShowSelf == null)
             {
-                if (key.ContainsKey(r.Value))
+                var rs = AccessData.GetPeopleByDeptTree(_User, CompanySetting);
+                var rs1 = AccessData.GetDeptListEmp(_User, CompanySetting);
+                var result = rs.Union(rs1).ToList();
+                var key = new Dictionary<string, string>();
+                foreach (var r in result.ToArray())
                 {
-                    result.Remove(r);
+                    if (key.ContainsKey(r.Value))
+                    {
+                        result.Remove(r);
+                    }
+                    else
+                    {
+                        key.Add(r.Value, r.Value);
+                    }
                 }
-                else
-                {
-                    key.Add(r.Value, r.Value);
-                }
+
+                txtNameAppS.DataSource = result;
+                txtNameAppS.DataTextField = "Text";
+                txtNameAppS.DataValueField = "Value";
+                txtNameAppS.DataBind();
             }
-            txtNameAppS.DataSource = result;
-            txtNameAppS.DataTextField = "Text";
-            txtNameAppS.DataValueField = "Value";
-            txtNameAppS.DataBind();
+            else
+            {
+                var result = new List<Bll.TextValueRow>();
+                var rs = new Bll.TextValueRow();
+                rs.Text = _User.EmpName + "," + _User.EmpId;
+                rs.Value = _User.EmpId;
+                result.Add(rs);
+                txtNameAppS.DataSource = result;
+                txtNameAppS.DataTextField = "Text";
+                txtNameAppS.DataValueField = "Value";
+                txtNameAppS.DataBind();
+            }
 
         }
         #endregion
@@ -231,8 +251,8 @@ namespace Portal
 
             if (rBasS != null)
             {
-                if (ddlDepts.Items.FindItemByValue(rBasS.DeptCode) != null)
-                    ddlDepts.Items.FindItemByValue(rBasS.DeptCode).Selected = true;
+                if (ddlDepts.Items.FindItemByValue(rBasS.DeptsCode) != null)
+                    ddlDepts.Items.FindItemByValue(rBasS.DeptsCode).Selected = true;
             }
         }
         private void SetCardTime(string sNobr, DateTime dDate)
@@ -281,8 +301,8 @@ namespace Portal
         }
         private void SetTime(string sNobr, DateTime dDate)
         {
-            txtTimeB.Text = "0000";
-            txtTimeE.Text = "0000";
+            //txtTimeB.Text = "0000";
+            //txtTimeE.Text = "0000";
 
             //OldDal.Dao.Att.AttendDao oAttendDao = new OldDal.Dao.Att.AttendDao(dcHR.Connection);
             //var rAttend = oAttendDao.GetAttend(sNobr, dDate).FirstOrDefault();

@@ -61,7 +61,7 @@ namespace Flow_WebApi.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("GetQuestionMainByEmpID")]
-        public ApiResult<List<QuestionMainVdb>> GetQuestionMainByEmpID(string CompanyId, string sNobr)
+        public ApiResult<List<QuestionMainVdb>> GetQuestionMainByEmpID(string sNobr,string CompanyId="")
         {
             ApiResult<List<QuestionMainVdb>> mapiResult = new ApiResult<List<QuestionMainVdb>>();
 
@@ -118,7 +118,7 @@ namespace Flow_WebApi.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("GetQuestionMainByCompany")]
-        public ApiResult<List<QuestionMainVdb>> GetQuestionMainByCompany(string CompanyId)
+        public ApiResult<List<QuestionMainVdb>> GetQuestionMainByCompany(string CompanyId="")
         {
             ApiResult<List<QuestionMainVdb>> mapiResult = new ApiResult<List<QuestionMainVdb>>();
 

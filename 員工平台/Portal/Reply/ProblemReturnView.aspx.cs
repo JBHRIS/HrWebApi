@@ -11,6 +11,8 @@ using Telerik.Web.UI;
 using Dal.Dao.Flow;
 using System.Windows;
 using Bll.Tools;
+using Dal.Dao.Files;
+using Bll.Files.Vdb;
 
 namespace Portal
 {
@@ -26,6 +28,8 @@ namespace Portal
 
 
             }
+            UnobtrusiveSession.Session["AccessToken"] = _User.AccessToken;
+            UnobtrusiveSession.Session["RefeshToken"] = _User.RefreshToken;
         }
         private void SetUserInfo()
         {
@@ -61,7 +65,7 @@ namespace Portal
                     {
                         btnHelpful.Enabled = false;
                         btnHelpless.Enabled = false;
-
+                      
                     }
                 }
                 catch (Exception ex)
@@ -82,7 +86,7 @@ namespace Portal
 
             try
             {
-               
+
 
                 var oGetQuestionMain = new ShareGetQuestionMainByCodeDao();
                 var GetQuestionMainCond = new ShareGetQuestionMainByCodeConditions();
@@ -91,7 +95,7 @@ namespace Portal
                 GetQuestionMainCond.CompanySetting = CompanySetting;
                 GetQuestionMainCond.Code = Request.QueryString["Code"];
                 var QuestionMain = (oGetQuestionMain.GetData(GetQuestionMainCond).Data as List<ShareGetQuestionMainByCodeRow>).FirstOrDefault();
-              
+
 
                 var oGetQuestionReply = new ShareGetQuestionReplyByQuestionMainCodeDao();
                 var GetQuestionReplyCond = new ShareGetQuestionReplyByQuestionMainCodeConditions();
@@ -168,16 +172,18 @@ namespace Portal
                     btnWtReply.Disabled = true;
                     btnHelpful.Enabled = false;
                     btnHelpless.Enabled = false;
+                    btnDraft.Enabled = false;
+                    btnAdd.Enabled = false;
 
-                    foreach (var control in QuestionReplyData.Items)
-                    {
-                        var target = control.FindControl("btnReplyAdd") as RadButton;
-                        if (target != null)
-                        {
-                            target.Enabled = false;
-                        }
+                    //foreach (var control in QuestionReplyData.Items)
+                    //{
+                    //    var target = control.FindControl("btnReplyAdd") as RadButton;
+                    //    if (target != null)
+                    //    {
+                    //        target.Enabled = false;
+                    //    }
 
-                    }
+                    //}
                     var Script = "$('.btnReply').hide();";
                     ScriptManager.RegisterStartupScript(this, typeof(Button), "btnhide", Script, true);
                 }
@@ -189,6 +195,29 @@ namespace Portal
             }
         }
 
+        protected void DataUpload_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
+        {
+            var oFilesByFileTicket = new FilesByFileTicketDao();
+            var FilesByFileTicketCond = new FilesByFileTicketConditions();
+            var result = new List<FilesByFileTicketRow>();
+            FilesByFileTicketCond.AccessToken = _User.AccessToken;
+            FilesByFileTicketCond.RefreshToken = _User.RefreshToken;
+            FilesByFileTicketCond.CompanySetting = CompanySetting;
+            FilesByFileTicketCond.fileTicket = Request.QueryString["Code"];
+            var Result = oFilesByFileTicket.GetData(FilesByFileTicketCond);
+            if (Result.Status)
+            {
+                if (Result.Data != null)
+                {
+                   result = Result.Data as List<FilesByFileTicketRow>;
+                }
+            }
+            DataUpload.DataSource = result;
+        }
+        protected void DataUpload_ItemCommand(object sender, RadListViewCommandEventArgs e)
+        {
+
+        }
 
 
         protected void btnAdd_Click(object sender, EventArgs e)
@@ -273,7 +302,43 @@ namespace Portal
 
                         txtContent.Text = "";
                     }
-
+                    var oGetQuestionMain = new ShareGetQuestionMainByCodeDao();
+                    var GetQuestionMainCond = new ShareGetQuestionMainByCodeConditions();
+                    GetQuestionMainCond.Code = Request.QueryString["Code"];
+                    GetQuestionMainCond.AccessToken = _User.AccessToken;
+                    GetQuestionMainCond.RefreshToken = _User.RefreshToken;
+                    GetQuestionMainCond.CompanySetting = CompanySetting;
+                    var rsGQM = oGetQuestionMain.GetData(GetQuestionMainCond).Data as List<ShareGetQuestionMainByCodeRow>;
+                    var data = rsGQM.FirstOrDefault();
+                    var oUpdateQuestionMain = new ShareUpdateQuestionMainDao();
+                    var UpdateQuestionMainCond = new ShareUpdateQuestionMainConditions();
+                    UpdateQuestionMainCond.TargetCode = Request.QueryString["Code"];
+                    UpdateQuestionMainCond.AutoKey = 0;
+                    UpdateQuestionMainCond.AutoKey = data.AutoKey;
+                    UpdateQuestionMainCond.CompanyId = data.CompanyId;
+                    UpdateQuestionMainCond.Code = Request.QueryString["Code"];
+                    UpdateQuestionMainCond.SystemCategoryCode = data.SystemCategoryCode;
+                    UpdateQuestionMainCond.Key1 = data.Key1;
+                    UpdateQuestionMainCond.Key2 = data.Key2;
+                    UpdateQuestionMainCond.Key3 = data.Key3;
+                    UpdateQuestionMainCond.Name = data.Name;
+                    UpdateQuestionMainCond.TitleContent = data.TitleContent;
+                    UpdateQuestionMainCond.Content = data.Content;
+                    UpdateQuestionMainCond.QuestionCategoryCode = data.QuestionCategoryCode;
+                    UpdateQuestionMainCond.IpAddress = data.IpAddress;
+                    UpdateQuestionMainCond.DateE = data.DateE;
+                    UpdateQuestionMainCond.Complete = false;
+                    UpdateQuestionMainCond.Note = data.Note;
+                    UpdateQuestionMainCond.Status = data.Status;
+                    UpdateQuestionMainCond.InsertMan = data.InsertMan;
+                    UpdateQuestionMainCond.InsertDate = data.InsertDate;
+                    UpdateQuestionMainCond.UpdateMan = _User.EmpName;
+                    UpdateQuestionMainCond.UpdateDate = DateTime.Now;
+                    UpdateQuestionMainCond.AccessToken = _User.AccessToken;
+                    UpdateQuestionMainCond.RefreshToken = _User.RefreshToken;
+                    UpdateQuestionMainCond.CompanySetting = CompanySetting;
+                    UpdateQuestionMainCond.Code = Request.QueryString["Code"];
+                    oUpdateQuestionMain.GetData(UpdateQuestionMainCond);
 
                     QuestionReplyData.Rebind();
                 }
@@ -295,117 +360,160 @@ namespace Portal
         }
         protected void lvMain_ItemCommand(object sender, RadListViewCommandEventArgs e)
         {
-
-            var oInsertQuestionReply = new ShareInsertQuestionReplyDao();
-            var InsertQuestionReplyCond = new ShareInsertQuestionReplyConditions();
-            var CN = e.CommandName;
-            var CA = e.CommandArgument;
-            if (CN == "Add")
+            try
             {
-
-                InsertQuestionReplyCond.AccessToken = _User.AccessToken;
-                InsertQuestionReplyCond.RefreshToken = _User.RefreshToken;
-                InsertQuestionReplyCond.CompanySetting = CompanySetting;
-                InsertQuestionReplyCond.AutoKey = 0;
-                InsertQuestionReplyCond.Code = Guid.NewGuid().ToString();
-                InsertQuestionReplyCond.QuestionMainCode = Request.QueryString["Code"];
-                InsertQuestionReplyCond.Key1 = lblEmpID.Text;
-                InsertQuestionReplyCond.Key2 = lblEmpID.Text;
-                InsertQuestionReplyCond.Key3 = lblEmpID.Text;
-                InsertQuestionReplyCond.Name = lblEmpName.Text;
-                InsertQuestionReplyCond.Content = txtContent.Text;
-                InsertQuestionReplyCond.RoleKey = 74;
-                InsertQuestionReplyCond.IpAddress = WebPage.GetClientIP(Context);
-                InsertQuestionReplyCond.ReplyToCode = "";
-                InsertQuestionReplyCond.ParentCode = Request.QueryString["Code"];
-                InsertQuestionReplyCond.Send = true;
-                InsertQuestionReplyCond.Status = "1";
-                InsertQuestionReplyCond.Note = "";
-                InsertQuestionReplyCond.InsertMan = lblEmpName.Text;
-                InsertQuestionReplyCond.InsertDate = DateTime.Now;
-                InsertQuestionReplyCond.UpdateMan = lblEmpName.Text;
-                InsertQuestionReplyCond.UpdateDate = DateTime.Now;
-
-                oInsertQuestionReply.GetData(InsertQuestionReplyCond);
-                lblAddStatus.InnerText = "送出成功";
-                txtContent.Text = "";
-                QuestionReplyData.Rebind();
-            }
-            else if (CN == "Reply")
-            {
-
-                InsertQuestionReplyCond.AccessToken = _User.AccessToken;
-                InsertQuestionReplyCond.RefreshToken = _User.RefreshToken;
-                InsertQuestionReplyCond.CompanySetting = CompanySetting;
-                InsertQuestionReplyCond.AutoKey = 0;
-                InsertQuestionReplyCond.Code = Guid.NewGuid().ToString();
-                InsertQuestionReplyCond.QuestionMainCode = Request.QueryString["Code"];
-                InsertQuestionReplyCond.Key1 = lblEmpID.Text;
-                InsertQuestionReplyCond.Key2 = lblEmpID.Text;
-                InsertQuestionReplyCond.Key3 = lblEmpID.Text;
-                InsertQuestionReplyCond.Name = lblEmpName.Text;
-                InsertQuestionReplyCond.Content = txtContent.Text;
-                InsertQuestionReplyCond.RoleKey = 74;
-                InsertQuestionReplyCond.IpAddress = WebPage.GetClientIP(Context);
-                InsertQuestionReplyCond.ReplyToCode = "";
-                InsertQuestionReplyCond.ParentCode = CA.ToString();
-                InsertQuestionReplyCond.Send = true;
-                InsertQuestionReplyCond.Status = "1";
-                InsertQuestionReplyCond.Note = "";
-                InsertQuestionReplyCond.InsertMan = lblEmpName.Text;
-                InsertQuestionReplyCond.InsertDate = DateTime.Now;
-                InsertQuestionReplyCond.UpdateMan = lblEmpName.Text;
-                InsertQuestionReplyCond.UpdateDate = DateTime.Now;
-
-                oInsertQuestionReply.GetData(InsertQuestionReplyCond);
-                QuestionReplyData.Rebind();
-
-            }
-            else if (CN == "ReplyAdd")//留言回覆
-            {
-
-                var oGetQuestionReplyByParentCode = new ShareGetQuestionReplyByCodeDao();
-                var GetQuestionReplyByParentCodeCond = new ShareGetQuestionReplyByCodeConditions();
-                GetQuestionReplyByParentCodeCond.Code = CA.ToString();
-                var rsQRBP = (oGetQuestionReplyByParentCode.GetData(GetQuestionReplyByParentCodeCond).Data as List<ShareGetQuestionReplyByCodeRow>).FirstOrDefault();
-
-                string content = "";
-                RadTextBox txt = new RadTextBox();
-                foreach (var control in QuestionReplyData.Items)
+                var oInsertQuestionReply = new ShareInsertQuestionReplyDao();
+                var InsertQuestionReplyCond = new ShareInsertQuestionReplyConditions();
+                var CN = e.CommandName;
+                var CA = e.CommandArgument;
+                if (CN == "Add")
                 {
-                    if (e.ListViewItem.ClientID == control.ClientID)
-                    {
-                        txt = control.FindControl("txtReply") as RadTextBox;
-                        content = txt.Text;
-                    }
+
+                    InsertQuestionReplyCond.AccessToken = _User.AccessToken;
+                    InsertQuestionReplyCond.RefreshToken = _User.RefreshToken;
+                    InsertQuestionReplyCond.CompanySetting = CompanySetting;
+                    InsertQuestionReplyCond.AutoKey = 0;
+                    InsertQuestionReplyCond.Code = Guid.NewGuid().ToString();
+                    InsertQuestionReplyCond.QuestionMainCode = Request.QueryString["Code"];
+                    InsertQuestionReplyCond.Key1 = lblEmpID.Text;
+                    InsertQuestionReplyCond.Key2 = lblEmpID.Text;
+                    InsertQuestionReplyCond.Key3 = lblEmpID.Text;
+                    InsertQuestionReplyCond.Name = lblEmpName.Text;
+                    InsertQuestionReplyCond.Content = txtContent.Text;
+                    InsertQuestionReplyCond.RoleKey = 74;
+                    InsertQuestionReplyCond.IpAddress = WebPage.GetClientIP(Context);
+                    InsertQuestionReplyCond.ReplyToCode = "";
+                    InsertQuestionReplyCond.ParentCode = Request.QueryString["Code"];
+                    InsertQuestionReplyCond.Send = true;
+                    InsertQuestionReplyCond.Status = "1";
+                    InsertQuestionReplyCond.Note = "";
+                    InsertQuestionReplyCond.InsertMan = lblEmpName.Text;
+                    InsertQuestionReplyCond.InsertDate = DateTime.Now;
+                    InsertQuestionReplyCond.UpdateMan = lblEmpName.Text;
+                    InsertQuestionReplyCond.UpdateDate = DateTime.Now;
+
+                    oInsertQuestionReply.GetData(InsertQuestionReplyCond);
+                    lblAddStatus.InnerText = "送出成功";
+                    txtContent.Text = "";
+                    QuestionReplyData.Rebind();
                 }
-                InsertQuestionReplyCond.AccessToken = _User.AccessToken;
-                InsertQuestionReplyCond.RefreshToken = _User.RefreshToken;
-                InsertQuestionReplyCond.CompanySetting = CompanySetting;
-                InsertQuestionReplyCond.AutoKey = 0;
-                InsertQuestionReplyCond.Code = Guid.NewGuid().ToString();
-                InsertQuestionReplyCond.QuestionMainCode = Request.QueryString["Code"];
-                InsertQuestionReplyCond.Key1 = lblEmpID.Text;
-                InsertQuestionReplyCond.Key2 = lblEmpID.Text;
-                InsertQuestionReplyCond.Key3 = lblEmpID.Text;
-                InsertQuestionReplyCond.Name = lblEmpName.Text;
-                InsertQuestionReplyCond.Content = content;
-                InsertQuestionReplyCond.RoleKey = rsQRBP.RoleKey;
-                InsertQuestionReplyCond.IpAddress = WebPage.GetClientIP(Context);
-                InsertQuestionReplyCond.ReplyToCode = "";
-                InsertQuestionReplyCond.ParentCode = CA.ToString();
-                InsertQuestionReplyCond.Send = true;
-                InsertQuestionReplyCond.Status = "1";
-                InsertQuestionReplyCond.Note = "";
-                InsertQuestionReplyCond.InsertMan = lblEmpName.Text;
-                InsertQuestionReplyCond.InsertDate = DateTime.Now;
-                InsertQuestionReplyCond.UpdateMan = lblEmpName.Text;
-                InsertQuestionReplyCond.UpdateDate = DateTime.Now;
+                else if (CN == "Reply")
+                {
 
-                oInsertQuestionReply.GetData(InsertQuestionReplyCond);
-                QuestionReplyData.Rebind();
+                    InsertQuestionReplyCond.AccessToken = _User.AccessToken;
+                    InsertQuestionReplyCond.RefreshToken = _User.RefreshToken;
+                    InsertQuestionReplyCond.CompanySetting = CompanySetting;
+                    InsertQuestionReplyCond.AutoKey = 0;
+                    InsertQuestionReplyCond.Code = Guid.NewGuid().ToString();
+                    InsertQuestionReplyCond.QuestionMainCode = Request.QueryString["Code"];
+                    InsertQuestionReplyCond.Key1 = lblEmpID.Text;
+                    InsertQuestionReplyCond.Key2 = lblEmpID.Text;
+                    InsertQuestionReplyCond.Key3 = lblEmpID.Text;
+                    InsertQuestionReplyCond.Name = lblEmpName.Text;
+                    InsertQuestionReplyCond.Content = txtContent.Text;
+                    InsertQuestionReplyCond.RoleKey = 74;
+                    InsertQuestionReplyCond.IpAddress = WebPage.GetClientIP(Context);
+                    InsertQuestionReplyCond.ReplyToCode = "";
+                    InsertQuestionReplyCond.ParentCode = CA.ToString();
+                    InsertQuestionReplyCond.Send = true;
+                    InsertQuestionReplyCond.Status = "1";
+                    InsertQuestionReplyCond.Note = "";
+                    InsertQuestionReplyCond.InsertMan = lblEmpName.Text;
+                    InsertQuestionReplyCond.InsertDate = DateTime.Now;
+                    InsertQuestionReplyCond.UpdateMan = lblEmpName.Text;
+                    InsertQuestionReplyCond.UpdateDate = DateTime.Now;
+
+                    oInsertQuestionReply.GetData(InsertQuestionReplyCond);
+                    QuestionReplyData.Rebind();
+
+                }
+                else if (CN == "ReplyAdd")//留言回覆
+                {
+
+                    var oGetQuestionReplyByParentCode = new ShareGetQuestionReplyByCodeDao();
+                    var GetQuestionReplyByParentCodeCond = new ShareGetQuestionReplyByCodeConditions();
+                    GetQuestionReplyByParentCodeCond.Code = CA.ToString();
+                    var rsQRBP = (oGetQuestionReplyByParentCode.GetData(GetQuestionReplyByParentCodeCond).Data as List<ShareGetQuestionReplyByCodeRow>).FirstOrDefault();
+
+                    string content = "";
+                    RadTextBox txt = new RadTextBox();
+                    foreach (var control in QuestionReplyData.Items)
+                    {
+                        if (e.ListViewItem.ClientID == control.ClientID)
+                        {
+                            txt = control.FindControl("txtReply") as RadTextBox;
+                            content = txt.Text;
+                        }
+                    }
+                    InsertQuestionReplyCond.AccessToken = _User.AccessToken;
+                    InsertQuestionReplyCond.RefreshToken = _User.RefreshToken;
+                    InsertQuestionReplyCond.CompanySetting = CompanySetting;
+                    InsertQuestionReplyCond.AutoKey = 0;
+                    InsertQuestionReplyCond.Code = Guid.NewGuid().ToString();
+                    InsertQuestionReplyCond.QuestionMainCode = Request.QueryString["Code"];
+                    InsertQuestionReplyCond.Key1 = lblEmpID.Text;
+                    InsertQuestionReplyCond.Key2 = lblEmpID.Text;
+                    InsertQuestionReplyCond.Key3 = lblEmpID.Text;
+                    InsertQuestionReplyCond.Name = lblEmpName.Text;
+                    InsertQuestionReplyCond.Content = content;
+                    InsertQuestionReplyCond.RoleKey = rsQRBP.RoleKey;
+                    InsertQuestionReplyCond.IpAddress = WebPage.GetClientIP(Context);
+                    InsertQuestionReplyCond.ReplyToCode = "";
+                    InsertQuestionReplyCond.ParentCode = CA.ToString();
+                    InsertQuestionReplyCond.Send = true;
+                    InsertQuestionReplyCond.Status = "1";
+                    InsertQuestionReplyCond.Note = "";
+                    InsertQuestionReplyCond.InsertMan = lblEmpName.Text;
+                    InsertQuestionReplyCond.InsertDate = DateTime.Now;
+                    InsertQuestionReplyCond.UpdateMan = lblEmpName.Text;
+                    InsertQuestionReplyCond.UpdateDate = DateTime.Now;
+
+                    oInsertQuestionReply.GetData(InsertQuestionReplyCond);
+                    QuestionReplyData.Rebind();
+                }
+                var oGetQuestionMain = new ShareGetQuestionMainByCodeDao();
+                var GetQuestionMainCond = new ShareGetQuestionMainByCodeConditions();
+                GetQuestionMainCond.Code = Request.QueryString["Code"];
+                GetQuestionMainCond.AccessToken = _User.AccessToken;
+                GetQuestionMainCond.RefreshToken = _User.RefreshToken;
+                GetQuestionMainCond.CompanySetting = CompanySetting;
+                var rsGQM = oGetQuestionMain.GetData(GetQuestionMainCond).Data as List<ShareGetQuestionMainByCodeRow>;
+                var data = rsGQM.FirstOrDefault();
+                var oUpdateQuestionMain = new ShareUpdateQuestionMainDao();
+                var UpdateQuestionMainCond = new ShareUpdateQuestionMainConditions();
+                UpdateQuestionMainCond.TargetCode = Request.QueryString["Code"];
+                UpdateQuestionMainCond.AutoKey = 0;
+                UpdateQuestionMainCond.AutoKey = data.AutoKey;
+                UpdateQuestionMainCond.CompanyId = data.CompanyId;
+                UpdateQuestionMainCond.Code = Request.QueryString["Code"];
+                UpdateQuestionMainCond.SystemCategoryCode = data.SystemCategoryCode;
+                UpdateQuestionMainCond.Key1 = data.Key1;
+                UpdateQuestionMainCond.Key2 = data.Key2;
+                UpdateQuestionMainCond.Key3 = data.Key3;
+                UpdateQuestionMainCond.Name = data.Name;
+                UpdateQuestionMainCond.TitleContent = data.TitleContent;
+                UpdateQuestionMainCond.Content = data.Content;
+                UpdateQuestionMainCond.QuestionCategoryCode = data.QuestionCategoryCode;
+                UpdateQuestionMainCond.IpAddress = data.IpAddress;
+                UpdateQuestionMainCond.DateE = data.DateE;
+                UpdateQuestionMainCond.Complete = false;
+                UpdateQuestionMainCond.Note = data.Note;
+                UpdateQuestionMainCond.Status = data.Status;
+                UpdateQuestionMainCond.InsertMan = data.InsertMan;
+                UpdateQuestionMainCond.InsertDate = data.InsertDate;
+                UpdateQuestionMainCond.UpdateMan = _User.EmpName;
+                UpdateQuestionMainCond.UpdateDate = DateTime.Now;
+                UpdateQuestionMainCond.AccessToken = _User.AccessToken;
+                UpdateQuestionMainCond.RefreshToken = _User.RefreshToken;
+                UpdateQuestionMainCond.CompanySetting = CompanySetting;
+                UpdateQuestionMainCond.Code = Request.QueryString["Code"];
+                oUpdateQuestionMain.GetData(UpdateQuestionMainCond);
             }
-
+            catch(Exception ex)
+            { 
+            
+            }
+         
         }
 
         protected void btnReply_Click(object sender, EventArgs e)
@@ -439,19 +547,62 @@ namespace Portal
             InsertQuestionReplyCond.InsertDate = DateTime.Now;
             InsertQuestionReplyCond.UpdateMan = lblEmpName.Text;
             InsertQuestionReplyCond.UpdateDate = DateTime.Now;
-
             oInsertQuestionReply.GetData(InsertQuestionReplyCond);
-            QuestionReplyData.Rebind();
-        }
-
-        protected void btnHelpful_Click(object sender, EventArgs e)
-        {
             var oGetQuestionMain = new ShareGetQuestionMainByCodeDao();
             var GetQuestionMainCond = new ShareGetQuestionMainByCodeConditions();
             GetQuestionMainCond.Code = Request.QueryString["Code"];
             GetQuestionMainCond.AccessToken = _User.AccessToken;
             GetQuestionMainCond.RefreshToken = _User.RefreshToken;
-            GetQuestionMainCond.CompanySetting = CompanySetting;         
+            GetQuestionMainCond.CompanySetting = CompanySetting;
+            var rsGQM = oGetQuestionMain.GetData(GetQuestionMainCond).Data as List<ShareGetQuestionMainByCodeRow>;
+            var data = rsGQM.FirstOrDefault();
+            var oUpdateQuestionMain = new ShareUpdateQuestionMainDao();
+            var UpdateQuestionMainCond = new ShareUpdateQuestionMainConditions();
+            UpdateQuestionMainCond.TargetCode = Request.QueryString["Code"];
+            UpdateQuestionMainCond.AutoKey = 0;
+            UpdateQuestionMainCond.AutoKey = data.AutoKey;
+            UpdateQuestionMainCond.CompanyId = data.CompanyId;
+            UpdateQuestionMainCond.Code = Request.QueryString["Code"];
+            UpdateQuestionMainCond.SystemCategoryCode = data.SystemCategoryCode;
+            UpdateQuestionMainCond.Key1 = data.Key1;
+            UpdateQuestionMainCond.Key2 = data.Key2;
+            UpdateQuestionMainCond.Key3 = data.Key3;
+            UpdateQuestionMainCond.Name = data.Name;
+            UpdateQuestionMainCond.TitleContent = data.TitleContent;
+            UpdateQuestionMainCond.Content = data.Content;
+            UpdateQuestionMainCond.QuestionCategoryCode = data.QuestionCategoryCode;
+            UpdateQuestionMainCond.IpAddress = data.IpAddress;
+            UpdateQuestionMainCond.DateE = data.DateE;
+            UpdateQuestionMainCond.Complete = false;
+            UpdateQuestionMainCond.Note = data.Note;
+            UpdateQuestionMainCond.Status = data.Status;
+            UpdateQuestionMainCond.InsertMan = data.InsertMan;
+            UpdateQuestionMainCond.InsertDate = data.InsertDate;
+            UpdateQuestionMainCond.UpdateMan = _User.EmpName;
+            UpdateQuestionMainCond.UpdateDate = DateTime.Now;
+            UpdateQuestionMainCond.AccessToken = _User.AccessToken;
+            UpdateQuestionMainCond.RefreshToken = _User.RefreshToken;
+            UpdateQuestionMainCond.CompanySetting = CompanySetting;
+            UpdateQuestionMainCond.Code = Request.QueryString["Code"];
+
+            oUpdateQuestionMain.GetData(UpdateQuestionMainCond);
+
+            oUpdateQuestionMain.GetData(UpdateQuestionMainCond);
+            QuestionReplyData.Rebind();
+        }
+
+        protected void btnHelpful_Click(object sender, EventArgs e)
+        {
+            btnHelpful.Enabled = false;
+            btnHelpless.Enabled = false;
+            btnDraft.Enabled = false;
+            btnAdd.Enabled = false;
+            var oGetQuestionMain = new ShareGetQuestionMainByCodeDao();
+            var GetQuestionMainCond = new ShareGetQuestionMainByCodeConditions();
+            GetQuestionMainCond.Code = Request.QueryString["Code"];
+            GetQuestionMainCond.AccessToken = _User.AccessToken;
+            GetQuestionMainCond.RefreshToken = _User.RefreshToken;
+            GetQuestionMainCond.CompanySetting = CompanySetting;
             var rsGQM = oGetQuestionMain.GetData(GetQuestionMainCond).Data as List<ShareGetQuestionMainByCodeRow>;
             var data = rsGQM.FirstOrDefault();
             var oUpdateQuestionMain = new ShareUpdateQuestionMainDao();
@@ -481,14 +632,13 @@ namespace Portal
             UpdateQuestionMainCond.AccessToken = _User.AccessToken;
             UpdateQuestionMainCond.RefreshToken = _User.RefreshToken;
             UpdateQuestionMainCond.CompanySetting = CompanySetting;
-            UpdateQuestionMainCond.Code= Request.QueryString["Code"];
-                  
+            UpdateQuestionMainCond.Code = Request.QueryString["Code"];
+
             oUpdateQuestionMain.GetData(UpdateQuestionMainCond);
 
             pCompleteStatus.Style.Remove("display");
-            btnHelpful.Enabled = false;
-            btnHelpless.Enabled = false;
-            
+           
+
             foreach (var control in QuestionReplyData.Items)
             {
                 var target = control.FindControl("btnReplyAdd") as RadButton;
@@ -500,7 +650,7 @@ namespace Portal
             }
             var Script = "$('.btnReply').hide();";
             ScriptManager.RegisterStartupScript(this, typeof(Button), "btnhide", Script, true);
-
+           
         }
 
     }

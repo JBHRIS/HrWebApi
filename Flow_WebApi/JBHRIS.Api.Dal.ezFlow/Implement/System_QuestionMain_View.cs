@@ -48,9 +48,9 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                                                 Note = bn.Note,
                                                 Status = bn.Status,
                                                 InsertMan = bn.InsertMan,
-                                                InsertDate = bn.InsertDate ?? new DateTime(),
+                                                InsertDate = bn.InsertDate.Value.ToString("yyyy-MM-dd HH:mm:ss"),
                                                 UpdateMan = bn.UpdateMan,
-                                                UpdateDate = bn.UpdateDate ?? new DateTime(),
+                                                UpdateDate = bn.UpdateDate.Value.ToString("yyyy-MM-dd HH:mm:ss"),
                                             }).ToList();
 
 
@@ -88,9 +88,9 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                                                 Note = bn.Note,
                                                 Status = bn.Status,
                                                 InsertMan = bn.InsertMan,
-                                                InsertDate = bn.InsertDate ?? new DateTime(),
+                                                InsertDate = bn.InsertDate.Value.ToString("yyyy-MM-dd HH:mm:ss"),
                                                 UpdateMan = bn.UpdateMan,
-                                                UpdateDate = bn.UpdateDate ?? new DateTime(),
+                                                UpdateDate = bn.UpdateDate.Value.ToString("yyyy-MM-dd HH:mm:ss"),
                                             }).ToList();
 
 
@@ -128,9 +128,9 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                                                 Note = bn.Note,
                                                 Status = bn.Status,
                                                 InsertMan = bn.InsertMan,
-                                                InsertDate = bn.InsertDate ?? new DateTime(),
+                                                InsertDate = bn.InsertDate.Value.ToString("yyyy-MM-dd HH:mm:ss"),
                                                 UpdateMan = bn.UpdateMan,
-                                                UpdateDate = bn.UpdateDate ?? new DateTime(),
+                                                UpdateDate = bn.UpdateDate.Value.ToString("yyyy-MM-dd HH:mm:ss"),
                                             }).ToList();
 
 
@@ -171,9 +171,9 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                                                           Note = bn.Note,
                                                           Status = bn.Status,
                                                           InsertMan = bn.InsertMan,
-                                                          InsertDate = bn.InsertDate ?? new DateTime(),
+                                                          InsertDate = bn.InsertDate.Value.ToString("yyyy-MM-dd HH:mm:ss"),
                                                           UpdateMan = bn.UpdateMan,
-                                                          UpdateDate = bn.UpdateDate ?? new DateTime(),
+                                                          UpdateDate = bn.UpdateDate.Value.ToString("yyyy-MM-dd HH:mm:ss"),
                                                       }).ToList();
             
 
@@ -214,9 +214,9 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                 newQuestionMain.Note = vdb.Note;
                 newQuestionMain.Status = vdb.Status;
                 newQuestionMain.InsertMan = vdb.InsertMan;
-                newQuestionMain.InsertDate = vdb.InsertDate;
+                newQuestionMain.InsertDate = DateTime.Parse(vdb.InsertDate);
                 newQuestionMain.UpdateMan = vdb.UpdateMan;
-                newQuestionMain.UpdateDate = vdb.UpdateDate;
+                newQuestionMain.UpdateDate = Convert.ToDateTime(vdb.UpdateDate);
                 _context.QuestionMains.Add(newQuestionMain);
                 _context.SaveChanges();
                 result = true;
@@ -254,9 +254,9 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                                                                           Note = vdb.Note,
                                                                           Status = vdb.Status,
                                                                           InsertMan = vdb.InsertMan,
-                                                                          InsertDate = vdb.InsertDate,
+                                                                          InsertDate = Convert.ToDateTime(vdb.InsertDate),
                                                                           UpdateMan = vdb.UpdateMan,
-                                                                          UpdateDate = vdb.UpdateDate,
+                                                                          UpdateDate = Convert.ToDateTime(vdb.UpdateDate),
                                                                       }).ToList();
 
             try
@@ -306,9 +306,9 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                                                           Note = bn.Note,
                                                           Status = bn.Status,
                                                           InsertMan = bn.InsertMan,
-                                                          InsertDate = bn.InsertDate ?? new DateTime(),
+                                                          InsertDate = Convert.ToDateTime(bn.InsertDate),
                                                           UpdateMan = bn.UpdateMan,
-                                                          UpdateDate = bn.UpdateDate ?? new DateTime(),
+                                                          UpdateDate = Convert.ToDateTime(bn.UpdateDate),
                                                       }).ToList();
 
             try

@@ -43,17 +43,17 @@ namespace Portal
                 SetRoteTime(lblNobrAppM.Text, DateTime.Now.Date);
             }
 
-            //var IsNeedAgentExtend = (from c in dcFlow.FormsExtend
-            //                         where c.FormsCode == "Abs" && c.Code == "IsNeedAgent" && c.Active == true
-            //                         select c).ToList();
+            var IsNeedAgentExtend = (from c in dcFlow.FormsExtend
+                                     where c.FormsCode == "Abs" && c.Code == "IsNeedAgent" && c.Active == true
+                                     select c).FirstOrDefault();
 
-            //if (IsNeedAgentExtend.Any())
-            //{
-            //    plAgent.Visible = false;
-            //    plName.CssClass = "col-md-6";
-            //    txtAgent.Text = "";
-            //    lblNobrAgent1.Text = "";
-            //}
+            if (IsNeedAgentExtend != null && IsNeedAgentExtend.Column1 == "1")
+            {
+                plAgent.Visible = false;
+                plName.CssClass = "col-md-6";
+                txtAgent.Text = "";
+                lblNobrAgent1.Text = "";
+            }
 
             //ScriptManager.GetCurrent(this.Page).RegisterPostBackControl(UploadQS);
         }
@@ -140,25 +140,44 @@ namespace Portal
         }
         public void txtNameAppS_DataBind()
         {
-            var rs = AccessData.GetPeopleByDeptTree(_User, CompanySetting);
-            var rs1 = AccessData.GetDeptListEmp(_User, CompanySetting);
-            var result = rs.Union(rs1).ToList();
-            var key = new Dictionary<string, string>();
-            foreach (var r in result.ToArray())
+            var AbsOnlyShowSelf = (from c in dcFlow.FormsExtend
+                                   where c.FormsCode == "Abs" && c.Code == "AbsOnlyShowSelf" && c.Active == true
+                                   select c).FirstOrDefault();
+            if (AbsOnlyShowSelf == null)
             {
-                if (key.ContainsKey(r.Value))
+                var rs = AccessData.GetPeopleByDeptTree(_User, CompanySetting);
+                var rs1 = AccessData.GetDeptListEmp(_User, CompanySetting);
+                var result = rs.Union(rs1).ToList();
+                var key = new Dictionary<string, string>();
+                foreach (var r in result.ToArray())
                 {
-                    result.Remove(r);
+                    if (key.ContainsKey(r.Value))
+                    {
+                        result.Remove(r);
+                    }
+                    else
+                    {
+                        key.Add(r.Value, r.Value);
+                    }
                 }
-                else
-                {
-                    key.Add(r.Value, r.Value);
-                }
+
+                txtNameAppS.DataSource = result;
+                txtNameAppS.DataTextField = "Text";
+                txtNameAppS.DataValueField = "Value";
+                txtNameAppS.DataBind();
             }
-            txtNameAppS.DataSource = result;
-            txtNameAppS.DataTextField = "Text";
-            txtNameAppS.DataValueField = "Value";
-            txtNameAppS.DataBind();
+            else
+            {
+                var result = new List<Bll.TextValueRow>();
+                var rs = new Bll.TextValueRow();
+                rs.Text = _User.EmpName + "," + _User.EmpId;
+                rs.Value = _User.EmpId;
+                result.Add(rs);
+                txtNameAppS.DataSource = result;
+                txtNameAppS.DataTextField = "Text";
+                txtNameAppS.DataValueField = "Value";
+                txtNameAppS.DataBind();
+            }
         }
         private void txtNameAgent_DataBind()
         {
@@ -230,6 +249,12 @@ namespace Portal
                 if (rRote != null)
                 {
                     txtTimeB.Text = rRote.OnTime;
+
+                    //if (rRote.OnTime.CompareTo("2400") >= 0)
+                    //{
+                    //    txtDateB.SelectedDate = txtDateB.SelectedDate.Value.AddDays(1);
+                    //    txtTimeB.Text = (Convert.ToInt32(rRote.OnTime) - 2400).ToString("0000");
+                    //}
 
                     if (rRote.OffTime.CompareTo("2400") >= 0)
                     {
@@ -501,6 +526,7 @@ namespace Portal
 
                 OldDal.Dao.Att.AttendDao oAttendDao = new OldDal.Dao.Att.AttendDao(dcHR.Connection);
                 var rAttendDate = oAttendDao.GetAttendH(Nobr, DateB).FirstOrDefault();
+                var rAttend = oAttendDao.GetAttend(Nobr, DateB).FirstOrDefault();
                 if (rAttendDate == null)
                 {
                     lblMsg.Text = "出勤資料錯誤，請洽人事單位";
@@ -535,7 +561,8 @@ namespace Portal
                     lblMsg.Text = "人事資料重複";
                     return;
                 }
-                var Calculate = oAbsDao.GetCalculate(Nobr, Hcode, DateB, DateE, TimeB, TimeE, true, true, 0, false, "", true);
+
+                var Calculate = oAbsDao.GetCalculate(Nobr, Hcode, DateB, DateE, TimeB, TimeE, true, true, 0, false, rAttend.RoteCode, true);
 
                 if (Calculate.TotalUse <= 0)
                 {
