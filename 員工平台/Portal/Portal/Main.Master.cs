@@ -49,7 +49,7 @@ namespace Portal
                     dcFlow.Connection.ConnectionString = CompanySetting.ConnFlow;
                 }
             }
-            Reply_Click();
+            //Reply_Click();
 
             DateTime Begin = DateTime.Now;
             if (!this.IsPostBack)

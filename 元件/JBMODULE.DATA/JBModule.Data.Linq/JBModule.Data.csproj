@@ -62,9 +62,8 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Standard\JBHRIS\JBHRIS.BLL\JBHRIS.BLL\bin\Debug\Dapper.dll</HintPath>
+    <Reference Include="Dapper, Version=1.50.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\員工平台\Portal\packages\Dapper.1.50.0\lib\net40\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.JScript" />
@@ -271,19 +270,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Standard\JBHRIS\JBHRIS.BLL\JBHRIS.BLL\JBHRIS.BLL.csproj">
+    <ProjectReference Include="..\..\..\..\Standard\JBHRIS\JBHRIS.BLL\JBHRIS.BLL\JBHRIS.BLL.csproj">
       <Project>{18b233b7-6c64-4257-b2b3-945606e97187}</Project>
       <Name>JBHRIS.BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\Standard\JBMODULE.MESSAGE\JBModule.Message.csproj">
+    <ProjectReference Include="..\..\..\..\Standard\JBMODULE.MESSAGE\JBModule.Message.csproj">
       <Project>{b94796b3-cedb-4083-95ad-e94ec30d15d5}</Project>
       <Name>JBModule.Message</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\Standard\JBModule\JBModule\JBModule.csproj">
+    <ProjectReference Include="..\..\..\..\Standard\JBModule\JBModule\JBModule.csproj">
       <Project>{dbe7bf84-0030-418d-981d-30d7c4f6ff3a}</Project>
       <Name>JBModule</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\Standard\JBTools\JBTools.csproj">
+    <ProjectReference Include="..\..\..\..\Standard\JBTools\JBTools.csproj">
       <Project>{9a891671-4fc7-4ddf-a21d-21e3d563cee6}</Project>
       <Name>JBTools</Name>
     </ProjectReference>
