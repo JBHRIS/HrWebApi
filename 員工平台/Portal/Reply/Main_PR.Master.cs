@@ -17,6 +17,10 @@ namespace Portal
                 
             }
             Page.PreRenderComplete += Page_PreRenderComplete;
+            if (_User.RoleKey == 64)
+            {
+                ProblemReturnListM.Visible = false;
+            }
         }
         private void Page_PreRenderComplete(object sender, EventArgs e)
         {

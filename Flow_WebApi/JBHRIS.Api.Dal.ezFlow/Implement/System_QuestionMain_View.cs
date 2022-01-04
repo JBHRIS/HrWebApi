@@ -21,10 +21,13 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
         }
 
 
-        public List<QuestionMainVdb> GetQuestionMain(string User,string CompanyId,string sNobr)
+        public List<QuestionMainVdb> GetQuestionMain()
         {
 
             List<QuestionMainVdb> result = (from bn in this._context.QuestionMains
+                                            join cn in this._context.ShareCodes on bn.QuestionCategoryCode equals cn.Code into ps
+                                            from cn in ps.DefaultIfEmpty()
+                                            where cn.GroupCode == "ReplyCode"
                                             select new QuestionMainVdb
                                             {
                                                 AutoKey = bn.AutoKey,
@@ -38,15 +41,16 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                                                 TitleContent = bn.TitleContent,
                                                 Content = bn.Content,
                                                 QuestionCategoryCode = bn.QuestionCategoryCode,
+                                                QuestionCategoryName = cn.Name,
                                                 IpAddress = bn.IpAddress,
                                                 DateE = bn.DateE,
                                                 Complete = bn.Complete,
                                                 Note = bn.Note,
                                                 Status = bn.Status,
                                                 InsertMan = bn.InsertMan,
-                                                InsertDate = bn.InsertDate ?? new DateTime(),
+                                                InsertDate = bn.InsertDate.Value.ToString("yyyy-MM-dd HH:mm:ss"),
                                                 UpdateMan = bn.UpdateMan,
-                                                UpdateDate = bn.UpdateDate ?? new DateTime(),
+                                                UpdateDate = bn.UpdateDate.Value.ToString("yyyy-MM-dd HH:mm:ss"),
                                             }).ToList();
 
 
@@ -60,8 +64,10 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
         {
 
             List<QuestionMainVdb> result = (from bn in this._context.QuestionMains
+                                            join cn in this._context.ShareCodes on bn.QuestionCategoryCode equals cn.Code into ps
+                                            from cn in ps.DefaultIfEmpty()
                                             where bn.CompanyId==CompanyId
-                                            && bn.Key1==sNobr
+                                            && bn.Key1==sNobr&&cn.GroupCode=="ReplyCode"
                                             select new QuestionMainVdb
                                             {
                                                 AutoKey = bn.AutoKey,
@@ -75,15 +81,16 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                                                 TitleContent = bn.TitleContent,
                                                 Content = bn.Content,
                                                 QuestionCategoryCode = bn.QuestionCategoryCode,
+                                                QuestionCategoryName = cn.Name,
                                                 IpAddress = bn.IpAddress,
                                                 DateE = bn.DateE,
                                                 Complete = bn.Complete,
                                                 Note = bn.Note,
                                                 Status = bn.Status,
                                                 InsertMan = bn.InsertMan,
-                                                InsertDate = bn.InsertDate ?? new DateTime(),
+                                                InsertDate = bn.InsertDate.Value.ToString("yyyy-MM-dd HH:mm:ss"),
                                                 UpdateMan = bn.UpdateMan,
-                                                UpdateDate = bn.UpdateDate ?? new DateTime(),
+                                                UpdateDate = bn.UpdateDate.Value.ToString("yyyy-MM-dd HH:mm:ss"),
                                             }).ToList();
 
 
@@ -121,9 +128,9 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                                                 Note = bn.Note,
                                                 Status = bn.Status,
                                                 InsertMan = bn.InsertMan,
-                                                InsertDate = bn.InsertDate ?? new DateTime(),
+                                                InsertDate = bn.InsertDate.Value.ToString("yyyy-MM-dd HH:mm:ss"),
                                                 UpdateMan = bn.UpdateMan,
-                                                UpdateDate = bn.UpdateDate ?? new DateTime(),
+                                                UpdateDate = bn.UpdateDate.Value.ToString("yyyy-MM-dd HH:mm:ss"),
                                             }).ToList();
 
 
@@ -142,8 +149,9 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
         {
 
             List<QuestionMainVdb> result = (from bn in this._context.QuestionMains
-                                                      where bn.Code == Code
-                                                      select new QuestionMainVdb
+                                            join cn in this._context.ShareCodes on bn.QuestionCategoryCode equals cn.Code
+                                            where bn.Code == Code && cn.GroupCode == "ReplyCode"
+                                            select new QuestionMainVdb
                                                       {
                                                           AutoKey = bn.AutoKey,
                                                           CompanyId = bn.CompanyId,
@@ -156,15 +164,16 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                                                           TitleContent=bn.TitleContent,
                                                           Content = bn.Content,
                                                           QuestionCategoryCode = bn.QuestionCategoryCode,
+                                                          QuestionCategoryName = cn.Name,
                                                           IpAddress = bn.IpAddress,
                                                           DateE = bn.DateE,
                                                           Complete = bn.Complete,                                                          
                                                           Note = bn.Note,
                                                           Status = bn.Status,
                                                           InsertMan = bn.InsertMan,
-                                                          InsertDate = bn.InsertDate ?? new DateTime(),
+                                                          InsertDate = bn.InsertDate.Value.ToString("yyyy-MM-dd HH:mm:ss"),
                                                           UpdateMan = bn.UpdateMan,
-                                                          UpdateDate = bn.UpdateDate ?? new DateTime(),
+                                                          UpdateDate = bn.UpdateDate.Value.ToString("yyyy-MM-dd HH:mm:ss"),
                                                       }).ToList();
             
 
@@ -205,9 +214,9 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                 newQuestionMain.Note = vdb.Note;
                 newQuestionMain.Status = vdb.Status;
                 newQuestionMain.InsertMan = vdb.InsertMan;
-                newQuestionMain.InsertDate = vdb.InsertDate;
+                newQuestionMain.InsertDate = DateTime.Parse(vdb.InsertDate);
                 newQuestionMain.UpdateMan = vdb.UpdateMan;
-                newQuestionMain.UpdateDate = vdb.UpdateDate;
+                newQuestionMain.UpdateDate = Convert.ToDateTime(vdb.UpdateDate);
                 _context.QuestionMains.Add(newQuestionMain);
                 _context.SaveChanges();
                 result = true;
@@ -245,9 +254,9 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                                                                           Note = vdb.Note,
                                                                           Status = vdb.Status,
                                                                           InsertMan = vdb.InsertMan,
-                                                                          InsertDate = vdb.InsertDate,
+                                                                          InsertDate = Convert.ToDateTime(vdb.InsertDate),
                                                                           UpdateMan = vdb.UpdateMan,
-                                                                          UpdateDate = vdb.UpdateDate,
+                                                                          UpdateDate = Convert.ToDateTime(vdb.UpdateDate),
                                                                       }).ToList();
 
             try
@@ -297,9 +306,9 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                                                           Note = bn.Note,
                                                           Status = bn.Status,
                                                           InsertMan = bn.InsertMan,
-                                                          InsertDate = bn.InsertDate ?? new DateTime(),
+                                                          InsertDate = Convert.ToDateTime(bn.InsertDate),
                                                           UpdateMan = bn.UpdateMan,
-                                                          UpdateDate = bn.UpdateDate ?? new DateTime(),
+                                                          UpdateDate = Convert.ToDateTime(bn.UpdateDate),
                                                       }).ToList();
 
             try

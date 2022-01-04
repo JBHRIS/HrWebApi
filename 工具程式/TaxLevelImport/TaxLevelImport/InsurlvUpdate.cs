@@ -50,5 +50,43 @@ namespace TaxLevelImport
             }
             return true;
         }
+
+        /// <summary>
+        /// 如果無此級距就新增投保級距
+        /// </summary>
+        /// <returns></returns>
+        public bool addNewInsurlv(decimal SUPPLEMIN,double EFF_RATE,string updateYear)
+        {
+            string updateDate = new DateTime(int.Parse(updateYear),1,1).ToString("yyyy-MM-dd");
+            JBTools.Security.SalaryEncrypt se = new JBTools.Security.SalaryEncrypt();
+            SqlConnection conn = new SqlConnection(_conn.ConnectionString);
+            string cmd = string.Format("SELECT * FROM INSURLV WHERE AMT={0}", SUPPLEMIN);
+            string cmd1 = string.Format("INSERT INSURLV ([AMT], [EFF_DATEL], [LFF_DATEL], [EFF_DATEH], [LFF_DATEH], [KEY_MAN], [KEY_DATE], [EFF_DATER], [LFF_DATER], [EFF_RATE]) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')",
+                             SUPPLEMIN, updateDate, "9999-12-31", updateDate, "9999-12-31", "JB", updateDate, updateDate, "9999-12-31", EFF_RATE);
+
+            using (conn)
+            {
+                if (conn.State != ConnectionState.Open) conn.Open();
+                try
+                {
+                    SqlCommand sqlcmd = new SqlCommand(cmd, conn);
+                    var sql = sqlcmd.ExecuteScalar();
+                    if (sql == null)
+                    {
+                        sqlcmd = new SqlCommand(cmd1, conn);
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                    //sqlcmd = new SqlCommand(cmd2, conn);
+                    //sqlcmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    JBModule.Message.TextLog.path = @"C:\TEMP\Error\";
+                    JBModule.Message.TextLog.WriteLog("執行投保級距新增時發生錯誤：" + ex.Message);
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

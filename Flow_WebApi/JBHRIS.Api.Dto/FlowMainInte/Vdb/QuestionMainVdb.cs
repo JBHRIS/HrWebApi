@@ -35,10 +35,10 @@ namespace JBHRIS.Api.Dto.FlowMainInte.Vdb
         public string Status { get; set; }
         public string InsertMan { get; set; }
 
-        public DateTime? InsertDate { get; set; }
+        public string InsertDate { get; set; }
         public string UpdateMan { get; set; }
 
-        public DateTime? UpdateDate { get; set; }
+        public string UpdateDate { get; set; }
 
     }
 }

@@ -153,7 +153,7 @@ namespace Portal
         private void ddlDepts_DataBind()
         {
             OldDal.Dao.Bas.DeptDao oDeptDao = new OldDal.Dao.Bas.DeptDao(dcHR.Connection);
-            var rsDept = oDeptDao.GetDept();
+            var rsDept = oDeptDao.GetDepts();
 
             ddlDepts.DataSource = rsDept;
             ddlDepts.DataTextField = "Name";
@@ -215,8 +215,8 @@ namespace Portal
             var rBasS = oBasDao.GetBaseByNobr(sNobr, DateTime.Now.Date).FirstOrDefault();
             if (rBasS != null)
             {
-                if (ddlDepts.Items.FindItemByValue(rBasS.DeptCode) != null)
-                    ddlDepts.Items.FindItemByValue(rBasS.DeptCode).Selected = true;
+                if (ddlDepts.Items.FindItemByValue(rBasS.DeptsCode) != null)
+                    ddlDepts.Items.FindItemByValue(rBasS.DeptsCode).Selected = true;
             }
         }
         //private void SetCardTime(string sNobr, DateTime dDate)

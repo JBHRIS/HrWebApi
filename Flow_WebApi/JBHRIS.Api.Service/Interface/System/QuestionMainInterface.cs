@@ -7,7 +7,7 @@ namespace JBHRIS.Api.Service.Interface.System
 {
     public interface QuestionMainInterFace
     {
-        List<QuestionMainVdb> GetQuestionMain(string User, string CompanyId, string sNobr);
+        List<QuestionMainVdb> GetQuestionMain();
         List<QuestionMainVdb> GetQuestionMainByCode(string Code);
         List<QuestionMainVdb> GetQuestionMainByEmpID(string CompanyId, string sNobr);
         List<QuestionMainVdb> GetQuestionMainByCompany(string CompanyId);

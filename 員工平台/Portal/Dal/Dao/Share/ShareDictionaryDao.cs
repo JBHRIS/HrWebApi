@@ -657,7 +657,7 @@ namespace Dal.Dao.Share
         /// </summary>
         /// <param name="PageCode">頁面名稱</param>
         /// <param name="Text">控制項ID，或文字</param>
-        /// <param name="TransCode">翻譯代碼</param>
+        /// <param name="TransCode">翻譯代碼(1:根據Code來翻譯、預設:根據文字來翻譯)</param>
         /// <param name="LanguageCode">語言代碼</param>
         /// <returns></returns>
         public string TextTranslate(string PageCode, string Text, string TransCode,string LanguageCode)

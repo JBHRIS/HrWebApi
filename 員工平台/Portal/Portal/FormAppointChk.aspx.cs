@@ -383,20 +383,56 @@ namespace Portal
 
         protected void lvSalary_DataBound(object sender, EventArgs e)
         {
+            int Count = 0;
             int AmountSum = 0;
             int SalarySum = 0;
+            var oFormAppAppointDao = new FormsAppAppointByProcessIdDao();
+            var FormAppAppointCond = new FormsAppAppointByProcessIdConditions();
+
+            FormAppAppointCond.AccessToken = _User.AccessToken;
+            FormAppAppointCond.RefreshToken = _User.RefreshToken;
+            FormAppAppointCond.CompanySetting = CompanySetting;
+            FormAppAppointCond.ProcessFlowID = lblProcessID.Text;
+            FormAppAppointCond.Sign = true;
+            FormAppAppointCond.SignState = "";
+            FormAppAppointCond.Status = UnobtrusiveSession.Session["RequestName"].ToString() == "View" ? "" : "1";
+
+            var rsFormAppAppoint = oFormAppAppointDao.GetData(FormAppAppointCond);
+            var rFormAppAppoint = new FormsAppAppointByProcessIdRow();
+            if (rsFormAppAppoint.Status)
+            {
+                if (rsFormAppAppoint.Data != null)
+                {
+                    rFormAppAppoint = rsFormAppAppoint.Data as FormsAppAppointByProcessIdRow;
+
+                }
+            }
             foreach (var r in lvSalary.Items)
             {
+
                 var Salary = r.FindControl("Salary") as RadTextBox;
                 var Amount = r.FindControl("Amount") as RadLabel;
-                Salary.Text = Amount.Text;
+                if (rFormAppAppoint != null)
+                {
+                    var SalaryData = JsonConvert.DeserializeObject<List<TextValueRow>>(rFormAppAppoint.AppointChangeLog.Last().SalaryContent);
+                    lblCode.Text = rFormAppAppoint.AppointChangeLog.Last().AppointCode;
+                    foreach (var SalaryD in SalaryData)
+                    {
+                        SalaryD.Value = AccessData.DESDecrypt(SalaryD.Value, "JBSalary", lblCode.Text.Substring(0, 8));
+                    }
+                    Salary.Text = SalaryData[Count].Value;
+                }
+                Count++;
+                //Salary.Text = Amount.Text;
                 SalarySum += Convert.ToInt32(Salary.Text);
                 AmountSum += Convert.ToInt32(Amount.Text);
             }
             var lblSalarySum = lvSalary.FindControl("lblSalarySum") as RadLabel;
             var lblAmountSum = lvSalary.FindControl("lblAmountSum") as RadLabel;
-            lblSalarySum.Text = SalarySum.ToString();
-            lblAmountSum.Text = AmountSum.ToString();
+            if (lblSalarySum != null)
+                lblSalarySum.Text = SalarySum.ToString();
+            if (lblAmountSum != null)
+                lblAmountSum.Text = AmountSum.ToString();
         }
         
         protected void lvSalaryLog_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)

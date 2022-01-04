@@ -37,7 +37,7 @@ namespace Dal.Dao.Share
             #region 要傳遞的參數
             HTTPPayloadDictionary dic = new HTTPPayloadDictionary();
             dic.Add("CompanyID", Cond.CompanyID);
-            dic.Add("sNobr", Cond.sNobr);
+            dic.Add("sNobr", Cond.EmpId);
           
             #endregion
 
@@ -58,8 +58,9 @@ namespace Dal.Dao.Share
 
             #region 要傳遞的參數
             HTTPPayloadDictionary dic = new HTTPPayloadDictionary();
+            if(Cond.CompanyID != "")
             dic.Add("CompanyID", Cond.CompanyID);
-            dic.Add("sNobr", Cond.sNobr);
+            dic.Add("sNobr", Cond.EmpId);
             this.CompanySetting = Cond.CompanySetting;
 
             #endregion
@@ -117,6 +118,14 @@ namespace Dal.Dao.Share
                                         rTarget.Code = rSource.Code;
                                         rTarget.CompanyId = rSource.CompanyId;
                                         rTarget.Complete = rSource.Complete;
+                                        if (rSource.Complete)
+                                        {
+                                            rTarget.CompleteStatus = "已結單";
+                                        }
+                                        else
+                                        {
+                                            rTarget.CompleteStatus = "尚未結單";
+                                        }
                                         rTarget.Content = rSource.Content;
                                         rTarget.DateE = rSource.DateE;
                                         rTarget.InsertDate = rSource.InsertDate;
@@ -128,6 +137,7 @@ namespace Dal.Dao.Share
                                         rTarget.Name = rSource.Name;
                                         rTarget.Note = rSource.Note;
                                         rTarget.QuestionCategoryCode = rSource.QuestionCategoryCode;
+                                        rTarget.QuestionCategoryName = rSource.QuestionCategoryName;
                                         rTarget.Status = rSource.Status;
                                         rTarget.SystemCategoryCode = rSource.SystemCategoryCode;
                                         rTarget.TitleContent = rSource.TitleContent;

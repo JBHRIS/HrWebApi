@@ -15,13 +15,13 @@ namespace Portal
     {
 
         /// <summary>
-        /// plMain 控制項。
+        /// RadAjaxManager 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadAjaxPanel plMain;
+        protected global::Telerik.Web.UI.RadAjaxManager RadAjaxManager;
 
         /// <summary>
         /// lblName 控制項。
@@ -78,6 +78,42 @@ namespace Portal
         protected global::Telerik.Web.UI.RadLabel lblContent;
 
         /// <summary>
+        /// RadAjaxPanel4 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel4;
+
+        /// <summary>
+        /// DataUpload 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadListView DataUpload;
+
+        /// <summary>
+        /// btnWtReply 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnWtReply;
+
+        /// <summary>
+        /// RadAjaxPanel1 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel1;
+
+        /// <summary>
         /// QuestionReplyData 控制項。
         /// </summary>
         /// <remarks>
@@ -87,6 +123,60 @@ namespace Portal
         protected global::Telerik.Web.UI.RadListView QuestionReplyData;
 
         /// <summary>
+        /// RadAjaxPanel2 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel2;
+
+        /// <summary>
+        /// Useful 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Useful;
+
+        /// <summary>
+        /// btnHelpful 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton btnHelpful;
+
+        /// <summary>
+        /// btnHelpless 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton btnHelpless;
+
+        /// <summary>
+        /// pCompleteStatus 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pCompleteStatus;
+
+        /// <summary>
+        /// RadAjaxPanel3 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel3;
+
+        /// <summary>
         /// txtContent 控制項。
         /// </summary>
         /// <remarks>
@@ -94,6 +184,15 @@ namespace Portal
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::Telerik.Web.UI.RadTextBox txtContent;
+
+        /// <summary>
+        /// btnDraft 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton btnDraft;
 
         /// <summary>
         /// btnAdd 控制項。

@@ -10,7 +10,7 @@ namespace JBHRIS.Api.Dal.Interface
 
         List<QuestionReplyVdb> GetQuestionReplyByQuestionMainCode(string QMainCode);
 
-        List<QuestionReplyVdb> GetQuestionReplyByParentCode(string ParentCode);
+        List<QuestionReplyVdb> GetQuestionReplyByCode(string Code);
 
         bool InsertQuestionReply(QuestionReplyVdb vdb);
 

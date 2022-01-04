@@ -70,13 +70,13 @@ namespace Portal
                 return;
             }
 
-            ValidateBaseRedirect(UserId, UserPw);
+            ValidateBaseRedirect(UserId, UserPw,"");
         }
 
-        public bool ValidateBaseRedirect(string AccountCode, string AccountPassword, string CompanyAccountCode = "demo")
+        public bool ValidateBaseRedirect(string AccountCode, string AccountPassword, string CompanyAccountCode = "")
         {
             var Pass = false;
-
+          
             //加密的密碼
             var EncryptAccountPasswordSHA512 = AccountPassword.ToSHA512();
 
@@ -116,6 +116,7 @@ namespace Portal
                 rUser.DateD = rSystemUser.DateD;
 
                 Pass = true;
+               
             }
             else
             {
@@ -139,9 +140,20 @@ namespace Portal
             SigninCond.UserId = AccountCode;
             SigninCond.Password = AccountPassword;
             SigninCond.CompanySetting = CompanySetting;
-            var Result = oSignin.GetData(SigninCond);
-
-            var AccessToken = "";
+            var Result = oSignin.GetData(SigninCond);          
+            HttpContext.Current.Response.Cookies.Add(new HttpCookie("CompanyId", CompanyAccountCode));
+            UnobtrusiveSession.Session["CompanySetting"] = CompanySetting;
+            var oClientGetToken = new ClientGetTokenDao();
+            var ClientGetTokenCondition = new ClientGetTokenConditions();
+            ClientGetTokenCondition.ClientId = "JbFlow";
+            var ClientTokenData = oClientGetToken.GetData(ClientGetTokenCondition);
+            string ClientToken = "";
+            if (ClientTokenData.Status && ClientTokenData.Data != null)
+            {
+                var r = ClientTokenData.Data as ClientGetTokenRow;
+                ClientToken = r.AccessToken;
+            }
+            var AccessToken = ClientToken;
             var RefreshToken = "";
 
             var PassApi = false;
@@ -161,7 +173,7 @@ namespace Portal
                 }
             }
 
-            if ( PassApi)
+            if (Pass||PassApi)
             {
                 //超過效期
                 var DateA = rUser.DateA.Date;
@@ -195,7 +207,7 @@ namespace Portal
                 oUser.AccessToken = AccessToken;
                 oUser.RefreshToken = RefreshToken;
 
-                _AuthManager.SignIn(oUser, oUser.UserCode,CompanySetting);
+                _AuthManager.SignIn(oUser, oUser.UserCode,CompanySetting,Pass);
 
                 //撰寫歡迎訊息
                 {
@@ -232,7 +244,7 @@ namespace Portal
                     Response.Redirect(ReturnUrl);
                 }
 
-                Response.Redirect("ProblemReturnList.aspx", false);
+                Response.Redirect("ProblemReturn.aspx", false);
             }
             else
             {

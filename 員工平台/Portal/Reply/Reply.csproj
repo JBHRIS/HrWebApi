@@ -49,6 +49,7 @@
     </Reference>
     <Reference Include="PresentationFramework" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -124,6 +125,20 @@
     <Content Include="App_Data\RadCaptcha\X.wav" />
     <Content Include="App_Data\RadCaptcha\Y.wav" />
     <Content Include="App_Data\RadCaptcha\Z.wav" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\images.png" />
+    <Content Include="images\jb.png" />
+    <Content Include="images\jb2.png" />
+    <Content Include="images\LoginFacebook.png" />
+    <Content Include="images\LoginGoogle.png" />
+    <Content Include="images\LoginLine.png" />
+    <Content Include="images\reference\BSSID.jpg" />
+    <Content Include="images\reference\cmd.jpg" />
+    <Content Include="images\reference\cmd1.jpg" />
+    <Content Include="images\reference\map1.jpg" />
+    <Content Include="images\reference\map2.jpg" />
+    <Content Include="images\reference\map3.jpg" />
+    <Content Include="images\reference\win-R-step1.jpg" />
     <Content Include="LoginBind.aspx" />
     <Content Include="LoginValidate.aspx" />
     <Content Include="MessageList.aspx" />
@@ -1592,6 +1607,12 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ClassLibrary\UnobtrusiveSession.cs" />
+    <Compile Include="Download.ashx.cs">
+      <DependentUpon>Download.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="HandlerFileUploadDropzone.ashx.cs">
+      <DependentUpon>HandlerFileUploadDropzone.ashx</DependentUpon>
+    </Compile>
     <Compile Include="LoginBind.aspx.cs">
       <DependentUpon>LoginBind.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1676,6 +1697,8 @@
     <Content Include="App_Data\RadSpell\en-US.tdf" />
     <Content Include="App_Data\RadSpell\fr-FR.tdf" />
     <Content Include="Main_PR.Master" />
+    <Content Include="HandlerFileUploadDropzone.ashx" />
+    <Content Include="Download.ashx" />
     <None Include="packages.config" />
     <Content Include="Templates\Inspinia\css\bootstrap.css.map" />
     <Content Include="Templates\Inspinia\css\bootstrap.min.css.map" />
@@ -1818,7 +1841,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

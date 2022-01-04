@@ -59,6 +59,7 @@ namespace Flow_WebApi
             services.AddScoped<JBHRIS.Api.Service.Interface.System.QuestionMainInterFace, JBHRIS.Api.Service.Implement.System.QuestionMainService>();
             services.AddScoped<JBHRIS.Api.Service.Interface.System.QuestionReplyInterFace, JBHRIS.Api.Service.Implement.System.QuestionReplyService>();
             services.AddScoped<JBHRIS.Api.Service.Interface.System.QuestionCategoryInterFace, JBHRIS.Api.Service.Implement.System.QuestionCategoryService>();
+            services.AddScoped<JBHRIS.Api.Service.Interface.System.SystemUserInterFace, JBHRIS.Api.Service.Implement.System.SystemUserService>();
             services.AddScoped<JBHRIS.Api.Service.Interface.FlowMainInte.IFlowMainIntegrationHandleInterface, JBHRIS.Api.Service.Implement.FlowMainInte.FlowMainIntegrationHandle>();
 
 
@@ -96,7 +97,7 @@ namespace Flow_WebApi
             services.AddScoped<JBHRIS.Api.Dal.Interface.ISystem_QuestionMain_View, JBHRIS.Api.Dal.ezFlow.Implement.System_QuestionMain_View>();
             services.AddScoped<JBHRIS.Api.Dal.Interface.ISystem_QuestionReply_View, JBHRIS.Api.Dal.ezFlow.Implement.System_QuestionReply_View>();
             services.AddScoped<JBHRIS.Api.Dal.Interface.ISystem_QuestionCategory_View, JBHRIS.Api.Dal.ezFlow.Implement.System_QuestionCategory_View>();
-
+            services.AddScoped<JBHRIS.Api.Dal.Interface.ISystem_SystemUser_View, JBHRIS.Api.Dal.ezFlow.Implement.System_SystemUser_View>();
 
             services.AddScoped<JBHRIS.Api.Dal.Interface.IFlowMainIntegrationHandler_Interface, JBHRIS.Api.Dal.ezFlow.Implement.FlowMainIntegrationHandler>();
 

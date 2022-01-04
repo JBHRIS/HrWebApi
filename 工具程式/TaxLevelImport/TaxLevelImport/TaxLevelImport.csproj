@@ -32,7 +32,7 @@
     <InstallUrl>http://publish.jbjob.com.tw/Publish/AutoUpdate/</InstallUrl>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>21.1.4.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -73,9 +73,6 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="JBTools">
-      <HintPath>..\..\..\..\standard\JBTools\bin\Debug\JBTools.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -147,6 +144,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="2022年度參數更新.txt" />
     <Content Include="Tax2019.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -154,6 +152,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Content Include="Tax2021.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tax2022.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="TaxLevelImport_TemporaryKey.pfx" />
@@ -165,13 +166,17 @@
     <Content Include="1325645248_system-software-update.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Standard\JBMODULE.MESSAGE\JBModule.Message.csproj">
+    <ProjectReference Include="..\..\..\..\..\Standard\JBMODULE.MESSAGE\JBModule.Message.csproj">
       <Project>{b94796b3-cedb-4083-95ad-e94ec30d15d5}</Project>
       <Name>JBModule.Message</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Standard\JBModule\JBModule\JBModule.csproj">
-      <Project>{DBE7BF84-0030-418D-981D-30D7C4F6FF3A}</Project>
+    <ProjectReference Include="..\..\..\..\..\Standard\JBModule\JBModule\JBModule.csproj">
+      <Project>{dbe7bf84-0030-418d-981d-30d7c4f6ff3a}</Project>
       <Name>JBModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\standard\JBTools\JBTools.csproj">
+      <Project>{9a891671-4fc7-4ddf-a21d-21e3d563cee6}</Project>
+      <Name>JBTools</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

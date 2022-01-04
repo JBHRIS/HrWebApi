@@ -15,7 +15,8 @@
 
     <link href="Templates/Inspinia/css/animate.css" rel="stylesheet">
     <link href="Templates/Inspinia/css/style.css" rel="stylesheet">
-
+        <link href="Templates/Inspinia/css/plugins/dropzone/basic.css" rel="stylesheet">
+    <link href="Templates/Inspinia/css/plugins/dropzone/dropzone.css" rel="stylesheet">
     <link href="Templates/Inspinia/css/plugins/iCheck/custom.css" rel="stylesheet">
     <link href="Templates/Inspinia/css/plugins/steps/jquery.steps.css" rel="stylesheet">
     <link href="styles/Main.css" rel="stylesheet">
@@ -59,19 +60,19 @@
                         <div class="navbar-collapse collapse" id="navbar">
                             <ul class="nav navbar-nav mr-auto">
                                 <li class="dropdown">
-                                    <a aria-expanded="false" role="button" href="ProblemReturn.aspx">我要回報</a>
+                                    <a aria-expanded="false" id="ProblemReturn" runat="server" role="button" href="ProblemReturn.aspx">我要回報</a>
                                 </li>
                                 <li class="dropdown">
-                                    <a aria-expanded="false" role="button" href="ProblemReturnList.aspx">回報記錄</a>
+                                    <a aria-expanded="false" id="ProblemReturnList" runat="server"  role="button" href="ProblemReturnList.aspx">回報記錄</a>
                                 </li>
                                 <li class="dropdown">
-                                    <a aria-expanded="false" role="button" href="ProblemReturnListM.aspx">回覆管理</a>
+                                    <a aria-expanded="false" id="ProblemReturnListM" runat="server"  role="button" href="ProblemReturnListM.aspx">回覆管理</a>
                                 </li>
 
                             </ul>
                             <ul class="nav navbar-top-links navbar-right">
                                 <li>
-                                    <a href="login.html">
+                                    <a href="LoginBind.aspx">
                                         <i class="fa fa-sign-out"></i>登出
                                     </a>
                                 </li>

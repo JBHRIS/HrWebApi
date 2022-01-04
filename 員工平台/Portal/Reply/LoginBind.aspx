@@ -7,7 +7,7 @@
         <%--<h1 class="logo-name">JB</h1>--%>
         <img alt="Image" src="images/jb2.png" />
     </div>
-    <h3>員工入口平台</h3>
+    <h3>數位客服平台</h3>
     <p>
         請使用最新版本的瀏覽器 以得到最佳的操作體驗
     </p>
@@ -55,8 +55,8 @@
             <telerik:RadLabel ID="lblMsg" runat="server" />
             <telerik:RadButton ID="btnSubmit" runat="server" Text="登入" OnClick="btnSubmit_Click" CssClass="btn btn-primary block full-width m-b" />
             <telerik:RadButton runat="server" Text="直接登入A0550(Admin)" OnClick="btnSpeedLogin_Click" CommandName="A0550" CommandArgument="FAYA0550" CssClass="btn btn-primary block full-width m-b" />
-            <telerik:RadButton runat="server" Text="直接登入A0902(HR)" OnClick="btnSpeedLogin_Click" CommandName="A0902" CommandArgument="Hopax902" CssClass="btn btn-primary block full-width m-b" />
-            <telerik:RadButton runat="server" Text="直接登入A1357(Emp)" OnClick="btnSpeedLogin_Click" CommandName="A1357" CommandArgument="3434" CssClass="btn btn-primary block full-width m-b" />
+            <telerik:RadButton runat="server" Text="直接登入A0902(HR)" OnClick="btnSpeedLogin_Click" CommandName="A0902" CommandArgument="0000" CssClass="btn btn-primary block full-width m-b" />
+            <telerik:RadButton runat="server" Text="直接登入A1357(Emp)" OnClick="btnSpeedLogin_Click" CommandName="A1357" CommandArgument="0000" CssClass="btn btn-primary block full-width m-b" />
 
             <a href="LoginForgotPassword.aspx"><small>忘記密碼？</small></a>
         </telerik:RadAjaxPanel>

@@ -14,9 +14,9 @@ namespace JBHRIS.Api.Service.Implement.System
         {
             this._ISystem_QuestionMain_View = system_QuestionMain_View;
         }
-        public List<QuestionMainVdb> GetQuestionMain(string User, string CompanyId, string sNobr)
+        public List<QuestionMainVdb> GetQuestionMain()
         {
-            return this._ISystem_QuestionMain_View.GetQuestionMain(User,CompanyId,sNobr);
+            return this._ISystem_QuestionMain_View.GetQuestionMain();
         }
         public List<QuestionMainVdb> GetQuestionMainByCode(string Code)
         {
