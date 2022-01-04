@@ -1567,48 +1567,68 @@ namespace JBHR.Bas
                     }
                     else
                     {
-                        if (cell_value.Length >= 2)
-                        {
-                            string c1 = cell_value[0].ToString().ToUpper();
-                            string c2 = cell_value[1].ToString().ToUpper();
 
-                            if (c1.CompareTo("A") >= 0 && c1.CompareTo("Z") <= 0)
-                            {
-                                if (c2.CompareTo("1") >= 0 && c2.CompareTo("2") <= 0)
-                                {
-                                    if (!IDChk(cell_value))
-                                    {
-                                        (dgv_bindingSource.Current as DataRowView).Row.SetColumnError(DataPropertyName, Resources.Bas.IDNOErr);
-                                    }
-                                    else
-                                    {
-                                        if ((dgv_bindingSource.Current as DataRowView).IsNew)
-                                        {
-                                            FRM12DataClassesDataContext db = new FRM12DataClassesDataContext();
-                                            var chkfamily = from c in db.FAMILY
-                                                            where c.FA_IDNO == cell_value && c.NOBR == textBoxNOBR.Text
-                                                            select c;
-                                            if (chkfamily != null && chkfamily.Count() > 0)
-                                            {
-                                                (dgv_bindingSource.Current as DataRowView).Row.SetColumnError(DataPropertyName, Resources.Bas.FA_IDNO_RPT_Err);
-                                            }
-                                        }
-                                    }
-                                }
-                                else if (c2.CompareTo("3") >= 0 && c2.CompareTo("9") <= 0)
-                                {
-                                    (dgv_bindingSource.Current as DataRowView).Row.SetColumnError(DataPropertyName, Resources.Bas.IDNOErr);
-                                }
-                                else if (!(c2.CompareTo("A") >= 0 && c2.CompareTo("Z") <= 0))
-                                {
-                                    (dgv_bindingSource.Current as DataRowView).Row.SetColumnError(DataPropertyName, Resources.Bas.IDNOErr);
-                                }
-                            }
-                        }
-                        else
+
+                        if (!(IDChk(cell_value) || JBTools.FormatValidate.CheckRPNumber(cell_value)))
                         {
                             (dgv_bindingSource.Current as DataRowView).Row.SetColumnError(DataPropertyName, Resources.Bas.IDNOErr);
                         }
+                        else
+                        {
+                            if ((dgv_bindingSource.Current as DataRowView).IsNew)
+                            {
+                                FRM12DataClassesDataContext db = new FRM12DataClassesDataContext();
+                                var chkfamily = from c in db.FAMILY
+                                                where c.FA_IDNO == cell_value && c.NOBR == textBoxNOBR.Text
+                                                select c;
+                                if (chkfamily != null && chkfamily.Count() > 0)
+                                {
+                                    (dgv_bindingSource.Current as DataRowView).Row.SetColumnError(DataPropertyName, Resources.Bas.FA_IDNO_RPT_Err);
+                                }
+                            }
+                        }
+                        //if (cell_value.Length >= 2)
+                        //{
+                        //    string c1 = cell_value[0].ToString().ToUpper();
+                        //    string c2 = cell_value[1].ToString().ToUpper();
+
+                        //    if (c1.CompareTo("A") >= 0 && c1.CompareTo("Z") <= 0)
+                        //    {
+                        //        if (c2.CompareTo("1") >= 0 && c2.CompareTo("2") <= 0)
+                        //        {
+                        //            if (!IDChk(cell_value))
+                        //            {
+                        //                (dgv_bindingSource.Current as DataRowView).Row.SetColumnError(DataPropertyName, Resources.Bas.IDNOErr);
+                        //            }
+                        //            else
+                        //            {
+                        //                if ((dgv_bindingSource.Current as DataRowView).IsNew)
+                        //                {
+                        //                    FRM12DataClassesDataContext db = new FRM12DataClassesDataContext();
+                        //                    var chkfamily = from c in db.FAMILY
+                        //                                    where c.FA_IDNO == cell_value && c.NOBR == textBoxNOBR.Text
+                        //                                    select c;
+                        //                    if (chkfamily != null && chkfamily.Count() > 0)
+                        //                    {
+                        //                        (dgv_bindingSource.Current as DataRowView).Row.SetColumnError(DataPropertyName, Resources.Bas.FA_IDNO_RPT_Err);
+                        //                    }
+                        //                }
+                        //            }
+                        //        }
+                        //        else if (c2.CompareTo("3") >= 0 && c2.CompareTo("9") <= 0)
+                        //        {
+                        //            (dgv_bindingSource.Current as DataRowView).Row.SetColumnError(DataPropertyName, Resources.Bas.IDNOErr);
+                        //        }
+                        //        else if (!(c2.CompareTo("A") >= 0 && c2.CompareTo("Z") <= 0))
+                        //        {
+                        //            (dgv_bindingSource.Current as DataRowView).Row.SetColumnError(DataPropertyName, Resources.Bas.IDNOErr);
+                        //        }
+                        //    }
+                        //}
+                        //else
+                        //{
+                        //    (dgv_bindingSource.Current as DataRowView).Row.SetColumnError(DataPropertyName, Resources.Bas.IDNOErr);
+                        //}
                     }
                 }
                 if (DataPropertyName.Trim() == "FA_NAME")
@@ -1802,7 +1822,7 @@ namespace JBHR.Bas
                 (BASEbindingSource.Current as DataRowView).Row.SetColumnError("IDNO", "");
                 if (textBoxIDNO.Text.Trim().Length > 0)
                 {
-                    if (IsIdCheck && !IDChk(textBoxIDNO.Text.Trim()))
+                    if (IsIdCheck && !(IDChk(textBoxIDNO.Text.Trim()) || JBTools.FormatValidate.CheckRPNumber(textBoxIDNO.Text.Trim())))
                     {
                         if (MessageBox.Show(Resources.Bas.IDNOErr, Resources.All.DialogTitle, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Cancel)
                         {
@@ -2989,7 +3009,7 @@ namespace JBHR.Bas
                 (BASEbindingSource.Current as DataRowView).Row.SetColumnError("IDNO", "");
                 if (textBoxIDNO.Text.Trim().Length > 0)
                 {
-                    if (IsIdCheck && !IDChk(textBoxIDNO.Text.Trim()))
+                    if (IsIdCheck && !(IDChk(textBoxIDNO.Text.Trim()) || JBTools.FormatValidate.CheckRPNumber(textBoxIDNO.Text.Trim())))
                     {
                         if (checkBoxCOUNT_MA.Checked && textBoxIDNO.Text.Trim().Length > 0)
                         {
@@ -3111,7 +3131,7 @@ namespace JBHR.Bas
                 (BASEbindingSource.Current as DataRowView).Row.SetColumnError("PRO_ID1", "");
                 if (textBoxPRO_ID1.Text.Trim().Length > 0)
                 {
-                    if (!IDChk(textBoxPRO_ID1.Text.Trim()))
+                    if (!(IDChk(textBoxPRO_ID1.Text.Trim()) || JBTools.FormatValidate.CheckRPNumber(textBoxPRO_ID1.Text.Trim())))
                     {
                         MessageBox.Show(Resources.Bas.IDNOErr, Resources.All.DialogTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         textBoxPRO_ID1.Focus();
@@ -3128,7 +3148,7 @@ namespace JBHR.Bas
                 (BASEbindingSource.Current as DataRowView).Row.SetColumnError("PRO_ID2", "");
                 if (textBoxPRO_ID2.Text.Trim().Length > 0)
                 {
-                    if (!IDChk(textBoxPRO_ID2.Text.Trim()))
+                    if (!(IDChk(textBoxPRO_ID2.Text.Trim()) || JBTools.FormatValidate.CheckRPNumber(textBoxPRO_ID2.Text.Trim())))
                     {
                         MessageBox.Show(Resources.Bas.IDNOErr, Resources.All.DialogTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         textBoxPRO_ID2.Focus();
