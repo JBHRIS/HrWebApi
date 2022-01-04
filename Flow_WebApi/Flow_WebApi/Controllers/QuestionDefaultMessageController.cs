@@ -56,10 +56,10 @@ namespace Flow_WebApi.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("GetQuestionDefaultMessageByCompanyId")]
-        public ApiResult<List<QuestionDefaultMessageVdb>> GetQuestionDefaultMessageByRoleKey(string CompanyId)
+        public ApiResult<List<QuestionDefaultMessageVdb>> GetQuestionDefaultMessageByCompanyId(string CompanyId="")
         {
             ApiResult<List<QuestionDefaultMessageVdb>> mapiResult = new ApiResult<List<QuestionDefaultMessageVdb>>();
-
+            
             mapiResult.State = false;
             try
             {
