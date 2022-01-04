@@ -19,9 +19,9 @@ namespace JBHRIS.Api.Service.Implement.System
         {
             return this._ISystem_QuestionDefaultMessage_View.GetQuestionDefaultMessage(Code);
         }
-        public List<QuestionDefaultMessageVdb> GetQuestionDefaultMessageByRoleKey(int RoleKey)
+        public List<QuestionDefaultMessageVdb> GetQuestionDefaultMessageByCompanyId(string CompanyId)
         {
-            return this._ISystem_QuestionDefaultMessage_View.GetQuestionDefaultMessageByRoleKey(RoleKey);
+            return this._ISystem_QuestionDefaultMessage_View.GetQuestionDefaultMessageByCompanyId(CompanyId);
         }
         public bool InsertQuestionDefaultMessage(QuestionDefaultMessageVdb vdb)
         {

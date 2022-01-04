@@ -154,7 +154,7 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                                                            InsertMan = bn.InsertMan,
                                                            InsertDate = bn.InsertDate ?? new DateTime(),
                                                            UpdateMan = bn.UpdateMan,
-                                                           UpdateDate = bn.InsertDate ?? new DateTime(),
+                                                           UpdateDate = DateTime.Now,
                                                        }).ToList();
 
             try
@@ -206,7 +206,7 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                                                         InsertMan = bn.InsertMan,
                                                         InsertDate = bn.InsertDate,
                                                         UpdateMan = bn.UpdateMan,
-                                                        UpdateDate = bn.InsertDate,
+                                                        UpdateDate = DateTime.Now,
                                                     }).ToList();
 
             try

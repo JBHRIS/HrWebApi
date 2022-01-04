@@ -9,7 +9,7 @@ namespace JBHRIS.Api.Service.Interface.System
     {
         List<QuestionDefaultMessageVdb> GetQuestionDefaultMessage(string Code);
 
-        List<QuestionDefaultMessageVdb> GetQuestionDefaultMessageByRoleKey(int RoleKey);
+        List<QuestionDefaultMessageVdb> GetQuestionDefaultMessageByCompanyId(string CompanyId);
 
         bool InsertQuestionDefaultMessage(QuestionDefaultMessageVdb vdb);
 

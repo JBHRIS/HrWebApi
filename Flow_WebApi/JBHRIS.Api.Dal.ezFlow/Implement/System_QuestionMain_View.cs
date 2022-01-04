@@ -216,7 +216,14 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                 newQuestionMain.InsertMan = vdb.InsertMan;
                 newQuestionMain.InsertDate = DateTime.Parse(vdb.InsertDate);
                 newQuestionMain.UpdateMan = vdb.UpdateMan;
-                newQuestionMain.UpdateDate = Convert.ToDateTime(vdb.UpdateDate);
+                if (vdb.UpdateDate == ""||vdb.UpdateDate==null)
+                {
+                    newQuestionMain.UpdateDate = null;
+                }
+                else
+                {
+                    newQuestionMain.UpdateDate = DateTime.Parse(vdb.UpdateDate);
+                }
                 _context.QuestionMains.Add(newQuestionMain);
                 _context.SaveChanges();
                 result = true;

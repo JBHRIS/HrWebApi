@@ -210,9 +210,10 @@ namespace Portal
                 if (Result.Data != null)
                 {
                    result = Result.Data as List<FilesByFileTicketRow>;
+                   DataUpload.DataSource = result;
                 }
             }
-            DataUpload.DataSource = result;
+            
         }
         protected void DataUpload_ItemCommand(object sender, RadListViewCommandEventArgs e)
         {
@@ -268,6 +269,7 @@ namespace Portal
                         {
                             InsertQuestionReplyCond.Send = false;
                             oInsertQuestionReply.GetData(InsertQuestionReplyCond);
+                            lblAddStatus.InnerText = "草稿儲存成功";
                         }
                         else
                         {
@@ -279,6 +281,7 @@ namespace Portal
                             UpdateQuestionReplySendCond.Code = Draft.Code;
                             UpdateQuestionReplySendCond.Content = txtContent.Text;
                             oUpdateQuestionReplySend.GetData(UpdateQuestionReplySendCond);
+                            lblAddStatus.InnerText = "草稿儲存成功";
                         }
                     }
                     else
@@ -293,13 +296,15 @@ namespace Portal
                             UpdateQuestionReplySendCond.Code = Draft.Code;
                             UpdateQuestionReplySendCond.SetSend = true;
                             oUpdateQuestionReplySend.GetData(UpdateQuestionReplySendCond);
+                            
                         }
                         else
                         {
                             InsertQuestionReplyCond.Send = true;
                             oInsertQuestionReply.GetData(InsertQuestionReplyCond);
+                         
                         }
-
+                        lblAddStatus.InnerText = "";
                         txtContent.Text = "";
                     }
                     var oGetQuestionMain = new ShareGetQuestionMainByCodeDao();
@@ -393,7 +398,7 @@ namespace Portal
                     InsertQuestionReplyCond.UpdateDate = DateTime.Now;
 
                     oInsertQuestionReply.GetData(InsertQuestionReplyCond);
-                    lblAddStatus.InnerText = "送出成功";
+                    lblAddStatus.InnerText = "送出";
                     txtContent.Text = "";
                     QuestionReplyData.Rebind();
                 }
@@ -437,11 +442,18 @@ namespace Portal
 
                     string content = "";
                     RadTextBox txt = new RadTextBox();
+                    RadLabel lbl = new RadLabel();
                     foreach (var control in QuestionReplyData.Items)
                     {
                         if (e.ListViewItem.ClientID == control.ClientID)
                         {
                             txt = control.FindControl("txtReply") as RadTextBox;
+                            lbl = control.FindControl("lblReplyStatus") as RadLabel;
+                            if (txt.Text.Length == 0)
+                            {
+                                lbl.Text = "回覆不得為空白";
+                                return;
+                            }
                             content = txt.Text;
                         }
                     }
@@ -585,9 +597,7 @@ namespace Portal
             UpdateQuestionMainCond.CompanySetting = CompanySetting;
             UpdateQuestionMainCond.Code = Request.QueryString["Code"];
 
-            oUpdateQuestionMain.GetData(UpdateQuestionMainCond);
-
-            oUpdateQuestionMain.GetData(UpdateQuestionMainCond);
+            oUpdateQuestionMain.GetData(UpdateQuestionMainCond);          
             QuestionReplyData.Rebind();
         }
 

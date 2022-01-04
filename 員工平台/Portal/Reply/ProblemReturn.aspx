@@ -3,8 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     
+        <telerik:RadAjaxManager ID="RadAjaxManager" runat="server">
+        <AjaxSettings>
+            <telerik:AjaxSetting AjaxControlID="btnAdd">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="lblAddStatus" />
+               
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+        </AjaxSettings>
+    </telerik:RadAjaxManager>
     <div class="ibox">
+      
         <div class="ibox-content">
             <div class="row">
                 <div class="col-lg-7 b-r">
@@ -12,7 +22,8 @@
                         <i class="fa fa-exclamation-circle"></i>本問題回報服務需3個工作天
                     </div>
                     <div class="form-group">
-                        <label>標題 <small id="titlelength" style="color: #1ab394">(0/30)</small><label runat="server" id="lblAddStatus" style="color: red;"></label></label>
+                        <label>標題 <small id="titlelength" style="color: #1ab394">(0/30)</small> <label runat="server" id="lblAddStatus" style="color: red;"></label></label>
+                       
                         <telerik:RadTextBox ID="txtTitle" runat="server" EmptyMessage="請輸入標題..." Skin="Bootstrap" Width="100%" />
                     </div>
                     <div class="form-group">
@@ -23,7 +34,7 @@
                         </telerik:RadComboBox>
                     </div>
                     <div class="form-group">
-                        <label>內容 <small id="contentlength" style="color: #1ab394">(0/80)</small></label>
+                        <label>內容 <small id="contentlength" style="color: #1ab394">(0/200)</small></label>
                         <telerik:RadTextBox ID="txtContent" runat="server" EmptyMessage="請填寫您想回報的內容..."
                             TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="4">
                         </telerik:RadTextBox>
@@ -38,7 +49,7 @@
                     <div class="form-group">
                         <label>附件
                             <br />
-                            <span class="text-danger"><i class="fa fa-info-circle"></i>檔案大小限制為10MB；格式限制 jpg、jpeg、png</span></label>
+                            <span class="text-danger"><i class="fa fa-info-circle"></i>檔案大小限制為10MB;一次最多上傳三個附件</span></label>
                         <div id="dZUpload" class="dropzone" style="border: 1px solid #e5e6e7;">
                             <div class="dz-default dz-message text-center m-t-md">
                                 <i class="fa fa-cloud-upload fa-2x text-primary"></i>
@@ -93,6 +104,7 @@
                 </div>
             </div>
        </div>
+           
     </div>
  
 
@@ -117,15 +129,15 @@
                 //也就是添加一张图片向服务器发送一次请求
                 autoProcessQueue: true,
                 //允许上传多个照片
-                uploadMultiple: false,
+                uploadMultiple: true,
                 //每次上传的最多文件数，经测试默认为2，坑啊
                 //记得修改web.config 限制上传文件大小的节
-                parallelUploads: 1, //手动触发时一次最大可以上传多少个文件
-                maxFiles: 1, //一次上传的量
+                parallelUploads: 3, //手动触发时一次最大可以上传多少个文件
+                maxFiles: 3, //一次上传的量
                 maxFilesize: 10,   //M为单位
                 acceptedFiles: ".jpg,.jpeg,.doc,.docx,.ppt,.pptx,.txt,.pdf,.mp3,.zip,.png,.xls,.xlsx",//可接受的上传类型
                 dictDefaultMessage: "點擊或拖入要上傳的文件",      //上传框默认显示文字
-                dictMaxFilesExceeded: "一次只能上傳1個檔案",
+                dictMaxFilesExceeded: "一次只能上傳3個檔案",
                 dictResponseError: "上傳失敗",
                 dictInvalidFileType: "此檔案類型不能上傳",
                 dictFallbackMessage: "瀏覽器不支援",
@@ -153,15 +165,15 @@
             if (isPostBack) {
                 $('#titlelength').text('(' + $('#ctl00_ContentPlaceHolder1_txtTitle').val().length + '/30)')
                 isTyping = false;
-                if ($('#ctl00_ContentPlaceHolder1_txtContent').val().length > 80) {
+                if ($('#ctl00_ContentPlaceHolder1_txtContent').val().length > 200) {
                     $('#contentlength').css('color', 'red')
 
-                    $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/80)')
+                    $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/200)')
                     isTyping = false;
                 }
                 else {
                     $('#contentlength').css('color', '#1ab394')
-                    $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/80)')
+                    $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/200)')
                     isTyping = false;
                 }
                 if ($('#ctl00_ContentPlaceHolder1_txtTitle').val().length > 30) {
@@ -177,7 +189,7 @@
             }
             else {
                 $('#titlelength').text('(0/30)')
-                $('#contentlength').text('(0/80)')
+                $('#contentlength').text('(0/200)')
                 isTyping = false;
 
             }
@@ -201,7 +213,9 @@
                 else {
                     $('#titlelength').css('color', '#1ab394')
                     $('#titlelength').text('(' + $('#ctl00_ContentPlaceHolder1_txtTitle').val().length + '/30)')
+
                     isTyping = false;
+                 
                 }
 
             }
@@ -217,16 +231,17 @@
                 isTyping = false;
             });
             if (!isTyping) {
-                if ($('#ctl00_ContentPlaceHolder1_txtContent').val().length > 80) {
+                if ($('#ctl00_ContentPlaceHolder1_txtContent').val().length > 200) {
                     $('#contentlength').css('color', 'red')
 
-                    $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/80)')
+                    $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/200)')
                     isTyping = false;
                 }
                 else {
                     $('#contentlength').css('color', '#1ab394')
-                    $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/80)')
+                    $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/200)')
                     isTyping = false;
+                  
                 }
 
             }

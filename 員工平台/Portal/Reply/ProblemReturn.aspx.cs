@@ -94,7 +94,7 @@ namespace Portal
             InsertQuestionCond.InsertMan = _User.EmpName;
             InsertQuestionCond.InsertDate = DateTime.Now;
             InsertQuestionCond.UpdateMan = "";
-           
+            InsertQuestionCond.UpdateDate =null;
 
             var result = oQuestionMain.GetData(InsertQuestionCond);
             if (result.Status)

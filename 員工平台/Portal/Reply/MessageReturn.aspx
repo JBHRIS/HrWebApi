@@ -8,6 +8,16 @@
             <telerik:AjaxSetting AjaxControlID="btnAdd">
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="QuestionReplyData" />
+                    <telerik:AjaxUpdatedControl ControlID="txtContent" />
+                    <telerik:AjaxUpdatedControl ControlID="DraftStatus" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+        </AjaxSettings>
+        <AjaxSettings>
+            <telerik:AjaxSetting AjaxControlID="btnDraft">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="txtContent" />
+                    <telerik:AjaxUpdatedControl ControlID="DraftStatus" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
         </AjaxSettings>
@@ -167,7 +177,7 @@
 
 
                             <div class="col-lg-6">
-                                  
+
                                 <h5>選擇罐頭訊息後編輯成想要的文字</h5>
                                 <telerik:RadListView ID="lvMain" runat="server" OnItemCommand="lvMain_ItemCommand" OnNeedDataSource="lvMain_NeedDataSource" ItemPlaceholderID="Container">
                                     <LayoutTemplate>
@@ -214,7 +224,7 @@
                                     </EmptyDataTemplate>
 
                                 </telerik:RadListView>
-                                        
+
                             </div>
 
                             <div class="row">

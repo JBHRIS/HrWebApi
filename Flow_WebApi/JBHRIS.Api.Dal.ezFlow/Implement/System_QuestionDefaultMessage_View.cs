@@ -53,10 +53,11 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
 
 
 
-        public List<QuestionDefaultMessageVdb> GetQuestionDefaultMessageByRoleKey(int RoleKey)
+        public List<QuestionDefaultMessageVdb> GetQuestionDefaultMessageByCompanyId(string CompanyId)
         {
             List<QuestionDefaultMessageVdb> result = new List<QuestionDefaultMessageVdb>();
-            List<QuestionDefaultMessageVdb> QM = (from bn in this._context.QuestionDefaultMessages                                                     
+            List<QuestionDefaultMessageVdb> QM = (from bn in this._context.QuestionDefaultMessages
+                                                  where bn.CompanyId == CompanyId
                                                   select new QuestionDefaultMessageVdb
                                                       {
                                                           AutoKey = bn.AutoKey,
@@ -74,15 +75,9 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
                                                       }).ToList();
 
 
-            foreach (var rQm in QM)
-            {
-                if (Security.IsRoleValid(rQm.RoleKey, Security.GetRoleKeyToBinaryKey(RoleKey)))
-                {
-                    result.Add(rQm);
-                }
-            }
+          
 
-            return result;
+            return QM;
             // return result;
         }
 
