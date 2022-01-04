@@ -153,12 +153,6 @@
                                     <telerik:RadLabel ID="lblDeptFilter" runat="server"></telerik:RadLabel>
                                 </div>
 
-                                <div class="col-md-3">
-                                    <label class=" col-form-label">班別選擇</label>
-                                    <telerik:RadComboBox ID="txtRote" runat="server" Culture="zh-TW" AllowCustomText="True" Skin="Bootstrap" Width="100%"
-                                        AutoPostBack="True" EnableVirtualScrolling="True" Filter="Contains" OnSelectedIndexChanged="txtRote_SelectedIndexChanged">
-                                    </telerik:RadComboBox>
-                                </div>
 
                                 <div class="col-md-2">
                                     <asp:Panel runat="server" ID="plNameSearch">
@@ -170,9 +164,22 @@
                                     </asp:Panel>
                                 </div>
                             </div>
+                            <div class="form-group row">
 
+                                <div class="col-md-3">
+                                    <label class=" col-form-label">班別選擇</label>
+                                    <telerik:RadComboBox ID="txtRote" runat="server" Culture="zh-TW" AllowCustomText="True" Skin="Bootstrap" Width="100%"
+                                        AutoPostBack="True" EnableVirtualScrolling="True" Filter="Contains" OnSelectedIndexChanged="txtRote_SelectedIndexChanged">
+                                    </telerik:RadComboBox>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="col-form-label">提前加班</label>
+                                    <br />
+                                    <telerik:RadCheckBox ID="ckbEarlyOt" runat="server" Skin="Bootstrap"></telerik:RadCheckBox>
+                                </div>
+                            </div>
                             <div class="hr-line-dashed"></div>
-                            
+
                             <div class="form-group row">
                                 <div class="col-md-1">
                                     <label class=" col-form-label">全選</label><br />
@@ -213,20 +220,20 @@
                                     <telerik:RadComboBox ID="ddlDepts" runat="server" Culture="zh-TW" EnableVirtualScrolling="True" ItemsPerRequest="10" LoadingMessage="載入中…" Width="100%" Skin="Bootstrap">
                                     </telerik:RadComboBox>
                                 </div>
-                                
+
                             </div>
 
                             <div class="form-group row">
                                 <div class="col-md-6">
-                                    
-                                        <label class=" col-form-label">備註</label>
-                                          <telerik:RadTextBox ID="txtNote" runat="server" EmptyMessage="請輸入您的原因..."
-                                                TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="3">
-                                          </telerik:RadTextBox>
-                                    
-                                 </div>
+
+                                    <label class=" col-form-label">備註</label>
+                                    <telerik:RadTextBox ID="txtNote" runat="server" EmptyMessage="請輸入您的原因..."
+                                        TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="3">
+                                    </telerik:RadTextBox>
+
+                                </div>
                             </div>
-                            
+
                             <div class="form-group row">
                                 <div class="col-md-12">
                                     <label class=" col-form-label">備註事項：</label>
@@ -241,13 +248,13 @@
                                     <telerik:RadButton ID="btnAdd" runat="server" Text="新增" CssClass="btn btn-outline btn-primary" OnClick="btnAdd_Click" />
                                 </div>
                                 <div class="col-md-8">
-                                      <h3>
-                                          <telerik:RadLabel ID="lblErrorMsg" runat="server" Text="" CssClass="text-danger"></telerik:RadLabel>
-                                      </h3>
+                                    <h3>
+                                        <telerik:RadLabel ID="lblErrorMsg" runat="server" Text="" CssClass="text-danger"></telerik:RadLabel>
+                                    </h3>
                                 </div>
                             </div>
-                            
-                           
+
+
                         </telerik:RadAjaxPanel>
                     </div>
                 </div>

@@ -210,5 +210,36 @@ namespace OldDal.Dao.Att
 
             return Vdb;
         }
+        /// <summary>
+        /// 判斷班別是否為夜班
+        /// </summary>
+        /// <param name="RoteCode">班別</param>
+        /// <returns></returns>
+        public bool RoteIsNightShift(string RoteCode)
+        {
+            bool IsNightShift = false;
+            List<string> RoteTime = new List<string>();
+
+            var RoteDetail = GetRoteDetail();
+            var RoteDetailSelect = RoteDetail.Where(p => p.RoteCode == RoteCode).FirstOrDefault();
+
+            if(RoteDetailSelect!=null)
+            {
+                RoteTime.Add(RoteDetailSelect.OffTime);
+                RoteTime.Add(RoteDetailSelect.MiddleTimeE);
+                RoteTime.AddRange(RoteDetailSelect.DayRes.Select(p => p.ResTimeE));
+
+                foreach (var c in RoteTime)
+                {
+                    if (c.CompareTo("2400") >= 0)
+                    {
+                        IsNightShift = true;
+                        break;
+                    }
+                }
+            }
+
+            return IsNightShift;
+        }
     }
 }

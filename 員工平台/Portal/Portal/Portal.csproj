@@ -303,6 +303,7 @@
     <Content Include="bin\zxing.presentation.dll" />
     <Content Include="bin\zxing.presentation.xml" />
     <Content Include="bin\zxing.xml" />
+    <Content Include="EmployeeChangeCalendar.aspx" />
     <Content Include="FormAbsApplyByDeptStd.aspx" />
     <Content Include="FormAbsWithApiStd.aspx" />
     <Content Include="FormAgent.aspx" />
@@ -1944,6 +1945,13 @@
     <Compile Include="Download.ashx.cs">
       <DependentUpon>Download.ashx</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeChangeCalendar.aspx.cs">
+      <DependentUpon>EmployeeChangeCalendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeChangeCalendar.aspx.designer.cs">
+      <DependentUpon>EmployeeChangeCalendar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FormAbsApplyByDeptStd.aspx.cs">
       <DependentUpon>FormAbsApplyByDeptStd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2858,7 +2866,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

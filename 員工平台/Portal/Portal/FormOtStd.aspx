@@ -200,7 +200,7 @@
                                     </telerik:RadComboBox>
                                 </div>
                                 <div class="col-md-3">
-                                    <label class=" col-form-label">刷卡時間</label><br>
+                                    <label class=" col-form-label">出勤刷卡時間</label><br>
                                     <asp:Label ID="lblCardTime" runat="server"></asp:Label>
                                 </div>
                                 <div class="col-md-6">
