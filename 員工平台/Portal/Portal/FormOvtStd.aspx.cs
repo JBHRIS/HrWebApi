@@ -259,14 +259,15 @@ namespace Portal
         {
             string Card = "";
 
-            OldDal.Dao.Att.CardDao oCardDao = new OldDal.Dao.Att.CardDao(dcHR.Connection);
-            var rsCard = oCardDao.GetData(sNobr, dDate.Date);
-            if (rsCard.Count > 0)
-            {
-                Card = dDate.ToShortDateString() + "-";
+            OldDal.Dao.Att.AttcardDao oAttcardDao = new OldDal.Dao.Att.AttcardDao(dcHr.Connection);
 
-                foreach (var rCard in rsCard)
-                    Card += rCard.OnTime + ",";
+            var rsAttCard = oAttcardDao.GetAttcard(sNobr, dDate.Date);
+            if (rsAttCard.Count > 0)
+            {
+                Card = dDate.ToShortDateString() + "：";
+
+                foreach (var rCard in rsAttCard)
+                    Card += rCard.OnCardTime24 + "-" + rCard.OffCardTime24;
             }
 
             return Card;
@@ -494,6 +495,8 @@ namespace Portal
             string TimeB = txtTimeB.Text;
             string TimeE = txtTimeE.Text;
             string Note = txtNote.Text.Trim();
+            bool IsNightShift = false;
+
             OldDal.Dao.Bas.BasDao oBasDao = new OldDal.Dao.Bas.BasDao(dcHR.Connection);
             var rBasS = oBasDao.GetBaseByNobr(Nobr, DateB).FirstOrDefault();
 
@@ -520,6 +523,13 @@ namespace Portal
             var rBasM = oBasDao.GetBaseByNobr(lblNobrAppM.Text, DateB).FirstOrDefault();
             OldDal.Dao.Att.AttendDao oAttendDao = new OldDal.Dao.Att.AttendDao(dcHR.Connection);
             OldDal.Dao.Att.RoteDao oRoteDao = new OldDal.Dao.Att.RoteDao(dcHR.Connection);
+
+            if (oRoteDao.RoteIsNightShift(Rote))//夜班需-1天
+            {
+                DateB = DateB.AddDays(-1);
+                IsNightShift = true;
+            }
+
             var GetAttend = oAttendDao.GetAttendH(lblNobrAppS.Text, DateB).FirstOrDefault();
             if (GetAttend != null)
             {
@@ -549,6 +559,12 @@ namespace Portal
                 lblErrorMsg.Text = "例假日無法申請加班";
                 return;
             }
+
+            if (IsNightShift)//夜班前面判斷需-1天，這邊加回來
+            {
+                DateB = DateB.AddDays(1);
+            }
+
             var IsPer30Mins = (from c in dcFlow.FormsExtend
                                where c.FormsCode == "Ot" && c.Active == true && c.Code == "IsPer30Mins"
                                select c).FirstOrDefault();
@@ -717,7 +733,7 @@ namespace Portal
                 EmployeeRuleCond.CompanySetting = CompanySetting;
                 EmployeeRuleCond.employeeId = Nobr;
                 EmployeeRuleCond.ruleType = "AttHrsDailyMax";
-                EmployeeRuleCond.checkDate = DateB;
+                EmployeeRuleCond.checkDate = IsNightShift ? DateB.AddDays(-1) : DateB;
                 var rsEmployeeRule = oEmployeeRuleDao.GetData(EmployeeRuleCond);
                 var rEmployeeRule = new List<EmployeeRuleRow>();
                 if (rsEmployeeRule.Status)

@@ -62,9 +62,8 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Standard\JBHRIS\JBHRIS.BLL\JBHRIS.BLL\bin\Debug\Dapper.dll</HintPath>
+    <Reference Include="Dapper, Version=1.50.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\員工平台\Portal\packages\Dapper.1.50.0\lib\net40\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.JScript" />

@@ -32,7 +32,7 @@ namespace TaxLevelImport
         int SUPPLEMIN1 = 20000;//單次給付金達20000元
         List<string> Supplemin_M_FORMAT1 = new List<string>() { "9A", "9B", "51", "52", "54", "5A", "5B", "5C" };
 
-        DateTime ExpireDate = new DateTime(2021, 12, 31);
+        DateTime ExpireDate = new DateTime(2022, 12, 31);//效期(避免提早執行)
         public Form1()
         {
             InitializeComponent();

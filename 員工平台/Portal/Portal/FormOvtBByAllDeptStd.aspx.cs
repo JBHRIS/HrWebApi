@@ -205,10 +205,16 @@ namespace Portal
             //{
             //    NobrList.Add(c.Value);
             //}
-            var AttendAll = oAttendDao.GetAttend(NobrList, txtDateB.SelectedDate.Value, txtDateB.SelectedDate.Value);
+            var AttendAll = oAttendDao.GetAttend(NobrList, txtDateB.SelectedDate.Value.AddDays(-1), txtDateB.SelectedDate.Value);
             var GroupAttend = AttendAll.GroupBy(p => new { p.RoteCodeH }).Select(p => p.Key).ToList();
 
             var RoteAll = oRoteDao.GetRote();
+
+            var DefaultSelect = new TextValueRow();
+            DefaultSelect.Text = "請選擇";
+            DefaultSelect.Value = "0";
+            Rote.Add(DefaultSelect);
+
             foreach (var c in GroupAttend)
             {
                 var GetRote = RoteAll.Where(p => p.RoteCode == c.RoteCodeH).FirstOrDefault();
@@ -223,13 +229,16 @@ namespace Portal
             txtRote.DataValueField = "Value";
             txtRote.DataBind();
 
-            var RoteByNobr = AttendAll.Where(p => p.Nobr == lblNobrAppS.Text).FirstOrDefault();
-            if (RoteByNobr != null)
-                txtRote.SelectedValue = RoteByNobr.RoteCodeH;
-            else
-                txtRote.SelectedValue = Rote.Count() > 0 ? Rote.First().Value : "";
+            txtRote.Items.FindItemByValue("0").Selected = true;
+
+            //var RoteByNobr = AttendAll.Where(p => p.Nobr == lblNobrAppS.Text).FirstOrDefault();
+            //if (RoteByNobr != null)
+            //    txtRote.SelectedValue = RoteByNobr.RoteCodeH;
+            //else
+            //    txtRote.SelectedValue = Rote.Count() > 0 ? Rote.First().Value : "";
 
         }
+
         private void ckblNameAppSDetail_DataBind()
         {
             OldDal.Dao.Att.AttcardDao oAttcardDao = new OldDal.Dao.Att.AttcardDao(dcHR.Connection);
@@ -243,10 +252,19 @@ namespace Portal
                 NobrList.Add(c.Value);
             }
 
+            DateTime DateB = txtDateB.SelectedDate.Value;
+
             var RoteAll = oRoteDao.GetRote();
-            var AttCardAll = oAttcardDao.GetAttcard(NobrList, txtDateB.SelectedDate.Value, txtDateB.SelectedDate.Value);
-            var AttendAll = oAttendDao.GetAttend(NobrList, txtDateB.SelectedDate.Value, txtDateB.SelectedDate.Value);
-            var OtAll = oOtDao.GetOt(NobrList, txtDateB.SelectedDate.Value, txtDateB.SelectedDate.Value);
+
+            //跨夜班別判斷
+            if (oRoteDao.RoteIsNightShift(txtRote.SelectedValue))
+            {
+                DateB = DateB.AddDays(-1);
+            }
+
+            var AttCardAll = oAttcardDao.GetAttcard(NobrList, DateB, DateB);
+            var AttendAll = oAttendDao.GetAttend(NobrList, DateB, DateB);
+            var OtAll = oOtDao.GetOt(NobrList, DateB, DateB);
 
             foreach (ListItem c in ckblNameAppS.Items)
             {
@@ -274,9 +292,9 @@ namespace Portal
                         lblRote.Text = GetRote.RoteName;
                         if (GetAttCard != null)
                         {
-                            if (GetAttCard.OnCardTime48.Length == 4 && GetAttCard.OffCardTime48.Length == 4)
+                            if (GetAttCard.OnCardTime24.Length == 4 && GetAttCard.OffCardTime24.Length == 4)
                             {
-                                lblAttCard.Text = GetAttCard.OnCardTime48 + "-" + GetAttCard.OffCardTime48;
+                                lblAttCard.Text = GetAttCard.OnCardTime24 + "-" + GetAttCard.OffCardTime24;
                                 if (GetOt.Count() > 0)
                                 {
                                     c.Text = "<font color=blue>" + c.Text + "&nbsp&nbsp&nbsp(" + lblRote.Text + lblIsHoliday.Text + " | " + "出勤刷卡時間：" + lblAttCard.Text + " | " + "已報加班時間：" + lblOtTime.Text + ")";
@@ -288,7 +306,7 @@ namespace Portal
                             }
                             else
                             {
-                                lblAttCard.Text = GetAttCard.OnCardTime48 + "-" + GetAttCard.OffCardTime48;
+                                lblAttCard.Text = GetAttCard.OnCardTime24 + "-" + GetAttCard.OnCardTime24;
                                 if (GetOt.Count() > 0)
                                 {
                                 }
@@ -316,7 +334,7 @@ namespace Portal
                         lblRote.Text = "";
                         if (GetAttCard != null)
                         {
-                            lblAttCard.Text = GetAttCard.OnCardTime48 + "-" + GetAttCard.OffCardTime48;
+                            lblAttCard.Text = GetAttCard.OnCardTime48 + "-" + GetAttCard.OnCardTime24;
                         }
                         else
                         {
@@ -636,6 +654,9 @@ namespace Portal
             int jg = 0;
             var Calculate = 0M;
             bool IsOt1 = true;
+            bool IsNightShift = false;
+
+
             if (txtDateB.SelectedDate == null || txtDateE.SelectedDate == null)
             {
                 lblErrorMsg.Text = "您的開始或結束日期沒有輸入正確";
@@ -647,6 +668,7 @@ namespace Portal
                 return;
             }
 
+            #region 經理進位時數計算
             //int iTimeB = OldBll.Tools.TimeTrans.ConvertHhMmToMinutes(TimeB);
             //int iTimeE = OldBll.Tools.TimeTrans.ConvertHhMmToMinutes(TimeE);
             //int iTemp;
@@ -657,7 +679,8 @@ namespace Portal
 
             //iTemp = iTimeE % 30;
             //iTimeE -= iTemp;
-            //TimeE = OldBll.Tools.TimeTrans.ConvertMinutesToHhMm(iTimeE);
+            //TimeE = OldBll.Tools.TimeTrans.ConvertMinutesToHhMm(iTimeE); 
+            #endregion
 
             DateTime DateTimeB = DateB.Date.AddMinutes(OldBll.Tools.TimeTrans.ConvertHhMmToMinutes(TimeB));
             DateTime DateTimeE = DateE.Date.AddMinutes(OldBll.Tools.TimeTrans.ConvertHhMmToMinutes(TimeE));
@@ -668,8 +691,11 @@ namespace Portal
                 return;
             }
 
+
             OldDal.Dao.Att.AttendDao oAttendDao = new OldDal.Dao.Att.AttendDao(dcHR.Connection);
             OldDal.Dao.Att.RoteDao oRoteDao = new OldDal.Dao.Att.RoteDao(dcHR.Connection);
+
+
 
 
             var Is0XOt = (from c in dcFlow.FormsExtend
@@ -701,6 +727,13 @@ namespace Portal
 
                     string Nobr = lblNobrAppS.Text;
                     string Note = txtNote.Text.Trim();
+
+                    //夜班需-1天
+                    if (oRoteDao.RoteIsNightShift(txtRote.SelectedValue))
+                    {
+                        DateB = DateB.AddDays(-1);
+                        IsNightShift = true;
+                    }
 
                     var rAttend = oAttendDao.GetAttendH(Nobr, DateB.Date).FirstOrDefault();
                     if (Is0XOt != null && rAttend.RoteCode == "0X")
@@ -745,10 +778,6 @@ namespace Portal
                     OldDal.Dao.Att.AbsDao oAbsDao = new OldDal.Dao.Att.AbsDao(dcHR.Connection);
                     OldDal.Dao.Att.AttcardDao oAttcardDao = new OldDal.Dao.Att.AttcardDao(dcHR.Connection);
 
-
-                    //RadWindowManager1.RadAlert("您所申请的时间不可为过去的时间", 400, 100, "警告讯息", "", "");
-                    //return;
-                    //}
 
                     //var OtAbs1Hcode = (from c in dcFlow.FormsExtend
                     //                   where c.FormsCode == "Ot" && c.Code == "OtAbs1Hcode" && c.Active == true
@@ -806,6 +835,11 @@ namespace Portal
                         return;
                     }
 
+                    if (IsNightShift)//夜班前面判斷需-1天，這邊加回來
+                    {
+                        DateB = DateB.AddDays(1);
+                    }
+
                     //DateTime AppDate = Convert.ToDateTime(rAttendDate.Text);
 
                     //if (DateB < AppDate)
@@ -836,6 +870,8 @@ namespace Portal
                             return;
                         }
                     }
+
+                    
 
 
                     var rEmpS = (from role in dcFlow.Role
@@ -902,7 +938,7 @@ namespace Portal
                         EmployeeRuleCond.CompanySetting = CompanySetting;
                         EmployeeRuleCond.employeeId = Nobr;
                         EmployeeRuleCond.ruleType = "AttHrsDailyMax";
-                        EmployeeRuleCond.checkDate = DateB;
+                        EmployeeRuleCond.checkDate = IsNightShift ? DateB.AddDays(-1) : DateB;
                         var rsEmployeeRule = oEmployeeRuleDao.GetData(EmployeeRuleCond);
                         var rEmployeeRule = new List<EmployeeRuleRow>();
                         if (rsEmployeeRule.Status)

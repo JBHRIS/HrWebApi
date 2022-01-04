@@ -33,8 +33,9 @@ namespace JBHR.AnnualBonus.HunyaCustom
                , "指定小功年終獎金扣發天數", "TextBox", "", "Decimal");
             acg.CheckParameterAndSetDefault("ABAward3", "嘉獎加發天數", "1"
                , "指定嘉獎年終獎金扣發天數", "TextBox", "", "Decimal");
-            acg.CheckParameterAndSetDefault("ChildBirthCode", "指定分娩假代碼", ""
-               , "指定分娩假代碼", "TextBox", "", "string");
+            acg.CheckParameterAndSetDefault("ABEMPCD", "正式職代碼", "01"
+               , "指定正式職代碼，以「,」做分隔。", "TextBox", "", "String");
+            SystemFunction.CheckAppConfigRule(btnConfig);
         }
 
         private void JQABPersonalBonus_RowInsert(object sender, JBControls.JBQuery.RowInsertEventArgs e)
