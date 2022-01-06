@@ -169,7 +169,7 @@ namespace JBHR.Att
             foreach (var row in data)
             {
                 var absSQL = from r in dbDelete.ABS where r.NOBR == row.NOBR && r.YYMM == row.YEARS && r.H_CODE == hcode select r;
-                var CalcType = AppConfig.GetConfig("CalcType").GetString("1");
+                var CalcType = AppConfig.GetConfig("CalcType").GetString("2");
                 if (CalcType == "1")
                     absSQL = from r in dbDelete.ABS where r.NOBR == row.NOBR && r.YYMM == row.YEARS && r.H_CODE == hcode && (row.IsNOTE3Null() ? true : r.BTIME == row.NOTE3) select r;
                 if (absSQL.Any())//如果有重複資料
