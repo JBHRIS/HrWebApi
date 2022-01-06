@@ -21,6 +21,19 @@ namespace Portal
             {
                 ProblemReturnListM.Visible = false;
             }
+            var Path = System.IO.Path.GetFileName(Request.PhysicalPath);
+            if (Path == "ProblemReturn.aspx")
+                ProblemReturn.Style.Add(HtmlTextWriterStyle.Color, "Green");
+            if (Path == "ProblemReturnList.aspx")
+                ProblemReturnList.Style.Add(HtmlTextWriterStyle.Color, "Green");
+            if (Path == "ProblemReturnListM.aspx")
+                ProblemReturnListM.Style.Add(HtmlTextWriterStyle.Color, "Green");
+
+            if (_User.EmpName == "未登入" )
+            {
+                string strUrl_No = "../Reply/LoginBind.aspx";
+                ScriptManager.RegisterClientScriptBlock(Page,Page.GetType(), "script", "if ( window.alert('登入已逾時，請重新登入')) { } else {window.location.href='" + strUrl_No + "' };", true);
+            }
         }
         private void Page_PreRenderComplete(object sender, EventArgs e)
         {

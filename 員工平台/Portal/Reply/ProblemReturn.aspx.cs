@@ -67,7 +67,7 @@ namespace Portal
                 lblAddStatus.InnerText = "未輸入標題或回報內容";
                 return;
             }
-            if (txtTitle.Text.Length > 30 || txtContent.Text.Length > 80)
+            if (txtTitle.Text.Length > 30 || txtContent.Text.Length > 200)
             {
                 lblAddStatus.InnerText = "標題或內容長度過長";
                 return;

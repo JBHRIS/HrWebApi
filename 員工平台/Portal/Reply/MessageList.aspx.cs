@@ -41,7 +41,7 @@ namespace Portal
             GetQuestionDefaultCond.AccessToken = _User.AccessToken;
             GetQuestionDefaultCond.RefreshToken = _User.RefreshToken;
             GetQuestionDefaultCond.CompanySetting = CompanySetting;
-            GetQuestionDefaultCond.CompanyId = _User.RoleKey.ToString();
+            GetQuestionDefaultCond.CompanyId = _User.CompanyId;
             var rsGetQuestionMain = oGetDefaultMessage.GetData(GetQuestionDefaultCond);
 
             try

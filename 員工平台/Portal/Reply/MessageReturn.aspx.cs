@@ -16,12 +16,21 @@ namespace Portal
 {
     public partial class MessageReturn : WebPageBase
     {
+        private void LoginTime()
+        {
+            
+                MessageBox.Show("登入逾時");
+                
+            
+            
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                
                 txtReturnS_DataBind();
+              
             }
             SetDefault();
         }
@@ -110,7 +119,7 @@ namespace Portal
                     GetQuestionDefaultMessageCond.AccessToken = _User.AccessToken;
                     GetQuestionDefaultMessageCond.RefreshToken = _User.RefreshToken;
                     GetQuestionDefaultMessageCond.CompanySetting = CompanySetting;
-                    GetQuestionDefaultMessageCond.CompanyId = _User.RoleKey.ToString();
+                    GetQuestionDefaultMessageCond.CompanyId = _User.CompanyId;
                     var rsGQDM = oGetQuestionDefaultMessage.GetData(GetQuestionDefaultMessageCond).Data as List<ShareGetQuestionDefaultMessageByCompanyIdRow>;
                     lvMain.DataSource = rsGQDM;
                     var Script = "$(document).ready(function() {$('.footable').footable();});";
@@ -308,6 +317,7 @@ namespace Portal
             }
             else if (CN == "ReplyAdd")//留言回覆
             {
+               
 
                 var oGetQuestionReplyByCode = new ShareGetQuestionReplyByCodeDao();
                 var GetQuestionReplyByCodeCond = new ShareGetQuestionReplyByCodeConditions();
@@ -316,12 +326,21 @@ namespace Portal
 
                 string content = "";
                 RadTextBox txt = new RadTextBox();
+                RadLabel lbl = new RadLabel();
                 foreach (var control in QuestionReplyData.Items)
                 {
                     if (e.ListViewItem.ClientID == control.ClientID)
                     {
                         txt = control.FindControl("txtReply") as RadTextBox;
-                        content = txt.Text;
+                        lbl = control.FindControl("lblReplyStatus") as RadLabel;
+                        if (txt.Text == "")
+                        {
+                            lbl.Text = "回覆不得為空白";
+                            return;
+                        }
+
+                        content = txt.Text.Replace("\r\n", "</br>");
+                      
                     }
                 }
                 InsertQuestionReplyCond.AccessToken = _User.AccessToken;
@@ -330,10 +349,10 @@ namespace Portal
                 InsertQuestionReplyCond.AutoKey = 0;
                 InsertQuestionReplyCond.Code = Guid.NewGuid().ToString();
                 InsertQuestionReplyCond.QuestionMainCode = Request.QueryString["Code"];
-                InsertQuestionReplyCond.Key1 = lblEmpID.Text;
-                InsertQuestionReplyCond.Key2 = lblEmpID.Text;
-                InsertQuestionReplyCond.Key3 = lblEmpID.Text;
-                InsertQuestionReplyCond.Name = lblEmpName.Text;
+                InsertQuestionReplyCond.Key1 = _User.EmpId;
+                InsertQuestionReplyCond.Key2 = _User.EmpId;
+                InsertQuestionReplyCond.Key3 = _User.EmpId;
+                InsertQuestionReplyCond.Name = _User.EmpName;
                 InsertQuestionReplyCond.Content = content;
                 InsertQuestionReplyCond.RoleKey = rsQRBP.RoleKey;
                 InsertQuestionReplyCond.IpAddress = WebPage.GetClientIP(Context);
@@ -453,7 +472,7 @@ namespace Portal
                 InsertQuestionReplyCond.Key2 = _User.EmpId;
                 InsertQuestionReplyCond.Key3 = _User.EmpId;
                 InsertQuestionReplyCond.Name = _User.EmpName;
-                InsertQuestionReplyCond.Content = txtContent.Text;
+                InsertQuestionReplyCond.Content = txtContent.Text.Replace("\r\n", "</br>");
                 if (_User.RoleKey == 2)
                 {
                     InsertQuestionReplyCond.RoleKey = 2;

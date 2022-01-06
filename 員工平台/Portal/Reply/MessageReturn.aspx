@@ -101,7 +101,8 @@
                                         TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="3">
                                     </telerik:RadTextBox>
 
-                                    <telerik:RadButton class="btnadd" runat="server" Text="送出" CssClass="btn btn-primary btn-md m-t-md" CommandArgument='<%# Eval("Code") %>' CommandName="ReplyAdd" />
+                                    <telerik:RadButton ID="btnReplyAdd" class="btnadd" runat="server" Text="送出" CssClass="btn btn-primary btn-md m-t-md" CommandArgument='<%# Eval("Code") %>' CommandName="ReplyAdd" />
+                                     <telerik:RadLabel ID="lblReplyStatus"  runat="server" CssClass="text-danger" Text="" />
                                 </div>
                             </div>
                         </div>
