@@ -77,6 +77,7 @@ public class AuthManager
                     var rUserdata = rs.Data as UserdataRow;
                     if (rUserdata != null)
                     {
+
                         user.EmpId = rUserdata.EmpId;
                         user.EmpName = rUserdata.EmpName;
                         user.EmpEmail = "";

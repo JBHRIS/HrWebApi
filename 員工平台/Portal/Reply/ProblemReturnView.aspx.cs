@@ -151,7 +151,8 @@ namespace Portal
                            "<span >" + DataDetail.Content + "</span><br>" +
                            "<button ID=\"btnSubReply\" type = \"button\" class=\"btnReply btn btn-link fa comment_icon text-blue\" data-toggle=\"collapse\" data-target=\"#rep" + DataDetail.ParentCode + "\">回覆</button>" +
                            "<span class=\"text-muted\">" + DataDetail.InsertDate.Value.ToString("yyyy-MM-dd") + " </span>" +
-                           "<span class=\"text-muted\">" + DataDetail.InsertDate.Value.ToString("HH: ss") + "</span><br>" +
+                           "-"+
+                           "<span class=\"text-muted\">" + DataDetail.InsertDate.Value.ToString("HH:mm") + "</span><br>" +
                            "</div><br>";
 
 
@@ -227,6 +228,12 @@ namespace Portal
             {
                 if (Request.QueryString["Code"] != null)
                 {
+                    if (txtContent.Text == ""|| txtContent.Text==null)
+                    {
+                        lblAddStatus.InnerText = "回覆欄不得為空";
+                        return;
+                    }
+
                     RadButton button = sender as RadButton;
                     var CN = button.CommandName;
 
@@ -253,8 +260,8 @@ namespace Portal
                     InsertQuestionReplyCond.Key2 = lblEmpID.Text;
                     InsertQuestionReplyCond.Key3 = lblEmpID.Text;
                     InsertQuestionReplyCond.Name = lblEmpName.Text;
-                    InsertQuestionReplyCond.Content = txtContent.Text;
-                    InsertQuestionReplyCond.RoleKey = Int32.Parse(lblRoleKey.Text);
+                    InsertQuestionReplyCond.Content = txtContent.Text.Replace("\r\n", "</br>");
+                    InsertQuestionReplyCond.RoleKey = 74;
                     InsertQuestionReplyCond.IpAddress = WebPage.GetClientIP(Context);
                     InsertQuestionReplyCond.ReplyToCode = "";
                     InsertQuestionReplyCond.ParentCode = Request.QueryString["Code"];
@@ -449,12 +456,13 @@ namespace Portal
                         {
                             txt = control.FindControl("txtReply") as RadTextBox;
                             lbl = control.FindControl("lblReplyStatus") as RadLabel;
-                            if (txt.Text.Length == 0)
+                            if (txt.Text=="")
                             {
                                 lbl.Text = "回覆不得為空白";
                                 return;
                             }
-                            content = txt.Text;
+                            
+                            content = txt.Text.Replace("\r\n","</br>");
                         }
                     }
                     InsertQuestionReplyCond.AccessToken = _User.AccessToken;
@@ -603,6 +611,7 @@ namespace Portal
 
         protected void btnHelpful_Click(object sender, EventArgs e)
         {
+
             btnHelpful.Enabled = false;
             btnHelpless.Enabled = false;
             btnDraft.Enabled = false;

@@ -38,13 +38,13 @@ namespace Reply
 
                 var oShareCompany = new ShareCompanyDao();
                 var CompanySetting = oShareCompany.GetCompanySetting(CompanyId);
-
+                
                 var oUser = new User();
                 oUser.AccessToken = AccessToken;
                 oUser.RefreshToken = RefreshToken;
                 oUser.UserCode = CompanyId + EmpId;
                 oUser.EmpId = EmpId;
-                oUser.CompanyId = CompanyId;
+                oUser.CompanyId = "";
                 oUser.EmpName = EmpName;
                 oUser.RoleKey = Role;
                 
