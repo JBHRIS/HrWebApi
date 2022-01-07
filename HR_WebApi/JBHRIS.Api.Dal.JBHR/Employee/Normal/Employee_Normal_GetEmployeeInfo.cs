@@ -2,6 +2,7 @@
 using JBHRIS.Api.Dal.JBHR.Repository;
 using JBHRIS.Api.Dto.Employee.Entry;
 using JBHRIS.Api.Dto.Employee.Normal;
+using JBHRIS.Api.Dto.Employee.View;
 using JBHRIS.Api.Tools;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
@@ -331,6 +332,84 @@ namespace JBHRIS.Api.Dal.JBHR.Employee
                            KeyDate = p.KeyDate,
                            KeyMan = p.KeyMan
                        });
+            return data.ToList();
+        }
+
+        public List<HunyaEmployeeInfoViewDto> GetHunyaEmployeeInfoView(HunyaEmployeeInfoEntry hunyaEmployeeInfoEntry)
+        {
+            List<HunyaEmployeeInfoViewDto> employeeInfoViewDtos = new List<HunyaEmployeeInfoViewDto>();
+
+            foreach (var item in hunyaEmployeeInfoEntry.employeeList.Split(2100))
+            {
+                var today = hunyaEmployeeInfoEntry.checkDate.Date;
+                var data = from bts in _unitOfWork.Repository<Basetts>().Reads()
+                           join b in _unitOfWork.Repository<Base>().Reads() on bts.Nobr equals b.Nobr
+                           join d in _unitOfWork.Repository<Dept>().Reads() on bts.Dept equals d.DNo
+                           join da in _unitOfWork.Repository<Depta>().Reads() on bts.Deptm equals da.DNo
+                           join ds in _unitOfWork.Repository<Depts>().Reads() on bts.Depts equals ds.DNo
+                           join j in _unitOfWork.Repository<Job>().Reads() on bts.Job equals j.Job1
+                           join jl in _unitOfWork.Repository<Jobl>().Reads() on bts.Jobl equals jl.Jobl1
+                           join js in _unitOfWork.Repository<Jobs>().Reads() on bts.Jobs equals js.Jobs1
+                           join w in _unitOfWork.Repository<Workcd>().Reads() on bts.Workcd equals w.WorkCode
+                           where item.Contains(b.Nobr) && today >= bts.Adate && today <= bts.Ddate
+                           select new HunyaEmployeeInfoViewDto()
+                           {
+                               EditDate = bts.Adate,
+                               ID = bts.Nobr,
+                               Name = b.NameC,
+                               EMail = b.Email,
+                               LoginID = b.NameAd,
+                               EnglishName = b.NameE,
+                               Sex = b.Sex,
+                               SupervisorDept = false,
+                               SupervisorDepta = false,
+                               Signoff = da.DeptTree,
+                               DeptId = d.DNo,
+                               DeptIdDisp = d.DNoDisp,
+                               DeptName = d.DName,
+                               DeptaId = da.DNo,
+                               DeptaIdDisp = da.DNoDisp,
+                               DeptaName = da.DName,
+                               DeptsId = ds.DNo,
+                               DeptsIdDisp = ds.DNoDisp,
+                               DeptsName = ds.DName,
+                               JobTitle = j.Job1,
+                               JobTitleDisp = j.JobDisp,
+                               JobTitleName = j.JobName,
+                               JobLevel = jl.Jobl1,
+                               JobLevelDisp = jl.JoblDisp,
+                               JobLevelName = jl.JobName,
+                               JobRank = js.Jobs1,
+                               JobRankDisp = js.JobsDisp,
+                               JobRankName = js.JobName,
+                               Nationality = b.Country,
+                               Ext = b.Subtel,
+                               WorkPlaceCode = bts.Workcd,
+                               WorkPlaceName = w.WorkAddr,
+                               AreaCode = bts.Saladr,
+                               OnBoardDate = bts.Indt,
+                               ResignDate = bts.Oudt,
+                               Company = bts.Comp,
+                               Plant = null,
+                               SalesOrg = null,
+                               PurchaseOrg = null,
+                           };
+                employeeInfoViewDtos.AddRange(data.ToList());
+            }
+            return employeeInfoViewDtos.ToList();
+        }
+
+        public List<BaseExpansionDto> GetBaseExpansion(string Code)
+        {
+            string likeString = $"\"ParameterName\":\"{Code}\"";
+            var data = from udv in _unitOfWork.Repository<Userdefinevalue>().Reads()
+                       join udl in _unitOfWork.Repository<Userdefinelayout>().Reads() on udv.Controlid equals udl.Controlid
+                       where udl.Tag.Contains(likeString)
+                       select new BaseExpansionDto()
+                       {
+                           Code = udv.Code,
+                           Value = udv.Value
+                       };
             return data.ToList();
         }
     }

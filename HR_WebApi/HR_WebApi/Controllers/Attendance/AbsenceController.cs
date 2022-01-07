@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using HR_WebApi.Api.Dto;
 using JBHRIS.Api.Dto;
@@ -9,10 +11,12 @@ using JBHRIS.Api.Dto.Absence.View;
 using JBHRIS.Api.Dto.Attendance;
 using JBHRIS.Api.Dto.Attendance.Entry;
 using JBHRIS.Api.Dto.Attendance.View;
+using JBHRIS.Api.Dto.Hunya;
 using JBHRIS.Api.Service.Attendance.Normal;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using NLog;
 
 namespace HR_WebApi.Controllers.Attendance
@@ -248,6 +252,54 @@ namespace HR_WebApi.Controllers.Attendance
             _logger.Info("開始呼叫AbsenceService.AbsenceDataSave");
             ApiResult<string> apiResult = _absenceCalculateService.AbsenceDataSave(User,calAbsHoursDtos);
             return apiResult;
+        }
+
+        /// <summary>
+        /// 請假存入(宏亞)
+        /// </summary>
+        [Route("HunyaAbsenceDataSave")]
+        [HttpPost]
+        //[Authorize(Roles = "Absence/HunyaAbsenceDataSave,Admin")]
+        public async Task<LoginResponseDto> HunyaAbsenceDataSave(HunyaAbsenceDataSaveEntry hunyaAbsenceDataSaveEntry)
+        {
+            _logger.Info("開始呼叫AbsenceService.HunyaAbsenceDataSave");
+            var url = "http://mestest.hunya.com/cooperation";
+            LoginRequestDto loginRequestDto = new LoginRequestDto()
+            {
+                key = "hunya00xxP@ssw0rd",
+                user = "hr"
+            };
+            var json = JsonConvert.SerializeObject(loginRequestDto);
+            HttpClient client = new HttpClient();
+            HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+            
+            try
+            {
+                var response = await client.PostAsync(url, content);
+                LoginResponseDto loginResponseDto = JsonConvert.DeserializeObject<LoginResponseDto>(await response.Content.ReadAsStringAsync());
+                url = "http://mestest.hunya.com/dbcmd";
+                UserLeaveRequestDto userLeaveDto = new UserLeaveRequestDto()
+                {
+                    sessionid = loginResponseDto.sessionid,
+                    cmd = "hr_user_leave",
+                    工號 = hunyaAbsenceDataSaveEntry.Nobr,
+                    請假起始 = hunyaAbsenceDataSaveEntry.AtteendDate.Date.AddTime(hunyaAbsenceDataSaveEntry.OnTime).ToString("yyyy-MM-dd HH:mm"),
+                    請假結束 = hunyaAbsenceDataSaveEntry.AtteendDate.Date.AddTime(hunyaAbsenceDataSaveEntry.OffTime).ToString("yyyy-MM-dd HH:mm")
+                };
+                json = JsonConvert.SerializeObject(userLeaveDto);
+                content = new StringContent(json, Encoding.UTF8, "application/json");
+                var response2 = await client.PostAsync(url, content);
+                return JsonConvert.DeserializeObject<LoginResponseDto>(await response2.Content.ReadAsStringAsync());
+            }
+            catch (Exception ex)
+            {
+                var err = new LoginResponseDto()
+                {
+                    pass = false,
+                    sessionid = ex.Message.ToString()
+                };
+                return err;
+            }
         }
     }
 }

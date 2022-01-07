@@ -22,6 +22,13 @@ namespace HR_WebApi
             //var Bearer = context.HttpContext.Request.Headers.Select(P => P.Key ="HeaderAuthorization");
             var Path = context.HttpContext.Request.Path;
             var QueryString = context.HttpContext.Request.QueryString;
+            //var token = context.HttpContext.Request.Headers["Authorization"];
+            //var Method = context.HttpContext.Request.Method;
+            //var requestVal = "";
+            //foreach(var a in context.ActionArguments)
+            //{
+            //    requestVal += $"\"{a.Key}\":\"{a.Value}\"";  
+            //}
             _logger.Info("Request Path："+context.HttpContext.Request.Path);
         }
 

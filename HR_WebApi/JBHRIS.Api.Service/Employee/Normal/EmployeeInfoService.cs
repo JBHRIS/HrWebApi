@@ -1,6 +1,7 @@
 ﻿using JBHRIS.Api.Dal._System.View;
 using JBHRIS.Api.Dal.Employee;
 using JBHRIS.Api.Dal.Employee.Normal;
+using JBHRIS.Api.Dal.Employee.View;
 using JBHRIS.Api.Dal.JBHR;
 using JBHRIS.Api.Dto.Employee.Entry;
 using JBHRIS.Api.Dto.Employee.Normal;
@@ -19,18 +20,24 @@ namespace JBHRIS.Api.Service.Employee.Normal
         private IEmployee_Normal_EmployeeInfoRepository _employee_Normal_EmployeeInfoRepository;
         private IEmployee_Normal_EmployeePasswordRepository _employee_Normal_EmployeePasswordRepository;
         private ISystem_View_SysRelcode _system_View_SysRelcode;
+        private IEmployee_View_GetDept _employee_View_GetDept;
+        private IEmployee_View_GetDepta _employee_View_GetDepta;
 
         public EmployeeInfoService(IEmployee_Normal_GetEmployeeInfo employee_Normal_GetEmployeeInfo
             , IEmployee_Normal_GetPeopleByDept employee_Normal_GetPeopleByDept
             , IEmployee_Normal_EmployeeInfoRepository employee_Normal_EmployeeInfoRepository
             , IEmployee_Normal_EmployeePasswordRepository employee_Normal_EmployeePasswordRepository
-            , ISystem_View_SysRelcode system_View_SysRelcode)
+            , ISystem_View_SysRelcode system_View_SysRelcode
+            ,IEmployee_View_GetDept employee_View_GetDept
+            ,IEmployee_View_GetDepta employee_View_GetDepta)
         {
             _employee_Normal_GetEmployeeInfo = employee_Normal_GetEmployeeInfo;
             _employee_Normal_GetPeopleByDept = employee_Normal_GetPeopleByDept;
             _employee_Normal_EmployeeInfoRepository = employee_Normal_EmployeeInfoRepository;
             _employee_Normal_EmployeePasswordRepository = employee_Normal_EmployeePasswordRepository;
             _system_View_SysRelcode = system_View_SysRelcode;
+            _employee_View_GetDept = employee_View_GetDept;
+            _employee_View_GetDepta = employee_View_GetDepta;
         }
 
         public List<EmployeeInfoDto> GetEmployeeInfo(List<string> employeeList)
@@ -196,6 +203,50 @@ namespace JBHRIS.Api.Service.Employee.Normal
         public List<EmployeeRuleDto> GetEmployeeRule(EmployeeRuleEntry employeeRuleEntry)
         {
             return _employee_Normal_GetEmployeeInfo.GetEmployeeRule(employeeRuleEntry);
+        }
+
+        public List<HunyaEmployeeInfoViewDto> GetHunyaEmployeeInfoView(HunyaEmployeeInfoEntry hunyaEmployeeInfoEntry)
+        {
+            var empData = _employee_Normal_GetEmployeeInfo.GetHunyaEmployeeInfoView(hunyaEmployeeInfoEntry);
+            var exData_Plant =  _employee_Normal_GetEmployeeInfo.GetBaseExpansion("Plant");
+            var exData_SalesOrg = _employee_Normal_GetEmployeeInfo.GetBaseExpansion("SalesOrg");
+            var exData_PurchaseOrg = _employee_Normal_GetEmployeeInfo.GetBaseExpansion("PurchaseOrg");
+            var dept = _employee_View_GetDept.GetDeptView();
+            var depta = _employee_View_GetDepta.GetDeptaView();
+            foreach (var e in empData)
+            {
+                var Plant = exData_Plant.Find(p => p.Code == e.ID);
+                if (Plant != null)
+                {
+                    e.Plant = Plant.Value;
+                }
+
+                var SalesOrg = exData_SalesOrg.Find(p => p.Code == e.ID);
+                if (SalesOrg != null)
+                {
+                    e.SalesOrg = SalesOrg.Value;
+                }
+
+                var PurchaseOrg = exData_PurchaseOrg.Find(p => p.Code == e.ID);
+                if (PurchaseOrg != null)
+                {
+                    e.PurchaseOrg = PurchaseOrg.Value;
+                }
+
+                var SupervisorDept = dept.Exists(p => p.DirectorEmployeeId == e.ID);
+                if (SupervisorDept)
+                {
+                    e.SupervisorDept = SupervisorDept;
+                }
+
+                var SupervisorDepta = dept.Exists(p => p.DirectorEmployeeId == e.ID);
+                if (SupervisorDepta)
+                {
+                    e.SupervisorDepta = SupervisorDepta;
+                }
+            }
+
+            return empData;
         }
     }
 }

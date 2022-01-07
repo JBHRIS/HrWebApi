@@ -418,6 +418,21 @@ namespace JBHRIS.Api.Dal.JBHR.Salary.View
             return dList;
         }
 
+        public List<GetSalaryCodeDto> GetSalaryCode()
+        {
+            var dList = from sc in _unitOfWork.Repository<Salcode>().Reads()
+                        select new GetSalaryCodeDto
+                        {
+                            SalCode1 = sc.SalCode1,
+                            SalCodeDisp = sc.SalCodeDisp,
+                            SalName = sc.SalName,
+                            SalAttr = sc.SalAttr,
+                            Sort = (int)sc.Sort
+                        };
+
+            return dList.ToList();
+        }
+
         private DateTime FirstDayOfMonth
         {
             get
