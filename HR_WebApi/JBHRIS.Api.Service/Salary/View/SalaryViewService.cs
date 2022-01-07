@@ -338,6 +338,11 @@ namespace JBHRIS.Api.Service.Salary.View
             return _salary_View_SalaryView.GetSalaryWageLockByEmpList(EmpList);
         }
 
+        public List<GetSalaryCodeDto> GetSalaryCode()
+        {
+            return _salary_View_SalaryView.GetSalaryCode();
+        }
+
         private class CalcDateCycleDto
         {
             public DateTime DateB { get; set; }

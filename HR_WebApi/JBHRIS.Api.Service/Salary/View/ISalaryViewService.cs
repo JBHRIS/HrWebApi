@@ -32,6 +32,7 @@ namespace JBHRIS.Api.Service.Salary.View
 
         ApiResult<List<GetSalaryChangeDto>> GetSalaryChange(string Nobr, DateTime CheckDate);//取得薪資異動資料
         ApiResult<string> AddSalaryChange(SalaryChangeInfoDto salaryInfo);//薪資異動
+        List<GetSalaryCodeDto> GetSalaryCode();//薪資代碼
 
     }
 }

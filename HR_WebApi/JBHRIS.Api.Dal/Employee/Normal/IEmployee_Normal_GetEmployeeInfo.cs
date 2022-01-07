@@ -1,5 +1,6 @@
 ﻿using JBHRIS.Api.Dto.Employee.Entry;
 using JBHRIS.Api.Dto.Employee.Normal;
+using JBHRIS.Api.Dto.Employee.View;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,5 +20,7 @@ namespace JBHRIS.Api.Dal.Employee
         List<TtscdDto> GetTtscd();
 
         List<EmployeeRuleDto> GetEmployeeRule(EmployeeRuleEntry employeeRuleEntry);
+        List<HunyaEmployeeInfoViewDto> GetHunyaEmployeeInfoView(HunyaEmployeeInfoEntry hunyaEmployeeInfoEntry);
+        List<BaseExpansionDto> GetBaseExpansion(string Code);
     }
 }

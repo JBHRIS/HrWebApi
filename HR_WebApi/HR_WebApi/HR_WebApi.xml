@@ -135,6 +135,11 @@
             請假存入
             </summary>
         </member>
+        <member name="M:HR_WebApi.Controllers.Attendance.AbsenceController.HunyaAbsenceDataSave(JBHRIS.Api.Dto.Attendance.Entry.HunyaAbsenceDataSaveEntry)">
+            <summary>
+            請假存入(宏亞)
+            </summary>
+        </member>
         <member name="T:HR_WebApi.Controllers.Attendance.AttendanceController">
             <summary>
             考勤服務
@@ -1287,20 +1292,14 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:HR_Api_Demo.Controllers.EmployeeInfo_GetPeopleByDept_Entry">
+        <member name="M:HR_Api_Demo.Controllers.EmployeeController.GetHunyaEmployeeInfoView(JBHRIS.Api.Dto.Employee.Entry.HunyaEmployeeInfoEntry)">
             <summary>
-            取得部門名單-查詢條件
+            取得員工基本資料(宏亞)
             </summary>
-        </member>
-        <member name="P:HR_Api_Demo.Controllers.EmployeeInfo_GetPeopleByDept_Entry.deptList">
-            <summary>
-            部門清單
-            </summary>
-        </member>
-        <member name="P:HR_Api_Demo.Controllers.EmployeeInfo_GetPeopleByDept_Entry.CheckDate">
-            <summary>
-            檢核日期
-            </summary>
+            <remarks>
+            </remarks>
+            <param name="hunyaEmployeeInfoEntry">工號、時間</param>
+            <returns></returns>
         </member>
         <member name="T:HR_Api_Demo.Controllers.SalaryController">
             <summary>
@@ -1411,6 +1410,18 @@
         <member name="M:HR_Api_Demo.Controllers.SalaryController.DeleteSalaryPassWord(System.String)">
             <summary>
             刪除薪資密碼
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.GetBasicSalaryCode">
+            <summary>
+            取得基本薪資代碼
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HR_Api_Demo.Controllers.SalaryController.GetSalaryCode">
+            <summary>
+            取得薪資代碼
             </summary>
             <returns></returns>
         </member>
