@@ -29,6 +29,8 @@ namespace JBHR.Att
             //, "指定加班成立的時間應大於等於多少分鐘數", "TextBox", "", "String");
             AppConfig.CheckParameterAndSetDefault("HoliMaxHour", "假日加班最大時數", "12"
             , "指定假日加班最大時數", "TextBox", "", "string");
+            AppConfig.CheckParameterAndSetDefault("DailyMaxHour", "單日工時最大時數", "12"
+            , "指定單日工時最大時數", "TextBox", "", "string");
             //AppConfig.CheckParameterAndSetDefault("HoliRestMaxHour", "假日休息最大時數", "99"
             //, "指定假日休息最大時數", "TextBox", "", "string");
             //AppConfig.CheckParameterAndSetDefault("SameTimeOtAcceptTime", "彈性刷卡最大分鐘數", "10"
@@ -71,6 +73,7 @@ namespace JBHR.Att
             AppConfig = new JBModule.Data.ApplicationConfigSettings(this.Name, MainForm.COMPANY);
             //var OtAcceptTime = AppConfig.GetConfig("OtAcceptTime").Value.Trim();
             var HoliMaxHour = AppConfig.GetConfig("HoliMaxHour").Value.Trim();
+            var DailyMaxHour = AppConfig.GetConfig("DailyMaxHour").Value.Trim();
             //var HoliRestMaxHour = AppConfig.GetConfig("HoliRestMaxHour").Value.Trim();
             //var SameTimeOtAcceptTime = AppConfig.GetConfig("SameTimeOtAcceptTime").Value.Trim();
             //var CanOtRote = AppConfig.GetConfig("CanOtRote").Value.Trim();
@@ -94,6 +97,11 @@ namespace JBHR.Att
                 MessageBox.Show("請設定假日加班最大時數", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (string.IsNullOrWhiteSpace(DailyMaxHour))
+            {
+                MessageBox.Show("請設定單日工時最大時數", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             //if (string.IsNullOrWhiteSpace(SameTimeOtAcceptTime))
             //{
             //    MessageBox.Show("請設定彈性刷卡最大分鐘數", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -106,6 +114,7 @@ namespace JBHR.Att
                 return;
             }
             double iHoliMaxHour = Convert.ToDouble(HoliMaxHour);
+            decimal iDailyMaxHour = Convert.ToDecimal(DailyMaxHour);
             JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
             List<string> CanOtRoteList = mdRote.SelectedValues; ;
             DateTime t1, t2;
@@ -151,7 +160,7 @@ namespace JBHR.Att
                           {
                               NOBR = a.NOBR,
                               ATTCARD = attcard,
-                              ROTE = new { r.ON_TIME, r.OT_BEGIN, r.ROTE1, r.ROTENAME, r.OFF_TIME, r.OFFTIME2 },
+                              ROTE = new { r.ON_TIME, r.OT_BEGIN, r.ROTE1, r.ROTENAME, r.OFF_TIME, r.OFFTIME2, r.WK_HRS },
                               BASETTS = new { t.NOBR, t.DEPTS, t.CALOT, t.CARD },
                               ATTEND = new { a.ADATE, a.NOBR, a.ROTE, r, a.ROTE_H },
                               BASE = new { d.NAME_C },
@@ -181,7 +190,7 @@ namespace JBHR.Att
                 err_mag.Nobr = itm.NOBR;
                 err_mag.Name = itm.BASE.NAME_C;
                 err_mag.BDate = itm.ATTEND.ADATE.ToShortDateString();
-
+                decimal diffhrs = iDailyMaxHour - itm.ROTE.WK_HRS;
                 try
                 {
                     toolStripProgressBar1.Value++;
@@ -372,6 +381,7 @@ namespace JBHR.Att
                     //    otHour = ot_calc - Convert.ToDecimal(HoliRestMaxHour);
 
                     if (otHour > Convert.ToDecimal(HoliMaxHour) && isHoli) otHour = Convert.ToDecimal(HoliMaxHour);
+                    if (otHour > diffhrs) otHour = diffhrs;
                     if (otHour <= 0) continue;
                     toolStripStatusLabel1.Text = string.Format("產生 {0}({1}) {2}的加班中...", itm.BASE.NAME_C, itm.NOBR, itm.ATTEND.ADATE.ToShortDateString());
                     this.Refresh();

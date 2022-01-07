@@ -105,12 +105,12 @@ namespace Portal
                         if (_User.RoleKey == 2)
                         {
                             var rsQM = rsGetQuestionMain.Data as List<ShareGetQuestionMainRow>;
-                            lvMain.DataSource = rsQM.OrderByDescending(x => x.UpdateDate);
+                            lvMain.DataSource = rsQM.OrderByDescending(x => x.InsertDate);
                         }
                         else if (_User.RoleKey == 8)
                         {
                             var rsQM = rsGetQuestionMain.Data as List<ShareGetQuestionMainByCompanyRow>;
-                            lvMain.DataSource = rsQM.OrderByDescending(x => x.UpdateDate);
+                            lvMain.DataSource = rsQM.OrderByDescending(x => x.InsertDate);
                         }
                         
 

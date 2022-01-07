@@ -80,6 +80,7 @@
                                         </telerik:RadButton>
                                         <telerik:RadButton ID="btnDelete" CommandArgument='<%# Eval("Code") %>' CommandName="Delete" runat="server" Text="刪除" CssClass="btn btn-white btn-xs" >
                                             <Icon PrimaryIconCssClass="rbRemove" />
+                                             <ConfirmSettings ConfirmText="確定要刪除此筆預設訊息?" />
                                         </telerik:RadButton>   
                                     </td>
                                 </tr>
