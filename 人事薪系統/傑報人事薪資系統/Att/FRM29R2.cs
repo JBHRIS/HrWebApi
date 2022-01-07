@@ -29,7 +29,7 @@ namespace JBHR.Att
             //, "指定加班成立的時間應大於等於多少分鐘數", "TextBox", "", "String");
             AppConfig.CheckParameterAndSetDefault("HoliMaxHour", "假日加班最大時數", "12"
             , "指定假日加班最大時數", "TextBox", "", "string");
-            AppConfig.CheckParameterAndSetDefault("DailyMaxHour", "單日工時最大時數", "12"
+            AppConfig.CheckParameterAndSetDefault("DailyMaxHour", "單日工時最大時數", "99"
             , "指定單日工時最大時數", "TextBox", "", "string");
             //AppConfig.CheckParameterAndSetDefault("HoliRestMaxHour", "假日休息最大時數", "99"
             //, "指定假日休息最大時數", "TextBox", "", "string");
