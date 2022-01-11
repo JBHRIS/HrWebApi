@@ -259,25 +259,27 @@ namespace HR_WebApi.Controllers.Attendance
         /// </summary>
         [Route("HunyaAbsenceDataSave")]
         [HttpPost]
-        //[Authorize(Roles = "Absence/HunyaAbsenceDataSave,Admin")]
+        [Authorize(Roles = "Absence/HunyaAbsenceDataSave,Admin")]
         public async Task<LoginResponseDto> HunyaAbsenceDataSave(HunyaAbsenceDataSaveEntry hunyaAbsenceDataSaveEntry)
         {
-            _logger.Info("開始呼叫AbsenceService.HunyaAbsenceDataSave");
-            var url = "http://mestest.hunya.com/cooperation";
-            LoginRequestDto loginRequestDto = new LoginRequestDto()
-            {
-                key = "hunya00xxP@ssw0rd",
-                user = "hr"
-            };
-            var json = JsonConvert.SerializeObject(loginRequestDto);
-            HttpClient client = new HttpClient();
-            HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
-            
             try
             {
-                var response = await client.PostAsync(url, content);
-                LoginResponseDto loginResponseDto = JsonConvert.DeserializeObject<LoginResponseDto>(await response.Content.ReadAsStringAsync());
-                url = "http://mestest.hunya.com/dbcmd";
+                #region 登入取得sessionID
+                var urlLogin = "http://mestest.hunya.com/cooperation";
+                LoginRequestDto loginRequestDto = new LoginRequestDto()
+                {
+                    key = "hunya00xxP@ssw0rd",
+                    user = "hr"
+                };
+                var jsonLogin = JsonConvert.SerializeObject(loginRequestDto);
+                HttpClient clientLogin = new HttpClient();
+                HttpContent contentLogin = new StringContent(jsonLogin, Encoding.UTF8, "application/json");
+                var responseLogin = await clientLogin.PostAsync(urlLogin, contentLogin);
+                LoginResponseDto loginResponseDto = JsonConvert.DeserializeObject<LoginResponseDto>(await responseLogin.Content.ReadAsStringAsync());
+                #endregion
+
+                #region 用session ID呼叫API傳入請假資料
+                var url = "http://mestest.hunya.com/dbcmd";
                 UserLeaveRequestDto userLeaveDto = new UserLeaveRequestDto()
                 {
                     sessionid = loginResponseDto.sessionid,
@@ -286,10 +288,18 @@ namespace HR_WebApi.Controllers.Attendance
                     請假起始 = hunyaAbsenceDataSaveEntry.AtteendDate.Date.AddTime(hunyaAbsenceDataSaveEntry.OnTime).ToString("yyyy-MM-dd HH:mm"),
                     請假結束 = hunyaAbsenceDataSaveEntry.AtteendDate.Date.AddTime(hunyaAbsenceDataSaveEntry.OffTime).ToString("yyyy-MM-dd HH:mm")
                 };
-                json = JsonConvert.SerializeObject(userLeaveDto);
-                content = new StringContent(json, Encoding.UTF8, "application/json");
-                var response2 = await client.PostAsync(url, content);
-                return JsonConvert.DeserializeObject<LoginResponseDto>(await response2.Content.ReadAsStringAsync());
+                var jsonLeave = JsonConvert.SerializeObject(userLeaveDto);
+                HttpClient clientLeave = new HttpClient();
+                HttpContent contentLeave = new StringContent(jsonLeave, Encoding.UTF8, "application/json");
+                var responseLeave = await clientLeave.PostAsync(url, contentLeave);
+                #endregion
+                LoginResponseDto leaveResponseDto = JsonConvert.DeserializeObject<LoginResponseDto>(await responseLeave.Content.ReadAsStringAsync());
+                if (!leaveResponseDto.pass)
+                {
+                    _logger.Info("AbsenceService.HunyaAbsenceDataSave錯誤：" + JsonConvert.SerializeObject(url));
+                    _logger.Info("AbsenceService.HunyaAbsenceDataSave錯誤：" + JsonConvert.SerializeObject(userLeaveDto));
+                }
+                return leaveResponseDto;
             }
             catch (Exception ex)
             {
@@ -298,6 +308,7 @@ namespace HR_WebApi.Controllers.Attendance
                     pass = false,
                     sessionid = ex.Message.ToString()
                 };
+                _logger.Info("AbsenceService.HunyaAbsenceDataSave錯誤："+ex.Message.ToString());
                 return err;
             }
         }

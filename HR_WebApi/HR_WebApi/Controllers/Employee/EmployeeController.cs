@@ -782,7 +782,7 @@ namespace HR_Api_Demo.Controllers
         /// <returns></returns>
         [Route("GetHunyaEmployeeInfoView")]
         [HttpPost]
-        //[Authorize(Roles = "Employee/GetHunyaEmployeeInfoView,Admin")]
+        [Authorize(Roles = "Employee/GetHunyaEmployeeInfoView,Admin")]
         public ApiResult<List<HunyaEmployeeInfoViewDto>> GetHunyaEmployeeInfoView(HunyaEmployeeInfoEntry hunyaEmployeeInfoEntry)
         {
             _logger.Info("開始呼叫EmployeeInfoService.GetHunyaEmployeeInfoView");
