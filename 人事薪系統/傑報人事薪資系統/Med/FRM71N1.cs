@@ -45,7 +45,7 @@ namespace JBHR.Med
             JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
             frm.Text = "各類所得批次匯入";
             frm.Allow_MatchField = true;
-
+            frm.TemplateButtonVisible = true;
             //frm.AutoMatchMode = true;
 
             frm.FieldForm = new FRM71N1_IMPORT();
