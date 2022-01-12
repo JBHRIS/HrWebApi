@@ -16,6 +16,7 @@ using JBHRIS.Api.Service.Attendance.Normal;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using NLog;
 
@@ -35,16 +36,19 @@ namespace HR_WebApi.Controllers.Attendance
         private IAbsenceService _absenceService;
         private IAbsenceCalculateService _absenceCalculateService;
         private ILogger _logger;
+        private IConfiguration _configuration;
         /// <summary>
         /// 請假控制器
         /// </summary>
         /// <param name="absenceService">請假服務</param>
         /// <param name="logger"></param>
-        public AbsenceController(IAbsenceService absenceService,IAbsenceCalculateService absenceCalculateService,ILogger logger)
+        public AbsenceController(IAbsenceService absenceService,IAbsenceCalculateService absenceCalculateService,ILogger logger,
+            IConfiguration configuration)
         {
             _absenceService = absenceService;
             _absenceCalculateService = absenceCalculateService;
             _logger = logger;
+            _configuration = configuration;
         }
         /// <summary>
         /// 取得請假資料
@@ -260,16 +264,21 @@ namespace HR_WebApi.Controllers.Attendance
         [Route("HunyaAbsenceDataSave")]
         [HttpPost]
         [Authorize(Roles = "Absence/HunyaAbsenceDataSave,Admin")]
-        public async Task<LoginResponseDto> HunyaAbsenceDataSave(HunyaAbsenceDataSaveEntry hunyaAbsenceDataSaveEntry)
+        public async Task<ApiResult<LoginResponseDto>> HunyaAbsenceDataSave(HunyaAbsenceDataSaveEntry hunyaAbsenceDataSaveEntry)
         {
+            string loginApi = _configuration.GetSection("Hunya:loginApi").Get<string>().ToString();
+            string loginApiKey = _configuration.GetSection("Hunya:loginApiKey").Get<string>().ToString();
+            string loginApiUser = _configuration.GetSection("Hunya:loginApiUser").Get<string>().ToString();
+            string dataApi = _configuration.GetSection("Hunya:dataApi").Get<string>().ToString();
+            ApiResult<LoginResponseDto> apiResult = new ApiResult<LoginResponseDto>();
             try
             {
                 #region 登入取得sessionID
-                var urlLogin = "http://mestest.hunya.com/cooperation";
+                var urlLogin = loginApi;
                 LoginRequestDto loginRequestDto = new LoginRequestDto()
                 {
-                    key = "hunya00xxP@ssw0rd",
-                    user = "hr"
+                    key = loginApiKey,
+                    user = loginApiUser
                 };
                 var jsonLogin = JsonConvert.SerializeObject(loginRequestDto);
                 HttpClient clientLogin = new HttpClient();
@@ -279,7 +288,7 @@ namespace HR_WebApi.Controllers.Attendance
                 #endregion
 
                 #region 用session ID呼叫API傳入請假資料
-                var url = "http://mestest.hunya.com/dbcmd";
+                var url = dataApi;
                 UserLeaveRequestDto userLeaveDto = new UserLeaveRequestDto()
                 {
                     sessionid = loginResponseDto.sessionid,
@@ -299,18 +308,16 @@ namespace HR_WebApi.Controllers.Attendance
                     _logger.Info("AbsenceService.HunyaAbsenceDataSave錯誤：" + JsonConvert.SerializeObject(url));
                     _logger.Info("AbsenceService.HunyaAbsenceDataSave錯誤：" + JsonConvert.SerializeObject(userLeaveDto));
                 }
-                return leaveResponseDto;
+                apiResult.State = true;
+                apiResult.Result = leaveResponseDto;
             }
             catch (Exception ex)
             {
-                var err = new LoginResponseDto()
-                {
-                    pass = false,
-                    sessionid = ex.Message.ToString()
-                };
-                _logger.Info("AbsenceService.HunyaAbsenceDataSave錯誤："+ex.Message.ToString());
-                return err;
+                apiResult.State = false;
+                apiResult.Message = ex.Message.ToString();
+                _logger.Info("AbsenceService.HunyaAbsenceDataSave錯誤："+ ex.Message.ToString());
             }
+            return apiResult;
         }
     }
 }
