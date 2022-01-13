@@ -1,4 +1,16 @@
 更新紀錄
+V22.1.13.4
+  ● 修正 - SendMailWithQueueAndFileService 中加入 Position = 0 的設置
+
+V22.1.13.3
+  ● 修正 - 請假資料頁面修改資料後得假未做重新沖抵
+
+V22.1.13.2
+  ● 修正 - SendMailWithQueueAndFileService 中 Attachment 內容宣告的調整(重新更新)
+
+V22.1.13.1
+  ● 修正 - SendMailWithQueueAndFileService 中 Attachment 內容的調整
+
 V22.1.12.1
   ● 修正 - 年度所得作業-產生媒體檔排除92 8A的判斷
 
