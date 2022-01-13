@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="ManageSystemUserEdit.aspx.cs" Inherits="Performance.ManageSystemUserEdit" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
@@ -19,37 +20,30 @@
                     </div>
                     <div class="ibox-content">
                         <div class="row form-group">
-                            <label class="col-sm-2 col-form-label"><label style=" color: #FF0000;">※</label>帳號</label>
+                            <label class="col-sm-2 col-form-label">
+                                <label style="color: #FF0000;">※</label>帳號</label>
                             <div class="col-sm-10 row">
                                 <telerik:RadTextBox runat="server" ID="txtAccount" Skin="Bootstrap" Width="100%"></telerik:RadTextBox>
                             </div>
                         </div>
+
                         <div class="row form-group">
-                            <label class="col-sm-2 col-form-label"><label style=" color: #FF0000;">※</label>密碼</label>
+                            <label class="col-sm-2 col-form-label">
+                                <label style="color: #FF0000;">※</label>密碼</label>
                             <div class="col-sm-10 row">
                                 <telerik:RadTextBox runat="server" ID="txtPassword" TextMode="Password" Skin="Bootstrap" Width="100%"></telerik:RadTextBox>
                             </div>
                         </div>
                         <div class="row form-group">
-                            <label class="col-sm-2 col-form-label"><label style=" color: #FF0000;">※</label>確認密碼</label>
+                            <label class="col-sm-2 col-form-label">
+                                <label style="color: #FF0000;">※</label>確認密碼</label>
                             <div class="col-sm-10 row">
                                 <telerik:RadTextBox runat="server" ID="txtCheckPassword" TextMode="Password" Skin="Bootstrap" Width="100%"></telerik:RadTextBox>
                             </div>
                         </div>
                         <div class="row form-group">
-                            <label class="col-sm-2 col-form-label"><label style=" color: #FF0000;">※</label>薪資密碼</label>
-                            <div class="col-sm-10 row">
-                                <telerik:RadTextBox runat="server" ID="txtSalaryPassword" TextMode="Password" Skin="Bootstrap" Width="100%"></telerik:RadTextBox>
-                            </div>
-                        </div>
-                        <div class="row form-group">
-                            <label class="col-sm-2 col-form-label"><label style=" color: #FF0000;">※</label>確認薪資密碼</label>
-                            <div class="col-sm-10 row">
-                                <telerik:RadTextBox runat="server" ID="txtCheckSalaryPassword" TextMode="Password" Skin="Bootstrap" Width="100%"></telerik:RadTextBox>
-                            </div>
-                        </div>
-                        <div class="row form-group">
-                            <label class="col-sm-2 col-form-label"><label style=" color: #FF0000;">※</label>角色權限</label>
+                            <label class="col-sm-2 col-form-label">
+                                <label style="color: #FF0000;">※</label>角色權限</label>
                             <div class="col-sm-10 row">
                                 <telerik:RadTextBox runat="server" ID="txtRoleKey" Skin="Bootstrap" Width="100%"></telerik:RadTextBox>
                             </div>

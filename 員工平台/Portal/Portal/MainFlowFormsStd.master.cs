@@ -16,6 +16,10 @@ using System.ComponentModel;
 using OldDal.Dao.Bas;
 using Dal.Dao.Employee;
 using Bll.Employee.Vdb;
+using Bll;
+using Dal.Dao.Salary;
+using Bll.Salary.Vdb;
+using Newtonsoft.Json;
 
 namespace Portal
 {
@@ -568,22 +572,22 @@ namespace Portal
                              Auth = role.deptMg.Value,
                          }).FirstOrDefault();
 
-            var rEmpS = (from role in dcFlow.Role
-                         join emp in dcFlow.Emp on role.Emp_id equals emp.id
-                         join dept in dcFlow.Dept on role.Dept_id equals dept.id
-                         join pos in dcFlow.Pos on role.Pos_id equals pos.id
-                         where role.Emp_id == rsApp.First().EmpId
-                         select new
-                         {
-                             RoleId = role.id,
-                             EmpNobr = emp.id,
-                             EmpName = emp.name,
-                             DeptCode = dept.id,
-                             DeptName = dept.name,
-                             JobCode = pos.id,
-                             JobName = pos.name,
-                             Auth = role.deptMg.Value,
-                         }).FirstOrDefault();
+            //var rEmpS = (from role in dcFlow.Role
+            //             join emp in dcFlow.Emp on role.Emp_id equals emp.id
+            //             join dept in dcFlow.Dept on role.Dept_id equals dept.id
+            //             join pos in dcFlow.Pos on role.Pos_id equals pos.id
+            //             where role.Emp_id == rsApp.First().EmpId
+            //             select new
+            //             {
+            //                 RoleId = role.id,
+            //                 EmpNobr = emp.id,
+            //                 EmpName = emp.name,
+            //                 DeptCode = dept.id,
+            //                 DeptName = dept.name,
+            //                 JobCode = pos.id,
+            //                 JobName = pos.name,
+            //                 Auth = role.deptMg.Value,
+            //             }).FirstOrDefault();
 
             bool bFilePass = true;
 
@@ -780,7 +784,22 @@ namespace Portal
 
 
                 var rBasM = oBasDao.GetBaseByNobr(sNobrM, DateTime.Now.Date).FirstOrDefault();
-
+                var rEmpS = (from role in dcFlow.Role
+                             join emp in dcFlow.Emp on role.Emp_id equals emp.id
+                             join dept in dcFlow.Dept on role.Dept_id equals dept.id
+                             join pos in dcFlow.Pos on role.Pos_id equals pos.id
+                             where role.Emp_id == rsAppS.First().EmpId
+                             select new
+                             {
+                                 RoleId = role.id,
+                                 EmpNobr = emp.id,
+                                 EmpName = emp.name,
+                                 DeptCode = dept.id,
+                                 DeptName = dept.name,
+                                 JobCode = pos.id,
+                                 JobName = pos.name,
+                                 Auth = role.deptMg.Value,
+                             }).FirstOrDefault();
                 var rFormsApp = new FormsApp()
                 {
                     FormsCode = "Abs1",
@@ -4305,6 +4324,7 @@ namespace Portal
                 var AppointDynamic = (from c in dcFlow.FormsExtend//晉升單申請者確認節點編號
                                       where c.FormsCode == "Appoint" && c.Code == "AppointDynamic" && c.Active == true
                                       select c).ToList();
+                
                 foreach (var ADynamic in AppointDynamic)
                 {
                     if (ADynamic != null && ADynamic.Column1 != null && ADynamic.Column1 != "" && ADynamic.Column2 != null && ADynamic.Column2 != "")
@@ -4386,6 +4406,75 @@ namespace Portal
 
                 foreach (var rAppS in rsAppS)
                 {
+                    List<TextValueRow> resSalary = new List<TextValueRow>();
+
+                    var AppointSalary = (from c in dcFlow.FormsExtend
+                                         where c.FormsCode == "Appoint" && c.Code == "AppointSalary" && c.Active
+                                         select c).FirstOrDefault();
+
+                    if (AppointSalary != null)
+                    {
+                        var oBasicSalaryCode = new BasicSalaryCodeDao();
+                        var BasicSalaryCodeCond = new BasicSalaryCodeConditions();
+                        BasicSalaryCodeCond.AccessToken = _User.AccessToken;
+                        BasicSalaryCodeCond.RefreshToken = _User.RefreshToken;
+                        BasicSalaryCodeCond.CompanySetting = CompanySetting;
+                        var resBasicSalCode = oBasicSalaryCode.GetData(BasicSalaryCodeCond);
+                        if (resBasicSalCode.Status && resBasicSalCode.Data != null)
+                        {
+                            var rs = resBasicSalCode.Data as List<BasicSalaryCodeRow>;
+                            if (rs != null)
+                            {
+                                foreach (var r in rs)
+                                {
+                                    var rTextValue = new TextValueRow();
+                                    rTextValue.Text = r.SalName;
+                                    rTextValue.Value = AccessData.DESEncrypt("0", "JBSalary", rAppS.Code.Substring(0, 8));
+                                    rTextValue.Column1 = r.SalCode;
+                                    resSalary.Add(rTextValue);
+                                }
+                            }
+                        }
+                    }
+                    var oSalaryChange = new SalaryChangeDao();
+                    var SalaryChangeCond = new SalaryChangeConditions();
+                    SalaryChangeCond.AccessToken = _User.AccessToken;
+                    SalaryChangeCond.RefreshToken = _User.RefreshToken;
+                    SalaryChangeCond.CompanySetting = CompanySetting;
+                    SalaryChangeCond.nobr = rAppS.EmpId;
+                    SalaryChangeCond.CheckDate = DateTime.Now;
+                    var SalrayData = oSalaryChange.GetData(SalaryChangeCond);
+                    if (SalrayData.Status && SalrayData.Data != null)
+                    {
+                        var res = SalrayData.Data as List<SalaryChangeRow>;
+                        if (res != null)
+                        {
+                            foreach (var r in res)
+                            {
+                                if (AppointSalary != null)
+                                {
+                                    foreach (var rsSalary in resSalary)
+                                    {
+
+                                        if (rsSalary.Column1 == r.SalCode)
+                                        {
+                                            rsSalary.Value = AccessData.DESEncrypt(r.Amount.ToString(), "JBSalary", rAppS.Code.Substring(0, 8));
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    r.DESData = AccessData.DESEncrypt(r.Amount.ToString(), "JBSalary", rAppS.Code.Substring(0, 8));
+                                    var rTextValue = new TextValueRow();
+                                    rTextValue.Text = r.SalName;
+                                    rTextValue.Value = r.DESData;
+                                    rTextValue.Column1 = r.SalCode;
+                                    resSalary.Add(rTextValue);
+                                }
+                            }
+                        }
+                    }
+
                     //新增寫入紀錄
                     var oFormsAppAppointChangeLog = new FormsAppAppointChangeLog();
                     oFormsAppAppointChangeLog.AppointCode = rAppS.Code;
@@ -4400,7 +4489,7 @@ namespace Portal
                     oFormsAppAppointChangeLog.JoblNameChange = rAppS.JoblNameChange;
                     oFormsAppAppointChangeLog.Performance1 = UnobtrusiveSession.Session["Performance1"].ToString();
                     oFormsAppAppointChangeLog.Performance2 = UnobtrusiveSession.Session["Performance2"].ToString();
-                    oFormsAppAppointChangeLog.SalaryContent = "";
+                    oFormsAppAppointChangeLog.SalaryContent = JsonConvert.SerializeObject(resSalary);
                     oFormsAppAppointChangeLog.Note = "";
                     oFormsAppAppointChangeLog.Status = "1";
                     oFormsAppAppointChangeLog.InsertMan = _User.EmpName;

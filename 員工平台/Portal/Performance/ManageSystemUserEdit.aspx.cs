@@ -38,7 +38,7 @@ namespace Performance
         }
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            if (txtAccount.Text == "" || txtCheckPassword.Text == "" || txtCheckSalaryPassword.Text == "" || txtPassword.Text == "" || txtSalaryPassword.Text == "" || txtRoleKey.Text == "")
+            if (txtAccount.Text == "" || txtRoleKey.Text == "" || txtCheckPassword.Text == "" || txtPassword.Text == "" )
             {
                 lblMsg.CssClass = "badge-danger badge";
                 lblMsg.Text = "請確認資料是否輸入正確";
@@ -50,12 +50,7 @@ namespace Performance
                 lblMsg.Text = "密碼和確認密碼不一致，請確認後再試";
                 return;
             }
-            if (txtSalaryPassword.Text != txtCheckSalaryPassword.Text)
-            {
-                lblMsg.CssClass = "badge-danger badge";
-                lblMsg.Text = "薪資密碼和確認密碼不一致，請確認後再試";
-                return;
-            }
+            
             if (Request.QueryString["AutoKey"] != null && Request.QueryString["AutoKey"] != "0")
             {
                 var r = (from c in dcShare.SystemUser
@@ -65,7 +60,7 @@ namespace Performance
                 {
                     r.AccountCode = txtAccount.Text;
                     r.AccountPassword = txtPassword.Text.ToSHA512();
-                    r.MoneyPassword = txtSalaryPassword.Text.ToSHA512();
+                    r.MoneyPassword = "";
                     dcShare.SubmitChanges();
                     lblMsg.CssClass = "badge-primary badge";
                     lblMsg.Text = "更新成功";
@@ -85,7 +80,7 @@ namespace Performance
                 oSystemUser.Code = Guid.NewGuid().ToString();
                 oSystemUser.AccountCode = txtAccount.Text;
                 oSystemUser.AccountPassword = txtPassword.Text.ToSHA512();
-                oSystemUser.MoneyPassword = txtSalaryPassword.Text.ToSHA512();
+                oSystemUser.MoneyPassword = "";
                 oSystemUser.RoleKey = Convert.ToInt32(txtRoleKey.Text);
                 oSystemUser.InsertDate = DateTime.Now;
                 oSystemUser.InsertMan = _User.EmpName;

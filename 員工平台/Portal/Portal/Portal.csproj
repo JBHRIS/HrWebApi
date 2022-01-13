@@ -231,13 +231,10 @@
     <Content Include="bin\Dal.dll" />
     <Content Include="bin\Dal.pdb" />
     <Content Include="bin\Dapper.dll" />
-    <Content Include="bin\Dapper.xml" />
     <Content Include="bin\EnvDTE.dll" />
     <Content Include="bin\ezEngineServices.dll" />
     <Content Include="bin\ezEngineServices.pdb" />
     <Content Include="bin\HtmlAgilityPack.dll" />
-    <Content Include="bin\HtmlAgilityPack.pdb" />
-    <Content Include="bin\HtmlAgilityPack.xml" />
     <Content Include="bin\ICSharpCode.SharpZipLib.dll" />
     <Content Include="bin\JBHRIS.BLL.dll" />
     <Content Include="bin\JBHRIS.BLL.pdb" />
@@ -273,7 +270,6 @@
     <Content Include="bin\SQL\SysLog.sql" />
     <Content Include="bin\stdole.dll" />
     <Content Include="bin\System.Data.SQLite.dll" />
-    <Content Include="bin\System.Data.SQLite.xml" />
     <Content Include="bin\System.IdentityModel.Tokens.Jwt.dll" />
     <Content Include="bin\Telerik.Web.Design.dll" />
     <Content Include="bin\Telerik.Web.Spreadsheet.dll" />
@@ -284,8 +280,6 @@
     <Content Include="bin\Telerik.Windows.Documents.Spreadsheet.dll" />
     <Content Include="bin\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll" />
     <Content Include="bin\Telerik.Windows.Zip.dll" />
-    <Content Include="bin\WebsitesScreenshot.dll" />
-    <Content Include="bin\WebsitesScreenshot.XML" />
     <Content Include="bin\zxing.dll" />
     <Content Include="bin\zxing.presentation.dll" />
     <Content Include="FormAbsApplyByDeptStd.aspx" />
@@ -356,6 +350,7 @@
     <Content Include="LoginAuth.aspx" />
     <Content Include="LoginBind.aspx" />
     <Content Include="LoginByDb.aspx" />
+    <Content Include="ManageMailTpl.aspx" />
     <Content Include="ManageShareIssue.aspx" />
     <Content Include="MessageToBrowser.aspx" />
     <Content Include="MessageMaintain.aspx" />
@@ -1717,6 +1712,7 @@
     <Content Include="Templates\Inspinia\js\popper.min.js" />
     <Content Include="UserControls\UC_FileView.ascx" />
     <Content Include="WebServices\SaveAbn.asmx" />
+    <Content Include="WebServices\SaveAbsForHunya.asmx" />
     <Content Include="WebServices\SaveAppoint.asmx" />
     <Content Include="WebServices\SaveEmploy.asmx" />
     <Content Include="WebServices\SaveAbsWithApi.asmx" />
@@ -2390,6 +2386,13 @@
     <Compile Include="MainFlowFormsStd.master.designer.cs">
       <DependentUpon>MainFlowFormsStd.master</DependentUpon>
     </Compile>
+    <Compile Include="ManageMailTpl.aspx.cs">
+      <DependentUpon>ManageMailTpl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMailTpl.aspx.designer.cs">
+      <DependentUpon>ManageMailTpl.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManageShareIssue.aspx.cs">
       <DependentUpon>ManageShareIssue.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2598,6 +2601,10 @@
       <DependentUpon>SaveAbn.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="WebServices\SaveAbsForHunya.asmx.cs">
+      <DependentUpon>SaveAbsForHunya.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="WebServices\SaveAppoint.asmx.cs">
       <DependentUpon>SaveAppoint.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -2792,7 +2799,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Standard\JBMODULE.MESSAGE\JBModule.Message.csproj">
-      <Project>{B94796B3-CEDB-4083-95AD-E94EC30D15D5}</Project>
+      <Project>{b94796b3-cedb-4083-95ad-e94ec30d15d5}</Project>
       <Name>JBModule.Message</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\Standard\JBModule\JBModule\JBModule.csproj">

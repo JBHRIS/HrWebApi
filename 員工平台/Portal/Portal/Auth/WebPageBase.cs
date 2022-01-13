@@ -36,7 +36,7 @@ public class WebPageBase : System.Web.UI.Page
 
     public AuthManager _AuthManager = new AuthManager();
 
-    public dcHrDataContext dcHr = new dcHrDataContext();
+    //public dcHrDataContext dcHr = new dcHrDataContext();
     public dcShareDataContext dcShare = new dcShareDataContext();
     public dcPerformanceDataContext dcMain = new dcPerformanceDataContext();
     protected string LoginToken;

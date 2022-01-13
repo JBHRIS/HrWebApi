@@ -293,6 +293,41 @@ namespace Portal
             #region 薪資異動資料
             if (Page.IsPostBack)
             {
+                List<TextValueRow> resSalary = new List<TextValueRow>();
+
+                var EmployApproveSalary = (from c in dcFlow.FormsExtend
+                                     where c.FormsCode == "EmployApprove" && c.Code == "EmployApproveSalary" && c.Active
+                                     select c).FirstOrDefault();
+                var resSalaryChangeRow = new List<SalaryChangeRow>();
+                if (EmployApproveSalary != null)
+                {
+                    var oBasicSalaryCode = new BasicSalaryCodeDao();
+                    var BasicSalaryCodeCond = new BasicSalaryCodeConditions();
+                    BasicSalaryCodeCond.AccessToken = _User.AccessToken;
+                    BasicSalaryCodeCond.RefreshToken = _User.RefreshToken;
+                    BasicSalaryCodeCond.CompanySetting = CompanySetting;
+                    var resBasicSalCode = oBasicSalaryCode.GetData(BasicSalaryCodeCond);
+                    if (resBasicSalCode.Status && resBasicSalCode.Data != null)
+                    {
+                        var rs = resBasicSalCode.Data as List<BasicSalaryCodeRow>;
+                        if (rs != null)
+                        {
+                            foreach (var r in rs)
+                            {
+                                var rTextValue = new TextValueRow();
+                                rTextValue.Text = r.SalName;
+                                rTextValue.Value = AccessData.DESEncrypt("0", "JBSalary", lblProcessID.Text.Substring(0, 8));
+                                rTextValue.Column1 = r.SalCode;
+                                resSalary.Add(rTextValue);
+                                var rsSalaryChangeRow = new SalaryChangeRow();
+                                rsSalaryChangeRow.SalCode = r.SalCode;
+                                rsSalaryChangeRow.SalName = r.SalName;
+                                rsSalaryChangeRow.Amount = 0;
+                                resSalaryChangeRow.Add(rsSalaryChangeRow);
+                            }
+                        }
+                    }
+                }
                 var oSalaryChange = new SalaryChangeDao();
                 var SalaryChangeCond = new SalaryChangeConditions();
                 SalaryChangeCond.AccessToken = _User.AccessToken;
@@ -301,25 +336,69 @@ namespace Portal
                 SalaryChangeCond.nobr = lblNobrAppM.Text;
                 SalaryChangeCond.CheckDate = DateTime.Now;
                 var SalrayData = oSalaryChange.GetData(SalaryChangeCond);
-                List<TextValueRow> resSalary = new List<TextValueRow>();
                 if (SalrayData.Status && SalrayData.Data != null)
                 {
                     var res = SalrayData.Data as List<SalaryChangeRow>;
+                    resSalaryChangeRow.AddRange(res);
                     if (res != null)
                     {
-                        lvSalary.DataSource = res;
+                        
                         foreach (var r in res)
                         {
-                            r.DESData = AccessData.DESEncrypt(r.Amount.ToString(), "JBSalary", lblProcessID.Text.Substring(0,8));
-                            var rTextValue = new TextValueRow();
-                            rTextValue.Text = r.SalName;
-                            rTextValue.Value = r.DESData;
-                            rTextValue.Column1 = r.SalCode;
-                            resSalary.Add(rTextValue);
+                            var resSalCode = res.Select(p => p.SalCode).ToList();
+                            var removeData = resSalaryChangeRow.Where(p => resSalCode.Contains(p.SalCode)).FirstOrDefault();
+                            resSalaryChangeRow.Remove(removeData);
+                            if (EmployApproveSalary != null)
+                            {
+                                foreach (var rsSalary in resSalary)
+                                {
+                                    if (rsSalary.Column1 == r.SalCode)
+                                    {
+                                        rsSalary.Value = AccessData.DESEncrypt(r.Amount.ToString(), "JBSalary", lblProcessID.Text.Substring(0, 8));
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                r.DESData = AccessData.DESEncrypt(r.Amount.ToString(), "JBSalary", lblProcessID.Text.Substring(0, 8));
+                                var rTextValue = new TextValueRow();
+                                rTextValue.Text = r.SalName;
+                                rTextValue.Value = r.DESData;
+                                rTextValue.Column1 = r.SalCode;
+                                resSalary.Add(rTextValue);
+                            }
                         }
-                        UnobtrusiveSession.Session["SalaryData"] = JsonConvert.SerializeObject(resSalary);
+                        lvSalary.DataSource = resSalaryChangeRow;
                     }
                 }
+                UnobtrusiveSession.Session["SalaryData"] = JsonConvert.SerializeObject(resSalary);
+                //var oSalaryChange = new SalaryChangeDao();
+                //var SalaryChangeCond = new SalaryChangeConditions();
+                //SalaryChangeCond.AccessToken = _User.AccessToken;
+                //SalaryChangeCond.RefreshToken = _User.RefreshToken;
+                //SalaryChangeCond.CompanySetting = CompanySetting;
+                //SalaryChangeCond.nobr = lblNobrAppM.Text;
+                //SalaryChangeCond.CheckDate = DateTime.Now;
+                //var SalrayData = oSalaryChange.GetData(SalaryChangeCond);
+                //List<TextValueRow> resSalary = new List<TextValueRow>();
+                //if (SalrayData.Status && SalrayData.Data != null)
+                //{
+                //    var res = SalrayData.Data as List<SalaryChangeRow>;
+                //    if (res != null)
+                //    {
+                //        lvSalary.DataSource = res;
+                //        foreach (var r in res)
+                //        {
+                //            r.DESData = AccessData.DESEncrypt(r.Amount.ToString(), "JBSalary", lblProcessID.Text.Substring(0,8));
+                //            var rTextValue = new TextValueRow();
+                //            rTextValue.Text = r.SalName;
+                //            rTextValue.Value = r.DESData;
+                //            rTextValue.Column1 = r.SalCode;
+                //            resSalary.Add(rTextValue);
+                //        }
+                //        UnobtrusiveSession.Session["SalaryData"] = JsonConvert.SerializeObject(resSalary);
+                //    }
+                //}
             }
             #endregion
 

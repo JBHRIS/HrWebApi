@@ -21,6 +21,10 @@ using Dal.Dao.Menu;
 using Bll.Menu.Vdb;
 using Dal.Dao.Absence;
 using Bll.Absence.Vdb;
+using System.Web.Services;
+using Newtonsoft.Json;
+using Bll.Tools;
+using System.Web.Security;
 
 namespace Portal
 {
@@ -32,6 +36,26 @@ namespace Portal
             {
                 index_DataBind();
             }
+        }
+        [WebMethod]
+        public static string storeFile(string base64)
+        {
+            //string Key1 = HttpContext.Current.Session["Key1"].ToString();
+            //string Key2 = "041";
+
+            //InsertRow oInsertRow = new InsertRow();
+            //oInsertRow.KeyMan = HttpContext.Current.Session["User"].ToString();
+
+            byte[] fileContents = Convert.FromBase64String(base64);
+            UnobtrusiveSession.Session["FileContents"] = fileContents;
+            var Index = new Index();
+            var Result = Index.Reply_Click(fileContents);
+            //MainDao oMainDao = new MainDao();
+            //oMainDao.InsertShareUploadFiles(Key1, Key2, 20, fileContents, oInsertRow);
+            //store file on server here
+            //string path = "C:\\test\\some.pdf";
+            //File.WriteAllBytes(path, fileContents);
+            return Result;
         }
         public void index_DataBind()
         {
@@ -577,5 +601,48 @@ namespace Portal
             //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "title", Script, true);
             Response.Redirect(TurnUrl + "ProcessApParmAuto=" + ca);
         }
+        protected string Reply_Click(byte[] FileInfo)
+        {
+            _User = UnobtrusiveSession.Session["UserData"] as User;
+            CompanySetting = UnobtrusiveSession.Session["CompanySetting"] as Bll.Share.Vdb.CompanySettingRow;
+            var oEncryptHepler = new EncryptHepler();
+            var ReplySite = System.Web.Configuration.WebConfigurationManager.AppSettings["ReplySite"];
+            var AccessToken = _User.AccessToken;
+            var RefreshToken = _User.RefreshToken;
+            var CompanyId = CompanySetting.AccountCode;
+            var EmpId = _User.EmpId;
+            var EmpName = _User.EmpName;
+            var Role = 64;
+            var Parameter = "";
+            var UserData = new List<string>();
+            if (_User.Role != null && (_User.Role.Contains("HR") || _User.Role.Contains("Hr")))
+            {
+                Role = 8;
+                
+                UserData.Add(AccessToken);
+                UserData.Add(RefreshToken);
+                UserData.Add(CompanyId);
+                UserData.Add(EmpId);
+                UserData.Add(EmpName);
+                UserData.Add(Role.ToString());
+                UserData.Add(FileInfo.ToString());
+                Parameter = JsonConvert.SerializeObject(UserData);
+                //Response.Redirect(ReplySite + "?Param=" + Server.UrlEncode(oEncryptHepler.Encrypt(Parameter)));
+            }
+            else
+            {
+                UserData.Add(AccessToken);
+                UserData.Add(RefreshToken);
+                UserData.Add(CompanyId);
+                UserData.Add(EmpId);
+                UserData.Add(EmpName);
+                UserData.Add(Role.ToString());
+                UserData.Add(FileInfo.ToString());
+                Parameter = JsonConvert.SerializeObject(UserData);
+                //Response.Redirect(ReplySite + "?Param=" + Server.UrlEncode(oEncryptHepler.Encrypt(Parameter)));
+            }
+            return ReplySite + "?Param=" + Server.UrlEncode(oEncryptHepler.Encrypt(Parameter));
+        }
+
     }
 }

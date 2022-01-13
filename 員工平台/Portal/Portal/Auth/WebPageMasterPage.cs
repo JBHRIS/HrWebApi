@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
+using System.Web.Services;
 
 /// <summary>
 /// JMasterPage 的摘要描述
@@ -24,9 +25,10 @@ public class WebPageMasterPage : System.Web.UI.MasterPage
     public dcFlowDataContext dcFlow = new dcFlowDataContext();
     public dcShareDataContext dcShare = new dcShareDataContext();
     public dcPerformanceDataContext dcMain = new dcPerformanceDataContext();
-
+    
     public WebPageMasterPage()
     {
+        
     }
 
     protected override void OnInit(EventArgs e)

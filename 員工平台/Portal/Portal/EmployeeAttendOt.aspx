@@ -18,7 +18,7 @@
             <div class="col-lg-12">
                 <div class="ibox ">
                     <div class="ibox-title">
-                        <h5>條件</h5>
+                        <h5><telerik:RadLabel runat="server" ID="lblConditionDic" Text="條件"></telerik:RadLabel></h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -28,7 +28,7 @@
                     <div class="ibox-content">
                         <div class="form-group row">
                             <div class="col-md-3">
-                                <label class="col-form-label">員工工號</label>
+                                <label class="col-form-label"><telerik:RadLabel runat="server" ID="lblEmpDic" Text="員工工號"></telerik:RadLabel></label>
                                 <telerik:RadComboBox runat="server" Skin="Bootstrap" AutoPostBack="false"
                                     Placeholder="請選擇..."
                                     AutoClose="false"
@@ -40,13 +40,13 @@
                             </div>
 
                             <div class="col-md-3">
-                                <label class="col-form-label">開始日期</label>
+                                <label class="col-form-label"><telerik:RadLabel runat="server" ID="lblBeginDateDic" Text="開始日期"></telerik:RadLabel></label>
                                 <div>
                                     <telerik:RadDatePicker RenderMode="Lightweight" runat="server" DateInput-DateFormat="yyyy/MM/dd" ID="txtDateB" Skin="Bootstrap" Width="100%" />
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <label class="col-form-label">結束日期</label>
+                                <label class="col-form-label"><telerik:RadLabel runat="server" ID="lblEndDateDic" Text="結束日期"></telerik:RadLabel></label>
                                 <div>
                                     <telerik:RadDatePicker RenderMode="Lightweight" runat="server" DateInput-DateFormat="yyyy/MM/dd" ID="txtDateE" Skin="Bootstrap" Width="100%" />
                                 </div>
@@ -66,7 +66,7 @@
             <div class="col-lg-12">
                 <div class="ibox">
                     <div id="iboxContent" class="ibox-title">
-                        <h5>內容</h5>
+                        <h5><telerik:RadLabel runat="server" ID="lblContentDic" Text="內容"></telerik:RadLabel></h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -92,16 +92,16 @@
                                     <table class="footable table table-stripped" data-page-size="10" data-filter="#filter">
                                         <thead class="form_bg">
                                             <tr>
-                                                <th>工號</th>
-                                                <th>姓名</th>
-                                                <th>加班日期</th>
-                                                <th>開始時間</th>
-                                                <th>結束時間</th>
-                                                <th data-hide="phone">總時數</th>
-                                                <th data-hide="phone">加班時數</th>
-                                                <th data-hide="phone">補休時數</th>
-                                                <th data-hide="phone,tablet">加班原因</th>
-                                                <th data-hide="phone,tablet">備註</th>
+                                                <th><telerik:RadLabel runat="server" ID="lblEmpIdDic" Text="工號"></telerik:RadLabel></th>
+                                                <th><telerik:RadLabel runat="server" ID="lblEmpNameDic" Text="姓名"></telerik:RadLabel></th>
+                                                <th><telerik:RadLabel runat="server" ID="lblOtDateDic" Text="加班日期"></telerik:RadLabel></th>
+                                                <th><telerik:RadLabel runat="server" ID="lblBeginTimeDic" Text="開始時間"></telerik:RadLabel></th>
+                                                <th><telerik:RadLabel runat="server" ID="lblEndTimeDic" Text="結束時間"></telerik:RadLabel></th>
+                                                <th data-hide="phone"><telerik:RadLabel runat="server" ID="lblTotalHourDic" Text="總時數"></telerik:RadLabel></th>
+                                                <th data-hide="phone"><telerik:RadLabel runat="server" ID="lblOtHourDic" Text="加班時數"></telerik:RadLabel></th>
+                                                <th data-hide="phone"><telerik:RadLabel runat="server" ID="lblRestHourDic" Text="補休時數"></telerik:RadLabel></th>
+                                                <th data-hide="phone,tablet"><telerik:RadLabel runat="server" ID="lblOtReasonDic" Text="加班原因"></telerik:RadLabel></th>
+                                                <th data-hide="phone,tablet"><telerik:RadLabel runat="server" ID="lblNoteDic" Text="備註"></telerik:RadLabel></th>
                                             </tr>
                                         </thead>
                                         <tbody id="Container" runat="server">

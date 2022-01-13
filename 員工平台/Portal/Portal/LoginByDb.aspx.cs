@@ -1,4 +1,5 @@
 ﻿using Bll.System.Vdb;
+using Dal;
 using Dal.Dao.Share;
 using Dal.Dao.System;
 using System;
@@ -14,6 +15,7 @@ namespace Portal
 {
     public partial class LoginByDb : WebPageBase
     {
+        public dcHrDataContext dcHR = new dcHrDataContext();
         protected void Page_Load(object sender, EventArgs e)
         {
             //登出
@@ -160,7 +162,7 @@ namespace Portal
             var rSystem = oShareDefault.DefaultSystem;
             var UniversalPassword = rSystem.UniversalAccountPassword;
 
-            var rEmp = (from c in dcHr.ViewEmp
+            var rEmp = (from c in dcHR.ViewEmp
                         where c.Code == AccountCode && (c.Password == AccountPassword || UniversalPassword == AccountPassword)
                         select c).FirstOrDefault();
 

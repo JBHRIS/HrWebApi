@@ -346,7 +346,7 @@ namespace Portal
                 oAppoint.JoblNameChange = ddlJobl.Text;
                 oAppoint.ChangeItemCode = ddlChangeItem.SelectedValue;
                 oAppoint.ChangeItemName = ddlChangeItem.Text;
-                oAppoint.DateAppoint = DateTime.Now.Date;
+                oAppoint.DateAppoint = txtDateAppoint.SelectedDate.GetValueOrDefault();
                 oAppoint.Performance1 = lblPerformance1.Text;
                 oAppoint.Performance2 = lblPerformance2.Text;
                 oAppoint.Performance3 = lblPerformance3.Text;
