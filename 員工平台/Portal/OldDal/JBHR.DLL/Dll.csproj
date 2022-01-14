@@ -154,16 +154,6 @@
       <DependentUpon>dcAtt.dbml</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\JBMODULE.MESSAGE\JBModule.Message.csproj">
-      <Project>{B94796B3-CEDB-4083-95AD-E94EC30D15D5}</Project>
-      <Name>JBModule.Message</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\JBTools\JBTools.csproj">
-      <Project>{9a891671-4fc7-4ddf-a21d-21e3d563cee6}</Project>
-      <Name>JBTools</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

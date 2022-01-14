@@ -2798,13 +2798,9 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Standard\JBMODULE.MESSAGE\JBModule.Message.csproj">
+    <ProjectReference Include="..\..\..\..\..\Standard\JBMODULE.MESSAGE\JBModule.Message.csproj">
       <Project>{b94796b3-cedb-4083-95ad-e94ec30d15d5}</Project>
       <Name>JBModule.Message</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Standard\JBModule\JBModule\JBModule.csproj">
-      <Project>{dbe7bf84-0030-418d-981d-30d7c4f6ff3a}</Project>
-      <Name>JBModule</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\元件\JBMODULE.DATA\JBModule.Data.Linq\JBModule.Data.csproj">
       <Project>{05dac84f-258e-41fc-b490-0fccd4ab15b5}</Project>
