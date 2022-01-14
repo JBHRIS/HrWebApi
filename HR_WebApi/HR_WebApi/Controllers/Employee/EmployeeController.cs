@@ -771,19 +771,33 @@ namespace HR_Api_Demo.Controllers
             }
             return apiResult;
         }
-    }
-    /// <summary>
-    /// 取得部門名單-查詢條件
-    /// </summary>
-    public class EmployeeInfo_GetPeopleByDept_Entry
-    {
+
+
         /// <summary>
-        /// 部門清單
+        /// 取得員工基本資料(宏亞)
         /// </summary>
-        public List<string> deptList { get; set; }
-        /// <summary>
-        /// 檢核日期
-        /// </summary>
-        public string CheckDate { get; set; }
+        /// <remarks>
+        /// </remarks>
+        /// <param name="hunyaEmployeeInfoEntry">工號、時間</param>
+        /// <returns></returns>
+        [Route("GetHunyaEmployeeInfoView")]
+        [HttpPost]
+        [Authorize(Roles = "Employee/GetHunyaEmployeeInfoView,Admin")]
+        public ApiResult<List<HunyaEmployeeInfoViewDto>> GetHunyaEmployeeInfoView(HunyaEmployeeInfoEntry hunyaEmployeeInfoEntry)
+        {
+            _logger.Info("開始呼叫EmployeeInfoService.GetHunyaEmployeeInfoView");
+            ApiResult<List<HunyaEmployeeInfoViewDto>> apiResult = new ApiResult<List<HunyaEmployeeInfoViewDto>>();
+            apiResult.State = false;
+            try
+            {
+                apiResult.Result = _employeeService.GetHunyaEmployeeInfoView(hunyaEmployeeInfoEntry);
+                apiResult.State = true;
+            }
+            catch (Exception ex)
+            {
+                apiResult.Message = ex.ToString();
+            }
+            return apiResult;
+        }
     }
 }

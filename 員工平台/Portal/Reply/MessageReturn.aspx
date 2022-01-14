@@ -8,6 +8,16 @@
             <telerik:AjaxSetting AjaxControlID="btnAdd">
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="QuestionReplyData" />
+                    <telerik:AjaxUpdatedControl ControlID="txtContent" />
+                    <telerik:AjaxUpdatedControl ControlID="DraftStatus" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+        </AjaxSettings>
+        <AjaxSettings>
+            <telerik:AjaxSetting AjaxControlID="btnDraft">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="txtContent" />
+                    <telerik:AjaxUpdatedControl ControlID="DraftStatus" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
         </AjaxSettings>
@@ -91,7 +101,8 @@
                                         TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="3">
                                     </telerik:RadTextBox>
 
-                                    <telerik:RadButton class="btnadd" runat="server" Text="送出" CssClass="btn btn-primary btn-md m-t-md" CommandArgument='<%# Eval("Code") %>' CommandName="ReplyAdd" />
+                                    <telerik:RadButton ID="btnReplyAdd" class="btnadd" runat="server" Text="送出" CssClass="btn btn-primary btn-md m-t-md" CommandArgument='<%# Eval("Code") %>' CommandName="ReplyAdd" />
+                                     <telerik:RadLabel ID="lblReplyStatus"  runat="server" CssClass="text-danger" Text="" />
                                 </div>
                             </div>
                         </div>
@@ -167,7 +178,7 @@
 
 
                             <div class="col-lg-6">
-                                  
+
                                 <h5>選擇罐頭訊息後編輯成想要的文字</h5>
                                 <telerik:RadListView ID="lvMain" runat="server" OnItemCommand="lvMain_ItemCommand" OnNeedDataSource="lvMain_NeedDataSource" ItemPlaceholderID="Container">
                                     <LayoutTemplate>
@@ -214,7 +225,7 @@
                                     </EmptyDataTemplate>
 
                                 </telerik:RadListView>
-                                        
+
                             </div>
 
                             <div class="row">

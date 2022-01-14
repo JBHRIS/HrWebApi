@@ -55,11 +55,13 @@ namespace JBHR.Ins
             dicFormat.Add("8", "健保單獨批次退保");
             SystemFunction.SetComboBoxItems(cbFORMAT, dicFormat, false, true, true);
             this.iNSCOMPTableAdapter.Fill(this.insDS.INSCOMP, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN);
-            //if (this.insDS.INSCOMP.FirstOrDefault() != null)
-            //{
-            //    cbINSCOMP.SelectedValue = this.insDS.INSCOMP.FirstOrDefault().S_NO.Trim();
-            //    cbINSCOMP_SelectedIndexChange(null, null);
-            //}
+            if (this.insDS.INSCOMP.FirstOrDefault() != null)
+            {
+                cbINSCOMP.SelectedValue = this.insDS.INSCOMP.FirstOrDefault().S_NO.Trim();
+                string INSNO = this.insDS.INSCOMP.FirstOrDefault().INSNO.Trim();
+                textBoxNET_NO.Text = INSNO.Length > 8 ? INSNO.Substring(0, 8) : INSNO;
+                textBoxNET_CHK.Text = INSNO.Last().ToString();
+            }
 
             Dictionary<string, string> dicUnit = new Dictionary<string, string>();
             dicUnit.Add("1", "台北分局");
@@ -162,6 +164,7 @@ namespace JBHR.Ins
                             c.INSLAB.Any(inslabRow =>
                                 inslabRow.IN_DATE.Date == Convert.ToDateTime(textBoxADATE.Text).Date
                                 && ((inslabRow.L_AMT > 10 && inslabRow.H_AMT > 10) || inslabRow.FA_IDNO.Trim().Length > 0)//需有勞健保金額，勞退可能沒有(外勞或雇主)
+                                && inslabRow.S_NO.Trim() == cbINSCOMP.SelectedValue.ToString()
                                 && inslabRow.CODE == "1")
                             orderby c.NOBR ascending
                             select c;
@@ -367,6 +370,7 @@ namespace JBHR.Ins
                                 basettsRow.EMPCD.CompareTo(cbEmpcdB.SelectedValue.ToString()) >= 0 && basettsRow.EMPCD.CompareTo(cbEmpcdE.SelectedValue.ToString()) <= 0) &&
                             c.INSLAB.Any(inslabRow =>
                                 inslabRow.OUT_DATE.Date == Convert.ToDateTime(textBoxADATE.Text).Date &&
+                                inslabRow.S_NO.Trim() == cbINSCOMP.SelectedValue.ToString() &&
                                 inslabRow.CODE == "3")
                             orderby c.NOBR ascending
                             select c;
@@ -520,6 +524,7 @@ namespace JBHR.Ins
                                 c.INSLAB.Any(inslabRow =>
                                 inslabRow.IN_DATE.Date == Convert.ToDateTime(textBoxADATE.Text).Date
                                 && inslabRow.L_AMT > 10 && inslabRow.H_AMT > 10//需有勞健保金額，勞退可能沒有(外勞或雇主)
+                                && inslabRow.S_NO.Trim() == cbINSCOMP.SelectedValue.ToString()
                                 && inslabRow.CODE == "2")
                             orderby c.NOBR ascending
                             select c;
@@ -655,6 +660,7 @@ namespace JBHR.Ins
                                 basettsRow.EMPCD.CompareTo(cbEmpcdB.SelectedValue.ToString()) >= 0 && basettsRow.EMPCD.CompareTo(cbEmpcdE.SelectedValue.ToString()) <= 0) &&
                                 c.INSLAB.Any(inslabRow => inslabRow.IN_DATE.Date == Convert.ToDateTime(textBoxADATE.Text).Date
                                     && inslabRow.H_AMT <= 10//健保金額應該為0
+                                && inslabRow.S_NO.Trim() == cbINSCOMP.SelectedValue.ToString()
                                 && inslabRow.CODE == "1")
                             orderby c.NOBR ascending
                             select c;
@@ -792,6 +798,7 @@ namespace JBHR.Ins
                                 basettsRow.EMPCD.CompareTo(cbEmpcdB.SelectedValue.ToString()) >= 0 && basettsRow.EMPCD.CompareTo(cbEmpcdE.SelectedValue.ToString()) <= 0) &&
                                 c.INSLAB.Any(inslabRow =>
                                 inslabRow.OUT_DATE.Date == Convert.ToDateTime(textBoxADATE.Text).Date && inslabRow.H_AMT <= 10//健保金額應該為0
+                                && inslabRow.S_NO.Trim() == cbINSCOMP.SelectedValue.ToString()
                                 && inslabRow.CODE == "3")
                             orderby c.NOBR ascending
                             select c;
@@ -885,6 +892,7 @@ namespace JBHR.Ins
                                 c.INSLAB.Any(inslabRow =>
                                 inslabRow.IN_DATE.Date == Convert.ToDateTime(textBoxADATE.Text).Date
                                 && inslabRow.H_AMT <= 10//健保金額應該為0
+                                && inslabRow.S_NO.Trim() == cbINSCOMP.SelectedValue.ToString()
                                 && inslabRow.CODE == "2")
                             orderby c.NOBR ascending
                             select c;
@@ -980,7 +988,8 @@ namespace JBHR.Ins
                                 c.INSLAB.Any(inslabRow => inslabRow.IN_DATE.Date == Convert.ToDateTime(textBoxADATE.Text).Date
                                     && inslabRow.CODE == "1"//加保
                                     && inslabRow.L_AMT <= 10 && inslabRow.R_AMT <= 10//獨立保健保，應該沒有勞保勞退投保金額
-                                && inslabRow.FA_IDNO.Trim().Length > 0//只抓眷屬
+                                && inslabRow.S_NO.Trim() == cbINSCOMP.SelectedValue.ToString()
+                                    && inslabRow.FA_IDNO.Trim().Length > 0//只抓眷屬
                                     )
                             orderby c.NOBR ascending
                             select c;
@@ -1209,6 +1218,7 @@ namespace JBHR.Ins
                                     )
                                     && !c.INSLAB.Any(inslabRow => inslabRow.OUT_DATE.Date == Convert.ToDateTime(textBoxADATE.Text).Date
                                     && inslabRow.CODE == "3"//加保
+                                && inslabRow.S_NO.Trim() == cbINSCOMP.SelectedValue.ToString()
                                 && inslabRow.FA_IDNO.Trim().Length == 0//員工未退保
                                     )
                             orderby c.NOBR ascending
@@ -1416,7 +1426,13 @@ namespace JBHR.Ins
 
         private void cbINSCOMP_SelectedIndexChange(object sender, EventArgs e)
         {
-
+            var inscomp = this.insDS.INSCOMP.Where(p => p.S_NO.Trim() == cbINSCOMP.SelectedValue.ToString()).FirstOrDefault();
+            if (inscomp != null)
+            {
+                string INSNO = inscomp.INSNO.Trim();
+                textBoxNET_NO.Text = INSNO.Length > 8 ? INSNO.Substring(0, 8) : INSNO;
+                textBoxNET_CHK.Text = INSNO.Last().ToString();
+            }
         }
 
 

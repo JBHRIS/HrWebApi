@@ -151,7 +151,8 @@ namespace Portal
                            "<span >" + DataDetail.Content + "</span><br>" +
                            "<button ID=\"btnSubReply\" type = \"button\" class=\"btnReply btn btn-link fa comment_icon text-blue\" data-toggle=\"collapse\" data-target=\"#rep" + DataDetail.ParentCode + "\">回覆</button>" +
                            "<span class=\"text-muted\">" + DataDetail.InsertDate.Value.ToString("yyyy-MM-dd") + " </span>" +
-                           "<span class=\"text-muted\">" + DataDetail.InsertDate.Value.ToString("HH: ss") + "</span><br>" +
+                           "-"+
+                           "<span class=\"text-muted\">" + DataDetail.InsertDate.Value.ToString("HH:mm") + "</span><br>" +
                            "</div><br>";
 
 
@@ -210,9 +211,10 @@ namespace Portal
                 if (Result.Data != null)
                 {
                    result = Result.Data as List<FilesByFileTicketRow>;
+                   DataUpload.DataSource = result;
                 }
             }
-            DataUpload.DataSource = result;
+            
         }
         protected void DataUpload_ItemCommand(object sender, RadListViewCommandEventArgs e)
         {
@@ -226,6 +228,12 @@ namespace Portal
             {
                 if (Request.QueryString["Code"] != null)
                 {
+                    if (txtContent.Text == ""|| txtContent.Text==null)
+                    {
+                        lblAddStatus.InnerText = "回覆欄不得為空";
+                        return;
+                    }
+
                     RadButton button = sender as RadButton;
                     var CN = button.CommandName;
 
@@ -252,8 +260,8 @@ namespace Portal
                     InsertQuestionReplyCond.Key2 = lblEmpID.Text;
                     InsertQuestionReplyCond.Key3 = lblEmpID.Text;
                     InsertQuestionReplyCond.Name = lblEmpName.Text;
-                    InsertQuestionReplyCond.Content = txtContent.Text;
-                    InsertQuestionReplyCond.RoleKey = Int32.Parse(lblRoleKey.Text);
+                    InsertQuestionReplyCond.Content = txtContent.Text.Replace("\r\n", "</br>");
+                    InsertQuestionReplyCond.RoleKey = 74;
                     InsertQuestionReplyCond.IpAddress = WebPage.GetClientIP(Context);
                     InsertQuestionReplyCond.ReplyToCode = "";
                     InsertQuestionReplyCond.ParentCode = Request.QueryString["Code"];
@@ -268,6 +276,7 @@ namespace Portal
                         {
                             InsertQuestionReplyCond.Send = false;
                             oInsertQuestionReply.GetData(InsertQuestionReplyCond);
+                            lblAddStatus.InnerText = "草稿儲存成功";
                         }
                         else
                         {
@@ -279,6 +288,7 @@ namespace Portal
                             UpdateQuestionReplySendCond.Code = Draft.Code;
                             UpdateQuestionReplySendCond.Content = txtContent.Text;
                             oUpdateQuestionReplySend.GetData(UpdateQuestionReplySendCond);
+                            lblAddStatus.InnerText = "草稿儲存成功";
                         }
                     }
                     else
@@ -293,13 +303,15 @@ namespace Portal
                             UpdateQuestionReplySendCond.Code = Draft.Code;
                             UpdateQuestionReplySendCond.SetSend = true;
                             oUpdateQuestionReplySend.GetData(UpdateQuestionReplySendCond);
+                            
                         }
                         else
                         {
                             InsertQuestionReplyCond.Send = true;
                             oInsertQuestionReply.GetData(InsertQuestionReplyCond);
+                         
                         }
-
+                        lblAddStatus.InnerText = "";
                         txtContent.Text = "";
                     }
                     var oGetQuestionMain = new ShareGetQuestionMainByCodeDao();
@@ -393,7 +405,7 @@ namespace Portal
                     InsertQuestionReplyCond.UpdateDate = DateTime.Now;
 
                     oInsertQuestionReply.GetData(InsertQuestionReplyCond);
-                    lblAddStatus.InnerText = "送出成功";
+                    lblAddStatus.InnerText = "送出";
                     txtContent.Text = "";
                     QuestionReplyData.Rebind();
                 }
@@ -437,12 +449,20 @@ namespace Portal
 
                     string content = "";
                     RadTextBox txt = new RadTextBox();
+                    RadLabel lbl = new RadLabel();
                     foreach (var control in QuestionReplyData.Items)
                     {
                         if (e.ListViewItem.ClientID == control.ClientID)
                         {
                             txt = control.FindControl("txtReply") as RadTextBox;
-                            content = txt.Text;
+                            lbl = control.FindControl("lblReplyStatus") as RadLabel;
+                            if (txt.Text=="")
+                            {
+                                lbl.Text = "回覆不得為空白";
+                                return;
+                            }
+                            
+                            content = txt.Text.Replace("\r\n","</br>");
                         }
                     }
                     InsertQuestionReplyCond.AccessToken = _User.AccessToken;
@@ -585,14 +605,13 @@ namespace Portal
             UpdateQuestionMainCond.CompanySetting = CompanySetting;
             UpdateQuestionMainCond.Code = Request.QueryString["Code"];
 
-            oUpdateQuestionMain.GetData(UpdateQuestionMainCond);
-
-            oUpdateQuestionMain.GetData(UpdateQuestionMainCond);
+            oUpdateQuestionMain.GetData(UpdateQuestionMainCond);          
             QuestionReplyData.Rebind();
         }
 
         protected void btnHelpful_Click(object sender, EventArgs e)
         {
+
             btnHelpful.Enabled = false;
             btnHelpless.Enabled = false;
             btnDraft.Enabled = false;

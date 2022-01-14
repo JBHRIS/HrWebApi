@@ -17,9 +17,9 @@ namespace TaxLevelImport
         {
             JBTools.Security.SalaryEncrypt se = new JBTools.Security.SalaryEncrypt();
             SqlConnection conn = new SqlConnection(_conn.ConnectionString);
-            string cmd = string.Format("SELECT * FROM INSURLV WHERE AMT={0}", 23800);
-            string cmd1 = string.Format("UPDATE INSURLV SET LFF_DATEL = '{0}', LFF_DATEH = '{1}', LFF_DATER = '{2}', KEY_MAN = '{3}', KEY_DATE = '{4}' WHERE amt ={5}",
-                             "2020/12/31", "2020/12/31", "2020/12/31", "JB", DateTime.Now.ToString("yyyy-MM-dd hh: mm:ss"), 23800);
+            string cmd = string.Format("SELECT * FROM INSURLV WHERE AMT={0}", 24000);
+            string cmd1 = string.Format("UPDATE INSURLV SET LFF_DATEL = '{0}', LFF_DATEH = '{1}', LFF_DATER = '{2}', KEY_MAN = '{3}', KEY_DATE = '{4}' WHERE AMT ={5}",
+                             "2021/12/31", "2021/12/31", "2021/12/31", "JB", DateTime.Now.ToString("yyyy-MM-dd hh: mm:ss"), 24000);
             //string cmd1 = string.Format("INSERT INTO INSURLV SELECT {0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}',{9}",
             //                23800, "2020/01/01", "9999/12/31", "2020/01/01", "9999/12/31", "JB", DateTime.Now.ToString("yyyy-MM-dd hh: mm:ss"), "2020/01/01", "9999/12/31", 0.0469);
             //string cmd  = "SELECT * FROM INSURLV WHERE AMT=23100";

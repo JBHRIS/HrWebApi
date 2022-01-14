@@ -33,5 +33,7 @@ namespace JBHRIS.Api.Dal.Salary.View
         /// <param name="endDate"></param>
         /// <returns></returns>
         List<DateTime> GetDataPassList(string Nobr,DateTime beginDate,DateTime endDate);
+
+        List<GetSalaryCodeDto> GetSalaryCode();
     }
 }

@@ -87,7 +87,7 @@ namespace TaxLevelImport
             //string FullName = Dir + @"\" + FileName;
             //string MainFile = "";
             DateTime ExpireDate = new DateTime(2017, 5, 31);
-            string Server = "", DataBase = "", Id = "jb", Pwd = "46T_dh-6zZ";
+            string Server = "", DataBase = "", Id = "jb", Pwd = "JB8421";
             //string Server = "", DataBase = "", Id = "jb", Pwd = "JB8421";
             try
             {

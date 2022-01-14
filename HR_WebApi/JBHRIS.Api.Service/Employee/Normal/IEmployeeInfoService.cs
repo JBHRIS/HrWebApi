@@ -18,5 +18,6 @@ namespace JBHRIS.Api.Service.Employee.Normal
         public List<OutcdDto> GetOutReason();
         public List<TtscdDto> GetTtscd();
         public List<EmployeeRuleDto> GetEmployeeRule(EmployeeRuleEntry employeeRuleEntry);
+        public List<HunyaEmployeeInfoViewDto> GetHunyaEmployeeInfoView(HunyaEmployeeInfoEntry hunyaEmployeeInfoEntry);
     }
 }

@@ -36,12 +36,12 @@ namespace Portal
         }
         protected void lvMain_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
         {
-            var oGetDefaultMessage = new ShareGetQuestionDefaultMessageByRoleKeyDao();
-            var GetQuestionDefaultCond = new ShareGetQuestionDefaultMessageByRoleKeyConditions();
+            var oGetDefaultMessage = new ShareGetQuestionDefaultMessageByCompanyIdDao();
+            var GetQuestionDefaultCond = new ShareGetQuestionDefaultMessageByCompanyIdConditions();
             GetQuestionDefaultCond.AccessToken = _User.AccessToken;
             GetQuestionDefaultCond.RefreshToken = _User.RefreshToken;
             GetQuestionDefaultCond.CompanySetting = CompanySetting;
-            GetQuestionDefaultCond.RoleKey = _User.RoleKey.ToString();
+            GetQuestionDefaultCond.CompanyId = _User.CompanyId;
             var rsGetQuestionMain = oGetDefaultMessage.GetData(GetQuestionDefaultCond);
 
             try
@@ -51,7 +51,7 @@ namespace Portal
                     if (rsGetQuestionMain.Data != null)
                     {
 
-                        var rsQM = rsGetQuestionMain.Data as List<ShareGetQuestionDefaultMessageByRoleKeyRow>;
+                        var rsQM = rsGetQuestionMain.Data as List<ShareGetQuestionDefaultMessageByCompanyIdRow>;
                         lvMain.DataSource = rsQM;
                         var Script = "$(document).ready(function() {$('.footable').footable();});";
                         ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);

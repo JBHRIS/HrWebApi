@@ -131,7 +131,7 @@ namespace JBHR.Bas
             string DataPropertyName = "FA_IDNO";
             (fAMILYBindingSource.Current as DataRowView).Row.SetColumnError(DataPropertyName, "");
 
-            if (!JBTools.FormatValidate.CheckIDNO(textBox1.Text))
+            if (!(JBTools.FormatValidate.CheckIDNO(textBox1.Text) || JBTools.FormatValidate.CheckRPNumber(textBox1.Text)))
             {
                 MessageBox.Show(Resources.Bas.IDNOErr, Resources.All.DialogTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 //textBox1.Focus();

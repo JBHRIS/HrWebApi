@@ -100,7 +100,7 @@ namespace JBHR.Bas
         {
             if (!string.IsNullOrWhiteSpace(txtIDNO.Text))
             {
-                if (!FRM12.IDChk(txtIDNO.Text.Trim()))
+                if (!(FRM12.IDChk(txtIDNO.Text.Trim()) || JBTools.FormatValidate.CheckRPNumber(txtIDNO.Text.Trim())))
                 {
                     MessageBox.Show(Resources.Bas.IDNOErr, Resources.All.DialogTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtIDNO.Focus();

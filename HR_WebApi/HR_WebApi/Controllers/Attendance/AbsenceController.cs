@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using HR_WebApi.Api.Dto;
 using JBHRIS.Api.Dto;
@@ -9,10 +11,13 @@ using JBHRIS.Api.Dto.Absence.View;
 using JBHRIS.Api.Dto.Attendance;
 using JBHRIS.Api.Dto.Attendance.Entry;
 using JBHRIS.Api.Dto.Attendance.View;
+using JBHRIS.Api.Dto.Hunya;
 using JBHRIS.Api.Service.Attendance.Normal;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using NLog;
 
 namespace HR_WebApi.Controllers.Attendance
@@ -31,16 +36,19 @@ namespace HR_WebApi.Controllers.Attendance
         private IAbsenceService _absenceService;
         private IAbsenceCalculateService _absenceCalculateService;
         private ILogger _logger;
+        private IConfiguration _configuration;
         /// <summary>
         /// 請假控制器
         /// </summary>
         /// <param name="absenceService">請假服務</param>
         /// <param name="logger"></param>
-        public AbsenceController(IAbsenceService absenceService,IAbsenceCalculateService absenceCalculateService,ILogger logger)
+        public AbsenceController(IAbsenceService absenceService,IAbsenceCalculateService absenceCalculateService,ILogger logger,
+            IConfiguration configuration)
         {
             _absenceService = absenceService;
             _absenceCalculateService = absenceCalculateService;
             _logger = logger;
+            _configuration = configuration;
         }
         /// <summary>
         /// 取得請假資料
@@ -247,6 +255,68 @@ namespace HR_WebApi.Controllers.Attendance
         {
             _logger.Info("開始呼叫AbsenceService.AbsenceDataSave");
             ApiResult<string> apiResult = _absenceCalculateService.AbsenceDataSave(User,calAbsHoursDtos);
+            return apiResult;
+        }
+
+        /// <summary>
+        /// 請假存入(宏亞)
+        /// </summary>
+        [Route("HunyaAbsenceDataSave")]
+        [HttpPost]
+        [Authorize(Roles = "Absence/HunyaAbsenceDataSave,Admin")]
+        public async Task<ApiResult<LoginResponseDto>> HunyaAbsenceDataSave(HunyaAbsenceDataSaveEntry hunyaAbsenceDataSaveEntry)
+        {
+            string loginApi = _configuration.GetSection("Hunya:loginApi").Get<string>().ToString();
+            string loginApiKey = _configuration.GetSection("Hunya:loginApiKey").Get<string>().ToString();
+            string loginApiUser = _configuration.GetSection("Hunya:loginApiUser").Get<string>().ToString();
+            string dataApi = _configuration.GetSection("Hunya:dataApi").Get<string>().ToString();
+            ApiResult<LoginResponseDto> apiResult = new ApiResult<LoginResponseDto>();
+            try
+            {
+                #region 登入取得sessionID
+                var urlLogin = loginApi;
+                LoginRequestDto loginRequestDto = new LoginRequestDto()
+                {
+                    key = loginApiKey,
+                    user = loginApiUser
+                };
+                var jsonLogin = JsonConvert.SerializeObject(loginRequestDto);
+                HttpClient clientLogin = new HttpClient();
+                HttpContent contentLogin = new StringContent(jsonLogin, Encoding.UTF8, "application/json");
+                var responseLogin = await clientLogin.PostAsync(urlLogin, contentLogin);
+                LoginResponseDto loginResponseDto = JsonConvert.DeserializeObject<LoginResponseDto>(await responseLogin.Content.ReadAsStringAsync());
+                #endregion
+
+                #region 用session ID呼叫API傳入請假資料
+                var url = dataApi;
+                UserLeaveRequestDto userLeaveDto = new UserLeaveRequestDto()
+                {
+                    sessionid = loginResponseDto.sessionid,
+                    cmd = "hr_user_leave",
+                    工號 = hunyaAbsenceDataSaveEntry.Nobr,
+                    請假起始 = hunyaAbsenceDataSaveEntry.AtteendDate.Date.AddTime(hunyaAbsenceDataSaveEntry.OnTime).ToString("yyyy-MM-dd HH:mm"),
+                    請假結束 = hunyaAbsenceDataSaveEntry.AtteendDate.Date.AddTime(hunyaAbsenceDataSaveEntry.OffTime).ToString("yyyy-MM-dd HH:mm")
+                };
+                var jsonLeave = JsonConvert.SerializeObject(userLeaveDto);
+                HttpClient clientLeave = new HttpClient();
+                HttpContent contentLeave = new StringContent(jsonLeave, Encoding.UTF8, "application/json");
+                var responseLeave = await clientLeave.PostAsync(url, contentLeave);
+                #endregion
+                LoginResponseDto leaveResponseDto = JsonConvert.DeserializeObject<LoginResponseDto>(await responseLeave.Content.ReadAsStringAsync());
+                if (!leaveResponseDto.pass)
+                {
+                    _logger.Info("AbsenceService.HunyaAbsenceDataSave錯誤：" + JsonConvert.SerializeObject(url));
+                    _logger.Info("AbsenceService.HunyaAbsenceDataSave錯誤：" + JsonConvert.SerializeObject(userLeaveDto));
+                }
+                apiResult.State = true;
+                apiResult.Result = leaveResponseDto;
+            }
+            catch (Exception ex)
+            {
+                apiResult.State = false;
+                apiResult.Message = ex.Message.ToString();
+                _logger.Info("AbsenceService.HunyaAbsenceDataSave錯誤："+ ex.Message.ToString());
+            }
             return apiResult;
         }
     }

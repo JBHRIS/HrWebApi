@@ -330,6 +330,7 @@ namespace JBHR.Att
                         AutoABSD(it.NOBR, it.H_CODE, it.BDATE, it.Guid, it.TOL_HOURS, true, prehocde);
                     }
                 }
+                CheckAbsHrs();
             }
             IsNew = false;
         }
@@ -589,11 +590,11 @@ namespace JBHR.Att
         {
             UnitSet();//設定該假別的時間單位
             AbsHrsCalc();//計算時數
-            if (dataGridView1.CurrentRow != null && dataGridView1.CurrentRow.Cells[0].Value.ToString().Trim().Length > 0)
-            {
-                String hcode = Convert.ToString(dataGridView1.CurrentRow.Cells[2].Value);
-                prehocde = hcode;
-            }
+            //if (dataGridView1.CurrentRow != null && dataGridView1.CurrentRow.Cells[0].Value.ToString().Trim().Length > 0)
+            //{
+            //    String hcode = Convert.ToString(dataGridView1.CurrentRow.Cells[2].Value);
+            //    prehocde = hcode;
+            //}
         }
 
         private void txtDateB_Validating(object sender, CancelEventArgs e)
@@ -1322,6 +1323,15 @@ namespace JBHR.Att
         private void fullDataCtrl1_AfterShow(object sender, JBControls.FullDataCtrl.AfterEventArgs e)
         {
             CheckAbsHrs();
+        }
+
+        private void fullDataCtrl1_BeforeEdit(object sender, JBControls.FullDataCtrl.BeforeEventArgs e)
+        {
+            if (dataGridView1.CurrentRow != null && dataGridView1.CurrentRow.Cells[0].Value.ToString().Trim().Length > 0)
+            {
+                String hcode = Convert.ToString(dataGridView1.CurrentRow.Cells[2].Value);
+                prehocde = hcode;
+            }
         }
 
         private void bnImport_Click(object sender, EventArgs e)

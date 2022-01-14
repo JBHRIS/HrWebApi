@@ -47,6 +47,35 @@ namespace JBHR.Med
         {
             JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
             var TaxDataMain = db.TW_TAX.SingleOrDefault(a => a.AUTO == Convert.ToInt32(jbQuery1.SelectedKey));
+            var TaxData1 = (from a in db.TW_TAX_SUMMARY
+                           join b in db.BASE on a.NOBR equals b.NOBR into _base
+                           from bas in _base.DefaultIfEmpty()
+                               //join country in db.COUNTCD on bas.COUNTRY equals country.CODE into _ct
+                               //from ct in _ct.DefaultIfEmpty()
+                           where a.PID == Convert.ToInt32(jbQuery1.SelectedKey) && !a.IS_FILE
+                           select new
+                           {
+                               a.COMP,
+                               a.ADDR2,
+                               a.AMT,
+                               a.ID,
+                               a.ID1,
+                               a.IDCODE,
+                               a.IS_FILE,
+                               a.NAME_C,
+                               a.NOBR,
+                               a.POST2,
+                               a.F0103,
+                               a.F0407,
+                               a.FORMAT,
+                               a.SERIES,
+                               a.D_AMT,
+                               a.SUBCODE,
+                               a.TAXNO,
+                               a.RET_AMT,
+
+                               Country = bas != null ? bas.COUNTRY : ""
+                           });
             var TaxData = (from a in db.TW_TAX_SUMMARY
                            join b in db.BASE on a.NOBR equals b.NOBR into _base
                            from bas in _base.DefaultIfEmpty()
@@ -116,7 +145,8 @@ namespace JBHR.Med
                     string TAX_AMT = Convert.ToInt32(JBModule.Data.CDecryp.Number(TYRTAXRow.D_AMT)).ToString().PadLeft(10, '0');
                     string REL_AMT = Convert.ToInt32(JBModule.Data.CDecryp.Number(TYRTAXRow.AMT) - JBModule.Data.CDecryp.Number(TYRTAXRow.D_AMT)).ToString().PadLeft(10, '0');
 
-                    if (TYRTAXRow.FORMAT.Trim() == "92" && (TYRTAXRow.AMT - TYRTAXRow.D_AMT) < 1000M)//低於一千部申報
+                    var subcode = SubCodeData.Where(P => P.M_FORMAT.Trim() == TYRTAXRow.FORMAT.Trim() && P.AUTO == TYRTAXRow.SUBCODE).FirstOrDefault();
+                    if (TYRTAXRow.FORMAT.Trim() == "92" && subcode.M_FORSUB.Trim() == "8A" && (JBModule.Data.CDecryp.Number(TYRTAXRow.AMT) - JBModule.Data.CDecryp.Number(TYRTAXRow.D_AMT)) < 1000M)//低於一千部申報
                     {
                         continue;
                     }

@@ -483,6 +483,52 @@ namespace HR_Api_Demo.Controllers
         }
 
         /// <summary>
+        /// 取得基本薪資代碼
+        /// </summary>
+        /// <returns></returns>
+        [Route("GetBasicSalaryCode")]
+        [HttpGet]
+        [Authorize(Roles = "Salary/GetBasicSalaryCode,Admin")]
+        public ApiResult<List<GetSalaryCodeDto>> GetBasicSalaryCode()
+        {
+            ApiResult<List<GetSalaryCodeDto>> apiResult = new ApiResult<List<GetSalaryCodeDto>>();
+            apiResult.State = false;
+            try
+            {
+                apiResult.Result = _salaryViewService.GetSalaryCode().Where(p=>p.SalAttr=="A" || p.SalAttr == "G").ToList();
+                apiResult.State = true;
+            }
+            catch (Exception ex)
+            {
+                apiResult.Message = ex.ToString();
+            }
+            return apiResult;
+        }
+
+        /// <summary>
+        /// 取得薪資代碼
+        /// </summary>
+        /// <returns></returns>
+        [Route("GetSalaryCode")]
+        [HttpGet]
+        [Authorize(Roles = "Salary/GetSalaryCode,Admin")]
+        public ApiResult<List<GetSalaryCodeDto>> GetSalaryCode()
+        {
+            ApiResult<List<GetSalaryCodeDto>> apiResult = new ApiResult<List<GetSalaryCodeDto>>();
+            apiResult.State = false;
+            try
+            {
+                apiResult.Result = _salaryViewService.GetSalaryCode();
+                apiResult.State = true;
+            }
+            catch (Exception ex)
+            {
+                apiResult.Message = ex.ToString();
+            }
+            return apiResult;
+        }
+
+        /// <summary>
         /// 取得薪資異動
         /// </summary>
         /// <returns></returns>

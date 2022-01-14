@@ -10,7 +10,7 @@ namespace JBHRIS.Api.Dal.Interface
 
         List<QuestionDefaultMessageVdb> GetQuestionDefaultMessage(string Code);
 
-        List<QuestionDefaultMessageVdb> GetQuestionDefaultMessageByRoleKey(int RoleKey);
+        List<QuestionDefaultMessageVdb> GetQuestionDefaultMessageByCompanyId(string CompanyId);
         bool InsertQuestionDefaultMessage(QuestionDefaultMessageVdb vdb);
 
         bool UpdateQuestionDefaultMessage(QuestionDefaultMessageVdb vdb);

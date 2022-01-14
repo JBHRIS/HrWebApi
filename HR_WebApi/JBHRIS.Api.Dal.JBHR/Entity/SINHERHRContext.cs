@@ -31456,6 +31456,11 @@ namespace JBHRIS.Api.Dal.JBHR
 
                 entity.Property(e => e.Ak).HasColumnName("AK");
 
+                entity.Property(e => e.Code)
+                    .IsRequired()
+                    .HasColumnName("CODE")
+                    .HasMaxLength(50);
+
                 entity.Property(e => e.Controlid).HasColumnName("CONTROLID");
 
                 entity.Property(e => e.KeyDate)
@@ -31464,11 +31469,6 @@ namespace JBHRIS.Api.Dal.JBHR
 
                 entity.Property(e => e.KeyMan)
                     .HasColumnName("KEY_MAN")
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Nobr)
-                    .IsRequired()
-                    .HasColumnName("NOBR")
                     .HasMaxLength(50);
 
                 entity.Property(e => e.Sourceid).HasColumnName("SOURCEID");

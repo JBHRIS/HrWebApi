@@ -50,20 +50,20 @@ namespace Flow_WebApi.Controllers
         }
 
         /// <summary>
-        /// 根據RoleKey取得回傳內容
+        /// 根據CompanyId取得回傳內容
         /// </summary>
-        /// <param name="RoleKey"></param>
+        /// <param name="CompanyId"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("GetQuestionDefaultMessageByRoleKey")]
-        public ApiResult<List<QuestionDefaultMessageVdb>> GetQuestionDefaultMessageByRoleKey(int RoleKey)
+        [Route("GetQuestionDefaultMessageByCompanyId")]
+        public ApiResult<List<QuestionDefaultMessageVdb>> GetQuestionDefaultMessageByCompanyId(string CompanyId="")
         {
             ApiResult<List<QuestionDefaultMessageVdb>> mapiResult = new ApiResult<List<QuestionDefaultMessageVdb>>();
-
+            
             mapiResult.State = false;
             try
             {
-                mapiResult.Result = this._QuestionDefaultMessageInterface.GetQuestionDefaultMessageByRoleKey(RoleKey);
+                mapiResult.Result = this._QuestionDefaultMessageInterface.GetQuestionDefaultMessageByCompanyId(CompanyId);
                 mapiResult.State = true;
             }
             catch (Exception ex)

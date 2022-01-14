@@ -11,7 +11,7 @@
                 </UpdatedControls>
             </telerik:AjaxSetting>
         </AjaxSettings>
-         <AjaxSettings>
+        <AjaxSettings>
             <telerik:AjaxSetting AjaxControlID="btnHelpful">
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="RadAjaxPanel3" />
@@ -47,22 +47,22 @@
                 <telerik:RadLabel ID="lblContent" runat="server" Text="" />
             </p>
 
-      
-        <div id="iboxContent" class="ibox">
-            <div class="ibox-title">
-                <h5>附件列表</h5>
-                <div class="ibox-tools">
-                    <a class="collapse-link">
-                        <i class="fa fa-chevron-up"></i>
-                    </a>
-                    <a class="fullscreen-link">
-                        <i class="fa fa-expand"></i>
-                    </a>
+
+            <div id="iboxContent" class="ibox">
+                <div class="ibox-title">
+                    <h5>附件列表</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="fullscreen-link">
+                            <i class="fa fa-expand"></i>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="ibox-content">
-                 <telerik:RadAjaxPanel ID="RadAjaxPanel4" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
-               <telerik:RadListView ID="DataUpload" runat="server" RenderMode="Lightweight">
+                <div class="ibox-content">
+                    <telerik:RadAjaxPanel ID="RadAjaxPanel4" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
+                        <telerik:RadListView ID="DataUpload" runat="server" ItemPlaceholderID="Container" RenderMode="Lightweight" OnNeedDataSource="DataUpload_NeedDataSource">
                             <LayoutTemplate>
                                 <table class="footable table table-stripped" data-page-size="10" data-filter="#filter">
                                     <thead>
@@ -85,9 +85,9 @@
                             </LayoutTemplate>
                             <ItemTemplate>
                                 <tr class="gradeX">
-                                    <td><%#Eval("FileName") %></td>
-                                    <td><%#Eval("FileSize") %></td>
-                                    <td>
+                                    <td data-th="檔名"><%#Eval("FileName") %></td>
+                                    <td data-th="大小"><%#Eval("FileSize") %></td>
+                                    <td data-th="動作">
                                         <asp:Button ID="btnDownload" runat="server" CommandArgument='<%#Eval("FileId") %>' Width="60%" OnClientClick='<%#"download(\""+Eval("FileId")+"\");" %>' CommandName="Download" Text="下載" CssClass="btn-white btn btn-xs" />
                                     </td>
                                 </tr>
@@ -96,24 +96,26 @@
                                 目前並無上傳任何檔案
                             </EmptyDataTemplate>
                         </telerik:RadListView>
-                      </telerik:RadAjaxPanel>
+                    </telerik:RadAjaxPanel>
+                </div>
+            </div>
+            <div class="form-group">
+               
+                    <button id="btnWtReply" type="button" runat="server" data-toggle="collapse" data-target="#demo" class="btn btn-outline btn-primary btn-w-m m-b-xs" >我要回覆</button>
+               
             </div>
         </div>
-		  <div class="form-group">
-        <button id="btnWtReply" type="button" runat="server" data-toggle="collapse" data-target="#demo" class="btn btn-outline btn-primary btn-w-m m-b-xs">我要回覆</button>
-						</div>																																			   
-						 </div>																																			   
 
         <div class="social-footer">
             <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
-                <telerik:RadListView ID="QuestionReplyData" runat="server" ItemPlaceholderID="Container" OnItemCommand="lvMain_ItemCommand" OnNeedDataSource="QuestionReplyData_NeedDataSource">
+                <telerik:RadListView ID="QuestionReplyData" runat="server" ItemPlaceholderID="Container2" OnItemCommand="lvMain_ItemCommand" OnNeedDataSource="QuestionReplyData_NeedDataSource">
 
                     <LayoutTemplate>
-                        <div id="Container" runat="server">
-                            <telerik:RadLabel ID="lblName2" runat="server" CssClass="name_font" Text="" />
-                            <telerik:RadLabel ID="lblDate2" runat="server" CssClass="text-muted" Text="" />
+                        <div id="Container2" runat="server">
+                            <telerik:RadLabel runat="server" CssClass="name_font" Text="" />
+                            <telerik:RadLabel runat="server" CssClass="text-muted" Text="" />
                             &ensp;&ensp;
-                        <telerik:RadLabel ID="lblTime2" runat="server" CssClass="text-muted" Text="" />
+                        <telerik:RadLabel runat="server" CssClass="text-muted" Text="" />
                         </div>
                         <div class="social-comment">
                             <div class="media-body">
@@ -132,7 +134,7 @@
 
                                 <button type="button" id="btnReply" class="btnReply btn btn-link fa comment_icon text-blue" data-toggle="collapse" aria-controls='<%# Eval("Code") %>' data-target='#rep<%# Eval("Code") %>'>回覆</button>
                                 <telerik:RadLabel ID="lblDate2" runat="server" CssClass="text-muted" Text='<%# Eval("InsertDate","{0:yyyy-MM-dd}") %>' />
-
+                                -
                                 <telerik:RadLabel ID="lblTime2" runat="server" CssClass="text-muted" Text='<%# Eval("InsertDate","{0:HH:mm}") %>' />
 
                                 <br />
@@ -149,6 +151,7 @@
                                     </telerik:RadTextBox>
 
                                     <telerik:RadButton ID="btnReplyAdd" class="btnadd" runat="server" Text="送出" CssClass="btn btn-primary btn-md m-t-md" CommandArgument='<%# Eval("Code") %>' CommandName="ReplyAdd" />
+                                    <telerik:RadLabel ID="lblReplyStatus" runat="server" CssClass="text-danger" Text="" />
                                 </div>
                             </div>
                         </div>
@@ -157,13 +160,16 @@
 
                 </telerik:RadListView>
             </telerik:RadAjaxPanel>
-            <telerik:RadAjaxPanel ID="RadAjaxPanel2" runat="server" LoadingPanelID="RadAjaxLoadingPanel1" >
+            <telerik:RadAjaxPanel ID="RadAjaxPanel2" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
                 <div id="Useful" runat="server" class="row col-lg-12">
 
                     <div class="request_box form-inline">
                         <span class="ask_font">這個回覆對您有幫助嗎？</span>
-                        <telerik:RadButton ID="btnHelpful" runat="server" Text="有幫助" CssClass="btn btn-white btn-w-m m-b-xs" OnClick="btnHelpful_Click" />
-                        <telerik:RadButton ID="btnHelpless" runat="server"  Text="沒有" CssClass="btn btn-white btn-w-m m-b-xs" data-toggle="collapse" data-target="#demo" />
+                        <telerik:RadButton ID="btnHelpful" runat="server" Text="有幫助" CssClass="btn btn-white btn-w-m m-b-xs" OnClick="btnHelpful_Click">
+                            <ConfirmSettings ConfirmText="按下確認後，此筆回報單將會結案，請問是否要將此問題結案？" />
+                        </telerik:RadButton>
+
+                        <telerik:RadButton ID="btnHelpless" runat="server" Text="沒有" CssClass="btn btn-white btn-w-m m-b-xs" data-toggle="collapse" data-target="#demo" />
                         <%-- <button id="btnHelless" type="button" class="btn btn-white btn-w-m m-b-xs" runat="server" data-toggle="collapse" data-target="#demo">沒有</button>--%>
                         <div class="hr-line-dashed"></div>
                         <p id="pCompleteStatus" runat="server" style="display: none" class="text-success">
@@ -174,22 +180,24 @@
 
                 </div>
             </telerik:RadAjaxPanel>
-           <telerik:RadAjaxPanel ID="RadAjaxPanel3" runat="server" LoadingPanelID="RadAjaxLoadingPanel1" >
-                <div id="demo" class="collapse">
-                    <div class="form-group">
+
+            <div id="demo" class="collapse">
+                <div class="form-group">
+                    <telerik:RadAjaxPanel ID="RadAjaxPanel3" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
                         <telerik:RadTextBox ID="txtContent" runat="server" EmptyMessage="請填寫您想回報的內容..."
                             TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="3">
                         </telerik:RadTextBox>
 
                         <telerik:RadButton ID="btnDraft" runat="server" Text="儲存草稿" CssClass="btn btn-outline btn-primary btn-md" CommandName="Draft" OnClick="btnAdd_Click" />
-                        <telerik:RadButton ID="btnAdd" runat="server"  Text="送出" CssClass="btn btn-primary btn-primary btn-md" OnClick="btnAdd_Click" />
+                        <telerik:RadButton ID="btnAdd" runat="server" Text="送出" CssClass="btn btn-primary btn-primary btn-md" OnClick="btnAdd_Click" />
 
-                        <label runat="server" id="lblAddStatus" style="color: red;"></label>
-                    </div>
-                    <div class="form-group">
-                    </div>
+                        <label id="lblAddStatus" runat="server" style="color: red"></label>
+                    </telerik:RadAjaxPanel>
                 </div>
-               </telerik:RadAjaxPanel>
+                <div class="form-group">
+                </div>
+            </div>
+
         </div>
         <div class="ibox-content">
             <telerik:RadButton ID="btnPage" runat="server" Text="上一頁" CssClass="btn btn-primary btn-md btn-outline" OnClick="btnPage_Click">
@@ -197,7 +205,7 @@
             </telerik:RadButton>
         </div>
 
-   
+
     </div>
     <asp:Label ID="lblUserCode" runat="server" Visible="False"></asp:Label>
     <asp:Label ID="lblEmpID" runat="server" Visible="False"></asp:Label>
@@ -209,6 +217,7 @@
     <script src="Templates/Inspinia/js/plugins/footable/footable.all.min.js"></script>
 
     <script>
+        
         function download(FileId) {
 
             //檔案下載網址
