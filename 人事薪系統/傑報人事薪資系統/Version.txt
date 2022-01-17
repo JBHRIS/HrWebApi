@@ -1,4 +1,7 @@
 更新紀錄
+V22.1.17.1
+  ● 調整 - Basetts資料結構預設行為
+
 V22.1.13.4
   ● 修正 - SendMailWithQueueAndFileService 中加入 Position = 0 的設置
 
