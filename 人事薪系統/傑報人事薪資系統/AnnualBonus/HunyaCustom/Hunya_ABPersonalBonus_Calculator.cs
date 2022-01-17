@@ -505,6 +505,7 @@ namespace JBHR.AnnualBonus.HunyaCustom
                                     BonusDays = JBModule.Data.CEncrypt.Number(decimal.TryParse(ScriptParams["%取得年終獎金係數.獎勵標準日數%"], out defDecimal) ? defDecimal : 0M),
                                     DailySalary = JBModule.Data.CEncrypt.Number(decimal.TryParse(ScriptParams["%取得年終獎金係數.一日份薪資%"], out defDecimal) ? defDecimal : 0M),
                                     MeritDays = decimal.TryParse(ScriptParams["%取得年終獎金比率.獎懲天數%"], out defDecimal) ? defDecimal : 0M,
+                                    AttDays = decimal.TryParse(ScriptParams["%取得年終獎金比率.產假扣發天數%"], out defDecimal) ? defDecimal : 0M,
                                     BonusRate = JBModule.Data.CEncrypt.Number(decimal.TryParse(ScriptParams["%取得年終獎金係數.獎勵比率%"], out defDecimal) ? defDecimal : 0M),
                                     //Amount = JBModule.Data.CEncrypt.Number(Math.Round(result == null ? 0 : Decimal.TryParse(result.ToString(), out defDecimal) ? Math.Ceiling(defDecimal) : 0M)),
                                     Amount = JBModule.Data.CEncrypt.Number(Math.Round(Decimal.TryParse(result.ToString(), out defDecimal) ? defDecimal < 0 ? 0M : defDecimal : 0M)),

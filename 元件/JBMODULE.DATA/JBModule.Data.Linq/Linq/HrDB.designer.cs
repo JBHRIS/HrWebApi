@@ -99865,6 +99865,8 @@ namespace JBModule.Data.Linq
 		
 		private System.Guid _GID;
 		
+		private decimal _AttDays;
+		
     #region 擴充性方法定義
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -99895,6 +99897,8 @@ namespace JBModule.Data.Linq
     partial void OnKeyDateChanged();
     partial void OnGIDChanging(System.Guid value);
     partial void OnGIDChanged();
+    partial void OnAttDaysChanging(decimal value);
+    partial void OnAttDaysChanged();
     #endregion
 		
 		public Hunya_ABPersonalBonus()
@@ -100158,6 +100162,26 @@ namespace JBModule.Data.Linq
 					this._GID = value;
 					this.SendPropertyChanged("GID");
 					this.OnGIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AttDays", DbType="Decimal(16,4) NOT NULL")]
+		public decimal AttDays
+		{
+			get
+			{
+				return this._AttDays;
+			}
+			set
+			{
+				if ((this._AttDays != value))
+				{
+					this.OnAttDaysChanging(value);
+					this.SendPropertyChanging();
+					this._AttDays = value;
+					this.SendPropertyChanged("AttDays");
+					this.OnAttDaysChanged();
 				}
 			}
 		}
