@@ -459,7 +459,9 @@ namespace JBHR.AnnualBonus.HunyaCustom
                         //ScriptParams.Add("%取得年終獎金係數.在職天數%", string.Empty);
                         //ScriptParams.Add("%取得年終獎金係數.在職係數%", string.Empty);
                         ScriptParams.Add("%取得年終獎金比率.獎懲天數%", string.Empty);
-                        ScriptParams.Add("%取得年終獎金比率.產假扣發天數%", string.Empty);
+                        ScriptParams.Add("%取得年終獎金比率.公傷假%", string.Empty);
+                        ScriptParams.Add("%取得年終獎金比率.產假%", string.Empty);
+                        //ScriptParams.Add("%取得年終獎金比率.產假扣發天數%", string.Empty);
                         ScriptParams.Add("%取得年終獎金比率.在職天數%", string.Empty);
                         ScriptParams.Add("%取得年終獎金比率.在職係數%", string.Empty);
                         while (Script.Contains('%'))
@@ -498,18 +500,27 @@ namespace JBHR.AnnualBonus.HunyaCustom
                                 var result = Microsoft.JScript.Eval.JScriptEvaluate(Script, Engine);
                                 decimal defDecimal = 0;
 
+                                var vBonusDays = decimal.TryParse(ScriptParams["%取得年終獎金係數.獎勵標準日數%"], out defDecimal) ? defDecimal : 0M;
+                                var vDailySalary = decimal.TryParse(ScriptParams["%取得年終獎金係數.一日份薪資%"], out defDecimal) ? defDecimal : 0M;
+                                var vBonusRate = decimal.TryParse(ScriptParams["%取得年終獎金係數.獎勵比率%"], out defDecimal) ? defDecimal : 0M;
+                                var vMeritDays = decimal.TryParse(ScriptParams["%取得年終獎金比率.獎懲天數%"], out defDecimal) ? defDecimal : 0M;
+                                //var vAttDays = decimal.TryParse(ScriptParams["%取得年終獎金比率.產假扣發天數%"], out defDecimal) ? defDecimal : 0M;
+                                var vMaternityDays = decimal.TryParse(ScriptParams["%取得年終獎金比率.產假%"], out defDecimal) ? defDecimal : 0M;
+                                var vInjuryDays = decimal.TryParse(ScriptParams["%取得年終獎金比率.公傷假%"], out defDecimal) ? defDecimal : 0M;
+                                var vAmount = Math.Round(Decimal.TryParse(result.ToString(), out defDecimal) ? defDecimal < 0 ? 0M : defDecimal : 0M);
+                                var vOnJobDays =decimal.TryParse(ScriptParams["%取得年終獎金比率.在職天數%"], out defDecimal) ? defDecimal : 0M;
+                                var vOnJobRate = decimal.TryParse(ScriptParams["%取得年終獎金比率.在職係數%"], out defDecimal) ? defDecimal : 0M;
                                 JBModule.Data.Linq.Hunya_ABPersonalBonus personalBonus = new JBModule.Data.Linq.Hunya_ABPersonalBonus()
                                 {
                                     EmployeeID = Employee,
                                     YYYY = YYYY,
-                                    BonusDays = JBModule.Data.CEncrypt.Number(decimal.TryParse(ScriptParams["%取得年終獎金係數.獎勵標準日數%"], out defDecimal) ? defDecimal : 0M),
-                                    DailySalary = JBModule.Data.CEncrypt.Number(decimal.TryParse(ScriptParams["%取得年終獎金係數.一日份薪資%"], out defDecimal) ? defDecimal : 0M),
-                                    MeritDays = decimal.TryParse(ScriptParams["%取得年終獎金比率.獎懲天數%"], out defDecimal) ? defDecimal : 0M,
-                                    AttDays = decimal.TryParse(ScriptParams["%取得年終獎金比率.產假扣發天數%"], out defDecimal) ? defDecimal : 0M,
-                                    BonusRate = JBModule.Data.CEncrypt.Number(decimal.TryParse(ScriptParams["%取得年終獎金係數.獎勵比率%"], out defDecimal) ? defDecimal : 0M),
-                                    //Amount = JBModule.Data.CEncrypt.Number(Math.Round(result == null ? 0 : Decimal.TryParse(result.ToString(), out defDecimal) ? Math.Ceiling(defDecimal) : 0M)),
-                                    Amount = JBModule.Data.CEncrypt.Number(Math.Round(Decimal.TryParse(result.ToString(), out defDecimal) ? defDecimal < 0 ? 0M : defDecimal : 0M)),
-                                    OnJobDays = JBModule.Data.CEncrypt.Number(decimal.TryParse(ScriptParams["%取得年終獎金比率.在職天數%"], out defDecimal) ? defDecimal : 0M),
+                                    BonusDays = JBModule.Data.CEncrypt.Number(vBonusDays),
+                                    DailySalary = JBModule.Data.CEncrypt.Number(vDailySalary),
+                                    BonusRate = JBModule.Data.CEncrypt.Number(vBonusRate),
+                                    MeritDays = vMeritDays,
+                                    AttDays = vMaternityDays + vInjuryDays,
+                                    Amount = JBModule.Data.CEncrypt.Number(vAmount),
+                                    OnJobDays = JBModule.Data.CEncrypt.Number(vOnJobDays),
                                     Memo = Memo,
                                     KeyMan = MainForm.USER_NAME,
                                     KeyDate = DateTime.Now,
