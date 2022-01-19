@@ -64,13 +64,14 @@ namespace Bll.Share.Vdb
         public string Key2 { get; set; }
         public string Key3 { get; set; }
         public string Name { get; set; }
+        public string ReplyName { get; set; }
         public string Content { get; set; }
+        public string ReplyContent { get; set; }
         public int RoleKey { get; set; }
         public string IpAddress { get; set; }
         public string ReplyToCode { get; set; }
         public string ParentCode { get; set; }
         public bool Send { get; set; }
-
         public string Note { get; set; }
         public string DataView { get; set; }
 

@@ -11,6 +11,10 @@ using Telerik.Web.UI;
 using Dal.Dao.Flow;
 using System.Windows;
 using Bll.Token.Vdb;
+using System.Data;
+using System.Text;
+using NPOI.HSSF.UserModel;
+using System.IO;
 
 namespace Portal
 {
@@ -28,6 +32,8 @@ namespace Portal
                
                 txtReturnS_DataBind();
             }
+            ScriptManager scriptManager = ScriptManager.GetCurrent(this.Page);
+            scriptManager.RegisterPostBackControl(this.btnExportExcel);
         }
         private void SetUserInfo()
         {
@@ -167,6 +173,160 @@ namespace Portal
                 lvMain.FilterExpressions.Add(expression2);
             }
             lvMain.Rebind();
+        }
+
+        protected void btnExportExcel_Click(object sender, EventArgs e)
+        {
+            APIResult rsGetQuestionMain = new APIResult();
+
+            if (_User.RoleKey == 2)
+            {
+                var oGetQuestionMain = new ShareGetQuestionMainDao();
+                var GetquestionMainCond = new ShareGetQuestionMainConditions();
+                GetquestionMainCond.AccessToken = _User.AccessToken;
+                GetquestionMainCond.RefreshToken = _User.RefreshToken;
+                GetquestionMainCond.CompanySetting = CompanySetting;
+                GetquestionMainCond.CompanyID = _User.CompanyId;
+                rsGetQuestionMain = oGetQuestionMain.GetData(GetquestionMainCond);
+
+            }
+            else if (_User.RoleKey == 8)
+            {
+                var oGetQuestionMain = new ShareGetQuestionMainByCompanyDao();
+                var GetquestionMainCond = new ShareGetQuestionMainByCompanyConditions();
+                GetquestionMainCond.AccessToken = _User.AccessToken;
+                GetquestionMainCond.RefreshToken = _User.RefreshToken;
+                GetquestionMainCond.CompanySetting = CompanySetting;
+                GetquestionMainCond.CompanyID = _User.CompanyId;
+                rsGetQuestionMain = oGetQuestionMain.GetData(GetquestionMainCond);
+
+            }
+
+            if (rsGetQuestionMain.Status)
+            {
+                if (rsGetQuestionMain.Data != null)
+                {
+                    DataTable dt = new DataTable();
+                    if (_User.RoleKey == 2)
+                    {
+                        var rsQM = rsGetQuestionMain.Data as List<ShareGetQuestionMainRow>;
+                        dt = rsQM.CopyToDataTable();
+                    }
+                    else if (_User.RoleKey == 8)
+                    {
+                        var rsQM = rsGetQuestionMain.Data as List<ShareGetQuestionMainByCompanyRow>;
+                        dt = rsQM.CopyToDataTable();
+                    }
+                    //移除不顯示的欄位
+                    //if (dt.Columns.Contains("ListAbs")) dt.Columns.Remove("ListAbs");
+                    //if (dt.Columns.Contains("ListOt")) dt.Columns.Remove("ListOt");
+                    //更改欄位名稱
+                    //var ListGroupCode = new List<string>();
+                    //ListGroupCode.Add("Abs");
+                    //AccessData.SetColumnsName(dt, ListGroupCode);
+                    var stream = RenderDataTableToExcel(dt);
+                    var FileName = "回報單" + DateTime.Now.ToString("yyyyMMddHHmm") + ".xls";
+
+                    Byte[] bytes = new byte[stream.Length];
+                    stream.Read(bytes, 0, int.Parse(stream.Length.ToString()));
+                    stream.Close();
+
+                    Response.Clear();
+                    Response.AddHeader("content-disposition", "attachment;filename=" + HttpUtility.UrlEncode(FileName, Encoding.UTF8));
+                    //Response.ContentType = "application/vnd.ms-excel";
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    Response.OutputStream.Write(bytes, 0, bytes.Length);
+                    Response.OutputStream.Flush();
+                    Response.OutputStream.Close();
+                    Response.Flush();
+                    Response.End();
+                }
+
+            }
+
+
+        }
+
+
+
+        public static Stream RenderDataTableToExcel(DataTable SourceTable)
+        {
+            HSSFWorkbook workbook = new HSSFWorkbook();
+            MemoryStream ms = new MemoryStream();
+            var sheet = workbook.CreateSheet();
+            var headerRow = sheet.CreateRow(0);
+
+            var intCellStyle = workbook.CreateCellStyle();
+            intCellStyle.DataFormat = HSSFDataFormat.GetBuiltinFormat("0");
+
+            var doubleCellStyle = workbook.CreateCellStyle();
+            doubleCellStyle.DataFormat = HSSFDataFormat.GetBuiltinFormat("0.00");
+
+            var dateCellStyle = workbook.CreateCellStyle();
+            dateCellStyle.DataFormat = workbook.CreateDataFormat().GetFormat("yyyy-mm-dd HH:mm");
+
+            // handling header.
+            foreach (DataColumn column in SourceTable.Columns)
+                headerRow.CreateCell(column.Ordinal).SetCellValue(column.ColumnName);
+
+            // handling value.
+            int rowIndex = 1;
+
+            foreach (DataRow row in SourceTable.Rows)
+            {
+                var dataRow = sheet.CreateRow(rowIndex);
+
+                foreach (DataColumn column in SourceTable.Columns)
+                {
+                    Type t = column.DataType;
+                    var cell = dataRow.CreateCell(column.Ordinal);
+                    if (t == typeof(bool))
+                    {
+                        cell.CellStyle = intCellStyle;
+                        if (row.IsNull(column.ColumnName)) cell.SetCellValue(0);
+                        else
+                        {
+                            if (Convert.ToBoolean(row[column.ColumnName])) cell.SetCellValue(1);
+                            else cell.SetCellValue(0);
+                        }
+                    }
+                    else if (t == typeof(int))
+                    {
+                        cell.CellStyle = intCellStyle;
+                        if (row.IsNull(column.ColumnName)) cell.SetCellValue(0);
+                        else cell.SetCellValue(Convert.ToInt32(row[column.ColumnName]));
+                    }
+                    else if (t == typeof(decimal) || t == typeof(double) || t == typeof(float))
+                    {
+                        cell.CellStyle = intCellStyle;// doubleCellStyle;
+                        if (row.IsNull(column.ColumnName)) cell.SetCellValue(0.00);
+                        else cell.SetCellValue(Convert.ToDouble(row[column.ColumnName]));
+                    }
+                    else if (t == typeof(DateTime))
+                    {
+                        cell.CellStyle = dateCellStyle;
+                        if (row.IsNull(column.ColumnName)) cell.SetCellValue("");
+                        else cell.SetCellValue(Convert.ToDateTime(row[column.ColumnName]).ToString("yyyy/MM/dd HH:mm"));
+                    }
+                    else
+                    {
+                        if (row.IsNull(column.ColumnName)) cell.SetCellValue("");
+                        else cell.SetCellValue(Convert.ToString(row[column.ColumnName]).Trim());
+                    }
+                }
+
+                rowIndex++;
+            }
+
+            workbook.Write(ms);
+            ms.Flush();
+            ms.Position = 0;
+
+            sheet = null;
+            headerRow = null;
+            workbook = null;
+
+            return ms;
         }
     }
 
