@@ -54,6 +54,7 @@ namespace JBHR.AnnualBonus.HunyaCustom
             nudABYYYY.Value = YYYY;
             //txtBasicBonus.Text = "0.00";
             SetEmpList();
+            btnEmp.Text = "請選擇需設定的人員";
             SetOUTCDList();
             SetMaternityCode();
             SetRateHCode();
