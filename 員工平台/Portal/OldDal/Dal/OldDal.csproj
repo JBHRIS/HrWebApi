@@ -113,7 +113,7 @@
     <Folder Include="Entity\edmx\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Standard\JBMODULE.MESSAGE\JBModule.Message.csproj">
+    <ProjectReference Include="..\..\..\..\..\..\Standard\JBMODULE.MESSAGE\JBModule.Message.csproj">
       <Project>{b94796b3-cedb-4083-95ad-e94ec30d15d5}</Project>
       <Name>JBModule.Message</Name>
     </ProjectReference>

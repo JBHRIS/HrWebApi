@@ -18,6 +18,7 @@ using System.Web.UI.HtmlControls;
 using Bll.Share.Vdb;
 using Dal.Dao.Share;
 using Bll.Tools;
+using System.Web.Services;
 
 namespace Portal
 {
@@ -140,14 +141,7 @@ namespace Portal
                     base.OnInit(e);
                     Response.Redirect(Request.PhysicalPath);
                 }
-                var Language = (from c in dcFlow.FormsExtend
-                                where c.FormsCode == "Common" && c.Active == true && c.Code == "Language"
-                                select c).FirstOrDefault();
-                if (Language != null)
-                {
-                    plLanguage.Visible = true;
-                    ChangeLanguage();
-                }
+                
                 var IsShowExport = (from c in dcFlow.FormsExtend
                                     where c.FormsCode == "Common" && c.Active == true && c.Code == "IsShowExport"
                                     select c).FirstOrDefault();
@@ -158,8 +152,8 @@ namespace Portal
                 var ReplyRedirect = (from c in dcFlow.FormsExtend
                                      where c.FormsCode == "Common" && c.Active == true && c.Code == "ReplyRedirect"
                                      select c).FirstOrDefault();
-                if (ReplyRedirect != null)
-                    btnReply.Visible = true;
+                //if (ReplyRedirect != null)
+                //    btnReply.Visible = true;
 
                 var ActivePage = Request.Url;
                 if (_User.LoginStatus != "1")
@@ -176,7 +170,14 @@ namespace Portal
                 plCountDown.Visible = true;
             }
             SetRootValues();
-
+            var Language = (from c in dcFlow.FormsExtend
+                            where c.FormsCode == "Common" && c.Active == true && c.Code == "Language"
+                            select c).FirstOrDefault();
+            if (Language != null)
+            {
+                plLanguage.Visible = true;
+                ChangeLanguage();
+            }
             if (FormTitle != "")
                 Page.Title = FormTitle;
             RadClientExportManager1.PdfSettings.Fonts.Add("Arial Unicode MS", "Fonts/Arial-Unicode-MS.ttf");
@@ -190,7 +191,7 @@ namespace Portal
                     plLogOut.Visible = false;
             }
         }
-
+        
         private void Page_PreRenderComplete(object sender, EventArgs e)
         {
             //將css檔放在最後不然沒有效果
@@ -721,42 +722,45 @@ namespace Portal
             if(search != null && search != "")
                 Response.Redirect("SearchResult.aspx?Search=" + search);
         }
-        protected void Reply_Click()
-        {
-            var oEncryptHepler = new EncryptHepler();
-            var ReplySite = System.Web.Configuration.WebConfigurationManager.AppSettings["ReplySite"];
-            var AccessToken = _User.AccessToken;
-            var RefreshToken = _User.RefreshToken;
-            var CompanyId = CompanySetting.AccountCode;
-            var EmpId = _User.EmpId;
-            var EmpName = _User.EmpName;
-            var Role = 64;
-            if (_User.Role != null && (_User.Role.Contains("HR") || _User.Role.Contains("Hr")))
-            {
-                Role = 8;
-                var UserData = new List<string>();
-                UserData.Add(AccessToken);
-                UserData.Add(RefreshToken);
-                UserData.Add(CompanyId);
-                UserData.Add(EmpId);
-                UserData.Add(EmpName);
-                UserData.Add(Role.ToString());
-                var Parameter = JsonConvert.SerializeObject(UserData);
-                Response.Redirect(ReplySite + "?Param=" + Server.UrlEncode(oEncryptHepler.Encrypt(Parameter)));
-            }
-            else
-            {
-                var UserData = new List<string>();
-                UserData.Add(AccessToken);
-                UserData.Add(RefreshToken);
-                UserData.Add(CompanyId);
-                UserData.Add(EmpId);
-                UserData.Add(EmpName);
-                UserData.Add(Role.ToString());
-                var Parameter = JsonConvert.SerializeObject(UserData);
-                Response.Redirect(ReplySite + "?Param=" + Server.UrlEncode(oEncryptHepler.Encrypt(Parameter)));
-            }
-        }
+        //protected void Reply_Click()
+        //{
+        //    var oEncryptHepler = new EncryptHepler();
+        //    var fileContents = UnobtrusiveSession.Session["FileContents"] as byte[];
+        //    var ReplySite = System.Web.Configuration.WebConfigurationManager.AppSettings["ReplySite"];
+        //    var AccessToken = _User.AccessToken;
+        //    var RefreshToken = _User.RefreshToken;
+        //    var CompanyId = CompanySetting.AccountCode;
+        //    var EmpId = _User.EmpId;
+        //    var EmpName = _User.EmpName;
+        //    var Role = 64;
+        //    if (_User.Role != null && (_User.Role.Contains("HR") || _User.Role.Contains("Hr")))
+        //    {
+        //        Role = 8;
+        //        var UserData = new List<string>();
+        //        UserData.Add(AccessToken);
+        //        UserData.Add(RefreshToken);
+        //        UserData.Add(CompanyId);
+        //        UserData.Add(EmpId);
+        //        UserData.Add(EmpName);
+        //        UserData.Add(Role.ToString());
+        //        UserData.Add(fileContents.ToString());
+        //        var Parameter = JsonConvert.SerializeObject(UserData);
+        //        Response.Redirect(ReplySite + "?Param=" + Server.UrlEncode(oEncryptHepler.Encrypt(Parameter)));
+        //    }
+        //    else
+        //    {
+        //        var UserData = new List<string>();
+        //        UserData.Add(AccessToken);
+        //        UserData.Add(RefreshToken);
+        //        UserData.Add(CompanyId);
+        //        UserData.Add(EmpId);
+        //        UserData.Add(EmpName);
+        //        UserData.Add(Role.ToString());
+        //        UserData.Add(fileContents.ToString());
+        //        var Parameter = JsonConvert.SerializeObject(UserData);
+        //        Response.Redirect(ReplySite + "?Param=" + Server.UrlEncode(oEncryptHepler.Encrypt(Parameter)));
+        //    }
+        //}
 
         private void ChangeLanguage()
         {
@@ -775,8 +779,15 @@ namespace Portal
                 if (Ctl is RadListView)
                 {
                     var ListView = Ctl as RadListView;
-                    foreach (var item in ListView.Items)
-                        FindSubControl(item);
+                    if (ListView.Items.Count > 0)
+                        foreach (var item in ListView.Items)
+                            FindSubControl(item);
+                    else
+                    {
+                        var ListViewData = ListView.Controls[0];
+                        if (ListViewData != null)
+                            FindSubControl(ListViewData);
+                    }
                 }
                 foreach (Control Ctl1 in Ctl.Controls)
                     //繼續往下找(遞迴)
@@ -815,7 +826,26 @@ namespace Portal
                         var TransText = oShareDictionary.TextTranslate("Portal", TextBox.EmptyMessage, "", LanguageCookie);
                         if (TransText != "" && TransText != null)
                             TextBox.EmptyMessage = TransText;
-                    } 
+                    }
+                    if (Ctl is CheckBox)
+                    {
+                        var CheckBox = Ctl as CheckBox;
+                        var TransText = oShareDictionary.TextTranslate("Portal", CheckBox.ID, "1", LanguageCookie);
+                        if (TransText != "" && TransText != null)
+                            CheckBox.Text = TransText;
+                    }
+                    if (Ctl is RadRadioButtonList)
+                    {
+                        var RadioButtonList = Ctl as RadRadioButtonList;
+                        foreach (var r in RadioButtonList.Items)
+                        {
+                            var RadioButton = r as ButtonListItem;
+                            var TransText = oShareDictionary.TextTranslate("Portal", RadioButton.Text, "", LanguageCookie);
+                            if (TransText != "" && TransText != null)
+                                RadioButton.Text = TransText;
+                        }
+
+                    }
                 }
             }
         }
@@ -830,64 +860,11 @@ namespace Portal
 
         protected void btnReply_Click(object sender, EventArgs e)
         {
-            var userData = Request.Cookies[FormsAuthentication.FormsCookieName];
-            var userTicket = FormsAuthentication.Decrypt(userData.Value);
-            UserToken user = JsonConvert.DeserializeObject<UserToken>(userTicket.UserData);
-            if (user.RefreshToken != null && user.RefreshToken != "")
-            {
-                if (Request.Cookies["CompanyId"] != null && Request.Cookies["CompanyId"].Value != "")
-                {
-
-
-                    var oShareCompany = new ShareCompanyDao();
-                    var CompanySetting = oShareCompany.GetCompanySetting(Request.Cookies["CompanyId"].Value);
-
-                    this.CompanySetting = CompanySetting;
-                    var oConnection = new ConnectionDao();
-                    var ConnectionCondition = new ConnectionConditions();
-                    ConnectionCondition.DbName = CompanySetting.HrApiConnection;
-                    var LoginTokenResult = oConnection.GetData(ConnectionCondition);
-                    var LoginToken = LoginTokenResult.Payload.ToString();
-
-                    var oRefreshToken = new RefreshTokenDao();
-                    var RefreshTokenCond = new RefreshTokenConditions();
-                    RefreshTokenCond.AccessToken = LoginToken;
-                    RefreshTokenCond.RefreshToken = user.RefreshToken;
-                    RefreshTokenCond.refreshToken = user.RefreshToken;
-                    var rs = oRefreshToken.GetData(RefreshTokenCond);
-                    if (rs.Status)
-                    {
-                        if (rs.Data != null)
-                        {
-                            var rSignin = rs.Data as SigninRow;
-                            _User.AccessToken = rSignin.AccessToken;
-                            _User.RefreshToken = rSignin.RefreshToken;
-                        }
-                    }
-                    _AuthManager.SignIn(_User, _User.UserCode, CompanySetting);
-                }
-
-                else
-                {
-                    var oRefreshToken = new RefreshTokenDao();
-                    var RefreshTokenCond = new RefreshTokenConditions();
-                    RefreshTokenCond.RefreshToken = user.RefreshToken;
-                    RefreshTokenCond.refreshToken = user.RefreshToken;
-                    var rs = oRefreshToken.GetData(RefreshTokenCond);
-                    if (rs.Status)
-                    {
-                        if (rs.Data != null)
-                        {
-                            var rSignin = rs.Data as SigninRow;
-                            _User.AccessToken = rSignin.AccessToken;
-                            _User.RefreshToken = rSignin.RefreshToken;
-                        }
-                    }
-                    _AuthManager.SignIn(_User, _User.UserCode, CompanySetting);
-                }
-            }
-            var _Pic = new WebsitesScreenshot.WebsitesScreenshot();
-            var content = phPdf.FindControl("Content2") as Content;            
+            UnobtrusiveSession.Session["UserData"] = _User;
+            UnobtrusiveSession.Session["CompanySetting"] = CompanySetting;
+            UseScript();
+            //var _Pic = new WebsitesScreenshot.WebsitesScreenshot();
+            //var content = phPdf.FindControl("Content2") as Content;            
             //WebsitesScreenshot.WebsitesScreenshot.Result _Result = _Pic.CaptureHTML(phPdf.h);
             //if (_Result == WebsitesScreenshot.WebsitesScreenshot.Result.Captured)
             //{
@@ -895,7 +872,14 @@ namespace Portal
 
             //    _Pic.GetImage();
             //}
-            Reply_Click();
+            //Reply_Click();
+        }
+        public void UseScript()
+        {
+            string strMsg = "將前往回報系統，是否繼續?", strUrl_Yes = "", strUrl_No = "";
+            var Script = "Sys.Application.add_load(storeOnServer);";
+            ScriptManager.RegisterClientScriptBlock(this.UpdatePanel, typeof(UpdatePanel), "test", "if ( window.confirm('" + strMsg + "')) {'"+ Script +"' } else {window.location.href='" + strUrl_No + "' };", true);
+            //ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "storeOnServer", Script, true);
         }
     }
 }

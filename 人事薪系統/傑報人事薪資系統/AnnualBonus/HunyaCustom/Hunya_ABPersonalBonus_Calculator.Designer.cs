@@ -232,7 +232,7 @@
             this.btnEmp.Name = "btnEmp";
             this.btnEmp.Size = new System.Drawing.Size(208, 21);
             this.btnEmp.TabIndex = 2;
-            this.btnEmp.Text = "選取員工";
+            this.btnEmp.Text = "請選擇需設定的人員";
             this.btnEmp.UseVisualStyleBackColor = true;
             this.btnEmp.Click += new System.EventHandler(this.btnEmp_Click);
             // 

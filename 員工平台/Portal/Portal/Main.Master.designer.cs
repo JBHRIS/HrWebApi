@@ -69,6 +69,15 @@ namespace Portal
         protected global::Telerik.Web.UI.RadAjaxLoadingPanel RadAjaxLoadingPanel1;
 
         /// <summary>
+        /// RadClientExportManager2 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadClientExportManager RadClientExportManager2;
+
+        /// <summary>
         /// UpdatePanel 控制項。
         /// </summary>
         /// <remarks>

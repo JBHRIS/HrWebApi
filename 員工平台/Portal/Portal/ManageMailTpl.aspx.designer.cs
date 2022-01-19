@@ -11,62 +11,62 @@ namespace Performance
 {
 
 
-    public partial class ManageSystemUserEdit
+    public partial class ManageMailTpl
     {
 
         /// <summary>
-        /// txtAccount 控制項。
+        /// RadAjaxManagerProxy1 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox txtAccount;
+        protected global::Telerik.Web.UI.RadAjaxManagerProxy RadAjaxManagerProxy1;
 
         /// <summary>
-        /// txtPassword 控制項。
+        /// plSearch 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox txtPassword;
+        protected global::Telerik.Web.UI.RadAjaxPanel plSearch;
 
         /// <summary>
-        /// txtCheckPassword 控制項。
+        /// ddlKey1 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox txtCheckPassword;
+        protected global::Telerik.Web.UI.RadDropDownList ddlKey1;
 
         /// <summary>
-        /// txtRoleKey 控制項。
+        /// btnExportExcel 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox txtRoleKey;
+        protected global::Telerik.Web.UI.RadButton btnExportExcel;
 
         /// <summary>
-        /// btnSave 控制項。
+        /// plMain 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btnSave;
+        protected global::Telerik.Web.UI.RadAjaxPanel plMain;
 
         /// <summary>
-        /// btnReturn 控制項。
+        /// btnInsert 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btnReturn;
+        protected global::Telerik.Web.UI.RadButton btnInsert;
 
         /// <summary>
         /// lblMsg 控制項。
@@ -76,5 +76,14 @@ namespace Performance
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::Telerik.Web.UI.RadLabel lblMsg;
+
+        /// <summary>
+        /// lvMain 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadListView lvMain;
     }
 }

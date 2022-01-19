@@ -33,6 +33,15 @@ namespace Portal
         protected global::Telerik.Web.UI.RadAjaxManagerProxy RadAjaxManagerProxy1;
 
         /// <summary>
+        /// lblInspectorDic 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblInspectorDic;
+
+        /// <summary>
         /// plAppS 控制項。
         /// </summary>
         /// <remarks>
@@ -42,6 +51,15 @@ namespace Portal
         protected global::Telerik.Web.UI.RadAjaxPanel plAppS;
 
         /// <summary>
+        /// lblEmpDic 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblEmpDic;
+
+        /// <summary>
         /// lblEmpName 控制項。
         /// </summary>
         /// <remarks>
@@ -49,6 +67,15 @@ namespace Portal
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::Telerik.Web.UI.RadLabel lblEmpName;
+
+        /// <summary>
+        /// lblDeptNameDic 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblDeptNameDic;
 
         /// <summary>
         /// lblDept 控制項。
@@ -67,6 +94,15 @@ namespace Portal
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::Telerik.Web.UI.RadAjaxPanel plChk;
+
+        /// <summary>
+        /// lblFormVerifyDic 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblFormVerifyDic;
 
         /// <summary>
         /// lblMsg 控制項。

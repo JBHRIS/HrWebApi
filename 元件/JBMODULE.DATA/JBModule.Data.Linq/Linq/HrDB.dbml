@@ -4722,6 +4722,7 @@
       <Column Name="KeyMan" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="KeyDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="GID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="AttDays" Type="System.Decimal" DbType="Decimal(16,4) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.GetHolidayYears" Method="GetHolidayYears" IsComposable="true">

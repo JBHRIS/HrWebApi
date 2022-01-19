@@ -1,4 +1,25 @@
 更新紀錄
+V22.1.17.2
+  ● 修正 - 客製化年終獎金遺漏顯示及計算異常
+
+V22.1.17.1
+  ● 調整 - Basetts資料結構預設行為
+
+V22.1.13.4
+  ● 修正 - SendMailWithQueueAndFileService 中加入 Position = 0 的設置
+
+V22.1.13.3
+  ● 修正 - 請假資料頁面修改資料後得假未做重新沖抵
+
+V22.1.13.2
+  ● 修正 - SendMailWithQueueAndFileService 中 Attachment 內容宣告的調整(重新更新)
+
+V22.1.13.1
+  ● 修正 - SendMailWithQueueAndFileService 中 Attachment 內容的調整
+
+V22.1.12.1
+  ● 修正 - 年度所得作業-產生媒體檔排除92 8A的判斷
+
 V22.1.7.1
   ● 新增 - 產生加班資料新增單日工時上限
 

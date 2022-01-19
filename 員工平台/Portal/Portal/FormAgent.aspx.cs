@@ -17,12 +17,14 @@ namespace Portal
         private dcFlowDataContext dcFlow = new dcFlowDataContext();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (CompanySetting != null)
             {
-                if (CompanySetting != null)
-                {
-                    dcFlow.Connection.ConnectionString = CompanySetting.ConnFlow;
-                }
+                dcFlow.Connection.ConnectionString = CompanySetting.ConnFlow;
+            }
+            if (!IsPostBack) 
+            {
+                
+                
                 _DataBind();
             }
         }

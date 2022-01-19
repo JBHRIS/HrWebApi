@@ -102,7 +102,7 @@
             <div class="col-lg-12">
                 <div class="ibox">
                     <div class="ibox-title">
-                        <h5>審核者資訊</h5>
+                        <h5><telerik:RadLabel runat="server" ID="lblInspectorDic" Text="審核者資訊"></telerik:RadLabel></h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -113,12 +113,12 @@
                         <telerik:RadAjaxPanel ID="plAppS" runat="server">
                             <div class="form-group row">
                                 <div class="col-md-6">
-                                    <label class=" col-form-label">員工姓名</label>
+                                    <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblEmpDic" Text="員工姓名"></telerik:RadLabel></label>
                                     <telerik:RadLabel runat="server" ID="lblEmpName" CssClass="form-control" Enabled="false"></telerik:RadLabel>
 
                                 </div>
                                 <div class="col-md-6">
-                                    <label class=" col-form-label">部門</label>
+                                    <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblDeptNameDic" Text="部門"></telerik:RadLabel></label>
                                     <telerik:RadLabel runat="server" ID="lblDept" CssClass="form-control" Enabled="false"></telerik:RadLabel>
                                 </div>
                             </div>
@@ -135,7 +135,7 @@
                 <div class="col-lg-12">
                     <div class="ibox">
                         <div class="ibox-title">
-                            <h5>表單審核
+                            <h5><telerik:RadLabel runat="server" ID="lblFormVerifyDic" Text="表單審核"></telerik:RadLabel>
                                 <telerik:RadLabel ID="lblMsg" runat="server" Text=""></telerik:RadLabel>
                             </h5>
 

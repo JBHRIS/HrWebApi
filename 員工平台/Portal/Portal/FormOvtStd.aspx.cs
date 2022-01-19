@@ -259,7 +259,7 @@ namespace Portal
         {
             string Card = "";
 
-            OldDal.Dao.Att.AttcardDao oAttcardDao = new OldDal.Dao.Att.AttcardDao(dcHr.Connection);
+            OldDal.Dao.Att.AttcardDao oAttcardDao = new OldDal.Dao.Att.AttcardDao(dcHR.Connection);
 
             var rsAttCard = oAttcardDao.GetAttcard(sNobr, dDate.Date);
             if (rsAttCard.Count > 0)

@@ -72,11 +72,11 @@ namespace Portal
                     {
                         btnCheck.Visible = true;
                     }
-                    
+
                     if (rsProcessFlowID != null)
                         lblProcessID.Text = rsProcessFlowID.ProcessFlow_id.ToString();
                 }
-                if (_User.Role.Contains("Hr")||_User.Role.Contains("HR"))
+                if (_User.Role.Contains("Hr") || _User.Role.Contains("HR"))
                 {
                     plAudit.Visible = true;
                 }
@@ -175,7 +175,7 @@ namespace Portal
                         lvPerformanceLog.DataSource = rFormAppAppoint.AppointChangeLog;
                         lvPerformanceLog.DataBind();
                         lvSalaryLog.Rebind();
-                        var SalaryData = JsonConvert.DeserializeObject<List<TextValueRow>>(rFormAppAppoint.AppointChangeLog.Last().SalaryContent);
+                        var SalaryData = JsonConvert.DeserializeObject<List<TextValueRow>>(rFormAppAppoint.AppointChangeLog.First().SalaryContent);
                         if (SalaryData != null)
                         {
                             foreach (var Salary in SalaryData)
@@ -268,6 +268,36 @@ namespace Portal
             #region 薪資異動資料
             if (Page.IsPostBack)
             {
+                List<TextValueRow> resSalary = new List<TextValueRow>();
+
+                var AppointSalary = (from c in dcFlow.FormsExtend
+                                     where c.FormsCode == "Appoint" && c.Code == "AppointSalary" && c.Active
+                                     select c).FirstOrDefault();
+
+                if (AppointSalary != null)
+                {
+                    var oBasicSalaryCode = new BasicSalaryCodeDao();
+                    var BasicSalaryCodeCond = new BasicSalaryCodeConditions();
+                    BasicSalaryCodeCond.AccessToken = _User.AccessToken;
+                    BasicSalaryCodeCond.RefreshToken = _User.RefreshToken;
+                    BasicSalaryCodeCond.CompanySetting = CompanySetting;
+                    var resBasicSalCode = oBasicSalaryCode.GetData(BasicSalaryCodeCond);
+                    if (resBasicSalCode.Status && resBasicSalCode.Data != null)
+                    {
+                        var rs = resBasicSalCode.Data as List<BasicSalaryCodeRow>;
+                        if (rs != null)
+                        {
+                            foreach (var r in rs)
+                            {
+                                var rTextValue = new TextValueRow();
+                                rTextValue.Text = r.SalName;
+                                rTextValue.Value = AccessData.DESEncrypt("0", "JBSalary", lblCode.Text.Substring(0, 8));
+                                rTextValue.Column1 = r.SalCode;
+                                resSalary.Add(rTextValue);
+                            }
+                        }
+                    }
+                }
                 var oSalaryChange = new SalaryChangeDao();
                 var SalaryChangeCond = new SalaryChangeConditions();
                 SalaryChangeCond.AccessToken = _User.AccessToken;
@@ -276,7 +306,6 @@ namespace Portal
                 SalaryChangeCond.nobr = lblNobrAppM.Text;
                 SalaryChangeCond.CheckDate = DateTime.Now;
                 var SalrayData = oSalaryChange.GetData(SalaryChangeCond);
-                List<TextValueRow> resSalary = new List<TextValueRow>();
                 if (SalrayData.Status && SalrayData.Data != null)
                 {
                     var res = SalrayData.Data as List<SalaryChangeRow>;
@@ -284,16 +313,30 @@ namespace Portal
                     {
                         foreach (var r in res)
                         {
-                            r.DESData = AccessData.DESEncrypt(r.Amount.ToString(), "JBSalary", lblCode.Text.Substring(0, 8));
-                            var rTextValue = new TextValueRow();
-                            rTextValue.Text = r.SalName;
-                            rTextValue.Value = r.DESData;
-                            rTextValue.Column1 = r.SalCode;
-                            resSalary.Add(rTextValue);
+                            if (AppointSalary != null)
+                            {
+                                foreach (var rsSalary in resSalary)
+                                {
+
+                                    if (rsSalary.Column1 == r.SalCode)
+                                    {
+                                        rsSalary.Value = AccessData.DESEncrypt(r.Amount.ToString(), "JBSalary", lblCode.Text.Substring(0, 8));
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                r.DESData = AccessData.DESEncrypt(r.Amount.ToString(), "JBSalary", lblCode.Text.Substring(0, 8));
+                                var rTextValue = new TextValueRow();
+                                rTextValue.Text = r.SalName;
+                                rTextValue.Value = r.DESData;
+                                rTextValue.Column1 = r.SalCode;
+                                resSalary.Add(rTextValue);
+                            }
                         }
-                        UnobtrusiveSession.Session["SalaryData"] = JsonConvert.SerializeObject(resSalary);
                     }
                 }
+                UnobtrusiveSession.Session["SalaryData"] = JsonConvert.SerializeObject(resSalary);
                 lvSalary.Rebind();
             }
             #endregion
@@ -376,7 +419,7 @@ namespace Portal
                 {
                     Salary.Value = AccessData.DESDecrypt(Salary.Value, "JBSalary", lblCode.Text.Substring(0, 8));
                 }
-                
+
                 lvSalary.DataSource = SalaryData;
             }
         }
@@ -414,14 +457,21 @@ namespace Portal
                 var Amount = r.FindControl("Amount") as RadLabel;
                 if (rFormAppAppoint != null)
                 {
-                    var SalaryData = JsonConvert.DeserializeObject<List<TextValueRow>>(rFormAppAppoint.AppointChangeLog.Last().SalaryContent);
-                    lblCode.Text = rFormAppAppoint.AppointChangeLog.Last().AppointCode;
-                    foreach (var SalaryD in SalaryData)
+                    if (rFormAppAppoint.AppointChangeLog.Last().SalaryContent != "")
                     {
-                        SalaryD.Value = AccessData.DESDecrypt(SalaryD.Value, "JBSalary", lblCode.Text.Substring(0, 8));
+                        var SalaryData = JsonConvert.DeserializeObject<List<TextValueRow>>(rFormAppAppoint.AppointChangeLog.Last().SalaryContent);
+                        lblCode.Text = rFormAppAppoint.AppointChangeLog.Last().AppointCode;
+                        foreach (var SalaryD in SalaryData)
+                        {
+                            SalaryD.Value = AccessData.DESDecrypt(SalaryD.Value, "JBSalary", lblCode.Text.Substring(0, 8));
+                        }
+                        Salary.Text = SalaryData[Count].Value;
                     }
-                    Salary.Text = SalaryData[Count].Value;
+                    else
+                        Salary.Text = Amount.Text;
                 }
+                else
+                    Salary.Text = Amount.Text;
                 Count++;
                 //Salary.Text = Amount.Text;
                 SalarySum += Convert.ToInt32(Salary.Text);
@@ -434,13 +484,13 @@ namespace Portal
             if (lblAmountSum != null)
                 lblAmountSum.Text = AmountSum.ToString();
         }
-        
+
         protected void lvSalaryLog_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
         {
             var lsSalaryLog = (from c in dcFlow.FormsAppEmploySalary
                                where c.EmployCode == lblCode.Text
                                select c).ToList();
-            var gSalaryLog = lsSalaryLog.GroupBy(p => p.InsertMan).ToList() ;
+            var gSalaryLog = lsSalaryLog.GroupBy(p => p.InsertMan).ToList();
             var rsSalaryLog = new List<SalaryLog>();
             foreach (var r in gSalaryLog)
             {
@@ -469,7 +519,7 @@ namespace Portal
 
         protected void Salary_TextChanged(object sender, EventArgs e)
         {
-            SalarySumChange(); 
+            SalarySumChange();
         }
     }
 }

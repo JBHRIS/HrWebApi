@@ -120,6 +120,7 @@
     <Compile Include="Dao\AbsenceView\CompensatoryLeaveDao.cs" />
     <Compile Include="Dao\AbsenceView\AnnualLeaveDao.cs" />
     <Compile Include="Dao\AbsenceView\AbsenceTakenViewDao.cs" />
+    <Compile Include="Dao\Absence\HunyaAbsenceDataSaveDao.cs" />
     <Compile Include="Dao\Absence\CheckAbsenceDataDetailDao.cs" />
     <Compile Include="Dao\Absence\AbsenceSaveDao.cs" />
     <Compile Include="Dao\Absence\AbsenceDataSaveDao.cs" />
@@ -223,6 +224,7 @@
     <Compile Include="Dao\Role\UpdateRoleDao.cs" />
     <Compile Include="Dao\Salary\AddSalaryChangeDao.cs" />
     <Compile Include="Dao\Salary\AttDateCycleDao.cs" />
+    <Compile Include="Dao\Salary\BasicSalaryCodeDao.cs" />
     <Compile Include="Dao\Salary\SalaryChangeDao.cs" />
     <Compile Include="Dao\Salary\PayslipTitleDao.cs" />
     <Compile Include="Dao\Salary\OtThisMonthDao.cs" />
@@ -243,7 +245,6 @@
     <Compile Include="Dao\Share\ShareDictionaryDao.cs" />
     <Compile Include="Dao\Share\ShareDisplayMessageDao.cs" />
     <Compile Include="Dao\Share\ShareGetQuestionCategoryVdbDao.cs" />
-    <Compile Include="Dao\Share\ShareGetQuestionDefaultMessageByCompanyIdVdbDao.cs" />
     <Compile Include="Dao\Share\ShareGetQuestionDefaultMessageVdbDao.cs" />
     <Compile Include="Dao\Share\ShareGetQuestionMainByCodeVdbDao.cs" />
     <Compile Include="Dao\Share\ShareGetQuestionMainByCompanyVdbDao.cs" />

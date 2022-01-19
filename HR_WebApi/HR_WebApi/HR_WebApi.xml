@@ -66,7 +66,7 @@
             </description>
             <remarks>測試123</remarks>    
         </member>
-        <member name="M:HR_WebApi.Controllers.Attendance.AbsenceController.#ctor(JBHRIS.Api.Service.Attendance.Normal.IAbsenceService,JBHRIS.Api.Service.Attendance.Normal.IAbsenceCalculateService,NLog.ILogger)">
+        <member name="M:HR_WebApi.Controllers.Attendance.AbsenceController.#ctor(JBHRIS.Api.Service.Attendance.Normal.IAbsenceService,JBHRIS.Api.Service.Attendance.Normal.IAbsenceCalculateService,NLog.ILogger,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             請假控制器
             </summary>

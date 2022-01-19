@@ -37,13 +37,16 @@ namespace Portal
             var AccessToken = Request.QueryString["AccessToken"];
             var RefreshToken = Request.QueryString["RefreshToken"];
             var Company = Request.QueryString["Company"];
-            if (AccessToken != null && AccessToken != "" && RefreshToken != null && RefreshToken != "" && Company != null && Company != "")
+            if (AccessToken != null && AccessToken != "" && RefreshToken != null && RefreshToken != "" )
             {
-                HttpContext.Current.Response.Cookies.Add(new HttpCookie("CompanyId", Company));
+                if (Company != null && Company != "")
+                {
+                    HttpContext.Current.Response.Cookies.Add(new HttpCookie("CompanyId", Company));
 
-                var oShareCompany = new ShareCompanyDao();
-                var CompanySetting = oShareCompany.GetCompanySetting(Company);
-                UnobtrusiveSession.Session["CompanySetting"] = CompanySetting;
+                    var oShareCompany = new ShareCompanyDao();
+                    var CompanySetting = oShareCompany.GetCompanySetting(Company);
+                    UnobtrusiveSession.Session["CompanySetting"] = CompanySetting;
+                }
                 var oUser = new User();
                 oUser.UserCode = "";
                 oUser.UserCodeOriginal = "";

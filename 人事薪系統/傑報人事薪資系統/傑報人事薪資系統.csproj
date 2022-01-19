@@ -48,8 +48,8 @@
     <PublisherName>傑報資訊</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>22.1.7.1</ApplicationVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>22.1.17.2</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -2360,6 +2360,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlStorage\sql\2021222801_AlterSQLFunction_About_UserReadDataGroupList.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022011401_deleteBasettsConstra.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlStorage\sql\AlterSalcode.sql">

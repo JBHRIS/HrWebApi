@@ -486,14 +486,20 @@ namespace Portal
                 string Note = txtNote.Text.Trim();
                 DateTime DateTimeB = DateB.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(TimeB));
                 DateTime DateTimeE = DateE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(TimeE));
+                bool IsNightShift = false;
+
 
                 OldDal.Dao.Att.HcodeDao oHcodeDao = new OldDal.Dao.Att.HcodeDao(dcHR.Connection);
+                OldDal.Dao.Att.AttendDao oAttendDao = new OldDal.Dao.Att.AttendDao(dcHR.Connection);
+                var rAttendDate = oAttendDao.GetAttendH(Nobr, DateB).FirstOrDefault();
+                var rAttend = oAttendDao.GetAttend(Nobr, DateB).FirstOrDefault();
                 var rHcode = oHcodeDao.GetHocdeDetail(Hcode).First();
 
                 var IsNeedAgentExtend = (from c in dcFlow.FormsExtend
                                          where c.FormsCode == "Abs" && c.Code == "IsNeedAgent" && c.Active == true
                                          select c).ToList();
-
+                OldDal.Dao.Att.RoteDao oRoteDao = new OldDal.Dao.Att.RoteDao(dcHR.Connection);
+                
                 if (txtNameAgent1.Items.Count > 1 && !IsNeedAgentExtend.Any())
                 {
                     //二擇一
@@ -524,15 +530,13 @@ namespace Portal
                     return;
                 }
 
-                OldDal.Dao.Att.AttendDao oAttendDao = new OldDal.Dao.Att.AttendDao(dcHR.Connection);
-                var rAttendDate = oAttendDao.GetAttendH(Nobr, DateB).FirstOrDefault();
-                var rAttend = oAttendDao.GetAttend(Nobr, DateB).FirstOrDefault();
+                
                 if (rAttendDate == null)
                 {
                     lblMsg.Text = "出勤資料錯誤，請洽人事單位";
                     return;
                 }
-
+                
                 //DateTime AppDate = Convert.ToDateTime(rAttendDate.Text);
 
                 //if (DateB < AppDate)
@@ -561,7 +565,12 @@ namespace Portal
                     lblMsg.Text = "人事資料重複";
                     return;
                 }
-
+                //if (oRoteDao.RoteIsNightShift(rAttend.RoteCode))//夜班需-1天
+                //{
+                //    DateB = DateB.AddDays(-1);
+                //    rAttend = oAttendDao.GetAttend(Nobr, DateB).FirstOrDefault();
+                //    IsNightShift = true;
+                //}
                 var Calculate = oAbsDao.GetCalculate(Nobr, Hcode, DateB, DateE, TimeB, TimeE, true, true, 0, false, rAttend.RoteCode, true);
 
                 if (Calculate.TotalUse <= 0)
@@ -569,7 +578,11 @@ namespace Portal
                     lblMsg.Text = "計算時數不可以為零";
                     return;
                 }
-
+                //if (IsNightShift)//夜班前面判斷需-1天，這邊加回來
+                //{
+                //    DateB = DateB.AddDays(1);
+                //    rAttend = oAttendDao.GetAttend(Nobr, DateB).FirstOrDefault();
+                //}
                 var IsNeedAbsReason = (from c in dcFlow.FormsExtend
                                        where c.FormsCode == "Abs" && c.Code == "IsNeedAbsReason" && c.Active == true
                                        select c).FirstOrDefault();

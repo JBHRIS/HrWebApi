@@ -32,7 +32,7 @@
             <div class="col-lg-12">
                 <div class="ibox ">
                     <div class="ibox-title">
-                        <h5>條件</h5>
+                        <h5><telerik:RadLabel runat="server" ID="lblConditionDic" Text="條件"></telerik:RadLabel></h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -42,7 +42,7 @@
                     <div class="ibox-content">
                         <div class="form-group row">
                             <div class="col-md-3">
-                                <label class="col-form-label">員工工號</label>
+                                <label class="col-form-label"><telerik:RadLabel runat="server" ID="lblEmpDic" Text="員工工號"></telerik:RadLabel></label>
                                 <%--                                    <telerik:RadMultiSelect runat="server" Skin="Bootstrap"
                                         Placeholder="請選擇..."
                                         AutoClose="false"
@@ -59,19 +59,19 @@
                                 <telerik:RadButton ID="btnEmpSelectAll" runat="server" Text="全選" OnClick="btnEmpSelectAll_Click" Visible="false" CssClass="btn btn-success btn-xs" />
                             </div>
                             <div class="col-md-3">
-                                <label class="col-form-label">開始日期</label>
+                                <label class="col-form-label"><telerik:RadLabel runat="server" ID="lblBeginDateDic" Text="開始日期"></telerik:RadLabel></label>
                                 <div>
                                     <telerik:RadDatePicker RenderMode="Lightweight" DateInput-DateFormat="yyyy/MM/dd" runat="server" ID="txtDateB" Skin="Bootstrap" Width="100%" />
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <label class="col-form-label">結束日期</label>
+                                <label class="col-form-label"><telerik:RadLabel runat="server" ID="lblEndDateDic" Text="結束日期"></telerik:RadLabel></label>
                                 <div>
                                     <telerik:RadDatePicker RenderMode="Lightweight" DateInput-DateFormat="yyyy/MM/dd" runat="server" ID="txtDateE" Skin="Bootstrap" Width="100%" />
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <label class="col-form-label">請假類別</label>
+                                <label class="col-form-label"><telerik:RadLabel runat="server" ID="lblAbsenceTypeDic" Text="請假類別"></telerik:RadLabel></label>
                                 <%--<telerik:RadMultiSelect runat="server" Skin="Bootstrap"
                                         Placeholder="請選擇..."
                                         AutoClose="false"
@@ -104,7 +104,7 @@
             <div class="col-lg-12">
                 <div id="iboxContent" class="ibox">
                     <div class="ibox-title">
-                        <h5>內容</h5>
+                        <h5><telerik:RadLabel runat="server" ID="lblContentDic" Text="內容"></telerik:RadLabel></h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -120,10 +120,10 @@
                                 <div class="panel-options">
                                     <ul class="nav nav-tabs">
                                         <li>
-                                            <a class="nav-link active" href="#tabTaken" data-toggle="tab">請假</a>
+                                            <a class="nav-link active" href="#tabTaken" data-toggle="tab"><telerik:RadLabel runat="server" ID="lblAbsenceTakenDic" Text="請假"></telerik:RadLabel></a>
                                         </li>
                                         <li>
-                                            <a class="nav-link" href="#tabEntitle" data-toggle="tab">得假</a>
+                                            <a class="nav-link" href="#tabEntitle" data-toggle="tab"><telerik:RadLabel runat="server" ID="lblAbsenceEntitle" Text="得假"></telerik:RadLabel></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -148,15 +148,15 @@
                                                     <table id="footableTaken" class="footable table table-stripped" data-page-size="10" data-filter="#filterTaken">
                                                         <thead class="form_bg">
                                                             <tr>
-                                                                <th>工號</th>
-                                                                <th>姓名</th>
-                                                                <th>假別名稱</th>
-                                                                <th>請假日期</th>
-                                                                <th>開始時間</th>
-                                                                <th>結束時間</th>
-                                                                <th data-hide="phone,tablet">請假時數(天數)</th>
-                                                                <th data-hide="phone,tablet">單位</th>
-                                                                <th data-hide="phone,tablet">備註</th>
+                                                                <th><telerik:RadLabel runat="server" ID="lblEmpIdDic" Text="工號"></telerik:RadLabel></th>
+                                                                <th><telerik:RadLabel runat="server" ID="lblEmpNameDic" Text="姓名"></telerik:RadLabel></th>
+                                                                <th><telerik:RadLabel runat="server" ID="lblAbsenceNameDic" Text="假別名稱"></telerik:RadLabel></th>
+                                                                <th><telerik:RadLabel runat="server" ID="lblAbsenceDateDic" Text="請假日期"></telerik:RadLabel></th>
+                                                                <th><telerik:RadLabel runat="server" ID="lblBeginTimeDic1" Text="開始時間"></telerik:RadLabel></th>
+                                                                <th><telerik:RadLabel runat="server" ID="lblEndTimeDic1" Text="結束時間"></telerik:RadLabel></th>
+                                                                <th data-hide="phone,tablet"><telerik:RadLabel runat="server" ID="lblAbsensceHourDic" Text="請假時數(天數)"></telerik:RadLabel></th>
+                                                                <th data-hide="phone,tablet"><telerik:RadLabel runat="server" ID="lblUnitDic" Text="單位"></telerik:RadLabel></th>
+                                                                <th data-hide="phone,tablet"><telerik:RadLabel runat="server" ID="lblNoteDic" Text="備註"></telerik:RadLabel></th>
                                                             </tr>
                                                         </thead>
                                                         <tbody id="Container" runat="server">
@@ -184,7 +184,7 @@
                                                     </tr>
                                                 </ItemTemplate>
                                                 <EmptyDataTemplate>
-                                                    目前並無請假資料
+                                                    <telerik:radLabel runat="server" ID="lblAbsenceEmptyTakenDic" Text="目前並無請假資料"></telerik:radLabel>
                                                 </EmptyDataTemplate>
                                             </telerik:RadListView>
                                         </telerik:RadAjaxPanel>
@@ -206,16 +206,16 @@
                                                     <table id="footableEntitle" class="footable table table-stripped" data-page-size="10" data-filter="#filterEntitle">
                                                         <thead class="form_bg">
                                                             <tr>
-                                                                <th>工號</th>
-                                                                <th>姓名</th>
-                                                                <th>假別名稱</th>
-                                                                <th>生效日期</th>
-                                                                <th>失效日期</th>
-                                                                <th>得假</th>
-                                                                <th>已請</th>
-                                                                <th data-hide="phone,tablet">剩餘</th>
-                                                                <th data-hide="phone,tablet">單位</th>
-                                                                <th data-hide="phone,tablet">備註</th>
+                                                                <th><telerik:RadLabel runat="server" ID="lblEmpIdDic1" Text="工號"></telerik:RadLabel></th>
+                                                                <th><telerik:RadLabel runat="server" ID="lblEmpNameDic1" Text="姓名"></telerik:RadLabel></th>
+                                                                <th><telerik:RadLabel runat="server" ID="lblAbsenceNameDic1" Text="假別名稱"></telerik:RadLabel></th>
+                                                                <th><telerik:RadLabel runat="server" ID="lblAbsenceBeginDateDic" Text="生效日期"></telerik:RadLabel></th>
+                                                                <th><telerik:RadLabel runat="server" ID="lblAbsenceEndDateDic" Text="失效日期"></telerik:RadLabel></th>
+                                                                <th><telerik:RadLabel runat="server" ID="lblObtainAbsenceDic" Text="得假"></telerik:RadLabel></th>
+                                                                <th><telerik:RadLabel runat="server" ID="lblUseAbsenceDic" Text="已請"></telerik:RadLabel></th>
+                                                                <th data-hide="phone,tablet"><telerik:RadLabel runat="server" ID="lblBalanceDic" Text="剩餘"></telerik:RadLabel></th>
+                                                                <th data-hide="phone,tablet"><telerik:RadLabel runat="server" ID="lblUnitDic1" Text="單位"></telerik:RadLabel></th>
+                                                                <th data-hide="phone,tablet"><telerik:RadLabel runat="server" ID="lblNoteDic1" Text="備註"></telerik:RadLabel></th>
                                                             </tr>
                                                         </thead>
                                                         <tbody id="Container" runat="server">
@@ -244,7 +244,7 @@
                                                     </tr>
                                                 </ItemTemplate>
                                                 <EmptyDataTemplate>
-                                                    目前並無得假資料
+                                                    <telerik:radLabel runat="server" ID="lblAbsenceEmptyEntitleDic" Text="目前並無得假資料"></telerik:radLabel>
                                                 </EmptyDataTemplate>
                                             </telerik:RadListView>
                                         </telerik:RadAjaxPanel>

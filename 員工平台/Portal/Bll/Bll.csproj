@@ -93,6 +93,7 @@
     <Compile Include="Absence\Vdb\AbsenceDataSaveVdb.cs" />
     <Compile Include="Absence\Vdb\AbsenceDataDetailVdb.cs" />
     <Compile Include="Absence\Vdb\AbsBalanceVdb.cs" />
+    <Compile Include="Absence\Vdb\HunyaAbsenceDataSave.cs" />
     <Compile Include="Absence\Vdb\HcodeTypesVdbByHcode.cs" />
     <Compile Include="Absence\Vdb\HcodeTypesVdb.cs" />
     <Compile Include="ApiVoidBlackList\Vdb\DeleteApiVoidBlackListVdb.cs" />
@@ -194,6 +195,7 @@
     <Compile Include="Role\Vdb\RoleVdb.cs" />
     <Compile Include="Role\Vdb\UpdateRoleVdb.cs" />
     <Compile Include="Salary\Vdb\AddSalaryChangeVdb.cs" />
+    <Compile Include="Salary\Vdb\BasicSalaryCodeVdb.cs" />
     <Compile Include="Salary\Vdb\SalaryChangeVdb.cs" />
     <Compile Include="Salary\Vdb\OtThisMonthVdb.cs" />
     <Compile Include="Salary\Vdb\AbsThisMonthVdb.cs" />
@@ -217,7 +219,6 @@
     <Compile Include="Share\Vdb\ShareDictionaryVdb.cs" />
     <Compile Include="Share\Vdb\ShareDisplayMessageVdb.cs" />
     <Compile Include="Share\Vdb\ShareGetQuestionCategoryVdb.cs" />
-    <Compile Include="Share\Vdb\ShareGetQuestionDefaultMessageByCompanyIdVdb.cs" />
     <Compile Include="Share\Vdb\ShareGetQuestionDefaultMessageVdb.cs" />
     <Compile Include="Share\Vdb\ShareGetQuestionMainByCodeVdb.cs" />
     <Compile Include="Share\Vdb\ShareGetQuestionMainByCompanyVdb.cs" />
