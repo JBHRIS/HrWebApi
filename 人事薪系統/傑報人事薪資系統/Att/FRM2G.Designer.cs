@@ -469,6 +469,7 @@
             // BW
             // 
             this.BW.WorkerReportsProgress = true;
+            this.BW.WorkerSupportsCancellation = true;
             this.BW.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BW_DoWork);
             this.BW.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BW_ProgressChanged);
             this.BW.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BW_RunWorkerCompleted);
@@ -517,6 +518,7 @@
             this.FormSize = JBControls.JBForm.FormSizeType.Custom;
             this.Name = "FRM2G";
             this.Text = "FRM2G";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FRM2G_FormClosing);
             this.Load += new System.EventHandler(this.FRM2G_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
