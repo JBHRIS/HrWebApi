@@ -566,5 +566,49 @@ namespace OldDal.Dao.Bas
                        select c).ToList();
             return Vdb;
         }
+        /// <summary>
+        /// 取得部門直屬主管(該部門沒有主管則會一直往上抓取)
+        /// </summary>
+        /// <param name="sNobr">工號</param>
+        /// <param name="sDeptm">部門</param>
+        /// <returns>string</returns>
+        public string GetDeptmManage(string sNobr, string sDeptm)
+        {
+            string[] arr = { "1", "4", "6" };
+
+            bool bDo = true;
+
+            do
+            {
+                var rBaseTTS = (from c in dcHr.BASETTS
+                                where c.DEPTM == sDeptm
+                                select c);
+                var rsBases = rBaseTTS.Where(p => arr.Contains(p.TTSCODE) && p.MANG);
+                if (rsBases.Count() == 0)
+                {
+                    var Deptm = (from c in dcHr.DEPTA
+                                 select c).ToList();
+                    var rDeptm = Deptm.Where(p => p.D_NO == sDeptm).FirstOrDefault();
+                    if (rDeptm == null || rDeptm.DEPT_GROUP.Trim() == string.Empty)
+                        break;
+
+                    //尋找簽核部門的主管
+                    if (rDeptm != null && rDeptm.NOBR.Trim().Length > 0 && rDeptm.NOBR.Trim() != sNobr)
+                    {
+                        sNobr = rDeptm.NOBR.Trim();
+                        break;
+                    }
+
+                    sDeptm = rDeptm.DEPT_GROUP;
+                }
+                else
+                {
+                    sNobr = rsBases.First().NOBR.Trim();
+                    break;
+                }
+            } while (bDo);
+
+            return sNobr;
+        }
     }
 }

@@ -299,8 +299,10 @@ namespace Portal
                                select c).ToList();
                 if (AbsData.Any())
                 {
-                    r.TimeB = r.DateTimeB.ToString("HHmm");
-                    r.TimeE = r.DateTimeE.ToString("HHmm");
+                    //r.DateB = r.DateTimeB.Date;
+                    //r.DateE = r.DateTimeE.Date;
+                    //r.TimeB = r.DateTimeB.ToString("HHmm");
+                    //r.TimeE = r.DateTimeE.ToString("HHmm");
                     r.HcodeUnitName = r.HcodeUnit == OldBll.MT.mtEnum.HcodeUnit.Day ? "天" : "小時";
                     r.Guid = Guid.NewGuid().ToString();
                 }

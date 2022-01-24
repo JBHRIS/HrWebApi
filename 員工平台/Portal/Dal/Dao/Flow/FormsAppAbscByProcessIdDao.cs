@@ -128,6 +128,8 @@ namespace Dal.Dao.Flow
                                         rFlowApps.AutoKey = rsFlowApps.AutoKey.ToString();
                                         rFlowApps.AbscDateB = rsFlowApps.DateB;
                                         rFlowApps.AbscDateE = rsFlowApps.DateE;
+                                        rFlowApps.DateTimeB = rsFlowApps.DateTimeB;
+                                        rFlowApps.DateTimeE = rsFlowApps.DateTimeE;
                                         rFlowApps.ProcessId = rsFlowApps.ProcessID.ToString();
                                         rFlowApps.EmpId = rsFlowApps.EmpID;
                                         rFlowApps.EmpName = rsFlowApps.EmpName;

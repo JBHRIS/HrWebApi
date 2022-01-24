@@ -1,24 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="ManageMailTpl.aspx.cs" Inherits="Performance.ManageMailTpl" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="ManageMailView.aspx.cs" Inherits="Performance.ManageMailView" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Templates/Inspinia/css/plugins/footable/footable.core.css" rel="stylesheet">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <telerik:RadAjaxManagerProxy ID="RadAjaxManagerProxy1" runat="server">
-        <AjaxSettings>
-            <telerik:AjaxSetting AjaxControlID="ddlType">
-                <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="plMain" />
-                </UpdatedControls>
-            </telerik:AjaxSetting>
-        </AjaxSettings>
-    </telerik:RadAjaxManagerProxy>
     <div class="wrapper wrapper-content animated fadeIn">
         <div class="row">
             <div class="col-lg-12">
                 <div class="ibox ">
                     <div class="ibox-title">
-                        <h5>條件</h5>
+                        <h5>條件(只會取得最符合條件的最後插入資料100筆)</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -30,7 +21,23 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">系統類別</label>
                                 <div class="col-sm-10 ">
-                                    <telerik:RadDropDownList ID="ddlKey1" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlKey1_SelectedIndexChanged" Skin="Bootstrap" />
+                                    <telerik:RadDropDownList ID="ddlKey1" runat="server" AutoPostBack="false" Skin="Bootstrap" />
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">關鍵字</label>
+                                <div class="col-sm-10 ">
+                                    <telerik:RadTextBox ID="txtSearch" runat="server" CssClass="form-control" Width="100%" EmptyMessage="請輸入關鍵字" />
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group row">
+                                <div class="col-sm-2 col-sm-offset-2">
+                                    <telerik:RadButton ID="btnSearch" runat="server" Text="查詢" OnClick="btnSearch_Click" CssClass="btn btn-primary btn-sm" />
+                                </div>
+                                <div>
+                                    <telerik:RadLabel ID="lblMsgSearch" CssClass="badge badge-danger" runat="server" />
                                 </div>
                             </div>
                         </telerik:RadAjaxPanel>
@@ -60,21 +67,16 @@
                             </div>
                         </div>
                         <telerik:RadAjaxPanel ID="plMain" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
-                        <div class="form-group  row">
-                            <div class="col-sm-1 ">
-                                <telerik:RadButton ID="btnInsert" runat="server" Text="新增" OnClick="btnInsert_Click" CssClass="btn btn-w-m btn-primary" />
-                            </div>
-                            <div class="col-sm-11 ">
-                                <telerik:RadLabel ID="lblMsg" CssClass="badge badge-danger" runat="server" />
-                            </div>
-                        </div>
+
                             <telerik:RadListView ID="lvMain" runat="server" DataKeyNames="AutoKey" RenderMode="Lightweight" Skin="" ItemPlaceholderID="Container" OnNeedDataSource="lvMain_NeedDataSource" OnDataBound="lvMain_DataBound" OnItemCommand="lvMain_ItemCommand">
                                 <LayoutTemplate>
                                     <table class="footable table table-stripped" data-page-size="10" data-filter="#filter">
                                         <thead>
                                             <tr>
-                                                <th>代碼</th>
-                                                <th>名稱</th>
+                                                <th>收件者信箱</th>
+                                                <th>收件者姓名</th>
+                                                <th data-hide="phone,tablet">主旨</th>
+                                                <th>完成</th>
                                                 <th data-hide="phone,tablet">修改者</th>
                                                 <th data-hide="phone,tablet">修改日期</th>
                                                 <th>動作</th>
@@ -84,7 +86,7 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <td colspan="5">
+                                                <td colspan="7">
                                                     <ul class="pagination float-right"></ul>
                                                 </td>
                                             </tr>
@@ -94,25 +96,20 @@
                                 <ItemTemplate>
                                     <tr class="gradeX">
                                         <td>
-                                            <telerik:RadTextBox ID="txtCode" Text='<%# Eval("Code") %>' runat="server" CssClass="form-control" Width="100%" />
+                                            <telerik:RadTextBox ID="txtAddr" Text='<%# Eval("ToAddr") %>' runat="server" CssClass="form-control" Width="100%" />
+                                            <telerik:RadButton ID="btnSave" runat="server" CommandArgument='<%# Eval("AutoKey") %>' CommandName="Save" Text="儲存" CssClass="btn-white btn btn-xs " />
                                         </td>
-                                        <td>
-                                            <telerik:RadTextBox ID="txtName" Text='<%# Eval("Name") %>' runat="server" CssClass="form-control" Width="100%" />
-                                        </td>
+                                        <td><%# Eval("ToName") %> </td>
+                                        <td><%# Eval("Subject") %></td>
+                                        <td><%# Eval("Sucess") %></td>
                                         <td><%# Eval("UpdateMan") %></td>
                                         <td><%# Eval("UpdateDate") %></td>
                                         <td>
-                                            <telerik:RadButton ID="btnSave" runat="server" Text="儲存" CommandName="Save" CommandArgument='<%# Eval("AutoKey") %>' CssClass="btn-white btn btn-xs" />
+                                            <telerik:RadButton ID="btnBody" runat="server" Text="內容" CommandName="Body" CommandArgument='<%# Eval("AutoKey") %>' CssClass="btn-white btn btn-xs " />
                                             <button data-toggle="dropdown" class="btn-white btn btn-xs dropdown-toggle" type="button">更多</button>
                                             <ul class="dropdown-menu float-right">
                                                 <li>
-                                                    <telerik:RadButton ID="btnStatement" runat="server" Text="語句" CommandName="Statement" CommandArgument='<%# Eval("AutoKey") %>' CssClass="btn-white btn btn-xs" />
-                                                </li>
-                                                <li>
-                                                    <telerik:RadButton ID="btnBody" runat="server" Text="內容" CommandName="Body" CommandArgument='<%# Eval("AutoKey") %>' CssClass="btn-white btn btn-xs " />
-                                                </li>
-                                                <li>
-                                                    <telerik:RadButton ID="btnView" runat="server" Text="預覽" CommandName="View" CommandArgument='<%# Eval("AutoKey") %>' CssClass="btn-white btn btn-xs" />
+                                                    <telerik:RadButton ID="btnReSend" runat="server" Text="重送" CommandName="ReSend" CommandArgument='<%# Eval("AutoKey") %>' CssClass="btn-white btn btn-xs" />
                                                 </li>
                                                 <li>
                                                     <telerik:RadButton ID="btnDelete" runat="server" Text="刪除" CommandName="Delete" CommandArgument='<%# Eval("AutoKey") %>' CssClass="btn-white btn btn-xs" OnClientClicking="ExcuteConfirm" />
@@ -125,7 +122,7 @@
                                     目前並無任何資料
                                 </EmptyDataTemplate>
                             </telerik:RadListView>
-                            
+                            <telerik:RadLabel ID="lblMsg" CssClass="badge badge-danger" runat="server" />
                         </telerik:RadAjaxPanel>
                     </div>
                 </div>

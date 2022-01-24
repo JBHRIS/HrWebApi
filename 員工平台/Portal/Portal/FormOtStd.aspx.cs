@@ -648,21 +648,24 @@ namespace Portal
                 {
                     lsHcode.Add("N");
                 }
-                var rAbs = rsAbs.Where(p => lsHcode.Contains(p.Hcode)).FirstOrDefault();
+                var lsAbs = rsAbs.Where(p => lsHcode.Contains(p.Hcode)).ToList();
                 bool IsAbs = false;
-                if (rAbs != null)
+                foreach (var rAbs in lsAbs)
                 {
-                    DateTime dDateTimeB, dDateTimeE;
-                    dDateTimeB = DateE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(TimeB));    //加班開始日期時間
-                    dDateTimeE = DateE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(TimeE));    //加班結束日期時間
-
-                    DateTime dAbsDateTimeB, dAbsDateTimeE;
-                    dAbsDateTimeB = rAbs.DateE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(rAbs.TimeB));    //實際開始日期時間
-                    dAbsDateTimeE = rAbs.DateE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(rAbs.TimeE));    //實際結束日期時間
-
-                    if (dAbsDateTimeB <= dDateTimeB && dDateTimeE <= dAbsDateTimeE)
+                    if (rAbs != null)
                     {
-                        IsAbs = true;
+                        DateTime dDateTimeB, dDateTimeE;
+                        dDateTimeB = DateE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(TimeB));    //加班開始日期時間
+                        dDateTimeE = DateE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(TimeE));    //加班結束日期時間
+
+                        DateTime dAbsDateTimeB, dAbsDateTimeE;
+                        dAbsDateTimeB = rAbs.DateE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(rAbs.TimeB));    //實際開始日期時間
+                        dAbsDateTimeE = rAbs.DateE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(rAbs.TimeE));    //實際結束日期時間
+
+                        if (dAbsDateTimeB <= dDateTimeB && dDateTimeE <= dAbsDateTimeE)
+                        {
+                            IsAbs = true;
+                        }
                     }
                 }
 

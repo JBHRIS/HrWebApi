@@ -351,6 +351,10 @@
     <Content Include="LoginBind.aspx" />
     <Content Include="LoginByDb.aspx" />
     <Content Include="ManageMailTpl.aspx" />
+    <Content Include="ManageMailTplBody.aspx" />
+    <Content Include="ManageMailTplStatement.aspx" />
+    <Content Include="ManageMailView.aspx" />
+    <Content Include="ManageMailViewBody.aspx" />
     <Content Include="ManageShareIssue.aspx" />
     <Content Include="MessageToBrowser.aspx" />
     <Content Include="MessageMaintain.aspx" />
@@ -2392,6 +2396,34 @@
     </Compile>
     <Compile Include="ManageMailTpl.aspx.designer.cs">
       <DependentUpon>ManageMailTpl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageMailTplBody.aspx.cs">
+      <DependentUpon>ManageMailTplBody.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMailTplBody.aspx.designer.cs">
+      <DependentUpon>ManageMailTplBody.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageMailTplStatement.aspx.cs">
+      <DependentUpon>ManageMailTplStatement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMailTplStatement.aspx.designer.cs">
+      <DependentUpon>ManageMailTplStatement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageMailView.aspx.cs">
+      <DependentUpon>ManageMailView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMailView.aspx.designer.cs">
+      <DependentUpon>ManageMailView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageMailViewBody.aspx.cs">
+      <DependentUpon>ManageMailViewBody.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMailViewBody.aspx.designer.cs">
+      <DependentUpon>ManageMailViewBody.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageShareIssue.aspx.cs">
       <DependentUpon>ManageShareIssue.aspx</DependentUpon>

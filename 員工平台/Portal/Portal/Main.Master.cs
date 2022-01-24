@@ -152,8 +152,8 @@ namespace Portal
                 var ReplyRedirect = (from c in dcFlow.FormsExtend
                                      where c.FormsCode == "Common" && c.Active == true && c.Code == "ReplyRedirect"
                                      select c).FirstOrDefault();
-                //if (ReplyRedirect != null)
-                //    btnReply.Visible = true;
+                if (ReplyRedirect != null)
+                    btnReply.Visible = true;
 
                 var ActivePage = Request.Url;
                 if (_User.LoginStatus != "1")
@@ -789,9 +789,10 @@ namespace Portal
                             FindSubControl(ListViewData);
                     }
                 }
-                foreach (Control Ctl1 in Ctl.Controls)
-                    //繼續往下找(遞迴)
-                    FindSubControl(Ctl1);
+                else
+                    foreach (Control Ctl1 in Ctl.Controls)
+                        //繼續往下找(遞迴)
+                        FindSubControl(Ctl1);
 
             }
             else
@@ -876,7 +877,7 @@ namespace Portal
         }
         public void UseScript()
         {
-            string strMsg = "將前往回報系統，是否繼續?", strUrl_Yes = "", strUrl_No = "";
+            string strMsg = "將前往回報系統，是否繼續?", strUrl_No = "";
             var Script = "Sys.Application.add_load(storeOnServer);";
             ScriptManager.RegisterClientScriptBlock(this.UpdatePanel, typeof(UpdatePanel), "test", "if ( window.confirm('" + strMsg + "')) {'"+ Script +"' } else {window.location.href='" + strUrl_No + "' };", true);
             //ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "storeOnServer", Script, true);
