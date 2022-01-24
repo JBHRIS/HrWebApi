@@ -40,12 +40,12 @@
 
                                         <div class="col-md-8">
                                             <div class="row">
-                                                <div class="col-lg-4">忘刷日期：<%# Eval("DateB","{0:yyyy/MM/dd}") %></div>
-                                                <div class="col-lg-4">忘刷時間：<%# Eval("TimeB") %></div>
-                                                <div class="col-lg-4">忘刷原因：<%# Eval("CardLostName") %></div>
+                                                <div class="col-lg-4"><telerik:RadLabel runat="server" ID="lblCardDateDic" Text="忘刷日期"></telerik:RadLabel>：<%# Eval("DateB","{0:yyyy/MM/dd}") %></div>
+                                                <div class="col-lg-4"><telerik:RadLabel runat="server" ID="lblCardTimeDic" Text="忘刷時間"></telerik:RadLabel>：<%# Eval("TimeB") %></div>
+                                                <div class="col-lg-4"><telerik:RadLabel runat="server" ID="lblCardReasonDic" Text="忘刷原因"></telerik:RadLabel>：<%# Eval("CardLostName") %></div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-lg-12" style="word-break: break-all;">說明：<%# Eval("Note") %></div>
+                                                <div class="col-lg-12" style="word-break: break-all;"><telerik:RadLabel runat="server" ID="lblNoteDic" Text="說明"></telerik:RadLabel>：<%# Eval("Note") %></div>
                                             </div>
                                         </div>
 
@@ -103,7 +103,7 @@
             </telerik:RadAjaxPanel>
             <div class="row">
                 <div class="col-lg-12">
-                    <label class=" col-form-label ">意見</label>
+                    <label class=" col-form-label "><telerik:RadLabel runat="server" ID="lblOpinionDic" Text="意見"></telerik:RadLabel></label>
                     <telerik:RadTextBox ID="txtNote" runat="server" Skin="Bootstrap"
                         Height="50px" TextMode="MultiLine" Width="100%">
                     </telerik:RadTextBox>
@@ -111,7 +111,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="bg-muted p-xs m-t-md m-b-md">簽核過程</div>
+                    <div class="bg-muted p-xs m-t-md m-b-md"><telerik:RadLabel runat="server" ID="lblSignPathDic" Text="簽核過程"></telerik:RadLabel></div>
                 </div>
             </div>
             <div class="row">
@@ -131,10 +131,10 @@
                                             <th>單位</th>
                                             <th>代理人</th>
                                         </tr>--%>
-                                        <th>簽核主管</th>
-                                        <th>簽核部門</th>
-                                        <th>簽核日期</th>
-                                        <th>意見</th>
+                                        <th><telerik:RadLabel runat="server" ID="lblSignManagerDic" Text="簽核主管"></telerik:RadLabel></th>
+                                        <th><telerik:RadLabel runat="server" ID="lblSignDeptDic" Text="簽核部門"></telerik:RadLabel></th>
+                                        <th><telerik:RadLabel runat="server" ID="lblSignDateDIc" Text="簽核日期"></telerik:RadLabel></th>
+                                        <th><telerik:RadLabel runat="server" ID="lblOpinionDic1" Text="意見"></telerik:RadLabel></th>
                                     </thead>
                                     <tbody id="Container" runat="server">
                                         <tr>
@@ -144,7 +144,7 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <td colspan="3">
+                                            <td colspan="4">
                                                 <ul class="pagination float-right"></ul>
                                             </td>
                                         </tr>

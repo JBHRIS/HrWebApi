@@ -4372,9 +4372,10 @@ namespace Portal
                     }
                 }
 
-                var lsDeptchange = rsApp.Select(p => p.DeptmCodeChange).Distinct().ToList();
-                var rsDeptChange = oDeptDao.GetDeptm(lsDeptchange, new List<string>() { });
-                var rDeptChnge = rsDeptChange.Where(p => p.Code == rsAppS.First().DeptmCodeChange).FirstOrDefault();
+                //var lsDeptchange = rsApp.Select(p => p.DeptmCodeChange).Distinct().ToList();
+                //var rsDeptChange = oDeptDao.GetDeptm(lsDeptchange, new List<string>() { });
+                //var rDeptChnge = rsDeptChange.Where(p => p.Code == rsAppS.First().DeptmCodeChange).FirstOrDefault();
+                var DeptmManager = oBasDao.GetDeptmManage("", rsApp.FirstOrDefault().DeptmCodeChange);
                 var AppointDynamicDept = (from c in dcFlow.FormsExtend
                                           where c.FormsCode == "Appoint" && c.Code == "AppointDynamicDept" && c.Active == true
                                           select c).ToList();
@@ -4386,7 +4387,7 @@ namespace Portal
                                     join emp in dcFlow.Emp on role.Emp_id equals emp.id
                                     join dept in dcFlow.Dept on role.Dept_id equals dept.id
                                     join pos in dcFlow.Pos on role.Pos_id equals pos.id
-                                    where role.Emp_id == rDeptChnge.Manage
+                                    where role.Emp_id == DeptmManager
                                     select new
                                     {
                                         RoleId = role.id,

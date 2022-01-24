@@ -34,15 +34,15 @@
                                     <div class="col-md-6">
                                         <div class="row">
                                             <div class="col col-xs-6">
-                                                <span>開始日期：<%# Eval("DateB","{0:yyyy/MM/dd}") %></span><%--<span>開始日期：<%# Eval("AbscDateB","{0:yyyy/MM/dd}") %></span>--%>
+                                                <span>開始日期：<%# Eval("DateTimeB","{0:yyyy/MM/dd}") %></span><%--<span>開始日期：<%# Eval("AbscDateB","{0:yyyy/MM/dd}") %></span>--%>
                                                 <br>
-                                                <span>開始時間：<%# Eval("TimeB") %></span><%--<span>開始時間：<%# Eval("AbscTimeB") %></span>--%>
+                                                <span>開始時間：<%# Eval("DateTimeB","{0:HH:mm}") %></span><%--<span>開始時間：<%# Eval("AbscTimeB") %></span>--%>
                                             </div>
 
                                             <div class="col col-xs-6">
-                                                <span>結束日期：<%# Eval("DateE","{0:yyyy/MM/dd}") %></span><%--<span>結束日期：<%# Eval("AbscDateE","{0:yyyy/MM/dd}") %></span>--%>
+                                                <span>結束日期：<%# Eval("DateTimeE","{0:yyyy/MM/dd}") %></span><%--<span>結束日期：<%# Eval("AbscDateE","{0:yyyy/MM/dd}") %></span>--%>
                                                 <br>
-                                                <span>結束時間：<%# Eval("TimeE") %></span><%--<span>結束時間：<%# Eval("AbscTimeE") %></span>--%>
+                                                <span>結束時間：<%# Eval("DateTimeE","{0:HH:mm}") %></span><%--<span>結束時間：<%# Eval("AbscTimeE") %></span>--%>
                                             </div>
                                         </div>
                                     </div>

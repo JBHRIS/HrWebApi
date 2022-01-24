@@ -28,6 +28,7 @@ namespace Portal
                 _DataBind();
                 ddlEmp_DataBind();
                 UnobtrusiveSession.Session["ActivePage"] = WebPage.GetActivePage;
+                lvMain.Rebind();
             }
         }
         public void LoadData(string Key = "")
@@ -130,8 +131,8 @@ namespace Portal
                 }
             }
             catch (Exception)
-            { 
-            
+            {
+
             }
             lvMain.DataSource = rs;
 

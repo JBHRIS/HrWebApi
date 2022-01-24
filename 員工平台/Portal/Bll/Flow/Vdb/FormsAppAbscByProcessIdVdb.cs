@@ -259,6 +259,9 @@ namespace Bll.Flow.Vdb
         /// 結束日期
         /// </summary>
         public DateTime AbscDateE { get; set; }
+
+        public DateTime DateTimeB { get; set; }
+        public DateTime DateTimeE { get; set; }
         public string AutoKey { get; set; }
         public string EmpId { get; set; }
         public string EmpName { get; set; }

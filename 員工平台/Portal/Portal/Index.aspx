@@ -5,13 +5,33 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="wrapper wrapper-content">
-
+        <telerik:RadCodeBlock runat="server">
+            <script>
+                function OnClientPdfExporting(sender, args) {
+                    args.set_cancel(true);
+                    var data = args.get_dataURI().split(',')[1];
+                    callMyPageMethod(data);
+                }
+                function callMyPageMethod(arg) {
+                    PageMethods.storeFile(arg, OnSucceeded, OnFailed);
+                }
+                function OnSucceeded(data) {
+                    window.location = data;
+                }
+                function OnFailed(error) {
+                    //alert(error.get_message());
+                }
+            </script>
+            
+        </telerik:RadCodeBlock>
         <div class="row">
             <div class="col-lg-8">
                 <asp:Panel runat="server" ID="pnlNews" Visible="false">
                     <div class="ibox">
                         <div class="ibox-title_sy3">
-                            <h5><i class="fa fa-bullhorn"></i> <telerik:RadLabel runat="server" ID="lblBillboard" Text="公佈欄"></telerik:RadLabel></h5>
+                            <h5><i class="fa fa-bullhorn"></i>
+                                <telerik:RadLabel runat="server" ID="lblBillboard" Text="公佈欄"></telerik:RadLabel>
+                            </h5>
                             <div class="ibox-tools_icon">
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
@@ -25,9 +45,15 @@
                                     <table class="table table-hover no-margins">
                                         <thead>
                                             <tr>
-                                                <th><telerik:RadLabel runat="server" ID="lblBillboardTitle" Text="主旨"></telerik:RadLabel></th>
-                                                <th><telerik:RadLabel runat="server" ID="lblBillboardDate" Text="日期"></telerik:RadLabel></th>
-                                                <th><telerik:RadLabel runat="server" ID="lblBillboardPublisher" Text="發布者"></telerik:RadLabel></th>
+                                                <th>
+                                                    <telerik:RadLabel runat="server" ID="lblBillboardTitle" Text="主旨"></telerik:RadLabel>
+                                                </th>
+                                                <th>
+                                                    <telerik:RadLabel runat="server" ID="lblBillboardDate" Text="日期"></telerik:RadLabel>
+                                                </th>
+                                                <th>
+                                                    <telerik:RadLabel runat="server" ID="lblBillboardPublisher" Text="發布者"></telerik:RadLabel>
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody id="Container" runat="server">
@@ -48,7 +74,9 @@
                 <asp:Panel runat="server" ID="pnlCheck" Visible="false">
                     <div class="ibox">
                         <div class="ibox-title bg-primary">
-                            <h5><i class="fa fa-pencil "></i> <telerik:RadLabel runat="server" ID="lblUserFormAssign" Text=" 待審核"></telerik:RadLabel> </h5>
+                            <h5><i class="fa fa-pencil "></i>
+                                <telerik:RadLabel runat="server" ID="lblUserFormAssign" Text=" 待審核"></telerik:RadLabel>
+                            </h5>
                             <span class="badge bg-muted text-navy">
                                 <asp:Label ID="lblSignCount" runat="server" Text="0"></asp:Label>
                             </span>
@@ -63,9 +91,15 @@
 
                                 <ItemTemplate>
                                     <div class="row line">
-                                        <div class="col-lg-4"><strong><telerik:RadLabel runat="server" ID="lblFormAssignName" Text="表單"></telerik:RadLabel>：</strong><%# Eval("FormName") %>,<%# Eval("ProcessFlowID") %></div>
-                                        <div class="col-lg-3"><strong><telerik:RadLabel runat="server" ID="lblFormAssignApplicant" Text="申請者"></telerik:RadLabel>：</strong><%# Eval("AppEmpID") %>,<%# Eval("AppEmpName") %></div>
-                                        <div class="col-lg-3"><strong><telerik:RadLabel runat="server" ID="lblFormAssignDate" Text="申請日期"></telerik:RadLabel>：</strong><%# Eval("AppDate","{0:yyyy/M/dd}") %></div>
+                                        <div class="col-lg-4"><strong>
+                                            <telerik:RadLabel runat="server" ID="lblFormAssignName" Text="表單"></telerik:RadLabel>
+                                            ：</strong><%# Eval("FormName") %>,<%# Eval("ProcessFlowID") %></div>
+                                        <div class="col-lg-3"><strong>
+                                            <telerik:RadLabel runat="server" ID="lblFormAssignApplicant" Text="申請者"></telerik:RadLabel>
+                                            ：</strong><%# Eval("AppEmpID") %>,<%# Eval("AppEmpName") %></div>
+                                        <div class="col-lg-3"><strong>
+                                            <telerik:RadLabel runat="server" ID="lblFormAssignDate" Text="申請日期"></telerik:RadLabel>
+                                            ：</strong><%# Eval("AppDate","{0:yyyy/M/dd}") %></div>
                                         <div class="col-lg-2">
                                             <telerik:RadButton ID="btnUserFormAssign" runat="server" Text="檢視" CommandArgument='<%# Eval("ProcessApParmAuto") %>' CommandName='<%# Eval("FormCode") %>' CssClass="btn btn-outline btn-primary">
                                             </telerik:RadButton>
@@ -185,7 +219,9 @@
                         <asp:Panel runat="server" ID="pnlAbn" Visible="false">
                             <div class="ibox">
                                 <div class="ibox-title bg-danger">
-                                    <h5><i class="fa fa-exclamation-triangle"></i> <telerik:RadLabel runat="server" ID="lblAbn" Text=" 異常資訊"></telerik:RadLabel></h5>
+                                    <h5><i class="fa fa-exclamation-triangle"></i>
+                                        <telerik:RadLabel runat="server" ID="lblAbn" Text=" 異常資訊"></telerik:RadLabel>
+                                    </h5>
                                     <div class="ibox-tools_icon">
                                         <a class="collapse-link">
                                             <i class="fa fa-chevron-up"></i>
@@ -199,16 +235,24 @@
                                             <h1 class="no-margins font-bold text-danger">
                                                 <telerik:RadLabel runat="server" ID="lblAbnToday"></telerik:RadLabel>
                                             </h1>
-                                            <div class="stat-percent font-bold"><telerik:RadLabel runat="server" ID="lblAbnTodayName" Text="今日"></telerik:RadLabel></div>
-                                            <small><telerik:RadLabel runat="server" ID="lblAbnTodayUnit" Text="人"></telerik:RadLabel></small>
+                                            <div class="stat-percent font-bold">
+                                                <telerik:RadLabel runat="server" ID="lblAbnTodayName" Text="今日"></telerik:RadLabel>
+                                            </div>
+                                            <small>
+                                                <telerik:RadLabel runat="server" ID="lblAbnTodayUnit" Text="人"></telerik:RadLabel>
+                                            </small>
                                         </div>
 
                                         <div class="col col-6  col-lg-6 text-muted">
                                             <h1 class="no-margins">
                                                 <telerik:RadLabel runat="server" ID="lblAbnYesterday"></telerik:RadLabel>
                                             </h1>
-                                            <div class="stat-percent font-bold"><telerik:RadLabel runat="server" ID="lblAbnYesterdayName" Text="昨日"></telerik:RadLabel></div>
-                                            <small><telerik:RadLabel runat="server" ID="lblAbnYesterdayUnit" Text="人"></telerik:RadLabel></small>
+                                            <div class="stat-percent font-bold">
+                                                <telerik:RadLabel runat="server" ID="lblAbnYesterdayName" Text="昨日"></telerik:RadLabel>
+                                            </div>
+                                            <small>
+                                                <telerik:RadLabel runat="server" ID="lblAbnYesterdayUnit" Text="人"></telerik:RadLabel>
+                                            </small>
                                         </div>
                                     </div>
                                 </div>
@@ -222,7 +266,9 @@
                         <asp:Panel runat="server" ID="pnlCard" Visible="false">
                             <div class="ibox">
                                 <div class="ibox-title bg-info">
-                                    <h5><i class="fa fa-id-card"></i> <telerik:RadLabel runat="server" ID="lblRoteInformation" Text="班別資訊"></telerik:RadLabel></h5>
+                                    <h5><i class="fa fa-id-card"></i>
+                                        <telerik:RadLabel runat="server" ID="lblRoteInformation" Text="班別資訊"></telerik:RadLabel>
+                                    </h5>
                                     <div class="ibox-tools_icon">
                                         <a class="collapse-link">
                                             <i class="fa fa-chevron-up"></i>
@@ -234,9 +280,15 @@
                                     <table class="table table-hover no-margins">
                                         <thead>
                                             <tr>
-                                                <th><telerik:RadLabel runat="server" ID="lblClassName" Text="出勤班別"></telerik:RadLabel></th>
-                                                <th class="text-center"><telerik:RadLabel runat="server" ID="lblClassOnTime" Text="上班"></telerik:RadLabel></th>
-                                                <th class="text-center"><telerik:RadLabel runat="server" ID="lblClassOffTime" Text="下班"></telerik:RadLabel></th>
+                                                <th>
+                                                    <telerik:RadLabel runat="server" ID="lblClassName" Text="出勤班別"></telerik:RadLabel>
+                                                </th>
+                                                <th class="text-center">
+                                                    <telerik:RadLabel runat="server" ID="lblClassOnTime" Text="上班"></telerik:RadLabel>
+                                                </th>
+                                                <th class="text-center">
+                                                    <telerik:RadLabel runat="server" ID="lblClassOffTime" Text="下班"></telerik:RadLabel>
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -264,7 +316,9 @@
                         <asp:Panel runat="server" ID="pnlAbs" Visible="false">
                             <div class="ibox">
                                 <div class="ibox-title bg-success">
-                                    <h5><i class="fa fa-calendar"></i> <telerik:RadLabel runat="server" ID="lblBalanceInformation" Text="餘假資訊"></telerik:RadLabel></h5>
+                                    <h5><i class="fa fa-calendar"></i>
+                                        <telerik:RadLabel runat="server" ID="lblBalanceInformation" Text="餘假資訊"></telerik:RadLabel>
+                                    </h5>
                                     <div class="ibox-tools_icon">
                                         <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </div>
@@ -275,7 +329,9 @@
                                             <h1 class="no-margins font-bold text-navy text-success">
                                                 <telerik:RadLabel runat="server" ID="lblSpecialLeave"></telerik:RadLabel>
                                             </h1>
-                                            <small><telerik:RadLabel runat="server" ID="lblSpecialLeaveBalance" Text="特休剩餘"></telerik:RadLabel>(h)&emsp;</small>
+                                            <small>
+                                                <telerik:RadLabel runat="server" ID="lblSpecialLeaveBalance" Text="特休剩餘"></telerik:RadLabel>
+                                                (h)&emsp;</small>
                                             <%--<div class="stat-percent">
                                             <telerik:RadLabel runat="server" ID="lblSpecialLeaveTotal"></telerik:RadLabel>
                                             總(h)
@@ -292,7 +348,9 @@
                                             <h1 class="no-margins font-bold text-navy text-success">
                                                 <telerik:RadLabel runat="server" ID="lblCompensatoryLeave" />
                                             </h1>
-                                            <small><telerik:RadLabel runat="server" ID="lblCompensatoryLeaveBalance" Text="補休剩餘"></telerik:RadLabel>(h)&emsp;</small>
+                                            <small>
+                                                <telerik:RadLabel runat="server" ID="lblCompensatoryLeaveBalance" Text="補休剩餘"></telerik:RadLabel>
+                                                (h)&emsp;</small>
                                             <%--<div class="stat-percent">
                                             <telerik:RadLabel runat="server" ID="lblCompensatoryLeaveTotal"></telerik:RadLabel>
                                             總(h)
@@ -317,7 +375,9 @@
                         <asp:Panel runat="server" ID="pnlOt" Visible="false">
                             <div id="hour" class="ibox">
                                 <div class="ibox-title bg-warning">
-                                    <h5><i class="fa fa-clock-o"></i> <telerik:RadLabel runat="server" ID="lblOtHourThisMonth" Text="本月加班時數"></telerik:RadLabel></h5>
+                                    <h5><i class="fa fa-clock-o"></i>
+                                        <telerik:RadLabel runat="server" ID="lblOtHourThisMonth" Text="本月加班時數"></telerik:RadLabel>
+                                    </h5>
                                     <div class="ibox-tools_icon">
                                         <a class="collapse-link">
                                             <i class="fa fa-chevron-up"></i>

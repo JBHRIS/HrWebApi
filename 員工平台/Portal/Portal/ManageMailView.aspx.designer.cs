@@ -7,92 +7,92 @@
 // </自動產生的>
 //------------------------------------------------------------------------------
 
-namespace Portal
+namespace Performance
 {
 
 
-    public partial class FormCardChk
+    public partial class ManageMailView
     {
 
         /// <summary>
-        /// plInfo 控制項。
+        /// plSearch 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadAjaxPanel plInfo;
+        protected global::Telerik.Web.UI.RadAjaxPanel plSearch;
 
         /// <summary>
-        /// gvAppS 控制項。
+        /// ddlKey1 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadListView gvAppS;
+        protected global::Telerik.Web.UI.RadDropDownList ddlKey1;
 
         /// <summary>
-        /// lblNotifyMsg 控制項。
+        /// txtSearch 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadLabel lblNotifyMsg;
+        protected global::Telerik.Web.UI.RadTextBox txtSearch;
 
         /// <summary>
-        /// lblOpinionDic 控制項。
+        /// btnSearch 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadLabel lblOpinionDic;
+        protected global::Telerik.Web.UI.RadButton btnSearch;
 
         /// <summary>
-        /// txtNote 控制項。
+        /// lblMsgSearch 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox txtNote;
+        protected global::Telerik.Web.UI.RadLabel lblMsgSearch;
 
         /// <summary>
-        /// lblSignPathDic 控制項。
+        /// btnExportExcel 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadLabel lblSignPathDic;
+        protected global::Telerik.Web.UI.RadButton btnExportExcel;
 
         /// <summary>
-        /// lvSignM 控制項。
+        /// plMain 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadListView lvSignM;
+        protected global::Telerik.Web.UI.RadAjaxPanel plMain;
 
         /// <summary>
-        /// ucFileView 控制項。
+        /// lvMain 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Portal.UserControls.UC_FileView ucFileView;
+        protected global::Telerik.Web.UI.RadListView lvMain;
 
         /// <summary>
-        /// lblProcessID 控制項。
+        /// lblMsg 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadLabel lblProcessID;
+        protected global::Telerik.Web.UI.RadLabel lblMsg;
     }
 }

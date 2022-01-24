@@ -40,8 +40,8 @@ public class WebPageBase : System.Web.UI.Page
     public dcShareDataContext dcShare = new dcShareDataContext();
     public dcPerformanceDataContext dcMain = new dcPerformanceDataContext();
     protected string LoginToken;
-
-
+    public ShareDictionaryDao oShareDictionary = new ShareDictionaryDao();
+    protected string LanguageCookie = "";
 
     string MasterPage = ConfigurationManager.AppSettings["MasterPage"].ToString();
     string MasterPageDB = ConfigurationManager.AppSettings["MasterPageDB"].ToString();
@@ -50,6 +50,7 @@ public class WebPageBase : System.Web.UI.Page
 
     public WebPageBase()
     {
+         
     }
 
     protected override void InitializeCulture()

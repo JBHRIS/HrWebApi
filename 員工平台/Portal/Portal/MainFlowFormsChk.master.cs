@@ -23,6 +23,8 @@ namespace Portal
         string FormCode = "";
         bool isDirect = false;
         private CompanySettingRow CompanySetting;
+        private string LanguageCookie = "";
+        private ShareDictionaryDao oShareDictionary = new ShareDictionaryDao();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Cookies["CompanyId"] != null && Request.Cookies["CompanyId"].Value != "")
@@ -47,6 +49,8 @@ namespace Portal
             }
             if (!IsPostBack)
             {
+                LanguageCookie = Request.Cookies["Language"]?.Value ?? "";
+
                 lblEmpName.Text = _User.EmpName + "," + _User.EmpId;
                 lblDept.Text = _User.EmpDeptName;
 
@@ -171,11 +175,11 @@ namespace Portal
             }
 
         }
-        
+
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
 
-            
+
 
             if (Finish_Click != null)//Contentpage所註冊的新增表身動作
             {
@@ -199,7 +203,7 @@ namespace Portal
 
             FormCode = rAppM.FormsCode;
 
-            
+
 
 
             //var AbsFormTable = dcFlow.wfAppAbs;
@@ -281,7 +285,10 @@ namespace Portal
                     rSysVar = rsSysVar.Data as SysVarRow;
                     if (rSysVar.SysClose)
                     {
-                        lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "SystemMaintain", "1", LanguageCookie);
+                        else
+                            lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
                         return;
                     }
                 }
@@ -464,7 +471,10 @@ namespace Portal
                     rSysVar = rsSysVar.Data as SysVarRow;
                     if (rSysVar.SysClose)
                     {
-                        lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "SystemMaintain", "1", LanguageCookie);
+                        else
+                            lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
                         return;
                     }
                 }
@@ -645,7 +655,10 @@ namespace Portal
                     rSysVar = rsSysVar.Data as SysVarRow;
                     if (rSysVar.SysClose)
                     {
-                        lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "SystemMaintain", "1", LanguageCookie);
+                        else
+                            lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
                         return;
                     }
                 }
@@ -804,7 +817,10 @@ namespace Portal
                     rSysVar = rsSysVar.Data as SysVarRow;
                     if (rSysVar.SysClose)
                     {
-                        lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "SystemMaintain", "1", LanguageCookie);
+                        else
+                            lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
                         return;
                     }
                 }
@@ -964,7 +980,10 @@ namespace Portal
                     rSysVar = rsSysVar.Data as SysVarRow;
                     if (rSysVar.SysClose)
                     {
-                        lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "SystemMaintain", "1", LanguageCookie);
+                        else
+                            lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
                         return;
                     }
                 }
@@ -1202,7 +1221,10 @@ namespace Portal
                     rSysVar = rsSysVar.Data as SysVarRow;
                     if (rSysVar.SysClose)
                     {
-                        lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "SystemMaintain", "1", LanguageCookie);
+                        else
+                            lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
                         return;
                     }
                 }
@@ -1441,7 +1463,10 @@ namespace Portal
                     rSysVar = rsSysVar.Data as SysVarRow;
                     if (rSysVar.SysClose)
                     {
-                        lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "SystemMaintain", "1", LanguageCookie);
+                        else
+                            lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
                         return;
                     }
                 }
@@ -1601,7 +1626,10 @@ namespace Portal
                     rSysVar = rsSysVar.Data as SysVarRow;
                     if (rSysVar.SysClose)
                     {
-                        lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "SystemMaintain", "1", LanguageCookie);
+                        else
+                            lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
                         return;
                     }
                 }
@@ -1754,7 +1782,10 @@ namespace Portal
                     rSysVar = rsSysVar.Data as SysVarRow;
                     if (rSysVar.SysClose)
                     {
-                        lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "SystemMaintain", "1", LanguageCookie);
+                        else
+                            lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
                         return;
                     }
                 }
@@ -1917,7 +1948,10 @@ namespace Portal
                     rSysVar = rsSysVar.Data as SysVarRow;
                     if (rSysVar.SysClose)
                     {
-                        lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "SystemMaintain", "1", LanguageCookie);
+                        else
+                            lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
                         return;
                     }
                 }
@@ -2080,7 +2114,10 @@ namespace Portal
                     rSysVar = rsSysVar.Data as SysVarRow;
                     if (rSysVar.SysClose)
                     {
-                        lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "SystemMaintain", "1", LanguageCookie);
+                        else
+                            lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
                         return;
                     }
                 }
@@ -2216,7 +2253,10 @@ namespace Portal
                     rSysVar = rsSysVar.Data as SysVarRow;
                     if (rSysVar.SysClose)
                     {
-                        lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "SystemMaintain", "1", LanguageCookie);
+                        else
+                            lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
                         return;
                     }
                 }
@@ -2268,6 +2308,7 @@ namespace Portal
                 rsAppS.FirstOrDefault().ResultAreaName = oEmployChangeLog.ResultAreaName;
                 rsAppS.FirstOrDefault().ExtendMonth = oEmployChangeLog.ExtendMonth;
                 rsAppS.FirstOrDefault().DateAppoint = oEmployChangeLog.DateAppoint;
+                rsAppS.FirstOrDefault().Sign = rAppM.Sign;
                 rsAppS.FirstOrDefault().SignState = rAppM.SignState;
                 rsAppS.FirstOrDefault().Status = rAppM.Status;
 
@@ -2387,7 +2428,10 @@ namespace Portal
                     rSysVar = rsSysVar.Data as SysVarRow;
                     if (rSysVar.SysClose)
                     {
-                        lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "SystemMaintain", "1", LanguageCookie);
+                        else
+                            lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
                         return;
                     }
                 }
@@ -2439,6 +2483,7 @@ namespace Portal
                 rsAppS.FirstOrDefault().ResultAreaName = oEmployChangeLog.ResultAreaName;
                 rsAppS.FirstOrDefault().ExtendMonth = oEmployChangeLog.ExtendMonth;
                 rsAppS.FirstOrDefault().DateAppoint = oEmployChangeLog.DateAppoint;
+                rsAppS.FirstOrDefault().Sign = rAppM.Sign;
                 rsAppS.FirstOrDefault().SignState = rAppM.SignState;
                 rsAppS.FirstOrDefault().Status = rAppM.Status;
 
@@ -2558,7 +2603,10 @@ namespace Portal
                     rSysVar = rsSysVar.Data as SysVarRow;
                     if (rSysVar.SysClose)
                     {
-                        lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "SystemMaintain", "1", LanguageCookie);
+                        else
+                            lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
                         return;
                     }
                 }
@@ -2593,9 +2641,9 @@ namespace Portal
                 lblErrorMsg.Text = "請先點選下方更新後，再送出審核";
                 return;
             }
-            
-                
-            rAppM.Sign = (btnCheck.SelectedValue != "2") ;
+
+
+            rAppM.Sign = (btnCheck.SelectedValue != "2");
             rAppM.Cond01 = lblDeptTree.Text;
             rAppM.SignState = btnCheck.SelectedValue == "2" ? "2" : rAppM.SignState;
             rAppM.DateTimeD = DateTime.Now;
@@ -2634,6 +2682,7 @@ namespace Portal
                 rsAppS.FirstOrDefault().Qualified = oAppoint.Qualified;
                 rsAppS.FirstOrDefault().Evaluation = oAppoint.Evaluation;
                 rsAppS.FirstOrDefault().DateAppoint = oAppointChangeLog.DateAppoint;
+                rsAppS.FirstOrDefault().Sign = rAppM.Sign;
                 rsAppS.FirstOrDefault().SignState = rAppM.SignState;
                 rsAppS.FirstOrDefault().Status = rAppM.Status;
                 if (UnobtrusiveSession.Session["LsSalaryData"] == null && oAppoint.AllowSalary)
