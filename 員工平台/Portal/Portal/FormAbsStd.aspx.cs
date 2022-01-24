@@ -348,6 +348,7 @@ namespace Portal
                 SetName1(li);
             else if (txtNameAgent1.Text.Trim().Length > 0)
                 SetName1(txtNameAgent1.Text);
+
         }
         private void SetName1(RadComboBoxItem li)
         {
@@ -360,18 +361,27 @@ namespace Portal
         }
         private void SetName1(string sNobr)
         {
-            OldDal.Dao.Bas.BasDao oBasDao = new OldDal.Dao.Bas.BasDao(dcHR.Connection);
+            //請假單代理人可否搜尋預設以外，0為不能搜尋
+            var AgentCanSearch = (from c in dcFlow.FormsExtend
+                                  where c.FormsCode == "Abs" && c.Code == "AgentCanSearch" && c.Active == true
+                                  select c).FirstOrDefault();
 
-            var rBas = oBasDao.GetBase(sNobr, true).FirstOrDefault();
-
-            if (rBas != null)
+            if (AgentCanSearch != null && AgentCanSearch.Column1 != "0")
             {
-                lblNobrAgent1.Text = rBas.Nobr;
-                txtNameAgent1.Text = rBas.Name;
-                txtNameAgent1.ToolTip = rBas.Name;
+                OldDal.Dao.Bas.BasDao oBasDao = new OldDal.Dao.Bas.BasDao(dcHR.Connection);
+
+                var rBas = oBasDao.GetBase(sNobr, true).FirstOrDefault();
+
+                if (rBas != null)
+                {
+                    lblNobrAgent1.Text = rBas.Nobr;
+                    txtNameAgent1.Text = rBas.Name;
+                    txtNameAgent1.ToolTip = rBas.Name;
+                }
+                else
+                    txtNameAgent1.Text = txtNameAgent1.ToolTip;
             }
-            else
-                txtNameAgent1.Text = txtNameAgent1.ToolTip;
+
         }
 
         #endregion 代理人1工號及姓名
@@ -499,7 +509,7 @@ namespace Portal
                                          where c.FormsCode == "Abs" && c.Code == "IsNeedAgent" && c.Active == true
                                          select c).ToList();
                 OldDal.Dao.Att.RoteDao oRoteDao = new OldDal.Dao.Att.RoteDao(dcHR.Connection);
-                
+
                 if (txtNameAgent1.Items.Count > 1 && !IsNeedAgentExtend.Any())
                 {
                     //二擇一
@@ -530,13 +540,13 @@ namespace Portal
                     return;
                 }
 
-                
+
                 if (rAttendDate == null)
                 {
                     lblMsg.Text = "出勤資料錯誤，請洽人事單位";
                     return;
                 }
-                
+
                 //DateTime AppDate = Convert.ToDateTime(rAttendDate.Text);
 
                 //if (DateB < AppDate)
