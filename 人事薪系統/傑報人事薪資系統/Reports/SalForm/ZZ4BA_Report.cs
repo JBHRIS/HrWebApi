@@ -79,7 +79,7 @@ namespace JBHR.Reports.SalForm
                     sqlCmd += "and b.cindt < '2005/07/01'";
                 }
 
-                sqlCmd += " and b.nobr not in (select distinct nobr from basetts where ttscode='3' and adate >= '2005/07/01')";
+                sqlCmd += " and b.nobr not in (select distinct nobr from basetts where ttscode='2' and adate >= '2005/07/01')";
                 sqlCmd += " left outer join depts c on b.depts=c.d_no";
                 sqlCmd += " where 1 = 1";
                 sqlCmd += string.Format(@" and c.d_no_disp between '{0}' and '{1}'", depts_b, depts_e);             

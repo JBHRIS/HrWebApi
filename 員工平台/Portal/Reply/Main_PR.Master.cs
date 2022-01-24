@@ -23,12 +23,15 @@ namespace Portal
             }
             var Path = System.IO.Path.GetFileName(Request.PhysicalPath);
             if (Path == "ProblemReturn.aspx")
-                ProblemReturn.Style.Add(HtmlTextWriterStyle.Color, "Green");
+                ProblemReturn.Style.Add(HtmlTextWriterStyle.Color, "#1ab394");
             if (Path == "ProblemReturnList.aspx")
-                ProblemReturnList.Style.Add(HtmlTextWriterStyle.Color, "Green");
+                ProblemReturnList.Style.Add(HtmlTextWriterStyle.Color, "#1ab394");
+            if (Path == "ProblemReturnView.aspx")
+                ProblemReturnList.Style.Add(HtmlTextWriterStyle.Color, "#1ab394");
             if (Path == "ProblemReturnListM.aspx")
-                ProblemReturnListM.Style.Add(HtmlTextWriterStyle.Color, "Green");
-
+                ProblemReturnListM.Style.Add(HtmlTextWriterStyle.Color, "#1ab394");
+            if (Path == "MessageReturn.aspx")
+                ProblemReturnListM.Style.Add(HtmlTextWriterStyle.Color, "#1ab394");
             if (_User.EmpName == "未登入" )
             {
                 string strUrl_No = "../Reply/LoginBind.aspx";

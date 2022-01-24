@@ -14,34 +14,26 @@
                         </div>
                         <div class="col-lg-5">
                             <div class="row">
-                                <div class="col-lg-4">
+                                <div class="col-lg-5">
                                     <telerik:RadButton ID="btnAdd" runat="server" Text="預設訊息設定" OnClick="btnSet_Click"
                                         CssClass="btn btn-primary btn-md m-t-xs" />
+                                     <telerik:RadButton ID="btnExportExcel" runat="server" Text="匯出" Visible="true"  OnClick="btnExportExcel_Click" CssClass="btn btn-w-m btn-primary btn-outline" />
                                 </div>
-                                <div class="col-lg-8">
-                                    <div class="row form-group">
-                                        <div class="col-lg-4 col-form-label"><label>回報類型</label></div>
-                                        <div class="col-lg-8">
-                                            <telerik:RadComboBox ID="txtReturnS" runat="server" class="txtReturnS"
-                                                Skin="Bootstrap" AllowCustomText="True" AutoPostBack="true"
-                                                EnableVirtualScrolling="True" ItemsPerRequest="10" Filter="Contains"
-                                                LoadingMessage="載入中…" Width="100%"
-                                                OnSelectedIndexChanged="txtReturnS_SelectedIndexChanged">
-                                            </telerik:RadComboBox>
-                                        </div>
-                                    </div>
+                                <div class="col-lg-7">
+                                   <label>回報類型 :</label>
+                                <telerik:RadComboBox ID="txtReturnS" runat="server" class="txtReturnS" Skin="Bootstrap" AllowCustomText="True"
+                                    AutoPostBack="true" EnableVirtualScrolling="True" ItemsPerRequest="10" Filter="Contains"
+                                    LoadingMessage="載入中…" Width="60%" OnSelectedIndexChanged="txtReturnS_SelectedIndexChanged">
+                                </telerik:RadComboBox>
 
-                                    <div class="row form-group">
-                                        <div class="col-lg-4 col-form-label"><label>結單狀態 :</label></div>
-                                        <div class="col-lg-8">
-                                            <telerik:RadComboBox ID="txtReturnX" runat="server" class="txtReturnS"
-                                                Skin="Bootstrap" AllowCustomText="True" AutoPostBack="true"
-                                                EnableVirtualScrolling="True" ItemsPerRequest="10" Filter="Contains"
-                                                LoadingMessage="載入中…" Width="100%"
-                                                OnSelectedIndexChanged="txtReturnS_SelectedIndexChanged">
-                                            </telerik:RadComboBox>
-                                        </div>
-                                    </div>
+                               
+                               
+                                    <label>結單狀態 :</label>
+                                <telerik:RadComboBox ID="txtReturnX" runat="server" class="txtReturnS" Skin="Bootstrap" AllowCustomText="True"
+                                    AutoPostBack="true" EnableVirtualScrolling="True" ItemsPerRequest="10" Filter="Contains"
+                                    LoadingMessage="載入中…" Width="60%" OnSelectedIndexChanged="txtReturnS_SelectedIndexChanged">
+                                </telerik:RadComboBox>
+
                                 </div>
 
                             </div>

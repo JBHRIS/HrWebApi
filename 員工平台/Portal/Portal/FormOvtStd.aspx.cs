@@ -267,7 +267,17 @@ namespace Portal
                 Card = dDate.ToShortDateString() + "：";
 
                 foreach (var rCard in rsAttCard)
-                    Card += rCard.OnCardTime24 + "-" + rCard.OffCardTime24;
+                {
+                    if (rCard.OffCardTime48.CompareTo("2400") > 0)
+                    {
+                        Card += rCard.OnCardTime24 + " - " + dDate.AddDays(1).ToShortDateString() + "：" + rCard.OffCardTime24;
+
+                    }
+                    else
+                        Card += rCard.OnCardTime24 + " - " + dDate.ToShortDateString() + "：" + rCard.OffCardTime24;
+                    //Card += rCard.OnCardTime24 + "-" + rCard.OffCardTime24;
+                }
+
             }
 
             return Card;
@@ -720,8 +730,8 @@ namespace Portal
             decimal AttHrsDailyMax = 12;
 
             var ExtAttHrsDailyMax = (from c in dcFlow.FormsExtend
-                                    where c.FormsCode == "Ot" && c.Code == "AttHrsDailyMax" && c.Active == true
-                                    select c).ToList();
+                                     where c.FormsCode == "Ot" && c.Code == "AttHrsDailyMax" && c.Active == true
+                                     select c).ToList();
 
             if (ExtAttHrsDailyMax.Any())
             {

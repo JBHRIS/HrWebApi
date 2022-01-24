@@ -30,11 +30,35 @@
     <link href="Templates/Inspinia/css/plugins/select2/select2.min.css" rel="stylesheet">
     <link href="Templates/Inspinia/css/plugins/select2/select2-bootstrap4.min.css" rel="stylesheet">
     
+     
+
     <link href="styles/form_style.css" rel="stylesheet" />
 
     <style>
         .table td, .table th {
             border-top:0 !important;
+        }
+         .admin_circle {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            margin-right: 10px;
+            text-align: center;
+            padding-top: 4px;
+            font-size: 18px;
+        }
+
+        .message_line {
+            border-bottom: 1px solid #e9e9e9;
+            padding-bottom: 1em;
+        }
+
+        .replyreply_text {
+            color: #CCC;
+        }
+
+        .text-blue {
+            color: #007bff;
         }
     </style>
     

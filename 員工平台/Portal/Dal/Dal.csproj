@@ -245,6 +245,7 @@
     <Compile Include="Dao\Share\ShareDictionaryDao.cs" />
     <Compile Include="Dao\Share\ShareDisplayMessageDao.cs" />
     <Compile Include="Dao\Share\ShareGetQuestionCategoryVdbDao.cs" />
+    <Compile Include="Dao\Share\ShareGetQuestionDefaultMessageByCompanyIdVdbDao.cs" />
     <Compile Include="Dao\Share\ShareGetQuestionDefaultMessageVdbDao.cs" />
     <Compile Include="Dao\Share\ShareGetQuestionMainByCodeVdbDao.cs" />
     <Compile Include="Dao\Share\ShareGetQuestionMainByCompanyVdbDao.cs" />

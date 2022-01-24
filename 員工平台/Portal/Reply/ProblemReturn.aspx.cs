@@ -62,12 +62,18 @@ namespace Portal
         }
         public void btnAdd_Click(object sender, EventArgs e)
         {
+            if (_User.EmpName == "未登入")
+            {
+                string strUrl_No = "../Reply/LoginBind.aspx";
+                ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "script", "if ( window.alert('登入已逾時，請重新登入')) { } else {window.location.href='" + strUrl_No + "' };", true);
+                return;
+            }
             if (txtTitle.Text == ""||txtContent.Text=="")
             {
                 lblAddStatus.InnerText = "未輸入標題或回報內容";
                 return;
             }
-            if (txtTitle.Text.Length > 30 || txtContent.Text.Length > 200)
+            if (txtTitle.Text.Length > 30 || txtContent.Text.Length > 80)
             {
                 lblAddStatus.InnerText = "標題或內容長度過長";
                 return;
@@ -107,7 +113,13 @@ namespace Portal
         }
         public void btnUpload_Click(object sender, EventArgs e)
         {
-            
+            if (_User.EmpName == "未登入")
+            {
+                string strUrl_No = "../Reply/LoginBind.aspx";
+                ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "script", "if ( window.alert('登入已逾時，請重新登入')) { } else {window.location.href='" + strUrl_No + "' };", true);
+                return;
+            }
+
             if (UnobtrusiveSession.Session["Files"] != null)
             {
                

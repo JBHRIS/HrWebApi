@@ -156,14 +156,14 @@
                                     </telerik:RadDatePicker>
                                 </div>
 
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <label class=" col-form-label">開始時間</label>
                                     <telerik:RadMaskedTextBox ID="txtTimeB" runat="server" Mask="####" Width="100%" Skin="Bootstrap">
                                     </telerik:RadMaskedTextBox>
 
                                 </div>
 
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <label class=" col-form-label">結束時間</label>
                                     <%--<div class="input-group clockpicker" data-autoclose="true">
                                         <telerik:RadLabel type="text" class="form-control" value="17:30">
@@ -174,16 +174,17 @@
                                     <telerik:RadMaskedTextBox ID="txtTimeE" runat="server" Mask="####" Width="100%" Skin="Bootstrap">
                                     </telerik:RadMaskedTextBox>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <label class=" col-form-label">給付方式</label>
                                     <telerik:RadComboBox ID="ddlOtCat" runat="server" Culture="zh-TW" EnableVirtualScrolling="True" ItemsPerRequest="10" LoadingMessage="載入中…" Width="100%" Skin="Bootstrap">
                                     </telerik:RadComboBox>
                                 </div>
-                                <div class="col-md-3">
+                            </div>
+                            <div class="form-group row">
+                                
+                                <div class="col-md-6">
                                     <label class=" col-form-label">出勤刷卡時間</label><br>
-                                    <asp:Label ID="lblCardTime" runat="server"></asp:Label>
+                                    <div class="box"><asp:Label ID="lblCardTime" runat="server"></asp:Label></div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">

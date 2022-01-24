@@ -22,7 +22,7 @@
             </telerik:AjaxSetting>
         </AjaxSettings>
         <AjaxSettings>
-            <telerik:AjaxSetting AjaxControlID="SetDefaultMessage">
+            <telerik:AjaxSetting AjaxControlID="lvMain">
                 <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="txtContent" />
                 </UpdatedControls>
@@ -58,10 +58,11 @@
             </p>
         </div>
         <div class="social-footer">
-            <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
-                <telerik:RadListView ID="QuestionReplyData" runat="server" ItemPlaceholderID="Container" OnItemCommand="QuestionReplyData_ItemCommand" OnNeedDataSource="QuestionReplyData_NeedDataSource">
+        <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
+                <telerik:RadListView ID="QuestionReplyData" runat="server" ItemPlaceholderID="Container" OnItemCommand="QuestionReplyData_ItemCommand"  OnNeedDataSource="QuestionReplyData_NeedDataSource">
 
                     <LayoutTemplate>
+
                         <div id="Container" runat="server">
                             <telerik:RadLabel ID="lblName2" runat="server" CssClass="name_font" Text="" />
                             <telerik:RadLabel ID="lblDate2" runat="server" CssClass="text-muted" Text="" />
@@ -77,42 +78,120 @@
                     </LayoutTemplate>
 
                     <ItemTemplate>
-                        <div class="social-comment message_line">
+
+                        <div class="social-comment message_line" id='div<%# Eval("Code")%>'>
+                            <div class="float-left">
+                                <div class="navy-bg admin_circle">
+                                    <%# Eval("Key2").ToString()==("Admin")? "<i class=\"fa fa-users\"></i>":"  <i class=\"fa fa-user\"></i>"%>                               
+                                </div>
+                            </div>
                             <div class="media-body">
-                                <telerik:RadLabel ID="lblName2" runat="server" CssClass="name_font" Text='<%# Eval("Name") %>' />
-                                <telerik:RadLabel ID="lblC2" runat="server" Text='<%# Eval("Content") %>' />
+                                <span>
+                                    <telerik:RadLabel ID="lblName2" runat="server" CssClass="name_font" Text='<%# Eval("Name") %>' />
+                                </span>
+                                <span>
+                                    <label id='<%# Eval("Code") %>'>
+                                        <%# Eval("Content") %><label>
+                                </span>
                                 <br />
 
-                                <button type="button" class="btn btn-link fa comment_icon text-blue" data-toggle="collapse" aria-controls='<%# Eval("Code") %>' data-target='#rep<%# Eval("Code") %>'>回覆</button>
-                                <telerik:RadLabel ID="lblDate2" runat="server" CssClass="text-muted" Text='<%# Eval("InsertDate","{0:yyyy-MM-dd}") %>' />
+                                <button type="button" id="btnReply" class="btnReply btn btn-white btn-xs" data-toggle="collapse" aria-controls='<%# Eval("Code") %>' data-target='#rep<%# Eval("Code") %>'><i class="fa fa-comments"></i>回覆</button>
+                                -
+                                <telerik:RadLabel ID="lblDate2" runat="server" CssClass="text-muted" Text='<%# Eval("InsertDate","{0:yyyy/MM/dd}") %>' />
+                                -
+                                <telerik:RadLabel ID="lblTime2" runat="server" CssClass="text-muted" Text='<%# Eval("InsertDate","{0:HH:mm}") %>' />
+                                <div id='rep<%# Eval("Code")%>' class="collapse">
+                                    <div class="form-group">
 
-                                <telerik:RadLabel ID="lblTime2" runat="server" CssClass="text-muted" Text='<%# Eval("InsertDate","{0:HH:ss}") %>' />
+                                        <telerik:RadTextBox ID="txtReply" class="txtReply" runat="server" EmptyMessage="請填寫您想回覆的內容..."
+                                            TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="3">
+                                        </telerik:RadTextBox>
+                                        <telerik:RadButton ID="btnReplyAdd" class="btnadd" runat="server" Text="送出" CssClass="btn btn-primary btn-md m-t-md" CommandArgument='<%# Eval("Code") %>' CommandName='<%# Eval("Code") %>' />
+                                        <telerik:RadLabel ID="lblReplyStatus" runat="server" CssClass="text-danger" Text="" />
+                                    </div>
 
+                                </div>
                                 <br />
-                                <div class="social-comment">
-                                    <%# Eval("DataView")  %>
-                                </div>
 
+                               
+                                <telerik:RadListView ID="SubQuestionReplyData" runat="server" ItemPlaceholderID="Container" OnItemCommand="QuestionReplyData_ItemCommand" OnNeedDataSource="SubQuestionReplyData_NeedDataSource">
+
+                                    <LayoutTemplate>
+
+                                        <div id="Container" runat="server">
+                                            <telerik:RadLabel ID="lblName2" runat="server" CssClass="name_font" Text="" />
+                                            <telerik:RadLabel ID="lblDate2" runat="server" CssClass="text-muted" Text="" />
+                                            &ensp;&ensp;
+                                        <telerik:RadLabel ID="lblTime2" runat="server" CssClass="text-muted" Text="" />
+                                        </div>
+                                        <div class="social-comment">
+                                            <div class="media-body">
+                                                <span></span>
+                                            </div>
+                                        </div>
+
+                                    </LayoutTemplate>
+
+                                    <ItemTemplate>
+
+                                        <div class="social-comment" id='div<%# Eval("Code")%>'>
+                                            <div class="float-left">
+                                                <div class="navy-bg admin_circle">
+                                                    <%#Eval("Key2").ToString()==("Admin")?" <i class=\"fa fa-users\"></i>":"  <i class=\"fa fa-user\"></i>"%>
+                                                </div>
+                                            </div>
+                                            <div class="media-body" style="text-align: justify;">
+                                                <span>
+                                                    <telerik:RadLabel ID="lblName2" runat="server" CssClass="name_font" Text='<%# Eval("Name") %>' />
+                                                    <span class="text-blue"><i class="fa fa-share "></i> <%# Eval("ReplyName")%></span>
+                                                    <span class="replyreply_text">
+                                                        <%# Eval("ReplyContent")%>
+                                                </span><br>
+                     
+                                                </span>
+                                                <span>
+                                                    <label id='<%# Eval("Code") %>'>
+                                                        <%# Eval("Content") %><label>
+                                                </span>
+                                                <br />
+
+                                                <button type="button" id="btnReply" class="btnReply btn btn-white btn-xs" data-toggle="collapse" aria-controls='<%# Eval("Code") %>' data-target='#subrep<%# Eval("Code") %>'><i class="fa fa-comments"></i>回覆</button>
+                                                -
+                                                <telerik:RadLabel ID="lblDate2" runat="server" CssClass="text-muted" Text='<%# Eval("InsertDate","{0:yyyy/MM/dd}") %>' />
+                                                -
+                                              <telerik:RadLabel ID="lblTime2" runat="server" CssClass="text-muted" Text='<%# Eval("InsertDate","{0:HH:mm}") %>' />
+                                                <div id='subrep<%# Eval("Code")%>' class="collapse">
+                                                    <div class="form-group">
+
+                                                        <telerik:RadTextBox ID="txtReply" class="txtReply" runat="server" EmptyMessage="請填寫您想回覆的內容..."
+                                                            TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="3">
+                                                        </telerik:RadTextBox>
+                                                        <telerik:RadButton ID="btnSubReplyAdd" class="btnadd" runat="server" Text="送出" CssClass="btnReply btn btn-primary btn-md m-t-md" CommandArgument='<%# Eval("Code") %>' CommandName='<%# Eval("ParentCode") %>' />
+                                                        <telerik:RadLabel ID="lblReplyStatus" runat="server" CssClass="text-danger" Text="" />
+                                                    </div>
+
+                                                </div>
+                                                <br />
+
+                                                <div class="social-comment">
+                                                    <%# Eval("DataView")  %>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </ItemTemplate>
+
+                                </telerik:RadListView>
                             </div>
-                            <div id='rep<%# Eval("Code")%>' class="collapse">
-                                <div class="form-group">
 
-                                    <telerik:RadTextBox ID="txtReply" class="txtReply" runat="server" EmptyMessage="請填寫您想回覆的內容..."
-                                        TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="3">
-                                    </telerik:RadTextBox>
-
-                                    <telerik:RadButton ID="btnReplyAdd" class="btnadd" runat="server" Text="送出" CssClass="btn btn-primary btn-md m-t-md" CommandArgument='<%# Eval("Code") %>' CommandName="ReplyAdd" />
-                                     <telerik:RadLabel ID="lblReplyStatus"  runat="server" CssClass="text-danger" Text="" />
-                                </div>
-                            </div>
                         </div>
 
                     </ItemTemplate>
 
                 </telerik:RadListView>
             </telerik:RadAjaxPanel>
-
-
         </div>
 
     </div>

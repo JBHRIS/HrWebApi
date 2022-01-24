@@ -135,7 +135,7 @@
             this.Controls.Add(this.jbQuery1);
             this.FormSize = JBControls.JBForm.FormSizeType.Large;
             this.Name = "FRM71N1";
-            this.Text = "FRM71N1-所得明細資料";
+            this.Text = "FRM71N1-申報資料維護";
             this.Load += new System.EventHandler(this.FRM71N1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

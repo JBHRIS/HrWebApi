@@ -179,8 +179,8 @@ namespace Portal
         public void txtNameAppS_DataBind()
         {
             var OtOnlyShowSelf = (from c in dcFlow.FormsExtend
-                                    where c.FormsCode == "Ot" && c.Code == "OtOnlyShowSelf" && c.Active == true
-                                    select c).FirstOrDefault();
+                                  where c.FormsCode == "Ot" && c.Code == "OtOnlyShowSelf" && c.Active == true
+                                  select c).FirstOrDefault();
             if (OtOnlyShowSelf == null)
             {
                 var rs = AccessData.GetPeopleByDeptTree(_User, CompanySetting);
@@ -292,10 +292,19 @@ namespace Portal
             var rsAttCard = oAttcardDao.GetAttcard(sNobr, dDate.Date);
             if (rsAttCard.Count > 0)
             {
+                //Card = dDate.ToString("M/d") + "：";
                 Card = dDate.ToShortDateString() + "：";
-
                 foreach (var rCard in rsAttCard)
-                    Card += rCard.OnCardTime24 + "-" + rCard.OffCardTime24;
+                {
+                    if (rCard.OffCardTime48.CompareTo("2400") > 0)
+                    {
+                        Card += rCard.OnCardTime24 + " - " + dDate.AddDays(1).ToShortDateString() + "：" + rCard.OffCardTime24;
+
+                    }
+                    else
+                        Card += rCard.OnCardTime24 + " - " + dDate.ToShortDateString() + "：" + rCard.OffCardTime24;
+                    //Card += rCard.OnCardTime24 + "-" + rCard.OffCardTime24;
+                }
             }
 
             return Card;

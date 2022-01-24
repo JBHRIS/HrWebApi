@@ -80,7 +80,7 @@ namespace JBHR_CardTextCollector
                 {
 
                 }
-                SourceBlackList = BlackListString.Split(',');
+                SourceBlackList = BlackListString.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
                 string FoodCardListString = "";
                 try
@@ -91,7 +91,7 @@ namespace JBHR_CardTextCollector
                 {
 
                 }
-                SourceFoodCardList = FoodCardListString.Split(',');
+                SourceFoodCardList = FoodCardListString.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
                 string RunAttendGenerateString = "";
                 try

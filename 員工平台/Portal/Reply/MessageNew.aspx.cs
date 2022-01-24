@@ -78,6 +78,18 @@ namespace Portal
         }
         public void btnAdd_Click(object sender, EventArgs e)
         {
+
+            if (txtTitle.Text == "" || txtContent.Text == "")
+            {
+                lblAddStatus.InnerText = "未輸入標題或回報內容";
+                return;
+            }
+            if (txtTitle.Text.Length > 30 || txtContent.Text.Length > 200)
+            {
+                lblAddStatus.InnerText = "標題或內容長度過長";
+                return;
+            }
+
             if (Request.QueryString["Active"] != null)
             {
                 var oUpdateQuestionDefaultMessage = new ShareUpdateQuestionDefaultMessageDao();
@@ -91,7 +103,7 @@ namespace Portal
                 UpdateQuestionDefaultMessageCond.UpdateMan = _User.EmpName;
                 UpdateQuestionDefaultMessageCond.UpdateDate = DateTime.Now;
                 oUpdateQuestionDefaultMessage.GetData(UpdateQuestionDefaultMessageCond);
-                lblAddStatus.InnerText = "資料更新成功";
+                lblEditStatus.InnerText = "資料更新成功";
             }
             else
             {
@@ -114,7 +126,7 @@ namespace Portal
                 InsertQuestionDefaultMessageCond.UpdateDate = DateTime.Now;
 
                 oQuestionDefaultMessage.GetData(InsertQuestionDefaultMessageCond);
-                lblAddStatus.InnerText = "新增成功";
+                lblEditStatus.InnerText = "新增成功";
             }
 
             

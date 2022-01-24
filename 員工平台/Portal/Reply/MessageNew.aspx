@@ -20,11 +20,11 @@
                     <telerik:RadAjaxPanel ID="plMain" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
                         <h2 id="title" runat="server">建立預設訊息</h2>
                         <div class="form-group">
-                            <label>標題 <small id="titlelength" class="text-navy">(0/30)</small></label>
+                            <label>標題 <small id="titlelength" style="color: #1ab394">(0/30)</small><label runat="server" id="lblAddStatus" style="color: red;"></label></label>
                             <telerik:RadTextBox ID="txtTitle" runat="server" EmptyMessage="請輸入標題..." Skin="Bootstrap" Width="100%" />
                         </div>
                         <div class="form-group">
-                            <label>內容 <small id="contentlength" class="text-navy">(0/80)</small></label>
+                            <label>內容 <small id="contentlength" style="color: #1ab394">(0/200)</small></label>
                             <telerik:RadTextBox ID="txtContent" runat="server" EmptyMessage="請填寫您想回報的內容..."
                                 TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="4">
                             </telerik:RadTextBox>
@@ -106,7 +106,7 @@
                 <div class="col-lg-12">
                     <telerik:RadButton ID="btnPage" runat="server" Text="上一頁" CssClass="btn btn-outline btn-primary btn-md" OnClick="btnPage_Click" />
                     <telerik:RadButton ID="btnAdd" runat="server" Text="確認" CssClass="btn btn-primary btn-md" OnClick="btnAdd_Click" />
-                    <label runat="server" id="lblAddStatus" style="color: red;"></label>
+                    <label runat="server" id="lblEditStatus" style="color: red;"></label>
                     <!--<button class="btn btn-primary btn-outline" type="submit"><strong>上一頁</strong></button>
                     <button class="btn btn-primary btn-md" type="submit"><strong>確認</strong></button>-->
                 </div>
@@ -128,27 +128,61 @@
     <script>
         $(document).ready(function () {
             $('.footable').footable();
-        });
+            var isPostBack = <%=this.IsPostBack.ToString().ToLower()%>;
+             if (isPostBack) {
+                 $('#titlelength').text('(' + $('#ctl00_ContentPlaceHolder1_txtTitle').val().length + '/30)')
+                 isTyping = false;
+                 if ($('#ctl00_ContentPlaceHolder1_txtContent').val().length > 200) {
+                     $('#contentlength').css('color', 'red')
+
+                     $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/200)')
+                     isTyping = false;
+                 }
+                 else {
+                     $('#contentlength').css('color', '#1ab394')
+                     $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/200)')
+                     isTyping = false;
+                 }
+                 if ($('#ctl00_ContentPlaceHolder1_txtTitle').val().length > 30) {
+                     $('#titlelength').css('color', 'red')
+                     $('#titlelength').text('(' + $('#ctl00_ContentPlaceHolder1_txtTitle').val().length + '/30)')
+                     isTyping = false;
+                 }
+                 else {
+                     $('#titlelength').css('color', '#1ab394')
+                     $('#titlelength').text('(' + $('#ctl00_ContentPlaceHolder1_txtTitle').val().length + '/30)')
+                     isTyping = false;
+                 }
+             }
+             else {
+                 $('#titlelength').text('(0/30)')
+                 $('#contentlength').text('(0/200)')
+                 isTyping = false;
+
+             }
+         });
         var isTyping
+
         $('#ctl00_ContentPlaceHolder1_txtTitle').on('keyup', function () {
 
             $('#ctl00_ContentPlaceHolder1_txtTitle').on('compositionstart', function (e) {
                 isTyping = true;
             });
             $('#ctl00_ContentPlaceHolder1_txtTitle').on('compositionend', function (e) {
-
+                isTyping = false;
             });
             if (!isTyping) {
                 if ($('#ctl00_ContentPlaceHolder1_txtTitle').val().length > 30) {
-                    alert('標題字數不可超過三十字')
-                    var str = $('#ctl00_ContentPlaceHolder1_txtTitle').val().substr(0, 30);
-                    $('#ctl00_ContentPlaceHolder1_txtTitle').val(str)
+                    $('#titlelength').css('color', 'red')
                     $('#titlelength').text('(' + $('#ctl00_ContentPlaceHolder1_txtTitle').val().length + '/30)')
                     isTyping = false;
                 }
                 else {
+                    $('#titlelength').css('color', '#1ab394')
                     $('#titlelength').text('(' + $('#ctl00_ContentPlaceHolder1_txtTitle').val().length + '/30)')
+
                     isTyping = false;
+
                 }
 
             }
@@ -164,29 +198,23 @@
                 isTyping = false;
             });
             if (!isTyping) {
-                if ($('#ctl00_ContentPlaceHolder1_txtContent').val().length > 80) {
-                    alert('標題字數不可超過八十字')
-                    var str = $('#ctl00_ContentPlaceHolder1_txtContent').val().substr(0, 80);
-                    $('#ctl00_ContentPlaceHolder1_txtContent').val(str)
-                    $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/80)')
+                if ($('#ctl00_ContentPlaceHolder1_txtContent').val().length > 200) {
+                    $('#contentlength').css('color', 'red')
+
+                    $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/200)')
                     isTyping = false;
                 }
                 else {
-                    $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/80)')
+                    $('#contentlength').css('color', '#1ab394')
+                    $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/200)')
                     isTyping = false;
+
                 }
 
             }
-        });
 
-        $(document).ready(function () {
-            var isPostBack = <%=this.IsPostBack.ToString().ToLower()%>;
-            if (isPostBack) {
-                $('#titlelength').text('(' + $('#ctl00_ContentPlaceHolder1_txtTitle').val().length + '/30)')            
-                $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/80)')
-                isTyping = false;
-            }
-        })
+
+        });
     </script>
 
 </asp:Content>
