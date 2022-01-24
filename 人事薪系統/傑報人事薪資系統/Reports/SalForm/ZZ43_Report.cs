@@ -195,10 +195,12 @@ namespace JBHR.Reports.SalForm
                                 }
                             }
                             if (no_disp)
+                            {
                                 Row["salary"] = 0;
                                 Row["not_exp"] = 0;
                                 Row["tot_exp"] = 0;
                                 Row["rest_exp"] = 0;
+                            }
                             ds.Tables["zz431"].ImportRow(Row);
                         }
                     }
