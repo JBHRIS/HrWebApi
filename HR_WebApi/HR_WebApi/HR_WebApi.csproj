@@ -4,8 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>627f8a10-9510-4fa1-bb50-eab3a11a4ce6</UserSecretsId>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
-    <AssemblyVersion>1.0.3.8</AssemblyVersion>
-    <FileVersion>1.0.3.8</FileVersion>
+    <AssemblyVersion>1.0.3.9</AssemblyVersion>
+    <FileVersion>1.0.3.9</FileVersion>
     <Nullable>annotations</Nullable>
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>

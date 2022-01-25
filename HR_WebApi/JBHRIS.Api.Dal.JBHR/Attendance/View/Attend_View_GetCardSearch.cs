@@ -28,6 +28,7 @@ namespace JBHRIS.Api.Dal.JBHR.Attendance.View
                 var result = new List<CardSearchViewDto>();
                 foreach (var item in cardSearchViewEntry.EmployeeList.Split(2100))
                 {
+                    DateTime today = DateTime.Today;
                     var CardsByEntry = from c in _unitOfWork.Repository<Card>().Reads()
                                        join cl in _unitOfWork.Repository<Cardlosd>().Reads() on c.Reason equals cl.Code
                                        into clgrp
@@ -37,7 +38,7 @@ namespace JBHRIS.Api.Dal.JBHR.Attendance.View
                                        join d in _unitOfWork.Repository<Dept>().Reads() on btts.Dept equals d.DNo
                                        where item.Contains(c.Nobr)
                                        && cardSearchViewEntry.DateBegin <= c.Adate && c.Adate <= cardSearchViewEntry.DateEnd
-                                       && (btts.Ddate >= DateTime.Now.Date && btts.Adate <= DateTime.Now.Date)
+                                       && (btts.Ddate >= today && btts.Adate <= today)
                                        && new string[] { "1", "4", "6" }.Contains(btts.Ttscode)
                                        select new CardSearchViewDto
                                        {

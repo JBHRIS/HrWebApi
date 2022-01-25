@@ -85,9 +85,11 @@ namespace JBHRIS.Api.Dal.JBHR.Salary.View
 
         public List<GetSalaryWageLockDto> GetSalaryWageLock(string Nobr)
         {
+            DateTime today = DateTime.Today;
+            DateTime todayLastYear = DateTime.Now.AddYears(-1).Date;
             var sql = from w in _unitOfWork.Repository<Wage>().Reads()
                       join lk in _unitOfWork.Repository<LockWage>().Reads() on new { w.Yymm, w.Seq, w.Saladr } equals new { lk.Yymm, lk.Seq, lk.Saladr }
-                      where DateTime.Now.Date >= w.Adate && DateTime.Now.AddYears(-1).Date <= w.Adate
+                      where today >= w.Adate && todayLastYear <= w.Adate
                       && w.Nobr == Nobr
                       select new GetSalaryWageLockDto
                       {
@@ -320,10 +322,11 @@ namespace JBHRIS.Api.Dal.JBHR.Salary.View
 
         public decimal GetAnnualLeave(string Nobr, DateTime dateTime)
         {
+            DateTime today = DateTime.Today;
             //SELECT Value FROM AppConfig WHERE Category = 'FRM4O' AND code = 'AnnualLeaveTypeCode' AND COMP = 'A'--公司別
             string Comp = (from btts in _unitOfWork.Repository<Basetts>().Reads()
                            where btts.Nobr == Nobr &&
-                           (btts.Ddate >= DateTime.Now.Date && btts.Adate <= DateTime.Now.Date) &&
+                           (btts.Ddate >= today && btts.Adate <= today) &&
                            new string[] { "1", "4", "6" }.Contains(btts.Ttscode)
                            select btts).FirstOrDefault().Comp;
 
@@ -338,7 +341,7 @@ namespace JBHRIS.Api.Dal.JBHR.Salary.View
                       (a.Edate >= dateTime.Date && dateTime.Date >= a.Bdate) &&
                       h.Htype == Htype &&
                       h.Flag == "+" &&
-                      (btts.Ddate >= DateTime.Now.Date && btts.Adate <= DateTime.Now.Date) &&
+                      (btts.Ddate >= today && btts.Adate <= today) &&
                       new string[] { "1", "4", "6" }.Contains(btts.Ttscode)
                       select new { Balance = a.Balance, Unit = h.Unit };
 
@@ -364,10 +367,11 @@ namespace JBHRIS.Api.Dal.JBHR.Salary.View
 
         public decimal GetCompensatoryLeave(string Nobr, DateTime dateTime)
         {
+            DateTime today = DateTime.Today;
             //SELECT Value FROM AppConfig WHERE Category = 'FRM4P' AND code = 'LeaveTypeCode' AND COMP = 'A'--公司別
             string Comp = (from btts in _unitOfWork.Repository<Basetts>().Reads()
                            where btts.Nobr == Nobr &&
-                           (btts.Ddate >= DateTime.Now.Date && btts.Adate <= DateTime.Now.Date) &&
+                           (btts.Ddate >= today && btts.Adate <= today) &&
                            new string[] { "1", "4", "6" }.Contains(btts.Ttscode)
                            select btts).FirstOrDefault().Comp;
 
@@ -382,7 +386,7 @@ namespace JBHRIS.Api.Dal.JBHR.Salary.View
                       (a.Edate >= dateTime.Date && dateTime.Date >= a.Bdate) &&
                       h.Htype == Htype &&
                       h.Flag == "+" &&
-                      (btts.Ddate >= DateTime.Now.Date && btts.Adate <= DateTime.Now.Date) &&
+                      (btts.Ddate >= today && btts.Adate <= today) &&
                       new string[] { "1", "4", "6" }.Contains(btts.Ttscode)
                       select new { Balance = a.Balance, Unit = h.Unit };
 
@@ -408,10 +412,11 @@ namespace JBHRIS.Api.Dal.JBHR.Salary.View
 
         public List<DateTime> GetDataPassList(string Nobr, DateTime beginDate, DateTime endDate)
         {
+            DateTime today = DateTime.Today;
             List<DateTime> dList = (from btts in _unitOfWork.Repository<Basetts>().Reads()
                                     join dpa in _unitOfWork.Repository<DataPa>().Reads() on btts.Saladr equals dpa.Saladr
                                     where btts.Nobr == Nobr &&
-                                    (btts.Ddate >= DateTime.Now.Date && btts.Adate <= DateTime.Now.Date) &&
+                                    (btts.Ddate >= today && btts.Adate <= today) &&
                                     (dpa.DataPass >= beginDate && dpa.DataPass <= endDate)
                                     select dpa).Select(p => p.DataPass).ToList();
             

@@ -77,9 +77,10 @@ namespace JBHRIS.Api.Service.Employee.Normal
                     Job = p.Job,
                     Note = p.Note
                 }).ToList();
+                DateTime today = DateTime.Today;
                 var WorkStatusInfo = employeeWorks.Where(btts => btts.Nobr == b.EmployeeId).Select(btts => new WorkStatusInfo() { Status = btts.TtscodeName, ADate = btts.Adate.ToString() }).ToList();
                 var FamilyInfo = employeeFamilys.Where(fam => fam.Nobr == b.EmployeeId).Select(f => new FamilyInfo() { Name = f.FaName, Birthday = f.FaBirdt.ToString(), Relationship = f.RelCodeName }).ToList();
-                var nowBasetts = employeeWorks.Where(btts => btts.Nobr == b.EmployeeId && DateTime.Now.Date >= btts.Adate && DateTime.Now.Date <= btts.Ddate).FirstOrDefault();
+                var nowBasetts = employeeWorks.Where(btts => btts.Nobr == b.EmployeeId && today >= btts.Adate && today <= btts.Ddate).FirstOrDefault();
                 var SchoolInfo = employeeSchools.Where(sch => sch.Nobr == b.EmployeeId).OrderByDescending(p => p.EduccodeSort).ToList();
                 List<SchoolInfo> schoolInfos = new List<SchoolInfo>();
                 for (int i = 0; i < SchoolInfo.Count; i++)

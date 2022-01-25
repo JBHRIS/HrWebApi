@@ -17,8 +17,9 @@ namespace JBHRIS.Api.Dal.JBHR.Employee
         public List<string> GetPeopleByLeaveDate(DateTime beginDate, DateTime endDate)
         {
             //var data = _context.Basetts.Where(p =>   DateTime.Now >= p.Adate && DateTime.Now <= p.Ddate.Value ).Select(p => p).Distinct().ToList();//有效日期的名單
-           
-            return _context.Basetts.Where(p => beginDate <= p.Oudt && p.Oudt <= endDate && DateTime.Now.Date >= p.Adate && DateTime.Now.Date <= p.Ddate.Value).Select(p => p.Nobr).Distinct().ToList();
+
+            DateTime today = DateTime.Today;
+            return _context.Basetts.Where(p => beginDate <= p.Oudt && p.Oudt <= endDate && today >= p.Adate && today <= p.Ddate.Value).Select(p => p.Nobr).Distinct().ToList();
           
         }
 

@@ -17,7 +17,8 @@ namespace JBHRIS.Api.Dal.JBHR.Employee.View
         }
         public List<DeptDto> GetDeptaView()
         {
-            var data = _unitOfWork.Repository<Depta>().Reads().Where(p => DateTime.Now.Date >= p.Adate && DateTime.Now.Date <= p.Ddate)
+            DateTime today = DateTime.Today;
+            var data = _unitOfWork.Repository<Depta>().Reads().Where(p => today >= p.Adate && today <= p.Ddate)
                 .Select(p => new DeptDto
                 {
                     DepartmentId = p.DNo,
