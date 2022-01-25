@@ -11,7 +11,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>9.0549cm</Height>
+              <Height>20.0549cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -3974,7 +3974,7 @@
         </TablixRowHierarchy>
         <DataSetName>SalDataSet_zz4f</DataSetName>
         <Left>0.5cm</Left>
-        <Height>9.0549cm</Height>
+        <Height>20.0549cm</Height>
         <Width>20cm</Width>
         <Style>
           <Border>
@@ -3983,7 +3983,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>9.0549cm</Height>
+    <Height>21.83428cm</Height>
     <Style />
   </Body>
   <Width>20.75cm</Width>
