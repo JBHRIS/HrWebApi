@@ -323,7 +323,7 @@ namespace JBHRIS.Api.Dal.JBHR.Salary.View
             //SELECT Value FROM AppConfig WHERE Category = 'FRM4O' AND code = 'AnnualLeaveTypeCode' AND COMP = 'A'--公司別
             string Comp = (from btts in _unitOfWork.Repository<Basetts>().Reads()
                            where btts.Nobr == Nobr &&
-                           (btts.Ddate >= DateTime.Now && btts.Adate <= DateTime.Now) &&
+                           (btts.Ddate >= DateTime.Now.Date && btts.Adate <= DateTime.Now.Date) &&
                            new string[] { "1", "4", "6" }.Contains(btts.Ttscode)
                            select btts).FirstOrDefault().Comp;
 
@@ -338,7 +338,7 @@ namespace JBHRIS.Api.Dal.JBHR.Salary.View
                       (a.Edate >= dateTime.Date && dateTime.Date >= a.Bdate) &&
                       h.Htype == Htype &&
                       h.Flag == "+" &&
-                      (btts.Ddate >= DateTime.Now && btts.Adate <= DateTime.Now) &&
+                      (btts.Ddate >= DateTime.Now.Date && btts.Adate <= DateTime.Now.Date) &&
                       new string[] { "1", "4", "6" }.Contains(btts.Ttscode)
                       select new { Balance = a.Balance, Unit = h.Unit };
 
@@ -367,7 +367,7 @@ namespace JBHRIS.Api.Dal.JBHR.Salary.View
             //SELECT Value FROM AppConfig WHERE Category = 'FRM4P' AND code = 'LeaveTypeCode' AND COMP = 'A'--公司別
             string Comp = (from btts in _unitOfWork.Repository<Basetts>().Reads()
                            where btts.Nobr == Nobr &&
-                           (btts.Ddate >= DateTime.Now && btts.Adate <= DateTime.Now) &&
+                           (btts.Ddate >= DateTime.Now.Date && btts.Adate <= DateTime.Now.Date) &&
                            new string[] { "1", "4", "6" }.Contains(btts.Ttscode)
                            select btts).FirstOrDefault().Comp;
 
@@ -382,7 +382,7 @@ namespace JBHRIS.Api.Dal.JBHR.Salary.View
                       (a.Edate >= dateTime.Date && dateTime.Date >= a.Bdate) &&
                       h.Htype == Htype &&
                       h.Flag == "+" &&
-                      (btts.Ddate >= DateTime.Now && btts.Adate <= DateTime.Now) &&
+                      (btts.Ddate >= DateTime.Now.Date && btts.Adate <= DateTime.Now.Date) &&
                       new string[] { "1", "4", "6" }.Contains(btts.Ttscode)
                       select new { Balance = a.Balance, Unit = h.Unit };
 
@@ -411,7 +411,7 @@ namespace JBHRIS.Api.Dal.JBHR.Salary.View
             List<DateTime> dList = (from btts in _unitOfWork.Repository<Basetts>().Reads()
                                     join dpa in _unitOfWork.Repository<DataPa>().Reads() on btts.Saladr equals dpa.Saladr
                                     where btts.Nobr == Nobr &&
-                                    (btts.Ddate >= DateTime.Now && btts.Adate <= DateTime.Now) &&
+                                    (btts.Ddate >= DateTime.Now.Date && btts.Adate <= DateTime.Now.Date) &&
                                     (dpa.DataPass >= beginDate && dpa.DataPass <= endDate)
                                     select dpa).Select(p => p.DataPass).ToList();
             

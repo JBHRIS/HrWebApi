@@ -45,7 +45,7 @@ namespace JBHRIS.Api.Dal.JBHR.Attendance.View
                                            from dmt1 in mt1Grp.DefaultIfEmpty()
                                            where item.Contains(aa.Nobr)
                                            && abnormalSearchViewEntry.DateBegin <= aa.Adate && aa.Adate <= abnormalSearchViewEntry.DateEnd
-                                           && (btts.Ddate >= DateTime.Now && btts.Adate <= DateTime.Now)
+                                           && (btts.Ddate >= DateTime.Now.Date && btts.Adate <= DateTime.Now.Date)
                                            && new string[] { "1", "4", "6" }.Contains(btts.Ttscode)
                                            select new AbnormalSearchViewDto
                                            {

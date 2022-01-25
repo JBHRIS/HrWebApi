@@ -61,7 +61,7 @@ namespace JBHRIS.Api.Dal.JBHR.Attendance.View
                                where EmpIds.Contains(att.Nobr)
                                && att.Adate >= StartDate && att.Adate <= EndDate
                                && new List<string>() { "1", "4", "6" }.Contains(bts.Ttscode)
-                               && DateTime.Now >= bts.Adate && DateTime.Now <= bts.Ddate
+                               && DateTime.Now.Date >= bts.Adate && DateTime.Now.Date <= bts.Ddate
                                select new { ATTEND = att, ROTE = r, BASETTS = bts }).ToList();
 
 
@@ -241,7 +241,7 @@ namespace JBHRIS.Api.Dal.JBHR.Attendance.View
                                 where EmpIds.Contains(att.Nobr)
                                 && StartDate <= att.Adate && att.Adate <= EndDate
                                 && new List<string>() { "1", "4", "6" }.Contains(bts.Ttscode)
-                                && DateTime.Now >= bts.Adate && DateTime.Now <= bts.Ddate
+                                && DateTime.Now.Date >= bts.Adate && DateTime.Now.Date <= bts.Ddate
                                 select new { ATTEND = att, ROTE = r, BASETTS = bts }).ToList();
 
             List<AttRoteViewDto> attentRoteViewDtos = new List<AttRoteViewDto>();

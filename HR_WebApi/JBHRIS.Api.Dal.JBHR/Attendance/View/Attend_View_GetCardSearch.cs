@@ -37,7 +37,7 @@ namespace JBHRIS.Api.Dal.JBHR.Attendance.View
                                        join d in _unitOfWork.Repository<Dept>().Reads() on btts.Dept equals d.DNo
                                        where item.Contains(c.Nobr)
                                        && cardSearchViewEntry.DateBegin <= c.Adate && c.Adate <= cardSearchViewEntry.DateEnd
-                                       && (btts.Ddate >= DateTime.Now && btts.Adate <= DateTime.Now)
+                                       && (btts.Ddate >= DateTime.Now.Date && btts.Adate <= DateTime.Now.Date)
                                        && new string[] { "1", "4", "6" }.Contains(btts.Ttscode)
                                        select new CardSearchViewDto
                                        {

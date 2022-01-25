@@ -39,7 +39,7 @@ namespace JBHRIS.Api.Dal.JBHR.Attendance.View
                                            from otrg in otrgrp.DefaultIfEmpty()
                                            where item.Contains(ot.Nobr)
                                            && overTimeSearchViewEntry.DateBegin <= ot.Bdate && ot.Bdate <= overTimeSearchViewEntry.DateEnd
-                                           && (btts.Ddate >= DateTime.Now && btts.Adate <= DateTime.Now)
+                                           && (btts.Ddate >= DateTime.Now.Date && btts.Adate <= DateTime.Now.Date)
                                            && new string[] { "1", "4", "6" }.Contains(btts.Ttscode)
                                            select new OverTimeSearchViewDto
                                            {

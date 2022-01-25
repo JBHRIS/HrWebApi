@@ -38,7 +38,7 @@ namespace JBHRIS.Api.Dal.JBHR.Attendance.View
                                                && (abseneceEntitleViewEntry.LeaveCodeList.Count > 0 ? abseneceEntitleViewEntry.LeaveCodeList.Contains(h.HCode1) : true)
                                                && h.Flag == "+"
                                                && (abs.Edate >= abseneceEntitleViewEntry.DateBegin && abs.Bdate <= abseneceEntitleViewEntry.DateEnd)
-                                               && (btts.Ddate >= DateTime.Now && btts.Adate <= DateTime.Now)
+                                               && (btts.Ddate >= DateTime.Now.Date && btts.Adate <= DateTime.Now.Date)
                                                && new string[] { "1", "4", "6" }.Contains(btts.Ttscode)
                                                select new AbsenceEntitleViewDto
                                                {
