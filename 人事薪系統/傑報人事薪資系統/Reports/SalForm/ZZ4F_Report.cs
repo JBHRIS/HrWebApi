@@ -90,7 +90,7 @@ namespace JBHR.Reports.SalForm
                 string sqlCmd2 = "select distinct a.nobr from salbasd a,salcode b";
                 sqlCmd2 += " where a.sal_code=b.sal_code";
                 sqlCmd2 += string.Format(@" and a.adate='{0}'", date_e);
-                sqlCmd2 += " and b.sal_attr = 'A'";
+                sqlCmd2 += " and b.sal_attr in ('A', 'G')";
                 sqlCmd2 += string.Format(@" and a.nobr between '{0}' and '{1}'", nobr_b, nobr_e);
                 sqlCmd2 += " and a.amt<> 10";
                 //sqlCmd2 += " order by a.nobr,a.sal_code,a.adate";
@@ -106,7 +106,7 @@ namespace JBHR.Reports.SalForm
                     string sqlCmd2a = "select a.nobr,b.sal_code_disp as sal_code,b.sal_name,a.amt,a.meno from salbasd a,salcode b";
                     sqlCmd2a += " where a.sal_code=b.sal_code";
                     sqlCmd2a += string.Format(@" and '{0}' between a.adate and a.ddate", date_e);
-                    sqlCmd2a += " and b.sal_attr = 'A'";
+                    sqlCmd2a += " and b.sal_attr in ('A', 'G')";
                     sqlCmd2a += string.Format(@" and a.nobr = '{0}'", Row["nobr"].ToString());
                     //sqlCmd2a += " and b.sal_attr in ('A','G') and a.amt<> 10";
                     sqlCmd2a += " order by a.nobr,a.sal_code,a.adate";
@@ -123,7 +123,7 @@ namespace JBHR.Reports.SalForm
                 //sqlCmd3 += string.Format(@" and a.adate<'{0}'", date_e);
                 sqlCmd3 += string.Format(@" and '{0}' between a.adate and a.ddate", DateTime.Parse(date_e).AddDays(-1).ToString("yyyy/MM/dd"));
                 sqlCmd3 += string.Format(@" and a.nobr between '{0}' and '{1}'", nobr_b, nobr_e);
-                sqlCmd3 += " and b.sal_attr = 'A'";
+                sqlCmd3 += " and b.sal_attr in ('A', 'G')";
                 sqlCmd3 += " order by a.nobr,b.sal_code_disp,a.adate desc";
                 DataTable rq_salbasda = SqlConn.GetDataTable(sqlCmd3);
                 DataTable rq_salbasdb = new DataTable();
@@ -242,7 +242,7 @@ namespace JBHR.Reports.SalForm
                 sqlCmd4 += " where a.sal_code=b.sal_code";
                 sqlCmd4 += string.Format(@" and '{0}' between a.adate and a.ddate", date_e);
                 sqlCmd4 += string.Format(@" and a.nobr between '{0}' and '{1}'", nobr_b, nobr_e);
-                sqlCmd4 += " and b.sal_attr = 'A'";
+                sqlCmd4 += " and b.sal_attr in ('A', 'G')";
                 sqlCmd4 += " order by a.nobr,b.sal_code_disp,a.adate";
                 DataTable rq_salbasde = SqlConn.GetDataTable(sqlCmd4);
                 foreach (DataRow Row in rq_salbasde.Rows)
