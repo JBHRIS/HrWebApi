@@ -326,8 +326,15 @@ namespace Portal
 
         #region 代理人1工號及姓名
         protected void txtNameAgent1_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
-        {
-            SetName1(e.Text);
+        {////請假單代理人可否搜尋預設以外，0為不能搜尋
+            var AgentCanSearch = (from c in dcFlow.FormsExtend
+                                  where c.FormsCode == "Abs" && c.Code == "AgentCanSearch" && c.Active == true
+                                  select c).FirstOrDefault();
+
+            if (AgentCanSearch != null && AgentCanSearch.Column1 != "0")
+            {
+                SetName1(e.Text);
+            }
         }
         protected void txtNameAgent1_DataBound(object sender, EventArgs e)
         {
@@ -346,8 +353,9 @@ namespace Portal
 
             if (li != null)
                 SetName1(li);
-            else if (txtNameAgent1.Text.Trim().Length > 0)
-                SetName1(txtNameAgent1.Text);
+            //else if (txtNameAgent1.Text.Trim().Length > 0)
+            //    SetName1(txtNameAgent1.Text);
+            
 
         }
         private void SetName1(RadComboBoxItem li)
@@ -361,26 +369,20 @@ namespace Portal
         }
         private void SetName1(string sNobr)
         {
-            //請假單代理人可否搜尋預設以外，0為不能搜尋
-            var AgentCanSearch = (from c in dcFlow.FormsExtend
-                                  where c.FormsCode == "Abs" && c.Code == "AgentCanSearch" && c.Active == true
-                                  select c).FirstOrDefault();
 
-            if (AgentCanSearch != null && AgentCanSearch.Column1 != "0")
+            OldDal.Dao.Bas.BasDao oBasDao = new OldDal.Dao.Bas.BasDao(dcHR.Connection);
+
+            var rBas = oBasDao.GetBase(sNobr, true).FirstOrDefault();
+
+            if (rBas != null)
             {
-                OldDal.Dao.Bas.BasDao oBasDao = new OldDal.Dao.Bas.BasDao(dcHR.Connection);
-
-                var rBas = oBasDao.GetBase(sNobr, true).FirstOrDefault();
-
-                if (rBas != null)
-                {
-                    lblNobrAgent1.Text = rBas.Nobr;
-                    txtNameAgent1.Text = rBas.Name;
-                    txtNameAgent1.ToolTip = rBas.Name;
-                }
-                else
-                    txtNameAgent1.Text = txtNameAgent1.ToolTip;
+                lblNobrAgent1.Text = rBas.Nobr;
+                txtNameAgent1.Text = rBas.Name;
+                txtNameAgent1.ToolTip = rBas.Name;
             }
+            else
+                txtNameAgent1.Text = txtNameAgent1.ToolTip;
+
 
         }
 
