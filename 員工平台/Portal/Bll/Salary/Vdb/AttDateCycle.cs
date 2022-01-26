@@ -24,7 +24,7 @@ namespace Bll.Salary.Vdb
            public DateTime attDateB { get; set; }
            public DateTime attDateE { get; set; }
         }
-        public List<Result> result { get; set; }
+        public Result result { get; set; }
     }
 
     public class AttDateCycleRow

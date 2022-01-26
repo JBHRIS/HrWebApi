@@ -34,6 +34,7 @@ namespace Reply
                     EmpId = UserData[3];
                     EmpName = UserData[4];
                     Role = Convert.ToInt32(UserData[5]);
+                    UnobtrusiveSession.Session["FileInfo"] = Convert.ToByte(UserData[6]);
                 }
 
                 var oShareCompany = new ShareCompanyDao();

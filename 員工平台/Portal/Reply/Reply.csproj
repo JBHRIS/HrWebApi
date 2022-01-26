@@ -149,9 +149,7 @@
     <Content Include="images\reference\win-R-step1.jpg" />
     <Content Include="LoginBind.aspx" />
     <Content Include="LoginValidate.aspx" />
-    <Content Include="MessageList.aspx" />
     <Content Include="MessageNew.aspx" />
-    <Content Include="MessageReturn.aspx" />
     <Content Include="ProblemReturn.aspx" />
     <Content Include="ProblemReturnList.aspx" />
     <Content Include="ProblemReturnListM.aspx" />
@@ -1642,26 +1640,12 @@
     <Compile Include="Main_PR.Master.designer.cs">
       <DependentUpon>Main_PR.Master</DependentUpon>
     </Compile>
-    <Compile Include="MessageList.aspx.cs">
-      <DependentUpon>MessageList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MessageList.aspx.designer.cs">
-      <DependentUpon>MessageList.aspx</DependentUpon>
-    </Compile>
     <Compile Include="MessageNew.aspx.cs">
       <DependentUpon>MessageNew.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MessageNew.aspx.designer.cs">
       <DependentUpon>MessageNew.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MessageReturn.aspx.cs">
-      <DependentUpon>MessageReturn.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MessageReturn.aspx.designer.cs">
-      <DependentUpon>MessageReturn.aspx</DependentUpon>
     </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="ProblemReturn.aspx.cs">
@@ -1825,7 +1809,6 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -1850,7 +1833,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -501,12 +501,29 @@ namespace Portal
             var RoteHName = "";
             var rBasM = oBasDao.GetBaseByNobr(lblNobrAppM.Text, DateB).FirstOrDefault();
             OldDal.Dao.Att.AttendDao oAttendDao = new OldDal.Dao.Att.AttendDao(dcHR.Connection);
+            OldDal.Dao.Att.AttcardDao oAttcardDao = new OldDal.Dao.Att.AttcardDao(dcHR.Connection);
             OldDal.Dao.Att.RoteDao oRoteDao = new OldDal.Dao.Att.RoteDao(dcHR.Connection);
+            DateTime DateTimeB = DateB.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(TimeB));
+            DateTime DateTimeE = DateE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(TimeE));
+            OldDal.Dao.Att.OtDao oOtDao = new OldDal.Dao.Att.OtDao(dcHR.Connection);
 
-            if (oRoteDao.RoteIsNightShift(Rote))//夜班需-1天
+            var OtOver = (from c in dcFlow.FormsExtend
+                          where c.FormsCode == "Ot" && c.Code == "OtOver" && c.Active == true
+                          select c).FirstOrDefault();
+            var rsAttcard = oAttcardDao.GetAttcard(Nobr, DateB.AddDays(-1), DateB);
+            foreach (var rAttcard in rsAttcard)
             {
-                DateB = DateB.AddDays(-1);
-                IsNightShift = true;
+                var bCardTime = false;
+
+                bCardTime = rAttcard.DateTimeB <= DateTimeB && DateTimeB <= rAttcard.DateTimeE;
+                bCardTime = bCardTime && (rAttcard.DateTimeB <= DateTimeE && DateTimeE <= rAttcard.DateTimeE);
+
+                if (bCardTime)
+                {
+                    IsNightShift = DateB != rAttcard.Date;
+                    DateB = rAttcard.Date;
+                    break;
+                }
             }
 
             var GetAttend = oAttendDao.GetAttendH(lblNobrAppS.Text, DateB).FirstOrDefault();
@@ -561,8 +578,8 @@ namespace Portal
             //iTimeE -= iTemp;
             //TimeE = Bll.Tools.TimeTrans.ConvertMinutesToHhMm(iTimeE);
 
-            DateTime DateTimeB = DateB.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(TimeB));
-            DateTime DateTimeE = DateE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(TimeE));
+            //DateTime DateTimeB = DateB.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(TimeB));
+            //DateTime DateTimeE = DateE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(TimeE));
 
             if (DateTimeB >= DateTimeE)
             {
@@ -571,7 +588,6 @@ namespace Portal
             }
 
             OldDal.Dao.Att.AbsDao oAbsDao = new OldDal.Dao.Att.AbsDao(dcHR.Connection);
-            OldDal.Dao.Att.AttcardDao oAttcardDao = new OldDal.Dao.Att.AttcardDao(dcHR.Connection);
 
             if (DateTimeB.Date < DateTime.Now.Date)
             {
@@ -635,7 +651,6 @@ namespace Portal
                 return;
             }
 
-            OldDal.Dao.Att.OtDao oOtDao = new OldDal.Dao.Att.OtDao(dcHR.Connection);
             var rsOt = oOtDao.GetOt1(Nobr, DateB.AddDays(-1).Date, DateE.AddDays(1).Date);
 
             if (rsOt.Where(p => p.DateTimeB < DateTimeE && p.DateTimeE > DateTimeB).Any())

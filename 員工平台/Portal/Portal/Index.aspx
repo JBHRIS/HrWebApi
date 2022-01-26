@@ -2,28 +2,29 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="styles/dashboard.css" rel="stylesheet">
+    <telerik:RadCodeBlock runat="server">
+        <script>
+            function OnClientPdfExporting(sender, args) {
+                args.set_cancel(true);
+                var data = args.get_dataURI().split(',')[1];
+                callMyPageMethod(data);
+            }
+            function callMyPageMethod(arg) {
+                PageMethods.storeFile(arg, OnSucceeded, OnFailed);
+            }
+            function OnSucceeded(data) {
+                window.location = data;
+            }
+            function OnFailed(error) {
+                //alert(error.get_message());
+            }
+        </script>
+
+    </telerik:RadCodeBlock>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="wrapper wrapper-content">
-        <telerik:RadCodeBlock runat="server">
-            <script>
-                function OnClientPdfExporting(sender, args) {
-                    args.set_cancel(true);
-                    var data = args.get_dataURI().split(',')[1];
-                    callMyPageMethod(data);
-                }
-                function callMyPageMethod(arg) {
-                    PageMethods.storeFile(arg, OnSucceeded, OnFailed);
-                }
-                function OnSucceeded(data) {
-                    window.location = data;
-                }
-                function OnFailed(error) {
-                    //alert(error.get_message());
-                }
-            </script>
-            
-        </telerik:RadCodeBlock>
+
         <div class="row">
             <div class="col-lg-8">
                 <asp:Panel runat="server" ID="pnlNews" Visible="false">
@@ -91,15 +92,21 @@
 
                                 <ItemTemplate>
                                     <div class="row line">
-                                        <div class="col-lg-4"><strong>
-                                            <telerik:RadLabel runat="server" ID="lblFormAssignName" Text="表單"></telerik:RadLabel>
-                                            ：</strong><%# Eval("FormName") %>,<%# Eval("ProcessFlowID") %></div>
-                                        <div class="col-lg-3"><strong>
-                                            <telerik:RadLabel runat="server" ID="lblFormAssignApplicant" Text="申請者"></telerik:RadLabel>
-                                            ：</strong><%# Eval("AppEmpID") %>,<%# Eval("AppEmpName") %></div>
-                                        <div class="col-lg-3"><strong>
-                                            <telerik:RadLabel runat="server" ID="lblFormAssignDate" Text="申請日期"></telerik:RadLabel>
-                                            ：</strong><%# Eval("AppDate","{0:yyyy/M/dd}") %></div>
+                                        <div class="col-lg-4">
+                                            <strong>
+                                                <telerik:RadLabel runat="server" ID="lblFormAssignName" Text="表單"></telerik:RadLabel>
+                                                ：</strong><%# Eval("FormName") %>,<%# Eval("ProcessFlowID") %>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <strong>
+                                                <telerik:RadLabel runat="server" ID="lblFormAssignApplicant" Text="申請者"></telerik:RadLabel>
+                                                ：</strong><%# Eval("AppEmpID") %>,<%# Eval("AppEmpName") %>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <strong>
+                                                <telerik:RadLabel runat="server" ID="lblFormAssignDate" Text="申請日期"></telerik:RadLabel>
+                                                ：</strong><%# Eval("AppDate","{0:yyyy/M/dd}") %>
+                                        </div>
                                         <div class="col-lg-2">
                                             <telerik:RadButton ID="btnUserFormAssign" runat="server" Text="檢視" CommandArgument='<%# Eval("ProcessApParmAuto") %>' CommandName='<%# Eval("FormCode") %>' CssClass="btn btn-outline btn-primary">
                                             </telerik:RadButton>

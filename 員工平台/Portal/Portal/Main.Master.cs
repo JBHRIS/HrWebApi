@@ -879,8 +879,8 @@ namespace Portal
         {
             string strMsg = "將前往回報系統，是否繼續?", strUrl_No = "";
             var Script = "Sys.Application.add_load(storeOnServer);";
-            ScriptManager.RegisterClientScriptBlock(this.UpdatePanel, typeof(UpdatePanel), "test", "if ( window.confirm('" + strMsg + "')) {'"+ Script +"' } else {window.location.href='" + strUrl_No + "' };", true);
-            //ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "storeOnServer", Script, true);
+            //ScriptManager.RegisterClientScriptBlock(this.UpdatePanel, typeof(UpdatePanel), "test", "if ( window.confirm('" + strMsg + "')) {'"+ Script +"' } else {window.location.href='" + strUrl_No + "' };", true);
+            ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "storeOnServer", Script, true);
         }
     }
 }

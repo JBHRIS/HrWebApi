@@ -122,38 +122,38 @@
                             <div class="col-md-8">
                                 <div class="row">
                                     <div class="col-6 col-lg-3">
-                                        開始日期：<%# Eval("DateB","{0:yyyy/MM/dd}") %>
+                                         <telerik:RadLabel runat="server" ID="lblBeginDateDic" Text="開始日期"></telerik:RadLabel>：<%# Eval("DateB","{0:yyyy/MM/dd}") %>
                                     </div>
                                     <div class="col-6 col-lg-3">
-                                        開始時間：<%# Eval("TimeB") %>
+                                        <telerik:RadLabel runat="server" ID="lblBeginTimeDic" Text="開始時間"></telerik:RadLabel>：<%# Eval("TimeB") %>
                                     </div>
                                     <div class="col-6 col-lg-3">
-                                        結束日期：<%# Eval("DateE","{0:yyyy/MM/dd}") %>
+                                        <telerik:RadLabel runat="server" ID="lblEndDateDic" Text="結束日期"></telerik:RadLabel>：<%# Eval("DateE","{0:yyyy/MM/dd}") %>
                                     </div>
                                     <div class="col-6 col-lg-3">
-                                        結束時間：<%# Eval("TimeE") %>
+                                        <telerik:RadLabel runat="server" ID="lblEndTimeDic" Text="開始時間"></telerik:RadLabel>：<%# Eval("TimeE") %>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6 col-lg-3">
-                                        假別：<%# Eval("HolidayName") %>
+                                        <telerik:RadLabel runat="server" ID="lblAbsenceNameDic" Text="假別"></telerik:RadLabel>：<%# Eval("HolidayName") %>
                                     </div>
                                     <div class="col-6 col-lg-3">
-                                        代理人：<%# Eval("AgentEmpName") %>
+                                        <telerik:RadLabel runat="server" ID="lblAgentDic" Text="代理人"></telerik:RadLabel>：<%# Eval("AgentEmpName") %>
                                     </div>
                                     <div class="col-6 col-lg-3">
-                                        請假時數：<%# Eval("Use") %>
+                                        <telerik:RadLabel runat="server" ID="lblAbsenceHourDic" Text="請假時數"></telerik:RadLabel>：<%# Eval("Use") %>
                                     </div>
                                     <div class="col-6 col-lg-3">
-                                        單位：<%# Eval("UnitCode") %>
+                                        <telerik:RadLabel runat="server" ID="lblUnitDic" Text="單位"></telerik:RadLabel>：<%# Eval("UnitCode") %>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        原因：<%# Eval("Note") %>
+                                        <telerik:RadLabel runat="server" ID="lblReasonDic" Text="原因"></telerik:RadLabel>：<%# Eval("Note") %>
                                     </div>
                                     <div class="col-lg-6">
-                                        交辦事項：<%# Eval("AgentNote") %>
+                                        <telerik:RadLabel runat="server" ID="lblAgentNoteDic" Text="交辦事項"></telerik:RadLabel>：<%# Eval("AgentNote") %>
                                     </div>
                                 </div>
                             </div>
@@ -199,7 +199,7 @@
                                 </tr>--%>
                 </ItemTemplate>
                 <EmptyDataTemplate>
-                    尚未新增請假資料
+                    <telerik:RadLabel runat="server" ID="lblAbs1EmptyMessageDic" Text="尚未新增公出資料"></telerik:RadLabel>
                 </EmptyDataTemplate>
             </telerik:RadListView>
             <telerik:RadLabel ID="lblNotifyMsg" runat="server" Style="color: red;" Text=""></telerik:RadLabel>

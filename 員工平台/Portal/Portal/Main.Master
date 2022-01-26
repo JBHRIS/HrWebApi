@@ -61,14 +61,14 @@
     </style>-->
 
     <telerik:RadCodeBlock ID="RadCodeBlock1" runat="server">
-        <%--<script type="text/javascript">
+        <script type="text/javascript">
             function storeOnServer() {
                 var exportMngr = $find("<%= RadClientExportManager2.ClientID %>");
                 exportMngr.exportPDF($telerik.$("#<%= phPdf.ClientID %>"));
             }
 
 
-        </script>--%>
+        </script>
     </telerik:RadCodeBlock>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -100,20 +100,20 @@
                     var exp = $find("<%= RadClientExportManager1.ClientID %>");
                     exp.exportPDF($telerik.$("#<%= phPdf.ClientID %>"));
                 }
-                //function OnClientPdfExporting(sender, args) {
-                //    args.set_cancel(true);
-                //    var data = args.get_dataURI().split(',')[1];
-                //    callMyPageMethod(data);
-                //}
-                //function callMyPageMethod(arg) {
-                //    PageMethods.storeFile(arg, OnSucceeded, OnFailed);
-                //}
-                //function OnSucceeded(data) {
-                //    window.location = data;
-                //}
-                //function OnFailed(error) {
-                //    //alert(error.get_message());
-                //}
+                function OnClientPdfExporting(sender, args) {
+                    args.set_cancel(true);
+                    var data = args.get_dataURI().split(',')[1];
+                    callMyPageMethod(data);
+                }
+                function callMyPageMethod(arg) {
+                    PageMethods.storeFile(arg, OnSucceeded, OnFailed);
+                }
+                function OnSucceeded(data) {
+                    window.location = data;
+                }
+                function OnFailed(error) {
+                    //alert(error.get_message());
+                }
 
                 
             </script>
