@@ -44,7 +44,7 @@ namespace JBHR.Reports.SalForm
     {
         SalDataSet ds = new SalDataSet();
         string nobr_b, nobr_e, dept_b, dept_e, date_b, date_e, reporttype, workadr, comp_name;
-        string note1, note2, note3, note4, note5, emp_b, emp_e, test_email, test_pwd;
+        string note1, note2, note3, note4, note5, emp_b, emp_e, test_email, test_pwd, memo;
         bool exportexcel, mangsuper, sendmail, ck_dispatch, ck_file;
         DateTime Send_Date_Time;
 
@@ -255,7 +255,14 @@ namespace JBHR.Reports.SalForm
                         rq_salbasd.ImportRow(Row);
                 }
                 rq_salbasde = null;
-                foreach(DataRow Row in ds.Tables["zz4f"].Rows)
+
+                DataTable get_meno = new DataTable();
+                get_meno.Columns.Add("nobr", typeof(string));
+                get_meno.Columns.Add("meno", typeof(string));
+                get_meno.PrimaryKey = new DataColumn[] { get_meno.Columns["nobr"] };
+
+
+                foreach (DataRow Row in ds.Tables["zz4f"].Rows)
                 {
                     object[] _value = new object[2];
                     _value[0] = Row["nobr"].ToString();
@@ -270,8 +277,12 @@ namespace JBHR.Reports.SalForm
                             row["sal_name"] = row1["sal_name"].ToString();
                             row["amt"] = JBModule.Data.CDecryp.Number(Convert.ToDecimal(row1["amt"].ToString()));
                             row["meno"] = row1["meno"].ToString();
-                        }  
+
+                            //memo = memo + row1["meno"].ToString();System.Environment.NewLine
+                        }
                     }
+
+
                 }
                 if (ds.Tables["zz4f"].Rows.Count < 1)
                 {
@@ -279,7 +290,44 @@ namespace JBHR.Reports.SalForm
                     this.Close();
                     return;
                 }
-                if (reporttype == "1")
+
+                foreach (DataRow Row in ds.Tables["zz4f"].Rows)
+                {
+
+                    DataRow row_meno = get_meno.Rows.Find(Row["nobr"].ToString());
+                    if (row_meno != null)
+                    {
+                        if (!string.IsNullOrEmpty(Row["meno"].ToString().Trim()))
+                        {
+                            row_meno["meno"] = row_meno["meno"].ToString().Trim() + System.Environment.NewLine + Row["sal_name"].ToString().Trim() + "：" + Row["meno"].ToString().Trim();
+                        }
+                    }
+                    else
+                    {
+
+                        DataRow aRow = get_meno.NewRow();
+                        aRow["nobr"] = Row["nobr"].ToString().Trim();
+                        if (!string.IsNullOrEmpty(Row["meno"].ToString().Trim()))
+                        {
+                            aRow["meno"] = Row["sal_name"].ToString().Trim() + "：" + Row["meno"].ToString().Trim();
+                        }
+                        get_meno.Rows.Add(aRow);
+                    }
+                }
+
+
+                foreach (DataRow Row in ds.Tables["zz4f"].Rows)
+                {
+
+                    DataRow row_meno = get_meno.Rows.Find(Row["nobr"].ToString());
+
+                    if (row_meno != null)
+                    {
+                        Row["meno"] = row_meno["meno"].ToString().Trim();
+                    }
+                }
+
+                    if (reporttype == "1")
                 {
                     ds.Tables["zz4fa"].PrimaryKey = new DataColumn[] { ds.Tables["zz4fa"].Columns["nobr"] };
                     DataRow[] Srow = ds.Tables["zz4f"].Select("","dept,nobr asc");
