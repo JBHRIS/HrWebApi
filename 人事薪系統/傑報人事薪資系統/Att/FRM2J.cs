@@ -20,9 +20,15 @@ namespace JBHR.Att
         /// 設定這個值來控制當資料重複時，要選擇複寫或是略過
         /// </summary>
         bool RepeatOverWrite = false;
-
+        public JBModule.Data.ApplicationConfigSettings AppConfig = null;
+        double iHoliMaxHour = 12;
+        decimal iDailyMaxHour = 99;
         private void FRM2J_Load(object sender, EventArgs e)
         {
+            AppConfig = new JBModule.Data.ApplicationConfigSettings("FRM29R2", MainForm.COMPANY);
+            //var OtAcceptTime = AppConfig.GetConfig("OtAcceptTime").Value.Trim();
+            double.TryParse(AppConfig.GetConfig("HoliMaxHour").Value.Trim(), out iHoliMaxHour);
+            decimal.TryParse( AppConfig.GetConfig("DailyMaxHour").Value.Trim(),out iDailyMaxHour);
             //this.oTRCDTableAdapter.Fill(this.dsAtt.OTRCD, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN);
             //this.dEPTTableAdapter.Fill(this.dsBas.DEPT);
             SystemFunction.SetComboBoxItems(comboBox1, CodeFunction.GetOtrcd(), true, false, true);
@@ -137,12 +143,42 @@ namespace JBHR.Att
             DateTime d1;
             nobr = ptxNobr.Text;
             d1 = Convert.ToDateTime(txtBdate.Text);
-            dcAttDataContext db = new dcAttDataContext();
+            JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
             btime = txtBtime.Text;
             etime = txtEtime.Text;
-            rote = ptxOtRote.Text;
-            var ot_calc = Dll.Att.OtCal.CalculationOt(nobr, rote, d1, btime, etime);
-            txtSugHrs.Text = ot_calc.iTotalHour.ToString();
+            rote = ptxOtRote.SelectedValue.ToString();
+
+            decimal diffhrs = iDailyMaxHour - db.ROTE.Where(p => p.ROTE1 == rote).FirstOrDefault().WK_HRS;
+
+            bool isHoli = checkBox1.Checked;
+            decimal otHour = 0;
+
+            var bASETTS = (from b in db.BASETTS
+                             where b.NOBR == nobr
+                             && b.ADATE <= d1 && b.DDATE.Value >= d1
+                             select b).FirstOrDefault();
+
+            var OtrateCDList = db.OTRATECD.ToList();
+
+            Dal.Dao.Att.OtDao oOtDao = new Dal.Dao.Att.OtDao(db.Connection);
+
+            var OtratecdByNobr = OtrateCDList.Where(p => p.OTRATE_CODE == bASETTS.CALOT).FirstOrDefault();
+            var ot_calc = oOtDao.GetCalculate(bASETTS.NOBR, "1",d1, d1, btime, etime, "", 0, rote, true, true, OtratecdByNobr.MIN_HOURS / 60M, OtratecdByNobr.OTUNIT / 60M);
+
+            JBModule.Data.ApplicationConfigSettings acg = new JBModule.Data.ApplicationConfigSettings("FRM29", MainForm.COMPANY);
+            var CalcMode = acg.GetConfig("CalcMode").GetString("Floor");
+            if (CalcMode == "Ceiling")
+                ot_calc = Math.Ceiling(ot_calc * 100) / 100M;
+            else if (CalcMode == "Round")
+                ot_calc = Math.Round(ot_calc, 2);
+            else
+                ot_calc = Math.Floor(ot_calc * 100) / 100M;
+            otHour = ot_calc;
+
+            if (otHour > Convert.ToDecimal(iHoliMaxHour) && isHoli) otHour = Convert.ToDecimal(iHoliMaxHour);
+            if (otHour > diffhrs) otHour = diffhrs;
+            //var ot_calc = Dll.Att.OtCal.CalculationOt(nobr, rote, d1, btime, etime);
+            txtSugHrs.Text = ot_calc.ToString();
             txtOtHrs.Text = txtSugHrs.Text;
             txtResHrs.Text = "0";
         }
