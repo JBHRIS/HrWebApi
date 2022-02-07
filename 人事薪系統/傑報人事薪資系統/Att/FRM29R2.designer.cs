@@ -42,7 +42,10 @@
             this.rOTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rOTETableAdapter = new JBHR.Att.dsAttTableAdapters.ROTETableAdapter();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.checkBoxHoliROTE = new System.Windows.Forms.CheckBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBoxHoliROTE_OFFTIME = new System.Windows.Forms.CheckBox();
+            this.ckxHoliCheckRest = new System.Windows.Forms.CheckBox();
+            this.checkBoxHoliROTE_ONTIME = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -62,7 +65,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.cbOTRCD = new System.Windows.Forms.ComboBox();
-            this.ckxHoliCheckRest = new System.Windows.Forms.CheckBox();
             this.btnConfig = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
@@ -86,6 +88,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rOTEBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rOTEBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -156,11 +159,9 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.checkBoxHoliROTE);
-            this.panel1.Controls.Add(this.checkBox1);
+            this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.ckxHoliCheckRest);
             this.panel1.Controls.Add(this.btnConfig);
             this.panel1.Controls.Add(this.statusStrip1);
             this.panel1.Controls.Add(this.btnExit);
@@ -169,26 +170,63 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(419, 338);
+            this.panel1.Size = new System.Drawing.Size(420, 366);
             this.panel1.TabIndex = 24;
             // 
-            // checkBoxHoliROTE
+            // groupBox3
             // 
-            this.checkBoxHoliROTE.AutoSize = true;
-            this.checkBoxHoliROTE.Location = new System.Drawing.Point(247, 248);
-            this.checkBoxHoliROTE.Name = "checkBoxHoliROTE";
-            this.checkBoxHoliROTE.Size = new System.Drawing.Size(132, 16);
-            this.checkBoxHoliROTE.TabIndex = 30;
-            this.checkBoxHoliROTE.TabStop = false;
-            this.checkBoxHoliROTE.Text = "假日限制上下班時段";
-            this.checkBoxHoliROTE.UseVisualStyleBackColor = true;
+            this.groupBox3.Controls.Add(this.checkBoxHoliROTE_OFFTIME);
+            this.groupBox3.Controls.Add(this.ckxHoliCheckRest);
+            this.groupBox3.Controls.Add(this.checkBoxHoliROTE_ONTIME);
+            this.groupBox3.Controls.Add(this.checkBox1);
+            this.groupBox3.Location = new System.Drawing.Point(12, 248);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(396, 62);
+            this.groupBox3.TabIndex = 31;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "設定";
+            // 
+            // checkBoxHoliROTE_OFFTIME
+            // 
+            this.checkBoxHoliROTE_OFFTIME.AutoSize = true;
+            this.checkBoxHoliROTE_OFFTIME.Location = new System.Drawing.Point(173, 40);
+            this.checkBoxHoliROTE_OFFTIME.Name = "checkBoxHoliROTE_OFFTIME";
+            this.checkBoxHoliROTE_OFFTIME.Size = new System.Drawing.Size(120, 16);
+            this.checkBoxHoliROTE_OFFTIME.TabIndex = 31;
+            this.checkBoxHoliROTE_OFFTIME.TabStop = false;
+            this.checkBoxHoliROTE_OFFTIME.Text = "假日限制下班時段";
+            this.checkBoxHoliROTE_OFFTIME.UseVisualStyleBackColor = true;
+            // 
+            // ckxHoliCheckRest
+            // 
+            this.ckxHoliCheckRest.AutoSize = true;
+            this.ckxHoliCheckRest.Checked = true;
+            this.ckxHoliCheckRest.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckxHoliCheckRest.Location = new System.Drawing.Point(27, 18);
+            this.ckxHoliCheckRest.Name = "ckxHoliCheckRest";
+            this.ckxHoliCheckRest.Size = new System.Drawing.Size(108, 16);
+            this.ckxHoliCheckRest.TabIndex = 2;
+            this.ckxHoliCheckRest.TabStop = false;
+            this.ckxHoliCheckRest.Text = "假日判休息時間";
+            this.ckxHoliCheckRest.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxHoliROTE_ONTIME
+            // 
+            this.checkBoxHoliROTE_ONTIME.AutoSize = true;
+            this.checkBoxHoliROTE_ONTIME.Location = new System.Drawing.Point(27, 40);
+            this.checkBoxHoliROTE_ONTIME.Name = "checkBoxHoliROTE_ONTIME";
+            this.checkBoxHoliROTE_ONTIME.Size = new System.Drawing.Size(120, 16);
+            this.checkBoxHoliROTE_ONTIME.TabIndex = 30;
+            this.checkBoxHoliROTE_ONTIME.TabStop = false;
+            this.checkBoxHoliROTE_ONTIME.Text = "假日限制上班時段";
+            this.checkBoxHoliROTE_ONTIME.UseVisualStyleBackColor = true;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(139, 248);
+            this.checkBox1.Location = new System.Drawing.Point(173, 18);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(108, 16);
             this.checkBox1.TabIndex = 30;
@@ -199,9 +237,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox2.Location = new System.Drawing.Point(3, 12);
+            this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(385, 108);
+            this.groupBox2.Size = new System.Drawing.Size(396, 108);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "篩選項目";
@@ -337,9 +375,9 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.cbOTRCD);
-            this.groupBox1.Location = new System.Drawing.Point(3, 126);
+            this.groupBox1.Location = new System.Drawing.Point(12, 126);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(385, 116);
+            this.groupBox1.Size = new System.Drawing.Size(396, 116);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "儲存資料";
@@ -430,24 +468,11 @@
             this.cbOTRCD.Size = new System.Drawing.Size(121, 20);
             this.cbOTRCD.TabIndex = 6;
             // 
-            // ckxHoliCheckRest
-            // 
-            this.ckxHoliCheckRest.AutoSize = true;
-            this.ckxHoliCheckRest.Checked = true;
-            this.ckxHoliCheckRest.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckxHoliCheckRest.Location = new System.Drawing.Point(25, 248);
-            this.ckxHoliCheckRest.Name = "ckxHoliCheckRest";
-            this.ckxHoliCheckRest.Size = new System.Drawing.Size(108, 16);
-            this.ckxHoliCheckRest.TabIndex = 2;
-            this.ckxHoliCheckRest.TabStop = false;
-            this.ckxHoliCheckRest.Text = "假日判休息時間";
-            this.ckxHoliCheckRest.UseVisualStyleBackColor = true;
-            // 
             // btnConfig
             // 
             this.btnConfig.BackgroundImage = global::JBHR.Properties.Resources.Settings_icon;
             this.btnConfig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnConfig.Location = new System.Drawing.Point(391, 287);
+            this.btnConfig.Location = new System.Drawing.Point(383, 316);
             this.btnConfig.Name = "btnConfig";
             this.btnConfig.Size = new System.Drawing.Size(25, 23);
             this.btnConfig.TabIndex = 7;
@@ -460,9 +485,9 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripProgressBar1,
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 316);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 344);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(419, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(420, 22);
             this.statusStrip1.TabIndex = 29;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -479,7 +504,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(232, 281);
+            this.btnExit.Location = new System.Drawing.Point(266, 316);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 4;
@@ -490,7 +515,7 @@
             // 
             // bnCancel
             // 
-            this.bnCancel.Location = new System.Drawing.Point(151, 281);
+            this.bnCancel.Location = new System.Drawing.Point(176, 316);
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.Size = new System.Drawing.Size(75, 23);
             this.bnCancel.TabIndex = 3;
@@ -501,7 +526,7 @@
             // 
             // btnRun
             // 
-            this.btnRun.Location = new System.Drawing.Point(71, 281);
+            this.btnRun.Location = new System.Drawing.Point(95, 316);
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(75, 23);
             this.btnRun.TabIndex = 2;
@@ -541,7 +566,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(419, 338);
+            this.ClientSize = new System.Drawing.Size(420, 366);
             this.Controls.Add(this.panel1);
             this.FormSize = JBControls.JBForm.FormSizeType.Custom;
             this.Name = "FRM29R2";
@@ -558,6 +583,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.rOTEBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -621,6 +648,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button buttonRote;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBoxHoliROTE;
+        private System.Windows.Forms.CheckBox checkBoxHoliROTE_ONTIME;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox checkBoxHoliROTE_OFFTIME;
     }
 }

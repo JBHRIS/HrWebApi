@@ -263,16 +263,33 @@ namespace JBHR.Att
                         EndTime = itm.ATTCARD.T2;
                     }
                     #region 撈取假日上下班時間
-                    if (checkBoxHoliROTE.Checked)
+                    if (checkBoxHoliROTE_ONTIME.Checked)
                     {
                         if (isHoli && roteHoli != null && itm.ATTCARD != null)
                         {
                             var iT1 = Convert.ToInt32(itm.ATTCARD.T1);
-                            var iT2 = Convert.ToInt32(itm.ATTCARD.T2);
+                            //var iT2 = Convert.ToInt32(itm.ATTCARD.T2);
                             if (!string.IsNullOrWhiteSpace(roteHoli.ON_TIME) && iT1 < Convert.ToInt32(roteHoli.ON_TIME))
                             {
                                 BeginTime = roteHoli.ON_TIME;
                             }
+                            //if (!string.IsNullOrWhiteSpace(roteHoli.OFF_TIME) && iT2 > Convert.ToInt32(roteHoli.OFF_TIME))
+                            //{
+                            //    EndTime = roteHoli.OFF_TIME;
+                            //}
+                        }
+                    }
+
+                    if (checkBoxHoliROTE_OFFTIME.Checked)
+                    {
+                        if (isHoli && roteHoli != null && itm.ATTCARD != null)
+                        {
+                            //var iT1 = Convert.ToInt32(itm.ATTCARD.T1);
+                            var iT2 = Convert.ToInt32(itm.ATTCARD.T2);
+                            //if (!string.IsNullOrWhiteSpace(roteHoli.ON_TIME) && iT1 < Convert.ToInt32(roteHoli.ON_TIME))
+                            //{
+                            //    BeginTime = roteHoli.ON_TIME;
+                            //}
                             if (!string.IsNullOrWhiteSpace(roteHoli.OFF_TIME) && iT2 > Convert.ToInt32(roteHoli.OFF_TIME))
                             {
                                 EndTime = roteHoli.OFF_TIME;
