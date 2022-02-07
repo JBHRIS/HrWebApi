@@ -27,8 +27,8 @@ namespace JBHR.Att
         {
             AppConfig = new JBModule.Data.ApplicationConfigSettings("FRM29R2", MainForm.COMPANY);
             //var OtAcceptTime = AppConfig.GetConfig("OtAcceptTime").Value.Trim();
-            double.TryParse(AppConfig.GetConfig("HoliMaxHour").Value.Trim(), out iHoliMaxHour);
-            decimal.TryParse( AppConfig.GetConfig("DailyMaxHour").Value.Trim(),out iDailyMaxHour);
+            iHoliMaxHour = (double)(AppConfig.GetConfig("HoliMaxHour").GetDecimal(12));
+            iDailyMaxHour = AppConfig.GetConfig("DailyMaxHour").GetDecimal(99);
             //this.oTRCDTableAdapter.Fill(this.dsAtt.OTRCD, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN);
             //this.dEPTTableAdapter.Fill(this.dsBas.DEPT);
             SystemFunction.SetComboBoxItems(comboBox1, CodeFunction.GetOtrcd(), true, false, true);
