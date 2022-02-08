@@ -47,6 +47,7 @@ namespace JBHR.Sal.Core
         public bool isReExpsup = false;
 		public Guid guid = Guid.Empty;
         Dictionary<string, string> EmpDataGroupMappingTable = new Dictionary<string, string>();
+        Dictionary<string, decimal> TaxRateByNobr = new Dictionary<string, decimal>();
         public SalaryCalculation(string yymm, string seq, string nobr_b, string nobr_e, string dept_b, string dept_e,
             DateTime date_b, DateTime date_e, DateTime AttDateB, DateTime AttDateE, DateTime TransDate, string SalAdr,
             bool MangSuper, bool ProcSuper, string SalType, bool prev, DateTime InEDate)
@@ -2248,6 +2249,8 @@ namespace JBHR.Sal.Core
                 wage.SALADR = basetts.SALADR;
                 wage.SEQ = wagedOfNobr.Key.SEQ;
                 wage.TAXRATE = 1;
+                if (TaxRateByNobr.Keys.Contains(wagedOfNobr.Key.NOBR))
+                    wage.TAXRATE = TaxRateByNobr[wagedOfNobr.Key.NOBR];
                 wage.WK_DAYS = workDays;
                 wage.YYMM = YYMM;
                 wage.ACCOUNT_NO = _base.ACCOUNT_NO;
@@ -2263,7 +2266,6 @@ namespace JBHR.Sal.Core
                 wage.FORMAT = this.Type;
                 wageList.Add(wage);
                 //db.WAGE.InsertOnSubmit(wage);
-
             }
             //db.WAGE.InsertAllOnSubmit(wageList);
             //ChangeSeq();
@@ -2839,7 +2841,7 @@ namespace JBHR.Sal.Core
             decimal MaxTaxlvl = 0;
             if (taxlvlSQL.Any())
                 MaxTaxlvl = taxlvlSQL.First().AMT_L;
-
+            TaxRateByNobr.Clear();
             foreach (var nobrItem in nobrList)//計算每個人的所得稅(nobrItem包含個人此次計算的所得薪資)
             {
                 //BASE baseItem = null;
@@ -2925,7 +2927,7 @@ namespace JBHR.Sal.Core
 
                         taxAmt = totalAmt * TaxRate;
                     }
-
+                    TaxRateByNobr.Add(nobrItem.Key, TaxRate);
                     var wageOfNobr = wageList.Where(p => p.NOBR == nobrItem.Key);
                     if (wageOfNobr.Any()) wageOfNobr.First().TAXRATE = TaxRate;
 
