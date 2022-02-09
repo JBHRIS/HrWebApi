@@ -617,54 +617,22 @@ namespace Portal
 
             var calHour = oOtDao.GetHoursSum(Nobr, calDateB, calDateE, false);
 
+            //var rsAppS = (from c in dcFlow.FormsAppOt
+            //              where (c.ProcessID == lblProcessID.Text || (c.idProcess != 0 && c.SignState == "1"))
+            //              && c.EmpId == Nobr
+            //              select c).ToList();
+
+
             var rsAppS = (from c in dcFlow.FormsAppOt
-                          where (c.ProcessID == lblProcessID.Text || (c.idProcess != 0 && c.SignState == "1"))
+                          where ((c.ProcessID == lblProcessID.Text && c.SignState == "1") || (c.idProcess != 0 && c.SignState == "1"))
                           && c.EmpId == Nobr
                           select c).ToList();
-
 
             var rsFlow = rsAppS.Where(p => calDateB <= p.DateB && p.DateB <= calDateE).ToList();
             if (rsFlow.Count > 0)
                 calHour += rsFlow.Sum(p => p.Use);
 
-            var OtLimit = 46M;//加班上限
-            var oEmployeeRuleDao = new EmployeeRuleDao();
-            var EmployeeRuleCond = new EmployeeRuleConditions();
-
-            EmployeeRuleCond.AccessToken = _User.AccessToken;
-            EmployeeRuleCond.RefreshToken = _User.RefreshToken;
-            EmployeeRuleCond.CompanySetting = CompanySetting;
-            EmployeeRuleCond.employeeId = Nobr;
-            EmployeeRuleCond.ruleType = "OtHrsMonthlyMax";
-            EmployeeRuleCond.checkDate = DateB;
-            var rsEmployeeRule = oEmployeeRuleDao.GetData(EmployeeRuleCond);
-            var rEmployeeRule = new List<EmployeeRuleRow>();
-            if (rsEmployeeRule.Status)
-            {
-                if (rsEmployeeRule.Data != null)
-                {
-                    rEmployeeRule = rsEmployeeRule.Data as List<EmployeeRuleRow>;
-                    if (rEmployeeRule.Count != 0)
-                    {
-                        var rAttHrsDailyMax = rEmployeeRule.FirstOrDefault();
-                        if (rAttHrsDailyMax != null)
-                        {
-                            OtLimit = Convert.ToDecimal(rAttHrsDailyMax.value);
-                        }
-                    }
-                }
-            }
-
-            //calHour += r.iTotalHour;
-
-            if (OtOver == null)
-            {
-                if (calHour > OtLimit)
-                {
-                    lblErrorMsg.Text = Nobr + "本月加班時數已超過46小時上限，請洽人事單位";
-                    return;
-                }
-            }
+            
 
             var GetAttend = oAttendDao.GetAttendH(lblNobrAppS.Text, DateB).FirstOrDefault();
             if (GetAttend != null)
@@ -862,6 +830,48 @@ namespace Portal
                 return;
             }
 
+            var OtLimit = 46M;//加班上限
+            var oEmployeeRuleDao = new EmployeeRuleDao();
+            var EmployeeRuleCond = new EmployeeRuleConditions();
+
+            EmployeeRuleCond.AccessToken = _User.AccessToken;
+            EmployeeRuleCond.RefreshToken = _User.RefreshToken;
+            EmployeeRuleCond.CompanySetting = CompanySetting;
+            EmployeeRuleCond.employeeId = Nobr;
+            EmployeeRuleCond.ruleType = "OtHrsMonthlyMax";
+            EmployeeRuleCond.checkDate = IsNightShift ? DateB.AddDays(-1):DateB;
+            var rsEmployeeRule = oEmployeeRuleDao.GetData(EmployeeRuleCond);
+            var rEmployeeRule = new List<EmployeeRuleRow>();
+            if (rsEmployeeRule.Status)
+            {
+                if (rsEmployeeRule.Data != null)
+                {
+                    rEmployeeRule = rsEmployeeRule.Data as List<EmployeeRuleRow>;
+                    if (rEmployeeRule != null && rEmployeeRule.Count != 0)
+                    {
+                        var rAttHrsDailyMax = rEmployeeRule.FirstOrDefault();
+                        if (rAttHrsDailyMax != null)
+                        {
+                            OtLimit = Convert.ToDecimal(rAttHrsDailyMax.value);
+                        }
+                    }
+                }
+            }
+
+            //calHour += r.iTotalHour;
+            calHour += Calculate;
+            if (OtOver == null)
+            {
+                if (calHour > OtLimit)
+                {
+                    if ((IsNightShift ? DateB.AddDays(-1) : DateB) > new DateTime(2022, 1, 26))
+                    {
+                        lblErrorMsg.Text = Nobr + "本月加班時數已超過上限，請洽人事單位";
+                        return;
+                    }
+                }
+            }
+
             decimal AttHrsDailyMax = 12;
 
             var ExtAttHrsDailyMax = (from c in dcFlow.FormsExtend
@@ -878,7 +888,7 @@ namespace Portal
                 EmployeeRuleCond.CompanySetting = CompanySetting;
                 EmployeeRuleCond.employeeId = Nobr;
                 EmployeeRuleCond.ruleType = "AttHrsDailyMax";
-                EmployeeRuleCond.checkDate = DateB;
+                EmployeeRuleCond.checkDate = IsNightShift ? DateB.AddDays(-1) : DateB; 
                 rsEmployeeRule = oEmployeeRuleDao.GetData(EmployeeRuleCond);
                 rEmployeeRule = new List<EmployeeRuleRow>();
                 if (rsEmployeeRule.Status)
@@ -886,7 +896,7 @@ namespace Portal
                     if (rsEmployeeRule.Data != null)
                     {
                         rEmployeeRule = rsEmployeeRule.Data as List<EmployeeRuleRow>;
-                        if (rEmployeeRule.Count != 0)
+                        if (rEmployeeRule != null && rEmployeeRule.Count != 0)
                         {
                             var rAttHrsDailyMax = rEmployeeRule.FirstOrDefault();
                             if (rAttHrsDailyMax != null)
@@ -1067,6 +1077,24 @@ namespace Portal
 
 
             return noCalc;
+        }
+
+        protected void gvAppS_DataBound(object sender, EventArgs e)
+        {
+            int count = 0;
+            foreach (var item in gvAppS.Items)
+            {
+                var No = item.FindControl("lblListNumber") as RadLabel;
+                if (No != null)
+                {
+                    count++;
+                    No.Text = count.ToString();
+                }
+
+            }
+            var lblAbsCount = gvAppS.FindControl("lblCount") as RadLabel;
+            if (lblAbsCount != null)
+                lblAbsCount.Text = count.ToString();
         }
     }
 }

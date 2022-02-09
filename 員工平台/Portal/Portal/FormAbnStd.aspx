@@ -34,9 +34,7 @@
                                 <div class="col col-xs-6">
                                     <div class="form-check abc-checkbox">
                                         <telerik:RadCheckBox runat="server" ID="isEarlyCheck"
-                                            Text='<%#Eval("isEarlyInProcess").ToString() == "True" ? "流程進行中" : Eval("EarlyTime").ToString() == "0" ? " 無早到紀錄" : "早到" + Eval("EarlyTime") + "分" %>'
                                             CommandArgument='<%#Eval("Code") %>' CommandName='<%#Eval("EarlyTime") %>'
-                                            Enabled='<%#(Eval("isEarlyInProcess").ToString()=="True" || Eval("EarlyTime").ToString() == "0") ? false:true %>'
                                             Width="100%" Skin="Bootstrap">
                                         </telerik:RadCheckBox>
                                     </div>
@@ -45,9 +43,7 @@
                                 <div class="col col-xs-6">
                                     <div class="form-check abc-checkbox">
                                         <telerik:RadCheckBox runat="server" ID="isLateCheck"
-                                            Text='<%#Eval("isLateInProcess").ToString() == "True" ? "流程進行中" : Eval("LateTime").ToString() == "0" ? " 無晚退紀錄" : "晚退" + Eval("LateTime") + "分" %>'
                                             CommandArgument='<%#Eval("Code") %>' CommandName='<%#Eval("LateTime") %>'
-                                            Enabled='<%#(Eval("isLateInProcess").ToString()=="True" || Eval("LateTime").ToString() == "0") ? false:true %>'
                                             Width="100%" Skin="Bootstrap">
                                         </telerik:RadCheckBox>
                                     </div>
@@ -57,14 +53,14 @@
                     </div>
                 </ItemTemplate>
                 <EmptyDataTemplate>
-                    無異常資料
+                    <telerik:RadLabel runat="server" ID="lblEmptyAbnormalDic" Text="無異常資料"></telerik:RadLabel>
                 </EmptyDataTemplate>
             </telerik:RadListView>
         </telerik:RadAjaxPanel>
         <asp:Panel runat="server" ID="plReason" Visible="false">
             <div class="form-group row">
                 <div class="col-md-4">
-                    <telerik:RadLabel runat="server" CssClass="col-form-label" Text="申請原因"></telerik:RadLabel>
+                    <telerik:RadLabel runat="server" CssClass="col-form-label" ID="lblReasonDic" Text="申請原因"></telerik:RadLabel>
                     <telerik:RadComboBox runat="server" ID="ddlReason" Width="100%" Skin="Bootstrap"></telerik:RadComboBox>
                 </div>
             </div>
@@ -91,16 +87,16 @@
     <telerik:RadAjaxPanel ID="plAppS" runat="server">
         <div class="ibox">
             <div class="ibox-title">
-                <h5>條件</h5>
+                <h5><telerik:RadLabel runat="server" ID="lblConditionDic" Text="條件"></telerik:RadLabel></h5>
             </div>
             <div class="ibox-content">
                 <div class="form-group row">
                     <div class="col-md-3">
-                        <label class=" col-form-label">年份</label>
+                        <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblYearDic" Text="年份"></telerik:RadLabel></label>
                         <telerik:RadComboBox runat="server" ID="ddlYear" Width="100%" Skin="Bootstrap"></telerik:RadComboBox>
                     </div>
                     <div class="col-md-3">
-                        <label class=" col-form-label">月份</label>
+                        <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblMonthDic" Text="月份"></telerik:RadLabel></label>
                         <telerik:RadComboBox runat="server" ID="ddlMonth" Width="100%" Skin="Bootstrap"></telerik:RadComboBox>
                     </div>
                     <div class="col-md-1">

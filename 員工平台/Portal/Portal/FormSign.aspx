@@ -86,10 +86,15 @@
                     </div>
                 </div>
                 <telerik:RadAjaxPanel runat="server" ID="plFlowSignMain" LoadingPanelID="RadAjaxLoadingPanel1">
-
+                    <%-- 修改開始  --%>
                     <div class="ibox-title">
                         <h5>流程資訊</h5>
+                        <div class="float-right">
+                            <a class="allopen"  data-toggle="collapse" data-target=".multi-collapse" aria-expanded="true">全部展開</a>
+                        </div>
                     </div>
+                     <%-- 修改結束  --%>
+
                     <div class="ibox-content">
 
                         <telerik:RadListView runat="server" ID="lvFlowSignMain" OnItemCommand="lvFlowSignMain_ItemCommand" OnNeedDataSource="lvFlowSignMain_NeedDataSource" ItemPlaceholderID="Container">
@@ -190,7 +195,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-lg-12">
-                                                    <div id='<%# "pl" + Eval("ProcessFlowId") %>' class="panel-collapse collapse">
+                                                    <%-- 修改開始  --%><div id='<%# "pl" + Eval("ProcessFlowId") %>' class="panel-collapse collapse multi-collapse"><%-- 修改結束  --%>
                                                         <div class="flow-answer">
                                                             <div class="row col-lg-12">
                                                                 <p>
