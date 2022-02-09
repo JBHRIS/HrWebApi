@@ -132,6 +132,18 @@ namespace Dal.Dao.Share
                                         rTarget.InsertDate = rSource.InsertDate;                                     
                                         rTarget.UpdateMan = rSource.UpdateMan;
                                         rTarget.UpdateDate = rSource.UpdateDate;
+                                        if (rSource.Key2 == "Admin")
+                                        {
+                                            rTarget.UserRole = "<i class=\"fa fa-users\"></i>";
+                                        }
+                                        else if (rSource.Key2 == "Hr")
+                                        {
+                                            rTarget.UserRole = "<i class=\"fa fa-user-plus\"></i>";
+                                        }
+                                        else if (rSource.Key2 == "User")
+                                        {
+                                            rTarget.UserRole = "<i class=\"fa fa-user\"></i>";
+                                        }
                                         rsTarget.Add(rTarget);
                                     }
 

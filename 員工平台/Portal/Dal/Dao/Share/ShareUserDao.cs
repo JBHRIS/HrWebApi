@@ -40,53 +40,32 @@ namespace Dal.Dao.Share
         public ShareUserDao(dcShareDataContext dcShare) : base(dcShare) { this.dcShare = dcShare; }
 
         /// <summary>
-        /// 取得共用代碼
+        /// 取得帳號資訊
         /// </summary>
         /// <param name="Cond"></param>
         /// <returns>List ShareUserRow</returns>
-        public List<ShareUserRow> GetShareUser(ShareUserConditions Cond)
+        public ShareUserRow GetShareUser(ShareUserConditions Cond)
         {
-            //資料狀態
-            var ListStatus = Cond.ListStatus;
-            //搜尋條件
-            //自動編號
-            var AutoKey = Cond.AutoKey;
-            //代碼
-            var Code = Cond.Code;
-            //群組代碼
-            var GroupCode = Cond.GroupCode;
 
-            var VdbSql = (from c in dcShare.SystemUser
-                          where ListStatus.Contains(c.Status)
-                          && ((AutoKey == 0) || (c.AutoKey == AutoKey))
-                          && ((Code.Length == 0) || (c.Code == Code))
-                          && ((c.Code == "Share" || c.SystemCode == _SystemCode))
-                          && ((GroupCode.Length == 0) || (c.GroupCode == GroupCode))
-                          orderby c.Sort
+
+
+            var VdbSql = (from u in dcShare.SystemUser
+                          join ui in dcShare.SystemUserInfo on u.Code equals ui.UserCode
+                          where u.AccountCode == Cond.Code && u.CompnayId == Cond.CompanyId
                           select new ShareUserRow
                           {
-                              AutoKey = c.AutoKey,
-                              SystemCode = c.SystemCode,
-                              GroupCode = c.GroupCode,
-                              Key1 = c.Key1,
-                              Key2 = c.Key2,
-                              Key3 = c.Key3,
-                              Code = c.Code,
-                              Name = c.Name,
-                              Column1 = c.Column1,
-                              Column2 = c.Column2,
-                              Column3 = c.Column3,
-                              SystemUse = c.SystemUse,
-                              Sort = c.Sort,
-                              Note = c.Note,
-                              Status = c.Status,
-                              InsertMan = c.InsertMan,
-                              InsertDate = c.InsertDate.GetValueOrDefault(_DefDate),
-                              UpdateMan = c.UpdateMan,
-                              UpdateDate = c.UpdateDate.GetValueOrDefault(_DefDate),
-                          });
+                              AutoKey = u.AutoKey,
+                              Code = u.Code,
+                              CompanyId = u.CompnayId,
+                              AccountCode = u.AccountCode,
+                              UserName = ui.UserName,
+                              Email = ui.Email,
+                              RoleKey = u.RoleKey,
+                              DateA = u.DateA,
+                              DateD = u.DateD,
+                          }) ;
 
-            var Vdb = VdbSql.ToList();
+            var Vdb = VdbSql.FirstOrDefault();
 
             return Vdb;
         }

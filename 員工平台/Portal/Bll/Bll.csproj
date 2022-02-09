@@ -185,7 +185,6 @@
     <Compile Include="PageApiVoid\Vdb\DeletePageApiVoidVdb.cs" />
     <Compile Include="PageApiVoid\Vdb\InsertPageApiVoidVdb.cs" />
     <Compile Include="PageApiVoid\Vdb\PageToApiVoidViewVdb.cs" />
-    <Compile Include="Performance\Vdb\PerformanceVdb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RolePage\Vdb\DeleteRolePageVdb.cs" />
     <Compile Include="RolePage\Vdb\InsertRolePageVdb.cs" />
@@ -320,6 +319,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
+    <Folder Include="Performance\Vdb\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

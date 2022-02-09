@@ -17,10 +17,11 @@ namespace Portal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //登出
+            
             if (Request.QueryString["Param"] != null)
             {
                 var Param = Request.QueryString["Param"];
+                //登出
                 if (Param == "Logout")
                 {
                     if (Context.User.Identity.IsAuthenticated)
@@ -30,12 +31,24 @@ namespace Portal
                         Response.Redirect("LoginBind.aspx");
                     }
                 }
+                else//外部登入
+                {
+                    _AuthManager.SignOut();
+                    var RequestQueryString = Security.Decrypt(Request.QueryString["Param"]);
+                    var dc = DataTrans.QueryStringToDictionary(RequestQueryString);
+
+                    ValidateBaseRedirect(dc["AccountCode"], "", true);
+                }
             }
+           
             if (Request.QueryString["Company"] != null)
             {
                 txtCompanyId.Text = Request.QueryString["Company"];
                 txtCompanyId.Visible = false;
             }
+
+            
+
             ((Single)Master)._DivClass = "middle-box text-center loginscreen animated fadeInDown";
         }
 
@@ -48,7 +61,7 @@ namespace Portal
 
             if (UserId.Length == 0 || UserPw.Length == 0)
             {
-                lblMsg.Text = "帳號或密碼錯誤，請重新輸入1";
+                lblMsg.Text = "帳號或密碼錯誤，請重新輸入!";
                 return;
             }
 
@@ -70,10 +83,10 @@ namespace Portal
                 return;
             }
 
-            ValidateBaseRedirect(UserId, UserPw,"");
+            ValidateBaseRedirect(UserId, UserPw,false);
         }
 
-        public bool ValidateBaseRedirect(string AccountCode, string AccountPassword, string CompanyAccountCode = "")
+        public bool ValidateBaseRedirect(string AccountCode, string AccountPassword, bool FromOutside = false,string CompanyAccountCode = "")
         {
             var Pass = false;
           
@@ -129,7 +142,10 @@ namespace Portal
                 Pass = ListAccountPassword.Contains(AccountPassword) ||
                        ListAccountPassword.Contains(EncryptAccountPasswordSHA512);
             }
-
+            if (FromOutside)
+            {
+                Pass = true;
+            }
             //取得公司資訊
             var oShareCompany = new ShareCompanyDao();
             var CompanySetting = oShareCompany.GetCompanySetting(CompanyAccountCode);
@@ -243,7 +259,12 @@ namespace Portal
                     UnobtrusiveSession.Session["ReturnUrl"] = null;
                     Response.Redirect(ReturnUrl);
                 }
-
+                if (FromOutside)
+                {
+                    var RequestQueryString = Security.Decrypt(Request.QueryString["Param"]);
+                    var dc = DataTrans.QueryStringToDictionary(RequestQueryString);
+                    Response.Redirect("ProblemReturnView.aspx?Code=" + dc["Code"], true);
+                }
                 Response.Redirect("ProblemReturn.aspx", false);
             }
             else

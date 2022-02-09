@@ -32,16 +32,22 @@
     <div class="social-feed-box">
 
         <div class="social-avatar">
-            <div class="media-body">
-                <%--  <label>姓名:</label>--%>
-                <telerik:RadLabel ID="lblName" runat="server" CssClass="name_font" Text="" />
-                <%-- <label>日期:</label>--%>
-                <telerik:RadLabel ID="lblDate" runat="server" CssClass="text-muted" Text="" />
-                &ensp;-&ensp;
-                <telerik:RadLabel ID="lblTime" runat="server" CssClass="text-muted" Text="" />
+            <div class="float-left">
+                <div class="navy-bg admin_circle">
+                    <i class="fa fa-user"></i>
+                </div>
             </div>
-
-
+            <div class="media-body">
+                <span>
+                    <%--   <label>提問者 :</label>--%>
+                    <telerik:RadLabel ID="lblName" runat="server" CssClass="name_font" Text="" />
+                    <%--  <label>日期 :</label>--%>
+                    <br>
+                    <telerik:RadLabel ID="lblDate" runat="server" CssClass="text-muted" Text="" />
+                    -
+                    <telerik:RadLabel ID="lblTime" runat="server" CssClass="text-muted" Text="" />
+                </span>
+            </div>
         </div>
         <div class="social-body">
             <p>
@@ -58,8 +64,8 @@
             </p>
         </div>
         <div class="social-footer">
-        <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
-                <telerik:RadListView ID="QuestionReplyData" runat="server" ItemPlaceholderID="Container" OnItemCommand="QuestionReplyData_ItemCommand"  OnNeedDataSource="QuestionReplyData_NeedDataSource">
+            <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
+                <telerik:RadListView ID="QuestionReplyData" runat="server" ItemPlaceholderID="Container" OnItemCommand="QuestionReplyData_ItemCommand" OnNeedDataSource="QuestionReplyData_NeedDataSource">
 
                     <LayoutTemplate>
 
@@ -82,7 +88,7 @@
                         <div class="social-comment message_line" id='div<%# Eval("Code")%>'>
                             <div class="float-left">
                                 <div class="navy-bg admin_circle">
-                                    <%# Eval("Key2").ToString()==("Admin")? "<i class=\"fa fa-users\"></i>":"  <i class=\"fa fa-user\"></i>"%>                               
+                                    <%#Eval("UserRole")%>
                                 </div>
                             </div>
                             <div class="media-body">
@@ -113,7 +119,7 @@
                                 </div>
                                 <br />
 
-                               
+
                                 <telerik:RadListView ID="SubQuestionReplyData" runat="server" ItemPlaceholderID="Container" OnItemCommand="QuestionReplyData_ItemCommand" OnNeedDataSource="SubQuestionReplyData_NeedDataSource">
 
                                     <LayoutTemplate>
@@ -137,17 +143,17 @@
                                         <div class="social-comment" id='div<%# Eval("Code")%>'>
                                             <div class="float-left">
                                                 <div class="navy-bg admin_circle">
-                                                    <%#Eval("Key2").ToString()==("Admin")?" <i class=\"fa fa-users\"></i>":"  <i class=\"fa fa-user\"></i>"%>
+                                                    <%#Eval("UserRole")%>
                                                 </div>
                                             </div>
                                             <div class="media-body" style="text-align: justify;">
                                                 <span>
                                                     <telerik:RadLabel ID="lblName2" runat="server" CssClass="name_font" Text='<%# Eval("Name") %>' />
-                                                    <span class="text-blue"><i class="fa fa-share "></i> <%# Eval("ReplyName")%></span>
+                                                    <span class="text-blue"><i class="fa fa-share "></i><%# Eval("ReplyName")%></span>
                                                     <span class="replyreply_text">
                                                         <%# Eval("ReplyContent")%>
-                                                </span><br>
-                     
+                                                    </span>
+                                                    <br>
                                                 </span>
                                                 <span>
                                                     <label id='<%# Eval("Code") %>'>
@@ -173,9 +179,6 @@
                                                 </div>
                                                 <br />
 
-                                                <div class="social-comment">
-                                                    <%# Eval("DataView")  %>
-                                                </div>
 
                                             </div>
 
@@ -219,7 +222,7 @@
                                     <div class="form-group row form-inline">
                                         <label class="col-lg-3 col-form-label text-left">問題轉交或回覆</label>
                                         <div class="col-lg-9">
-                                            <div class="row">
+                                            <div id="DivRadio" class="row">
                                                 <telerik:RadRadioButton ID="RadioFirst" AutoPostBack="true" runat="server" Checked="true" Text="提問者" Value="74" OnCheckedChanged="RadioFirst_CheckedChanged" />
                                                 &ensp;
                                                 <telerik:RadRadioButton ID="RadioSecond" AutoPostBack="true" runat="server" Text="HR" Value="10" OnCheckedChanged="RadioSecond_CheckedChanged" />
@@ -256,69 +259,75 @@
                             </div>
 
 
-                            <div class="col-lg-6">
+                    <div class="col-lg-6">
 
-                                <h5>選擇罐頭訊息後編輯成想要的文字</h5>
-                                <telerik:RadListView ID="lvMain" runat="server" OnItemCommand="lvMain_ItemCommand" OnNeedDataSource="lvMain_NeedDataSource" ItemPlaceholderID="Container">
-                                    <LayoutTemplate>
-                                        <table id="footable" class="footable table table-stripped" data-page-size="3" data-filter="#filterTaken">
-                                            <thead>
-                                            </thead>
-                                            <tbody id="Container" runat="server">
+                        <h5>選擇罐頭訊息後編輯成想要的文字</h5>
+                     
+                            <telerik:RadListView ID="lvMain" runat="server" OnItemCommand="lvMain_ItemCommand" OnNeedDataSource="lvMain_NeedDataSource" ItemPlaceholderID="Container">
+                                <LayoutTemplate>
+                                    <%--<table id="footable" class="footable table table-stripped" 
+                                        data-page-size="3" data-filter="#filterTaken">--%>
+                                        <thead>
+                                        </thead>
+                                        <tbody id="Container" runat="server">
 
-                                                <telerik:RadLabel ID="lblName2" runat="server" CssClass="name_font" Text="標題" />
-                                                <br />
-                                                <telerik:RadLabel ID="lblDate2" runat="server" CssClass="text-muted" Text="內容" />
-                                            </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <td colspan="9">
-                                                        <ul class="pagination float-right"></ul>
-                                                    </td>
-                                                </tr>
-                                            </tfoot>
-                                        </table>
-                                    </LayoutTemplate>
-                                    <ItemTemplate>
-                                        <tr>
-                                            <div class="ibox-content">
-                                                <div class="row">
-                                                    <div class="col-lg-9">
-                                                        <div>
-                                                            <telerik:RadLabel ID="RadLabel1" runat="server" CssClass="product-name" Text='<%# Eval("Name")%>' />
-                                                        </div>
-                                                        <div class="small m-t-xs">
-                                                            <telerik:RadLabel ID="RadLabel2" runat="server" CssClass="text-muted" Text='<%# Eval("Contents")%>' />
-                                                        </div>
+                                         
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="9">
+                                                    <ul class="pagination float-right"></ul>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                  <%--  </table>--%>
+                                </LayoutTemplate>
+                                <ItemTemplate>
+                                        
+                                     <tr>
+                                        <div class="ibox-content">
+                                            <div class="row">
+                                                <div class="col-lg-9">
+                                                    <div>
+                                                        <telerik:RadLabel ID="RadLabel1" runat="server" CssClass="product-name" Text='<%# Eval("Name")%>' />
                                                     </div>
-
-                                                    <div class="col-lg-3  m-t-xs text-center">
-                                                        <telerik:RadButton ID="SetDefaultMessage" runat="server" Text="選擇" CommandName='<%# Eval("Name") %>' CommandArgument='<%# Eval("Contents") %>' CssClass="btnDefaultMessage btn-white btn btn-xs" OnClick="SetDefaultMessage" />
+                                                    <div class="small m-t-xs">
+                                                        <telerik:RadLabel ID="RadLabel2" runat="server" CssClass="text-muted" Text='<%# Eval("Contents")%>' />
                                                     </div>
                                                 </div>
+
+                                                <div class="col-lg-3  m-t-xs text-center">
+                                                    <telerik:RadButton ID="SetDefaultMessage" runat="server" Text="選擇" CommandName='<%# Eval("Name") %>' CommandArgument='<%# Eval("Contents") %>' CssClass="btnDefaultMessage btn-white btn btn-xs" OnClick="SetDefaultMessage" />
+                                                </div>
                                             </div>
-                                        </tr>
-                                    </ItemTemplate>
-                                    <EmptyDataTemplate>
-                                        無任何預設訊息
-                                    </EmptyDataTemplate>
+                                        </div>
+                                    </tr>
+                                        
+                                     
+                              
+                                         
+                                </ItemTemplate>
+                                <EmptyDataTemplate>
+                                   
+                                    無任何預設訊息
+                                </EmptyDataTemplate>
 
-                                </telerik:RadListView>
+                            </telerik:RadListView>
+                      
+                    </div>
 
-                            </div>
 
-                            <div class="row">
 
-                                <div class="col-lg-12">
+                    <div class="col-lg-12">
 
-                                    <telerik:RadButton ID="btnDraft" runat="server" Text="儲存草稿" CssClass="btn btn-outline btn-primary btn-md" CommandName="Draft" OnClick="btnAdd_Click" />
-                                    <telerik:RadButton ID="btnAdd" runat="server" Text="送出" CssClass="btn btn-primary btn-md" CommandName="Add" OnClick="btnAdd_Click" />
-                                    <label id="DraftStatus" style="color: red" runat="server" cssclass="text-muted"></label>
-                                </div>
+                        <telerik:RadButton ID="btnDraft" runat="server" Text="儲存草稿" CssClass="btn btn-outline btn-primary btn-md" CommandName="Draft" OnClick="btnAdd_Click" />
+                        <telerik:RadButton ID="btnAdd" runat="server" Text="送出" CssClass="btn btn-primary btn-md" CommandName="Add" OnClick="btnAdd_Click" />
+                        <label id="DraftStatus" style="color: red" runat="server" cssclass="text-muted"></label>
+                    </div>
 
-                            </div>
 
-                        </div>
+
+                    </div>
 
                     </div>
 
@@ -346,6 +355,7 @@
         $(document).ready(function () {
             $('.footable').footable();
         });
+
 
     </script>
 

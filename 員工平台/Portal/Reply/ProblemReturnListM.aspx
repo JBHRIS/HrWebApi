@@ -4,45 +4,60 @@
     <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     </asp:Content>
     <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <div class="ibox">
-            <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
-                <div class="ibox-content">
+            <telerik:RadAjaxManager ID="RadAjaxManager" runat="server">
+        <AjaxSettings>
+            <telerik:AjaxSetting AjaxControlID="txtReturnS">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="lvMain" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+        </AjaxSettings>
+        <AjaxSettings>
+            <telerik:AjaxSetting AjaxControlID="txtReturnX">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="lvMain" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+        </AjaxSettings>
+      
+    </telerik:RadAjaxManager>
 
+
+        <div class="ibox">
+           
+      <div class="ibox-content">
                     <div class="row">
-                        <div class="col-lg-7">
-                            <h2>回覆管理</h2>
+                        <div class="col-lg-8"><h2>回覆管理</h2></div>
+                        <div class="col-lg-4 text-right">
+                            <telerik:RadButton ID="btnAdd" runat="server" Text="預設訊息設定" OnClick="btnSet_Click"
+                            CssClass="btn btn-primary btn-w-m m-r-xs"/>
+                            <telerik:RadButton ID="btnExportExcel" runat="server" Text="匯出" Visible="true"  OnClick="btnExportExcel_Click" CssClass="btn btn-w-m btn-primary btn-outline" />
                         </div>
-                        <div class="col-lg-5">
-                            <div class="row">
-                                <div class="col-lg-5">
-                                    <telerik:RadButton ID="btnAdd" runat="server" Text="預設訊息設定" OnClick="btnSet_Click"
-                                        CssClass="btn btn-primary btn-md m-t-xs" />
-                                     <telerik:RadButton ID="btnExportExcel" runat="server" Text="匯出" Visible="true"  OnClick="btnExportExcel_Click" CssClass="btn btn-w-m btn-primary btn-outline" />
-                                </div>
-                                <div class="col-lg-7">
-                                   <label>回報類型 :</label>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 ml-auto">
+                            <div class="row form-group">
+                                <div class="col-lg-6">
+                                    <%--<label>回報類型 :</label>--%>
                                 <telerik:RadComboBox ID="txtReturnS" runat="server" class="txtReturnS" Skin="Bootstrap" AllowCustomText="True"
                                     AutoPostBack="true" EnableVirtualScrolling="True" ItemsPerRequest="10" Filter="Contains"
-                                    LoadingMessage="載入中…" Width="60%" OnSelectedIndexChanged="txtReturnS_SelectedIndexChanged">
+                                    LoadingMessage="載入中…" Width="100%" OnSelectedIndexChanged="txtReturnS_SelectedIndexChanged">
                                 </telerik:RadComboBox>
-
-                               
-                               
-                                    <label>結單狀態 :</label>
+                                </div>
+                                <div class="col-lg-6">
+                                    <%--<label>結單狀態 :</label>--%>
                                 <telerik:RadComboBox ID="txtReturnX" runat="server" class="txtReturnS" Skin="Bootstrap" AllowCustomText="True"
                                     AutoPostBack="true" EnableVirtualScrolling="True" ItemsPerRequest="10" Filter="Contains"
-                                    LoadingMessage="載入中…" Width="60%" OnSelectedIndexChanged="txtReturnS_SelectedIndexChanged">
+                                    LoadingMessage="載入中…" Width="100%" OnSelectedIndexChanged="txtReturnS_SelectedIndexChanged">
                                 </telerik:RadComboBox>
-
                                 </div>
-
+                                
                             </div>
                         </div>
                     </div>
 
 
-
-                    <div class="row m-t-lg">
+                    <div class="row m-t-md">
                         <div class="col-lg-12">
                             <telerik:RadAjaxPanel ID="plMain" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
                                 <telerik:RadListView ID="lvMain" runat="server" ItemPlaceholderID="Container"
@@ -53,6 +68,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>標題</th>
+                                                     <th>回報人員</th>
                                                     <th>回報類型</th>
                                                     <th>填寫日期</th>
                                                     <th>回覆日期</th>
@@ -79,6 +95,10 @@
                                             <td data-th="標題">
                                                 <%# Eval("TitleContent") %>
                                             </td>
+                                              <td data-th="回報人員">
+                                                  <%# Eval("InsertMan") %>
+
+                                              </td>
                                             <td data-th="回報類型">
                                                 <%# Eval("QuestionCategoryName") %>
                                             </td>
@@ -108,6 +128,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>標題</th>
+                                                     <th>回報人員</th>
                                                     <th>回報類型</th>
                                                     <th>填寫日期</th>
                                                     <th>回覆日期</th>
@@ -141,7 +162,7 @@
                     </div>
 
                 </div>
-            </telerik:RadAjaxPanel>
+          
         </div>
 
 

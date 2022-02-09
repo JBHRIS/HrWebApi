@@ -52,11 +52,13 @@ namespace Portal
                 txtReturnS.DataBind();
                 //txtReturnS.SelectedIndex = 0;
             }
-            txtReturnS.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "所有類型", Value = "0" });
+            txtReturnS.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "回報類型", Value = "0" });
+            txtReturnS.Items.Insert(1, new Telerik.Web.UI.RadComboBoxItem { Text = "所有類型", Value = "" });
             txtReturnS.SelectedIndex = 0;
-            txtReturnX.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "所有類型", Value = "0" });
-            txtReturnX.Items.Insert(1, new Telerik.Web.UI.RadComboBoxItem { Text = "已結單", Value = "已結單" });
-            txtReturnX.Items.Insert(2, new Telerik.Web.UI.RadComboBoxItem { Text = "尚未結單", Value = "尚未結單" });
+            txtReturnX.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "結單狀態", Value = "0" });
+            txtReturnX.Items.Insert(1, new Telerik.Web.UI.RadComboBoxItem { Text = "所有類型", Value = "" });
+            txtReturnX.Items.Insert(2, new Telerik.Web.UI.RadComboBoxItem { Text = "已結單", Value = "已結單" });
+            txtReturnX.Items.Insert(3, new Telerik.Web.UI.RadComboBoxItem { Text = "尚未結單", Value = "尚未結單" });
             txtReturnX.SelectedIndex = 0;
 
         }
@@ -156,21 +158,35 @@ namespace Portal
         protected void txtReturnS_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
         {
             var selectitem = sender as RadComboBox;
-            lvMain.FilterExpressions.Clear();
+          
             if (txtReturnS.SelectedValue != "0")
             {
-                RadListViewContainsFilterExpression expression1 = new RadListViewContainsFilterExpression("QuestionCategoryCode");
-                expression1.CurrentValue = txtReturnS.SelectedValue;
-                lvMain.FilterExpressions.Add(expression1);
-
+               
+                RadListViewContainsFilterExpression expression1 = new RadListViewContainsFilterExpression("QuestionCategoryCode");                
+                lvMain.FilterExpressions.Remove(expression1);
+                if (txtReturnS.SelectedValue != "")
+                {
+                    expression1.CurrentValue = txtReturnS.SelectedValue;
+                    lvMain.FilterExpressions.Add(expression1);
+                }
+                         
             }
+            
             if (txtReturnX.SelectedValue != "0")
-            {
+            {              
                 RadListViewContainsFilterExpression expression2 = new RadListViewContainsFilterExpression("CompleteStatus");
-                expression2.CurrentValue = txtReturnX.SelectedValue;
-                lvMain.FilterExpressions.Add(expression2);
+                lvMain.FilterExpressions.Remove(expression2);
+                if (txtReturnX.SelectedValue != "")
+                {
+                    expression2.CurrentValue = txtReturnX.SelectedValue;
+                    lvMain.FilterExpressions.Add(expression2);
+                }
+               
             }
             lvMain.Rebind();
+           
         }
+      
     }
+
 }

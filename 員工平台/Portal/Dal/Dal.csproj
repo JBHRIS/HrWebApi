@@ -238,6 +238,7 @@
     <Compile Include="Dao\Salary\SalaryThisMonthDao.cs" />
     <Compile Include="Dao\Salary\SetSalaryPassWordDao.cs" />
     <Compile Include="Dao\Salary\SalaryLockDao.cs" />
+    <Compile Include="Dao\Share\ShareMailDao.cs" />
     <Compile Include="Dao\Share\ShareCodeDao.cs" />
     <Compile Include="Dao\Share\ShareCompanyDao.cs" />
     <Compile Include="Dao\Share\ShareDefaultDao.cs" />
@@ -258,6 +259,7 @@
     <Compile Include="Dao\Share\ShareInsertQuestionMainVdbDao.cs" />
     <Compile Include="Dao\Share\ShareInsertQuestionReplyVdbDao.cs" />
     <Compile Include="Dao\Share\ShareMessageDao.cs" />
+    <Compile Include="Dao\Share\ShareQuestionUserInfoDao.cs" />
     <Compile Include="Dao\Share\ShareSendQueueDao.cs" />
     <Compile Include="Dao\Share\ShareTagDao.cs" />
     <Compile Include="Dao\Share\ShareUpdateQuestionDefaultMessageVdbDao.cs" />
@@ -265,6 +267,7 @@
     <Compile Include="Dao\Share\ShareUpdateQuestionReplyContentVdbDao.cs" />
     <Compile Include="Dao\Share\ShareUpdateQuestionReplySendVdbDao.cs" />
     <Compile Include="Dao\Share\ShareUploadDao.cs" />
+    <Compile Include="Dao\Share\ShareUserDao.cs" />
     <Compile Include="Dao\Share\ShareValidateDao.cs" />
     <Compile Include="Dao\System\SystemColumnsDao.cs" />
     <Compile Include="Dao\System\SystemPageDao.cs" />

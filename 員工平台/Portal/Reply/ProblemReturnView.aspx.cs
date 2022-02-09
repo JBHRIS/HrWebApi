@@ -13,6 +13,8 @@ using System.Windows;
 using Bll.Tools;
 using Dal.Dao.Files;
 using Bll.Files.Vdb;
+using Bll.Token.Vdb;
+using System.Net.Mail;
 
 namespace Portal
 {
@@ -123,9 +125,9 @@ namespace Portal
                 //    }
 
 
-                //}
-                //var dataview = rsViewrsQM.GroupBy(x => x.ParentCode);
-                Reply = Reply.Where(x => Security.GetRoleKeyToBinaryKey(x.RoleKey).Contains(_User.RoleKey));
+                    //}
+                    //var dataview = rsViewrsQM.GroupBy(x => x.ParentCode);
+                    Reply = Reply.Where(x => Security.GetRoleKeyToBinaryKey(x.RoleKey).Contains(_User.RoleKey));
               
                 //string Jumpto = "";
                 //foreach (var Data in Reply)
@@ -167,17 +169,17 @@ namespace Portal
                 //             "</div>" +
                 //            "<div class=\"media-body\">" +
                 //           "<span class = \"name_font\"/>" + DataDetail.Name + " </span>" +
-                //           "<a href=\"#" + Jumpto + "\"><span class=\"text-blue\"><i class=\"fa fa-share \"></i>" + DataDetail.ReplyName + "</span></a><span class=\"replyreply_text\">" + DataDetail.ReplyContent + "</span><br>" +
-                //           "<span>" + DataDetail.Content + "</span><br>" +
+                //           "<a href=\"#" + Jumpto + "\"><span class=\"text-blue\"><i class=\"fa fa-share \"></i>" + DataDetail.ReplyName + "</span></a><span class=\"replyreply_text\">" + DataDetail.ReplyContent + "</span><br/>" +
+                //           "<span>" + DataDetail.Content + "</span><br/>" +
                 //           "<button ID=\"btnSubReply\" type = \"button\" class=\"btnReply btn btn-white btn-xs\" data-toggle=\"collapse\" data-target=\"#rep" + DataDetail.Code + "\"> <i class=\"fa fa-comments\"></i> 回覆</button>" +
                 //           "<span class=\"text-muted\">" + DataDetail.InsertDate.Value.ToString("yyyy/MM/dd") + " </span>-" +
-                //           "<span class=\"text-muted\">" + DataDetail.InsertDate.Value.ToString("HH:mm") + "</span><br>" +
+                //           "<span class=\"text-muted\">" + DataDetail.InsertDate.Value.ToString("HH:mm") + "</span><br/>" +
                 //            "<div class=\"form-group\">" +
                 //           "<div id=\"rep" + DataDetail.Code + "\"class=\"collapse\"><span style=\"width:100%;\"class=\"RadInput RadInput_Bootstrap RadInputMultiline RadInputMultiline_Bootstrap\">" +
-                //           "<textarea style=\"resize: none\" rows=\"3\" cols=\"20\" class=\"riTextBox riEmpty\" id=\"con" + DataDetail.Code + "\" placeholder=\"請填寫您想回覆的內容...\" ></textarea></span><br>" +
+                //           "<textarea style=\"resize: none\" rows=\"3\" cols=\"20\" class=\"riTextBox riEmpty\" id=\"con" + DataDetail.Code + "\" placeholder=\"請填寫您想回覆的內容...\" ></textarea></span><br/>" +
                 //             "<asp:Button id=\""+DataDetail.Code+"\" runat=\"server\" CssClass=\"btn btn-primary btn-primary btn-md\" Text=\"送出\" OnClick=\"ReplyAdd\"></asp:Button>" +
                 //           "</div>" + "</div>" +
-                //           "</div><br>";
+                //           "</div><br/>";
 
                 //            }
                 //        }
@@ -187,7 +189,9 @@ namespace Portal
                 QuestionReplyData.DataSource = Reply;
                 if (QuestionMain.Complete)
                 {
-                    pCompleteStatus.Style.Remove("display");
+                    divCompleteStatus.Visible = true;
+                    pCompleteStatus.Visible = true;
+                    //pCompleteStatus.Style.Remove("display");
                     btnWtReply.Disabled = true;
                     btnHelpful.Enabled = false;
                     btnHelpless.Enabled = false;
@@ -242,10 +246,16 @@ namespace Portal
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
+            APIResult Result = new APIResult();
             if (_User.EmpName == "未登入")
             {
                 string strUrl_No = "../Reply/LoginBind.aspx";
                 ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "script", "if ( window.alert('登入已逾時，請重新登入')) { } else {window.location.href='" + strUrl_No + "' };", true);
+                return;
+            }
+            if (txtContent.Text == "" || txtContent.Text == null)
+            {
+                lblAddStatus.InnerText = "回覆不得為空白";
                 return;
             }
             try
@@ -255,13 +265,13 @@ namespace Portal
                     RadButton button = sender as RadButton;
                     var CN = button.CommandName;
 
-                    var oGetQuestionReplyByParentCode = new ShareGetQuestionReplyByQuestionMainCodeDao();
-                    var GetQuestionReplyByParentCodeCond = new ShareGetQuestionReplyByQuestionMainCodeConditions();
-                    GetQuestionReplyByParentCodeCond.AccessToken = _User.AccessToken;
-                    GetQuestionReplyByParentCodeCond.RefreshToken = _User.RefreshToken;
-                    GetQuestionReplyByParentCodeCond.CompanySetting = CompanySetting;
-                    GetQuestionReplyByParentCodeCond.Code = Request.QueryString["Code"];
-                    var rsGQBP = (oGetQuestionReplyByParentCode.GetData(GetQuestionReplyByParentCodeCond).Data) as List<ShareGetQuestionReplyByQuestionMainCodeRow>;
+                    var oGetQuestionReplyByQuestionMainCode = new ShareGetQuestionReplyByQuestionMainCodeDao();
+                    var GetQuestionReplyByQuestionMainCodeCond = new ShareGetQuestionReplyByQuestionMainCodeConditions();
+                    GetQuestionReplyByQuestionMainCodeCond.AccessToken = _User.AccessToken;
+                    GetQuestionReplyByQuestionMainCodeCond.RefreshToken = _User.RefreshToken;
+                    GetQuestionReplyByQuestionMainCodeCond.CompanySetting = CompanySetting;
+                    GetQuestionReplyByQuestionMainCodeCond.Code = Request.QueryString["Code"];
+                    var rsGQBP = (oGetQuestionReplyByQuestionMainCode.GetData(GetQuestionReplyByQuestionMainCodeCond).Data) as List<ShareGetQuestionReplyByQuestionMainCodeRow>;
                     var Draft = rsGQBP.Where(x => x.Key1 == _User.EmpId).Where(x => x.Send == false).FirstOrDefault();
 
 
@@ -289,8 +299,8 @@ namespace Portal
                     }
                     InsertQuestionReplyCond.Key3 = _User.EmpId;
                     InsertQuestionReplyCond.Name = _User.EmpName;
-                    InsertQuestionReplyCond.Content = txtContent.Text;
-                    InsertQuestionReplyCond.RoleKey = Int32.Parse(lblRoleKey.Text);
+                    InsertQuestionReplyCond.Content = txtContent.Text.Replace("\r\n", "<br/>");
+                    InsertQuestionReplyCond.RoleKey = 74 ;
                     InsertQuestionReplyCond.IpAddress = WebPage.GetClientIP(Context);
                     InsertQuestionReplyCond.ReplyToCode = Request.QueryString["Code"];
                     InsertQuestionReplyCond.ParentCode = Request.QueryString["Code"];
@@ -331,13 +341,13 @@ namespace Portal
                             UpdateQuestionReplySendCond.CompanySetting = CompanySetting;
                             UpdateQuestionReplySendCond.Code = Draft.Code;
                             UpdateQuestionReplySendCond.SetSend = true;
-                            oUpdateQuestionReplySend.GetData(UpdateQuestionReplySendCond);
+                            Result=oUpdateQuestionReplySend.GetData(UpdateQuestionReplySendCond);
 
                         }
                         else
                         {
                             InsertQuestionReplyCond.Send = true;
-                            oInsertQuestionReply.GetData(InsertQuestionReplyCond);
+                            Result=oInsertQuestionReply.GetData(InsertQuestionReplyCond);
 
                         }
                         lblAddStatus.InnerText = "";
@@ -380,9 +390,21 @@ namespace Portal
                         UpdateQuestionMainCond.Code = Request.QueryString["Code"];
                         oUpdateQuestionMain.GetData(UpdateQuestionMainCond);
                     }
-
-
-                    QuestionReplyData.Rebind();
+                    if (Result.Status)
+                    {
+                        var oSendMail = new ShareSendQueueDao();
+                        MailAddress address = new MailAddress("aron@jbjob.com.tw");
+                        var Subject = "";
+                        var Body = "";
+                        var oShareMail = new ShareMailDao();
+                        var dcParameter = new Dictionary<string, string>();
+                        dcParameter.Add("MainCode", Request.QueryString["Code"]);
+                       
+                        oShareMail.OutMailContent(out Subject, out Body, "02", 0, true, dcParameter);
+                        oSendMail.SendMail(address, Subject, Body, true);
+                        ViewState["ParentCode"] = CN.ToString();
+                        QuestionReplyData.Rebind();
+                    }
                 }
             }
             catch (Exception ex)
@@ -402,6 +424,7 @@ namespace Portal
         }
         protected void QuestionReplyData_ItemCommand(object sender, RadListViewCommandEventArgs e)
         {
+            APIResult Result = new APIResult();
             if (_User.EmpName == "未登入")
             {
                 string strUrl_No = "../Reply/LoginBind.aspx";
@@ -439,7 +462,7 @@ namespace Portal
                                 lbl.Text = "回覆不得為空白";
                                 return;
                             }
-                            content = txt.Text;
+                            content = txt.Text.Replace("\r\n", "<br/>");
                         }
                     }
                     InsertQuestionReplyCond.AccessToken = _User.AccessToken;
@@ -463,7 +486,7 @@ namespace Portal
                     }
                     InsertQuestionReplyCond.Key3 = _User.EmpId;
                     InsertQuestionReplyCond.Name = _User.EmpName;
-                    InsertQuestionReplyCond.Content = content;
+                    InsertQuestionReplyCond.Content = content.Replace("\r\n","<br/>");
                     InsertQuestionReplyCond.RoleKey = rsQRBP.RoleKey;
                     InsertQuestionReplyCond.IpAddress = WebPage.GetClientIP(Context);
                     InsertQuestionReplyCond.ReplyToCode = CA.ToString();
@@ -476,9 +499,21 @@ namespace Portal
                     InsertQuestionReplyCond.UpdateMan = _User.EmpName;
                     InsertQuestionReplyCond.UpdateDate = DateTime.Now;
 
-                    oInsertQuestionReply.GetData(InsertQuestionReplyCond);
-                    ViewState["ParentCode"] = CN.ToString();
-                    QuestionReplyData.Rebind();
+                    Result =oInsertQuestionReply.GetData(InsertQuestionReplyCond);
+                    if (Result.Status)
+                    {
+                        var oSendMail = new ShareSendQueueDao();
+                        MailAddress address = new MailAddress("aron@jbjob.com.tw");
+                        var Subject = "";
+                        var Body = "";
+                        var oShareMail = new ShareMailDao();
+                        var dcParameter = new Dictionary<string, string>();
+                        dcParameter.Add("MainCode", Request.QueryString["Code"]);
+                        oShareMail.OutMailContent(out Subject, out Body, "02", 0, true, dcParameter);
+                        oSendMail.SendMail(address, Subject, Body, true);
+                        ViewState["ParentCode"] = CN.ToString();
+                        QuestionReplyData.Rebind();
+                    }
                 }
                 else if (Action == "btnSubReplyAdd")
                 {
@@ -502,7 +537,7 @@ namespace Portal
                                 lbl.Text = "回覆不得為空白";
                                 return;
                             }
-                            content = txt.Text;
+                            content = txt.Text.Replace("\r\n", "<br/>");
                         }
                     }
                     InsertQuestionReplyCond.AccessToken = _User.AccessToken;
@@ -539,9 +574,21 @@ namespace Portal
                     InsertQuestionReplyCond.UpdateMan = _User.EmpName;
                     InsertQuestionReplyCond.UpdateDate = DateTime.Now;
 
-                    oInsertQuestionReply.GetData(InsertQuestionReplyCond);
-                    ViewState["ParentCode"] = CN.ToString();
-                    QuestionReplyData.Rebind();
+                    Result=oInsertQuestionReply.GetData(InsertQuestionReplyCond);
+                    if (Result.Status)
+                    {
+                        var oSendMail = new ShareSendQueueDao();
+                        MailAddress address = new MailAddress("aron@jbjob.com.tw");
+                        var Subject = "";
+                        var Body = "";
+                        var oShareMail = new ShareMailDao();
+                        var dcParameter = new Dictionary<string, string>();
+                        dcParameter.Add("MainCode", Request.QueryString["Code"]);
+                        oShareMail.OutMailContent(out Subject, out Body, "02", 0, true, dcParameter);
+                        oSendMail.SendMail(address, Subject, Body, true);
+                        ViewState["ParentCode"] = CN.ToString();
+                        QuestionReplyData.Rebind();
+                    }
                 }
                 var oGetQuestionMain = new ShareGetQuestionMainByCodeDao();
                 var GetQuestionMainCond = new ShareGetQuestionMainByCodeConditions();
@@ -592,6 +639,7 @@ namespace Portal
 
     protected void btnHelpful_Click(object sender, EventArgs e)
         {
+            APIResult Result = new APIResult();
             if (_User.EmpName == "未登入")
             {
                 string strUrl_No = "../Reply/LoginBind.aspx";
@@ -639,12 +687,28 @@ namespace Portal
             UpdateQuestionMainCond.CompanySetting = CompanySetting;
             UpdateQuestionMainCond.Code = Request.QueryString["Code"];
 
-            oUpdateQuestionMain.GetData(UpdateQuestionMainCond);
+            Result = oUpdateQuestionMain.GetData(UpdateQuestionMainCond);
+            if (Result.Status)
+            {
+                var oSendMail = new ShareSendQueueDao();
+                MailAddress address = new MailAddress("aron@jbjob.com.tw");
+                var Subject = "";
+                var Body = "";
+                var oShareMail = new ShareMailDao();
+                var dcParameter = new Dictionary<string, string>();
+                dcParameter.Add("MainCode", Request.QueryString["Code"]);
+                oShareMail.OutMailContent(out Subject, out Body, "03", 0, true, dcParameter);
+                oSendMail.SendMail(address, Subject, Body, true);
+               
+                QuestionReplyData.Rebind();
+                divCompleteStatus.Visible = true;
+                pCompleteStatus.Visible = true;
+                //pCompleteStatus.Style.Remove("display");
 
-            pCompleteStatus.Style.Remove("display");
+                var Script = "$('.btnReply').hide();";
+                ScriptManager.RegisterStartupScript(this, typeof(Button), "btnhide", Script, true);
+            }
            
-            var Script = "$('.btnReply').hide();";
-            ScriptManager.RegisterStartupScript(this, typeof(Button), "btnhide", Script, true);
            
         }
 

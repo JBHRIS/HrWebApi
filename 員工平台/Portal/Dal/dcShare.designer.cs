@@ -325,6 +325,14 @@ namespace Dal
 				return this.GetTable<AppBSSID>();
 			}
 		}
+		
+		public System.Data.Linq.Table<QuestionUserInfo> QuestionUserInfo
+		{
+			get
+			{
+				return this.GetTable<QuestionUserInfo>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ShareCode")]
@@ -10595,6 +10603,393 @@ namespace Dal
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.QuestionUserInfo")]
+	public partial class QuestionUserInfo
+	{
+		
+		private int _AutoKey;
+		
+		private string _CompanyId;
+		
+		private string _Code;
+		
+		private string _AccountCode;
+		
+		private string _AccountPassword;
+		
+		private string _UserId;
+		
+		private string _UserName;
+		
+		private int _RoleKey;
+		
+		private string _Email;
+		
+		private string _Content;
+		
+		private string _Key1;
+		
+		private string _Key2;
+		
+		private string _Key3;
+		
+		private System.DateTime _DateA;
+		
+		private System.DateTime _DateD;
+		
+		private string _Note;
+		
+		private string _Status;
+		
+		private string _InsertMan;
+		
+		private System.Nullable<System.DateTime> _InseetDate;
+		
+		private string _UpdateMan;
+		
+		private System.Nullable<System.DateTime> _UpdateTime;
+		
+		public QuestionUserInfo()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AutoKey", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int AutoKey
+		{
+			get
+			{
+				return this._AutoKey;
+			}
+			set
+			{
+				if ((this._AutoKey != value))
+				{
+					this._AutoKey = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyId", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string CompanyId
+		{
+			get
+			{
+				return this._CompanyId;
+			}
+			set
+			{
+				if ((this._CompanyId != value))
+				{
+					this._CompanyId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Code", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Code
+		{
+			get
+			{
+				return this._Code;
+			}
+			set
+			{
+				if ((this._Code != value))
+				{
+					this._Code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AccountCode
+		{
+			get
+			{
+				return this._AccountCode;
+			}
+			set
+			{
+				if ((this._AccountCode != value))
+				{
+					this._AccountCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountPassword", DbType="NVarChar(200)")]
+		public string AccountPassword
+		{
+			get
+			{
+				return this._AccountPassword;
+			}
+			set
+			{
+				if ((this._AccountPassword != value))
+				{
+					this._AccountPassword = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					this._UserId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(50)")]
+		public string UserName
+		{
+			get
+			{
+				return this._UserName;
+			}
+			set
+			{
+				if ((this._UserName != value))
+				{
+					this._UserName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleKey", DbType="Int NOT NULL")]
+		public int RoleKey
+		{
+			get
+			{
+				return this._RoleKey;
+			}
+			set
+			{
+				if ((this._RoleKey != value))
+				{
+					this._RoleKey = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(50)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content", DbType="NVarChar(MAX)")]
+		public string Content
+		{
+			get
+			{
+				return this._Content;
+			}
+			set
+			{
+				if ((this._Content != value))
+				{
+					this._Content = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Key1", DbType="NVarChar(50)")]
+		public string Key1
+		{
+			get
+			{
+				return this._Key1;
+			}
+			set
+			{
+				if ((this._Key1 != value))
+				{
+					this._Key1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Key2", DbType="NVarChar(50)")]
+		public string Key2
+		{
+			get
+			{
+				return this._Key2;
+			}
+			set
+			{
+				if ((this._Key2 != value))
+				{
+					this._Key2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Key3", DbType="NVarChar(50)")]
+		public string Key3
+		{
+			get
+			{
+				return this._Key3;
+			}
+			set
+			{
+				if ((this._Key3 != value))
+				{
+					this._Key3 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateA", DbType="DateTime NOT NULL")]
+		public System.DateTime DateA
+		{
+			get
+			{
+				return this._DateA;
+			}
+			set
+			{
+				if ((this._DateA != value))
+				{
+					this._DateA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateD", DbType="DateTime NOT NULL")]
+		public System.DateTime DateD
+		{
+			get
+			{
+				return this._DateD;
+			}
+			set
+			{
+				if ((this._DateD != value))
+				{
+					this._DateD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(MAX)")]
+		public string Note
+		{
+			get
+			{
+				return this._Note;
+			}
+			set
+			{
+				if ((this._Note != value))
+				{
+					this._Note = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InsertMan", DbType="NVarChar(50)")]
+		public string InsertMan
+		{
+			get
+			{
+				return this._InsertMan;
+			}
+			set
+			{
+				if ((this._InsertMan != value))
+				{
+					this._InsertMan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InseetDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> InseetDate
+		{
+			get
+			{
+				return this._InseetDate;
+			}
+			set
+			{
+				if ((this._InseetDate != value))
+				{
+					this._InseetDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateMan", DbType="NVarChar(50)")]
+		public string UpdateMan
+		{
+			get
+			{
+				return this._UpdateMan;
+			}
+			set
+			{
+				if ((this._UpdateMan != value))
+				{
+					this._UpdateMan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> UpdateTime
+		{
+			get
+			{
+				return this._UpdateTime;
+			}
+			set
+			{
+				if ((this._UpdateTime != value))
+				{
+					this._UpdateTime = value;
+				}
 			}
 		}
 	}

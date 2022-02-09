@@ -18,16 +18,12 @@ namespace Bll.Share.Vdb
     /// </summary>
     public class ShareUserConditions : DataConditions
     {
-        /// <summary>
-        /// 群組代碼
-        /// </summary>
-        public string GroupCode { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        
+        public string CompanyId { get; set; }
+       
         public ShareUserConditions()
         {
-            GroupCode = "";
+            CompanyId = "";
         }
     }
 
@@ -37,37 +33,41 @@ namespace Bll.Share.Vdb
     public class ShareUserRow : StandardDataRow
     {
         /// <summary>
-        /// 群組代碼
+        /// AutoKey
         /// </summary>
-        public string GroupCode { get; set; }
+        public int AutoKey { get; set; }
         /// <summary>
-        /// Key1
+        /// Code
         /// </summary>
-        public string Key1 { get; set; }
+        public string Code { get; set; }
         /// <summary>
-        /// Key2
+        /// CompanyId
         /// </summary>
-        public string Key2 { get; set; }
+        public string CompanyId { get; set; }
         /// <summary>
-        /// Key3
+        /// AccountCode
         /// </summary>
-        public string Key3 { get; set; }
+        public string AccountCode { get; set; }
+
         /// <summary>
-        /// 備用1
+        /// UserName
         /// </summary>
-        public string Column1 { get; set; }
+        public string UserName { get; set; }
+
+        public string Email { get; set; }
+
         /// <summary>
-        /// 備用2
+        /// RoleKey
         /// </summary>
-        public string Column2 { get; set; }
+        public int RoleKey { get; set; }
         /// <summary>
-        /// 備用3
+        ///DateA
         /// </summary>
-        public string Column3 { get; set; }
+        public DateTime? DateA { get; set; }
         /// <summary>
-        /// 系統專用(不可刪或修改)
+        ///DateD
         /// </summary>
-        public bool SystemUse { get; set; }
+        public DateTime? DateD { get; set; }
     }
 
     /// <summary>

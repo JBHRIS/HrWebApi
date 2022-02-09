@@ -97,6 +97,13 @@
                     </div>
                 </div>
             </div>
+             <div class="ibox-content">
+            <telerik:RadButton ID="btnPage" runat="server" Text="上一頁" CssClass="btn btn-primary btn-md btn-outline" OnClick="btnPage_Click">
+                <Icon PrimaryIconCssClass="rbPrevious" />
+            </telerik:RadButton>
+
+
+        </div>
         </telerik:RadAjaxPanel>
     </div>
 </asp:Content>

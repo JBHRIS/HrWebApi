@@ -63,11 +63,13 @@ namespace Portal
                 txtReturnS.DataBind();
                 //txtReturnS.SelectedIndex = 0;
             }
-            txtReturnS.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "所有類型", Value = "0" });
+            txtReturnS.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "回報類型", Value = "0" });
+            txtReturnS.Items.Insert(1, new Telerik.Web.UI.RadComboBoxItem { Text = "所有類型", Value = "" });
             txtReturnS.SelectedIndex = 0;
-            txtReturnX.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "所有類型", Value = "0" });
-            txtReturnX.Items.Insert(1, new Telerik.Web.UI.RadComboBoxItem { Text = "已結單", Value = "已結單" });
-            txtReturnX.Items.Insert(2, new Telerik.Web.UI.RadComboBoxItem { Text = "尚未結單", Value = "尚未結單" });
+            txtReturnX.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "結單狀態", Value = "0" });
+            txtReturnX.Items.Insert(1, new Telerik.Web.UI.RadComboBoxItem { Text = "所有類型", Value = "" });
+            txtReturnX.Items.Insert(2, new Telerik.Web.UI.RadComboBoxItem { Text = "已結單", Value = "已結單" });
+            txtReturnX.Items.Insert(3, new Telerik.Web.UI.RadComboBoxItem { Text = "尚未結單", Value = "尚未結單" });
             txtReturnX.SelectedIndex = 0;
 
         }
@@ -158,19 +160,29 @@ namespace Portal
         protected void txtReturnS_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
         {
             var selectitem = sender as RadComboBox;
-            lvMain.FilterExpressions.Clear();
-            if (txtReturnS.SelectedValue!="0")
+            if (txtReturnS.SelectedValue != "0")
             {
-                RadListViewContainsFilterExpression expression1 = new RadListViewContainsFilterExpression("QuestionCategoryCode");             
-                expression1.CurrentValue = txtReturnS.SelectedValue;              
-                lvMain.FilterExpressions.Add(expression1);             
-               
+
+                RadListViewContainsFilterExpression expression1 = new RadListViewContainsFilterExpression("QuestionCategoryCode");
+                lvMain.FilterExpressions.Remove(expression1);
+                if (txtReturnS.SelectedValue != "")
+                {
+                    expression1.CurrentValue = txtReturnS.SelectedValue;
+                    lvMain.FilterExpressions.Add(expression1);
+                }
+
             }
-            if(txtReturnX.SelectedValue != "0")
+
+            if (txtReturnX.SelectedValue != "0")
             {
                 RadListViewContainsFilterExpression expression2 = new RadListViewContainsFilterExpression("CompleteStatus");
-                expression2.CurrentValue = txtReturnX.SelectedValue;
-                lvMain.FilterExpressions.Add(expression2);
+                lvMain.FilterExpressions.Remove(expression2);
+                if (txtReturnX.SelectedValue != "")
+                {
+                    expression2.CurrentValue = txtReturnX.SelectedValue;
+                    lvMain.FilterExpressions.Add(expression2);
+                }
+
             }
             lvMain.Rebind();
         }
@@ -210,20 +222,71 @@ namespace Portal
                     if (_User.RoleKey == 2)
                     {
                         var rsQM = rsGetQuestionMain.Data as List<ShareGetQuestionMainRow>;
+                        if ((txtReturnS.SelectedValue != "0" && txtReturnS.SelectedValue != "") || (txtReturnX.SelectedValue != "0" && txtReturnX.SelectedValue != ""))
+                        {
+                            if (txtReturnS.SelectedValue != "0" && txtReturnS.SelectedValue != "")
+                            {
+                                rsQM = rsQM.Where(x => x.QuestionCategoryCode.Contains(txtReturnS.SelectedValue)).ToList<ShareGetQuestionMainRow>();
+                            }
+
+                            if (txtReturnX.SelectedValue != "0" && txtReturnX.SelectedValue != "")
+                            {
+                                if (txtReturnX.SelectedValue == "已結單")
+                                {
+                                    rsQM = rsQM.Where(x => x.Complete == true).ToList<ShareGetQuestionMainRow>();
+                                }
+                                else
+                                {
+                                    rsQM = rsQM.Where(x => x.Complete == false).ToList<ShareGetQuestionMainRow>();
+                                }
+                            }
+
+                        }
                         dt = rsQM.CopyToDataTable();
                     }
                     else if (_User.RoleKey == 8)
                     {
                         var rsQM = rsGetQuestionMain.Data as List<ShareGetQuestionMainByCompanyRow>;
+                        if ((txtReturnS.SelectedValue != "0" && txtReturnS.SelectedValue != "") || (txtReturnX.SelectedValue != "0" && txtReturnX.SelectedValue != ""))
+                        {
+                            if (txtReturnS.SelectedValue != "0" && txtReturnS.SelectedValue != "")
+                            {
+                                rsQM = rsQM.Where(x => x.QuestionCategoryCode.Contains(txtReturnS.SelectedValue)) as List<ShareGetQuestionMainByCompanyRow>;
+                            }
+                               
+                            if(txtReturnX.SelectedValue != "0" && txtReturnX.SelectedValue != "")
+                            {
+                                if (txtReturnX.SelectedValue == "已結單")
+                                {
+                                    rsQM = rsQM.Where(x => x.Complete = true) as List<ShareGetQuestionMainByCompanyRow>;
+                                }
+                                else
+                                {
+                                    rsQM = rsQM.Where(x => x.Complete = false) as List<ShareGetQuestionMainByCompanyRow>;
+                                }                               
+                            }
+                            
+                        }
                         dt = rsQM.CopyToDataTable();
                     }
                     //移除不顯示的欄位
-                    //if (dt.Columns.Contains("ListAbs")) dt.Columns.Remove("ListAbs");
-                    //if (dt.Columns.Contains("ListOt")) dt.Columns.Remove("ListOt");
+                    dt.Columns.Remove("CompanyId");
+                    dt.Columns.Remove("SystemCategoryCode");
+                    dt.Columns.Remove("Key1");
+                    dt.Columns.Remove("Key2");
+                    dt.Columns.Remove("Key3");
+                    dt.Columns.Remove("QuestionCategoryCode");
+                    dt.Columns.Remove("IpAddress");
+                    dt.Columns.Remove("DateE");
+                    dt.Columns.Remove("Complete");
+                    dt.Columns.Remove("Note");
+                    dt.Columns.Remove("Status");
+                    dt.Columns.Remove("InsertMan");
                     //更改欄位名稱
-                    //var ListGroupCode = new List<string>();
-                    //ListGroupCode.Add("Abs");
-                    //AccessData.SetColumnsName(dt, ListGroupCode);
+                    var ListGroupCode = new List<string>();
+                    ListGroupCode.Add("Reply");
+                    AccessData.SetColumnsName(dt, ListGroupCode);
+
                     var stream = RenderDataTableToExcel(dt);
                     var FileName = "回報單" + DateTime.Now.ToString("yyyyMMddHHmm") + ".xls";
 

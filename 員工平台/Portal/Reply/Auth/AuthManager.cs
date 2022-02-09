@@ -10,11 +10,13 @@ using System.Web.Security;
 using System.IO.Compression;
 using System.IO;
 using Bll.Share.Vdb;
+using Dal.Dao.Share;
+using Dal;
 
 public class AuthManager
 {
     public static string CacheKey = "Reply";
-
+    public dcShareDataContext dcShare;
     public static void SetCacheUser(User user)
     {
         HttpContext.Current.Cache.Insert(CacheKey + user.UserCode, user, null, System.Web.Caching.Cache.NoAbsoluteExpiration, TimeSpan.FromMinutes(60), System.Web.Caching.CacheItemPriority.High, null);
@@ -55,7 +57,7 @@ public class AuthManager
     }
 
     //登入
-    public void SignIn(User user, string OldId, CompanySettingRow CompanySetting,bool isShare)
+    public void SignIn(User user, string OldId, CompanySettingRow CompanySetting, bool isShare, bool FromOutside = false)
     {
         SignOut();
 
@@ -80,7 +82,7 @@ public class AuthManager
 
                         user.EmpId = rUserdata.EmpId;
                         user.EmpName = rUserdata.EmpName;
-                        user.EmpEmail = "";
+                        user.EmpEmail = "aron@jbjob.con";
                         user.Dept = rUserdata.Dept;
                         user.EmpDeptName = rUserdata.DeptName;
                         user.EmpDeptCode = rUserdata.DeptCode;
@@ -97,6 +99,17 @@ public class AuthManager
                     }
                 }
             }
+        }
+        else
+        {
+            var oShareUser = new ShareUserDao();
+            var ShareUserCond = new ShareUserConditions();
+            ShareUserCond.Code = user.EmpId;
+            var Userdata = oShareUser.GetShareUser(ShareUserCond);
+            user.RoleKey = Userdata.RoleKey;
+            user.EmpName = Userdata.UserName;
+            user.EmpId = Userdata.Code;
+            user.EmpEmail = Userdata.Email;
         }
         
         //UnobtrusiveSession.Session["AccessToken"] = user.AccessToken;

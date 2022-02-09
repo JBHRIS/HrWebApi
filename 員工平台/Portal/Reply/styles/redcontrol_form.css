@@ -274,3 +274,21 @@
 Input {
 	font-style:normal;
 }
+
+
+.RadInput_Bootstrap .riTextBox, .RadInputMgr_Bootstrap {
+    padding: 6px 12px;
+    border-radius: 0;
+}
+
+.RadInput_Bootstrap .riTextBox, .RadInput_Bootstrap .riSelect, .RadInput_Bootstrap .rcSelect, .RadInputMgr_Bootstrap {
+    border-color: #e7eaec;
+}
+
+.RadInput_Bootstrap.RadInputFocused .riTextBox, .RadInput_Bootstrap.RadInputFocused .riSelect, .RadInput_Bootstrap.RadInputFocused .rcSelect, .RadInput_Focused_Bootstrap{
+	border-color: #1ab394;
+}
+
+.RadInput_Bootstrap.RadInputFocused .riTextBox, .RadInput_Bootstrap.RadInputFocused .riContentWrapper, .RadPicker_Bootstrap .RadInputFocused, .RadInput_Focused_Bootstrap{
+	box-shadow: none;
+}

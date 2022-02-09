@@ -19,7 +19,7 @@ namespace Reply
                 var oEncryptHepler = new EncryptHepler();
                 var AccessToken = "";
                 var RefreshToken = "";
-                var CompanyId = "999";
+                var CompanyId = "";
                 var EmpId = "528";
                 var EmpName = "Aron";
                 var Role = 8;
