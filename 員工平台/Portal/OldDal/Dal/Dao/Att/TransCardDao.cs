@@ -4,11 +4,12 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using Bll.Att.Vdb;
+using OldBll.Att.Vdb;
 using JBModule.Data.Linq;
+using JBTools;
 using JBTools.Extend;
 
-namespace Dal.Dao.Att
+namespace OldDal.Dao.Att
 {
     /// <summary>
     /// TransCardDao
@@ -234,8 +235,8 @@ namespace Dal.Dao.Att
                     Date = a.Date,
                     TimeB = a.TimeB,
                     TimeE = a.TimeE,
-                    DateTimeB = a.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(a.TimeB)),
-                    DateTimeE = a.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(a.TimeE))
+                    DateTimeB = a.Date.AddMinutes(OldBll.Tools.TimeTrans.ConvertHhMmToMinutes(a.TimeB)),
+                    DateTimeE = a.Date.AddMinutes(OldBll.Tools.TimeTrans.ConvertHhMmToMinutes(a.TimeE))
                 }).ToList();
 
 
@@ -311,7 +312,7 @@ namespace Dal.Dao.Att
                 Nobr = c.Nobr,
                 CardDate = c.CardDate,
                 CardTime24 = c.CardTime24,
-                CardDateTime = c.CardDate.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(c.CardTime24)),
+                CardDateTime = c.CardDate.AddMinutes(OldBll.Tools.TimeTrans.ConvertHhMmToMinutes(c.CardTime24)),
                 Los = rs.Contains(c.Reason),
             }).ToList();
 
@@ -495,7 +496,7 @@ namespace Dal.Dao.Att
             TransCardPools tcp;
             this.Report(30, "判斷異常中...");
 
-            Bll.Tools.ThreadPools stp = new Bll.Tools.ThreadPools(_ThreadCount, System.Threading.ThreadPriority.BelowNormal);
+            OldBll.Tools.ThreadPools stp = new OldBll.Tools.ThreadPools(_ThreadCount, System.Threading.ThreadPriority.BelowNormal);
             foreach (var item in lsNobr.Split(300))
             {
                 //for (int count = 0; count < lsNobr.Count; count++)
@@ -519,7 +520,7 @@ namespace Dal.Dao.Att
 
         public class TransCardPools
         {
-            private Bll.Att.TransCard oTransCard;
+            private OldBll.Att.TransCard oTransCard;
 
             private ManualResetEvent doneEvent;
             private TransCardVdb Vdb;
@@ -531,7 +532,7 @@ namespace Dal.Dao.Att
             private bool PassOtRote = false;
             public TransCardPools(IDbConnection conn, ManualResetEvent _doneEvent, TransCardVdb _Vdb, TransCardCondition _oCond, List<string> _lsNobr, string _sNobr, int _iPass)
             {
-                oTransCard = new Bll.Att.TransCard();
+                oTransCard = new OldBll.Att.TransCard();
 
                 doneEvent = _doneEvent;
                 Vdb = _Vdb;
@@ -664,7 +665,7 @@ namespace Dal.Dao.Att
                             if (rRoteDataDay != null && !IsHoliDay(Vdb.RoteData, rRoteDataDay.RoteCode))
                             {
                                 //今天上班時間 如果比轉換時間還要大 此資料不需判斷
-                                DateTime DateOnTime = rATTEND.ADATE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(rRoteDataDay.OnTime));
+                                DateTime DateOnTime = rATTEND.ADATE.Date.AddMinutes(OldBll.Tools.TimeTrans.ConvertHhMmToMinutes(rRoteDataDay.OnTime));
                                 if (DateTime.Now < DateOnTime)
                                     continue;
 
@@ -672,7 +673,7 @@ namespace Dal.Dao.Att
                                 List<AbsTable> rsAbs = Vdb.AbsData.Where(p => p.Nobr == rATTEND.NOBR && p.Date.Date == rATTEND.ADATE.Date).ToList();
 
                                 //取得正確的刷卡資料
-                                DateTimeB = rATTEND.ADATE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(rRoteDataDay.OffLastTime));  //今天的最早上班時間
+                                DateTimeB = rATTEND.ADATE.Date.AddMinutes(OldBll.Tools.TimeTrans.ConvertHhMmToMinutes(rRoteDataDay.OffLastTime));  //今天的最早上班時間
                                 DateTimeE = DateTimeB.AddDays(1);   //今天的最晚下班時間
 
                                 List<AttCardTable> lsAttCard = new List<AttCardTable>();
@@ -807,8 +808,8 @@ namespace Dal.Dao.Att
                                         var rAttCard = lsAttCard[0];
                                         if (rAttCard.OnCardTime48.Trim().Length > 0 && rAttCard.OffCardTime48.Trim().Length > 0)
                                         {
-                                            int iRoteMin = Bll.Tools.TimeTrans.ConvertHhMmToMinutes(rAttCard.OnCardTime48);
-                                            int iCardMin = Bll.Tools.TimeTrans.ConvertHhMmToMinutes(rAttCard.OffCardTime48);
+                                            int iRoteMin = OldBll.Tools.TimeTrans.ConvertHhMmToMinutes(rAttCard.OnCardTime48);
+                                            int iCardMin = OldBll.Tools.TimeTrans.ConvertHhMmToMinutes(rAttCard.OffCardTime48);
 
                                             rATTEND.DELAY_MINS = iCardMin - iRoteMin;
                                         }

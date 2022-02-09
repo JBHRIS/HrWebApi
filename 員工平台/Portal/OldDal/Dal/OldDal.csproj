@@ -117,6 +117,10 @@
       <Project>{b94796b3-cedb-4083-95ad-e94ec30d15d5}</Project>
       <Name>JBModule.Message</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\Standard\JBTools\JBTools.csproj">
+      <Project>{9a891671-4fc7-4ddf-a21d-21e3d563cee6}</Project>
+      <Name>JBTools</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\元件\JBMODULE.DATA\JBModule.Data.Linq\JBModule.Data.csproj">
       <Project>{05dac84f-258e-41fc-b490-0fccd4ab15b5}</Project>
       <Name>JBModule.Data</Name>
@@ -130,6 +134,9 @@
     <None Include="Entity\dcFlow.dbml.layout">
       <DependentUpon>dcFlow.dbml</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
