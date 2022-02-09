@@ -93,6 +93,7 @@ namespace JBHR.Att
             checkBox1.Checked = false;          
             checkBox3.Checked = false;           
             textBox1.Focus();
+            textBox4.Text = "1";
         }
 
         private void fdc_AfterEdit(object sender, JBControls.FullDataCtrl.AfterEventArgs e)
