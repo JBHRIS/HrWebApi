@@ -70,7 +70,7 @@ namespace JBHR.AnnualBonus.HunyaCustom
 
             frm.DataTransfer.UnMustColumnList = new List<string>();
             frm.DataTransfer.UnMustColumnList.Add("員工姓名");
-            frm.DataTransfer.UnMustColumnList.Add("年度考績");
+            //frm.DataTransfer.UnMustColumnList.Add("年度考績");
             frm.DataTransfer.UnMustColumnList.Add("年度評等");
             frm.DataTransfer.UnMustColumnList.Add("實際評等");
             frm.ShowDialog();

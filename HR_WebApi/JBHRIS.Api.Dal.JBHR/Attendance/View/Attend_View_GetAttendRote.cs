@@ -55,13 +55,14 @@ namespace JBHRIS.Api.Dal.JBHR.Attendance.View
 
         public List<AttRoteViewDto> GetAttRote(List<string> EmpIds, DateTime StartDate, DateTime EndDate)
         {
+            DateTime today = DateTime.Today;
             var attendRotes = (from att in _unitOfWork.Repository<Attend>().Reads()
                                join r in _unitOfWork.Repository<Rote>().Reads() on att.Rote equals r.Rote1
                                join bts in _unitOfWork.Repository<Basetts>().Reads() on att.Nobr equals bts.Nobr
                                where EmpIds.Contains(att.Nobr)
                                && att.Adate >= StartDate && att.Adate <= EndDate
                                && new List<string>() { "1", "4", "6" }.Contains(bts.Ttscode)
-                               && DateTime.Now >= bts.Adate && DateTime.Now <= bts.Ddate
+                               && today >= bts.Adate && today <= bts.Ddate
                                select new { ATTEND = att, ROTE = r, BASETTS = bts }).ToList();
 
 
@@ -235,13 +236,14 @@ namespace JBHRIS.Api.Dal.JBHR.Attendance.View
 
         public List<AttRoteViewDto> GetAttRoteH(List<string> EmpIds, DateTime StartDate, DateTime EndDate)
         {
+            DateTime today = DateTime.Today;
             var attendRoteHs = (from att in _unitOfWork.Repository<Attend>().Reads()
                                 join r in _unitOfWork.Repository<Rote>().Reads() on att.RoteH equals r.Rote1
                                 join bts in _unitOfWork.Repository<Basetts>().Reads() on att.Nobr equals bts.Nobr
                                 where EmpIds.Contains(att.Nobr)
                                 && StartDate <= att.Adate && att.Adate <= EndDate
                                 && new List<string>() { "1", "4", "6" }.Contains(bts.Ttscode)
-                                && DateTime.Now >= bts.Adate && DateTime.Now <= bts.Ddate
+                                && today >= bts.Adate && today <= bts.Ddate
                                 select new { ATTEND = att, ROTE = r, BASETTS = bts }).ToList();
 
             List<AttRoteViewDto> attentRoteViewDtos = new List<AttRoteViewDto>();

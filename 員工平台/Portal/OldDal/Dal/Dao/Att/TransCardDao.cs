@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading;
 using OldBll.Att.Vdb;
 using JBModule.Data.Linq;
+using JBTools;
+using JBTools.Extend;
 
 namespace OldDal.Dao.Att
 {
@@ -24,13 +26,14 @@ namespace OldDal.Dao.Att
         {
             dcHr = new HrDBDataContext();
         }
+
         /// <summary>
         /// 刷卡轉出勤
         /// </summary>
         /// <param name="conn">連接字串 沒有等於預設</param>
         public TransCardDao(IDbConnection conn = null)
         {
-            dcHr = new HrDBDataContext(conn.ConnectionString);
+                dcHr = new HrDBDataContext(conn.ConnectionString);
         }
 
         /// <summary>
@@ -39,7 +42,7 @@ namespace OldDal.Dao.Att
         /// <param name="ConnectionString"></param>
         public TransCardDao(string ConnectionString = null)
         {
-            dcHr = new HrDBDataContext(ConnectionString);
+                dcHr = new HrDBDataContext(ConnectionString);
         }
 
         /// <summary>
@@ -52,13 +55,14 @@ namespace OldDal.Dao.Att
             string[] arrTtscode = { "1", "4", "6" };
             var Vdb = (from c in dcHr.BASETTS
                        join d in dcHr.DEPT on c.DEPT equals d.D_NO
-                       join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on c.NOBR equals x.NOBR
+                       //join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on c.NOBR equals x.NOBR
                        where Cond.sNobrB.CompareTo(c.NOBR) <= 0
                        && c.NOBR.CompareTo(Cond.sNobrE) <= 0
                        && c.ADATE.Date <= Cond.dDateE && Cond.dDateB <= c.DDATE.Value.Date
                        && Cond.sDeptB.CompareTo(d.D_NO_DISP) <= 0
                        && d.D_NO_DISP.CompareTo(Cond.sDeptE) <= 0
                        && arrTtscode.Contains(c.TTSCODE)
+                       && dcHr.UserReadDataGroupList(Cond.sUserID, Cond.sComp, Cond.bAdmin).Select(p => p.DATAGROUP).Contains(c.SALADR)
                        select new BaseTable()
                        {
                            Nobr = c.NOBR.Trim(),
@@ -182,16 +186,17 @@ namespace OldDal.Dao.Att
                         join b in dcHr.BASETTS on a.NOBR equals b.NOBR
                         join d in dcHr.DEPT on b.DEPT equals d.D_NO
                         join h in dcHr.HCODE on a.H_CODE equals h.H_CODE
-                        join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on a.NOBR equals x.NOBR
+                        //join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on a.NOBR equals x.NOBR
                         where Cond.sNobrB.CompareTo(a.NOBR) <= 0
                         && a.NOBR.CompareTo(Cond.sNobrE) <= 0
                         && Cond.dDateB <= Convert.ToDateTime(a.BDATE.Date).Date
                         && Convert.ToDateTime(a.BDATE.Date).Date <= Cond.dDateE
-                        && a.BTIME.Length == 4
-                        && a.ETIME.Length == 4
+                        && a.BTIME.Trim().Length == 4
+                        && a.ETIME.Trim().Length == 4
                         && a.BDATE >= b.ADATE && a.BDATE <= b.DDATE.Value
                         && Cond.sDeptB.CompareTo(d.D_NO_DISP) <= 0 && d.D_NO_DISP.CompareTo(Cond.sDeptE) <= 0
                         && h.FLAG == "-"
+                        && dcHr.UserReadDataGroupList(Cond.sUserID, Cond.sComp, Cond.bAdmin).Select(p => p.DATAGROUP).Contains(b.SALADR)
                         select new AbsTable()
                         {
                             Nobr = a.NOBR.Trim(),
@@ -204,16 +209,17 @@ namespace OldDal.Dao.Att
                         join b in dcHr.BASETTS on a.NOBR equals b.NOBR
                         join d in dcHr.DEPT on b.DEPT equals d.D_NO
                         join h in dcHr.HCODE on a.H_CODE equals h.H_CODE
-                        join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on a.NOBR equals x.NOBR
+                        //join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on a.NOBR equals x.NOBR
                         where Cond.sNobrB.CompareTo(a.NOBR) <= 0
                         && a.NOBR.CompareTo(Cond.sNobrE) <= 0
                         && Convert.ToDateTime(a.BDATE.Date).Date <= Cond.dDateE
                         && Cond.dDateB <= a.BDATE.Date
-                        && a.BTIME.Length == 4
-                        && a.ETIME.Length == 4
+                        && a.BTIME.Trim().Length == 4
+                        && a.ETIME.Trim().Length == 4
                         && a.BDATE >= b.ADATE && a.BDATE <= b.DDATE.Value
                         && Cond.sDeptB.CompareTo(d.D_NO_DISP) <= 0 && d.D_NO_DISP.CompareTo(Cond.sDeptE) <= 0
-                        && h.FLAG == "-"
+                        && dcHr.UserReadDataGroupList(Cond.sUserID, Cond.sComp, Cond.bAdmin).Select(p => p.DATAGROUP).Contains(b.SALADR)
+                        //&& h.FLAG == "-"
                         select new AbsTable()
                         {
                             Nobr = a.NOBR.Trim(),
@@ -249,21 +255,22 @@ namespace OldDal.Dao.Att
                        join d in dcHr.DEPT on b.DEPT equals d.D_NO
                        join t in dcHr.ATTEND on new { a.NOBR, a.BDATE.Date } equals new { t.NOBR, t.ADATE.Date }
                        join r in dcHr.ROTE on t.ROTE equals r.ROTE1
-                       join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on a.NOBR equals x.NOBR
+                       //join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on a.NOBR equals x.NOBR
                        where Cond.sNobrB.CompareTo(a.NOBR) <= 0
                        && a.NOBR.CompareTo(Cond.sNobrE) <= 0
-                       && Cond.dDateB <= Convert.ToDateTime(a.BDATE.Date).Date
-                       && Convert.ToDateTime(a.BDATE.Date).Date <= Cond.dDateE
+                       && Cond.dDateB.AddDays(-1) <= Convert.ToDateTime(a.BDATE.Date).Date
+                       && Convert.ToDateTime(a.BDATE.Date).Date <= Cond.dDateE.AddDays(1)
                        //只有假日才需要被取出來
-                       && r.ON_TIME.Length == 0 && r.OFF_TIME.Length == 0 && r.WK_HRS == 0
+                       && r.ON_TIME.Trim().Length == 0 && r.OFF_TIME.Trim().Length == 0 && r.WK_HRS == 0
                        && a.BDATE >= b.ADATE && a.BDATE <= b.DDATE.Value
                        && Cond.sDeptB.CompareTo(d.D_NO_DISP) <= 0 && d.D_NO_DISP.CompareTo(Cond.sDeptE) <= 0
+                       && dcHr.UserReadDataGroupList(Cond.sUserID, Cond.sComp, Cond.bAdmin).Select(p => p.DATAGROUP).Contains(b.SALADR)
                        select new OtTable()
                        {
                            Nobr = a.NOBR.Trim(),
                            Date = a.BDATE.Date,
                            RoteCode = a.OT_ROTE.Trim()
-                       }).ToList();
+                       }).ToList(); ;
 
             return Vdb;
         }
@@ -278,16 +285,17 @@ namespace OldDal.Dao.Att
             var Vdb = (from c in dcHr.CARD
                        join b in dcHr.BASETTS on c.NOBR equals b.NOBR
                        join d in dcHr.DEPT on b.DEPT equals d.D_NO
-                       join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on c.NOBR equals x.NOBR
+                       //join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on c.NOBR equals x.NOBR
                        where Cond.sNobrB.CompareTo(c.NOBR) <= 0
                        && c.NOBR.CompareTo(Cond.sNobrE) <= 0
-                       && Cond.dDateB <= Convert.ToDateTime(c.ADATE.Date).Date
+                       && Cond.dDateB.AddDays(-1) <= Convert.ToDateTime(c.ADATE.Date).Date
                        && Convert.ToDateTime(c.ADATE.Date).Date <= Cond.dDateE.AddDays(1)   //刷卡資料有可能是到隔天 所以要再加一天
-                       && c.ONTIME.Length == 4
+                       && c.ONTIME.Trim().Length == 4
                        && c.ADATE >= b.ADATE && c.ADATE <= b.DDATE.Value
                        && Cond.sDeptB.CompareTo(d.D_NO_DISP) <= 0 && d.D_NO_DISP.CompareTo(Cond.sDeptE) <= 0
                        && !c.NOT_TRAN
-                       && c.CODE != "9"
+                       //&& c.CODE != "9"
+                       && dcHr.UserReadDataGroupList(Cond.sUserID, Cond.sComp, Cond.bAdmin).Select(p => p.DATAGROUP).Contains(b.SALADR)
                        select new CardTable()
                        {
                            Nobr = c.NOBR.Trim(),
@@ -296,11 +304,9 @@ namespace OldDal.Dao.Att
                            Los = c.LOS,
                            Reason = c.REASON ?? "",
                        }).ToList();
-
             var rs = (from c in dcHr.CARDLOSD
                       where c.ATT
                       select c.CODE).ToList();
-
             Vdb = Vdb.Select(c => new CardTable()
             {
                 Nobr = c.Nobr,
@@ -323,13 +329,14 @@ namespace OldDal.Dao.Att
             var Vdb = (from c in dcHr.ATTCARD
                        join b in dcHr.BASETTS on c.NOBR equals b.NOBR
                        join d in dcHr.DEPT on b.DEPT equals d.D_NO
-                       join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on c.NOBR equals x.NOBR
+                       //join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on c.NOBR equals x.NOBR
                        where Cond.sNobrB.CompareTo(c.NOBR) <= 0
                        && c.NOBR.CompareTo(Cond.sNobrE) <= 0
-                       && Cond.dDateB <= Convert.ToDateTime(c.ADATE.Date).Date
-                       && Convert.ToDateTime(c.ADATE.Date).Date <= Cond.dDateE
+                       && Cond.dDateB.AddDays(-1) <= Convert.ToDateTime(c.ADATE.Date).Date
+                       && Convert.ToDateTime(c.ADATE.Date).Date <= Cond.dDateE.AddDays(1)
                        && c.ADATE >= b.ADATE && c.ADATE <= b.DDATE.Value
                        && Cond.sDeptB.CompareTo(d.D_NO_DISP) <= 0 && d.D_NO_DISP.CompareTo(Cond.sDeptE) <= 0
+                       && dcHr.UserReadDataGroupList(Cond.sUserID, Cond.sComp, Cond.bAdmin).Select(p => p.DATAGROUP).Contains(b.SALADR)
                        select new AttCardTable()
                        {
                            Nobr = c.NOBR.Trim(),
@@ -364,7 +371,7 @@ namespace OldDal.Dao.Att
         /// <param name="bAdmin">是否管理權限</param>
         /// <param name="ThreadCount">啟用多少個執行緒(預設是2)</param>
         /// <returns>int</returns>
-        public int TransCard(string sNobrB, string sNobrE, string sDeptB, string sDeptE, DateTime dDateB, DateTime dDateE, string sKeyMan, bool bAttCard, bool bAttEnd, bool bEzAttCard, string sUserID, string sComp, bool bAdmin, int ThreadCount = 2)
+        public int TransCard(string sNobrB, string sNobrE, string sDeptB, string sDeptE, DateTime dDateB, DateTime dDateE, string sKeyMan, bool bAttCard, bool bAttEnd, bool bEzAttCard, string sUserID, string sComp, bool bAdmin, int ThreadCount = 2, bool PassOtRote = false)
         {
             TransCardCondition oCond = new TransCardCondition();
             oCond.sNobrB = sNobrB;
@@ -382,6 +389,7 @@ namespace OldDal.Dao.Att
             oCond.sComp = sComp;
             oCond.bAdmin = bAdmin;
             oCond.ThreadCount = ThreadCount;
+            oCond.PassOtRote = PassOtRote;
 
             return TransCardPool(oCond);
         }
@@ -437,7 +445,7 @@ namespace OldDal.Dao.Att
             {
                 dc.SubmitChanges(System.Data.Linq.ConflictMode.ContinueOnConflict);
             }
-            catch (System.Data.Linq.ChangeConflictException)
+            catch (System.Data.Linq.ChangeConflictException ex)
             {
                 foreach (System.Data.Linq.ObjectChangeConflict occ in dc.ChangeConflicts)
                 {
@@ -462,22 +470,21 @@ namespace OldDal.Dao.Att
             int iPass = 0;
 
             this.Report(5, "取得資料中...");
-
-            TransCardVdb Vdb = new TransCardVdb();
-            Vdb.TransCardCond = oCond;
-
             var lsNobr = (from c in dcHr.ATTEND
                           join b in dcHr.BASETTS on c.NOBR equals b.NOBR
                           join d in dcHr.DEPT on b.DEPT equals d.D_NO
-                          join x in dcHr.WriteRuleTable(oCond.sUserID, oCond.sComp, oCond.bAdmin) on c.NOBR equals x.NOBR
+                          //join x in dcHr.WriteRuleTable(oCond.sUserID, oCond.sComp, oCond.bAdmin) on c.NOBR equals x.NOBR
                           where c.NOBR.CompareTo(oCond.sNobrB) >= 0 && c.NOBR.CompareTo(oCond.sNobrE) <= 0
                           && c.ADATE.Date >= oCond.dDateB.Date && c.ADATE.Date <= oCond.dDateE.Date
                           && c.ADATE >= b.ADATE && c.ADATE <= b.DDATE.Value
                           && oCond.sDeptB.CompareTo(d.D_NO_DISP) <= 0 && d.D_NO_DISP.CompareTo(oCond.sDeptE) <= 0
+                          && dcHr.UserReadDataGroupList(oCond.sUserID, oCond.sComp, oCond.bAdmin).Select(p => p.DATAGROUP).Contains(b.SALADR)
                           orderby c.NOBR
                           group c by c.NOBR into d
                           select d.Key).ToList();
 
+            TransCardVdb Vdb = new TransCardVdb();
+            Vdb.TransCardCond = oCond;
             Vdb.BaseData = GetBaseByNobr(oCond);
             Vdb.AbsData = GetAbs(oCond);
             Vdb.CardData = GetCard(oCond);
@@ -487,19 +494,20 @@ namespace OldDal.Dao.Att
             int _ThreadCount = oCond.ThreadCount;
             int _ThreadAvg = lsNobr.Count / _ThreadCount;
             TransCardPools tcp;
-
             this.Report(30, "判斷異常中...");
 
             OldBll.Tools.ThreadPools stp = new OldBll.Tools.ThreadPools(_ThreadCount, System.Threading.ThreadPriority.BelowNormal);
-            for (int count = 0; count < lsNobr.Count; count++)
+            foreach (var item in lsNobr.Split(300))
             {
-                this.Report(50, "判斷異常中..." + lsNobr[count]);
+                //for (int count = 0; count < lsNobr.Count; count++)
+                {
+                    this.Report(50, "判斷異常中...");// + lsNobr[count]);
 
-                tcp = new TransCardPools(dcHr.Connection, null, Vdb, oCond, new List<string>(), lsNobr[count], iPass);
-
-                stp.QueueUserWorkItem(new WaitCallback(tcp.TransCardThreadPoolCallback), string.Format("STP1[{0}]", count));
-                //Thread.Sleep(new Random().Next(500));
-                Thread.Sleep(0);
+                    tcp = new TransCardPools(dcHr.Connection, null, Vdb, oCond, item, string.Empty, iPass);// new List<string>(), lsNobr[count], iPass);
+                    stp.QueueUserWorkItem(new WaitCallback(tcp.TransCardThreadPoolCallback));//, string.Format("STP1[{0}]", count));
+                    //Thread.Sleep(new Random().Next(500));
+                    Thread.Sleep(0);
+                } 
             }
 
             this.Report(70, "資料批次處理中(這裡要很久)...");
@@ -521,7 +529,7 @@ namespace OldDal.Dao.Att
             private string sNobr;
             private int iPass;
             private IDbConnection ConnectionString;
-
+            private bool PassOtRote = false;
             public TransCardPools(IDbConnection conn, ManualResetEvent _doneEvent, TransCardVdb _Vdb, TransCardCondition _oCond, List<string> _lsNobr, string _sNobr, int _iPass)
             {
                 oTransCard = new OldBll.Att.TransCard();
@@ -533,6 +541,7 @@ namespace OldDal.Dao.Att
                 sNobr = _sNobr;
                 iPass = _iPass;
                 ConnectionString = conn;
+                PassOtRote = _oCond.PassOtRote;
             }
 
             public void TransCardThreadPoolCallback(object obj)
@@ -550,16 +559,19 @@ namespace OldDal.Dao.Att
                     rsATTEND.AddRange((from c in dcHr.ATTEND
                                        join r in dcHr.ROTE on c.ROTE equals r.ROTE1
                                        where c.NOBR == sNobr
-                                       && c.ADATE.Date >= oCond.dDateB.AddDays(-2).Date
-                                       && c.ADATE.Date <= oCond.dDateE.AddDays(10).Date
-                                       orderby r.WK_HRS descending, c.NOBR, c.ADATE
+                                       && c.ADATE.Date >= oCond.dDateB.AddDays(-1).Date
+                                       && c.ADATE.Date <= oCond.dDateE.AddDays(1).Date
+                                       //orderby c.ROTE descending, c.NOBR, c.ADATE
+                                       //orderby c.ADATE, r.WK_HRS descending
+                                       orderby r.WK_HRS descending, c.ROTE, c.ADATE
                                        select c).ToList());
 
                     rsATTCARD.AddRange((from c in dcHr.ATTCARD
                                         where c.NOBR == sNobr
                                         && c.ADATE.Date >= oCond.dDateB.Date.AddDays(-1)
                                         && c.ADATE.Date <= oCond.dDateE.Date.AddDays(1)
-                                        orderby c.NOBR, c.ADATE
+                                        //orderby c.NOBR, c.ADATE
+                                        orderby c.ADATE descending
                                         select c).ToList());
 
                     rsCardData.AddRange((from c in Vdb.CardData
@@ -573,16 +585,19 @@ namespace OldDal.Dao.Att
                     rsATTEND.AddRange((from c in dcHr.ATTEND
                                        join r in dcHr.ROTE on c.ROTE equals r.ROTE1
                                        where lsNobr.Contains(c.NOBR)
-                                       && c.ADATE.Date >= oCond.dDateB.AddDays(-2).Date
-                                       && c.ADATE.Date <= oCond.dDateE.AddDays(10).Date
-                                       orderby r.WK_HRS descending, c.NOBR, c.ADATE
+                                       && c.ADATE.Date >= oCond.dDateB.AddDays(-1).Date
+                                       && c.ADATE.Date <= oCond.dDateE.AddDays(1).Date
+                                       //orderby c.ROTE descending, c.NOBR, c.ADATE
+                                       //orderby c.ADATE, r.WK_HRS descending
+                                       orderby r.WK_HRS descending, c.ROTE,  c.ADATE
                                        select c).ToList());
 
                     rsATTCARD.AddRange((from c in dcHr.ATTCARD
                                         where lsNobr.Contains(c.NOBR)
                                         && c.ADATE.Date >= oCond.dDateB.Date.AddDays(-1)
                                         && c.ADATE.Date <= oCond.dDateE.Date.AddDays(1)
-                                        orderby c.NOBR, c.ADATE
+                                        //orderby c.NOBR, c.ADATE
+                                        orderby c.ADATE descending
                                         select c).ToList());
 
                     rsCardData.AddRange((from c in Vdb.CardData
@@ -607,7 +622,7 @@ namespace OldDal.Dao.Att
                     if (oCond.dDateB.AddDays(-1) <= rATTEND.ADATE.Date && rATTEND.ADATE.Date <= oCond.dDateE.AddDays(1))
                     {
                         //取得員工設定檔
-                        var rBaseData = Vdb.BaseData.Where(p => p.Nobr.Trim() == rATTEND.NOBR.Trim()
+                        var rBaseData = Vdb.BaseData.Where(p => p.Nobr == rATTEND.NOBR
                             && p.DateA <= rATTEND.ADATE.Date
                             && rATTEND.ADATE.Date <= p.DateD).FirstOrDefault();
                         if (rBaseData != null)
@@ -619,9 +634,9 @@ namespace OldDal.Dao.Att
                                 var rRote = Vdb.RoteData.Where(p => p.RoteCode == RoteCode).FirstOrDefault();
 
                                 //如果是假日班就置換班別 先從加班資料尋找 再按照客戶規則找預設班別
-                                if (rRote != null && IsHoliDay(Vdb.RoteData, RoteCode))
+                                if (!PassOtRote && rRote != null && IsHoliDay(Vdb.RoteData, RoteCode))
                                 {
-                                    var rOt = Vdb.OtData.Where(p => p.Nobr == rATTEND.NOBR.Trim()
+                                    var rOt = Vdb.OtData.Where(p => p.Nobr == rATTEND.NOBR
                                         && p.Date == rATTEND.ADATE.Date).FirstOrDefault();
 
                                     if (rOt != null)
@@ -647,7 +662,7 @@ namespace OldDal.Dao.Att
 
                             //一定要非假日班別能轉換 而且班別一定要存在
                             RoteTable rRoteDataDay = Vdb.RoteData.Where(p => p.RoteCode == RoteCode).FirstOrDefault();
-                            if (rRoteDataDay != null && !IsHoliDay(Vdb.RoteData, RoteCode))
+                            if (rRoteDataDay != null && !IsHoliDay(Vdb.RoteData, rRoteDataDay.RoteCode))
                             {
                                 //今天上班時間 如果比轉換時間還要大 此資料不需判斷
                                 DateTime DateOnTime = rATTEND.ADATE.Date.AddMinutes(OldBll.Tools.TimeTrans.ConvertHhMmToMinutes(rRoteDataDay.OnTime));
@@ -655,24 +670,17 @@ namespace OldDal.Dao.Att
                                     continue;
 
                                 //放入請假資料
-                                List<AbsTable> rsAbs = Vdb.AbsData.Where(p => p.Nobr.Trim() == rATTEND.NOBR.Trim() && p.Date.Date == rATTEND.ADATE.Date).ToList();
+                                List<AbsTable> rsAbs = Vdb.AbsData.Where(p => p.Nobr == rATTEND.NOBR && p.Date.Date == rATTEND.ADATE.Date).ToList();
 
                                 //取得正確的刷卡資料
                                 DateTimeB = rATTEND.ADATE.Date.AddMinutes(OldBll.Tools.TimeTrans.ConvertHhMmToMinutes(rRoteDataDay.OffLastTime));  //今天的最早上班時間
                                 DateTimeE = DateTimeB.AddDays(1);   //今天的最晚下班時間
 
-                                //DateTimeB = rATTEND.ADATE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(rRoteDataDay.OnTime)).AddHours(-8);  //今天的最早上班時間
-                                //DateTimeE = rATTEND.ADATE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(rRoteDataDay.OffTime)).AddHours(8);  //今天的最早上班時間
-
-
-                                //DateTimeB = DateTimeB.AddHours(-2);
-                                //DateTimeE = DateTimeE.AddHours(4);
-
                                 List<AttCardTable> lsAttCard = new List<AttCardTable>();
 
                                 //取得當天的出勤上下班時間
-                                //lsAttCard = Vdb.AttCardData.Where(p => p.Nobr == rATTEND.NOBR.Trim() && p.Date == rATTEND.ADATE.Date).ToList();
-                                var rsATTCARD_Day = rsATTCARD.Where(p => p.NOBR.Trim() == rATTEND.NOBR.Trim() && p.ADATE.Date == rATTEND.ADATE.Date).ToList();
+                                //lsAttCard = Vdb.AttCardData.Where(p => p.Nobr == rATTEND.NOBR && p.Date == rATTEND.ADATE.Date).ToList();
+                                var rsATTCARD_Day = rsATTCARD.Where(p => p.NOBR == rATTEND.NOBR && p.ADATE.Date == rATTEND.ADATE.Date).ToList();
                                 lsAttCard = rsATTCARD_Day.Select(c => new AttCardTable
                                 {
                                     Nobr = c.NOBR.Trim(),
@@ -693,9 +701,11 @@ namespace OldDal.Dao.Att
                                     //if (lsAttCard.Count == 0 || !lsAttCard.Where(p => p.NoTrans).Any())
                                     if (true)
                                     {
+                                        //lsAttCard = new List<AttCardTable>(); //重新初始
+
                                         //將刷卡時間丟入物件集合 準備涵數使用
-                                        //List<CardTable> rsCardDataDay = Vdb.CardData.Where(p => p.Nobr == rATTEND.NOBR.Trim() && DateTimeB <= p.CardDateTime && p.CardDateTime <= DateTimeE).ToList();
-                                        List<CardTable> rsCardDataDay = rsCardData.Where(p => p.Nobr == rATTEND.NOBR.Trim() && DateTimeB <= p.CardDateTime && p.CardDateTime <= DateTimeE).ToList();
+                                        //List<CardTable> rsCardDataDay = Vdb.CardData.Where(p => p.Nobr == rATTEND.NOBR && DateTimeB <= p.CardDateTime && p.CardDateTime <= DateTimeE).ToList();
+                                        List<CardTable> rsCardDataDay = rsCardData.Where(p => p.Nobr == rATTEND.NOBR && DateTimeB <= p.CardDateTime && p.CardDateTime <= DateTimeE).ToList();
 
                                         //創出另一個集合，等下要把這些資料刪除
                                         List<CardTable> rsCardDay = new List<CardTable>();
@@ -748,7 +758,7 @@ namespace OldDal.Dao.Att
                                                     lsAttCard.Add(rAttCardDataDay);
                                                 }   //end foreach by attcard
                                             }
-                                        }   //end if by 至少要有一筆刷卡資料        
+                                        }   //end if by 至少要有一筆刷卡資料
 
                                         //一律刪除 因為T1是主鍵
                                         if ((rsATTCARD_Day.Count > 0 && !rsATTCARD_Day.Where(p => p.NOMODY).Any()) && oCond.dDateB <= rATTEND.ADATE.Date && rATTEND.ADATE.Date <= oCond.dDateE)
@@ -770,7 +780,7 @@ namespace OldDal.Dao.Att
                                     if (rBaseData.NeedCard && !IsHoliDay(Vdb.RoteData, rATTEND.ROTE.Trim()))
                                     {
                                         var rAttEndByOneDay = oTransCard.AttEndByOneDay(lsAttCard, rRoteDataDay, rsAbs, rATTEND.ADATE.Date);
-
+                                        //var rAttEndByOneDay = oTransCard.AttEndByOneDayByMultiRes(lsAttCard, rRoteDataDay, rsAbs, rATTEND.ADATE.Date);
                                         rATTEND.LATE_MINS = rAttEndByOneDay.LatesMin;
                                         rATTEND.E_MINS = rAttEndByOneDay.EarlierMin;
                                         rATTEND.ABS = rAttEndByOneDay.Abs;
@@ -836,7 +846,7 @@ namespace OldDal.Dao.Att
             private string GetRoteCode(List<ATTEND> rsATTEND, List<RoteTable> rsRote, string Nobr, DateTime Date, string RoteCode)
             {
                 //抓非假日且日期遞增排序的第一筆班別
-                var rs = rsATTEND.Where(p => p.NOBR.Trim() == Nobr && p.ADATE.Date >= Date.Date.AddDays(-1) && !IsHoliDay(rsRote, p.ROTE.Trim()));
+                var rs = rsATTEND.Where(p => p.NOBR == Nobr && p.ADATE.Date >= Date.Date.AddDays(-1) && !IsHoliDay(rsRote, p.ROTE.Trim()));
                 if (rs.Any())
                     RoteCode = rs.OrderBy(p => p.ADATE).First().ROTE.Trim();
 

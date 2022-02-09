@@ -10131,3 +10131,8 @@ h5.agent_title {
     /* font-weight: bolder;*/
 }
 
+.box {
+    border: 1px solid #e5e6e7;
+    padding: 6px 12px;
+    height: 6.5em;
+}

@@ -29,6 +29,7 @@ namespace JBHRIS.Api.Dal.JBHR.Attendance.View
                 var result = new List<AbsenceTakenViewDto>();
                 foreach (var item in abseneceTakenViewEntry.EmployeeList.Split(2100))
                 {
+                    DateTime today = DateTime.Today;
                     var AbsencesTakenByEntry = from abs in _unitOfWork.Repository<Abs>().Reads()
                                                join b in _unitOfWork.Repository<Base>().Reads() on abs.Nobr equals b.Nobr
                                                join h in _unitOfWork.Repository<Hcode>().Reads() on abs.HCode equals h.HCode1
@@ -38,7 +39,7 @@ namespace JBHRIS.Api.Dal.JBHR.Attendance.View
                                                && (abseneceTakenViewEntry.LeaveCodeList.Count > 0 ? abseneceTakenViewEntry.LeaveCodeList.Contains(h.HCode1) : true)
                                                && h.Flag == "-"
                                                && (abs.Edate >= abseneceTakenViewEntry.DateBegin && abs.Bdate <= abseneceTakenViewEntry.DateEnd)
-                                               && (btts.Ddate >= DateTime.Now && btts.Adate <= DateTime.Now)
+                                               && (btts.Ddate >= today && btts.Adate <= today)
                                                && new string[] { "1", "4", "6" }.Contains(btts.Ttscode)
                                                select new AbsenceTakenViewDto
                                                {

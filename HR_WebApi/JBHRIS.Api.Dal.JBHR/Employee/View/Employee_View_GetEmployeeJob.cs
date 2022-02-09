@@ -19,6 +19,7 @@ namespace JBHRIS.Api.Dal.JBHR.Employee.View
         }
         public List<EmployeeJobViewDto> GetEmployeeJobView(List<string> employeeList)
         {
+            DateTime today = DateTime.Today;
             var sql = from a in _unitOfWork.Repository<Basetts>().Reads()
                       join b in _unitOfWork.Repository<Base>().Reads() on a.Nobr equals b.Nobr
                       join da in _unitOfWork.Repository<Depta>().Reads() on a.Deptm equals da.DNo
@@ -26,7 +27,7 @@ namespace JBHRIS.Api.Dal.JBHR.Employee.View
                       from adg in ad.DefaultIfEmpty()
                       join j in _unitOfWork.Repository<Job>().Reads() on a.Job equals j.Job1 into aj
                       from ajg in aj.DefaultIfEmpty()
-                      where DateTime.Today >= a.Adate && DateTime.Today <= a.Ddate
+                      where today >= a.Adate && today <= a.Ddate
                       && employeeList.Contains(a.Nobr)
                       && new string[] { "1", "4", "6" }.Contains(a.Ttscode)
                       select new EmployeeJobViewDto

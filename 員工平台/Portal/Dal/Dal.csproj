@@ -246,7 +246,6 @@
     <Compile Include="Dao\Share\ShareDictionaryDao.cs" />
     <Compile Include="Dao\Share\ShareDisplayMessageDao.cs" />
     <Compile Include="Dao\Share\ShareGetQuestionCategoryVdbDao.cs" />
-    <Compile Include="Dao\Share\ShareGetQuestionDefaultMessageByCompanyIdVdbDao.cs" />
     <Compile Include="Dao\Share\ShareGetQuestionDefaultMessageVdbDao.cs" />
     <Compile Include="Dao\Share\ShareGetQuestionMainByCodeVdbDao.cs" />
     <Compile Include="Dao\Share\ShareGetQuestionMainByCompanyVdbDao.cs" />
@@ -478,10 +477,6 @@
     <ProjectReference Include="..\Bll\Bll.csproj">
       <Project>{5e9851c3-e912-41d8-8c31-7dab17deb92a}</Project>
       <Name>Bll</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OldDal\Dal\OldDal.csproj">
-      <Project>{BB2DD79D-898B-420D-91FE-FAA25F025B75}</Project>
-      <Name>OldDal</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

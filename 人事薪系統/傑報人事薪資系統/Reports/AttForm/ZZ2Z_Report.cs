@@ -1216,7 +1216,15 @@ namespace JBHR.Reports.AttForm
                             aRow["otmaxhr"] = decimal.Parse(row["otmaxhr"].ToString());
                             aRow["adate"] = DateTime.Parse(Row["adate"].ToString());
                             aRow["rote"] = Row["rote"].ToString();
-                            aRow["rotename"] = Row["rote_sname"].ToString();
+                            if (string.IsNullOrEmpty(Row["rote_sname"].ToString()))
+                            {
+                                aRow["rotename"] = Row["rote"].ToString();
+                            }
+                            else
+                            {
+
+                                aRow["rotename"] = Row["rote_sname"].ToString();
+                            }
                             aRow["on_time"] = Row["on_time"].ToString();
                             aRow["off_time"] = Row["off_time"].ToString();
                             aRow["wday"] = int.Parse(Row["wday"].ToString());
@@ -1281,7 +1289,15 @@ namespace JBHR.Reports.AttForm
                             aRow["otmaxhr"] = decimal.Parse(row["otmaxhr"].ToString());
                             aRow["adate"] = DateTime.Parse(Row["adate"].ToString());
                             aRow["rote"] = Row["rote"].ToString();
-                            aRow["rotename"] = Row["rote_sname"].ToString();
+                            if (string.IsNullOrEmpty(Row["rote_sname"].ToString()))
+                            {
+                                aRow["rotename"] = Row["rote"].ToString();
+                            }
+                            else
+                            {
+
+                                aRow["rotename"] = Row["rote_sname"].ToString();
+                            }
                             aRow["on_time"] = Row["on_time"].ToString();
                             aRow["off_time"] = Row["off_time"].ToString();
                             aRow["wday"] = int.Parse(Row["wday"].ToString());

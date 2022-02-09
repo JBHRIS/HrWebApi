@@ -44,7 +44,7 @@ namespace JBHR.Reports.SalForm
     {
         SalDataSet ds = new SalDataSet();
         string nobr_b, nobr_e, dept_b, dept_e, date_b, date_e, reporttype, workadr, comp_name;
-        string note1, note2, note3, note4, note5, emp_b, emp_e, test_email, test_pwd;
+        string note1, note2, note3, note4, note5, emp_b, emp_e, test_email, test_pwd, memo;
         bool exportexcel, mangsuper, sendmail, ck_dispatch, ck_file;
         DateTime Send_Date_Time;
 
@@ -90,6 +90,7 @@ namespace JBHR.Reports.SalForm
                 string sqlCmd2 = "select distinct a.nobr from salbasd a,salcode b";
                 sqlCmd2 += " where a.sal_code=b.sal_code";
                 sqlCmd2 += string.Format(@" and a.adate='{0}'", date_e);
+                sqlCmd2 += " and b.sal_attr in ('A', 'G')";
                 sqlCmd2 += string.Format(@" and a.nobr between '{0}' and '{1}'", nobr_b, nobr_e);
                 sqlCmd2 += " and a.amt<> 10";
                 //sqlCmd2 += " order by a.nobr,a.sal_code,a.adate";
@@ -100,11 +101,13 @@ namespace JBHR.Reports.SalForm
                 rq_salbasd.Columns.Add("sal_name", typeof(string));
                 rq_salbasd.Columns.Add("amt", typeof(decimal));
                 rq_salbasd.Columns.Add("meno", typeof(string));
+                rq_salbasd.Columns.Add("adate", typeof(string));
                 foreach (DataRow Row in rq_salbasd1.Rows)
                 {
                     string sqlCmd2a = "select a.nobr,b.sal_code_disp as sal_code,b.sal_name,a.amt,a.meno from salbasd a,salcode b";
                     sqlCmd2a += " where a.sal_code=b.sal_code";
                     sqlCmd2a += string.Format(@" and '{0}' between a.adate and a.ddate", date_e);
+                    sqlCmd2a += " and b.sal_attr in ('A', 'G')";
                     sqlCmd2a += string.Format(@" and a.nobr = '{0}'", Row["nobr"].ToString());
                     //sqlCmd2a += " and b.sal_attr in ('A','G') and a.amt<> 10";
                     sqlCmd2a += " order by a.nobr,a.sal_code,a.adate";
@@ -121,7 +124,7 @@ namespace JBHR.Reports.SalForm
                 //sqlCmd3 += string.Format(@" and a.adate<'{0}'", date_e);
                 sqlCmd3 += string.Format(@" and '{0}' between a.adate and a.ddate", DateTime.Parse(date_e).AddDays(-1).ToString("yyyy/MM/dd"));
                 sqlCmd3 += string.Format(@" and a.nobr between '{0}' and '{1}'", nobr_b, nobr_e);
-                //sqlCmd3 += " and b.sal_attr = 'A'";
+                sqlCmd3 += " and b.sal_attr in ('A', 'G')";
                 sqlCmd3 += " order by a.nobr,b.sal_code_disp,a.adate desc";
                 DataTable rq_salbasda = SqlConn.GetDataTable(sqlCmd3);
                 DataTable rq_salbasdb = new DataTable();
@@ -236,11 +239,11 @@ namespace JBHR.Reports.SalForm
                     }
                 }
 
-                string sqlCmd4 = "select a.nobr,b.sal_code_disp as sal_code,b.sal_name,a.amt,a.meno from salbasd a,salcode b";
+                string sqlCmd4 = "select a.nobr,b.sal_code_disp as sal_code,b.sal_name,a.amt,a.meno, a.adate from salbasd a,salcode b";
                 sqlCmd4 += " where a.sal_code=b.sal_code";
                 sqlCmd4 += string.Format(@" and '{0}' between a.adate and a.ddate", date_e);
                 sqlCmd4 += string.Format(@" and a.nobr between '{0}' and '{1}'", nobr_b, nobr_e);
-                //sqlCmd4 += " and b.sal_attr = 'A'";
+                sqlCmd4 += " and b.sal_attr in ('A', 'G')";
                 sqlCmd4 += " order by a.nobr,b.sal_code_disp,a.adate";
                 DataTable rq_salbasde = SqlConn.GetDataTable(sqlCmd4);
                 foreach (DataRow Row in rq_salbasde.Rows)
@@ -251,9 +254,18 @@ namespace JBHR.Reports.SalForm
                     DataRow row = rq_salbasd.Rows.Find(_value);
                     if (row == null)
                         rq_salbasd.ImportRow(Row);
+                    else
+                        row["adate"] = Row["adate"].ToString();
                 }
                 rq_salbasde = null;
-                foreach(DataRow Row in ds.Tables["zz4f"].Rows)
+
+                DataTable get_meno = new DataTable();
+                get_meno.Columns.Add("nobr", typeof(string));
+                get_meno.Columns.Add("meno", typeof(string));
+                get_meno.PrimaryKey = new DataColumn[] { get_meno.Columns["nobr"] };
+
+
+                foreach (DataRow Row in ds.Tables["zz4f"].Rows)
                 {
                     object[] _value = new object[2];
                     _value[0] = Row["nobr"].ToString();
@@ -267,9 +279,26 @@ namespace JBHR.Reports.SalForm
                             row["sal_code"] = row1["sal_code"].ToString();
                             row["sal_name"] = row1["sal_name"].ToString();
                             row["amt"] = JBModule.Data.CDecryp.Number(Convert.ToDecimal(row1["amt"].ToString()));
-                            row["meno"] = row1["meno"].ToString();
-                        }  
+                            if (!string.IsNullOrEmpty(row1["adate"].ToString().Trim()))
+                            {
+                                if (date_e == DateTime.Parse(row1["adate"].ToString()).ToString("yyyy/MM/dd"))
+                                {
+                                    row["meno"] = row1["meno"].ToString();
+                                }
+                                else
+                                {
+                                    row["meno"] = "";
+                                }
+                            }
+                            else
+                            {
+                                row["meno"] = "";
+                            }
+                            //memo = memo + row1["meno"].ToString();System.Environment.NewLine
+                        }
                     }
+
+
                 }
                 if (ds.Tables["zz4f"].Rows.Count < 1)
                 {
@@ -277,10 +306,58 @@ namespace JBHR.Reports.SalForm
                     this.Close();
                     return;
                 }
-                if (reporttype == "1")
+
+                ds.Tables["zz4f"].AcceptChanges();
+
+                foreach (DataRow Row in ds.Tables["zz4f"].Rows)
+                {
+                    if(decimal.Parse(Row["amt"].ToString()) == 0 && decimal.Parse(Row["bamt"].ToString()) == 0)
+                    {
+                        Row.Delete();
+                    }
+                    else
+                    {
+                        DataRow row_meno = get_meno.Rows.Find(Row["nobr"].ToString());
+                        if (row_meno != null)
+                        {
+                            if (!string.IsNullOrEmpty(Row["meno"].ToString().Trim()))
+                            {
+                                row_meno["meno"] = row_meno["meno"].ToString().Trim() + System.Environment.NewLine + Row["sal_name"].ToString().Trim() + "：" + Row["meno"].ToString().Trim();
+                            }
+                        }
+                        else
+                        {
+
+                            DataRow aRow = get_meno.NewRow();
+                            aRow["nobr"] = Row["nobr"].ToString().Trim();
+                            if (!string.IsNullOrEmpty(Row["meno"].ToString().Trim()))
+                            {
+                                aRow["meno"] = Row["sal_name"].ToString().Trim() + "：" + Row["meno"].ToString().Trim();
+                            }
+                            get_meno.Rows.Add(aRow);
+                        }
+                    }
+                    
+                }
+                ds.Tables["zz4f"].AcceptChanges();
+
+                foreach (DataRow Row in ds.Tables["zz4f"].Rows)
+                {
+
+                    DataRow row_meno = get_meno.Rows.Find(Row["nobr"].ToString());
+
+                    if (row_meno != null)
+                    {
+                        Row["meno"] = row_meno["meno"].ToString().Trim();
+                    }
+                }
+
+                    if (reporttype == "1")
                 {
                     ds.Tables["zz4fa"].PrimaryKey = new DataColumn[] { ds.Tables["zz4fa"].Columns["nobr"] };
                     DataRow[] Srow = ds.Tables["zz4f"].Select("","dept,nobr asc");
+                    string nobr_prev = "";
+                    int i = 1;
                     foreach (DataRow Row in Srow)
                     {
                         DataRow row = ds.Tables["zz4fa"].Rows.Find(Row["nobr"].ToString());
@@ -288,37 +365,55 @@ namespace JBHR.Reports.SalForm
                         int _bamt = (Row.IsNull("bamt")) ? 0 : int.Parse(Row["bamt"].ToString());
                         if (row != null)
                         {
-                            if (Row["sal_code"].ToString().Trim() == "A01")
+                            i = i + 1;
+
+
+                            if (Row["sal_code"].ToString().Trim() == row["bA" + (i - 1) + "_t"].ToString().Trim())
                             {
                                 row["A01"] = _amt;
                                 row["BA01"] = _bamt;
                             }
-                            else if (Row["sal_code"].ToString().Trim() == "A01P")
+                            else
                             {
-                                row["A02"] = _amt;
-                                row["BA02"] = _bamt;
+                                row["A" + i + "_t"] = Row["sal_name"].ToString().Trim();
+                                row["bA" + i + "_t"] = Row["sal_code"].ToString().Trim();
+                                row["A" + i] = _amt;
+                                row["bA" + i] = _bamt;
                             }
 
-                            else if (Row["sal_code"].ToString().Trim() == "A11")
-                            {
-                                row["A03"] = _amt;
-                                row["BA03"] = _bamt;
-                            }
-                            else if (Row["sal_code"].ToString().Trim() == "A11P")
-                            {
-                                row["A04"] = _amt;
-                                row["BA04"] = _bamt;
-                            }
-                            else if (Row["sal_code"].ToString().Trim() == "A13")
-                            {
-                                row["A05"] = _amt;
-                                row["BA05"] = _bamt;
-                            }
+                            //if (Row["sal_code"].ToString().Trim() == row[""])
+                            //{
+                            //    row["A01"] = _amt;
+                            //    row["BA01"] = _bamt;
+                            //}
+                            //else if (Row["sal_code"].ToString().Trim() == "A01P")
+                            //{
+                            //    row["A02"] = _amt;
+                            //    row["BA02"] = _bamt;
+                            //}
+
+                            //else if (Row["sal_code"].ToString().Trim() == "A11")
+                            //{
+                            //    row["A03"] = _amt;
+                            //    row["BA03"] = _bamt;
+                            //}
+                            //else if (Row["sal_code"].ToString().Trim() == "A11P")
+                            //{
+                            //    row["A04"] = _amt;
+                            //    row["BA04"] = _bamt;
+                            //}
+                            //else if (Row["sal_code"].ToString().Trim() == "A13")
+                            //{
+                            //    row["A05"] = _amt;
+                            //    row["BA05"] = _bamt;
+                            //}
                             row["sumamt"] = int.Parse(row["sumamt"].ToString()) + _amt;
                             row["bsumamt"] = int.Parse(row["bsumamt"].ToString()) + _bamt;
                         }
                         else
                         {
+                            i = 1;
+
                             DataRow aRow = ds.Tables["zz4fa"].NewRow();
                             aRow["nobr"] = Row["nobr"].ToString();
                             aRow["name_c"] = Row["name_c"].ToString();
@@ -333,32 +428,38 @@ namespace JBHR.Reports.SalForm
                             aRow["bjob_name"] = Row["bjob_name"].ToString();
                             aRow["bjobl"] = Row["bjobl"].ToString();
                             aRow["meno"] = Row["meno"].ToString();
-                           
-                            if (Row["sal_code"].ToString().Trim() == "A01")
-                            {
-                                aRow["A01"] = _amt;
-                                aRow["BA01"] = _bamt;
-                            }
-                            else if (Row["sal_code"].ToString().Trim() == "A01P")
-                            {
-                                aRow["A02"] = _amt;
-                                aRow["BA02"] = _bamt;
-                            }
-                            else if (Row["sal_code"].ToString().Trim() == "A11")
-                            {
-                                aRow["A03"] = _amt;
-                                aRow["BA03"] = _bamt;
-                            }
-                            else if (Row["sal_code"].ToString().Trim() == "A11P")
-                            {
-                                aRow["A04"] = _amt;
-                                aRow["BA04"] = _bamt;
-                            }
-                            else if (Row["sal_code"].ToString().Trim() == "A13")
-                            {
-                                aRow["A05"] = _amt;
-                                aRow["BA05"] = _bamt;
-                            }
+
+                            aRow["A" + i + "_t"] = Row["sal_name"].ToString().Trim();
+                            aRow["bA" + i + "_t"] = Row["sal_code"].ToString().Trim();
+                            aRow["A" + i] = _amt;
+                            aRow["bA" + i] = _bamt;
+
+                            //if (Row["sal_code"].ToString().Trim() == "A01")
+                            //{
+                            //    aRow["A01"] = _amt;
+                            //    aRow["BA01"] = _bamt;
+                            //}
+                            //else if (Row["sal_code"].ToString().Trim() == "A01P")
+                            //{
+                            //    aRow["A02"] = _amt;
+                            //    aRow["BA02"] = _bamt;
+                            //}
+                            //else if (Row["sal_code"].ToString().Trim() == "A11")
+                            //{
+                            //    aRow["A03"] = _amt;
+                            //    aRow["BA03"] = _bamt;
+                            //}
+                            //else if (Row["sal_code"].ToString().Trim() == "A11P")
+                            //{
+                            //    aRow["A04"] = _amt;
+                            //    aRow["BA04"] = _bamt;
+                            //}
+                            //else if (Row["sal_code"].ToString().Trim() == "A13")
+                            //{
+                            //    aRow["A05"] = _amt;
+                            //    aRow["BA05"] = _bamt;
+                            //}
+
                             aRow["sumamt"] = _amt;
                             aRow["bsumamt"] = _bamt;
                             ds.Tables["zz4fa"].Rows.Add(aRow);

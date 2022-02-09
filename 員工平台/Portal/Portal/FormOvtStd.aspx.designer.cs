@@ -87,6 +87,15 @@ namespace Portal
         protected global::Telerik.Web.UI.RadComboBox ddlDepts;
 
         /// <summary>
+        /// ddlOtCat 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadComboBox ddlOtCat;
+
+        /// <summary>
         /// txtDateB 控制項。
         /// </summary>
         /// <remarks>
@@ -121,15 +130,6 @@ namespace Portal
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::Telerik.Web.UI.RadMaskedTextBox txtTimeE;
-
-        /// <summary>
-        /// ddlOtCat 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadComboBox ddlOtCat;
 
         /// <summary>
         /// lblCardTime 控制項。

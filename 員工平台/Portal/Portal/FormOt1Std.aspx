@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
     <div class="ibox-content">
         <telerik:RadAjaxPanel ID="plInfo" runat="server">
-            <telerik:RadListView ID="gvAppS" runat="server" RenderMode="Lightweight" Skin="" ItemPlaceholderID="Container" OnNeedDataSource="gvAppS_NeedDataSource" OnItemCommand="gvAppS_ItemCommand">
+            <telerik:RadListView ID="gvAppS" runat="server" RenderMode="Lightweight" Skin="" ItemPlaceholderID="Container" OnNeedDataSource="gvAppS_NeedDataSource" OnItemCommand="gvAppS_ItemCommand" OnDataBound="gvAppS_DataBound">
                 <%--OnNeedDataSource="gvAppS_NeedDataSource" OnDataBound="gvAppS_DataBound" --%>
                 <LayoutTemplate>
                     <table id="footableTaken" class="footable table table-stripped" data-page-size="10" data-filter="#filterTaken">
@@ -16,6 +16,7 @@
                         <tbody id="Container" runat="server">
                         </tbody>
                         <tfoot>
+                        <div>總共新增：<strong><telerik:RadLabel ID="lblCount" runat="server"  /></strong> 筆資料</div>
                             <tr>
                                 <td colspan="5">
                                     <ul class="pagination float-right"></ul>
@@ -27,23 +28,24 @@
                 <ItemTemplate>
                     <div class="keyin keyin-border">
                         <div class="row">
-	                        <div class="col-md-2">
-	                           <h3>
+                            <div class="col-md-2">
+                                <h3>
+                                    <span class="label label-primary m-r-sm"><telerik:RadLabel ID="lblListNumber" runat="server"  /></span>
                                     <%# Eval("EmpName") %>,
                                     <%# Eval("EmpId") %>
                                 </h3>
-	                        </div>
-	                        <div class="col-md-9">
-	                            <div class="row">
-	    	                        <div class="col-lg-3">開始日期：<%# Eval("DateB","{0:yyyy/MM/dd}") %></div>
-	    	                        <div class="col-lg-3">結束日期：<%# Eval("DateE","{0:yyyy/MM/dd}") %></div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="row">
+                                    <div class="col-lg-3">開始日期：<%# Eval("DateB","{0:yyyy/MM/dd}") %></div>
+                                    <div class="col-lg-3">結束日期：<%# Eval("DateE","{0:yyyy/MM/dd}") %></div>
                                     <div class="col-lg-4">加班班別：<%# Eval("RoteName") %></div>
-	                            </div>
-	                            <div class="row">
+                                </div>
+                                <div class="row">
                                     <div class="col-lg-3">開始時間：<%# Eval("TimeB") %></div>
                                     <div class="col-lg-3">結束時間：<%# Eval("TimeE") %></div>
                                     <div class="col-lg-4">加班原因：<%# Eval("OtrcdName") %></div>
-	                            </div>
+                                </div>
                                 <div class="row">
                                     <%--<div class="col-lg-3">給付方式：<%# Eval("OtCateName") %></div>--%>
                                     <div class="col-lg-3">申請時數：<%# Eval("Use") %></div>
@@ -52,12 +54,12 @@
                                 <div class="row">
                                     <div class="col-md-12" style="word-break: break-all;">備註：<%# Eval("Note") %></div>
                                 </div>
-	                        </div>
-	                        <div class="col-md-1">
+                            </div>
+                            <div class="col-md-1">
                                 <telerik:RadButton ID="RadButton1" runat="server" CommandArgument='<%# Eval("AutoKey") %>' CssClass="btn btn-outline btn-danger"
                                     CommandName="Del" Text="刪除">
                                 </telerik:RadButton>
-	                        </div>
+                            </div>
                         </div>
                         <%--<div class="row">
                             <div class="col-md-2 m-t-xs">
@@ -102,7 +104,7 @@
                                     <span>備註：<%# Eval("Note") %></span>
                                 </div>
                             </div>--%>
-                            <%--<div class="col-md-1">
+                        <%--<div class="col-md-1">
 
                                 <telerik:RadButton ID="btnDelete" runat="server" CommandArgument='<%# Eval("AutoKey") %>' CssClass="btn btn-outline btn-danger" OnClientClicking="Clicking"
                                     CommandName="Del" Text="刪除">
@@ -167,11 +169,13 @@
                                         OnSelectedIndexChanged="txtNameAppS_SelectedIndexChanged" OnTextChanged="txtNameAppS_TextChanged">
                                     </telerik:RadComboBox>
                                 </div>
-                                <div class="col-md-3">
-                                    <label class="col-form-label">加班班別</label>
-                                    <telerik:RadComboBox ID="ddlRote" runat="server" Culture="zh-TW" EnableVirtualScrolling="True" ItemsPerRequest="10" LoadingMessage="載入中…" Width="100%" Skin="Bootstrap">
-                                    </telerik:RadComboBox>
-                                </div>
+                                <asp:Panel runat="server" Visible="false">
+                                    <div class="col-md-3">
+                                        <label class="col-form-label">加班班別</label>
+                                        <telerik:RadComboBox ID="ddlRote" runat="server" Culture="zh-TW" EnableVirtualScrolling="True" ItemsPerRequest="10" LoadingMessage="載入中…" Width="100%" Skin="Bootstrap">
+                                        </telerik:RadComboBox>
+                                    </div>
+                                </asp:Panel>
                                 <div class="col-md-3">
                                     <label class="col-form-label">申請原因</label>
                                     <telerik:RadComboBox ID="ddlOtrcd" runat="server" Culture="zh-TW" EnableVirtualScrolling="True" ItemsPerRequest="10" LoadingMessage="載入中…" Width="100%" Skin="Bootstrap">
@@ -235,7 +239,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <asp:Panel runat="server" ID="plOtInfo">
                                 <div class="form-group row">
                                     <div class="col-md-6">
@@ -283,8 +287,8 @@
                                 </div>
                             </div>
 
-                           
-                           
+
+
                         </telerik:RadAjaxPanel>
                     </div>
                 </div>

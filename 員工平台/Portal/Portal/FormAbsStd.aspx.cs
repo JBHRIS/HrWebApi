@@ -326,8 +326,15 @@ namespace Portal
 
         #region 代理人1工號及姓名
         protected void txtNameAgent1_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
-        {
-            SetName1(e.Text);
+        {////請假單代理人可否搜尋預設以外，0為不能搜尋
+            var AgentCanSearch = (from c in dcFlow.FormsExtend
+                                  where c.FormsCode == "Abs" && c.Code == "AgentCanSearch" && c.Active == true
+                                  select c).FirstOrDefault();
+
+            if (AgentCanSearch != null && AgentCanSearch.Column1 != "0")
+            {
+                SetName1(e.Text);
+            }
         }
         protected void txtNameAgent1_DataBound(object sender, EventArgs e)
         {
@@ -346,8 +353,10 @@ namespace Portal
 
             if (li != null)
                 SetName1(li);
-            else if (txtNameAgent1.Text.Trim().Length > 0)
-                SetName1(txtNameAgent1.Text);
+            //else if (txtNameAgent1.Text.Trim().Length > 0)
+            //    SetName1(txtNameAgent1.Text);
+
+
         }
         private void SetName1(RadComboBoxItem li)
         {
@@ -360,6 +369,7 @@ namespace Portal
         }
         private void SetName1(string sNobr)
         {
+
             OldDal.Dao.Bas.BasDao oBasDao = new OldDal.Dao.Bas.BasDao(dcHR.Connection);
 
             var rBas = oBasDao.GetBase(sNobr, true).FirstOrDefault();
@@ -372,6 +382,8 @@ namespace Portal
             }
             else
                 txtNameAgent1.Text = txtNameAgent1.ToolTip;
+
+
         }
 
         #endregion 代理人1工號及姓名
@@ -499,7 +511,7 @@ namespace Portal
                                          where c.FormsCode == "Abs" && c.Code == "IsNeedAgent" && c.Active == true
                                          select c).ToList();
                 OldDal.Dao.Att.RoteDao oRoteDao = new OldDal.Dao.Att.RoteDao(dcHR.Connection);
-                
+
                 if (txtNameAgent1.Items.Count > 1 && !IsNeedAgentExtend.Any())
                 {
                     //二擇一
@@ -530,13 +542,13 @@ namespace Portal
                     return;
                 }
 
-                
+
                 if (rAttendDate == null)
                 {
                     lblMsg.Text = "出勤資料錯誤，請洽人事單位";
                     return;
                 }
-                
+
                 //DateTime AppDate = Convert.ToDateTime(rAttendDate.Text);
 
                 //if (DateB < AppDate)
@@ -765,6 +777,20 @@ namespace Portal
         }
         protected void gvAppS_DataBound(object sender, EventArgs e)
         {
+            int count = 0;
+            foreach (var item in gvAppS.Items)
+            {
+                var No = item.FindControl("lblListNumber") as RadLabel;
+                if (No != null)
+                {
+                    count++;
+                    No.Text = count.ToString();
+                }
+                
+            }
+            var lblAbsCount = gvAppS.FindControl("lblCount") as RadLabel;
+            if (lblAbsCount != null)
+                lblAbsCount.Text = count.ToString();
         }
         protected void gvAppS_ItemCommand(object sender, RadListViewCommandEventArgs e)
         {

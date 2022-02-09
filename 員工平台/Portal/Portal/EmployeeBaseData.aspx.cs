@@ -39,7 +39,6 @@ namespace Portal
         public void ddlEmp_DataBind()
         {
             var rs = AccessData.GetSearchListEmp(_User,CompanySetting);
-
             if (rs.Count == 0)
             {
                 var r = new TextValueRow();

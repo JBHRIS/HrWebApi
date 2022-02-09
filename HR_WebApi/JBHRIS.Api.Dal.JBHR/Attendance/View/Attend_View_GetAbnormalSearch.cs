@@ -28,6 +28,7 @@ namespace JBHRIS.Api.Dal.JBHR.Attendance.View
                 var result = new List<AbnormalSearchViewDto>();
                 foreach (var item in abnormalSearchViewEntry.EmployeeList.Split(2100))
                 {
+                    DateTime today = DateTime.Today;
                     var AbnormalsByEntry = from aa in _unitOfWork.Repository<AttendAbnormal>().Reads()
                                            join atc in _unitOfWork.Repository<Attcard>().Reads() on new { X1= aa.Adate, X2 = aa.Nobr} equals new { X1 = atc.Adate, X2 = atc.Nobr }
                                            into atcgrp
@@ -45,7 +46,7 @@ namespace JBHRIS.Api.Dal.JBHR.Attendance.View
                                            from dmt1 in mt1Grp.DefaultIfEmpty()
                                            where item.Contains(aa.Nobr)
                                            && abnormalSearchViewEntry.DateBegin <= aa.Adate && aa.Adate <= abnormalSearchViewEntry.DateEnd
-                                           && (btts.Ddate >= DateTime.Now && btts.Adate <= DateTime.Now)
+                                           && (btts.Ddate >= today && btts.Adate <= today)
                                            && new string[] { "1", "4", "6" }.Contains(btts.Ttscode)
                                            select new AbnormalSearchViewDto
                                            {

@@ -906,45 +906,65 @@ namespace Portal
                              Auth = role.deptMg.Value,
                          }).FirstOrDefault();
 
-            var OtOver = (from c in dcFlow.FormsExtend
-                          where c.FormsCode == "Ot" && c.Code == "OtOver" && c.Active == true
-                          select c).FirstOrDefault();
+            //var OtOver = (from c in dcFlow.FormsExtend
+            //              where c.FormsCode == "Ot" && c.Code == "OtOver" && c.Active == true
+            //              select c).FirstOrDefault();
 
             OldDal.Dao.Att.OtDao oOtDao = new OldDal.Dao.Att.OtDao(dcHR.Connection);
             OldDal.Dao.Bas.BasDao oBasDao = new OldDal.Dao.Bas.BasDao(dcHR.Connection);
-            foreach (var r in rsApp)
-            {
-                DateTime calDateB = new DateTime(r.DateB.Year, r.DateB.Month, 1).Date;
-                DateTime calDateE = new DateTime(r.DateB.Year, r.DateB.Month, DateTime.DaysInMonth(r.DateB.Year, r.DateB.Month)).Date;
+            //foreach (var r in rsApp)
+            //{
+                //DateTime calDateB = new DateTime(r.DateB.Year, r.DateB.Month, 1).Date;
+                //DateTime calDateE = new DateTime(r.DateB.Year, r.DateB.Month, DateTime.DaysInMonth(r.DateB.Year, r.DateB.Month)).Date;
 
-                var calHour = oOtDao.GetHoursSum(r.EmpId, calDateB, calDateE, false);
+                //var oAttDateCycle = new AttDateCycleDao();
+                //var AttDateCycleCond = new AttDateCycleConditions();
+                //AttDateCycleCond.AccessToken = _User.AccessToken;
+                //AttDateCycleCond.RefreshToken = _User.RefreshToken;
+                //AttDateCycleCond.CompanySetting = CompanySetting;
+                //AttDateCycleCond.nobr = _User.EmpId;
+                //AttDateCycleCond.date = DateTime.Now;
+                //var rsAttDateCycle = oAttDateCycle.GetData(AttDateCycleCond);
+                //if (rsAttDateCycle.Status && rsAttDateCycle.Data != null)
+                //{
+                //    var rAttDateCycle = rsAttDateCycle.Data as AttDateCycleRow;
+                //    if (rAttDateCycle != null)
+                //    {
+                //        calDateB = rAttDateCycle.DateB;
+                //        calDateE = rAttDateCycle.DateE;
+                //    }
 
-                var rsAppS = (from c in dcFlow.FormsAppOt
-                              where (c.ProcessID == sProcessID || (c.idProcess != 0 && c.SignState == "1"))
-                              && c.EmpId == r.EmpId
-                              select c).ToList();
+                //}
 
 
-                var rsFlow = rsAppS.Where(p => calDateB <= p.DateB && p.DateB <= calDateE).ToList();
-                if (rsFlow.Count > 0)
-                    calHour += rsFlow.Sum(p => p.Use);
+                //var calHour = oOtDao.GetHoursSum(r.EmpId, calDateB, calDateE, false);
+
+                //var rsAppS = (from c in dcFlow.FormsAppOt
+                //              where (c.ProcessID == sProcessID || (c.idProcess != 0 && c.SignState == "1"))
+                //              && c.EmpId == r.EmpId
+                //              select c).ToList();
 
 
-                //calHour += r.iTotalHour;
-                var rBasS = oBasDao.GetBaseByNobr(r.EmpId, DateTime.Now.Date).FirstOrDefault();
+                //var rsFlow = rsAppS.Where(p => calDateB <= p.DateB && p.DateB <= calDateE).ToList();
+                //if (rsFlow.Count > 0)
+                //    calHour += rsFlow.Sum(p => p.Use);
+
+
+                ////calHour += r.iTotalHour;
+                //var rBasS = oBasDao.GetBaseByNobr(r.EmpId, DateTime.Now.Date).FirstOrDefault();
 
 
 
-                RadLabel NotifyMsg = cphMain.FindControl("lblNotifyMsg") as RadLabel;
-                if (NotifyMsg != null && OtOver == null)
-                {
-                    if (calHour > 46)
-                    {
-                        NotifyMsg.Text = r.EmpName + "本月加班時數已超過46小時上限，請洽人事單位";
-                        return;
-                    }
-                }
-            }
+                //RadLabel NotifyMsg = cphMain.FindControl("lblNotifyMsg") as RadLabel;
+                //if (NotifyMsg != null && OtOver == null)
+                //{
+                //    if (calHour > 46)
+                //    {
+                //        NotifyMsg.Text = r.EmpName + "本月加班時數已超過46小時上限，請洽人事單位";
+                //        return;
+                //    }
+                //}
+            //}
 
             var lsNobr = rsApp.Select(p => p.EmpId).Distinct().ToList();
 
@@ -1215,43 +1235,43 @@ namespace Portal
                              Auth = role.deptMg.Value,
                          }).FirstOrDefault();
 
-            var OtOver = (from c in dcFlow.FormsExtend
-                          where c.FormsCode == "Ot" && c.Code == "OtOver" && c.Active == true
-                          select c).FirstOrDefault();
+            //var OtOver = (from c in dcFlow.FormsExtend
+            //              where c.FormsCode == "Ot" && c.Code == "OtOver" && c.Active == true
+            //              select c).FirstOrDefault();
 
             OldDal.Dao.Att.OtDao oOtDao = new OldDal.Dao.Att.OtDao(dcHR.Connection);
             OldDal.Dao.Bas.BasDao oBasDao = new OldDal.Dao.Bas.BasDao(dcHR.Connection);
-            foreach (var r in rsApp)
-            {
-                DateTime calDateB = new DateTime(r.DateB.Year, r.DateB.Month, 1).Date;
-                DateTime calDateE = new DateTime(r.DateB.Year, r.DateB.Month, DateTime.DaysInMonth(r.DateB.Year, r.DateB.Month)).Date;
+            //foreach (var r in rsApp)
+            //{
+            //    DateTime calDateB = new DateTime(r.DateB.Year, r.DateB.Month, 1).Date;
+            //    DateTime calDateE = new DateTime(r.DateB.Year, r.DateB.Month, DateTime.DaysInMonth(r.DateB.Year, r.DateB.Month)).Date;
 
-                var calHour = oOtDao.GetHoursSum(r.EmpId, calDateB, calDateE, false);
+            //    var calHour = oOtDao.GetHoursSum(r.EmpId, calDateB, calDateE, false);
 
-                var rsAppS = (from c in dcFlow.FormsAppOt
-                              where (c.ProcessID == sProcessID || (c.idProcess != 0 && c.SignState == "1"))
-                              && c.EmpId == r.EmpId
-                              select c).ToList();
-
-
-                var rsFlow = rsAppS.Where(p => calDateB <= p.DateB && p.DateB <= calDateE).ToList();
-                if (rsFlow.Count > 0)
-                    calHour += rsFlow.Sum(p => p.Use);
+            //    var rsAppS = (from c in dcFlow.FormsAppOt
+            //                  where (c.ProcessID == sProcessID || (c.idProcess != 0 && c.SignState == "1"))
+            //                  && c.EmpId == r.EmpId
+            //                  select c).ToList();
 
 
-                //calHour += r.iTotalHour;
-                var rBasS = oBasDao.GetBaseByNobr(r.EmpId, DateTime.Now.Date).FirstOrDefault();
+            //    var rsFlow = rsAppS.Where(p => calDateB <= p.DateB && p.DateB <= calDateE).ToList();
+            //    if (rsFlow.Count > 0)
+            //        calHour += rsFlow.Sum(p => p.Use);
 
-                RadLabel NotifyMsg = cphMain.FindControl("lblNotifyMsg") as RadLabel;
-                if (NotifyMsg != null && OtOver == null)
-                {
-                    if (calHour > 46)
-                    {
-                        NotifyMsg.Text = r.EmpName + "本月加班時數已超過46小時上限，請洽人事單位";
-                        return;
-                    }
-                }
-            }
+
+            //    //calHour += r.iTotalHour;
+            //    var rBasS = oBasDao.GetBaseByNobr(r.EmpId, DateTime.Now.Date).FirstOrDefault();
+
+            //    RadLabel NotifyMsg = cphMain.FindControl("lblNotifyMsg") as RadLabel;
+            //    if (NotifyMsg != null && OtOver == null)
+            //    {
+            //        if (calHour > 46)
+            //        {
+            //            NotifyMsg.Text = r.EmpName + "本月加班時數已超過46小時上限，請洽人事單位";
+            //            return;
+            //        }
+            //    }
+            //}
 
             var lsNobr = rsApp.Select(p => p.EmpId).Distinct().ToList();
 
@@ -1519,43 +1539,43 @@ namespace Portal
                          }).FirstOrDefault();
 
 
-            var OtOver = (from c in dcFlow.FormsExtend
-                          where c.FormsCode == "Ot" && c.Code == "OtOver" && c.Active == true
-                          select c).FirstOrDefault();
+            //var OtOver = (from c in dcFlow.FormsExtend
+            //              where c.FormsCode == "Ot" && c.Code == "OtOver" && c.Active == true
+            //              select c).FirstOrDefault();
 
             OldDal.Dao.Att.OtDao oOtDao = new OldDal.Dao.Att.OtDao(dcHR.Connection);
             OldDal.Dao.Bas.BasDao oBasDao = new OldDal.Dao.Bas.BasDao(dcHR.Connection);
-            foreach (var r in rsApp)
-            {
-                DateTime calDateB = new DateTime(r.DateB.Year, r.DateB.Month, 1).Date;
-                DateTime calDateE = new DateTime(r.DateB.Year, r.DateB.Month, DateTime.DaysInMonth(r.DateB.Year, r.DateB.Month)).Date;
+            //foreach (var r in rsApp)
+            //{
+            //    DateTime calDateB = new DateTime(r.DateB.Year, r.DateB.Month, 1).Date;
+            //    DateTime calDateE = new DateTime(r.DateB.Year, r.DateB.Month, DateTime.DaysInMonth(r.DateB.Year, r.DateB.Month)).Date;
 
-                var calHour = oOtDao.GetHoursSum(r.EmpId, calDateB, calDateE, false);
+            //    var calHour = oOtDao.GetHoursSum(r.EmpId, calDateB, calDateE, false);
 
-                var rsAppS = (from c in dcFlow.FormsAppOt
-                              where (c.ProcessID == sProcessID || (c.idProcess != 0 && c.SignState == "1"))
-                              && c.EmpId == r.EmpId
-                              select c).ToList();
-
-
-                var rsFlow = rsAppS.Where(p => calDateB <= p.DateB && p.DateB <= calDateE).ToList();
-                if (rsFlow.Count > 0)
-                    calHour += rsFlow.Sum(p => p.Use);
+            //    var rsAppS = (from c in dcFlow.FormsAppOt
+            //                  where (c.ProcessID == sProcessID || (c.idProcess != 0 && c.SignState == "1"))
+            //                  && c.EmpId == r.EmpId
+            //                  select c).ToList();
 
 
-                //calHour += r.iTotalHour;
-                var rBasS = oBasDao.GetBaseByNobr(r.EmpId, DateTime.Now.Date).FirstOrDefault();
+            //    var rsFlow = rsAppS.Where(p => calDateB <= p.DateB && p.DateB <= calDateE).ToList();
+            //    if (rsFlow.Count > 0)
+            //        calHour += rsFlow.Sum(p => p.Use);
 
-                RadLabel NotifyMsg = cphMain.FindControl("lblNotifyMsg") as RadLabel;
-                if (NotifyMsg != null && OtOver == null)
-                {
-                    if (calHour > 46)
-                    {
-                        NotifyMsg.Text = r.EmpName + "本月加班時數已超過46小時上限，請洽人事單位";
-                        return;
-                    }
-                }
-            }
+
+            //    //calHour += r.iTotalHour;
+            //    var rBasS = oBasDao.GetBaseByNobr(r.EmpId, DateTime.Now.Date).FirstOrDefault();
+
+            //    RadLabel NotifyMsg = cphMain.FindControl("lblNotifyMsg") as RadLabel;
+            //    if (NotifyMsg != null && OtOver == null)
+            //    {
+            //        if (calHour > 46)
+            //        {
+            //            NotifyMsg.Text = r.EmpName + "本月加班時數已超過46小時上限，請洽人事單位";
+            //            return;
+            //        }
+            //    }
+            //}
 
             var lsNobr = rsApp.Select(p => p.EmpId).Distinct().ToList();
 
@@ -3202,10 +3222,14 @@ namespace Portal
             var rsFile = (from c in dcFlow.wfFormUploadFile
                           where c.sProcessID == sProcessID
                           select c).ToList();
-
+            var LanguageCookie = Request.Cookies["Language"]?.Value ?? "";
+            ShareDictionaryDao oShareDictionary = new ShareDictionaryDao();
             if (!gAppS.Any())
             {
-                lblErrorMsg.Text = "請選擇異常資料";
+                if (LanguageCookie != null && LanguageCookie != "")
+                    lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "SelectAbnData", "1", LanguageCookie);
+                else
+                    lblErrorMsg.Text = "請選擇異常資料";
                 return;
             }
 
@@ -4372,9 +4396,10 @@ namespace Portal
                     }
                 }
 
-                var lsDeptchange = rsApp.Select(p => p.DeptmCodeChange).Distinct().ToList();
-                var rsDeptChange = oDeptDao.GetDeptm(lsDeptchange, new List<string>() { });
-                var rDeptChnge = rsDeptChange.Where(p => p.Code == rsAppS.First().DeptmCodeChange).FirstOrDefault();
+                //var lsDeptchange = rsApp.Select(p => p.DeptmCodeChange).Distinct().ToList();
+                //var rsDeptChange = oDeptDao.GetDeptm(lsDeptchange, new List<string>() { });
+                //var rDeptChnge = rsDeptChange.Where(p => p.Code == rsAppS.First().DeptmCodeChange).FirstOrDefault();
+                var DeptmManager = oBasDao.GetDeptmManage("", rsApp.FirstOrDefault().DeptmCodeChange);
                 var AppointDynamicDept = (from c in dcFlow.FormsExtend
                                           where c.FormsCode == "Appoint" && c.Code == "AppointDynamicDept" && c.Active == true
                                           select c).ToList();
@@ -4386,7 +4411,7 @@ namespace Portal
                                     join emp in dcFlow.Emp on role.Emp_id equals emp.id
                                     join dept in dcFlow.Dept on role.Dept_id equals dept.id
                                     join pos in dcFlow.Pos on role.Pos_id equals pos.id
-                                    where role.Emp_id == rDeptChnge.Manage
+                                    where role.Emp_id == DeptmManager
                                     select new
                                     {
                                         RoleId = role.id,

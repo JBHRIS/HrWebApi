@@ -1,8 +1,10 @@
 ﻿using Bll.Flow.Vdb;
 using Bll.OverTime;
+using Bll.Salary.Vdb;
 using Dal;
 using Dal.Dao.Employee;
 using Dal.Dao.Flow;
+using Dal.Dao.Salary;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -267,7 +269,17 @@ namespace Portal
                 Card = dDate.ToShortDateString() + "：";
 
                 foreach (var rCard in rsAttCard)
-                    Card += rCard.OnCardTime24 + "-" + rCard.OffCardTime24;
+                {
+                    if (rCard.OffCardTime48.CompareTo("2400") > 0)
+                    {
+                        Card += rCard.OnCardTime24 + " - " + dDate.AddDays(1).ToShortDateString() + "：" + rCard.OffCardTime24;
+
+                    }
+                    else
+                        Card += rCard.OnCardTime24 + " - " + dDate.ToShortDateString() + "：" + rCard.OffCardTime24;
+                    //Card += rCard.OnCardTime24 + "-" + rCard.OffCardTime24;
+                }
+
             }
 
             return Card;
@@ -524,11 +536,74 @@ namespace Portal
             OldDal.Dao.Att.AttendDao oAttendDao = new OldDal.Dao.Att.AttendDao(dcHR.Connection);
             OldDal.Dao.Att.RoteDao oRoteDao = new OldDal.Dao.Att.RoteDao(dcHR.Connection);
 
-            if (oRoteDao.RoteIsNightShift(Rote))//夜班需-1天
+            OldDal.Dao.Att.AttcardDao oAttcardDao = new OldDal.Dao.Att.AttcardDao(dcHR.Connection);
+            DateTime DateTimeB = DateB.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(TimeB));
+            DateTime DateTimeE = DateE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(TimeE));
+            OldDal.Dao.Att.OtDao oOtDao = new OldDal.Dao.Att.OtDao(dcHR.Connection);
+
+            var OtOver = (from c in dcFlow.FormsExtend
+                          where c.FormsCode == "Ot" && c.Code == "OtOver" && c.Active == true
+                          select c).FirstOrDefault();
+            var rsAttcard = oAttcardDao.GetAttcard(Nobr, DateB.AddDays(-1), DateB);
+            foreach (var rAttcard in rsAttcard)
             {
-                DateB = DateB.AddDays(-1);
-                IsNightShift = true;
+                var bCardTime = false;
+
+                bCardTime = rAttcard.DateTimeB <= DateTimeB && DateTimeB <= rAttcard.DateTimeE;
+                bCardTime = bCardTime && (rAttcard.DateTimeB <= DateTimeE && DateTimeE <= rAttcard.DateTimeE);
+
+                if (bCardTime)
+                {
+                    IsNightShift = DateB != rAttcard.Date;
+                    DateB = rAttcard.Date;
+                    break;
+                }
             }
+            //if (oRoteDao.RoteIsNightShift(Rote))//夜班需-1天
+            //{
+            //    DateB = DateB.AddDays(-1);
+            //    IsNightShift = true;
+            //}
+
+            DateTime calDateB = new DateTime(DateB.Year, DateB.Month, 1).Date;
+            DateTime calDateE = new DateTime(DateB.Year, DateB.Month, DateTime.DaysInMonth(DateB.Year, DateB.Month)).Date;
+
+            var oAttDateCycle = new AttDateCycleDao();
+            var AttDateCycleCond = new AttDateCycleConditions();
+            AttDateCycleCond.AccessToken = _User.AccessToken;
+            AttDateCycleCond.RefreshToken = _User.RefreshToken;
+            AttDateCycleCond.CompanySetting = CompanySetting;
+            AttDateCycleCond.nobr = _User.EmpId;
+            AttDateCycleCond.date = DateB;
+            var rsAttDateCycle = oAttDateCycle.GetData(AttDateCycleCond);
+            if (rsAttDateCycle.Status && rsAttDateCycle.Data != null)
+            {
+                var rAttDateCycle = rsAttDateCycle.Data as AttDateCycleRow;
+                if (rAttDateCycle != null)
+                {
+                    calDateB = rAttDateCycle.DateB;
+                    calDateE = rAttDateCycle.DateE;
+                }
+
+            }
+
+
+            var calHour = oOtDao.GetHoursSum(Nobr, calDateB, calDateE, false);
+
+            //var rsAppS = (from c in dcFlow.FormsAppOt
+            //              where (c.ProcessID == lblProcessID.Text || (c.idProcess != 0 && c.SignState == "1"))
+            //              && c.EmpId == Nobr
+            //              select c).ToList();
+
+
+            var rsAppS = (from c in dcFlow.FormsAppOt
+                          where ((c.ProcessID == lblProcessID.Text && c.SignState == "1") || (c.idProcess != 0 && c.SignState == "1"))
+                          && c.EmpId == Nobr
+                          select c).ToList();
+
+            var rsFlow = rsAppS.Where(p => calDateB <= p.DateB && p.DateB <= calDateE).ToList();
+            if (rsFlow.Count > 0)
+                calHour += rsFlow.Sum(p => p.Use);
 
             var GetAttend = oAttendDao.GetAttendH(lblNobrAppS.Text, DateB).FirstOrDefault();
             if (GetAttend != null)
@@ -585,8 +660,8 @@ namespace Portal
                 TimeE = Bll.Tools.TimeTrans.ConvertMinutesToHhMm(iTimeE);
             }
 
-            DateTime DateTimeB = DateB.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(TimeB));
-            DateTime DateTimeE = DateE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(TimeE));
+            //DateTime DateTimeB = DateB.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(TimeB));
+            //DateTime DateTimeE = DateE.Date.AddMinutes(Bll.Tools.TimeTrans.ConvertHhMmToMinutes(TimeE));
 
             if (DateTimeB >= DateTimeE)
             {
@@ -595,7 +670,6 @@ namespace Portal
             }
 
             OldDal.Dao.Att.AbsDao oAbsDao = new OldDal.Dao.Att.AbsDao(dcHR.Connection);
-            OldDal.Dao.Att.AttcardDao oAttcardDao = new OldDal.Dao.Att.AttcardDao(dcHR.Connection);
 
             if (DateTimeB.Date < DateTime.Now.Date)
             {
@@ -672,10 +746,6 @@ namespace Portal
             //}
 
             //檢查重複的資料
-            var rsAppS = (from c in dcFlow.FormsAppOt
-                          where (c.ProcessID == lblProcessID.Text || (c.idProcess != 0 && c.SignState == "1"))
-                          && c.EmpId == Nobr
-                          select c).ToList();
 
             if (rsAppS.Where(c => c.DateTimeB < DateTimeE && c.DateTimeE > DateTimeB).Any())
             {
@@ -683,7 +753,6 @@ namespace Portal
                 return;
             }
 
-            OldDal.Dao.Att.OtDao oOtDao = new OldDal.Dao.Att.OtDao(dcHR.Connection);
             var rsOt = oOtDao.GetOt(Nobr, DateB.AddDays(-1).Date, DateE.AddDays(1).Date);
 
             if (rsOt.Where(p => p.DateTimeB < DateTimeE && p.DateTimeE > DateTimeB).Any())
@@ -717,16 +786,55 @@ namespace Portal
                 return;
             }
 
+            var OtLimit = 46M;//加班上限
+            var oEmployeeRuleDao = new EmployeeRuleDao();
+            var EmployeeRuleCond = new EmployeeRuleConditions();
+
+            EmployeeRuleCond.AccessToken = _User.AccessToken;
+            EmployeeRuleCond.RefreshToken = _User.RefreshToken;
+            EmployeeRuleCond.CompanySetting = CompanySetting;
+            EmployeeRuleCond.employeeId = Nobr;
+            EmployeeRuleCond.ruleType = "OtHrsMonthlyMax";
+            EmployeeRuleCond.checkDate = IsNightShift ? DateB.AddDays(-1) : DateB;
+            var rsEmployeeRule = oEmployeeRuleDao.GetData(EmployeeRuleCond);
+            var rEmployeeRule = new List<EmployeeRuleRow>();
+            if (rsEmployeeRule.Status)
+            {
+                if (rsEmployeeRule.Data != null)
+                {
+                    rEmployeeRule = rsEmployeeRule.Data as List<EmployeeRuleRow>;
+                    if (rEmployeeRule != null && rEmployeeRule.Count != 0)
+                    {
+                        var rAttHrsDailyMax = rEmployeeRule.FirstOrDefault();
+                        if (rAttHrsDailyMax != null)
+                        {
+                            OtLimit = Convert.ToDecimal(rAttHrsDailyMax.value);
+                        }
+                    }
+                }
+            }
+
+            //calHour += r.iTotalHour;
+            calHour += Calculate;
+            if (OtOver == null)
+            {
+                if (calHour > OtLimit)
+                {
+                    lblErrorMsg.Text = Nobr + "本月加班時數已超過上限，請洽人事單位";
+                    return;
+                }
+            }
+
             decimal AttHrsDailyMax = 12;
 
             var ExtAttHrsDailyMax = (from c in dcFlow.FormsExtend
-                                    where c.FormsCode == "Ot" && c.Code == "AttHrsDailyMax" && c.Active == true
-                                    select c).ToList();
+                                     where c.FormsCode == "Ot" && c.Code == "AttHrsDailyMax" && c.Active == true
+                                     select c).ToList();
 
             if (ExtAttHrsDailyMax.Any())
             {
-                var oEmployeeRuleDao = new EmployeeRuleDao();
-                var EmployeeRuleCond = new EmployeeRuleConditions();
+                oEmployeeRuleDao = new EmployeeRuleDao();
+                EmployeeRuleCond = new EmployeeRuleConditions();
 
                 EmployeeRuleCond.AccessToken = _User.AccessToken;
                 EmployeeRuleCond.RefreshToken = _User.RefreshToken;
@@ -734,14 +842,14 @@ namespace Portal
                 EmployeeRuleCond.employeeId = Nobr;
                 EmployeeRuleCond.ruleType = "AttHrsDailyMax";
                 EmployeeRuleCond.checkDate = IsNightShift ? DateB.AddDays(-1) : DateB;
-                var rsEmployeeRule = oEmployeeRuleDao.GetData(EmployeeRuleCond);
-                var rEmployeeRule = new List<EmployeeRuleRow>();
+                rsEmployeeRule = oEmployeeRuleDao.GetData(EmployeeRuleCond);
+                rEmployeeRule = new List<EmployeeRuleRow>();
                 if (rsEmployeeRule.Status)
                 {
                     if (rsEmployeeRule.Data != null)
                     {
                         rEmployeeRule = rsEmployeeRule.Data as List<EmployeeRuleRow>;
-                        if (rEmployeeRule.Count != 0)
+                        if (rEmployeeRule != null && rEmployeeRule.Count != 0)
                         {
                             var rAttHrsDailyMax = rEmployeeRule.FirstOrDefault();
                             if (rAttHrsDailyMax != null)

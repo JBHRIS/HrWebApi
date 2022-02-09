@@ -74,7 +74,8 @@ namespace JBHRIS.Api.Service.Employee.Normal
         }
         List<EmlpoyeeDataGroupDto> GetAllowEmloyeeListCache(ClaimsPrincipal user)
         {
-            return _unitOfWork.Repository<Basetts>().Reads().Where(p => DateTime.Today >= p.Adate && DateTime.Today <= p.Ddate.Value
+            DateTime today = DateTime.Today;
+            return _unitOfWork.Repository<Basetts>().Reads().Where(p => today >= p.Adate && today <= p.Ddate.Value
                       && new string[] { "1", "4", "6" }.Contains(p.Ttscode)).Select(p => new EmlpoyeeDataGroupDto
             {
                 DataGroup = p.Saladr,
@@ -106,7 +107,8 @@ namespace JBHRIS.Api.Service.Employee.Normal
             //new EmployeeRoleDto{EmployeeId="333333",Role="B" },
             //new EmployeeRoleDto{EmployeeId="444444",Role="C" },
             //};
-            return _unitOfWork.Repository<Basetts>().Reads().Where(p => DateTime.Today >= p.Adate && DateTime.Today <= p.Ddate.Value
+            DateTime today = DateTime.Today;
+            return _unitOfWork.Repository<Basetts>().Reads().Where(p => today >= p.Adate && today <= p.Ddate.Value
                       && new string[] { "1", "4", "6" }.Contains(p.Ttscode)).Select(p => new EmployeeRoleDto { EmployeeId = p.Nobr, Role = p.Saladr, Dept = p.Dept }).ToList();
         }
 

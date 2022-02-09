@@ -97,19 +97,17 @@ namespace Dal.Dao.Salary
                             Vdb.Status = oSource.state;
                             Vdb.Message = oSource.message;
                             Vdb.StackTrace = oSource.stackTrace;
-                            var rsTarget = new List<AttDateCycleRow>();
 
                             if (Vdb.Status)
                             {
-                                foreach (var rsSource in oSource.result)
-                                {
-                                    var rTarget = new AttDateCycleRow();
-                                    rTarget.DateB = rsSource.attDateB;
-                                    rTarget.DateE = rsSource.attDateE;
-                                    rsTarget.Add(rTarget);
-                                }
+                               
+                                var rTarget = new AttDateCycleRow();
+                                rTarget.DateB = oSource.result.attDateB;
+                                rTarget.DateE = oSource.result.attDateE;
+                                    
+                                
 
-                                Vdb.Data = rsTarget;
+                                Vdb.Data = rTarget;
                             }
                         }
                     }

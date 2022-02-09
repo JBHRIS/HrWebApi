@@ -92,9 +92,9 @@ namespace Portal
                 txtDateAppoint.Enabled = false;
                 txtPerformance1.Enabled = false;
                 txtPerformance2.Enabled = false;
-                btnSalaryChange.Visible = false;
+                //btnSalaryChange.Visible = false;
                 btnConfirm.Visible = false;
-                plSalary.Visible = false;
+                //plSalary.Visible = false;
                 plAudit.Visible = false;
                 btnCheck.Visible = false;
             }
@@ -398,7 +398,7 @@ namespace Portal
             oAppointChangeLog.UpdateMan = _User.EmpName;
             oAppointChangeLog.UpdateDate = DateTime.Now.Date;
             var oAppoint = new FormsAppAppoint();
-            oAppoint.AllowSalary = lvSalary.Items.Count > 0;
+            oAppoint.AllowSalary = plSalary.Visible;
             oAppoint.AllowSign = true;// (bool)cbAudit.Checked;
             oAppoint.Evaluation = txtPerformance1.Text;
             oAppoint.Qualified = txtPerformance2.Text;

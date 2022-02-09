@@ -29,6 +29,7 @@ namespace JBHRIS.Api.Dal.JBHR.Attendance.View
                 var result = new List<OverTimeSearchViewDto>();
                 foreach (var item in overTimeSearchViewEntry.EmployeeList.Split(2100))
                 {
+                    DateTime today = DateTime.Today;
                     var OverTimesByEntry = from ot in _unitOfWork.Repository<Ot>().Reads()
                                            join b in _unitOfWork.Repository<Base>().Reads() on ot.Nobr equals b.Nobr
                                            join btts in _unitOfWork.Repository<Basetts>().Reads() on b.Nobr equals btts.Nobr
@@ -39,7 +40,7 @@ namespace JBHRIS.Api.Dal.JBHR.Attendance.View
                                            from otrg in otrgrp.DefaultIfEmpty()
                                            where item.Contains(ot.Nobr)
                                            && overTimeSearchViewEntry.DateBegin <= ot.Bdate && ot.Bdate <= overTimeSearchViewEntry.DateEnd
-                                           && (btts.Ddate >= DateTime.Now && btts.Adate <= DateTime.Now)
+                                           && (btts.Ddate >= today && btts.Adate <= today)
                                            && new string[] { "1", "4", "6" }.Contains(btts.Ttscode)
                                            select new OverTimeSearchViewDto
                                            {

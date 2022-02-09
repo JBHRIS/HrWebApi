@@ -55,11 +55,12 @@ namespace JBHRIS.Api.Dal.JBHR.Employee
 
         public List<EmployeeViewDto> GetEmployeeView(List<string> employeeList)
         {
+            DateTime today = DateTime.Today;
             var data = from b in _unitOfWork.Repository<Base>().Reads()
                        join btts in _unitOfWork.Repository<Basetts>().Reads() on b.Nobr equals btts.Nobr
                        into btgrp
                        from btg in btgrp.DefaultIfEmpty()
-                       where DateTime.Today >= btg.Adate && DateTime.Today <= btg.Ddate.Value && employeeList.Contains(b.Nobr)
+                       where today >= btg.Adate && today <= btg.Ddate.Value && employeeList.Contains(b.Nobr)
                        && new string[] { "1", "4", "6" }.Contains(btg.Ttscode)
                        select new EmployeeViewDto
                        {
@@ -71,11 +72,12 @@ namespace JBHRIS.Api.Dal.JBHR.Employee
 
         public List<EmployeeViewDto> GetEmployee()
         {
+            DateTime today = DateTime.Today;
             var data = from b in _unitOfWork.Repository<Base>().Reads()
                        join btts in _unitOfWork.Repository<Basetts>().Reads() on b.Nobr equals btts.Nobr
                        into btgrp
                        from btg in btgrp.DefaultIfEmpty()
-                       where DateTime.Today >= btg.Adate && DateTime.Today <= btg.Ddate.Value
+                       where today >= btg.Adate && today <= btg.Ddate.Value
                        && new string[] { "1", "4", "6" }.Contains(btg.Ttscode)
                        select new EmployeeViewDto
                        {
@@ -137,10 +139,11 @@ namespace JBHRIS.Api.Dal.JBHR.Employee
 
         public decimal GetEmployeeOtMin(string employeeId)
         {
+            DateTime today = DateTime.Today;
             var data = from btts in _unitOfWork.Repository<Basetts>().Reads()
                        join otr in _unitOfWork.Repository<Otratecd>().Reads() on btts.Calot equals otr.OtrateCode
                        where
-                       DateTime.Today >= btts.Adate && DateTime.Today <= btts.Ddate.Value
+                       today >= btts.Adate && today <= btts.Ddate.Value
                        && employeeId == btts.Nobr
                        && new string[] { "1", "4", "6" }.Contains(btts.Ttscode)
                        select otr;

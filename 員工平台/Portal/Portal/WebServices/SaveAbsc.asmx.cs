@@ -103,11 +103,11 @@ namespace Portal.WebServices
                         if (sProcessID != null && sProcessID != "")
                         {
                             //修改表單資料
-                            var rFormApp = (from c in dcFlow.wfFormApp
-                                            where c.sProcessID == sProcessID
+                            var rFormApp = (from c in dcFlow.FormsApp
+                                            where c.ProcessID == sProcessID
                                             select c).FirstOrDefault();
 
-                            rFormApp.sInfo += "已銷假取消" + rAbs.DateB.Date.ToString("MM/dd") + "行程";
+                            rFormApp.Note += "已銷假取消" + rAbs.DateB.Date.ToString("MM/dd") + "行程";
 
                             dcFlow.SubmitChanges();
                         }

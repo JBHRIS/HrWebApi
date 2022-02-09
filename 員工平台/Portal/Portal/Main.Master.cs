@@ -152,14 +152,24 @@ namespace Portal
                 var ReplyRedirect = (from c in dcFlow.FormsExtend
                                      where c.FormsCode == "Common" && c.Active == true && c.Code == "ReplyRedirect"
                                      select c).FirstOrDefault();
-                //if (ReplyRedirect != null)
-                //    btnReply.Visible = true;
+                if (ReplyRedirect != null)
+                    btnReply.Visible = true;
 
                 var ActivePage = Request.Url;
                 if (_User.LoginStatus != "1")
                     Response.Redirect("Login.aspx?ReturnUrl=" + ActivePage);
                 UnobtrusiveSession.Session["SystemPage"] = null;
                 LoadData();
+                var Language = (from c in dcFlow.FormsExtend
+                                where c.FormsCode == "Common" && c.Active == true && c.Code == "Language"
+                                select c).FirstOrDefault();
+                if (Language != null)
+                {
+                    plLanguage.Visible = true;
+                    ChangeLanguage();
+                }
+                SetRootValues();
+
             }
             var TimeCountDown = (from c in dcFlow.FormsExtend
                                  where c.FormsCode == "Common" && c.Code == "TimeCountDown" && c.Active == true
@@ -169,15 +179,7 @@ namespace Portal
                 CountDown();
                 plCountDown.Visible = true;
             }
-            SetRootValues();
-            var Language = (from c in dcFlow.FormsExtend
-                            where c.FormsCode == "Common" && c.Active == true && c.Code == "Language"
-                            select c).FirstOrDefault();
-            if (Language != null)
-            {
-                plLanguage.Visible = true;
-                ChangeLanguage();
-            }
+            
             if (FormTitle != "")
                 Page.Title = FormTitle;
             RadClientExportManager1.PdfSettings.Fonts.Add("Arial Unicode MS", "Fonts/Arial-Unicode-MS.ttf");
@@ -789,9 +791,10 @@ namespace Portal
                             FindSubControl(ListViewData);
                     }
                 }
-                foreach (Control Ctl1 in Ctl.Controls)
-                    //繼續往下找(遞迴)
-                    FindSubControl(Ctl1);
+                else
+                    foreach (Control Ctl1 in Ctl.Controls)
+                        //繼續往下找(遞迴)
+                        FindSubControl(Ctl1);
 
             }
             else
@@ -833,6 +836,13 @@ namespace Portal
                         var TransText = oShareDictionary.TextTranslate("Portal", CheckBox.ID, "1", LanguageCookie);
                         if (TransText != "" && TransText != null)
                             CheckBox.Text = TransText;
+                    }
+                    if (Ctl is RadCheckBox)
+                    {
+                        var RadCheckBox = Ctl as RadCheckBox;
+                        var TransText = oShareDictionary.TextTranslate("Portal", RadCheckBox.ID, "1", LanguageCookie);
+                        if (TransText != "" && TransText != null)
+                            RadCheckBox.Text = TransText;
                     }
                     if (Ctl is RadRadioButtonList)
                     {
@@ -876,10 +886,10 @@ namespace Portal
         }
         public void UseScript()
         {
-            string strMsg = "將前往回報系統，是否繼續?", strUrl_Yes = "", strUrl_No = "";
+            string strMsg = "將前往回報系統，是否繼續?", strUrl_No = "";
             var Script = "Sys.Application.add_load(storeOnServer);";
-            ScriptManager.RegisterClientScriptBlock(this.UpdatePanel, typeof(UpdatePanel), "test", "if ( window.confirm('" + strMsg + "')) {'"+ Script +"' } else {window.location.href='" + strUrl_No + "' };", true);
-            //ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "storeOnServer", Script, true);
+            //ScriptManager.RegisterClientScriptBlock(this.UpdatePanel, typeof(UpdatePanel), "test", "if ( window.confirm('" + strMsg + "')) {'"+ Script +"' } else {window.location.href='" + strUrl_No + "' };", true);
+            ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "storeOnServer", Script, true);
         }
     }
 }

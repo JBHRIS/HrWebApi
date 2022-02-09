@@ -25,6 +25,10 @@ using System.Web.Services;
 using Newtonsoft.Json;
 using Bll.Tools;
 using System.Web.Security;
+using Dal.Dao.Files;
+using Bll.Files.Vdb;
+using Dal.Dao.Salary;
+using Bll.Salary.Vdb;
 
 namespace Portal
 {
@@ -47,6 +51,36 @@ namespace Portal
             //oInsertRow.KeyMan = HttpContext.Current.Session["User"].ToString();
 
             byte[] fileContents = Convert.FromBase64String(base64);
+            //var _User = UnobtrusiveSession.Session["UserData"] as User;
+            //var CompanySetting = UnobtrusiveSession.Session["CompanySetting"] as Bll.Share.Vdb.CompanySettingRow;
+            //var GuidCode = Guid.NewGuid().ToString();
+
+            //var oUploadMultipleDao = new UploadMultipleDao();
+            //var UploadMultipleCond = new UploadMultipleConditions();
+            //UploadMultipleCond.AccessToken = _User.AccessToken;
+            //UploadMultipleCond.RefreshToken = _User.RefreshToken;
+            //UploadMultipleCond.CompanySetting = CompanySetting;
+            //UploadMultipleCond.FileTicket = GuidCode;
+            //UploadMultipleCond.files = fileContents;
+            //var UploadMultipleResult = oUploadMultipleDao.GetData(UploadMultipleCond);
+
+            //if (UploadMultipleResult.Status)
+            //{
+            //    if (UploadMultipleResult.Data != null)
+            //    {
+            //        //成功
+                    
+            //    }
+            //    else
+            //    {
+            //    }
+
+
+            //}
+            //else
+            //{
+            //    //失敗
+            //}
             UnobtrusiveSession.Session["FileContents"] = fileContents;
             var Index = new Index();
             var Result = Index.Reply_Click(fileContents);
@@ -182,8 +216,8 @@ namespace Portal
 
             //var ResultAbsence = oAbsBalanceView.GetData(AbsBalanceCond);
 
-            var oAnnualLeave = new AnnualLeaveDao();
-            var AnnualLeaveCond = new AnnualLeaveConditions();
+            var oAnnualLeave = new Dal.Dao.AbsenceView.AnnualLeaveDao();
+            var AnnualLeaveCond = new Bll.AbsenceView.Vdb.AnnualLeaveConditions();
             AnnualLeaveCond.AccessToken = _User.AccessToken;
             AnnualLeaveCond.RefreshToken = _User.RefreshToken;
             AnnualLeaveCond.CompanySetting = CompanySetting;
@@ -193,7 +227,7 @@ namespace Portal
             {
                 if (ResultAnnual.Data != null)
                 {
-                    var rs = ResultAnnual.Data as AnnualLeaveRow;
+                    var rs = ResultAnnual.Data as Bll.AbsenceView.Vdb.AnnualLeaveRow;
                     oIndex.SpecialLeave.LeaveName = "特休";
                     if (rs != null)
                     {
@@ -201,8 +235,8 @@ namespace Portal
                     }
                 }
             }
-            var oCompensatoryLeave = new CompensatoryLeaveDao();
-            var CompensatoryLeaveCond = new CompensatoryLeaveConditions();
+            var oCompensatoryLeave = new Dal.Dao.AbsenceView.CompensatoryLeaveDao();
+            var CompensatoryLeaveCond = new Bll.AbsenceView.Vdb.CompensatoryLeaveConditions();
             CompensatoryLeaveCond.AccessToken = _User.AccessToken;
             CompensatoryLeaveCond.RefreshToken = _User.RefreshToken;
             CompensatoryLeaveCond.CompanySetting = CompanySetting;
@@ -212,7 +246,7 @@ namespace Portal
             {
                 if (ResultCompensatory.Data != null)
                 {
-                    var rs = ResultCompensatory.Data as CompensatoryLeaveRow;
+                    var rs = ResultCompensatory.Data as Bll.AbsenceView.Vdb.CompensatoryLeaveRow;
                     oIndex.CompensatoryLeave.LeaveName = "補休";
                     if (rs != null)
                     {
@@ -301,6 +335,25 @@ namespace Portal
             #endregion
 
             #region 加班時數
+            var oAttDateCycle = new AttDateCycleDao();
+            var AttDateCycleCond = new AttDateCycleConditions();
+            AttDateCycleCond.AccessToken = _User.AccessToken;
+            AttDateCycleCond.RefreshToken = _User.RefreshToken;
+            AttDateCycleCond.CompanySetting = CompanySetting;
+            AttDateCycleCond.nobr = _User.EmpId;
+            AttDateCycleCond.date = DateTime.Now;
+            var rsAttDateCycle = oAttDateCycle.GetData(AttDateCycleCond);
+            if (rsAttDateCycle.Status && rsAttDateCycle.Data != null)
+            {
+                var rAttDateCycle = rsAttDateCycle.Data as AttDateCycleRow;
+                if (rAttDateCycle != null)
+                {
+                    DateB = rAttDateCycle.DateB;
+                    DateE = rAttDateCycle.DateE;
+                }
+
+            }
+
             var oOverTimeView = new OverTimeViewDao();
             var OverTimeViewCond = new OverTimeViewConditions();
             OverTimeViewCond.AccessToken = _User.AccessToken;
@@ -625,7 +678,7 @@ namespace Portal
                 UserData.Add(EmpId);
                 UserData.Add(EmpName);
                 UserData.Add(Role.ToString());
-                UserData.Add(FileInfo.ToString());
+                UserData.Add(System.Text.Encoding.UTF8.GetString(FileInfo));
                 Parameter = JsonConvert.SerializeObject(UserData);
                 //Response.Redirect(ReplySite + "?Param=" + Server.UrlEncode(oEncryptHepler.Encrypt(Parameter)));
             }
@@ -637,7 +690,7 @@ namespace Portal
                 UserData.Add(EmpId);
                 UserData.Add(EmpName);
                 UserData.Add(Role.ToString());
-                UserData.Add(FileInfo.ToString());
+                UserData.Add(System.Text.Encoding.UTF8.GetString(FileInfo));
                 Parameter = JsonConvert.SerializeObject(UserData);
                 //Response.Redirect(ReplySite + "?Param=" + Server.UrlEncode(oEncryptHepler.Encrypt(Parameter)));
             }

@@ -4,69 +4,7 @@
 
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
-    <%--<link href="Templates/Inspinia/css/plugins/dropzone/basic.css" rel="stylesheet">
-    <link href="Templates/Inspinia/css/plugins/dropzone/dropzone.css" rel="stylesheet">
 
-    <style>
-        .form-control[type=file]:not(:disabled):not([readonly]) {
-            cursor: pointer;
-            padding: 0;
-            height: 30px;
-        }
-
-        .form-control[type=file] {
-            overflow: hidden;
-        }
-
-        .form-control:disabled, .form-control[readonly] {
-            background-color: #e8f6f3;
-            opacity: 1;
-        }
-
-        /*form_icon*/
-        .form_icon {
-            color: #1ab394;
-        }
-
-        /*Select2 */
-        .select2-container--bootstrap4 .select2-selection {
-            border-radius: 0;
-            border: 1px solid #e5e6e7;
-        }
-
-        .select2-container--bootstrap4.select2-container--focus .select2-selection {
-            -webkit-box-shadow: none;
-            box-shadow: none;
-            border-color: #1ab394;
-        }
-
-        .select2-container--bootstrap4 .select2-selection--single .select2-selection__arrow b {
-            border-color: #1ab394 transparent transparent;
-        }
-
-        .select2-container--bootstrap4 .select2-results__option--highlighted, .select2-container--bootstrap4 .select2-results__option--highlighted.select2-results__option[aria-selected=true] {
-            background-color: #1ab394;
-        }
-
-        .keyin {
-            padding: .75rem 1.25rem;
-            margin-bottom: 1rem;
-            border: 1px solid transparent;
-        }
-
-        .keyin-border {
-            color: #676A6C;
-            background-color: #FFFFFF;
-            border-color: #e7eaec;
-            box-shadow: #e8f6f3 3px 3px 1px;
-        }
-
-        @media only screen and (min-width: 375px) and (max-width:480px) {
-            .col {
-                padding-right: 0 !important;
-            }
-        }
-    </style>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
     <telerik:RadAjaxManagerProxy ID="RadAjaxManagerProxy1" runat="server">
@@ -99,8 +37,10 @@
                                         </tr>--%>
                         </thead>
                         <tbody id="Container" runat="server">
+
                         </tbody>
                         <tfoot>
+                        <div>總共新增：<strong><telerik:RadLabel ID="lblCount" runat="server"  /></strong> 筆資料</div>
                             <tr>
                                 <td colspan="5">
                                     <ul class="pagination float-right"></ul>
@@ -114,6 +54,7 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <h3>
+                                    <span class="label label-primary m-r-sm"><telerik:RadLabel ID="lblListNumber" runat="server"  /></span>
                                     <%# Eval("EmpName") %>,
                                     <%# Eval("EmpId") %>
                                 </h3>
@@ -136,8 +77,7 @@
                                     <div class="col-md-6">交辦事項：<%# Eval("AgentNote") %></div>
                                 </div>
                           
-                            </div>
-                            
+                            </div>                            
                             <div class="col-sm-2">
                                 <telerik:RadButton ID="btnDelete" runat="server" CommandArgument='<%# Eval("AutoKey") %>' CssClass="btn btn-outline btn-danger" OnClientClicking="Clicking"
                                     CommandName="Del" Text="刪除">
@@ -151,6 +91,7 @@
                 <EmptyDataTemplate>
                     尚未新增請假資料
                 </EmptyDataTemplate>
+                
             </telerik:RadListView>
             <telerik:RadLabel ID="lblNotifyMsg" runat="server" CssClass="text-danger" Text=""></telerik:RadLabel>
         </telerik:RadAjaxPanel>

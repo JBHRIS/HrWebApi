@@ -25,7 +25,8 @@ namespace JBHRIS.Api.Service._System.View
             var data = _system_View_SysNews.GetNews();
             List<BillboardDto> billboardDtos = new List<BillboardDto>();
             data.ForEach(p=> {
-                if(p.PostDeadline.Date >= DateTime.Now.Date && p.PostDate.Date <= DateTime.Now.Date && p.IsOn)
+                DateTime today = DateTime.Today;
+                if (p.PostDeadline.Date >= today && p.PostDate.Date <= today && p.IsOn)
                 {
                     List<string> employeeList = new List<string>() { p.KeyMan };
                     billboardDtos.Add(

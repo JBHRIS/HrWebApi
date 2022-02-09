@@ -1,4 +1,5 @@
 ﻿using Bll.Salary.Vdb;
+using Dal;
 using Dal.Dao.Salary;
 using System;
 using System.Collections.Generic;
@@ -11,12 +12,17 @@ namespace Portal
 {
     public partial class SalarySearch : WebPageBase
     {
-        protected static string YYMM = "";
-        protected static string Seq = "";
+        protected static string YYMM = "";//計薪年月
+        protected static string Seq = "";//期別
         protected static string Type = "";
-        protected static bool SearchResult = true;
+        protected static bool SearchResult = true;//API呼叫結果，呼叫失敗則不顯示
+        private dcFlowDataContext dcFlow = new dcFlowDataContext();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (CompanySetting != null)
+            {
+                dcFlow.Connection.ConnectionString = CompanySetting.ConnFlow;
+            }
             if (!IsPostBack)
             {
                
@@ -306,31 +312,43 @@ namespace Portal
         }
         protected void lvSalaryBlockRetirement_NeedDataSource(object sender, Telerik.Web.UI.RadListViewNeedDataSourceEventArgs e)
         {
-            var oRetirementThisMonth = new RetirementThisMonthDao();
-            var RetirementThisMonthCond = new RetirementThisMonthConditions();
-            RetirementThisMonthCond.AccessToken = _User.AccessToken;
-            RetirementThisMonthCond.RefreshToken = _User.RefreshToken;
-            RetirementThisMonthCond.CompanySetting = CompanySetting;
-            RetirementThisMonthCond.yymm = YYMM;
-            RetirementThisMonthCond.password = txtSalaryPassword.Text.Trim();
-            var Result = oRetirementThisMonth.GetData(RetirementThisMonthCond);
-            if (Result.Status)
+            plSalaryRetirement.Visible = true;
+            var SalaryRetirementSeqConfig = (from c in dcFlow.FormsExtend
+                                             where c.FormsCode == "Salary" && c.Code == "SalaryRetirementSeqConfig" && c.Active
+                                             select c).FirstOrDefault();
+            var lsSalarySeq = SalaryRetirementSeqConfig.Column1.Split(';');
+            if (!lsSalarySeq.Contains(Seq))
             {
-                if (Result.Data != null)
+                var oRetirementThisMonth = new RetirementThisMonthDao();
+                var RetirementThisMonthCond = new RetirementThisMonthConditions();
+                RetirementThisMonthCond.AccessToken = _User.AccessToken;
+                RetirementThisMonthCond.RefreshToken = _User.RefreshToken;
+                RetirementThisMonthCond.CompanySetting = CompanySetting;
+                RetirementThisMonthCond.yymm = YYMM;
+                RetirementThisMonthCond.password = txtSalaryPassword.Text.Trim();
+                var Result = oRetirementThisMonth.GetData(RetirementThisMonthCond);
+                if (Result.Status)
                 {
-                    var result = Result.Data as SalaryRow;
-                    foreach (var SalaryData in result.Details)
+                    if (Result.Data != null)
                     {
-                        SalaryData.Salary = Convert.ToDouble(SalaryData.Salary).ToString("N0");
+                        var result = Result.Data as SalaryRow;
+                        foreach (var SalaryData in result.Details)
+                        {
+                            SalaryData.Salary = Convert.ToDouble(SalaryData.Salary).ToString("N0");
+                        }
+                        lblSalaryTitleRetirement.Text = result.Title;
+                        lvSalaryBlockRetirement.DataSource = result.Details;
                     }
-                    lblSalaryTitleRetirement.Text = result.Title;
-                    lvSalaryBlockRetirement.DataSource = result.Details;
+                    else
+                        SearchResult = false;
                 }
                 else
                     SearchResult = false;
             }
             else
-                SearchResult = false;
+            {
+                plSalaryRetirement.Visible = false;
+            }
         }
 
         protected void btnSubmitSalaryPassword_Click(object sender, EventArgs e)

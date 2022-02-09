@@ -31,11 +31,11 @@
                                 <div class="col-md-5">
                                     <div class="row">
                                         <div class="col col-xs-6">
-                                            <span>日期：<%# Eval("DateB","{0:yyyy/MM/dd}") %></span><br>
+                                            <span><telerik:RadLabel runat="server" ID="lblWorkDateDic" Text="日期" ></telerik:RadLabel>：<%# Eval("DateB","{0:yyyy/MM/dd}") %></span><br>
                                         </div>
 
                                         <div class="col col-xs-6">
-                                            <span>異常：<%# Eval("IsEarlyWork").ToString() == "True" ? "早到" + Eval("EarlyWorkMin") + "分鐘" :"" %> 
+                                            <span><telerik:RadLabel runat="server" ID="lblAbnormalDic" Text="異常" ></telerik:RadLabel>：<%# Eval("IsEarlyWork").ToString() == "True" ? "早到" + Eval("EarlyWorkMin") + "分鐘" :"" %> 
                                                         <%# Eval("IsEarlyWork").ToString() == "True" && Eval("IsLateOut").ToString()=="True" ? "，" :"" %> 
                                                         <%# Eval("IsLateOut").ToString() == "True" ? "晚退" + Eval("LateOutMin") + "分鐘" :"" %> 
                                             </span><br>
@@ -45,7 +45,7 @@
                                 <div class="col-md-4">
                                     <div class="row">
                                         <div class="col col-xs-6">
-                                            <span>申請原因：<%# Eval("Note") %></span><br>
+                                            <span><telerik:RadLabel runat="server" ID="lblReasonDic" Text="申請原因"></telerik:RadLabel>：<%# Eval("Note") %></span><br>
                                         </div>
                                     </div>
                                 </div>

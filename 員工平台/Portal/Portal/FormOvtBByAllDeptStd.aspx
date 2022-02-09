@@ -129,29 +129,14 @@
                                     </telerik:RadDatePicker>
                                 </div>
                                 <div class="col-md-3">
-                                    <label class=" col-form-label">開始時間</label>
-                                    <telerik:RadMaskedTextBox ID="txtTimeB" runat="server" Mask="####" Width="100%" Skin="Bootstrap">
-                                    </telerik:RadMaskedTextBox>
-                                </div>
-                                <div class="col-md-3">
-                                    <label class=" col-form-label">結束時間</label>
-                                    <%--<div class="input-group clockpicker" data-autoclose="true">
-                                        <telerik:RadLabel type="text" class="form-control" value="17:30">
-                                        <span class="input-group-addon">
-                                            <span class="fa fa-clock-o form_icon"></span>
-                                        </span>
-                            		</div>     --%>
-                                    <telerik:RadMaskedTextBox ID="txtTimeE" runat="server" Mask="####" Width="100%" Skin="Bootstrap">
-                                    </telerik:RadMaskedTextBox>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-3">
                                     <label class=" col-form-label">部門搜尋</label>
                                     <telerik:RadComboBox ID="ddlDept" runat="server" AutoPostBack="true" Culture="zh-TW" EnableVirtualScrolling="True" Skin="Bootstrap" Width="100%" Visible="true" OnSelectedIndexChanged="ddlDept_SelectedIndexChanged">
                                     </telerik:RadComboBox>
                                     <telerik:RadLabel ID="lblDeptFilter" runat="server"></telerik:RadLabel>
                                 </div>
+                            </div>
+                            <div class="form-group row">
+
 
 
                                 <div class="col-md-2">
@@ -171,6 +156,22 @@
                                     <telerik:RadComboBox ID="txtRote" runat="server" Culture="zh-TW" AllowCustomText="True" Skin="Bootstrap" Width="100%"
                                         AutoPostBack="True" EnableVirtualScrolling="True" Filter="Contains" OnSelectedIndexChanged="txtRote_SelectedIndexChanged">
                                     </telerik:RadComboBox>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class=" col-form-label">開始時間</label>
+                                    <telerik:RadMaskedTextBox ID="txtTimeB" runat="server" Mask="####" Width="100%" Skin="Bootstrap">
+                                    </telerik:RadMaskedTextBox>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class=" col-form-label">結束時間</label>
+                                    <%--<div class="input-group clockpicker" data-autoclose="true">
+                                        <telerik:RadLabel type="text" class="form-control" value="17:30">
+                                        <span class="input-group-addon">
+                                            <span class="fa fa-clock-o form_icon"></span>
+                                        </span>
+                            		</div>     --%>
+                                    <telerik:RadMaskedTextBox ID="txtTimeE" runat="server" Mask="####" Width="100%" Skin="Bootstrap">
+                                    </telerik:RadMaskedTextBox>
                                 </div>
                                 <div class="col-md-3">
                                     <label class="col-form-label">提前加班</label>

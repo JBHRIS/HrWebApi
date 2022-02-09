@@ -19,6 +19,7 @@ namespace Portal
         private string _FormCode = "Card";
         protected void Page_Load(object sender, EventArgs e)
         {
+            LanguageCookie = Request.Cookies["Language"]?.Value ?? "";
             if (CompanySetting != null)
             {
                 dcHR.Connection.ConnectionString = CompanySetting.ConnHr;
@@ -34,7 +35,9 @@ namespace Portal
                 txtNameAppS_DataBind();
                 ddlReason_DataBind();
                 SetCardTime(lblNobrAppM.Text, DateTime.Now.Date);
+                gvAppS.Rebind();
             }
+            
 
         }
         private void SetDefault()
@@ -138,7 +141,10 @@ namespace Portal
 
             if (lblCardTime1.Text == "" && lblCardTime2.Text == "" && lblCardTime3.Text == "")
             {
-                lblCardTime1.Text = "無出勤資料";
+                if (LanguageCookie != null && LanguageCookie != "")
+                    lblCardTime1.Text = oShareDictionary.TextTranslate("ErrorMsg", "WithoutAttendData", "1", LanguageCookie);
+                else
+                    lblCardTime1.Text = "無出勤資料";
             }
         }
         private string GetCardTime(string sNobr, DateTime dDate)
@@ -272,20 +278,29 @@ namespace Portal
                         rSysVar = rsSysVar.Data as SysVarRow;
                         if (rSysVar.SysClose)
                         {
-                            lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
+                            if (LanguageCookie != null && LanguageCookie != "")
+                                lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "SystemMaintain", "1", LanguageCookie);
+                            else
+                                lblErrorMsg.Text = "系統維護中，請稍後再送出表單";
                             return;
                         }
                     }
                 }
                 if (txtDateB.SelectedDate == null)
                 {
-                    lblErrorMsg.Text = "您的開始或結束日期沒有輸入正確";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "DateInputError", "1", LanguageCookie);
+                    else
+                        lblErrorMsg.Text = "您的開始或結束日期沒有輸入正確";
                     return;
                 }
 
                 if (txtTimeB.Text.Length != 4)
                 {
-                    lblErrorMsg.Text = "您的開始或結束時間沒有輸入正確";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "DateInputError", "1", LanguageCookie);
+                    else
+                        lblErrorMsg.Text = "您的開始或結束時間沒有輸入正確";
                     return;
                 }
 
@@ -301,7 +316,10 @@ namespace Portal
                 var rAttendDate = oAttendDao.GetAttendH(Nobr, Date).FirstOrDefault();
                 if (rAttendDate == null)
                 {
-                    lblErrorMsg.Text = "出勤資料錯誤，請洽人事單位";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "AttendDataError", "1", LanguageCookie);
+                    else
+                        lblErrorMsg.Text = "出勤資料錯誤，請洽人事單位";
                     return;
                 }
 
@@ -323,7 +341,10 @@ namespace Portal
 
                 if (rsAppS.Any())
                 {
-                    lblErrorMsg.Text = "資料重複或流程正在進行中";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "DataRepeat", "1", LanguageCookie);
+                    else
+                        lblErrorMsg.Text = "資料重複或流程正在進行中";
                     return;
                 }
 
@@ -332,7 +353,10 @@ namespace Portal
 
                 if (rCard != null)
                 {
-                    lblErrorMsg.Text = "人事資料重複";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "PesonnelDataRepeat", "1", LanguageCookie);
+                    else
+                        lblErrorMsg.Text = "人事資料重複";
                     return;
                 }
 
@@ -415,10 +439,10 @@ namespace Portal
 
                 int i = lsDate.Sum(p => Convert.ToInt32(p.Value));
 
-                if (i > 4)
+                if (i > 3)
                 {
-                    //lblErrorMsg.Text = "本月的忘刷次數已超過4次";
-                    //return;
+                    lblErrorMsg.Text = "本月的忘刷次數已超過3次";
+                    return;
                 }
 
                 var rEmpS = (from role in dcFlow.Role
@@ -517,11 +541,17 @@ namespace Portal
                 Session["FormCode"] = _FormCode;
                 Session["FlowTreeID"] = lblFlowTreeID.Text;
 
-                lblNotifyMsg.Text = "新增成功";
+                if (LanguageCookie != null && LanguageCookie != "")
+                    lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "AddSuccess", "1", LanguageCookie);
+                else
+                    lblNotifyMsg.Text = "新增成功";
             }
             catch (Exception)
             {
-                lblNotifyMsg.Text = "新增失敗";
+                if (LanguageCookie != null && LanguageCookie != "")
+                    lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "AddFailed", "1", LanguageCookie);
+                else
+                    lblNotifyMsg.Text = "新增失敗";
             }
         }
 
@@ -571,7 +601,10 @@ namespace Portal
                     dcFlow.FormsAppCard.DeleteOnSubmit(r);
 
                     dcFlow.SubmitChanges();
-                    lblNotifyMsg.Text = "刪除成功";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "DeleteSuccess", "1", LanguageCookie);
+                    else
+                        lblNotifyMsg.Text = "刪除成功";
                 }
             }
             gvAppS.Rebind();

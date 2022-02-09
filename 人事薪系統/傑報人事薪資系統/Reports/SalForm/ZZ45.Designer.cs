@@ -150,7 +150,7 @@ namespace JBHR.Reports.SalForm
             this.da_op2.Name = "da_op2";
             this.da_op2.Size = new System.Drawing.Size(71, 16);
             this.da_op2.TabIndex = 10;
-            this.da_op2.Text = "加班日期";
+            this.da_op2.Text = "請假日期";
             this.da_op2.UseVisualStyleBackColor = true;
             this.da_op2.Click += new System.EventHandler(this.da_op2_Click);
             // 
@@ -191,6 +191,7 @@ namespace JBHR.Reports.SalForm
             this.yymm_e.Name = "yymm_e";
             this.yymm_e.PasswordChar = '\0';
             this.yymm_e.ReadOnly = false;
+            this.yymm_e.ShowCalendarButton = true;
             this.yymm_e.Size = new System.Drawing.Size(30, 23);
             this.yymm_e.TabIndex = 13;
             this.yymm_e.ValidType = JBControls.TextBox.EValidType.Integer;
@@ -220,6 +221,7 @@ namespace JBHR.Reports.SalForm
             this.yymm_b.Name = "yymm_b";
             this.yymm_b.PasswordChar = '\0';
             this.yymm_b.ReadOnly = false;
+            this.yymm_b.ShowCalendarButton = true;
             this.yymm_b.Size = new System.Drawing.Size(30, 23);
             this.yymm_b.TabIndex = 11;
             this.yymm_b.ValidType = JBControls.TextBox.EValidType.Integer;
@@ -250,6 +252,7 @@ namespace JBHR.Reports.SalForm
             this.date_e.Name = "date_e";
             this.date_e.PasswordChar = '\0';
             this.date_e.ReadOnly = false;
+            this.date_e.ShowCalendarButton = true;
             this.date_e.Size = new System.Drawing.Size(80, 23);
             this.date_e.TabIndex = 16;
             this.date_e.ValidType = JBControls.TextBox.EValidType.Date;
@@ -279,6 +282,7 @@ namespace JBHR.Reports.SalForm
             this.date_b.Name = "date_b";
             this.date_b.PasswordChar = '\0';
             this.date_b.ReadOnly = false;
+            this.date_b.ShowCalendarButton = true;
             this.date_b.Size = new System.Drawing.Size(80, 23);
             this.date_b.TabIndex = 15;
             this.date_b.ValidType = JBControls.TextBox.EValidType.Date;
@@ -296,7 +300,6 @@ namespace JBHR.Reports.SalForm
             // dept_e
             // 
             this.dept_e.DisplayMember = "d_name";
-            //this.dept_e.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.dept_e.FormattingEnabled = true;
             this.dept_e.Location = new System.Drawing.Point(280, 35);
             this.dept_e.Name = "dept_e";
@@ -317,7 +320,6 @@ namespace JBHR.Reports.SalForm
             // dept_b
             // 
             this.dept_b.DisplayMember = "d_name";
-            //this.dept_b.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.dept_b.FormattingEnabled = true;
             this.dept_b.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.dept_b.Location = new System.Drawing.Point(104, 35);
@@ -360,7 +362,6 @@ namespace JBHR.Reports.SalForm
             // comp_e
             // 
             this.comp_e.DisplayMember = "compname";
-            //this.comp_e.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comp_e.FormattingEnabled = true;
             this.comp_e.Location = new System.Drawing.Point(280, 64);
             this.comp_e.Name = "comp_e";
@@ -381,7 +382,6 @@ namespace JBHR.Reports.SalForm
             // comp_b
             // 
             this.comp_b.DisplayMember = "compname";
-            //this.comp_b.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comp_b.FormattingEnabled = true;
             this.comp_b.Location = new System.Drawing.Point(104, 64);
             this.comp_b.Name = "comp_b";
@@ -402,7 +402,6 @@ namespace JBHR.Reports.SalForm
             // empcd_e
             // 
             this.empcd_e.DisplayMember = "empdescr";
-            //this.empcd_e.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.empcd_e.FormattingEnabled = true;
             this.empcd_e.Location = new System.Drawing.Point(280, 92);
             this.empcd_e.Name = "empcd_e";
@@ -423,7 +422,6 @@ namespace JBHR.Reports.SalForm
             // empcd_b
             // 
             this.empcd_b.DisplayMember = "empdescr";
-            //this.empcd_b.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.empcd_b.FormattingEnabled = true;
             this.empcd_b.Location = new System.Drawing.Point(104, 92);
             this.empcd_b.Name = "empcd_b";
@@ -544,6 +542,7 @@ namespace JBHR.Reports.SalForm
             this.date_t.Name = "date_t";
             this.date_t.PasswordChar = '\0';
             this.date_t.ReadOnly = false;
+            this.date_t.ShowCalendarButton = true;
             this.date_t.Size = new System.Drawing.Size(80, 23);
             this.date_t.TabIndex = 17;
             this.date_t.ValidType = JBControls.TextBox.EValidType.Date;
@@ -593,6 +592,7 @@ namespace JBHR.Reports.SalForm
             this.nobr_b.Location = new System.Drawing.Point(104, 6);
             this.nobr_b.Name = "nobr_b";
             this.nobr_b.ReadOnly = false;
+            this.nobr_b.ShowDisplayName = true;
             this.nobr_b.Size = new System.Drawing.Size(75, 22);
             this.nobr_b.TabIndex = 1;
             this.nobr_b.ValueMember = "nobr";
@@ -612,6 +612,7 @@ namespace JBHR.Reports.SalForm
             this.nobr_e.Location = new System.Drawing.Point(280, 6);
             this.nobr_e.Name = "nobr_e";
             this.nobr_e.ReadOnly = false;
+            this.nobr_e.ShowDisplayName = true;
             this.nobr_e.Size = new System.Drawing.Size(75, 22);
             this.nobr_e.TabIndex = 2;
             this.nobr_e.ValueMember = "nobr";
@@ -631,6 +632,7 @@ namespace JBHR.Reports.SalForm
             this.month_e.Name = "month_e";
             this.month_e.PasswordChar = '\0';
             this.month_e.ReadOnly = false;
+            this.month_e.ShowCalendarButton = true;
             this.month_e.Size = new System.Drawing.Size(25, 23);
             this.month_e.TabIndex = 14;
             this.month_e.ValidType = JBControls.TextBox.EValidType.Integer;
@@ -650,6 +652,7 @@ namespace JBHR.Reports.SalForm
             this.month_b.Name = "month_b";
             this.month_b.PasswordChar = '\0';
             this.month_b.ReadOnly = false;
+            this.month_b.ShowCalendarButton = true;
             this.month_b.Size = new System.Drawing.Size(25, 23);
             this.month_b.TabIndex = 12;
             this.month_b.ValidType = JBControls.TextBox.EValidType.Integer;

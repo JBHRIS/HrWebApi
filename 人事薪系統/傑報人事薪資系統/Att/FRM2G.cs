@@ -204,6 +204,11 @@ namespace JBHR.Att
         private void BW_DoWork(object sender, DoWorkEventArgs e)
         {
             string msg = TransFuction(true);
+            if (msg == "CancelBW")
+            {
+                e.Cancel = true;
+                return;
+            }
             e.Result = msg;
         }
 
@@ -281,6 +286,8 @@ namespace JBHR.Att
                         AttNowCount++;
                         if (backgroudSW)
                             BW.ReportProgress(Convert.ToInt32(Convert.ToDecimal(AttNowCount) / Convert.ToDecimal(AttTotalCount) * 100), "正在產生出勤資料");
+                        if (backgroudSW && this.BW.CancellationPending) return "CancelBW"; // BackGroudWorker return Cancel
+
                         AttendanceGenerator generator = new AttendanceGenerator(item, D1, D2);
                         generator.KeyMan = MainForm.USER_NAME;
                         generator.Generate();
@@ -295,11 +302,17 @@ namespace JBHR.Att
                     //this.Report("正在執行刷卡轉出勤", 100);
                     //Dll.Att.TransCard(NOBR_B, NOBR_E, DEPT_B, DEPT_E, D1, D2, USER_NAME, CheckTime, CheckError, true);
                     Dal.Dao.Att.TransCardDao tc = new Dal.Dao.Att.TransCardDao(db.Connection);
-                    tc.StatusChanged += new JBModule.Message.ReportStatus.StatusChangedEvent(tc_StatusChanged);
+                    if (backgroudSW)
+                        tc.StatusChanged += new JBModule.Message.ReportStatus.StatusChangedEvent(tc_StatusChanged);
                     tc.TransCard(NOBR_B, NOBR_E, DEPT_B, DEPT_E, D1, D2, USER_NAME, CheckTime, CheckError, true, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN);
+
+                    if (backgroudSW && this.BW.CancellationPending) return "CancelBW"; // BackGroudWorker return Cancel
+
                     JBModule.Data.Service.LaborEventLawAbnormalDetectorService laborEventLawAbnormalDetectorService = new JBModule.Data.Service.LaborEventLawAbnormalDetectorService(db);
                     laborEventLawAbnormalDetectorService.UserName = MainForm.USER_NAME;
                     laborEventLawAbnormalDetectorService.Run(empList, D1, D2);
+
+                    if (backgroudSW && this.BW.CancellationPending) return "CancelBW"; // BackGroudWorker return Cancel
                 }
                 db = new JBModule.Data.Linq.HrDBDataContext();
 
@@ -367,6 +380,7 @@ namespace JBHR.Att
                         i++;
                         if (backgroudSW)
                             BW.ReportProgress(Convert.ToInt32(Convert.ToDecimal(i) / Convert.ToDecimal(total) * 100), "正在產生" + row.Key + "固定加班");
+                        if (backgroudSW && this.BW.CancellationPending) return "CancelBW"; // BackGroudWorker return Cancel
                         foreach (var r in row)
                         {
                             try
@@ -397,6 +411,7 @@ namespace JBHR.Att
                     p.NOBRE = NOBR_E;
                     p.YYMM = "";
                     CreateABS(p);
+                    if (backgroudSW && this.BW.CancellationPending) return "CancelBW"; // BackGroudWorker return Cancel
                 }
                 var sqlATTCARD = (from a in db.ATTCARD
                                   join b in db.BASETTS on a.NOBR equals b.NOBR
@@ -472,6 +487,7 @@ namespace JBHR.Att
                     nowcount++;
                     if (backgroudSW)
                         BW.ReportProgress(Convert.ToInt32(Convert.ToDecimal(nowcount) / Convert.ToDecimal(totalcount) * 100), "正在計算" + it.ATTEND.NOBR + "出勤時數");
+                    if (backgroudSW && this.BW.CancellationPending) return "CancelBW"; // BackGroudWorker return Cancel
                     it.ATTEND.NIGAMT = 0;
                     it.ATTEND.FOODAMT = 0;
                     it.ATTEND.SPECAMT = 0;
@@ -637,7 +653,7 @@ namespace JBHR.Att
                         nowcount++;
                         if (backgroudSW)
                             BW.ReportProgress(Convert.ToInt32(Convert.ToDecimal(nowcount) / Convert.ToDecimal(totalcount) * 100), "正在計算" + it.ATTEND.NOBR + "班別及加班津貼");
-
+                        if (backgroudSW && this.BW.CancellationPending) return "CancelBW"; // BackGroudWorker return Cancel
                         //var attcardOfNobr = from a in sqlATTCARD where a.NOBR == it.ATTEND.NOBR && a.ADATE == it.ATTEND.ADATE select a;
                         var attcardOfNobr = sqlATTCARDOfNobr.Where(p => p.ADATE == it.ATTEND.ADATE).FirstOrDefault();
                         var absOfNobrDateNight = from a in sqlABS where a.NOBR == it.ATTEND.NOBR && a.BDATE == it.ATTEND.ADATE && !a.EF_NIGHT select a;
@@ -746,6 +762,7 @@ namespace JBHR.Att
                     ttscodeList.Add("5");
                     object[] parms = new object[] { };
                     db.ExecuteCommand("DELETE ATTEND WHERE EXISTS(SELECT * FROM BASETTS where ATTEND.ADATE BETWEEN BASETTS.ADATE AND BASETTS.DDATE AND TTSCODE IN (2,3,5) AND ATTEND.NOBR=BASETTS.NOBR) AND " + Sal.Function.GetFilterCmdByNobrOfWrite("attend.nobr"), parms);
+                    if (backgroudSW && this.BW.CancellationPending) return "CancelBW"; // BackGroudWorker return Cancel
                 }
             }
             if (backgroudSW)
@@ -1042,13 +1059,16 @@ namespace JBHR.Att
 
         private void BW_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            toolStripProgressBar1.Value = e.ProgressPercentage;
-            trpState.Text = e.UserState.ToString();
+            if (!this.BW.CancellationPending)
+            {
+                toolStripProgressBar1.Value = e.ProgressPercentage;
+                trpState.Text = e.UserState.ToString();
+            }
         }
 
         private void BW_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (e.Result != null && e.Result.ToString().Trim().Length > 0)
+            if (!e.Cancelled && e.Result != null && e.Result.ToString().Trim().Length > 0)
                 MessageBox.Show(e.Result.ToString(), Resources.All.DialogTitle, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             this.panel1.Enabled = true;
         }
@@ -1245,6 +1265,14 @@ namespace JBHR.Att
             }
             return HH.ToString("00") + mm.ToString("00");
         }
+
+        private void FRM2G_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (BW.IsBusy)
+                BW.CancelAsync();
+            BW.Dispose();
+        }
+
         TimeSpan TimeSpan(string btime, string etime)
         {
             DateTime dd = new DateTime(1900, 1, 1);
@@ -1292,10 +1320,10 @@ namespace JBHR.Att
             int cc = 0;
             var hcodeList = dbCreateAbs.HCODE.ToList();
             var LateCode = AppConfig.GetConfig("LateCode").GetString();
-            var LateMin = AppConfig.GetConfig("LateMin").GetInter();
+            var LateMin = AppConfig.GetConfig("LateMin").GetInter(0);
             var LateCodeSet = hcodeList.Where(pp => pp.H_CODE == LateCode).FirstOrDefault();
             var EarilyCode = AppConfig.GetConfig("EarilyCode").GetString();
-            var EarilyMin = AppConfig.GetConfig("EarilyMin").GetInter();
+            var EarilyMin = AppConfig.GetConfig("EarilyMin").GetInter(0);
             var EarilyCodeSet = hcodeList.Where(pp => pp.H_CODE == EarilyCode).FirstOrDefault();
             var AbsenceCode = AppConfig.GetConfig("AbsenceCode").GetString();
             var AbsenceCodeSet = hcodeList.Where(pp => pp.H_CODE == AbsenceCode).FirstOrDefault();

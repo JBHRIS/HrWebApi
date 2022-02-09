@@ -18,11 +18,12 @@ namespace JBHRIS.Api.Dal.JBHR.Employee.View
 
         public List<DeptDto> GetDeptView()
         {
+            DateTime today = DateTime.Today;
             var data = from p in _unitOfWork.Repository<Dept>().Reads()
                        join b in _unitOfWork.Repository<Base>().Reads() on p.Nobr equals b.Nobr
                        into bgrp
                        from bg in bgrp.DefaultIfEmpty()
-                       where DateTime.Now >= p.Adate && DateTime.Now <= p.Ddate
+                       where today >= p.Adate && today <= p.Ddate
                        select new DeptDto
                        {
                            DepartmentId = p.DNo,

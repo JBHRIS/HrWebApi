@@ -61,6 +61,10 @@ namespace Portal.WebServices
             List<string> lsNobr = new List<string>();
             lsNobr.Add(rAppM.EmpId);
             lsNobr.AddRange(rsAppS.Select(p => p.EmpId));
+            var D1 = new DateTime();
+            var D2 = new DateTime();
+            D1 = rAppM.DateTimeA.Value.Date;
+            D2 = rAppM.DateTimeD.Value.Date;
 
             var rsFormSignM = (from c in dcFlow.FormsSign
                                where c.idProcess == ProcessID
@@ -286,7 +290,8 @@ namespace Portal.WebServices
 
                 sBody += ("此筆資料" + (rAppS.SignState == "3" ? "<font color='blue'>核准</font>" : "<font color='red'>駁回</font>")) + rAppInfo.InfoMail + "<BR><BR>";
 
-
+                D1 = D1 > rAppS.DateTimeB ? rAppS.DateTimeB : D1;//取得最小日期
+                D2 = D2 < rAppS.DateTimeE ? rAppS.DateTimeE : D2;//取得最大日期
 
                 rEmp = (from c in rsEmp
                         where c.id == rAppS.EmpId
@@ -325,7 +330,10 @@ namespace Portal.WebServices
                     dcFlow.wfSendMail.InsertOnSubmit(rSendMail);
                 }
             }
-
+            JBModule.Data.Linq.HrDBDataContext hrDB = new JBModule.Data.Linq.HrDBDataContext(dcHR.Connection);
+            JBModule.Data.Service.LaborEventLawAbnormalDetectorService laborEventLawAbnormalDetectorService = new JBModule.Data.Service.LaborEventLawAbnormalDetectorService(hrDB);
+            laborEventLawAbnormalDetectorService.UserName = rAppM.EmpName;
+            laborEventLawAbnormalDetectorService.Run(lsNobr, D1.Date, D2.Date);
             dcFlow.SubmitChanges();
 
             return true;

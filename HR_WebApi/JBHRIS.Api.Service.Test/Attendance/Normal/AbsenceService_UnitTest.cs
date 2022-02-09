@@ -15,9 +15,10 @@ namespace JBHRIS.Api.Service.Test.Attendance.Normal
         [TestMethod]
         public void CalAbsHours_上班時段不符合()
         {
+            DateTime today = DateTime.Today;
             var mockAbsenceTakenRepository = Substitute.For<IAbsenceTakenRepository>();
             var mockAbsCancelRepository = Substitute.For<IAbsenceCancelRepository>();
-            mockAbsenceTakenRepository.GetAbsenceTaken(new Dto.Attendance.Entry.AbsenceEntry { EmployeeList = new List<string> { }, DateBegin = DateTime.Today, DateEnd = DateTime.Today, HcodeList = new List<string> { } });
+            mockAbsenceTakenRepository.GetAbsenceTaken(new Dto.Attendance.Entry.AbsenceEntry { EmployeeList = new List<string> { }, DateBegin = today, DateEnd = today, HcodeList = new List<string> { } });
             IAbsenceTakenRepository absence_Normal_GetAbsenceTaken = mockAbsenceTakenRepository;
             //IAbsenceService absenceService=new AbsenceService(mockAbsenceTakenRepository, mockAbsCancelRepository)
         }

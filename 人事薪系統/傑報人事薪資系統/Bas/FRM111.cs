@@ -16,6 +16,7 @@ namespace JBHR.Bas
             InitializeComponent();
         }
         CheckControl cc;//必要欄位檢查
+        BasDS.DEPTDataTable TreeData = null;
         private void FRM111_Load(object sender, EventArgs e)
         {
             cc = new CheckControl();//必要欄位檢查
@@ -31,16 +32,17 @@ namespace JBHR.Bas
             //this.basDS1.DEPT.Load(this.basDS.DEPT.CreateDataReader());
 
             fullDataCtrl1.DataAdapter = dEPTTableAdapter;
-
-            var sql = from a in this.basDS1.DEPT where a.DEPT_GROUP == "" select a;
-            foreach (var row in sql)
-            {
-                TreeNode node = new TreeNode(row.D_NAME.Trim());
-                node.Tag = row.D_NO.Trim();
-                node.Expand();
-                treeView1.Nodes.Add(node);
-                CreateDeptTree(row, node);
-            }
+            GetTreeData();
+            ExpandDeptTree();
+            //var sql = from a in this.basDS1.DEPT where a.DEPT_GROUP == "" select a;
+            //foreach (var row in sql)
+            //{
+            //    TreeNode node = new TreeNode(row.D_NAME.Trim());
+            //    node.Tag = row.D_NO.Trim();
+            //    node.Expand();
+            //    treeView1.Nodes.Add(node);
+            //    CreateDeptTree(row, node);
+            //}
 
             BasDataClassesDataContext db = new BasDataClassesDataContext();
             var u_prg = (from c in db.U_PRGID where c.USER_ID.Trim() == MainForm.USER_ID && c.PROG.Trim().ToLower() == this.Name.ToLower() select c).FirstOrDefault();
@@ -58,7 +60,94 @@ namespace JBHR.Bas
             if (data.Any())
                 btnMang_Click(null, null);
         }
+        void ExpandDeptTree()
+        {
+            var sql = from a in TreeData where a.DEPT_GROUP == "" select a;
+            JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
+            var baseSQL = from a in db.BASE
+                          join b in db.BASETTS on a.NOBR equals b.NOBR
+                          where
+                          //db.GetFilterByNobr(a.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                          db.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Select(p => p.DATAGROUP).Contains(b.SALADR)
+                          && DateTime.Today >= b.ADATE && DateTime.Today <= b.DDATE.Value
+                          && !new string[] { "2", "5" }.Contains(b.TTSCODE)
+                          select new { NOBR = (b.MANG ? "*" : "") + a.NOBR + "-" + a.NAME_C, b.DEPT };
+            //var mangSQL = from a in db.BASE
+            //              join b in db.BASETTS on a.NOBR equals b.NOBR
+            //              where db.GetFilterByNobr(a.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+            //              && DateTime.Today >= b.ADATE && DateTime.Today <= b.DDATE.Value
+            //              && b.MANG
+            //              select new { a.NOBR, b.DEPT };
+            var dicEmp = baseSQL.ToDictionary(p => p.NOBR, p => p.DEPT);
+            //var dicMang = mangSQL.ToDictionary(p => p.NOBR, p => p.DEPT);
+            List<TreeNode> treeNodes = new List<TreeNode>();
+            foreach (var row in sql)
+            {
+                TreeNode node = new TreeNode(row.D_NAME.Trim());
+                node.Tag = row.D_NO.Trim();
+                node.ToolTipText = row.D_NO_DISP.Trim();
+                node.Expand();
+                var fm = new Font(treeView1.Font, FontStyle.Bold);
+                node.NodeFont = fm;
+                //treeView1.Nodes.Add(node);
+                treeNodes.Add(node);
+                CreateDeptTree(row, node, dicEmp);
+            }
+            treeView1.Nodes.Clear();
+            treeView1.Nodes.AddRange(treeNodes.ToArray());
+        }
+        private void CreateDeptTree(Bas.BasDS.DEPTRow pRow, TreeNode pNode, Dictionary<string, string> EmpData)
+        {
+            //Bas.BasDS.DEPTDataTable DEPTDataTable = dEPTTableAdapter.GetDataByDEPTGROUP(pRow.D_NO.Trim());
+            //var sql = from a in this.basDS1.DEPT where a.DEPT_GROUP == pRow.D_NO.Trim() select a;
 
+            //20121129 request by 葉玉蘭 20121205 edit by serlina 編製部門代碼的組織樹只要顯示目前生效的 
+            CreateEmpTree(pNode, EmpData);
+            var sql = from a in TreeData where a.DEPT_GROUP == pRow.D_NO.Trim() && a.ADATE <= System.DateTime.Today && a.DDATE >= System.DateTime.Today select a;
+            foreach (var row in sql)
+            {
+                TreeNode node = new TreeNode(row.D_NAME.Trim());
+                node.Tag = row.D_NO.Trim();
+                node.ToolTipText = row.D_NO_DISP.Trim();
+                node.Expand();
+                var fm = new Font(treeView1.Font, FontStyle.Bold);
+                node.NodeFont = fm;
+                pNode.Nodes.Add(node);
+                //CreateEmpTree(node, EmpData);
+                CreateDeptTree(row, node, EmpData);
+            }
+        }
+        private void CreateEmpTree(TreeNode pNode, Dictionary<string, string> EmpData)
+        {
+            var query = from a in EmpData where a.Value == pNode.Tag.ToString() select a;
+
+            pNode.Text += "(" + query.Count() + ")";
+
+            foreach (var row in query)
+            {
+                TreeNode node = new TreeNode(row.Key.Trim());
+                node.Tag = row.Value.Trim();
+                //node.ToolTipText = row.Key.Trim();
+                if (node.Text.IndexOf("*") == 0)
+                    node.ForeColor = Color.Red;
+                node.Expand();
+                pNode.Nodes.Add(node);
+                //CreateDeptTree(row, node, EmpData);
+            }
+        }
+        void GetTreeData()
+        {
+            TreeData = new BasDS.DEPTDataTable();
+            dEPTTableAdapter.Fill(TreeData, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN);
+        }
+        BasDS.DEPTDataTable GetDataByDEPTGROUP(string PID)
+        {
+            BasDS.DEPTDataTable TreeDataNodes = new BasDS.DEPTDataTable();
+            var data = from a in TreeData where a.DEPT_GROUP == PID select a;
+            foreach (var it in data)
+                TreeDataNodes.ImportRow(it);
+            return TreeDataNodes;
+        }
         private void CreateDeptTree(Bas.BasDS.DEPTRow pRow, TreeNode pNode)
         {
             //Bas.BasDS.DEPTDataTable DEPTDataTable = dEPTTableAdapter.GetDataByDEPTGROUP(pRow.D_NO.Trim());
@@ -66,8 +155,8 @@ namespace JBHR.Bas
 
             //20121129 request by 葉玉蘭 20121205 edit by serlina 編製部門代碼的組織樹只要顯示目前生效的 
 
-            var sql = from a in this.basDS1.DEPT where a.DEPT_GROUP == pRow.D_NO.Trim() && a.ADATE <= System.DateTime.Today && a.DDATE >= System.DateTime.Today select a;
-            foreach (var row in sql)
+            Bas.BasDS.DEPTDataTable DEPTDataTable = GetDataByDEPTGROUP(pRow.D_NO.Trim());
+            foreach (var row in DEPTDataTable)
             {
                 TreeNode node = new TreeNode(row.D_NAME.Trim());
                 node.Tag = row.D_NO.Trim();
@@ -83,19 +172,23 @@ namespace JBHR.Bas
             {
                 CDataLog.Save(this.Name, MainForm.USER_NAME, DateTime.Now, fullDataCtrl1.BackupDataTable);
 
+                //treeView1.Nodes.Clear();
+                GetTreeData();
+                //Bas.BasDS.DEPTDataTable p_DEPTDataTable = GetDataByDEPTGROUP("");
+                //foreach (var row in p_DEPTDataTable)
+                //{
+                //    TreeNode node = new TreeNode(row.D_NAME.Trim());
+                //    node.Tag = row.D_NO.Trim();
+                //    node.Expand();
+                //    treeView1.Nodes.Add(node);
+                //    CreateDeptTree(row, node);
+                //}
+                treeView1.SuspendLayout();
+                ExpandDeptTree();
+                treeView1.ResumeLayout();
+
                 this.basDS1.DEPT.Clear();
                 this.basDS1.DEPT.Load(this.basDS.DEPT.CreateDataReader());
-
-                treeView1.Nodes.Clear();
-                var sql = from a in this.basDS1.DEPT where a.DEPT_GROUP == "" select a;
-                foreach (var row in sql)
-                {
-                    TreeNode node = new TreeNode(row.D_NAME.Trim());
-                    node.Tag = row.D_NO.Trim();
-                    node.Expand();
-                    treeView1.Nodes.Add(node);
-                    CreateDeptTree(row, node);
-                }
             }
         }
 
@@ -149,28 +242,31 @@ namespace JBHR.Bas
             if (!e.Error)
             {
                 CDataLog.Save(this.Name, MainForm.USER_NAME, DateTime.Now, fullDataCtrl1.BackupDataTable);
-                this.basDS1.DEPT.Clear();
-                this.basDS1.DEPT.Load(this.basDS.DEPT.CreateDataReader());
-
-                treeView1.Nodes.Clear();
-                var sql = from a in this.basDS1.DEPT where a.DEPT_GROUP == "" select a;
-                foreach (var row in sql)
-                {
-                    TreeNode node = new TreeNode(row.D_NAME.Trim());
-                    node.Tag = row.D_NO.Trim();
-                    node.Expand();
-                    treeView1.Nodes.Add(node);
-                    CreateDeptTree(row, node);
-                }
-
+                GetTreeData();
+                //treeView1.Nodes.Clear();
+                //Bas.BasDS.DEPTDataTable p_DEPTDataTable = GetDataByDEPTGROUP("");
+                //foreach (var row in p_DEPTDataTable)
+                //{
+                //    TreeNode node = new TreeNode(row.D_NAME.Trim());
+                //    node.Tag = row.D_NO.Trim();
+                //    node.Expand();
+                //    treeView1.Nodes.Add(node);
+                //    CreateDeptTree(row, node);
+                //}
+                treeView1.SuspendLayout();
+                ExpandDeptTree();
+                treeView1.ResumeLayout();
                 foreach (TreeNode node in treeView1.Nodes)
                 {
-                    TreeNode retNode = FindNode(node, e.Values["D_NO"].ToString());
+                    TreeNode retNode = FindNode(node, textBox1.Text);
                     if (retNode != null)
                     {
                         treeView1.SelectedNode = retNode;
                     }
                 }
+
+                this.basDS1.DEPT.Clear();
+                this.basDS1.DEPT.Load(this.basDS.DEPT.CreateDataReader());
                 SystemFunction.SetComboBoxItems(cbxDeptTree, CodeFunction.GetDept_effe(), true);      //部門群組
                 SystemFunction.SetComboBoxItems(cbDEPT_GROUP, CodeFunction.GetDept_effe(), true);      //部門群組
             }

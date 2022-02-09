@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="ManageMailTpl.aspx.cs" Inherits="Performance.ManageMailTpl" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Templates/Inspinia/css/plugins/footable/footable.core.css" rel="stylesheet">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <telerik:RadAjaxManagerProxy ID="RadAjaxManagerProxy1" runat="server">
         <AjaxSettings>
             <telerik:AjaxSetting AjaxControlID="ddlType">
@@ -133,7 +133,7 @@
         </div>
     </div>
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="cphFooter" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <script src="Templates/Inspinia/js/plugins/footable/footable.all.min.js"></script>
 
     <script>

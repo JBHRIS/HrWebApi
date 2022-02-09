@@ -1001,5 +1001,23 @@ namespace Portal
             ckblNameAppS_DataBind();
             ckblNameAppSDetail_DataBind();
         }
+
+        protected void gvAppS_DataBound(object sender, EventArgs e)
+        {
+            int count = 0;
+            foreach (var item in gvAppS.Items)
+            {
+                var No = item.FindControl("lblListNumber") as RadLabel;
+                if (No != null)
+                {
+                    count++;
+                    No.Text = count.ToString();
+                }
+
+            }
+            var lblAbsCount = gvAppS.FindControl("lblCount") as RadLabel;
+            if (lblAbsCount != null)
+                lblAbsCount.Text = count.ToString();
+        }
     }
 }

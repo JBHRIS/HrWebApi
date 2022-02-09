@@ -13,11 +13,12 @@
  * 2021/03/24    Daniel Chih    Ver 1.0.01     1. 修改條件判斷規則，讓成本部門和編制部門在任何一種報表種類中都會作為篩選條件判斷
  * 2021/08/19    Daniel Chih    Ver 1.0.02     1. 修改加班條件篩選 ot_dept 改成 display code 作條件篩選
  * 2021/09/08    Daniel Chih    Ver 1.0.03     1. 修改成本部門欄位都顯示加班部門
+ * 2022/01/20    Daniel Chih    Ver 1.0.04     1. 修改【有薪不顯示】也不會顯示加班費等其他費用
  * 
  * 
  * ======================================================================================================
  * 
- * 最後修改：Daniel Chih (0492) - 2021/09/08
+ * 最後修改：Daniel Chih (0492) - 2022/01/20
  */
 
 using System;
@@ -194,7 +195,12 @@ namespace JBHR.Reports.SalForm
                                 }
                             }
                             if (no_disp)
+                            {
                                 Row["salary"] = 0;
+                                Row["not_exp"] = 0;
+                                Row["tot_exp"] = 0;
+                                Row["rest_exp"] = 0;
+                            }
                             ds.Tables["zz431"].ImportRow(Row);
                         }
                     }
