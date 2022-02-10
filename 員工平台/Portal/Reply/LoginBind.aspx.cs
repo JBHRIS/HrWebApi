@@ -46,8 +46,9 @@ namespace Portal
                 txtCompanyId.Text = Request.QueryString["Company"];
                 txtCompanyId.Visible = false;
             }
-
-            
+            //登入資料寫入接口
+            //var oQuestionUserInfo = new ShareQuestionUserInfoDao();
+            //oQuestionUserInfo.InsertQuestionUserInfo("", "01", "Aron", 2, "陳紹安", "AronChen1211@gmail.com");
 
             ((Single)Master)._DivClass = "middle-box text-center loginscreen animated fadeInDown";
         }
