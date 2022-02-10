@@ -107,5 +107,19 @@ namespace JBHR.Bas
                       select a;
             return sql.Any();
         }
-	}
+
+        private void fullDataCtrl1_BeforeDel(object sender, JBControls.FullDataCtrl.BeforeEventArgs e)
+        {
+            if (!e.Cancel)
+            {
+                var db = new JBModule.Data.Linq.HrDBDataContext();
+                if (db.BASETTS.Where(p => p.JOBL == e.Values["JOBL"].ToString()).Any())
+                {
+                    MessageBox.Show("已使用中的代碼無法刪除", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    e.Cancel = true;
+                    return;
+                }
+            }
+        }
+    }
 }

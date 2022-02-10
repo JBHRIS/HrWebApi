@@ -50,29 +50,30 @@
             this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cbxDeptLevel = new System.Windows.Forms.ComboBox();
-            this.cbDeptGroup = new System.Windows.Forms.ComboBox();
             this.cbDEPT_GROUP = new System.Windows.Forms.ComboBox();
-            this.txtDdate = new JBControls.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtAdate = new JBControls.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.txtMangMail = new JBControls.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.textBox5 = new JBControls.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.popupTextBox2 = new JBControls.PopupTextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.vBASEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new JBControls.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new JBControls.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDNO = new JBControls.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbDeptGroup = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtDdate = new JBControls.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtAdate = new JBControls.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.btnMang = new System.Windows.Forms.Button();
             this.btnCodeGroup = new System.Windows.Forms.Button();
             this.fullDataCtrl1 = new JBControls.FullDataCtrl();
@@ -81,7 +82,6 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.dEPTATableAdapter = new JBHR.Bas.BasDSTableAdapters.DEPTATableAdapter();
             this.v_BASETableAdapter = new JBHR.Bas.BasDSTableAdapters.V_BASETableAdapter();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -98,11 +98,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dEPTABindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.basDS)).BeginInit();
             this.panel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vBASEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dEPTABindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.basDS1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -323,6 +323,51 @@
             this.panel1.Size = new System.Drawing.Size(575, 192);
             this.panel1.TabIndex = 0;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 6;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.Controls.Add(this.txtDNO, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.cbDeptGroup, 5, 5);
+            this.tableLayoutPanel1.Controls.Add(this.cbxDeptLevel, 4, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label11, 4, 5);
+            this.tableLayoutPanel1.Controls.Add(this.txtDdate, 3, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label9, 2, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtAdate, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.cbDEPT_GROUP, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label10, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.textBox5, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.textBox3, 4, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.popupTextBox2, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.txtMangMail, 4, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label8, 3, 3);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(571, 188);
+            this.tableLayoutPanel1.TabIndex = 28;
+            // 
             // cbxDeptLevel
             // 
             this.cbxDeptLevel.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -335,18 +380,6 @@
             this.cbxDeptLevel.Size = new System.Drawing.Size(185, 20);
             this.cbxDeptLevel.TabIndex = 4;
             // 
-            // cbDeptGroup
-            // 
-            this.cbDeptGroup.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbDeptGroup.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.dEPTABindingSource, "SIGN_GROUP", true));
-            this.cbDeptGroup.DropDownWidth = 150;
-            this.cbDeptGroup.FormattingEnabled = true;
-            this.cbDeptGroup.Location = new System.Drawing.Point(478, 161);
-            this.cbDeptGroup.Name = "cbDeptGroup";
-            this.cbDeptGroup.Size = new System.Drawing.Size(90, 20);
-            this.cbDeptGroup.TabIndex = 10;
-            this.cbDeptGroup.Visible = false;
-            // 
             // cbDEPT_GROUP
             // 
             this.cbDEPT_GROUP.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -358,68 +391,6 @@
             this.cbDEPT_GROUP.Name = "cbDEPT_GROUP";
             this.cbDEPT_GROUP.Size = new System.Drawing.Size(184, 20);
             this.cbDEPT_GROUP.TabIndex = 3;
-            // 
-            // txtDdate
-            // 
-            this.txtDdate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtDdate.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.txtDdate.CaptionLabel = this.label9;
-            this.txtDdate.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtDdate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dEPTABindingSource, "DDATE", true));
-            this.txtDdate.DecimalPlace = 2;
-            this.txtDdate.IsEmpty = false;
-            this.txtDdate.Location = new System.Drawing.Point(288, 160);
-            this.txtDdate.Mask = "0000/00/00";
-            this.txtDdate.MaxLength = -1;
-            this.txtDdate.Name = "txtDdate";
-            this.txtDdate.PasswordChar = '\0';
-            this.txtDdate.ReadOnly = false;
-            this.txtDdate.ShowCalendarButton = true;
-            this.txtDdate.Size = new System.Drawing.Size(89, 22);
-            this.txtDdate.TabIndex = 9;
-            this.txtDdate.ValidType = JBControls.TextBox.EValidType.Date;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(229, 165);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 12);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "失效日期";
-            // 
-            // txtAdate
-            // 
-            this.txtAdate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtAdate.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.txtAdate.CaptionLabel = this.label10;
-            this.txtAdate.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtAdate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dEPTABindingSource, "ADATE", true));
-            this.txtAdate.DecimalPlace = 2;
-            this.txtAdate.IsEmpty = false;
-            this.txtAdate.Location = new System.Drawing.Point(98, 160);
-            this.txtAdate.Mask = "0000/00/00";
-            this.txtAdate.MaxLength = -1;
-            this.txtAdate.Name = "txtAdate";
-            this.txtAdate.PasswordChar = '\0';
-            this.txtAdate.ReadOnly = false;
-            this.txtAdate.ShowCalendarButton = true;
-            this.txtAdate.Size = new System.Drawing.Size(89, 22);
-            this.txtAdate.TabIndex = 8;
-            this.txtAdate.ValidType = JBControls.TextBox.EValidType.Date;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(39, 165);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(53, 12);
-            this.label10.TabIndex = 27;
-            this.label10.Text = "生效日期";
             // 
             // txtMangMail
             // 
@@ -441,17 +412,6 @@
             this.txtMangMail.Size = new System.Drawing.Size(184, 22);
             this.txtMangMail.TabIndex = 6;
             this.txtMangMail.ValidType = JBControls.TextBox.EValidType.String;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(324, 102);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 12);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "主管信箱";
             // 
             // textBox5
             // 
@@ -508,32 +468,10 @@
             this.popupTextBox2.ValueMember = "nobr";
             this.popupTextBox2.WhereCmd = "";
             // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(39, 102);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "部門主管";
-            // 
             // vBASEBindingSource
             // 
             this.vBASEBindingSource.DataMember = "V_BASE";
             this.vBASEBindingSource.DataSource = this.basDS;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(324, 71);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "部門層級";
             // 
             // textBox3
             // 
@@ -566,29 +504,6 @@
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 10;
             this.label3.Text = "英文名稱";
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(419, 165);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 12);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "簽核群組";
-            this.label11.Visible = false;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(15, 71);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 12);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "部門群組代碼";
             // 
             // textBox2
             // 
@@ -654,6 +569,136 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "簽核部門代碼";
             // 
+            // cbDeptGroup
+            // 
+            this.cbDeptGroup.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbDeptGroup.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.dEPTABindingSource, "SIGN_GROUP", true));
+            this.cbDeptGroup.DropDownWidth = 150;
+            this.cbDeptGroup.FormattingEnabled = true;
+            this.cbDeptGroup.Location = new System.Drawing.Point(478, 161);
+            this.cbDeptGroup.Name = "cbDeptGroup";
+            this.cbDeptGroup.Size = new System.Drawing.Size(90, 20);
+            this.cbDeptGroup.TabIndex = 10;
+            this.cbDeptGroup.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(419, 165);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 12);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "簽核群組";
+            this.label11.Visible = false;
+            // 
+            // txtDdate
+            // 
+            this.txtDdate.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtDdate.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.txtDdate.CaptionLabel = this.label9;
+            this.txtDdate.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtDdate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dEPTABindingSource, "DDATE", true));
+            this.txtDdate.DecimalPlace = 2;
+            this.txtDdate.IsEmpty = false;
+            this.txtDdate.Location = new System.Drawing.Point(288, 160);
+            this.txtDdate.Mask = "0000/00/00";
+            this.txtDdate.MaxLength = -1;
+            this.txtDdate.Name = "txtDdate";
+            this.txtDdate.PasswordChar = '\0';
+            this.txtDdate.ReadOnly = false;
+            this.txtDdate.ShowCalendarButton = true;
+            this.txtDdate.Size = new System.Drawing.Size(89, 22);
+            this.txtDdate.TabIndex = 9;
+            this.txtDdate.ValidType = JBControls.TextBox.EValidType.Date;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(229, 165);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 12);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "失效日期";
+            // 
+            // txtAdate
+            // 
+            this.txtAdate.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtAdate.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.txtAdate.CaptionLabel = this.label10;
+            this.txtAdate.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtAdate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dEPTABindingSource, "ADATE", true));
+            this.txtAdate.DecimalPlace = 2;
+            this.txtAdate.IsEmpty = false;
+            this.txtAdate.Location = new System.Drawing.Point(98, 160);
+            this.txtAdate.Mask = "0000/00/00";
+            this.txtAdate.MaxLength = -1;
+            this.txtAdate.Name = "txtAdate";
+            this.txtAdate.PasswordChar = '\0';
+            this.txtAdate.ReadOnly = false;
+            this.txtAdate.ShowCalendarButton = true;
+            this.txtAdate.Size = new System.Drawing.Size(89, 22);
+            this.txtAdate.TabIndex = 8;
+            this.txtAdate.ValidType = JBControls.TextBox.EValidType.Date;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(39, 165);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(53, 12);
+            this.label10.TabIndex = 27;
+            this.label10.Text = "生效日期";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(15, 71);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(77, 12);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "部門群組代碼";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(324, 71);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "部門層級";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(39, 102);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "部門主管";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(324, 102);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 12);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "主管信箱";
+            // 
             // btnMang
             // 
             this.btnMang.Location = new System.Drawing.Point(633, 46);
@@ -714,6 +759,7 @@
             this.fullDataCtrl1.WhereCmd = "";
             this.fullDataCtrl1.AfterAdd += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterAdd);
             this.fullDataCtrl1.AfterEdit += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterEdit);
+            this.fullDataCtrl1.BeforeDel += new JBControls.FullDataCtrl.BeforeEventHandler(this.fullDataCtrl1_BeforeDel);
             this.fullDataCtrl1.AfterDel += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterDel);
             this.fullDataCtrl1.BeforeSave += new JBControls.FullDataCtrl.BeforeEventHandler(this.fullDataCtrl1_BeforeSave);
             this.fullDataCtrl1.AfterSave += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterSave);
@@ -745,51 +791,6 @@
             // 
             this.v_BASETableAdapter.ClearBeforeFill = true;
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 6;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.Controls.Add(this.txtDNO, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cbDeptGroup, 5, 5);
-            this.tableLayoutPanel1.Controls.Add(this.cbxDeptLevel, 4, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label11, 4, 5);
-            this.tableLayoutPanel1.Controls.Add(this.txtDdate, 3, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 2, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtAdate, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.cbDEPT_GROUP, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label10, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox5, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox3, 4, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.popupTextBox2, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.txtMangMail, 4, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 3, 3);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(571, 188);
-            this.tableLayoutPanel1.TabIndex = 28;
-            // 
             // FRM11I
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -817,12 +818,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dEPTABindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.basDS)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vBASEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dEPTABindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.basDS1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
 		}
