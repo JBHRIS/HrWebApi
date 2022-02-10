@@ -146,10 +146,10 @@
         <elementListCompartment Id="fedbf91b-c647-4a53-8e49-26d87dc2e0b2" absoluteBounds="9.765, 19.335, 1.9700000000000002, 2.6404520670572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="f001d4b3-a199-4f07-9caa-27ba47c769cf" absoluteBounds="4, 0.5, 2, 4.6788049316406246">
+    <classShape Id="2f22c313-6b8d-42b8-b5d4-e5f9777bfb10" absoluteBounds="2.5, 0.875, 2, 4.6788049316406246">
       <DataClassMoniker Name="/dcShareDataContext/QuestionUserInfo" />
       <nestedChildShapes>
-        <elementListCompartment Id="6d13dbc7-70ed-4082-a394-e37d71450f24" absoluteBounds="4.015, 0.96, 1.9700000000000002, 4.118804931640625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="f03c48c9-99ba-4f9f-8948-48cf6ca050bd" absoluteBounds="2.515, 1.335, 1.9700000000000002, 4.118804931640625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
