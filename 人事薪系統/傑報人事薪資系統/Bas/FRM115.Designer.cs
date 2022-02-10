@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridViewEx1 = new JBControls.DataGridView();
             this.JOB_DISP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,14 +100,14 @@
             this.dataGridViewEx1.AllowUserToResizeRows = false;
             this.dataGridViewEx1.AutoGenerateColumns = false;
             this.dataGridViewEx1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("細明體", 9F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewEx1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("細明體", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewEx1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewEx1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEx1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.JOB_DISP,
@@ -279,12 +279,12 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 12);
             this.label6.TabIndex = 12;
-            this.label6.Text = "英文職務名稱";
+            this.label6.Text = "英文職稱名稱";
             // 
             // textBox4
             // 
             this.textBox4.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.textBox4.CaptionLabel = this.label6;
+            this.textBox4.CaptionLabel = null;
             this.textBox4.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.jOBBindingSource, "JOB_ENAME", true));
             this.textBox4.DecimalPlace = 2;
@@ -323,7 +323,7 @@
             // textBox2
             // 
             this.textBox2.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.textBox2.CaptionLabel = this.label2;
+            this.textBox2.CaptionLabel = null;
             this.textBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.jOBBindingSource, "JOB_NAME", true));
             this.textBox2.DecimalPlace = 2;
@@ -347,12 +347,12 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 12);
             this.label2.TabIndex = 2;
-            this.label2.Text = "中文職務名稱";
+            this.label2.Text = "中文職稱名稱";
             // 
             // textBox1
             // 
             this.textBox1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.textBox1.CaptionLabel = this.label1;
+            this.textBox1.CaptionLabel = null;
             this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.jOBBindingSource, "JOB_DISP", true));
             this.textBox1.DecimalPlace = 2;
@@ -376,7 +376,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 0;
-            this.label1.Text = "職務代碼";
+            this.label1.Text = "職稱代碼";
             // 
             // btnCodeGroup
             // 

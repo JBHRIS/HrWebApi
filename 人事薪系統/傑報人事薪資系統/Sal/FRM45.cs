@@ -380,6 +380,7 @@ namespace JBHR.Sal
         {
             if (e.HasData)//如果有員工資料，在執行focus out的動作
             {
+                smd = new SalaryMDDataContext();
                 bool RetruenSW = false;
                 if (Function.IsSalaryLockedByNobr(txtYymm.Text, txtSeq.Text, ptxNobr.Text))//已鎖檔
                 {
