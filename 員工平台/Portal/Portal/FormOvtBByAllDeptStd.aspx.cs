@@ -755,6 +755,14 @@ namespace Portal
                         }
                     }
 
+                    var rAttendDate = oAttendDao.GetAttendH(Nobr, DateB).FirstOrDefault();
+                    if (rAttendDate == null)
+                    {
+                        lblErrorMsg.Text = lblNobrAppS.Text + "出勤資料錯誤，請洽人事單位";
+                        return;
+                    }
+
+
                     var rAttend = oAttendDao.GetAttendH(Nobr, DateB.Date).FirstOrDefault();
                     if (Is0XOt != null && rAttend.RoteCode == "0X")
                     {
@@ -804,6 +812,11 @@ namespace Portal
 
                     //string Abs1Hcode = OtAbs1Hcode != null ? OtAbs1Hcode.Column1 : "N";
 
+                    if (IsNightShift)//夜班前面判斷需-1天，這邊加回來
+                    {
+                        DateB = DateB.AddDays(1);
+                    }
+
                     if (DateTimeB < DateTime.Now)
                     {
 
@@ -847,17 +860,8 @@ namespace Portal
                         }
                     }
 
-                    var rAttendDate = oAttendDao.GetAttendH(Nobr, DateB).FirstOrDefault();
-                    if (rAttendDate == null)
-                    {
-                        lblErrorMsg.Text = lblNobrAppS.Text + "出勤資料錯誤，請洽人事單位";
-                        return;
-                    }
-
-                    if (IsNightShift)//夜班前面判斷需-1天，這邊加回來
-                    {
-                        DateB = DateB.AddDays(1);
-                    }
+                    
+                    
 
                     //DateTime AppDate = Convert.ToDateTime(rAttendDate.Text);
 
