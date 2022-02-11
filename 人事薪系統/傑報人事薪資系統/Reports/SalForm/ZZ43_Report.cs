@@ -37,14 +37,14 @@ namespace JBHR.Reports.SalForm
     {
         SalDataSet ds = new SalDataSet();
         string nobr_b, nobr_e, dept_b, dept_e, depts_b, depts_e, emp_b, emp_e, yymm_b, yymm_e, date_b, date_e, meno, reporttype, date_t, type_data, daop, username, workadr, comp_name, CompId;
-        bool exportexcel, no_disp, pr_rest, ot_sum, ot_21, labchedk;
+        bool exportexcel, no_disp, ot_no_disp, pr_rest, ot_sum, ot_21, labchedk;
         string ErrorMessage = string.Empty;
-        public ZZ43_Report(string _nobrb, string _nobre, string _deptb, string _depte, string _deptsb, string _deptse, string _empb, string _empe, string _yymmb, string _yymme, string _dateb, string _datee, string datet, string _reporttype, string _daop, string _typedata, bool _exportexcel, bool nodisp, bool prrest, bool otsum, bool ot21, bool _labchedk, string _username, string _workadr, string compname, string _CompId)
+        public ZZ43_Report(string _nobrb, string _nobre, string _deptb, string _depte, string _deptsb, string _deptse, string _empb, string _empe, string _yymmb, string _yymme, string _dateb, string _datee, string datet, string _reporttype, string _daop, string _typedata, bool _exportexcel, bool nodisp, bool otnodisp, bool prrest, bool otsum, bool ot21, bool _labchedk, string _username, string _workadr, string compname, string _CompId)
         {
             InitializeComponent();
             nobr_b = _nobrb; nobr_e = _nobre; dept_b = _deptb; dept_e = _depte; depts_b = _deptsb; depts_e = _deptse;
             emp_b = _empb; emp_e = _empe; yymm_b = _yymmb; yymm_e = _yymme; date_b = _dateb; date_e = _datee;
-            reporttype = _reporttype; type_data = _typedata; no_disp = nodisp; pr_rest = prrest; ot_sum = otsum;
+            reporttype = _reporttype; type_data = _typedata; no_disp = nodisp; ot_no_disp = otnodisp; pr_rest = prrest; ot_sum = otsum;
             ot_21 = ot21; exportexcel = _exportexcel; date_t = datet; daop = _daop; username = _username;
             workadr = _workadr; comp_name = compname; CompId = _CompId; labchedk = _labchedk;
         }
@@ -197,6 +197,9 @@ namespace JBHR.Reports.SalForm
                             if (no_disp)
                             {
                                 Row["salary"] = 0;
+                            }
+                            if (ot_no_disp)
+                            {
                                 Row["not_exp"] = 0;
                                 Row["tot_exp"] = 0;
                                 Row["rest_exp"] = 0;

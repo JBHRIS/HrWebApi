@@ -190,12 +190,13 @@ namespace JBHR.Reports.SalForm
                 //if (!MainForm.MANGSUPER) workadr = " AND B.SALADR='" + MainForm.WORKADR + "'";
                 bool _exportexcel=ExportExcel.Checked;
                 bool nodisp=no_disp.Checked;
+                bool otnodisp=ot_no_disp.Checked;
                 bool prrest=pr_rest.Checked;
                 bool otsum=ot_sum.Checked;
                 bool ot21 = ot_21.Checked;
                 string _reporttype = report_type.SelectedIndex.ToString();
                 bool _labchedk = LABCHECK.Checked;
-                zz43_report = new ZZ43_Report(_nobrb, _nobre, _deptb, _depte, _deptsb, _deptse, _empb, _empe, _yymmb, _yymme, _dateb, _datee, datet, _reporttype, _da, _typedata, _exportexcel, nodisp, prrest, otsum, ot21, _labchedk, MainForm.USER_NAME, workadr, MainForm.COMPANY_NAME, MainForm.COMPANY);
+                zz43_report = new ZZ43_Report(_nobrb, _nobre, _deptb, _depte, _deptsb, _deptse, _empb, _empe, _yymmb, _yymme, _dateb, _datee, datet, _reporttype, _da, _typedata, _exportexcel, nodisp, otnodisp, prrest, otsum, ot21, _labchedk, MainForm.USER_NAME, workadr, MainForm.COMPANY_NAME, MainForm.COMPANY);
                 zz43_report.Show();
                 
             }

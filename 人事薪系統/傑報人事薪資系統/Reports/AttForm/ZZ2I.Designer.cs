@@ -99,6 +99,7 @@
             this.date_e.Name = "date_e";
             this.date_e.PasswordChar = '\0';
             this.date_e.ReadOnly = false;
+            this.date_e.ShowCalendarButton = true;
             this.date_e.Size = new System.Drawing.Size(80, 23);
             this.date_e.TabIndex = 6;
             this.date_e.ValidType = JBControls.TextBox.EValidType.Date;
@@ -127,6 +128,7 @@
             this.date_b.Name = "date_b";
             this.date_b.PasswordChar = '\0';
             this.date_b.ReadOnly = false;
+            this.date_b.ShowCalendarButton = true;
             this.date_b.Size = new System.Drawing.Size(80, 23);
             this.date_b.TabIndex = 5;
             this.date_b.ValidType = JBControls.TextBox.EValidType.Date;
@@ -240,6 +242,7 @@
             this.nobr_b.Location = new System.Drawing.Point(104, 6);
             this.nobr_b.Name = "nobr_b";
             this.nobr_b.ReadOnly = false;
+            this.nobr_b.ShowDisplayName = true;
             this.nobr_b.Size = new System.Drawing.Size(75, 22);
             this.nobr_b.TabIndex = 1;
             this.nobr_b.ValueMember = "nobr";
@@ -259,6 +262,7 @@
             this.nobr_e.Location = new System.Drawing.Point(280, 6);
             this.nobr_e.Name = "nobr_e";
             this.nobr_e.ReadOnly = false;
+            this.nobr_e.ShowDisplayName = true;
             this.nobr_e.Size = new System.Drawing.Size(75, 22);
             this.nobr_e.TabIndex = 2;
             this.nobr_e.ValueMember = "nobr";
@@ -290,7 +294,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 195);
+            this.ClientSize = new System.Drawing.Size(443, 195);
             this.Controls.Add(this.report_type);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.nobr_b);
