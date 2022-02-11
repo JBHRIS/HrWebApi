@@ -135,6 +135,11 @@ namespace Portal
             Response.Redirect("MessageNew.aspx?Active=Update&&Code="+button.CommandArgument);
         }
 
-      
+        public void btnPage_Click(object sender, EventArgs e)
+        {
+
+            Response.Redirect("ProblemReturnListM.aspx");
+
+        }
     }
 }

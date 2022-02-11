@@ -51,6 +51,15 @@ namespace Portal
         protected global::System.Web.UI.WebControls.Panel plReason;
 
         /// <summary>
+        /// lblReasonDic 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblReasonDic;
+
+        /// <summary>
         /// ddlReason 控制項。
         /// </summary>
         /// <remarks>
@@ -159,6 +168,24 @@ namespace Portal
         protected global::Telerik.Web.UI.RadAjaxPanel plAppS;
 
         /// <summary>
+        /// lblConditionDic 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblConditionDic;
+
+        /// <summary>
+        /// lblYearDic 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblYearDic;
+
+        /// <summary>
         /// ddlYear 控制項。
         /// </summary>
         /// <remarks>
@@ -166,6 +193,15 @@ namespace Portal
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::Telerik.Web.UI.RadComboBox ddlYear;
+
+        /// <summary>
+        /// lblMonthDic 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblMonthDic;
 
         /// <summary>
         /// ddlMonth 控制項。

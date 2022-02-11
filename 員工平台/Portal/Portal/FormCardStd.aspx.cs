@@ -142,7 +142,7 @@ namespace Portal
             if (lblCardTime1.Text == "" && lblCardTime2.Text == "" && lblCardTime3.Text == "")
             {
                 if (LanguageCookie != null && LanguageCookie != "")
-                    lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "WithoutAttendData", "1", LanguageCookie);
+                    lblCardTime1.Text = oShareDictionary.TextTranslate("ErrorMsg", "WithoutAttendData", "1", LanguageCookie);
                 else
                     lblCardTime1.Text = "無出勤資料";
             }
@@ -439,10 +439,10 @@ namespace Portal
 
                 int i = lsDate.Sum(p => Convert.ToInt32(p.Value));
 
-                if (i > 4)
+                if (i > 3)
                 {
-                    //lblErrorMsg.Text = "本月的忘刷次數已超過4次";
-                    //return;
+                    lblErrorMsg.Text = "本月的忘刷次數已超過3次";
+                    return;
                 }
 
                 var rEmpS = (from role in dcFlow.Role

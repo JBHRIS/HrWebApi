@@ -102,6 +102,9 @@ namespace Dal
     partial void InsertAppBSSID(AppBSSID instance);
     partial void UpdateAppBSSID(AppBSSID instance);
     partial void DeleteAppBSSID(AppBSSID instance);
+    partial void InsertQuestionUserInfo(QuestionUserInfo instance);
+    partial void UpdateQuestionUserInfo(QuestionUserInfo instance);
+    partial void DeleteQuestionUserInfo(QuestionUserInfo instance);
     #endregion
 		
 		public dcShareDataContext() : 
@@ -323,6 +326,14 @@ namespace Dal
 			get
 			{
 				return this.GetTable<AppBSSID>();
+			}
+		}
+		
+		public System.Data.Linq.Table<QuestionUserInfo> QuestionUserInfo
+		{
+			get
+			{
+				return this.GetTable<QuestionUserInfo>();
 			}
 		}
 	}
@@ -10574,6 +10585,548 @@ namespace Dal
 					this._UpdateDate = value;
 					this.SendPropertyChanged("UpdateDate");
 					this.OnUpdateDateChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.QuestionUserInfo")]
+	public partial class QuestionUserInfo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _AutoKey;
+		
+		private string _CompanyId;
+		
+		private string _Code;
+		
+		private string _AccountCode;
+		
+		private string _AccountPassword;
+		
+		private string _UserId;
+		
+		private string _UserName;
+		
+		private int _RoleKey;
+		
+		private string _Email;
+		
+		private string _Content;
+		
+		private string _Key1;
+		
+		private string _Key2;
+		
+		private string _Key3;
+		
+		private System.DateTime _DateA;
+		
+		private System.DateTime _DateD;
+		
+		private string _Note;
+		
+		private string _Status;
+		
+		private string _InsertMan;
+		
+		private System.Nullable<System.DateTime> _InseetDate;
+		
+		private string _UpdateMan;
+		
+		private System.Nullable<System.DateTime> _UpdateTime;
+		
+    #region 擴充性方法定義
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAutoKeyChanging(int value);
+    partial void OnAutoKeyChanged();
+    partial void OnCompanyIdChanging(string value);
+    partial void OnCompanyIdChanged();
+    partial void OnCodeChanging(string value);
+    partial void OnCodeChanged();
+    partial void OnAccountCodeChanging(string value);
+    partial void OnAccountCodeChanged();
+    partial void OnAccountPasswordChanging(string value);
+    partial void OnAccountPasswordChanged();
+    partial void OnUserIdChanging(string value);
+    partial void OnUserIdChanged();
+    partial void OnUserNameChanging(string value);
+    partial void OnUserNameChanged();
+    partial void OnRoleKeyChanging(int value);
+    partial void OnRoleKeyChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnContentChanging(string value);
+    partial void OnContentChanged();
+    partial void OnKey1Changing(string value);
+    partial void OnKey1Changed();
+    partial void OnKey2Changing(string value);
+    partial void OnKey2Changed();
+    partial void OnKey3Changing(string value);
+    partial void OnKey3Changed();
+    partial void OnDateAChanging(System.DateTime value);
+    partial void OnDateAChanged();
+    partial void OnDateDChanging(System.DateTime value);
+    partial void OnDateDChanged();
+    partial void OnNoteChanging(string value);
+    partial void OnNoteChanged();
+    partial void OnStatusChanging(string value);
+    partial void OnStatusChanged();
+    partial void OnInsertManChanging(string value);
+    partial void OnInsertManChanged();
+    partial void OnInseetDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnInseetDateChanged();
+    partial void OnUpdateManChanging(string value);
+    partial void OnUpdateManChanged();
+    partial void OnUpdateTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnUpdateTimeChanged();
+    #endregion
+		
+		public QuestionUserInfo()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AutoKey", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int AutoKey
+		{
+			get
+			{
+				return this._AutoKey;
+			}
+			set
+			{
+				if ((this._AutoKey != value))
+				{
+					this.OnAutoKeyChanging(value);
+					this.SendPropertyChanging();
+					this._AutoKey = value;
+					this.SendPropertyChanged("AutoKey");
+					this.OnAutoKeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyId", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string CompanyId
+		{
+			get
+			{
+				return this._CompanyId;
+			}
+			set
+			{
+				if ((this._CompanyId != value))
+				{
+					this.OnCompanyIdChanging(value);
+					this.SendPropertyChanging();
+					this._CompanyId = value;
+					this.SendPropertyChanged("CompanyId");
+					this.OnCompanyIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Code", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Code
+		{
+			get
+			{
+				return this._Code;
+			}
+			set
+			{
+				if ((this._Code != value))
+				{
+					this.OnCodeChanging(value);
+					this.SendPropertyChanging();
+					this._Code = value;
+					this.SendPropertyChanged("Code");
+					this.OnCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountCode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AccountCode
+		{
+			get
+			{
+				return this._AccountCode;
+			}
+			set
+			{
+				if ((this._AccountCode != value))
+				{
+					this.OnAccountCodeChanging(value);
+					this.SendPropertyChanging();
+					this._AccountCode = value;
+					this.SendPropertyChanged("AccountCode");
+					this.OnAccountCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountPassword", DbType="NVarChar(200)")]
+		public string AccountPassword
+		{
+			get
+			{
+				return this._AccountPassword;
+			}
+			set
+			{
+				if ((this._AccountPassword != value))
+				{
+					this.OnAccountPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._AccountPassword = value;
+					this.SendPropertyChanged("AccountPassword");
+					this.OnAccountPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					this.OnUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(50)")]
+		public string UserName
+		{
+			get
+			{
+				return this._UserName;
+			}
+			set
+			{
+				if ((this._UserName != value))
+				{
+					this.OnUserNameChanging(value);
+					this.SendPropertyChanging();
+					this._UserName = value;
+					this.SendPropertyChanged("UserName");
+					this.OnUserNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleKey", DbType="Int NOT NULL")]
+		public int RoleKey
+		{
+			get
+			{
+				return this._RoleKey;
+			}
+			set
+			{
+				if ((this._RoleKey != value))
+				{
+					this.OnRoleKeyChanging(value);
+					this.SendPropertyChanging();
+					this._RoleKey = value;
+					this.SendPropertyChanged("RoleKey");
+					this.OnRoleKeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(50)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content", DbType="NVarChar(MAX)")]
+		public string Content
+		{
+			get
+			{
+				return this._Content;
+			}
+			set
+			{
+				if ((this._Content != value))
+				{
+					this.OnContentChanging(value);
+					this.SendPropertyChanging();
+					this._Content = value;
+					this.SendPropertyChanged("Content");
+					this.OnContentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Key1", DbType="NVarChar(50)")]
+		public string Key1
+		{
+			get
+			{
+				return this._Key1;
+			}
+			set
+			{
+				if ((this._Key1 != value))
+				{
+					this.OnKey1Changing(value);
+					this.SendPropertyChanging();
+					this._Key1 = value;
+					this.SendPropertyChanged("Key1");
+					this.OnKey1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Key2", DbType="NVarChar(50)")]
+		public string Key2
+		{
+			get
+			{
+				return this._Key2;
+			}
+			set
+			{
+				if ((this._Key2 != value))
+				{
+					this.OnKey2Changing(value);
+					this.SendPropertyChanging();
+					this._Key2 = value;
+					this.SendPropertyChanged("Key2");
+					this.OnKey2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Key3", DbType="NVarChar(50)")]
+		public string Key3
+		{
+			get
+			{
+				return this._Key3;
+			}
+			set
+			{
+				if ((this._Key3 != value))
+				{
+					this.OnKey3Changing(value);
+					this.SendPropertyChanging();
+					this._Key3 = value;
+					this.SendPropertyChanged("Key3");
+					this.OnKey3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateA", DbType="DateTime NOT NULL")]
+		public System.DateTime DateA
+		{
+			get
+			{
+				return this._DateA;
+			}
+			set
+			{
+				if ((this._DateA != value))
+				{
+					this.OnDateAChanging(value);
+					this.SendPropertyChanging();
+					this._DateA = value;
+					this.SendPropertyChanged("DateA");
+					this.OnDateAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateD", DbType="DateTime NOT NULL")]
+		public System.DateTime DateD
+		{
+			get
+			{
+				return this._DateD;
+			}
+			set
+			{
+				if ((this._DateD != value))
+				{
+					this.OnDateDChanging(value);
+					this.SendPropertyChanging();
+					this._DateD = value;
+					this.SendPropertyChanged("DateD");
+					this.OnDateDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(MAX)")]
+		public string Note
+		{
+			get
+			{
+				return this._Note;
+			}
+			set
+			{
+				if ((this._Note != value))
+				{
+					this.OnNoteChanging(value);
+					this.SendPropertyChanging();
+					this._Note = value;
+					this.SendPropertyChanged("Note");
+					this.OnNoteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InsertMan", DbType="NVarChar(50)")]
+		public string InsertMan
+		{
+			get
+			{
+				return this._InsertMan;
+			}
+			set
+			{
+				if ((this._InsertMan != value))
+				{
+					this.OnInsertManChanging(value);
+					this.SendPropertyChanging();
+					this._InsertMan = value;
+					this.SendPropertyChanged("InsertMan");
+					this.OnInsertManChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InseetDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> InseetDate
+		{
+			get
+			{
+				return this._InseetDate;
+			}
+			set
+			{
+				if ((this._InseetDate != value))
+				{
+					this.OnInseetDateChanging(value);
+					this.SendPropertyChanging();
+					this._InseetDate = value;
+					this.SendPropertyChanged("InseetDate");
+					this.OnInseetDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateMan", DbType="NVarChar(50)")]
+		public string UpdateMan
+		{
+			get
+			{
+				return this._UpdateMan;
+			}
+			set
+			{
+				if ((this._UpdateMan != value))
+				{
+					this.OnUpdateManChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateMan = value;
+					this.SendPropertyChanged("UpdateMan");
+					this.OnUpdateManChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> UpdateTime
+		{
+			get
+			{
+				return this._UpdateTime;
+			}
+			set
+			{
+				if ((this._UpdateTime != value))
+				{
+					this.OnUpdateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateTime = value;
+					this.SendPropertyChanged("UpdateTime");
+					this.OnUpdateTimeChanged();
 				}
 			}
 		}

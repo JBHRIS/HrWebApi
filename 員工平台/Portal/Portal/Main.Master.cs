@@ -160,6 +160,16 @@ namespace Portal
                     Response.Redirect("Login.aspx?ReturnUrl=" + ActivePage);
                 UnobtrusiveSession.Session["SystemPage"] = null;
                 LoadData();
+                var Language = (from c in dcFlow.FormsExtend
+                                where c.FormsCode == "Common" && c.Active == true && c.Code == "Language"
+                                select c).FirstOrDefault();
+                if (Language != null)
+                {
+                    plLanguage.Visible = true;
+                    ChangeLanguage();
+                }
+                SetRootValues();
+
             }
             var TimeCountDown = (from c in dcFlow.FormsExtend
                                  where c.FormsCode == "Common" && c.Code == "TimeCountDown" && c.Active == true
@@ -169,15 +179,7 @@ namespace Portal
                 CountDown();
                 plCountDown.Visible = true;
             }
-            SetRootValues();
-            var Language = (from c in dcFlow.FormsExtend
-                            where c.FormsCode == "Common" && c.Active == true && c.Code == "Language"
-                            select c).FirstOrDefault();
-            if (Language != null)
-            {
-                plLanguage.Visible = true;
-                ChangeLanguage();
-            }
+            
             if (FormTitle != "")
                 Page.Title = FormTitle;
             RadClientExportManager1.PdfSettings.Fonts.Add("Arial Unicode MS", "Fonts/Arial-Unicode-MS.ttf");
@@ -834,6 +836,13 @@ namespace Portal
                         var TransText = oShareDictionary.TextTranslate("Portal", CheckBox.ID, "1", LanguageCookie);
                         if (TransText != "" && TransText != null)
                             CheckBox.Text = TransText;
+                    }
+                    if (Ctl is RadCheckBox)
+                    {
+                        var RadCheckBox = Ctl as RadCheckBox;
+                        var TransText = oShareDictionary.TextTranslate("Portal", RadCheckBox.ID, "1", LanguageCookie);
+                        if (TransText != "" && TransText != null)
+                            RadCheckBox.Text = TransText;
                     }
                     if (Ctl is RadRadioButtonList)
                     {

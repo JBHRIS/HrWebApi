@@ -13,6 +13,7 @@ using System.Windows;
 using Bll.Tools;
 using System.Net.Mail;
 using System.IO;
+using Bll.Token.Vdb;
 
 namespace Portal
 {
@@ -24,13 +25,14 @@ namespace Portal
             {
                
                 txtReturnS_DataBind();
+               
             }
             SetDefault();
         }
 
         private void SetUserInfo()
         {
-
+            
             lblUserCode.Text = _User.UserCode;
             lblCompanyId.Text = _User.CompanyId;
             lblEmpID.Text = _User.EmpId;
@@ -77,7 +79,7 @@ namespace Portal
                 txtReturnS.DataValueField = "Code";
                                
                 txtReturnS.DataBind();
-                txtReturnS.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "", Value = "0" });
+                txtReturnS.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "", Value = "" });
                 txtReturnS.SelectedIndex = 0;
                 //txtReturnS.SelectedIndex = 0;
             }
@@ -115,14 +117,14 @@ namespace Portal
                     GetQuestionDefaultMessageCond.CompanyId = _User.CompanyId.ToString();
                     var rsGQDM = oGetQuestionDefaultMessage.GetData(GetQuestionDefaultMessageCond).Data as List<ShareGetQuestionDefaultMessageByCompanyIdRow>;
                     lvMain.DataSource = rsGQDM;
-                    var Script = "$(document).ready(function() {$('.footable').footable();});";
-                    ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);
+                    //var Script = "$(document).ready(function() {$('.footable').footable();});";
+                    //ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);
 
                 }
                 catch (Exception ex)
                 {
 
-                }
+                } 
 
 
 
@@ -175,62 +177,7 @@ namespace Portal
                 //var dataview = rsViewrsQM.GroupBy(x => x.ParentCode);
                 Reply = Reply.Where(x => Security.GetRoleKeyToBinaryKey(x.RoleKey).Contains(_User.RoleKey));
 
-                //string Jumpto = "";
-                //foreach (var Data in Reply)
-                //{
-                //    foreach (var v in dataview)
-                //    {
-                //        if (Data.Code == v.Key)
-                //        {
-                //            foreach (var DataDetail in v)
-                //            {
-
-                //                var Parent = v.Where(x => x.Code == DataDetail.ReplyToCode);
-                //                if (Parent.FirstOrDefault() != null)
-                //                {
-                //                    var oParent = Parent.FirstOrDefault();
-                //                    DataDetail.ReplyContent = oParent.Content;
-                //                    DataDetail.ReplyName = oParent.Name;
-                //                    Jumpto = oParent.Code;
-                //                }
-                //                else
-                //                {
-                //                    DataDetail.ReplyContent = Data.Content;
-                //                    DataDetail.ReplyName = Data.Name;
-                //                    Jumpto = Data.Code;
-                //                }
-                //                //DataDetail.ReplyName = v.Where(x => x.Code == DataDetail.ReplyToCode).DefaultIfEmpty().FirstOrDefault().Name;
-                //                Data.DataView +=
-                //             "<div class=\"float-left\">" +
-                //             "<div class=\"navy-bg admin_circle\">";
-                //                if (DataDetail.Key2 == "admin")
-                //                {
-                //                    Data.DataView += "<i class=\"fa fa-users\"></i>";
-                //                }
-                //                {
-                //                    Data.DataView += "<i class=\"fa fa-user\"></i>";
-                //                }
-                //                Data.DataView +=
-                //               "</div>" +
-                //             "</div>" +
-                //            "<div class=\"media-body\">" +
-                //           "<span class = \"name_font\"/>" + DataDetail.Name + " </span>" +
-                //           "<a href=\"#" + Jumpto + "\"><span class=\"text-blue\"><i class=\"fa fa-share \"></i>" + DataDetail.ReplyName + "</span></a><span class=\"replyreply_text\">" + DataDetail.ReplyContent + "</span><br>" +
-                //           "<span>" + DataDetail.Content + "</span><br>" +
-                //           "<button ID=\"btnSubReply\" type = \"button\" class=\"btnReply btn btn-white btn-xs\" data-toggle=\"collapse\" data-target=\"#rep" + DataDetail.Code + "\"> <i class=\"fa fa-comments\"></i> 回覆</button>" +
-                //           "<span class=\"text-muted\">" + DataDetail.InsertDate.Value.ToString("yyyy/MM/dd") + " </span>-" +
-                //           "<span class=\"text-muted\">" + DataDetail.InsertDate.Value.ToString("HH:mm") + "</span><br>" +
-                //            "<div class=\"form-group\">" +
-                //           "<div id=\"rep" + DataDetail.Code + "\"class=\"collapse\"><span style=\"width:100%;\"class=\"RadInput RadInput_Bootstrap RadInputMultiline RadInputMultiline_Bootstrap\">" +
-                //           "<textarea style=\"resize: none\" rows=\"3\" cols=\"20\" class=\"riTextBox riEmpty\" id=\"con" + DataDetail.Code + "\" placeholder=\"請填寫您想回覆的內容...\" ></textarea></span><br>" +
-                //             "<asp:Button id=\""+DataDetail.Code+"\" runat=\"server\" CssClass=\"btn btn-primary btn-primary btn-md\" Text=\"送出\" OnClick=\"ReplyAdd\"></asp:Button>" +
-                //           "</div>" + "</div>" +
-                //           "</div><br>";
-
-                //            }
-                //        }
-                //    }
-                //}
+            
 
                 QuestionReplyData.DataSource = Reply;
                 if (QuestionMain.Complete)
@@ -246,8 +193,8 @@ namespace Portal
                     //    }
 
                     //}
-                    var Script = "$('.btnReply').hide();";
-                    ScriptManager.RegisterStartupScript(this, typeof(Button), "btnhide", Script, true);
+                    //var Script = "$('.btnReply').hide();";
+                    //ScriptManager.RegisterStartupScript(this, typeof(Button), "btnhide", Script, true);
                 }
 
             }
@@ -271,6 +218,7 @@ namespace Portal
             }
             try
             {
+                APIResult Result = new APIResult();
                 var button = e.EventSource as RadButton;
                 var Action = button.ID;
                 RadListView currListView = sender as RadListView;
@@ -302,7 +250,7 @@ namespace Portal
                                 lbl.Text = "回覆不得為空白";
                                 return;
                             }
-                            content = txt.Text;
+                            content = txt.Text.Replace("\r\n", "<br/>");
                         }
                     }
                     InsertQuestionReplyCond.AccessToken = _User.AccessToken;
@@ -339,9 +287,22 @@ namespace Portal
                     InsertQuestionReplyCond.UpdateMan = _User.EmpName;
                     InsertQuestionReplyCond.UpdateDate = DateTime.Now;
 
-                    oInsertQuestionReply.GetData(InsertQuestionReplyCond);
-                    ViewState["ParentCode"] = CN.ToString();
-                    QuestionReplyData.Rebind();
+                    Result= oInsertQuestionReply.GetData(InsertQuestionReplyCond);
+                    if (Result.Status)
+                    {
+                        var oSendMail = new ShareSendQueueDao();
+                        MailAddress address = new MailAddress("aron@jbjob.com.tw");
+                        var Subject = "";
+                        var Body = "";
+                        var oShareMail = new ShareMailDao();
+                        var dcParameter = new Dictionary<string, string>();
+                        dcParameter.Add("MainCode", Request.QueryString["Code"]);
+                        oShareMail.OutMailContent(out Subject, out Body, "02", 0, true, dcParameter);
+                        oSendMail.SendMail(address, Subject, Body, true);
+                        ViewState["ParentCode"] = CN.ToString();
+                        QuestionReplyData.Rebind();
+                    }
+                    
                 }
                 else if (Action == "btnSubReplyAdd")
                 {
@@ -365,7 +326,7 @@ namespace Portal
                                 lbl.Text = "回覆不得為空白";
                                 return;
                             }
-                            content = txt.Text;
+                            content = txt.Text.Replace("\r\n", "<br/>");
                         }
                     }
                     InsertQuestionReplyCond.AccessToken = _User.AccessToken;
@@ -402,9 +363,21 @@ namespace Portal
                     InsertQuestionReplyCond.UpdateMan = _User.EmpName;
                     InsertQuestionReplyCond.UpdateDate = DateTime.Now;
 
-                    oInsertQuestionReply.GetData(InsertQuestionReplyCond);
-                    ViewState["ParentCode"] = CN.ToString();
-                    QuestionReplyData.Rebind();
+                    Result=oInsertQuestionReply.GetData(InsertQuestionReplyCond);
+                    if (Result.Status)
+                    {
+                        var oSendMail = new ShareSendQueueDao();
+                        MailAddress address = new MailAddress("aron@jbjob.com.tw");
+                        var Subject = "";
+                        var Body = "";
+                        var oShareMail = new ShareMailDao();
+                        var dcParameter = new Dictionary<string, string>();
+                        dcParameter.Add("MainCode", Request.QueryString["Code"]);
+                        oShareMail.OutMailContent(out Subject, out Body, "02", 0, true, dcParameter);
+                        oSendMail.SendMail(address, Subject, Body, true);
+                        ViewState["ParentCode"] = CN.ToString();
+                        QuestionReplyData.Rebind();
+                    }
                 }
                 var oGetQuestionMain = new ShareGetQuestionMainByCodeDao();
                 var GetQuestionMainCond = new ShareGetQuestionMainByCodeConditions();
@@ -452,13 +425,7 @@ namespace Portal
         }
 
 
-        public void btnSet_Click(object sender, EventArgs e)
-        {
-            var Script = "$(document).ready(function() {$('.footable').footable();});";
-            ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);
-            Response.Redirect("MessageList.aspx");
-
-        }
+     
 
         public void SetDefaultMessage(object sender, EventArgs e)
         {
@@ -466,8 +433,8 @@ namespace Portal
             {
                 RadButton button = sender as RadButton;
                 txtContent.Text = button.CommandArgument;
-                var Script = "$(document).ready(function() {$('.footable').footable();});";
-                ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);
+                //var Script = "$(document).ready(function() {$('.footable').footable();});";
+                //ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);
 
             }
             catch (Exception ex)
@@ -489,8 +456,8 @@ namespace Portal
             RadioFourth.Checked = false;
             txtReturnS.Enabled = false;
             txtReturnS.SelectedIndex = 0;
-            var Script = "$(document).ready(function() {$('.footable').footable();});";
-            ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);
+            //var Script = "$(document).ready(function() {$('.footable').footable();});";
+            //ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);
         }
 
         protected void RadioSecond_CheckedChanged(object sender, EventArgs e)
@@ -499,8 +466,8 @@ namespace Portal
             RadioThird.Checked = false;
             txtReturnS.Enabled = false;
             txtReturnS.SelectedIndex = 0;
-            var Script = "$(document).ready(function() {$('.footable').footable();});";
-            ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);
+            //var Script = "$(document).ready(function() {$('.footable').footable();});";
+            //ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);
 
         }
 
@@ -511,8 +478,8 @@ namespace Portal
             RadioFourth.Checked = false;
             txtReturnS.Enabled = false;
             txtReturnS.SelectedIndex = 0;
-            var Script = "$(document).ready(function() {$('.footable').footable();});";
-            ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);
+            //var Script = "$(document).ready(function() {$('.footable').footable();});";
+            //ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);
         }
         protected void RadioFourth_CheckedChanged(object sender, EventArgs e)
         {
@@ -521,8 +488,8 @@ namespace Portal
             RadioThird.Checked = false;
             txtReturnS.Enabled = true;
            
-            var Script = "$(document).ready(function() {$('.footable').footable();});";
-            ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);
+            //var Script = "$(document).ready(function() {$('.footable').footable();});";
+            //ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);
         }
         protected void btnAdd_Click(object sender, EventArgs e)
         {
@@ -531,6 +498,19 @@ namespace Portal
                 string strUrl_No = "../Reply/LoginBind.aspx";
                 ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "script", "if ( window.alert('登入已逾時，請重新登入')) { } else {window.location.href='" + strUrl_No + "' };", true);
                 return;
+            }
+            if (txtContent.Text == "" || txtContent.Text == null)
+            {
+                DraftStatus.InnerText = "回覆不得為空白";
+                return;
+            }
+            if (RadioFourth.Checked == true)
+            {
+                if (txtReturnS.SelectedValue == "")
+                {
+                    DraftStatus.InnerText = "選擇系統商內部人員則轉呈/回覆人員不得為空白";
+                    return;
+                }
             }
             if (Request.QueryString["Code"] != null)
             {
@@ -555,10 +535,18 @@ namespace Portal
                 InsertQuestionReplyCond.Code = Guid.NewGuid().ToString();
                 InsertQuestionReplyCond.QuestionMainCode = Request.QueryString["Code"];
                 InsertQuestionReplyCond.Key1 = _User.EmpId;
-                InsertQuestionReplyCond.Key2 = _User.EmpId;
+                if (_User.RoleKey == 2)
+                {
+                    InsertQuestionReplyCond.Key2 = "Admin";
+                }
+                else if(_User.RoleKey==8)
+                {
+                    InsertQuestionReplyCond.Key2 = "Hr";
+                }
+               
                 InsertQuestionReplyCond.Key3 = _User.EmpId;
                 InsertQuestionReplyCond.Name = _User.EmpName;
-                InsertQuestionReplyCond.Content = txtContent.Text;
+                InsertQuestionReplyCond.Content = txtContent.Text.Replace("\r\n", "<br/>");
                 if (_User.RoleKey == 2)
                 {
                     InsertQuestionReplyCond.RoleKey = 2;
@@ -590,6 +578,11 @@ namespace Portal
                 else
                 {
                     InsertQuestionReplyCond.RoleKey = Int32.Parse(RadioFourth.Value);
+                    if (txtReturnS.Text != ""&& txtReturnS.Text != null)
+                    {
+                        InsertQuestionReplyCond.Content = "@" + txtReturnS.Text +" "+InsertQuestionReplyCond.Content;
+                    }
+                   
                 }
 
 
@@ -617,6 +610,7 @@ namespace Portal
                 }
                 else
                 {
+                    APIResult Result = new APIResult();
                     if (Draft != null)
                     {
                         var oUpdateQuestionReplySend = new ShareUpdateQuestionReplySendDao();
@@ -626,7 +620,7 @@ namespace Portal
                         UpdateQuestionReplySendCond.CompanySetting = CompanySetting;
                         UpdateQuestionReplySendCond.Code = Draft.Code;
                         UpdateQuestionReplySendCond.SetSend = true;
-                        oUpdateQuestionReplySend.GetData(UpdateQuestionReplySendCond);
+                        Result=oUpdateQuestionReplySend.GetData(UpdateQuestionReplySendCond);
                         var oUpdateQuestionReplyContent = new ShareUpdateQuestionReplyContentDao();
                         var UpdateQuestionReplyContentCond = new ShareUpdateQuestionReplyContentConditions();
                         UpdateQuestionReplyContentCond.AccessToken = _User.AccessToken;
@@ -634,13 +628,13 @@ namespace Portal
                         UpdateQuestionReplyContentCond.CompanySetting = CompanySetting;
                         UpdateQuestionReplyContentCond.Code = Draft.Code;
                         UpdateQuestionReplyContentCond.Content = txtContent.Text;
-                        oUpdateQuestionReplyContent.GetData(UpdateQuestionReplyContentCond);
+                        Result=oUpdateQuestionReplyContent.GetData(UpdateQuestionReplyContentCond);
                         DraftStatus.InnerText = "";
                     }
                     else
                     {
                         InsertQuestionReplyCond.Send = true;
-                        oInsertQuestionReply.GetData(InsertQuestionReplyCond);
+                        Result = oInsertQuestionReply.GetData(InsertQuestionReplyCond);
                         DraftStatus.InnerText = "";
                     }
                     
@@ -682,21 +676,31 @@ namespace Portal
                     UpdateQuestionMainCond.CompanySetting = CompanySetting;
                     UpdateQuestionMainCond.Code = Request.QueryString["Code"];
                     oUpdateQuestionMain.GetData(UpdateQuestionMainCond);
-                           
-                                 
-                    var oSendMail = new ShareSendQueueDao();
-                    MailAddress address = new MailAddress("AronChen1211@gmail.com");                   
-                    oSendMail.SendMail(address,"回報單回覆測試", "");
-                }
 
-                
+                    if (Result.Status)
+                    {
+                        var oSendMail = new ShareSendQueueDao();
+                        MailAddress address = new MailAddress("aron@jbjob.com.tw");
+                        var Subject = "";
+                        var Body = "";
+                        var oShareMail = new ShareMailDao();
+                        var dcParameter = new Dictionary<string, string>();
+                        dcParameter.Add("MainCode", Request.QueryString["Code"]);
+                        oShareMail.OutMailContent(out Subject, out Body, "02", 0, true, dcParameter);
+                        oSendMail.SendMail(address, Subject, Body, true);
+                        if (RadioFourth.Checked.Value)
+                        {
+                            Subject = "";
+                            Body = "";
+                            dcParameter.Add("ReplyToUserCode", txtReturnS.SelectedValue);
+                            oShareMail.OutMailContent(out Subject, out Body, "05", 0, true, dcParameter);
+                            oSendMail.SendMail(address, Subject, Body, true);
+                        }    
+                    }                   
+                }                
                 QuestionReplyData.Rebind();
 
-                
-                RadioFirst.Checked = true;
-                RadioSecond.Checked = false;
-                RadioThird.Checked = false;
-                RadioFourth.Checked = false;
+               
                 DraftStatus.InnerText = "";
             }
         }

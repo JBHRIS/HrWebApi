@@ -355,7 +355,7 @@ namespace Portal
                 SetName1(li);
             //else if (txtNameAgent1.Text.Trim().Length > 0)
             //    SetName1(txtNameAgent1.Text);
-            
+
 
         }
         private void SetName1(RadComboBoxItem li)
@@ -777,6 +777,20 @@ namespace Portal
         }
         protected void gvAppS_DataBound(object sender, EventArgs e)
         {
+            int count = 0;
+            foreach (var item in gvAppS.Items)
+            {
+                var No = item.FindControl("lblListNumber") as RadLabel;
+                if (No != null)
+                {
+                    count++;
+                    No.Text = count.ToString();
+                }
+                
+            }
+            var lblAbsCount = gvAppS.FindControl("lblCount") as RadLabel;
+            if (lblAbsCount != null)
+                lblAbsCount.Text = count.ToString();
         }
         protected void gvAppS_ItemCommand(object sender, RadListViewCommandEventArgs e)
         {

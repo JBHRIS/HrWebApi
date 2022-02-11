@@ -101,6 +101,7 @@
                         <tbody id="Container" runat="server">
                         </tbody>
                         <tfoot>
+                        <div>總共新增：<strong><telerik:RadLabel ID="lblCount" runat="server"  /></strong> 筆資料</div>
                             <tr>
                                 <td colspan="5">
                                     <ul class="pagination float-right"></ul>
@@ -114,6 +115,7 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <h3>
+                                    <span class="label label-primary m-r-sm"><telerik:RadLabel ID="lblListNumber" runat="server"  /></span>
                                     <%# Eval("EmpName") %>,
                                     <%# Eval("EmpId") %>
                                 </h3>
@@ -131,7 +133,7 @@
                                         <telerik:RadLabel runat="server" ID="lblEndDateDic" Text="結束日期"></telerik:RadLabel>：<%# Eval("DateE","{0:yyyy/MM/dd}") %>
                                     </div>
                                     <div class="col-6 col-lg-3">
-                                        <telerik:RadLabel runat="server" ID="lblEndTimeDic" Text="開始時間"></telerik:RadLabel>：<%# Eval("TimeE") %>
+                                        <telerik:RadLabel runat="server" ID="lblEndTimeDic" Text="結束時間"></telerik:RadLabel>：<%# Eval("TimeE") %>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -207,7 +209,7 @@
     </div>
     <div class="ibox" style="padding: 20px 0px 0px 0px">
         <div class="ibox-title">
-            <h5>申請資訊</h5>
+            <h5><telerik:RadLabel runat="server" ID="lblApplicationInfoDic" Text="申請資訊"></telerik:RadLabel></h5>
             <div class="ibox-tools">
                 <a class="collapse-link">
                     <i class="fa fa-chevron-up"></i>
@@ -218,7 +220,7 @@
             <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server">
                 <div class="form-group row">
                     <asp:panel runat="server" ID="plName" CssClass="col-md-3">
-                        <label class=" col-form-label">被申請人姓名</label>
+                        <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblRespondentNameDic" Text="被申請人姓名"></telerik:RadLabel></label>
                         <telerik:RadComboBox ID="txtNameAppS" runat="server" Culture="zh-TW" AllowCustomText="True" Skin="Bootstrap"
                             AutoPostBack="True" EnableVirtualScrolling="True" ItemsPerRequest="10" Filter="Contains"
                             LoadingMessage="載入中…" Width="100%" OnDataBound="txtNameAppS_DataBound"
@@ -227,7 +229,7 @@
                     </asp:panel>
 
                     <asp:panel runat="server" ID="plAgent" CssClass="col-md-3">
-                        <label class=" col-form-label">代理人</label>
+                        <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblAgentDic" Text="代理人"></telerik:RadLabel></label>
                         <telerik:RadComboBox ID="txtNameAgent1" runat="server" Culture="zh-TW" AllowCustomText="True" Skin="Bootstrap"
                             AutoPostBack="True" EnableVirtualScrolling="True" ItemsPerRequest="10" Filter="Contains"
                             LoadingMessage="載入中…" Width="100%" OnDataBound="txtNameAgent1_DataBound" OnSelectedIndexChanged="txtNameAgent1_SelectedIndexChanged"
@@ -236,39 +238,39 @@
                     </asp:panel>
 
                     <div class="col-md-6">
-                        <label class="col-form-label">請假類別</label>
+                        <label class="col-form-label"><telerik:RadLabel runat="server" ID="lblAbsenceTypeDic" Text="請假類別"></telerik:RadLabel></label>
                         <telerik:RadComboBox ID="txtHcode" runat="server" Culture="zh-TW" EnableVirtualScrolling="True" Skin="Bootstrap"
                             ItemsPerRequest="10" LoadingMessage="載入中…" AutoPostBack="True" Width="100%" OnSelectedIndexChanged="txtHcode_SelectedIndexChanged">
                         </telerik:RadComboBox>
-                        <telerik:RadLabel ID="lblBalance" runat="server" Text="剩餘"></telerik:RadLabel>
-                        <telerik:RadLabel ID="lblBalanceUnit" runat="server" Text="單位"></telerik:RadLabel>
+                        <telerik:RadLabel ID="lblBalanceDic" runat="server" Text="剩餘"></telerik:RadLabel>
+                        <telerik:RadLabel ID="lblUnitDic" runat="server" Text="單位"></telerik:RadLabel>
                     </div>
 
 
                 </div>
                 <div class="form-group row">
                     <div class="col-md-3" id="data_1">
-                        <label class=" col-form-label">開始日期</label>
+                        <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblBeginDateDic" Text="開始日期"></telerik:RadLabel></label>
                         <telerik:RadDatePicker ID="txtDateB" runat="server" AutoPostBack="True" Skin="Bootstrap" Width="100%"
                             OnSelectedDateChanged="txtDateB_SelectedDateChanged">
                         </telerik:RadDatePicker>
                     </div>
 
                     <div class="col-md-3" id="data_2">
-                        <label class=" col-form-label">結束日期</label>
+                        <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblEndDateDic" Text="結束日期"></telerik:RadLabel></label>
                         <telerik:RadDatePicker ID="txtDateE" runat="server" AutoPostBack="True" Skin="Bootstrap" Width="100%">
                         </telerik:RadDatePicker>
                     </div>
 
                     <div class="col-md-3">
-                        <label class=" col-form-label">開始時間</label>
+                        <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblBeginTimeDic" Text="開始時間"></telerik:RadLabel></label>
                         <telerik:RadMaskedTextBox ID="txtTimeB" runat="server" Mask="####" Width="100%" Skin="Bootstrap">
                         </telerik:RadMaskedTextBox>
 
                     </div>
 
                     <div class="col-md-3">
-                        <label class=" col-form-label">結束時間</label>
+                        <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblEndTimeDic" Text="結束時間"></telerik:RadLabel></label>
                         <%--<div class="input-group clockpicker" data-autoclose="true">
                                         <telerik:RadLabel type="text" class="form-control" value="17:30">
                                         <span class="input-group-addon">
@@ -282,7 +284,7 @@
                 <div class="form-group row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class=" col-form-label">原因</label>
+                            <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblReasonDic" Text="原因"></telerik:RadLabel></label>
                             <telerik:RadTextBox ID="txtNote" runat="server" EmptyMessage="請輸入您的原因..."
                                 TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="3">
                             </telerik:RadTextBox>
@@ -291,7 +293,7 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class=" col-form-label">交辦事項</label>
+                            <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblAgentNoteDic" Text="交辦事項"></telerik:RadLabel></label>
                             <telerik:RadTextBox ID="txtAgent" runat="server" EmptyMessage="請填寫您的交辦事項..."
                                 TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="3">
                             </telerik:RadTextBox>
@@ -300,7 +302,7 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-md-12">
-                        <label class=" col-form-label">備註事項：</label>
+                        <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblNoteDic" Text="備註事項"></telerik:RadLabel>：</label>
                         <telerik:RadLabel ID="lblFormNoteStd" runat="server" class="form-control"></telerik:RadLabel>
                     </div>
                 </div>

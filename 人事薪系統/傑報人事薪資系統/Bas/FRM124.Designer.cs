@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridViewEx1 = new JBControls.DataGridView();
             this.jOBODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,8 +77,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(636, 452);
-            this.splitContainer1.SplitterDistance = 307;
+            this.splitContainer1.Size = new System.Drawing.Size(626, 441);
+            this.splitContainer1.SplitterDistance = 296;
             this.splitContainer1.TabIndex = 0;
             // 
             // dataGridViewEx1
@@ -88,14 +88,14 @@
             this.dataGridViewEx1.AllowUserToResizeRows = false;
             this.dataGridViewEx1.AutoGenerateColumns = false;
             this.dataGridViewEx1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("細明體", 9F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewEx1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("細明體", 9F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewEx1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewEx1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEx1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.jOBODataGridViewTextBoxColumn,
@@ -111,7 +111,7 @@
             this.dataGridViewEx1.RowHeadersVisible = false;
             this.dataGridViewEx1.RowTemplate.Height = 24;
             this.dataGridViewEx1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewEx1.Size = new System.Drawing.Size(636, 307);
+            this.dataGridViewEx1.Size = new System.Drawing.Size(626, 296);
             this.dataGridViewEx1.TabIndex = 7;
             // 
             // jOBODataGridViewTextBoxColumn
@@ -169,7 +169,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.fullDataCtrl1);
-            this.splitContainer2.Size = new System.Drawing.Size(636, 141);
+            this.splitContainer2.Size = new System.Drawing.Size(626, 141);
             this.splitContainer2.SplitterDistance = 61;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -183,7 +183,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(636, 61);
+            this.panel1.Size = new System.Drawing.Size(626, 61);
             this.panel1.TabIndex = 0;
             // 
             // textBox2
@@ -268,6 +268,7 @@
             this.fullDataCtrl1.DataSource = this.jOBOBindingSource;
             this.fullDataCtrl1.DeleteType = JBControls.FullDataCtrl.EDeleteType.Delete;
             this.fullDataCtrl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.fullDataCtrl1.EnableAutoClone = false;
             this.fullDataCtrl1.GroupCmd = "";
             this.fullDataCtrl1.Location = new System.Drawing.Point(0, 0);
             this.fullDataCtrl1.Name = "fullDataCtrl1";
@@ -275,10 +276,11 @@
             this.fullDataCtrl1.RecentQuerySql = "";
             this.fullDataCtrl1.SelectCmd = "";
             this.fullDataCtrl1.ShowExceptionMsg = true;
-            this.fullDataCtrl1.Size = new System.Drawing.Size(636, 73);
+            this.fullDataCtrl1.Size = new System.Drawing.Size(626, 73);
             this.fullDataCtrl1.SortFields = "jobs,job_name";
             this.fullDataCtrl1.TabIndex = 0;
             this.fullDataCtrl1.WhereCmd = "";
+            this.fullDataCtrl1.BeforeDel += new JBControls.FullDataCtrl.BeforeEventHandler(this.fullDataCtrl1_BeforeDel);
             this.fullDataCtrl1.AfterDel += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterDel);
             this.fullDataCtrl1.BeforeSave += new JBControls.FullDataCtrl.BeforeEventHandler(this.fullDataCtrl1_BeforeSave);
             this.fullDataCtrl1.AfterSave += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterSave);
@@ -296,7 +298,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(636, 452);
+            this.ClientSize = new System.Drawing.Size(626, 441);
             this.Controls.Add(this.splitContainer1);
             this.KeyPreview = true;
             this.Name = "FRM124";

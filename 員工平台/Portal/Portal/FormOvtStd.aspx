@@ -125,11 +125,13 @@
                                         OnSelectedIndexChanged="txtNameAppS_SelectedIndexChanged" OnTextChanged="txtNameAppS_TextChanged">
                                     </telerik:RadComboBox>
                                 </div>
+                                <asp:Panel runat="server" Visible="false">
                                 <div class="col-md-3">
                                     <label class="col-form-label">加班班別</label>
                                     <telerik:RadComboBox ID="ddlRote" runat="server" Culture="zh-TW" EnableVirtualScrolling="True" ItemsPerRequest="10" LoadingMessage="載入中…" Width="100%" Skin="Bootstrap">
                                     </telerik:RadComboBox>
                                 </div>
+                                    </asp:Panel>
                                 <div class="col-md-3">
                                     <label class="col-form-label">申請原因</label>
                                     <telerik:RadComboBox ID="ddlOtrcd" runat="server" Culture="zh-TW" EnableVirtualScrolling="True" ItemsPerRequest="10" LoadingMessage="載入中…" Width="100%" Skin="Bootstrap">
@@ -138,6 +140,11 @@
                                 <div class="col-md-3">
                                     <label class="col-form-label">加班部門</label>
                                     <telerik:RadComboBox ID="ddlDepts" runat="server" Culture="zh-TW" EnableVirtualScrolling="True" ItemsPerRequest="10" LoadingMessage="載入中…" Width="100%" Skin="Bootstrap">
+                                    </telerik:RadComboBox>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class=" col-form-label">給付方式</label>
+                                    <telerik:RadComboBox ID="ddlOtCat" runat="server" Culture="zh-TW" EnableVirtualScrolling="True" ItemsPerRequest="10" LoadingMessage="載入中…" Width="100%" Skin="Bootstrap">
                                     </telerik:RadComboBox>
                                 </div>
                             </div>
@@ -156,14 +163,14 @@
                                     </telerik:RadDatePicker>
                                 </div>
 
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <label class=" col-form-label">開始時間</label>
                                     <telerik:RadMaskedTextBox ID="txtTimeB" runat="server" Mask="####" Width="100%" Skin="Bootstrap">
                                     </telerik:RadMaskedTextBox>
 
                                 </div>
 
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <label class=" col-form-label">結束時間</label>
                                     <%--<div class="input-group clockpicker" data-autoclose="true">
                                         <telerik:RadLabel type="text" class="form-control" value="17:30">
@@ -174,11 +181,7 @@
                                     <telerik:RadMaskedTextBox ID="txtTimeE" runat="server" Mask="####" Width="100%" Skin="Bootstrap">
                                     </telerik:RadMaskedTextBox>
                                 </div>
-                                <div class="col-md-2">
-                                    <label class=" col-form-label">給付方式</label>
-                                    <telerik:RadComboBox ID="ddlOtCat" runat="server" Culture="zh-TW" EnableVirtualScrolling="True" ItemsPerRequest="10" LoadingMessage="載入中…" Width="100%" Skin="Bootstrap">
-                                    </telerik:RadComboBox>
-                                </div>
+                                
                             </div>
                             <div class="form-group row">
                                 

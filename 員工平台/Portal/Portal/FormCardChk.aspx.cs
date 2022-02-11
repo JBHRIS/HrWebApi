@@ -52,6 +52,7 @@ namespace Portal
                         lblProcessID.Text = rsProcessFlowID.ProcessFlow_id.ToString();
                 }
                 gvAppS.Rebind();
+                lvSignM.Rebind();
             }
 
         }

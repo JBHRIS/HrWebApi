@@ -54,10 +54,12 @@
             </div>
             <telerik:RadLabel ID="lblMsg" runat="server" />
             <telerik:RadButton ID="btnSubmit" runat="server" Text="登入" OnClick="btnSubmit_Click" CssClass="btn btn-primary block full-width m-b" />
-            <telerik:RadButton runat="server" Text="直接登入A0550(Admin)" OnClick="btnSpeedLogin_Click" CommandName="A0550" CommandArgument="FAYA0550" CssClass="btn btn-primary block full-width m-b" />
+            <%--<telerik:RadButton runat="server" Text="直接登入A0550(Admin)" OnClick="btnSpeedLogin_Click" CommandName="A0550" CommandArgument="FAYA0550" CssClass="btn btn-primary block full-width m-b" />
             <telerik:RadButton runat="server" Text="直接登入A0902(HR)" OnClick="btnSpeedLogin_Click" CommandName="A0902" CommandArgument="0000" CssClass="btn btn-primary block full-width m-b" />
-            <telerik:RadButton runat="server" Text="直接登入A1357(Emp)" OnClick="btnSpeedLogin_Click" CommandName="A1357" CommandArgument="0000" CssClass="btn btn-primary block full-width m-b" />
-
+            <telerik:RadButton runat="server" Text="直接登入A1357(Emp)" OnClick="btnSpeedLogin_Click" CommandName="A1357" CommandArgument="0000" CssClass="btn btn-primary block full-width m-b" />--%>
+       <telerik:RadButton runat="server" Text="直接登入Aron(Admin)" OnClick="btnSpeedLogin_Click" CommandName="Aron" CommandArgument="JB8421" CssClass="btn btn-primary block full-width m-b" />
+            <telerik:RadButton runat="server" Text="直接登入Alan(HR)" OnClick="btnSpeedLogin_Click" CommandName="Alan" CommandArgument="JB8421" CssClass="btn btn-primary block full-width m-b" />
+            <telerik:RadButton runat="server" Text="直接登入John(Emp)" OnClick="btnSpeedLogin_Click" CommandName="John" CommandArgument="JB8421" CssClass="btn btn-primary block full-width m-b" />
             <a href="LoginForgotPassword.aspx"><small>忘記密碼？</small></a>
         </telerik:RadAjaxPanel>
     </div>

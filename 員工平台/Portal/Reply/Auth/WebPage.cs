@@ -10,7 +10,7 @@ using System.Web;
 
 public class WebPage : System.Web.UI.Page
 {
-    public static string _SystemCode = "Portal";
+    public static string _SystemCode = "Reply";
     public static string _Language = "zh-TW";
 
     private static string ShareConnectionStrings

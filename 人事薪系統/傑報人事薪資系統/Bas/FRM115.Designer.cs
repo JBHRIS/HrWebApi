@@ -29,18 +29,11 @@
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridViewEx1 = new JBControls.DataGridView();
-            this.JOB_DISP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jOBNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.JOB_ENAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jOBLBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.jOBLBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.basDS = new JBHR.Bas.BasDS();
-            this.jOBLEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jOBBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -59,6 +52,13 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.jOBTableAdapter = new JBHR.Bas.BasDSTableAdapters.JOBTableAdapter();
             this.jOBLTableAdapter = new JBHR.Bas.BasDSTableAdapters.JOBLTableAdapter();
+            this.JOB_DISP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jOBNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.JOB_ENAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jOBLBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.jOBLEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -100,14 +100,14 @@
             this.dataGridViewEx1.AllowUserToResizeRows = false;
             this.dataGridViewEx1.AutoGenerateColumns = false;
             this.dataGridViewEx1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("細明體", 9F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewEx1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("細明體", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewEx1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewEx1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEx1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.JOB_DISP,
@@ -129,44 +129,6 @@
             this.dataGridViewEx1.Size = new System.Drawing.Size(784, 381);
             this.dataGridViewEx1.TabIndex = 7;
             // 
-            // JOB_DISP
-            // 
-            this.JOB_DISP.DataPropertyName = "JOB_DISP";
-            this.JOB_DISP.HeaderText = "職務代碼";
-            this.JOB_DISP.Name = "JOB_DISP";
-            this.JOB_DISP.ReadOnly = true;
-            this.JOB_DISP.Width = 78;
-            // 
-            // jOBNAMEDataGridViewTextBoxColumn
-            // 
-            this.jOBNAMEDataGridViewTextBoxColumn.DataPropertyName = "JOB_NAME";
-            this.jOBNAMEDataGridViewTextBoxColumn.HeaderText = "中文職務名稱";
-            this.jOBNAMEDataGridViewTextBoxColumn.Name = "jOBNAMEDataGridViewTextBoxColumn";
-            this.jOBNAMEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.jOBNAMEDataGridViewTextBoxColumn.Width = 102;
-            // 
-            // JOB_ENAME
-            // 
-            this.JOB_ENAME.DataPropertyName = "JOB_ENAME";
-            this.JOB_ENAME.HeaderText = "英文職務名稱";
-            this.JOB_ENAME.Name = "JOB_ENAME";
-            this.JOB_ENAME.ReadOnly = true;
-            this.JOB_ENAME.Width = 102;
-            // 
-            // jOBLBDataGridViewTextBoxColumn
-            // 
-            this.jOBLBDataGridViewTextBoxColumn.DataPropertyName = "JOBLB";
-            this.jOBLBDataGridViewTextBoxColumn.DataSource = this.jOBLBindingSource;
-            this.jOBLBDataGridViewTextBoxColumn.DisplayMember = "JOBL_DISP";
-            this.jOBLBDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.jOBLBDataGridViewTextBoxColumn.HeaderText = "開始職等";
-            this.jOBLBDataGridViewTextBoxColumn.Name = "jOBLBDataGridViewTextBoxColumn";
-            this.jOBLBDataGridViewTextBoxColumn.ReadOnly = true;
-            this.jOBLBDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.jOBLBDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.jOBLBDataGridViewTextBoxColumn.ValueMember = "JOBL";
-            this.jOBLBDataGridViewTextBoxColumn.Width = 78;
-            // 
             // jOBLBindingSource
             // 
             this.jOBLBindingSource.DataMember = "JOBL";
@@ -178,36 +140,6 @@
             this.basDS.Locale = new System.Globalization.CultureInfo("");
             this.basDS.RemotingFormat = System.Data.SerializationFormat.Binary;
             this.basDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // jOBLEDataGridViewTextBoxColumn
-            // 
-            this.jOBLEDataGridViewTextBoxColumn.DataPropertyName = "JOBLE";
-            this.jOBLEDataGridViewTextBoxColumn.DataSource = this.jOBLBindingSource;
-            this.jOBLEDataGridViewTextBoxColumn.DisplayMember = "JOBL_DISP";
-            this.jOBLEDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.jOBLEDataGridViewTextBoxColumn.HeaderText = "截止職等";
-            this.jOBLEDataGridViewTextBoxColumn.Name = "jOBLEDataGridViewTextBoxColumn";
-            this.jOBLEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.jOBLEDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.jOBLEDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.jOBLEDataGridViewTextBoxColumn.ValueMember = "JOBL";
-            this.jOBLEDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // kEYMANDataGridViewTextBoxColumn
-            // 
-            this.kEYMANDataGridViewTextBoxColumn.DataPropertyName = "KEY_MAN";
-            this.kEYMANDataGridViewTextBoxColumn.HeaderText = "登錄者";
-            this.kEYMANDataGridViewTextBoxColumn.Name = "kEYMANDataGridViewTextBoxColumn";
-            this.kEYMANDataGridViewTextBoxColumn.ReadOnly = true;
-            this.kEYMANDataGridViewTextBoxColumn.Width = 66;
-            // 
-            // kEYDATEDataGridViewTextBoxColumn
-            // 
-            this.kEYDATEDataGridViewTextBoxColumn.DataPropertyName = "KEY_DATE";
-            this.kEYDATEDataGridViewTextBoxColumn.HeaderText = "登錄日期";
-            this.kEYDATEDataGridViewTextBoxColumn.Name = "kEYDATEDataGridViewTextBoxColumn";
-            this.kEYDATEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.kEYDATEDataGridViewTextBoxColumn.Width = 78;
             // 
             // jOBBindingSource
             // 
@@ -279,12 +211,12 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 12);
             this.label6.TabIndex = 12;
-            this.label6.Text = "英文職務名稱";
+            this.label6.Text = "英文職稱名稱";
             // 
             // textBox4
             // 
             this.textBox4.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.textBox4.CaptionLabel = this.label6;
+            this.textBox4.CaptionLabel = null;
             this.textBox4.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.jOBBindingSource, "JOB_ENAME", true));
             this.textBox4.DecimalPlace = 2;
@@ -323,7 +255,7 @@
             // textBox2
             // 
             this.textBox2.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.textBox2.CaptionLabel = this.label2;
+            this.textBox2.CaptionLabel = null;
             this.textBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.jOBBindingSource, "JOB_NAME", true));
             this.textBox2.DecimalPlace = 2;
@@ -347,12 +279,12 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 12);
             this.label2.TabIndex = 2;
-            this.label2.Text = "中文職務名稱";
+            this.label2.Text = "中文職稱名稱";
             // 
             // textBox1
             // 
             this.textBox1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.textBox1.CaptionLabel = this.label1;
+            this.textBox1.CaptionLabel = null;
             this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.jOBBindingSource, "JOB_DISP", true));
             this.textBox1.DecimalPlace = 2;
@@ -376,7 +308,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 0;
-            this.label1.Text = "職務代碼";
+            this.label1.Text = "職稱代碼";
             // 
             // btnCodeGroup
             // 
@@ -425,6 +357,7 @@
             this.fullDataCtrl1.SortFields = "job,job_name,workamt";
             this.fullDataCtrl1.TabIndex = 0;
             this.fullDataCtrl1.WhereCmd = "";
+            this.fullDataCtrl1.BeforeDel += new JBControls.FullDataCtrl.BeforeEventHandler(this.fullDataCtrl1_BeforeDel);
             this.fullDataCtrl1.AfterDel += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterDel);
             this.fullDataCtrl1.BeforeSave += new JBControls.FullDataCtrl.BeforeEventHandler(this.fullDataCtrl1_BeforeSave);
             this.fullDataCtrl1.AfterSave += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterSave);
@@ -442,6 +375,74 @@
             // jOBLTableAdapter
             // 
             this.jOBLTableAdapter.ClearBeforeFill = true;
+            // 
+            // JOB_DISP
+            // 
+            this.JOB_DISP.DataPropertyName = "JOB_DISP";
+            this.JOB_DISP.HeaderText = "職稱代碼";
+            this.JOB_DISP.Name = "JOB_DISP";
+            this.JOB_DISP.ReadOnly = true;
+            this.JOB_DISP.Width = 78;
+            // 
+            // jOBNAMEDataGridViewTextBoxColumn
+            // 
+            this.jOBNAMEDataGridViewTextBoxColumn.DataPropertyName = "JOB_NAME";
+            this.jOBNAMEDataGridViewTextBoxColumn.HeaderText = "中文職稱名稱";
+            this.jOBNAMEDataGridViewTextBoxColumn.Name = "jOBNAMEDataGridViewTextBoxColumn";
+            this.jOBNAMEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.jOBNAMEDataGridViewTextBoxColumn.Width = 102;
+            // 
+            // JOB_ENAME
+            // 
+            this.JOB_ENAME.DataPropertyName = "JOB_ENAME";
+            this.JOB_ENAME.HeaderText = "英文職稱名稱";
+            this.JOB_ENAME.Name = "JOB_ENAME";
+            this.JOB_ENAME.ReadOnly = true;
+            this.JOB_ENAME.Width = 102;
+            // 
+            // jOBLBDataGridViewTextBoxColumn
+            // 
+            this.jOBLBDataGridViewTextBoxColumn.DataPropertyName = "JOBLB";
+            this.jOBLBDataGridViewTextBoxColumn.DataSource = this.jOBLBindingSource;
+            this.jOBLBDataGridViewTextBoxColumn.DisplayMember = "JOBL_DISP";
+            this.jOBLBDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.jOBLBDataGridViewTextBoxColumn.HeaderText = "開始職等";
+            this.jOBLBDataGridViewTextBoxColumn.Name = "jOBLBDataGridViewTextBoxColumn";
+            this.jOBLBDataGridViewTextBoxColumn.ReadOnly = true;
+            this.jOBLBDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.jOBLBDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.jOBLBDataGridViewTextBoxColumn.ValueMember = "JOBL";
+            this.jOBLBDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // jOBLEDataGridViewTextBoxColumn
+            // 
+            this.jOBLEDataGridViewTextBoxColumn.DataPropertyName = "JOBLE";
+            this.jOBLEDataGridViewTextBoxColumn.DataSource = this.jOBLBindingSource;
+            this.jOBLEDataGridViewTextBoxColumn.DisplayMember = "JOBL_DISP";
+            this.jOBLEDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.jOBLEDataGridViewTextBoxColumn.HeaderText = "截止職等";
+            this.jOBLEDataGridViewTextBoxColumn.Name = "jOBLEDataGridViewTextBoxColumn";
+            this.jOBLEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.jOBLEDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.jOBLEDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.jOBLEDataGridViewTextBoxColumn.ValueMember = "JOBL";
+            this.jOBLEDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // kEYMANDataGridViewTextBoxColumn
+            // 
+            this.kEYMANDataGridViewTextBoxColumn.DataPropertyName = "KEY_MAN";
+            this.kEYMANDataGridViewTextBoxColumn.HeaderText = "登錄者";
+            this.kEYMANDataGridViewTextBoxColumn.Name = "kEYMANDataGridViewTextBoxColumn";
+            this.kEYMANDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kEYMANDataGridViewTextBoxColumn.Width = 66;
+            // 
+            // kEYDATEDataGridViewTextBoxColumn
+            // 
+            this.kEYDATEDataGridViewTextBoxColumn.DataPropertyName = "KEY_DATE";
+            this.kEYDATEDataGridViewTextBoxColumn.HeaderText = "登錄日期";
+            this.kEYDATEDataGridViewTextBoxColumn.Name = "kEYDATEDataGridViewTextBoxColumn";
+            this.kEYDATEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kEYDATEDataGridViewTextBoxColumn.Width = 78;
             // 
             // FRM115
             // 
@@ -504,5 +505,5 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn jOBLEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kEYMANDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kEYDATEDataGridViewTextBoxColumn;
-	}
+    }
 }

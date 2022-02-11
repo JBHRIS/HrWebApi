@@ -13,6 +13,7 @@ using Dal.Dao.Flow;
 using System.Windows;
 using Bll.Files.Vdb;
 using Dal.Dao.Files;
+using System.Net.Mail;
 
 namespace Portal
 {
@@ -73,7 +74,7 @@ namespace Portal
                 lblAddStatus.InnerText = "未輸入標題或回報內容";
                 return;
             }
-            if (txtTitle.Text.Length > 30 || txtContent.Text.Length > 80)
+            if (txtTitle.Text.Length > 30 || txtContent.Text.Length > 200)
             {
                 lblAddStatus.InnerText = "標題或內容長度過長";
                 return;
@@ -85,10 +86,22 @@ namespace Portal
             InsertQuestionCond.CompanyId = _User.CompanyId;
             InsertQuestionCond.Code = UnobtrusiveSession.Session["FormGuidCode"].ToString();
             InsertQuestionCond.SystemCategoryCode = "1";          
-            InsertQuestionCond.Key1 = lblEmpID.Text;
-            InsertQuestionCond.Key2 = lblEmpID.Text;
-            InsertQuestionCond.Key3 = lblEmpID.Text;
-            InsertQuestionCond.Name = lblEmpName.Text;
+            InsertQuestionCond.Key1 = _User.EmpId;
+            if (_User.RoleKey == 2)
+            {
+                InsertQuestionCond.Key2 = "Admin";
+            }
+            else if (_User.RoleKey == 8)
+            {
+                InsertQuestionCond.Key2 = "Hr";
+            }
+            else if (_User.RoleKey == 64)
+            {
+                InsertQuestionCond.Key2 = "User";
+            }
+
+            InsertQuestionCond.Key3 = _User.EmpId;
+            InsertQuestionCond.Name = _User.EmpName;
             InsertQuestionCond.TitleContent = txtTitle.Text;
             InsertQuestionCond.Content = txtContent.Text;
             InsertQuestionCond.QuestionCategoryCode = txtReturnS.SelectedValue;
@@ -106,8 +119,22 @@ namespace Portal
             if (result.Status)
             {
                 lblAddStatus.InnerText = "送出成功!";
-            }
+                var oSendMail = new ShareSendQueueDao();
+                if (_User.EmpEmail != "" && _User.EmpEmail != null)
+                {
+                    MailAddress address = new MailAddress(_User.EmpEmail);
 
+                    var Subject = "";
+                    var Body = "";
+                    var oShareMail = new ShareMailDao();
+                    var dcParameter = new Dictionary<string, string>();
+                    dcParameter.Add("MainCode", UnobtrusiveSession.Session["FormGuidCode"].ToString());
+                    oShareMail.OutMailContent(out Subject, out Body, "01", 0, true, dcParameter);
+                    oSendMail.SendMail(address, Subject, Body, true);
+                }
+                
+            }
+            
             Response.Redirect("ProblemReturnList.aspx");
 
         }

@@ -344,24 +344,26 @@
                                                             </div>
 
                                                             <div class="col-lg-6">
-                                                                <h4 class="p-xs bg-muted text-center">
-                                                                    <telerik:RadLabel runat="server" ID="lblSalaryTitleRetirement"></telerik:RadLabel>
-                                                                </h4>
-                                                                <div class="row">
-                                                                    <telerik:RadListView runat="server" ItemPlaceholderID="Container" ID="lvSalaryBlockRetirement" OnNeedDataSource="lvSalaryBlockRetirement_NeedDataSource">
-                                                                        <LayoutTemplate>
-                                                                            <div class="col-sm-12">
-                                                                                <asp:PlaceHolder ID="Container" runat="server"></asp:PlaceHolder>
-                                                                            </div>
-                                                                            <hr>
-                                                                        </LayoutTemplate>
-                                                                        <ItemTemplate>
-                                                                            <span class="float-left"><%#Eval("Item") %></span><span class="float-right"><%#Eval("Salary") %></span><br />
-                                                                        </ItemTemplate>
-                                                                        <EmptyDataTemplate>
-                                                                        </EmptyDataTemplate>
-                                                                    </telerik:RadListView>
-                                                                </div>
+                                                                <asp:Panel runat="server" ID="plSalaryRetirement">
+                                                                    <h4 class="p-xs bg-muted text-center">
+                                                                        <telerik:RadLabel runat="server" ID="lblSalaryTitleRetirement"></telerik:RadLabel>
+                                                                    </h4>
+                                                                    <div class="row">
+                                                                        <telerik:RadListView runat="server" ItemPlaceholderID="Container" ID="lvSalaryBlockRetirement" OnNeedDataSource="lvSalaryBlockRetirement_NeedDataSource">
+                                                                            <LayoutTemplate>
+                                                                                <div class="col-sm-12">
+                                                                                    <asp:PlaceHolder ID="Container" runat="server"></asp:PlaceHolder>
+                                                                                </div>
+                                                                                <hr>
+                                                                            </LayoutTemplate>
+                                                                            <ItemTemplate>
+                                                                                <span class="float-left"><%#Eval("Item") %></span><span class="float-right"><%#Eval("Salary") %></span><br />
+                                                                            </ItemTemplate>
+                                                                            <EmptyDataTemplate>
+                                                                            </EmptyDataTemplate>
+                                                                        </telerik:RadListView>
+                                                                    </div>
+                                                                </asp:Panel>
                                                             </div>
                                                         </div>
                                                     </div>

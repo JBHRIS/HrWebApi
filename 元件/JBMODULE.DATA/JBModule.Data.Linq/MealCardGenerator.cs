@@ -35,7 +35,7 @@ namespace JBModule.Data
         public void Generate()
         {
             var db = new JBModule.Data.Linq.HrDBDataContext();
-
+            int SplitSize = 1000;
             try
             {
                 var MealTypes = db.MealType.ToList();
@@ -71,30 +71,32 @@ namespace JBModule.Data
                              orderby o.NOBR, o.BDATE
                              select new { 員工編號 = o.NOBR, 加班日期 = o.BDATE, 加起時間 = o.BTIME, 加迄時間 = o.ETIME }).ToList();
 
-                var mealcardtypeSQL = (from mct in db.MealCardType
-                                       where mct.ADATE.CompareTo(_DateBegin) >= 0 && mct.ADATE.CompareTo(_DateEnd) <= 0
-                                       && _EmployeeList.Contains(mct.NOBR)
-                                       select mct).ToList();
-
                 var MealGroupList = db.GetUserDefineValueList("MealGroup").ToList();
 
-                //BW.ReportProgress(0, "正在刪除資料...");
-                var deleteSql = (from mct in db.MealCardType
-                                 where mct.ADATE.Date.CompareTo(_DateBegin) >= 0 && mct.ADATE.Date.CompareTo(_DateEnd) <= 0
-                                 && _EmployeeList.Contains(mct.NOBR)
-                                 && !mct.NoTrans
-                                 select mct).ToList();
-                db.MealCardType.DeleteAllOnSubmit(deleteSql);
-                //db.SubmitChanges();
-                var DelMealDeductions = (from dmd in db.MealDeduction
-                                         where dmd.ADATE.Date.CompareTo(_DateBegin) >= 0 && dmd.ADATE.Date.CompareTo(_DateEnd) <= 0
-                                         && _EmployeeList.Contains(dmd.NOBR)
-                                         select dmd).ToList();
-                db.MealDeduction.DeleteAllOnSubmit(DelMealDeductions);
-                db.SubmitChanges();
+                ////BW.ReportProgress(0, "正在刪除資料...");
+                //var deleteSql = (from mct in db.MealCardType
+                //                 where mct.ADATE.Date.CompareTo(_DateBegin) >= 0 && mct.ADATE.Date.CompareTo(_DateEnd) <= 0
+                //                 && _EmployeeList.Contains(mct.NOBR)
+                //                 && !mct.NoTrans
+                //                 select mct).ToList();
+                //db.MealCardType.DeleteAllOnSubmit(deleteSql);
 
-                int total = groupSQL.Count();
-                int count = 0;
+                ////db.SubmitChanges();
+                //var DelMealDeductions = (from dmd in db.MealDeduction
+                //                         where dmd.ADATE.Date.CompareTo(_DateBegin) >= 0 && dmd.ADATE.Date.CompareTo(_DateEnd) <= 0
+                //                         && _EmployeeList.Contains(dmd.NOBR)
+                //                         select dmd).ToList();
+                //db.MealDeduction.DeleteAllOnSubmit(DelMealDeductions);
+                //db.SubmitChanges();
+
+                //var mealcardtypeSQL = (from mct in db.MealCardType
+                //                       where mct.ADATE.CompareTo(_DateBegin) >= 0 && mct.ADATE.CompareTo(_DateEnd) <= 0
+                //                       && _EmployeeList.Contains(mct.NOBR)
+                //                       select mct).ToList();
+
+                //int total = groupSQL.Count();
+                //int count = 0;
+                List<MealCardType> MealCardTypeList = new List<MealCardType>();
                 foreach (var Nobr in groupSQL)
                 {
                     string nobr = Nobr.Key;
@@ -161,29 +163,35 @@ namespace JBModule.Data
                                     }
                                 }
                             }
-                            //if (mealCardType.ADATE >= _DateBegin && mealCardType.ADATE <= _DateEnd)
-                            //{
-                            //    MealCardType mealCardTypeOld = mealcardtypeSQL.Where(p => p.NOBR == FC.員工編號
-                            //                                     && p.ADATE == FC.刷卡日期 && p.BTIME == FC.刷卡時間).FirstOrDefault();
-                            //    if (mealCardTypeOld != null)
-                            //        mealCardTypeOld = mealCardType;
-                            //    else
-                            db.MealCardType.InsertOnSubmit(mealCardType);
-                            //db.SubmitChanges();
-                            //}
+                            //db.MealCardType.InsertOnSubmit(mealCardType);
+                            if (mealCardType.ADATE >= _DateBegin)
+                                MealCardTypeList.Add(mealCardType);
                         }
                     }
-                    db.SubmitChanges();
-
-                    var eatSQL = (from mct in db.MealCardType
-                                  where mct.ADATE.Date.CompareTo(_DateBegin) >= 0 && mct.ADATE.Date.CompareTo(_DateEnd) <= 0
-                                  && _EmployeeList.Contains(mct.NOBR)
-                                  orderby mct.NOBR, mct.ADATE
-                                  select new { 員工編號 = mct.NOBR, 用餐日期 = mct.ADATE, 用餐時間 = mct.BTIME, 用餐群組 = mct.MealGroup, 用餐餐別 = mct.MealType }).ToList();
+                    //db.SubmitChanges();
+                }
+                string MealCardTypeDeleteSql = "DELETE MealCardType WHERE ADATE BETWEEN @BeginDate and @EndDate and NOBR IN @item and NoTrans = 0";
+                string delerrMsg = "※寫入刷卡餐別異常※";
+                foreach (var item in _EmployeeList.Split(SplitSize))
+                {
+                    object param = new { BeginDate = _DateBegin, EndDate = _DateEnd, item };
+                    db.BulkInsertWithDelete(db, MealCardTypeList.Where(p => item.Contains(p.NOBR)), MealCardTypeDeleteSql, param, delerrMsg);
+                }
+                db = new JBModule.Data.Linq.HrDBDataContext();
+                List<MealDeduction> MealDeductionList = new List<MealDeduction>();
+                var eatSQL = (from mct in MealCardTypeList
+                                  //where mct.ADATE.Date.CompareTo(_DateBegin) >= 0 && mct.ADATE.Date.CompareTo(_DateEnd) <= 0
+                                  //&& _EmployeeList.Contains(mct.NOBR)
+                              orderby mct.NOBR, mct.ADATE
+                              select new { 員工編號 = mct.NOBR, 用餐日期 = mct.ADATE, 用餐時間 = mct.BTIME, 用餐群組 = mct.MealGroup, 用餐餐別 = mct.MealType }).ToList();
+                foreach (var Nobr in groupSQL)
+                {
+                    string nobr = Nobr.Key;
+                    var mealgroup = MealGroupList.Where(p => p.Code == Nobr.Key).FirstOrDefault();
+                    string nobrmealgroup = mealgroup != null ? mealgroup.Value : string.Empty;
 
                     var applyRecords = applySQL.Where(p => p.員工編號 == nobr);
-                    var eatRecords = db.MealCardType.Where(p => p.NOBR == nobr && p.ADATE.Date.CompareTo(_DateBegin) >= 0 && p.ADATE.Date.CompareTo(_DateEnd) <= 0)
-                                        .Select(p => new { 員工編號 = p.NOBR, 用餐日期 = p.ADATE, 用餐時間 = p.BTIME, 用餐群組 = p.MealGroup, 用餐餐別 = p.MealType }).ToList();
+                    var eatRecords = eatSQL.Where(p => p.員工編號 == nobr).ToList();
                     var attendRecords = attendSQL.Where(p => p.員工編號 == nobr)
                         .Select(p => new { p.刷卡日期, 起時 = p.刷起時間.CompareTo(p.上班時間) < 0 ? p.上班時間 : p.刷起時間, 迄時 = p.刷迄時間.CompareTo(p.下班時間) > 0 ? p.下班時間 : p.刷迄時間 });
                     var otRecords = otSQL.Where(p => p.員工編號 == nobr);
@@ -256,13 +264,22 @@ namespace JBModule.Data
                                                             && p.Attend == mealDeduction.Attend && p.Apply == mealDeduction.Apply && p.OT == mealDeduction.OT && p.Eat == mealDeduction.Eat).FirstOrDefault();
                                     mealDeduction.AMT = MealCaseSetting != null ? MealCaseSetting.AMT : 0;
                                 }
-                                db.MealDeduction.InsertOnSubmit(mealDeduction);
+                                //db.MealDeduction.InsertOnSubmit(mealDeduction);
+                                MealDeductionList.Add(mealDeduction);
                             }
                         }
                     }
-                    db.SubmitChanges();
-                    count++;
+                    //db.SubmitChanges();
+                    //count++;
                 }
+                string MealDeductionDeleteSql = "DELETE MealDeduction WHERE ADATE BETWEEN @BeginDate and @EndDate and NOBR IN @item";
+                delerrMsg = "※寫入用餐扣款異常※";
+                foreach (var item in _EmployeeList.Split(SplitSize))
+                {
+                    object param = new { BeginDate = _DateBegin, EndDate = _DateEnd, item };
+                    db.BulkInsertWithDelete(db, MealDeductionList.Where(p => item.Contains(p.NOBR)), MealDeductionDeleteSql, param, delerrMsg);
+                }
+
             }
             catch (Exception ex)
             {

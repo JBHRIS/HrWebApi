@@ -18,7 +18,6 @@ namespace Portal
         private dcFlowDataContext dcFlow = new dcFlowDataContext();
         private string _FormCode = "Abn";
         public static List<OldBll.Att.Vdb.AbsDataTable> result = null;
-        //public static List<FormsAppAbscRow> result = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -119,9 +118,9 @@ namespace Portal
             }
             var AbnData = oAttendDao.GetAttendCheckType();
             isEarlyCome.CommandArgument = AbnData[0].Value;
-            isEarlyCome.Text = AbnData[0].Text;
+            //isEarlyCome.Text = AbnData[0].Text;
             isLateOut.CommandArgument = AbnData[1].Value;
-            isLateOut.Text = AbnData[1].Text;
+            //isLateOut.Text = AbnData[1].Text;
         }
         protected void gvAppS_ItemCommand(object sender, RadListViewCommandEventArgs e)
         {
@@ -330,6 +329,69 @@ namespace Portal
 
         protected void gvAppS_DataBound(object sender, EventArgs e)
         {
+            LanguageCookie = Request.Cookies["Language"]?.Value ?? "";
+            var ListView = sender as RadListView;
+            var DataS = ListView.DataSource as List<FormAppAbnRow>;
+            var Count = 0;
+            foreach (var item in ListView.Items)
+            {
+                var isEarlyCheck = item.FindControl("isEarlyCheck") as RadCheckBox;
+                var isLateCheck = item.FindControl("isLateCheck") as RadCheckBox;
+                if (DataS[Count].isEarlyInProcess)
+                {
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        isEarlyCheck.Text = oShareDictionary.TextTranslate("ErrorMsg", "DataInFlow", "1", LanguageCookie);
+                    else
+                        isEarlyCheck.Text = "流程進行中";
+                }
+                else
+                {
+                    if (DataS[Count].EarlyTime == "0")
+                    {
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            isEarlyCheck.Text = oShareDictionary.TextTranslate("ErrorMsg", "NoEarlyRecord", "1", LanguageCookie);
+                        else
+                            isEarlyCheck.Text = "無早到紀錄";
+                    }
+                    else
+                    {
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            isEarlyCheck.Text = oShareDictionary.TextTranslate("ErrorMsg", "Early", "1", LanguageCookie) + DataS[Count].EarlyTime + " minutes";
+                        else
+                            isEarlyCheck.Text = "早到" + DataS[Count].EarlyTime + "分鐘";
+                    }
+                }
+                if (DataS[Count].isEarlyInProcess || DataS[Count].EarlyTime == "0")
+                    isEarlyCheck.Enabled = false;
+                if (DataS[Count].isLateInProcess)
+                {
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        isLateCheck.Text = oShareDictionary.TextTranslate("ErrorMsg", "DataInFlow", "1", LanguageCookie);
+                    else
+                        isLateCheck.Text = "流程進行中";
+                }
+                else
+                {
+                    if (DataS[Count].LateTime == "0")
+                    {
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            isLateCheck.Text = oShareDictionary.TextTranslate("ErrorMsg", "NoLateRecord", "1", LanguageCookie);
+                        else
+                            isLateCheck.Text = "無晚退紀錄";
+                    }
+                    else
+                    {
+
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            isLateCheck.Text = oShareDictionary.TextTranslate("ErrorMsg", "Late", "1", LanguageCookie) + DataS[Count].LateTime + "minutes";
+                        else
+                            isLateCheck.Text = "晚退" + DataS[Count].LateTime + "分鐘";
+                    }
+                }
+                if (DataS[Count].isLateInProcess || DataS[Count].LateTime == "0")
+                    isLateCheck.Enabled = false;
+                Count++;
+            }
         }
     }
 }

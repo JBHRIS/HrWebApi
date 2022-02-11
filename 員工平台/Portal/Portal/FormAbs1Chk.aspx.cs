@@ -54,6 +54,8 @@ namespace Portal
                     if (rsProcessFlowID != null)
                         lblProcessID.Text = rsProcessFlowID.ProcessFlow_id.ToString();
                 }
+                gvAppS.Rebind();
+                lvSignM.Rebind();
             }
         }
         protected void gvAppS_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
