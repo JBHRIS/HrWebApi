@@ -2365,6 +2365,9 @@
     <Content Include="SqlStorage\sql\2022011401_deleteBasettsConstra.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="SqlStorage\sql\2022021601_InsertIntoU_CODE_About_FRM18.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="SqlStorage\sql\AlterSalcode.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

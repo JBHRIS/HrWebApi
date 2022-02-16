@@ -32,6 +32,47 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridViewEx1 = new JBControls.DataGridView();
+            this.dEPTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.basDS = new JBHR.Bas.BasDS();
+            this.dEPTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dEPTABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.jOBBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rOTETBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsAtt = new JBHR.Att.dsAtt();
+            this.jOBSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.jOBLBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bankCodeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.outPostBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.giftVoucherBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bASEALLBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnTemplate = new System.Windows.Forms.Button();
+            this.bnIMPORT = new System.Windows.Forms.Button();
+            this.btnUserDefineImport = new System.Windows.Forms.Button();
+            this.buttonSpL = new System.Windows.Forms.Button();
+            this.fullDataCtrl1 = new JBControls.FullDataCtrl();
+            this.bASEALLTableAdapter = new JBHR.Bas.BasDSTableAdapters.BASEALLTableAdapter();
+            this.dEPTTableAdapter = new JBHR.Bas.BasDSTableAdapters.DEPTTableAdapter();
+            this.dEPTSTableAdapter = new JBHR.Bas.BasDSTableAdapters.DEPTSTableAdapter();
+            this.dEPTATableAdapter = new JBHR.Bas.BasDSTableAdapters.DEPTATableAdapter();
+            this.basDSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.jOBTableAdapter = new JBHR.Bas.BasDSTableAdapters.JOBTableAdapter();
+            this.jOBSTableAdapter = new JBHR.Bas.BasDSTableAdapters.JOBSTableAdapter();
+            this.jOBLTableAdapter = new JBHR.Bas.BasDSTableAdapters.JOBLTableAdapter();
+            this.cOMPBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cOMPTableAdapter = new JBHR.Bas.BasDSTableAdapters.COMPTableAdapter();
+            this.rOTETTableAdapter = new JBHR.Att.dsAttTableAdapters.ROTETTableAdapter();
+            this.bankCodeTableAdapter = new JBHR.Bas.BasDSTableAdapters.BankCodeTableAdapter();
+            this.outPostTableAdapter = new JBHR.Bas.BasDSTableAdapters.OutPostTableAdapter();
+            this.giftVoucherTableAdapter = new JBHR.Bas.BasDSTableAdapters.GiftVoucherTableAdapter();
+            this.eRPCODETableAdapter = new JBHR.Bas.BasDSTableAdapters.ERPCODETableAdapter();
+            this.DisabilityTypebindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DisabilityRankbindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.jOBObindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.jOBOTableAdapter = new JBHR.Bas.BasDSTableAdapters.JOBOTableAdapter();
+            this.hOLICDBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hOLICDTableAdapter = new JBHR.Att.dsAttTableAdapters.HOLICDTableAdapter();
+            this.tTSCDTableAdapter = new JBHR.Bas.BasDSTableAdapters.TTSCDTableAdapter();
+            this.TTSCDBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nOBRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nAMECDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tTSCODEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,26 +89,17 @@
             this.cOMPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cOMPNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dEPTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dEPTBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.basDS = new JBHR.Bas.BasDS();
             this.dEPTNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dEPTSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dEPTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dEPTSNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dEPTMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dEPTABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dEPTMNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jOBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.jOBBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.jOBNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rOTETDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.rOTETBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsAtt = new JBHR.Att.dsAtt();
             this.jOBSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.jOBSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.jOBSNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jOBLDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.jOBLBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.jOBLNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cARDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dIDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,6 +122,7 @@
             this.nOSPECDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.nOCARDDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.nOEATDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.FULATT = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.nOWAGEDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.sALADRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sALNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -105,7 +138,6 @@
             this.TAX_DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TAX_EDATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bANKNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.bankCodeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.aCCOUNTNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aCCOUNTNADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aCCOUNTMADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -153,14 +185,12 @@
             this.DoorGuard = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DoorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OutPost = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.outPostBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.OutPostName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.STATION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gift = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.giftVoucherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DEPT_TREE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TREE_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CandidateWays = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -171,35 +201,6 @@
             this.Introductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aboriginal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Disability = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.bASEALLBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnTemplate = new System.Windows.Forms.Button();
-            this.bnIMPORT = new System.Windows.Forms.Button();
-            this.btnUserDefineImport = new System.Windows.Forms.Button();
-            this.buttonSpL = new System.Windows.Forms.Button();
-            this.fullDataCtrl1 = new JBControls.FullDataCtrl();
-            this.bASEALLTableAdapter = new JBHR.Bas.BasDSTableAdapters.BASEALLTableAdapter();
-            this.dEPTTableAdapter = new JBHR.Bas.BasDSTableAdapters.DEPTTableAdapter();
-            this.dEPTSTableAdapter = new JBHR.Bas.BasDSTableAdapters.DEPTSTableAdapter();
-            this.dEPTATableAdapter = new JBHR.Bas.BasDSTableAdapters.DEPTATableAdapter();
-            this.basDSBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jOBTableAdapter = new JBHR.Bas.BasDSTableAdapters.JOBTableAdapter();
-            this.jOBSTableAdapter = new JBHR.Bas.BasDSTableAdapters.JOBSTableAdapter();
-            this.jOBLTableAdapter = new JBHR.Bas.BasDSTableAdapters.JOBLTableAdapter();
-            this.cOMPBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cOMPTableAdapter = new JBHR.Bas.BasDSTableAdapters.COMPTableAdapter();
-            this.rOTETTableAdapter = new JBHR.Att.dsAttTableAdapters.ROTETTableAdapter();
-            this.bankCodeTableAdapter = new JBHR.Bas.BasDSTableAdapters.BankCodeTableAdapter();
-            this.outPostTableAdapter = new JBHR.Bas.BasDSTableAdapters.OutPostTableAdapter();
-            this.giftVoucherTableAdapter = new JBHR.Bas.BasDSTableAdapters.GiftVoucherTableAdapter();
-            this.eRPCODETableAdapter = new JBHR.Bas.BasDSTableAdapters.ERPCODETableAdapter();
-            this.DisabilityTypebindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DisabilityRankbindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jOBObindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jOBOTableAdapter = new JBHR.Bas.BasDSTableAdapters.JOBOTableAdapter();
-            this.hOLICDBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hOLICDTableAdapter = new JBHR.Att.dsAttTableAdapters.HOLICDTableAdapter();
-            this.tTSCDTableAdapter = new JBHR.Bas.BasDSTableAdapters.TTSCDTableAdapter();
-            this.TTSCDBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -315,6 +316,7 @@
             this.nOSPECDataGridViewCheckBoxColumn,
             this.nOCARDDataGridViewCheckBoxColumn,
             this.nOEATDataGridViewCheckBoxColumn,
+            this.FULATT,
             this.nOWAGEDataGridViewCheckBoxColumn,
             this.sALADRDataGridViewTextBoxColumn,
             this.sALNAMEDataGridViewTextBoxColumn,
@@ -404,6 +406,257 @@
             this.dataGridViewEx1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewEx1.Size = new System.Drawing.Size(883, 481);
             this.dataGridViewEx1.TabIndex = 9;
+            // 
+            // dEPTBindingSource
+            // 
+            this.dEPTBindingSource.DataMember = "DEPT";
+            this.dEPTBindingSource.DataSource = this.basDS;
+            // 
+            // basDS
+            // 
+            this.basDS.DataSetName = "BasDS";
+            this.basDS.Locale = new System.Globalization.CultureInfo("");
+            this.basDS.RemotingFormat = System.Data.SerializationFormat.Binary;
+            this.basDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dEPTSBindingSource
+            // 
+            this.dEPTSBindingSource.DataMember = "DEPTS";
+            this.dEPTSBindingSource.DataSource = this.basDS;
+            // 
+            // dEPTABindingSource
+            // 
+            this.dEPTABindingSource.DataMember = "DEPTA";
+            this.dEPTABindingSource.DataSource = this.basDS;
+            // 
+            // jOBBindingSource
+            // 
+            this.jOBBindingSource.DataMember = "JOB";
+            this.jOBBindingSource.DataSource = this.basDS;
+            // 
+            // rOTETBindingSource
+            // 
+            this.rOTETBindingSource.DataMember = "ROTET";
+            this.rOTETBindingSource.DataSource = this.dsAtt;
+            // 
+            // dsAtt
+            // 
+            this.dsAtt.DataSetName = "dsAtt";
+            this.dsAtt.Locale = new System.Globalization.CultureInfo("zh-TW");
+            this.dsAtt.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // jOBSBindingSource
+            // 
+            this.jOBSBindingSource.DataMember = "JOBS";
+            this.jOBSBindingSource.DataSource = this.basDS;
+            // 
+            // jOBLBindingSource
+            // 
+            this.jOBLBindingSource.DataMember = "JOBL";
+            this.jOBLBindingSource.DataSource = this.basDS;
+            // 
+            // bankCodeBindingSource
+            // 
+            this.bankCodeBindingSource.DataMember = "BankCode";
+            this.bankCodeBindingSource.DataSource = this.basDS;
+            // 
+            // outPostBindingSource
+            // 
+            this.outPostBindingSource.DataMember = "OutPost";
+            this.outPostBindingSource.DataSource = this.basDS;
+            // 
+            // giftVoucherBindingSource
+            // 
+            this.giftVoucherBindingSource.DataMember = "GiftVoucher";
+            this.giftVoucherBindingSource.DataSource = this.basDS;
+            // 
+            // bASEALLBindingSource
+            // 
+            this.bASEALLBindingSource.DataMember = "BASEALL";
+            this.bASEALLBindingSource.DataSource = this.basDS;
+            // 
+            // btnTemplate
+            // 
+            this.btnTemplate.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnTemplate.Location = new System.Drawing.Point(644, 3);
+            this.btnTemplate.Name = "btnTemplate";
+            this.btnTemplate.Size = new System.Drawing.Size(112, 23);
+            this.btnTemplate.TabIndex = 16;
+            this.btnTemplate.TabStop = false;
+            this.btnTemplate.Text = "下載員工資料樣版";
+            this.btnTemplate.UseVisualStyleBackColor = true;
+            this.btnTemplate.Click += new System.EventHandler(this.btnTemplate_Click);
+            // 
+            // bnIMPORT
+            // 
+            this.bnIMPORT.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.bnIMPORT.Location = new System.Drawing.Point(762, 3);
+            this.bnIMPORT.Name = "bnIMPORT";
+            this.bnIMPORT.Size = new System.Drawing.Size(104, 23);
+            this.bnIMPORT.TabIndex = 15;
+            this.bnIMPORT.TabStop = false;
+            this.bnIMPORT.Text = "匯入員工資料";
+            this.bnIMPORT.UseVisualStyleBackColor = true;
+            this.bnIMPORT.Click += new System.EventHandler(this.bnIMPORT_Click);
+            // 
+            // btnUserDefineImport
+            // 
+            this.btnUserDefineImport.Location = new System.Drawing.Point(643, 46);
+            this.btnUserDefineImport.Name = "btnUserDefineImport";
+            this.btnUserDefineImport.Size = new System.Drawing.Size(113, 23);
+            this.btnUserDefineImport.TabIndex = 5;
+            this.btnUserDefineImport.TabStop = false;
+            this.btnUserDefineImport.Text = "自訂欄位資料匯入";
+            this.btnUserDefineImport.UseVisualStyleBackColor = true;
+            this.btnUserDefineImport.Click += new System.EventHandler(this.btnUserDefineImport_Click);
+            // 
+            // buttonSpL
+            // 
+            this.buttonSpL.Location = new System.Drawing.Point(762, 46);
+            this.buttonSpL.Name = "buttonSpL";
+            this.buttonSpL.Size = new System.Drawing.Size(104, 23);
+            this.buttonSpL.TabIndex = 4;
+            this.buttonSpL.TabStop = false;
+            this.buttonSpL.Text = "產生半年特休";
+            this.buttonSpL.UseVisualStyleBackColor = true;
+            this.buttonSpL.Click += new System.EventHandler(this.buttonSpL_Click);
+            // 
+            // fullDataCtrl1
+            // 
+            this.fullDataCtrl1.AllowModifyPrimaryKey = false;
+            this.fullDataCtrl1.BindingCtrlsAutoInit = true;
+            this.fullDataCtrl1.bnAddEnable = true;
+            this.fullDataCtrl1.bnAddVisible = true;
+            this.fullDataCtrl1.bnCancelEnable = true;
+            this.fullDataCtrl1.bnCancelVisible = true;
+            this.fullDataCtrl1.bnDelEnable = true;
+            this.fullDataCtrl1.bnDelVisible = true;
+            this.fullDataCtrl1.bnEditEnable = true;
+            this.fullDataCtrl1.bnEditVisible = true;
+            this.fullDataCtrl1.bnExportEnable = true;
+            this.fullDataCtrl1.bnExportVisible = true;
+            this.fullDataCtrl1.bnQueryEnable = true;
+            this.fullDataCtrl1.bnQueryVisible = true;
+            this.fullDataCtrl1.bnSaveEnable = true;
+            this.fullDataCtrl1.bnSaveVisible = true;
+            this.fullDataCtrl1.CtrlType = JBControls.FullDataCtrl.ECtrlType.Full;
+            this.fullDataCtrl1.DataAdapter = null;
+            this.fullDataCtrl1.DataGrid = this.dataGridViewEx1;
+            this.fullDataCtrl1.DataSource = this.bASEALLBindingSource;
+            this.fullDataCtrl1.DeleteType = JBControls.FullDataCtrl.EDeleteType.Delete;
+            this.fullDataCtrl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.fullDataCtrl1.EnableAutoClone = false;
+            this.fullDataCtrl1.GroupCmd = "";
+            this.fullDataCtrl1.Location = new System.Drawing.Point(0, 0);
+            this.fullDataCtrl1.Name = "fullDataCtrl1";
+            this.fullDataCtrl1.QueryFields = "nobr,name_c,ttscode,adate,indt,oudt,dept,dept_name,depts,depts_name,job,job_name," +
+    "di,comp,empcd,ap_date,sex,blood,marry,addr1,count_ma";
+            this.fullDataCtrl1.RecentQuerySql = "";
+            this.fullDataCtrl1.SelectCmd = "";
+            this.fullDataCtrl1.ShowExceptionMsg = true;
+            this.fullDataCtrl1.Size = new System.Drawing.Size(883, 73);
+            this.fullDataCtrl1.SortFields = "nobr,ttscode,adate,indt,dept";
+            this.fullDataCtrl1.TabIndex = 1;
+            this.fullDataCtrl1.WhereCmd = "";
+            // 
+            // bASEALLTableAdapter
+            // 
+            this.bASEALLTableAdapter.ClearBeforeFill = true;
+            // 
+            // dEPTTableAdapter
+            // 
+            this.dEPTTableAdapter.ClearBeforeFill = true;
+            // 
+            // dEPTSTableAdapter
+            // 
+            this.dEPTSTableAdapter.ClearBeforeFill = true;
+            // 
+            // dEPTATableAdapter
+            // 
+            this.dEPTATableAdapter.ClearBeforeFill = true;
+            // 
+            // basDSBindingSource
+            // 
+            this.basDSBindingSource.DataSource = this.basDS;
+            this.basDSBindingSource.Position = 0;
+            // 
+            // jOBTableAdapter
+            // 
+            this.jOBTableAdapter.ClearBeforeFill = true;
+            // 
+            // jOBSTableAdapter
+            // 
+            this.jOBSTableAdapter.ClearBeforeFill = true;
+            // 
+            // jOBLTableAdapter
+            // 
+            this.jOBLTableAdapter.ClearBeforeFill = true;
+            // 
+            // cOMPBindingSource
+            // 
+            this.cOMPBindingSource.DataMember = "COMP";
+            this.cOMPBindingSource.DataSource = this.basDS;
+            // 
+            // cOMPTableAdapter
+            // 
+            this.cOMPTableAdapter.ClearBeforeFill = true;
+            // 
+            // rOTETTableAdapter
+            // 
+            this.rOTETTableAdapter.ClearBeforeFill = true;
+            // 
+            // bankCodeTableAdapter
+            // 
+            this.bankCodeTableAdapter.ClearBeforeFill = true;
+            // 
+            // outPostTableAdapter
+            // 
+            this.outPostTableAdapter.ClearBeforeFill = true;
+            // 
+            // giftVoucherTableAdapter
+            // 
+            this.giftVoucherTableAdapter.ClearBeforeFill = true;
+            // 
+            // eRPCODETableAdapter
+            // 
+            this.eRPCODETableAdapter.ClearBeforeFill = true;
+            // 
+            // DisabilityTypebindingSource
+            // 
+            this.DisabilityTypebindingSource.DataMember = "DisabilityType";
+            this.DisabilityTypebindingSource.DataSource = this.basDS;
+            // 
+            // DisabilityRankbindingSource
+            // 
+            this.DisabilityRankbindingSource.DataMember = "DisabilityRank";
+            this.DisabilityRankbindingSource.DataSource = this.basDS;
+            // 
+            // jOBObindingSource
+            // 
+            this.jOBObindingSource.DataMember = "JOBO";
+            this.jOBObindingSource.DataSource = this.basDS;
+            // 
+            // jOBOTableAdapter
+            // 
+            this.jOBOTableAdapter.ClearBeforeFill = true;
+            // 
+            // hOLICDBindingSource
+            // 
+            this.hOLICDBindingSource.DataMember = "HOLICD";
+            this.hOLICDBindingSource.DataSource = this.dsAtt;
+            // 
+            // hOLICDTableAdapter
+            // 
+            this.hOLICDTableAdapter.ClearBeforeFill = true;
+            // 
+            // tTSCDTableAdapter
+            // 
+            this.tTSCDTableAdapter.ClearBeforeFill = true;
+            // 
+            // TTSCDBindingSource
+            // 
+            this.TTSCDBindingSource.DataMember = "TTSCD";
+            this.TTSCDBindingSource.DataSource = this.basDS;
             // 
             // nOBRDataGridViewTextBoxColumn
             // 
@@ -539,18 +792,6 @@
             this.dEPTDataGridViewTextBoxColumn.ValueMember = "D_NO";
             this.dEPTDataGridViewTextBoxColumn.Width = 102;
             // 
-            // dEPTBindingSource
-            // 
-            this.dEPTBindingSource.DataMember = "DEPT";
-            this.dEPTBindingSource.DataSource = this.basDS;
-            // 
-            // basDS
-            // 
-            this.basDS.DataSetName = "BasDS";
-            this.basDS.Locale = new System.Globalization.CultureInfo("");
-            this.basDS.RemotingFormat = System.Data.SerializationFormat.Binary;
-            this.basDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // dEPTNAMEDataGridViewTextBoxColumn
             // 
             this.dEPTNAMEDataGridViewTextBoxColumn.DataPropertyName = "DEPT_NAME";
@@ -572,11 +813,6 @@
             this.dEPTSDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dEPTSDataGridViewTextBoxColumn.ValueMember = "D_NO";
             this.dEPTSDataGridViewTextBoxColumn.Width = 102;
-            // 
-            // dEPTSBindingSource
-            // 
-            this.dEPTSBindingSource.DataMember = "DEPTS";
-            this.dEPTSBindingSource.DataSource = this.basDS;
             // 
             // dEPTSNAMEDataGridViewTextBoxColumn
             // 
@@ -600,11 +836,6 @@
             this.dEPTMDataGridViewTextBoxColumn.ValueMember = "D_NO";
             this.dEPTMDataGridViewTextBoxColumn.Width = 102;
             // 
-            // dEPTABindingSource
-            // 
-            this.dEPTABindingSource.DataMember = "DEPTA";
-            this.dEPTABindingSource.DataSource = this.basDS;
-            // 
             // dEPTMNAMEDataGridViewTextBoxColumn
             // 
             this.dEPTMNAMEDataGridViewTextBoxColumn.DataPropertyName = "DEPTM_NAME";
@@ -626,11 +857,6 @@
             this.jOBDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.jOBDataGridViewTextBoxColumn.ValueMember = "JOB";
             this.jOBDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // jOBBindingSource
-            // 
-            this.jOBBindingSource.DataMember = "JOB";
-            this.jOBBindingSource.DataSource = this.basDS;
             // 
             // jOBNAMEDataGridViewTextBoxColumn
             // 
@@ -655,17 +881,6 @@
             this.rOTETDataGridViewTextBoxColumn.ValueMember = "ROTET";
             this.rOTETDataGridViewTextBoxColumn.Width = 54;
             // 
-            // rOTETBindingSource
-            // 
-            this.rOTETBindingSource.DataMember = "ROTET";
-            this.rOTETBindingSource.DataSource = this.dsAtt;
-            // 
-            // dsAtt
-            // 
-            this.dsAtt.DataSetName = "dsAtt";
-            this.dsAtt.Locale = new System.Globalization.CultureInfo("zh-TW");
-            this.dsAtt.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // jOBSDataGridViewTextBoxColumn
             // 
             this.jOBSDataGridViewTextBoxColumn.DataPropertyName = "JOBS";
@@ -679,11 +894,6 @@
             this.jOBSDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.jOBSDataGridViewTextBoxColumn.ValueMember = "JOBS";
             this.jOBSDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // jOBSBindingSource
-            // 
-            this.jOBSBindingSource.DataMember = "JOBS";
-            this.jOBSBindingSource.DataSource = this.basDS;
             // 
             // jOBSNAMEDataGridViewTextBoxColumn
             // 
@@ -706,11 +916,6 @@
             this.jOBLDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.jOBLDataGridViewTextBoxColumn.ValueMember = "JOBL";
             this.jOBLDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // jOBLBindingSource
-            // 
-            this.jOBLBindingSource.DataMember = "JOBL";
-            this.jOBLBindingSource.DataSource = this.basDS;
             // 
             // jOBLNAMEDataGridViewTextBoxColumn
             // 
@@ -888,6 +1093,14 @@
             this.nOEATDataGridViewCheckBoxColumn.ReadOnly = true;
             this.nOEATDataGridViewCheckBoxColumn.Width = 95;
             // 
+            // FULATT
+            // 
+            this.FULATT.DataPropertyName = "FULATT";
+            this.FULATT.HeaderText = "不計算全勤";
+            this.FULATT.Name = "FULATT";
+            this.FULATT.ReadOnly = true;
+            this.FULATT.Width = 71;
+            // 
             // nOWAGEDataGridViewCheckBoxColumn
             // 
             this.nOWAGEDataGridViewCheckBoxColumn.DataPropertyName = "NOWAGE";
@@ -1013,11 +1226,6 @@
             this.bANKNODataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.bANKNODataGridViewTextBoxColumn.ValueMember = "Code";
             this.bANKNODataGridViewTextBoxColumn.Width = 78;
-            // 
-            // bankCodeBindingSource
-            // 
-            this.bankCodeBindingSource.DataMember = "BankCode";
-            this.bankCodeBindingSource.DataSource = this.basDS;
             // 
             // aCCOUNTNODataGridViewTextBoxColumn
             // 
@@ -1401,11 +1609,6 @@
             this.OutPost.ValueMember = "Code";
             this.OutPost.Width = 78;
             // 
-            // outPostBindingSource
-            // 
-            this.outPostBindingSource.DataMember = "OutPost";
-            this.outPostBindingSource.DataSource = this.basDS;
-            // 
             // OutPostName
             // 
             this.OutPostName.DataPropertyName = "OutPostName";
@@ -1459,11 +1662,6 @@
             this.Gift.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Gift.ValueMember = "Code";
             this.Gift.Width = 66;
-            // 
-            // giftVoucherBindingSource
-            // 
-            this.giftVoucherBindingSource.DataMember = "GiftVoucher";
-            this.giftVoucherBindingSource.DataSource = this.basDS;
             // 
             // DEPT_TREE
             // 
@@ -1545,194 +1743,6 @@
             this.Disability.ReadOnly = true;
             this.Disability.Width = 83;
             // 
-            // bASEALLBindingSource
-            // 
-            this.bASEALLBindingSource.DataMember = "BASEALL";
-            this.bASEALLBindingSource.DataSource = this.basDS;
-            // 
-            // btnTemplate
-            // 
-            this.btnTemplate.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnTemplate.Location = new System.Drawing.Point(644, 3);
-            this.btnTemplate.Name = "btnTemplate";
-            this.btnTemplate.Size = new System.Drawing.Size(112, 23);
-            this.btnTemplate.TabIndex = 16;
-            this.btnTemplate.TabStop = false;
-            this.btnTemplate.Text = "下載員工資料樣版";
-            this.btnTemplate.UseVisualStyleBackColor = true;
-            this.btnTemplate.Click += new System.EventHandler(this.btnTemplate_Click);
-            // 
-            // bnIMPORT
-            // 
-            this.bnIMPORT.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.bnIMPORT.Location = new System.Drawing.Point(762, 3);
-            this.bnIMPORT.Name = "bnIMPORT";
-            this.bnIMPORT.Size = new System.Drawing.Size(104, 23);
-            this.bnIMPORT.TabIndex = 15;
-            this.bnIMPORT.TabStop = false;
-            this.bnIMPORT.Text = "匯入員工資料";
-            this.bnIMPORT.UseVisualStyleBackColor = true;
-            this.bnIMPORT.Click += new System.EventHandler(this.bnIMPORT_Click);
-            // 
-            // btnUserDefineImport
-            // 
-            this.btnUserDefineImport.Location = new System.Drawing.Point(643, 46);
-            this.btnUserDefineImport.Name = "btnUserDefineImport";
-            this.btnUserDefineImport.Size = new System.Drawing.Size(113, 23);
-            this.btnUserDefineImport.TabIndex = 5;
-            this.btnUserDefineImport.TabStop = false;
-            this.btnUserDefineImport.Text = "自訂欄位資料匯入";
-            this.btnUserDefineImport.UseVisualStyleBackColor = true;
-            this.btnUserDefineImport.Click += new System.EventHandler(this.btnUserDefineImport_Click);
-            // 
-            // buttonSpL
-            // 
-            this.buttonSpL.Location = new System.Drawing.Point(762, 46);
-            this.buttonSpL.Name = "buttonSpL";
-            this.buttonSpL.Size = new System.Drawing.Size(104, 23);
-            this.buttonSpL.TabIndex = 4;
-            this.buttonSpL.TabStop = false;
-            this.buttonSpL.Text = "產生半年特休";
-            this.buttonSpL.UseVisualStyleBackColor = true;
-            this.buttonSpL.Click += new System.EventHandler(this.buttonSpL_Click);
-            // 
-            // fullDataCtrl1
-            // 
-            this.fullDataCtrl1.AllowModifyPrimaryKey = false;
-            this.fullDataCtrl1.BindingCtrlsAutoInit = true;
-            this.fullDataCtrl1.bnAddEnable = true;
-            this.fullDataCtrl1.bnAddVisible = true;
-            this.fullDataCtrl1.bnCancelEnable = true;
-            this.fullDataCtrl1.bnCancelVisible = true;
-            this.fullDataCtrl1.bnDelEnable = true;
-            this.fullDataCtrl1.bnDelVisible = true;
-            this.fullDataCtrl1.bnEditEnable = true;
-            this.fullDataCtrl1.bnEditVisible = true;
-            this.fullDataCtrl1.bnExportEnable = true;
-            this.fullDataCtrl1.bnExportVisible = true;
-            this.fullDataCtrl1.bnQueryEnable = true;
-            this.fullDataCtrl1.bnQueryVisible = true;
-            this.fullDataCtrl1.bnSaveEnable = true;
-            this.fullDataCtrl1.bnSaveVisible = true;
-            this.fullDataCtrl1.CtrlType = JBControls.FullDataCtrl.ECtrlType.Full;
-            this.fullDataCtrl1.DataAdapter = null;
-            this.fullDataCtrl1.DataGrid = this.dataGridViewEx1;
-            this.fullDataCtrl1.DataSource = this.bASEALLBindingSource;
-            this.fullDataCtrl1.DeleteType = JBControls.FullDataCtrl.EDeleteType.Delete;
-            this.fullDataCtrl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.fullDataCtrl1.EnableAutoClone = false;
-            this.fullDataCtrl1.GroupCmd = "";
-            this.fullDataCtrl1.Location = new System.Drawing.Point(0, 0);
-            this.fullDataCtrl1.Name = "fullDataCtrl1";
-            this.fullDataCtrl1.QueryFields = "nobr,name_c,ttscode,adate,indt,oudt,dept,dept_name,depts,depts_name,job,job_name," +
-    "di,comp,empcd,ap_date,sex,blood,marry,addr1,count_ma";
-            this.fullDataCtrl1.RecentQuerySql = "";
-            this.fullDataCtrl1.SelectCmd = "";
-            this.fullDataCtrl1.ShowExceptionMsg = true;
-            this.fullDataCtrl1.Size = new System.Drawing.Size(883, 73);
-            this.fullDataCtrl1.SortFields = "nobr,ttscode,adate,indt,dept";
-            this.fullDataCtrl1.TabIndex = 1;
-            this.fullDataCtrl1.WhereCmd = "";
-            // 
-            // bASEALLTableAdapter
-            // 
-            this.bASEALLTableAdapter.ClearBeforeFill = true;
-            // 
-            // dEPTTableAdapter
-            // 
-            this.dEPTTableAdapter.ClearBeforeFill = true;
-            // 
-            // dEPTSTableAdapter
-            // 
-            this.dEPTSTableAdapter.ClearBeforeFill = true;
-            // 
-            // dEPTATableAdapter
-            // 
-            this.dEPTATableAdapter.ClearBeforeFill = true;
-            // 
-            // basDSBindingSource
-            // 
-            this.basDSBindingSource.DataSource = this.basDS;
-            this.basDSBindingSource.Position = 0;
-            // 
-            // jOBTableAdapter
-            // 
-            this.jOBTableAdapter.ClearBeforeFill = true;
-            // 
-            // jOBSTableAdapter
-            // 
-            this.jOBSTableAdapter.ClearBeforeFill = true;
-            // 
-            // jOBLTableAdapter
-            // 
-            this.jOBLTableAdapter.ClearBeforeFill = true;
-            // 
-            // cOMPBindingSource
-            // 
-            this.cOMPBindingSource.DataMember = "COMP";
-            this.cOMPBindingSource.DataSource = this.basDS;
-            // 
-            // cOMPTableAdapter
-            // 
-            this.cOMPTableAdapter.ClearBeforeFill = true;
-            // 
-            // rOTETTableAdapter
-            // 
-            this.rOTETTableAdapter.ClearBeforeFill = true;
-            // 
-            // bankCodeTableAdapter
-            // 
-            this.bankCodeTableAdapter.ClearBeforeFill = true;
-            // 
-            // outPostTableAdapter
-            // 
-            this.outPostTableAdapter.ClearBeforeFill = true;
-            // 
-            // giftVoucherTableAdapter
-            // 
-            this.giftVoucherTableAdapter.ClearBeforeFill = true;
-            // 
-            // eRPCODETableAdapter
-            // 
-            this.eRPCODETableAdapter.ClearBeforeFill = true;
-            // 
-            // DisabilityTypebindingSource
-            // 
-            this.DisabilityTypebindingSource.DataMember = "DisabilityType";
-            this.DisabilityTypebindingSource.DataSource = this.basDS;
-            // 
-            // DisabilityRankbindingSource
-            // 
-            this.DisabilityRankbindingSource.DataMember = "DisabilityRank";
-            this.DisabilityRankbindingSource.DataSource = this.basDS;
-            // 
-            // jOBObindingSource
-            // 
-            this.jOBObindingSource.DataMember = "JOBO";
-            this.jOBObindingSource.DataSource = this.basDS;
-            // 
-            // jOBOTableAdapter
-            // 
-            this.jOBOTableAdapter.ClearBeforeFill = true;
-            // 
-            // hOLICDBindingSource
-            // 
-            this.hOLICDBindingSource.DataMember = "HOLICD";
-            this.hOLICDBindingSource.DataSource = this.dsAtt;
-            // 
-            // hOLICDTableAdapter
-            // 
-            this.hOLICDTableAdapter.ClearBeforeFill = true;
-            // 
-            // tTSCDTableAdapter
-            // 
-            this.tTSCDTableAdapter.ClearBeforeFill = true;
-            // 
-            // TTSCDBindingSource
-            // 
-            this.TTSCDBindingSource.DataMember = "TTSCD";
-            this.TTSCDBindingSource.DataSource = this.basDS;
-            // 
             // FRM18
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1805,6 +1815,19 @@
         private BasDSTableAdapters.BankCodeTableAdapter bankCodeTableAdapter;
         private BasDSTableAdapters.OutPostTableAdapter outPostTableAdapter;
         private BasDSTableAdapters.GiftVoucherTableAdapter giftVoucherTableAdapter;
+        private System.Windows.Forms.Button buttonSpL;
+        private System.Windows.Forms.Button btnUserDefineImport;
+        private System.Windows.Forms.Button btnTemplate;
+        private System.Windows.Forms.Button bnIMPORT;
+        private BasDSTableAdapters.ERPCODETableAdapter eRPCODETableAdapter;
+        private System.Windows.Forms.BindingSource DisabilityTypebindingSource;
+        private System.Windows.Forms.BindingSource DisabilityRankbindingSource;
+        private System.Windows.Forms.BindingSource jOBObindingSource;
+        private BasDSTableAdapters.JOBOTableAdapter jOBOTableAdapter;
+        private System.Windows.Forms.BindingSource hOLICDBindingSource;
+        private Att.dsAttTableAdapters.HOLICDTableAdapter hOLICDTableAdapter;
+        private BasDSTableAdapters.TTSCDTableAdapter tTSCDTableAdapter;
+        private System.Windows.Forms.BindingSource TTSCDBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn nOBRDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nAMECDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tTSCODEDataGridViewTextBoxColumn;
@@ -1854,6 +1877,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn nOSPECDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn nOCARDDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn nOEATDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn FULATT;
         private System.Windows.Forms.DataGridViewCheckBoxColumn nOWAGEDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sALADRDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sALNAMEDataGridViewTextBoxColumn;
@@ -1932,18 +1956,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Introductor;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Aboriginal;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Disability;
-        private System.Windows.Forms.Button buttonSpL;
-        private System.Windows.Forms.Button btnUserDefineImport;
-        private System.Windows.Forms.Button btnTemplate;
-        private System.Windows.Forms.Button bnIMPORT;
-        private BasDSTableAdapters.ERPCODETableAdapter eRPCODETableAdapter;
-        private System.Windows.Forms.BindingSource DisabilityTypebindingSource;
-        private System.Windows.Forms.BindingSource DisabilityRankbindingSource;
-        private System.Windows.Forms.BindingSource jOBObindingSource;
-        private BasDSTableAdapters.JOBOTableAdapter jOBOTableAdapter;
-        private System.Windows.Forms.BindingSource hOLICDBindingSource;
-        private Att.dsAttTableAdapters.HOLICDTableAdapter hOLICDTableAdapter;
-        private BasDSTableAdapters.TTSCDTableAdapter tTSCDTableAdapter;
-        private System.Windows.Forms.BindingSource TTSCDBindingSource;
     }
 }
