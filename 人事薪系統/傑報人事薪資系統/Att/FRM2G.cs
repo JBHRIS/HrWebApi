@@ -63,7 +63,7 @@ namespace JBHR.Att
             AppConfig.CheckParameterAndSetDefault("GetDateValue", "假日往前檢查天數", "1"
                , "設定假日往前檢查非假日班班別的天數", "TextBox", "", "String");
             AppConfig.CheckParameterAndSetDefault("AttMinsUnit", "出勤最小分鐘數", "15"
-               , "指定早退分鐘數限制，達到該分鐘數才會產生請假", "TextBox", "0", "String");
+               , "指定判定出勤最小單位數，適用REL_HRS欄位", "TextBox", "0", "String");
             var deptData = CodeFunction.GetDeptDisp();
             this.dEPTTableAdapter.Fill(this.dsBas.DEPT);
             Sal.Function.SetAvaliableBase(this.dsBas.BASE);
