@@ -41,6 +41,7 @@ namespace JBHR.Att
         string WORKADR = "";
         bool PROCSUPER = false;
         string ym1 = "", ym2 = "";
+        decimal AttMinsUnit = 15;
         bool CreateAttend = false, CheckTime = false, CheckError = false, CheckFixOt = false, CheckDeleteAttend = false, CheckCreateAbs = false;
         public JBModule.Data.ApplicationConfigSettings AppConfig = null;
         private void FRM2G_Load(object sender, EventArgs e)
@@ -52,15 +53,17 @@ namespace JBHR.Att
             AppConfig.CheckParameterAndSetDefault("LateMin", "遲到分鐘", ""
                , "指定遲到分鐘數限制，達到該分鐘數才會產生請假", "TextBox", "0", "String");
             AppConfig.CheckParameterAndSetDefault("EarilyCode", "早退代碼", ""
-                , "指定早退代碼", "ComboBox", "select h_code,h_code_disp+'-'+h_name from hcode where dbo.getcodefilter('HCODE',H_CODE,@userid,@comp,@admin)=1", "String");
+               , "指定早退代碼", "ComboBox", "select h_code,h_code_disp+'-'+h_name from hcode where dbo.getcodefilter('HCODE',H_CODE,@userid,@comp,@admin)=1", "String");
             AppConfig.CheckParameterAndSetDefault("EarilyMin", "早退分鐘", ""
                , "指定早退分鐘數限制，達到該分鐘數才會產生請假", "TextBox", "0", "String");
             AppConfig.CheckParameterAndSetDefault("AbsenceCode", "曠職代碼", ""
                , "指定曠職代碼", "ComboBox", "select h_code,h_code_disp+'-'+h_name from hcode where dbo.getcodefilter('HCODE',H_CODE,@userid,@comp,@admin)=1", "String");
             AppConfig.CheckParameterAndSetDefault("OtBonusException", "加班津貼例外人員", ""
-            , "加班津貼例外人員名單，可用逗號分隔", "TextBox", "", "String");
+               , "加班津貼例外人員名單，可用逗號分隔", "TextBox", "", "String");
             AppConfig.CheckParameterAndSetDefault("GetDateValue", "假日往前檢查天數", "1"
-             , "設定假日往前檢查非假日班班別的天數", "TextBox", "", "String");
+               , "設定假日往前檢查非假日班班別的天數", "TextBox", "", "String");
+            AppConfig.CheckParameterAndSetDefault("AttMinsUnit", "出勤最小分鐘數", "15"
+               , "指定早退分鐘數限制，達到該分鐘數才會產生請假", "TextBox", "0", "String");
             var deptData = CodeFunction.GetDeptDisp();
             this.dEPTTableAdapter.Fill(this.dsBas.DEPT);
             Sal.Function.SetAvaliableBase(this.dsBas.BASE);
@@ -220,6 +223,7 @@ namespace JBHR.Att
             string msg = "";
             AppConfig = new JBModule.Data.ApplicationConfigSettings("FRM2G", MainForm.COMPANY);
             string[] ExceptionList = AppConfig.GetConfig("OtBonusException").GetString().Split(',');
+            AttMinsUnit = AppConfig.GetConfig("AttMinsUnit").GetDecimal(15);
             int GetDateValue = 0;
             try
             {
@@ -556,7 +560,7 @@ namespace JBHR.Att
 
                                 RealHours = RealHours + (itsAbs1.GetHours() - RestHrs) - (its.GetHours() - RestHrs2);//聯集=時段A+時段B-AB交集
                             }
-                            it.ATTEND.REL_HRS = JBTools.NumbericConvert.RangeInterval(RealHours, 0.25M, JBTools.NumbericConvert.DigitalMode.Floor);
+                            it.ATTEND.REL_HRS = JBTools.NumbericConvert.RangeInterval(RealHours, AttMinsUnit / 60M, JBTools.NumbericConvert.DigitalMode.Floor);
                         }
                         else if (abs1OfNobrDate.Any())//刷卡不完整
                         {
@@ -573,7 +577,7 @@ namespace JBHR.Att
                                 RestHrs1 += itsRest1.GetHours();
                             }
                             RealHours = itsAbs1.GetHours() - RestHrs1;
-                            it.ATTEND.REL_HRS = JBTools.NumbericConvert.RangeInterval(RealHours, 0.25M, JBTools.NumbericConvert.DigitalMode.Floor);
+                            it.ATTEND.REL_HRS = JBTools.NumbericConvert.RangeInterval(RealHours, AttMinsUnit / 60M, JBTools.NumbericConvert.DigitalMode.Floor);
                         }
                         if (rAttCard != null && rAttCard.T1.Trim().Length > 0 && rAttCard.T2.Trim().Length > 0 && !CodeFunction.GetHolidayRoteList().Contains(it.ATTEND.ROTE))
                         {
@@ -593,7 +597,7 @@ namespace JBHR.Att
                                 }
                             }
                             if (it.ATTEND.ATT_HRS < 0) it.ATTEND.ATT_HRS = 0;
-                            it.ATTEND.ATT_HRS = JBTools.NumbericConvert.RangeInterval(it.ATTEND.ATT_HRS, 0.25M, JBTools.NumbericConvert.DigitalMode.Floor);
+                            it.ATTEND.ATT_HRS = JBTools.NumbericConvert.RangeInterval(it.ATTEND.ATT_HRS, AttMinsUnit / 60M, JBTools.NumbericConvert.DigitalMode.Floor);
                             if (it.ATTEND.ATT_HRS > it.ROTE.WK_HRS) it.ATTEND.ATT_HRS = it.ROTE.WK_HRS;//不可超過
                         }
                     }
@@ -612,7 +616,7 @@ namespace JBHR.Att
                             RestHrs1 += itsRest1.GetHours();
                         }
                         RealHours = itsAbs1.GetHours() - RestHrs1;
-                        it.ATTEND.REL_HRS = JBTools.NumbericConvert.RangeInterval(RealHours, 0.25M, JBTools.NumbericConvert.DigitalMode.Floor);
+                        it.ATTEND.REL_HRS = JBTools.NumbericConvert.RangeInterval(RealHours, AttMinsUnit / 60M, JBTools.NumbericConvert.DigitalMode.Floor);
                     }
                     decimal otHrs = 0;
                     Dictionary<string, string> restList = new Dictionary<string, string>();
