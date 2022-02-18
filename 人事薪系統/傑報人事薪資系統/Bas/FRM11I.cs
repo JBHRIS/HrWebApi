@@ -444,7 +444,7 @@ namespace JBHR.Bas
             if (!e.Cancel)
             {
                 var db = new JBModule.Data.Linq.HrDBDataContext();
-                if (db.BASETTS.Where(p => p.DEPTM == e.Values["D_NO"].ToString()).Any())
+                if (db.BASETTS.Where(p => p.DEPTM == e.Values["D_NO"].ToString()).Any() || db.DEPTA.Where(p => p.DEPT_GROUP == e.Values["D_NO"].ToString()).Any())
                 {
                     MessageBox.Show("已使用中的代碼無法刪除", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     e.Cancel = true;
