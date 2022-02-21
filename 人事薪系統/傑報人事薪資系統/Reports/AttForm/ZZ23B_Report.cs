@@ -4,20 +4,34 @@
  * 功能路徑：報表列印 > 出勤 > 請假對沖報表
  * 檔案路徑：~\Customer\JBHR2\人事薪系統\傑報人事薪資系統\Reports\AttForm\ZZ23B_Report.cs
  * 功能用途：
- *  用於請假對沖報表
- * 
- * 版本記錄：
+ *  用於產出【請假明細表】、【請假對沖表】、【得假對沖表】
+ */
+/* 版本記錄：
  * ======================================================================================================
- *    日期           人員           版本           說明
+ *    日期           人員               版本              單號              說明
  * ------------------------------------------------------------------------------------------------------
- * 2021/04/07    Daniel Chih    Ver 1.0.01     1. 修正得假對沖表中會將特休假重複加總的問題
- * 2021/04/22    Daniel Chih    Ver 1.0.02     1. 得假對沖報表假期加總規則條件變更，改看BDATE
- * 2021/07/07    Daniel Chih    Ver 1.0.03     1. 修改請假資料的 Htype 改成讀 Hcodetype
+ * 2021/04/07    Daniel Chih        Ver 1.0.01                                          1. 修正得假對沖表中會將特休假重複加總的問題
+ * 2021/04/22    Daniel Chih        Ver 1.0.02                                          1. 得假對沖報表假期加總規則條件變更，改看BDATE
+ * 2021/07/07    Daniel Chih        Ver 1.0.03                                          1. 修改請假資料的 Htype 改成讀 Hcodetype
+ * 2022/02/21    Daniel Chih        Ver 1.0.04      ITCT-F01-220087-寶齡富錦-20220221   1. 修改【假別】條件欄位的查詢規則，修復1~2會包含11、12……等資料的問題
  * 
- * 
- * ======================================================================================================
- * 
- * 最後修改：Daniel Chih (0492) - 2021/07/07
+ */
+/* ======================================================================================================
+ */
+/* 【測試資料 - BPBFHR】：
+ *  員工編號：T077231 ~ T077231
+ *  異動種類：全部
+ *  編制部門：20106 ~ ZZZZ
+ *  公司：00 ~ 09
+ *  假別：1 ~ 2
+ *  薪資群組：PY ~ TY
+ *  日期種類：得假日期
+ *  得假日期：2019/01/01 ~ 2022/02/28
+ *  資料內容：全部
+ *  報表種類：得假對沖表
+ */
+/* ======================================================================================================
+ * 【最後修改】：Daniel Chih (0492) - 2022/02/21
  */
 
 using System;
@@ -74,7 +88,7 @@ namespace JBHR.Reports.AttForm
                 sqlAbs += " left outer join hcodetype c on b.htype=c.htype";
                 sqlAbs += " where 1 = 1 ";
                 sqlAbs += string.Format(@" and a.nobr between '{0}' and '{1}' ", nobr_b, nobr_e);
-                sqlAbs += string.Format(@" and c.htype_disp between '{0}' and '{1}'", htype_b, htype_e);
+                sqlAbs += string.Format(@" and replicate('0',2 - len(c.htype_disp)) + c.htype_disp between replicate('0',2 - len('{0}')) + '{0}' and replicate('0',2 - len('{1}')) + '{1}' ", htype_b, htype_e);
                 sqlAbs += string.Format(@" and dbo.getcodefilter('HcodeType', b.htype, '{0}', '{1}', '{2}') = 1 ", MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN);
                 sqlAbs += lcstr;
                 sqlAbs += " order by b.h_code_disp";

@@ -730,7 +730,7 @@ namespace JBHR.Reports
             DataTable rq_hcodetype = new DataTable();
             try
             {
-                string sSelect = string.Format("select rtrim(htype_disp) as htype, rtrim(htype_disp)+' : '+ type_name as type_name from hcodetype where dbo.getcodefilter(N'HcodeType', hcodetype.HTYPE, '{0}', '{1}', {2}) = 1 order by htype_DISP", MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN ? "1":"0");
+                string sSelect = string.Format("select rtrim(htype_disp) as htype, rtrim(htype_disp)+' : '+ type_name as type_name from hcodetype where dbo.getcodefilter(N'HcodeType', hcodetype.HTYPE, '{0}', '{1}', {2}) = 1 order by replicate('0', 2 - len(htype_disp)) + htype_disp", MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN ? "1":"0");
                 rq_hcodetype = sql.GetDataTable(sSelect);
             }
             catch (Exception ex)
