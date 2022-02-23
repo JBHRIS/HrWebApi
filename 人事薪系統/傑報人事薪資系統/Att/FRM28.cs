@@ -590,6 +590,7 @@ namespace JBHR.Att
         {
             UnitSet();//設定該假別的時間單位
             AbsHrsCalc();//計算時數
+            CheckAbsHrs();
             //if (dataGridView1.CurrentRow != null && dataGridView1.CurrentRow.Cells[0].Value.ToString().Trim().Length > 0)
             //{
             //    String hcode = Convert.ToString(dataGridView1.CurrentRow.Cells[2].Value);
