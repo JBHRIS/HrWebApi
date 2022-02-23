@@ -293,6 +293,8 @@ namespace JBHR.Sal
                     var rCurrent = sql.First();
                     rCurrent.AMT = instanceRow.AMT;
                     rCurrent.MEMO = instanceRow.MEMO;
+                    rCurrent.KEY_MAN = MainForm.USER_NAME;
+                    rCurrent.KEY_DATE = DateTime.Now;
                     //if (sql.First().ADATE == instanceRow.ADATE)
                     //{
                     //    Msg += "已存在相同日期的薪資異動;";
