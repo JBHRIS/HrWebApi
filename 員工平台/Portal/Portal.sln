@@ -55,6 +55,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JBHRIS.BLL", "..\..\..\..\S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JBModule", "..\..\..\..\Standard\JBModule\JBModule\JBModule.csproj", "{DBE7BF84-0030-418D-981D-30D7C4F6FF3A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuestionExpirationDateMail", "Mail\QuestionExpirationDateMail.csproj", "{EAA308BD-C020-4F33-8FD2-F83E44D16FFE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +143,10 @@ Global
 		{DBE7BF84-0030-418D-981D-30D7C4F6FF3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBE7BF84-0030-418D-981D-30D7C4F6FF3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBE7BF84-0030-418D-981D-30D7C4F6FF3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAA308BD-C020-4F33-8FD2-F83E44D16FFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAA308BD-C020-4F33-8FD2-F83E44D16FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAA308BD-C020-4F33-8FD2-F83E44D16FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAA308BD-C020-4F33-8FD2-F83E44D16FFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -166,6 +172,7 @@ Global
 		{B94796B3-CEDB-4083-95AD-E94EC30D15D5} = {7BEEC5D5-D577-46D4-9AA3-E9BAD4907F99}
 		{18B233B7-6C64-4257-B2B3-945606E97187} = {7BEEC5D5-D577-46D4-9AA3-E9BAD4907F99}
 		{DBE7BF84-0030-418D-981D-30D7C4F6FF3A} = {7BEEC5D5-D577-46D4-9AA3-E9BAD4907F99}
+		{EAA308BD-C020-4F33-8FD2-F83E44D16FFE} = {DDC7B664-137B-4506-88F1-D3DAB7CC24FF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F9A39013-3FF7-4D94-9C2E-FE8F673319EB}

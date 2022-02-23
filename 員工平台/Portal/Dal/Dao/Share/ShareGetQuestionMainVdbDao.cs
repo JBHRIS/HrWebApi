@@ -36,9 +36,9 @@ namespace Dal.Dao.Share
 
             #region 要傳遞的參數
             HTTPPayloadDictionary dic = new HTTPPayloadDictionary();
-            dic.Add("User", Cond.User);
-            dic.Add("CompanyID", Cond.CompanyID);
-            dic.Add("sNobr", Cond.sNobr);
+            //dic.Add("User", Cond.User);
+            //dic.Add("CompanyID", Cond.CompanyID);
+            //dic.Add("sNobr", Cond.sNobr);
 
             #endregion
 
@@ -59,9 +59,9 @@ namespace Dal.Dao.Share
 
             #region 要傳遞的參數
             HTTPPayloadDictionary dic = new HTTPPayloadDictionary();
-            dic.Add("User", Cond.User);
-            dic.Add("CompanyID", Cond.CompanyID);
-            dic.Add("sNobr", Cond.sNobr);
+            //dic.Add("User", Cond.User);
+            //dic.Add("CompanyID", Cond.CompanyID);
+            //dic.Add("sNobr", Cond.sNobr);
             this.CompanySetting = Cond.CompanySetting;
 
             #endregion
@@ -127,6 +127,14 @@ namespace Dal.Dao.Share
                                         {
                                             rTarget.CompleteStatus = "尚未結單";
                                         }
+                                        //else if (!rSource.Complete && rSource.DateE.AddDays(7).Date > DateTime.Now.Date)
+                                        //{
+                                        //    rTarget.CompleteStatus = "尚未結單";
+                                        //}
+                                        //else
+                                        //{
+                                        //    rTarget.CompleteStatus = "已失效";
+                                        //}
                                         rTarget.Content = rSource.Content;
                                         rTarget.DateE = rSource.DateE;
                                         rTarget.InsertDate = rSource.InsertDate;

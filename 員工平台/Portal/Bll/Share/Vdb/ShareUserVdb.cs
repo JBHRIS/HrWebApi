@@ -20,6 +20,8 @@ namespace Bll.Share.Vdb
     {
         
         public string CompanyId { get; set; }
+
+        public string AccountCode { get; set; }
        
         public ShareUserConditions()
         {
@@ -40,6 +42,7 @@ namespace Bll.Share.Vdb
         /// Code
         /// </summary>
         public string Code { get; set; }
+      
         /// <summary>
         /// CompanyId
         /// </summary>

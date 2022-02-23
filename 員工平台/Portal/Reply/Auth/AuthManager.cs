@@ -104,7 +104,8 @@ public class AuthManager
         {
             var oShareUser = new ShareUserDao();
             var ShareUserCond = new ShareUserConditions();
-            ShareUserCond.Code = user.EmpId;
+            ShareUserCond.CompanyId = user.CompanyId;
+            ShareUserCond.AccountCode = user.EmpId;
             var Userdata = oShareUser.GetShareUser(ShareUserCond);
             user.RoleKey = Userdata.RoleKey;
             user.EmpName = Userdata.UserName;

@@ -20,9 +20,9 @@ namespace Reply
                 var AccessToken = "";
                 var RefreshToken = "";
                 var CompanyId = "";
-                var EmpId = "528";
-                var EmpName = "Aron";
-                var Role = 8;
+                var EmpId = "";
+                var EmpName = "未登入";
+                var Role = 64;
                 //以上值用資料帶入
                 if (Request.QueryString["Param"] != null && Request.QueryString["Param"] != "")
                 {

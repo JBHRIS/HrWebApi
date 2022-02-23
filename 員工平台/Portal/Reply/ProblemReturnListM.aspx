@@ -67,13 +67,13 @@
                                             data-page-size="10" data-filter="#filterTaken">
                                             <thead>
                                                 <tr>
-                                                    <th>標題</th>
-                                                     <th>回報人員</th>
-                                                    <th>回報類型</th>
-                                                    <th>填寫日期</th>
-                                                    <th>回覆日期</th>
-                                                    <th>是否結單</th>
-                                                    <th>操作</th>
+                                                  <th style="width:25%">標題</th>
+                                                <th style="width:15%">回報人員</th>
+                                                <th style="width:10%">回報類型</th>
+                                                <th style="width:15%">填寫日期</th>
+                                                <th style="width:15%">回覆日期</th>
+                                                <th style="width:10%">是否結單</th>
+                                                <th style="width:10%">操作</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="Container" runat="server">
@@ -92,33 +92,18 @@
                                     <ItemTemplate>
 
                                         <tr class="gradeX">
-                                            <td data-th="標題">
-                                                <%# Eval("TitleContent") %>
-                                            </td>
-                                              <td data-th="回報人員">
-                                                  <%# Eval("InsertMan") %>
-
-                                              </td>
-                                            <td data-th="回報類型">
-                                                <%# Eval("QuestionCategoryName") %>
-                                            </td>
-                                            <td data-th="填寫日期">
-                                                <%# Eval("DateE","{0:yyyy-MM-dd HH:mm}") %>
-                                            </td>
-                                            <td data-th="回覆日期">
-                                                <%# Eval("UpdateDate","{0:yyyy-MM-dd HH:mm}") %>
-                                            </td>
-                                            <td data-th="是否結單">
-                                                <%# Eval("CompleteStatus") %>
-                                            </td>
-                                            <td data-th="操作">
-                                                <telerik:RadButton ID="btnCheck" runat="server" Text="查看"
-                                                    CommandArgument='<%# Eval("Code")%>'
-                                                    CssClass="btn btn-outline btn-primary btn-xs"
-                                                    OnClick="btnCheck_Click">
-                                                    <Icon SecondaryIconCssClass="rbNext" />
-                                                </telerik:RadButton>
-                                            </td>
+                                                 <td data-th="標題" style="width:auto;overflow:hidden" ><%# Eval("TitleContent") %></td>
+                                        <td data-th="回報人員"style="width:auto" ><%# Eval("InsertMan") %></td>
+                                        <td data-th="回報類型"style="width:auto"><%# Eval("QuestionCategoryName") %></td>
+                                        <td data-th="填寫日期"style="width:auto"><%# Eval("DateE","{0:yyyy-MM-dd HH:mm}") %></td>
+                                        <td data-th="回覆日期"style="width:auto"><%# Eval("UpdateDate","{0:yyyy-MM-dd HH:mm}") %></td>
+                                        <td data-th="是否結單"style="width:auto"><%# Eval("CompleteStatus") %></td>
+                                      
+                                        <td data-th="操作" style="width:auto">
+                                            <telerik:RadButton ID="btnCheck" runat="server" Text="查看" CommandArgument='<%# Eval("Code")%>' CssClass="btn btn-outline btn-primary btn-xs" OnClick="btnCheck_Click">
+                                                <Icon SecondaryIconCssClass="rbNext" />
+                                            </telerik:RadButton>
+                                        </td>
                                         </tr>
 
                                     </ItemTemplate>
