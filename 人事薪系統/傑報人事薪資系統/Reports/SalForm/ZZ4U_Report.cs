@@ -89,7 +89,7 @@ namespace JBHR.Reports.SalForm
                         _value[2] = Row["acno"].ToString();
                         DataRow row = rq_wagedd.Rows.Find(_value);
                         if (row != null)
-                            row["amt"] = JBModule.Data.CDecryp.Number(decimal.Parse(Row["amt"].ToString()));
+                            row["amt"] = int.Parse(row["amt"].ToString()) + JBModule.Data.CDecryp.Number(decimal.Parse(Row["amt"].ToString()));
                         else
                         {
                             DataRow aRow = rq_wagedd.NewRow();
