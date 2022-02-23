@@ -156,11 +156,16 @@ namespace JBHR.Sal
                         }
                         else if (RepeatSelectionString == JBControls.U_IMPORT.Allow_Repeat_Override_String)
                         {
+                            UpdateEnrich(r, out ErrMsg);
+                        }
+                        else if (RepeatSelectionString == JBControls.U_IMPORT.Allow_Repeat_CoExists_String)
+                        {
                             InsertEnrich(r, out ErrMsg);
                         }
                         else
                         {
-                            InsertEnrich(r, out ErrMsg);
+                            ErrMsg += "匯入的資料中已存在相同日期的補扣發資料異動;";
+                            return false;
                         }
                     }
                     else

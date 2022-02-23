@@ -106,6 +106,10 @@ namespace JBHR.Sal
                     {
                         UpdateEnrich(r, out ErrMsg);
                     }
+                    else if (RepeatSelectionString == JBControls.U_IMPORT.Allow_Repeat_CoExists_String)
+                    {
+                        CoExistsInsertEnrich(r, out ErrMsg);
+                    }
                     else
                     {
                         ErrMsg += "匯入的資料中已存在相同日期的補扣發資料異動;";
@@ -172,6 +176,24 @@ namespace JBHR.Sal
                     db.ENRICH.DeleteAllOnSubmit(sql);
                     db.SubmitChanges();
                 }
+            }
+            catch (Exception ex)
+            {
+                Msg = ex.Message;
+                return false;
+            }
+
+            return true;
+        }
+        bool CoExistsInsertEnrich(JBModule.Data.Linq.ENRICH Instance, out string Msg)
+        {
+            Instance.AMT = JBModule.Data.CEncrypt.Number(Instance.AMT);
+            Msg = "";
+            try
+            {
+                JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
+                db.ENRICH.InsertOnSubmit(Instance);
+                db.SubmitChanges();
             }
             catch (Exception ex)
             {

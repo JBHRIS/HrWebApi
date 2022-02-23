@@ -108,9 +108,14 @@ namespace JBHR.Sal
                     {
                         UpdateEnrich(r, out ErrMsg);
                     }
-                    else
+                    else if (RepeatSelectionString == JBControls.U_IMPORT.Allow_Repeat_CoExists_String)
                     {
                         InsertEnrich(r, out ErrMsg);
+                    }
+                    else
+                    {
+                        ErrMsg += "匯入的資料中已存在相同日期的補扣發資料異動;";
+                        return false;
                     }
                 }
                 else
