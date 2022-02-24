@@ -18,6 +18,9 @@
               <Width>1.6cm</Width>
             </TablixColumn>
             <TablixColumn>
+              <Width>1.60042cm</Width>
+            </TablixColumn>
+            <TablixColumn>
               <Width>1.6cm</Width>
             </TablixColumn>
             <TablixColumn>
@@ -149,6 +152,37 @@
                           <TextRuns>
                             <TextRun>
                               <Value>員工姓名</Value>
+                              <Style>
+                                <FontFamily>標楷體</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>textbox10</rd:DefaultName>
+                      <ZIndex>32</ZIndex>
+                      <Style>
+                        <BottomBorder>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <VerticalAlign>Bottom</VerticalAlign>
+                        <PaddingTop>1pt</PaddingTop>
+                        <PaddingBottom>1pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="textbox38">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>性別</Value>
                               <Style>
                                 <FontFamily>標楷體</FontFamily>
                               </Style>
@@ -539,6 +573,33 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="name_c2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!sex.Value</Value>
+                              <Style>
+                                <FontFamily>標楷體</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>name_c</rd:DefaultName>
+                      <ZIndex>8</ZIndex>
+                      <Style>
+                        <PaddingTop>1pt</PaddingTop>
+                        <PaddingBottom>1pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="textbox21">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -881,6 +942,34 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="Textbox32">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>標楷體</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox32</rd:DefaultName>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="textbox22">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -1131,6 +1220,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -1160,7 +1250,7 @@
         <DataSetName>empdata_rq_zz1cs1</DataSetName>
         <Left>0.5cm</Left>
         <Height>1.76984cm</Height>
-        <Width>25.49996cm</Width>
+        <Width>27.10038cm</Width>
         <Style>
           <FontFamily>新細明體</FontFamily>
         </Style>
@@ -1510,10 +1600,14 @@
           <DataField>age</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="sex">
+          <DataField>sex</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>empdata</rd:DataSetName>
-        <rd:SchemaPath>D:\SVN\Customer\HOLYSTONE\人事薪系統\禾伸堂人事薪資系統\Reports\EmpForm\empdata.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\GitHub\JB\Customer\JBHR2\人事薪系統\傑報人事薪資系統\Reports\EmpForm\empdata.xsd</rd:SchemaPath>
         <rd:TableName>rq_zz1cs1</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

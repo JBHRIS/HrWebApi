@@ -33,16 +33,16 @@ namespace JBHR.Reports.SalForm
     public partial class ZZ4J_Report : JBControls.JBForm
     {
         SalDataSet ds = new SalDataSet();
-        string nobr_b, nobr_e, dept_b, dept_e, date_b,seq_b, yymm_b, seq_e, yymm_e;
+        string nobr_b, nobr_e, dept_b, dept_e, date_b,seq_b, yymm_b, seq_e, yymm_e, jobl_b, jobl_e;
         string typedata, workadr, reporttype, typedataname, comp_name, CompId,emp_b,emp_e;
         bool exportexcel;
-        public ZZ4J_Report(string nobrb, string nobre, string deptb, string depte,string empb,string empe, string dateb, string _yyb, string _mmb, string _seqb, string _yye, string _mme, string _seqe, string _typedata, string _workadr, string _reporttype, bool _exportexcel, string compname, string _CompId)
+        public ZZ4J_Report(string nobrb, string nobre, string deptb, string depte,string joblb, string joble, string empb,string empe, string dateb, string _yyb, string _mmb, string _seqb, string _yye, string _mme, string _seqe, string _typedata, string _workadr, string _reporttype, bool _exportexcel, string compname, string _CompId)
         {
             InitializeComponent();
             nobr_b = nobrb; nobr_e = nobre; dept_b = deptb; dept_e = depte; typedata = _typedata;
             workadr = _workadr; exportexcel = _exportexcel; date_b = dateb; reporttype = _reporttype;
             yymm_b = _yyb + _mmb; seq_b = _seqb; yymm_e = _yye + _mme; seq_e = _seqe; CompId = _CompId;
-            comp_name = compname; emp_b = empb; emp_e = empe;
+            comp_name = compname; emp_b = empb; emp_e = empe; jobl_b = joblb; jobl_e = joble;
         }
 
         private void ZZ4J_Report_Load(object sender, EventArgs e)
@@ -63,6 +63,7 @@ namespace JBHR.Reports.SalForm
                 sqlCmd += string.Format(@" and b.nobr between '{0}' and '{1}'", nobr_b, nobr_e);
                 sqlCmd += string.Format(@" and c.d_no_disp between '{0}' and '{1}'", dept_b, dept_e);
                 sqlCmd += string.Format(@" and b.empcd between '{0}' and '{1}'", emp_b, emp_e);
+                sqlCmd += string.Format(@" and e.jobl_disp between '{0}' and '{1}'", jobl_b, jobl_e);
                 sqlCmd += " and b.ttscode in ('1','4','6')";                
                 DataTable rq_base = SqlConn.GetDataTable(sqlCmd);
                 rq_base.PrimaryKey = new DataColumn[] { rq_base.Columns["nobr"] };

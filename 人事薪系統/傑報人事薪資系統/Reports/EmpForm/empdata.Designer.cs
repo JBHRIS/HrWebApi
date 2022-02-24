@@ -6337,6 +6337,8 @@ namespace JBHR.Reports.EmpForm {
             
             private global::System.Data.DataColumn columnage;
             
+            private global::System.Data.DataColumn columnsex;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public rq_zz1cs1DataTable() {
@@ -6676,6 +6678,14 @@ namespace JBHR.Reports.EmpForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn sexColumn {
+                get {
+                    return this.columnsex;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -6749,7 +6759,8 @@ namespace JBHR.Reports.EmpForm {
                         string schlay, 
                         bool ok, 
                         string dept_tree, 
-                        decimal age) {
+                        decimal age, 
+                        string sex) {
                 rq_zz1cs1Row rowrq_zz1cs1Row = ((rq_zz1cs1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         nobr,
@@ -6789,7 +6800,8 @@ namespace JBHR.Reports.EmpForm {
                         schlay,
                         ok,
                         dept_tree,
-                        age};
+                        age,
+                        sex};
                 rowrq_zz1cs1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowrq_zz1cs1Row);
                 return rowrq_zz1cs1Row;
@@ -6850,6 +6862,7 @@ namespace JBHR.Reports.EmpForm {
                 this.columnok = base.Columns["ok"];
                 this.columndept_tree = base.Columns["dept_tree"];
                 this.columnage = base.Columns["age"];
+                this.columnsex = base.Columns["sex"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6931,6 +6944,8 @@ namespace JBHR.Reports.EmpForm {
                 base.Columns.Add(this.columndept_tree);
                 this.columnage = new global::System.Data.DataColumn("age", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnage);
+                this.columnsex = new global::System.Data.DataColumn("sex", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsex);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -34483,6 +34498,22 @@ namespace JBHR.Reports.EmpForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string sex {
+                get {
+                    try {
+                        return ((string)(this[this.tablerq_zz1cs1.sexColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'rq_zz1cs1\' 中資料行 \'sex\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tablerq_zz1cs1.sexColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsnobrNull() {
                 return this.IsNull(this.tablerq_zz1cs1.nobrColumn);
             }
@@ -34935,6 +34966,18 @@ namespace JBHR.Reports.EmpForm {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetageNull() {
                 this[this.tablerq_zz1cs1.ageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IssexNull() {
+                return this.IsNull(this.tablerq_zz1cs1.sexColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetsexNull() {
+                this[this.tablerq_zz1cs1.sexColumn] = global::System.Convert.DBNull;
             }
         }
         
