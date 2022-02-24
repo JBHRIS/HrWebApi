@@ -66,7 +66,7 @@ namespace Portal
                 return;
             }
 
-            ValidateBaseRedirect(UserId, UserPw);
+            ValidateBaseRedirect(UserId, UserPw,false,CompanyId);
         }
 
         protected void btnSpeedLogin_Click(object sender, EventArgs e)

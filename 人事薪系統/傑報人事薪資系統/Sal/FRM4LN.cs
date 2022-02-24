@@ -47,6 +47,7 @@ namespace JBHR.Sal
             frm.Allow_Repeat_Delete = true;
             frm.Allow_Repeat_Ignore = true;
             frm.Allow_Repeat_Override = true;
+            frm.Allow_Repeat_CoExists = true;
 
             frm.FieldForm = new FRM4LIN();
             frm.DataTransfer = new ImportTransferToENRICH_N();
@@ -90,6 +91,7 @@ namespace JBHR.Sal
             frm.Allow_Repeat_Delete = true;
             frm.Allow_Repeat_Ignore = true;
             frm.Allow_Repeat_Override = true;
+            frm.Allow_Repeat_CoExists = true;
             frm.ColumnStyle = JBTools.IO.LoadExcelColumnNameStyle.DefinedColumn;
 
             frm.FieldForm = new FRM4LIA();

@@ -56,7 +56,7 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <td>
+                                            
                                                     <td colspan="9">
                                                 <ul class="pagination float-right"></ul>
                                             </td>

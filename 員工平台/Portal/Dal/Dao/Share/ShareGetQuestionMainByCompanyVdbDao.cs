@@ -127,6 +127,14 @@ namespace Dal.Dao.Share
                                         {
                                             rTarget.CompleteStatus = "尚未結單";
                                         }
+                                        //else if (!rSource.Complete && rSource.DateE.AddDays(7).Date > DateTime.Now.Date)
+                                        //{
+                                        //    rTarget.CompleteStatus = "尚未結單";
+                                        //}
+                                        //else
+                                        //{
+                                        //    rTarget.CompleteStatus = "已失效";
+                                        //}
                                         rTarget.Content = rSource.Content;
                                         rTarget.DateE = rSource.DateE;
                                         rTarget.InsertDate = rSource.InsertDate;

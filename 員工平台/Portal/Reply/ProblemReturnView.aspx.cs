@@ -376,7 +376,7 @@ namespace Portal
                         UpdateQuestionMainCond.Content = data.Content;
                         UpdateQuestionMainCond.QuestionCategoryCode = data.QuestionCategoryCode;
                         UpdateQuestionMainCond.IpAddress = data.IpAddress;
-                        UpdateQuestionMainCond.DateE = data.DateE;
+                        UpdateQuestionMainCond.DateE = DateTime.Now.AddDays(7);
                         UpdateQuestionMainCond.Complete = false;
                         UpdateQuestionMainCond.Note = data.Note;
                         UpdateQuestionMainCond.Status = data.Status;
@@ -614,7 +614,7 @@ namespace Portal
                 UpdateQuestionMainCond.Content = data.Content;
                 UpdateQuestionMainCond.QuestionCategoryCode = data.QuestionCategoryCode;
                 UpdateQuestionMainCond.IpAddress = data.IpAddress;
-                UpdateQuestionMainCond.DateE = data.DateE;
+                UpdateQuestionMainCond.DateE = DateTime.Now.AddDays(7);
                 UpdateQuestionMainCond.Complete = false;
                 UpdateQuestionMainCond.Note = data.Note;
                 UpdateQuestionMainCond.Status = data.Status;
@@ -674,14 +674,14 @@ namespace Portal
             UpdateQuestionMainCond.Content = data.Content;
             UpdateQuestionMainCond.QuestionCategoryCode = data.QuestionCategoryCode;
             UpdateQuestionMainCond.IpAddress = data.IpAddress;
-            UpdateQuestionMainCond.DateE = data.DateE;
+            UpdateQuestionMainCond.DateE = DateTime.Now;
             UpdateQuestionMainCond.Complete = true;
             UpdateQuestionMainCond.Note = data.Note;
             UpdateQuestionMainCond.Status = data.Status;
             UpdateQuestionMainCond.InsertMan = data.InsertMan;
             UpdateQuestionMainCond.InsertDate = data.InsertDate;
             UpdateQuestionMainCond.UpdateMan = _User.EmpName;
-            UpdateQuestionMainCond.UpdateDate = DateTime.Now;
+            UpdateQuestionMainCond.UpdateDate = data.UpdateDate;
             UpdateQuestionMainCond.AccessToken = _User.AccessToken;
             UpdateQuestionMainCond.RefreshToken = _User.RefreshToken;
             UpdateQuestionMainCond.CompanySetting = CompanySetting;

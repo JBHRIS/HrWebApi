@@ -51,7 +51,7 @@ namespace Dal.Dao.Share
 
             var VdbSql = (from u in dcShare.SystemUser
                           join ui in dcShare.SystemUserInfo on u.Code equals ui.UserCode
-                          where u.AccountCode == Cond.Code && u.CompnayId == Cond.CompanyId
+                          where u.AccountCode == Cond.AccountCode && u.CompnayId == Cond.CompanyId
                           select new ShareUserRow
                           {
                               AutoKey = u.AutoKey,

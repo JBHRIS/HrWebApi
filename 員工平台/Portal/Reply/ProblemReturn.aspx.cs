@@ -79,6 +79,12 @@ namespace Portal
                 lblAddStatus.InnerText = "標題或內容長度過長";
                 return;
             }
+            if (txtReturnS.SelectedValue == "")
+            {
+                lblAddStatus.InnerText = "選擇的回報類型發生錯誤";
+                return;
+
+            }
             var oQuestionMain = new ShareInsertQuestionMainDao();
             var InsertQuestionCond = new ShareInsertQuestionMainConditions();
           
@@ -106,7 +112,7 @@ namespace Portal
             InsertQuestionCond.Content = txtContent.Text;
             InsertQuestionCond.QuestionCategoryCode = txtReturnS.SelectedValue;
             InsertQuestionCond.IpAddress = lblIP.Text;          
-            InsertQuestionCond.DateE = DateTime.Now;
+            InsertQuestionCond.DateE = DateTime.Now.AddDays(7);
             InsertQuestionCond.Complete = false;
             InsertQuestionCond.Note = "1";                                
             InsertQuestionCond.Status = "1";
