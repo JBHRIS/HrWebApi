@@ -35,6 +35,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using JBModule.Data.Linq;
 using Microsoft.Reporting.WinForms;
 
 namespace JBHR.Reports.EmpForm
@@ -46,36 +47,36 @@ namespace JBHR.Reports.EmpForm
         //public object objForm;
         empdata ds = new empdata();
         string date_b, date_e, nobr_b, nobr_e, dept_b, dept_e, depts_b, depts_e, empcd_b, empcd_e, work_b, work_e, comp_b, comp_e;
-        string jobl_b, jobl_e,ttstype, report_type, date_t, report_name, data_report, username,comp_name;
+        string jobl_b, jobl_e, ttstype, report_type, date_t, report_name, data_report, username, comp_name;
         bool exportexcel, include_leave;
         decimal seniority_b, seniority_e, age_b, age_e;
         DataTable rq_zz11s3 = new DataTable();
 
-        public ZZ11_Report(string dateb, string datee, string nobrb, string nobre, string deptb, string depte, string deptsb, string deptse, string joblb, string joble, string empcdb, string empcde, string workb, string worke, string compb, string compe, string _ttstype, string reporttype, string datet, string reportname, string datareport, bool _exportexcel, bool _include_leave, string ageb, string agee, string seniorityb, string senioritye, string _username,string compname)
+        public ZZ11_Report(string dateb, string datee, string nobrb, string nobre, string deptb, string depte, string deptsb, string deptse, string joblb, string joble, string empcdb, string empcde, string workb, string worke, string compb, string compe, string _ttstype, string reporttype, string datet, string reportname, string datareport, bool _exportexcel, bool _include_leave, string ageb, string agee, string seniorityb, string senioritye, string _username, string compname)
         {
             InitializeComponent();
             //日期區間
-            date_b = dateb; date_e = datee; 
+            date_b = dateb; date_e = datee;
             //員工編號區間
-            nobr_b = nobrb; nobr_e = nobre; 
+            nobr_b = nobrb; nobr_e = nobre;
             //編制部門區間
             dept_b = deptb; dept_e = depte;
             //成本部門區間
             depts_b = deptsb; depts_e = deptse;
             //員別區間
-            empcd_b = empcdb; empcd_e = empcde; 
+            empcd_b = empcdb; empcd_e = empcde;
             //工作地區間
             work_b = workb; work_e = worke;
             //公司區間
-            comp_b = compb; comp_e = compe; 
+            comp_b = compb; comp_e = compe;
             //異動種類
             ttstype = _ttstype;
             //報表種類
             report_type = reporttype;
             //當前日期
-            date_t = datet; 
+            date_t = datet;
             //報表種類名稱
-            report_name = reportname; 
+            report_name = reportname;
 
             data_report = datareport;
             //是否匯出 Excel
@@ -87,9 +88,9 @@ namespace JBHR.Reports.EmpForm
             //年齡區間
             age_b = decimal.Parse(ageb); age_e = decimal.Parse(agee);
             //使用者名稱
-            username = _username; 
+            username = _username;
             //職等區間
-            jobl_b = joblb; jobl_e = joble; 
+            jobl_b = joblb; jobl_e = joble;
             //公司名稱
             comp_name = compname;
         }
@@ -100,10 +101,10 @@ namespace JBHR.Reports.EmpForm
             {
                 rq_zz11s3 = ds.Tables["rq_zz11s3"].Clone();
                 rq_zz11s3.TableName = "rq_zz11s3";
-                
-                JBModule.Data.CSQL SqlConn = new JBModule.Data.CSQL("JBHR.Properties.Settings.JBHRConnectionString");                
+
+                JBModule.Data.CSQL SqlConn = new JBModule.Data.CSQL("JBHR.Properties.Settings.JBHRConnectionString");
                 //string sqlCmd21 = "";
-                
+
                 DataTable rq_stdtt = new DataTable();
                 rq_stdtt.Columns.Add("nobr", typeof(string));
                 rq_stdtt.Columns.Add("days", typeof(int));
@@ -226,7 +227,7 @@ namespace JBHR.Reports.EmpForm
                     //清空 sqlCmd 字串內容
                     sqlCmd = "";
 
-                    
+
                     string sqlCmda = "select nobr,oudt from basetts ";
                     sqlCmda += string.Format(@" where '{0}' between adate and ddate", date_e);
                     sqlCmda += string.Format(@" and nobr between '{0}' and '{1}'", nobr_b, nobr_e);
@@ -423,7 +424,7 @@ namespace JBHR.Reports.EmpForm
                     //設定 From 語法的補充部分
                     string sqlCmdFromSup = "";
                     //設定 WHERE 語法的補充部分
-                    string sqlCmdWhereSup = " AND '"+ date_e + "' BETWEEN B.ADATE AND B.DDATE ";
+                    string sqlCmdWhereSup = " AND '" + date_e + "' BETWEEN B.ADATE AND B.DDATE ";
                     sqlCmdWhereSup += " AND EXISTS(SELECT 1 FROM BASETTS WHERE BASETTS.NOBR = A.NOBR AND BASETTS.TTSCODE IN ('1','4','6') ";
                     sqlCmdWhereSup += " AND BASETTS.ADATE <= '" + date_e + "' ";
                     sqlCmdWhereSup += " AND BASETTS.DDATE >= '" + date_b + "') ";
@@ -790,10 +791,10 @@ namespace JBHR.Reports.EmpForm
                 #endregion
 
                 foreach (DataRow Row in rq_zz11s3.Rows)
-                {                   
+                {
                     decimal _age = decimal.Parse(Row["age"].ToString());
                     //decimal _wkyrs1 = decimal.Parse(Row["wk_yrs1"].ToString()) / Convert.ToDecimal(365.24);
-                    decimal _wkyrs1 = decimal.Parse((string.IsNullOrEmpty(Row["wk_yrs1"].ToString())?"0": Row["wk_yrs1"].ToString()));
+                    decimal _wkyrs1 = decimal.Parse((string.IsNullOrEmpty(Row["wk_yrs1"].ToString()) ? "0" : Row["wk_yrs1"].ToString()));
                     if (_age >= age_b && _age <= age_e)
                         if (_wkyrs1 >= seniority_b && _wkyrs1 <= seniority_e)
                             ds.Tables["rq_zz11s3"].ImportRow(Row);
@@ -808,6 +809,28 @@ namespace JBHR.Reports.EmpForm
                 //string sqlCmd11 = "select jobl,jobl_disp,job_name from jobl";
                 //DataTable rq_jobl = SqlConn.GetDataTable(sqlCmd11);
                 //rq_jobl.PrimaryKey = new DataColumn[] { rq_jobl.Columns["jobl"] };
+                DataTable DT_OUDT = new DataTable();
+                if (ttstype == "3")
+                {
+                    var dbHR = new HrDBDataContext();
+
+                    var oudt_table = (from a in dbHR.BASETTS
+                                      where 1 == 1
+                                      &&
+                                      !(a.OUDT == null)
+                                      &&
+                                      ((new string[] { "2", "5" }).Contains(a.TTSCODE))
+                                      &&
+                                      !(a.OUDT == DateTime.Parse("9999/12/31"))
+                                      select new
+                                      {
+                                          NOBR = a.NOBR,
+                                          OUDT = a.OUDT,
+                                      }).ToList();
+                    DT_OUDT = oudt_table.CopyToDataTable();
+                    DT_OUDT.PrimaryKey = new DataColumn[] { DT_OUDT.Columns["NOBR"] };
+                }
+
 
                 string sqlCmd1 = "select a.d_no,a.d_no_disp,a.d_name,a.d_ename,b.nobr,b.name_c from dept a left outer join base b on a.nobr = b.nobr";
                 DataTable rq_dept = SqlConn.GetDataTable(sqlCmd1);
@@ -820,7 +843,7 @@ namespace JBHR.Reports.EmpForm
                 string sqlCmd3 = "select job,job_disp,job_name from job";
                 DataTable rq_job = SqlConn.GetDataTable(sqlCmd3);
                 rq_job.PrimaryKey = new DataColumn[] { rq_job.Columns["job"] };
-                                
+
                 DataTable rq_workcd = SqlConn.GetDataTable("select work_code,work_addr from workcd ");
                 rq_workcd.PrimaryKey = new DataColumn[] { rq_workcd.Columns["work_code"] };
 
@@ -865,7 +888,7 @@ namespace JBHR.Reports.EmpForm
                 //銀行
                 DataTable rq_bankcode = SqlConn.GetDataTable("select code,bankname from bankcode");
                 rq_bankcode.PrimaryKey = new DataColumn[] { rq_bankcode.Columns["code"] };
-               
+
                 //教育程度
                 string Cmdschl = "select distinct d.nobr,b.name from schl d,educode b where d.educcode = b.code ";
                 Cmdschl += " and d.nobr+d.educcode+convert(char(50),d.auto)";
@@ -897,7 +920,7 @@ namespace JBHR.Reports.EmpForm
 
                     DataRow sum_row = rq_tenure_sum.Rows.Find(value);
 
-                    if(sum_row != null)
+                    if (sum_row != null)
                     {
                         if (tenure_row["DDATE"].ToString() == DateTime.Parse("9999/12/31").ToString())
                         {
@@ -915,7 +938,7 @@ namespace JBHR.Reports.EmpForm
                         aRow["NOBR"] = tenure_row["NOBR"].ToString();
                         aRow["DEPT"] = tenure_row["DEPT"].ToString();
                         aRow["JOB"] = tenure_row["JOB"].ToString();
-                        if(tenure_row["DDATE"].ToString() == DateTime.Parse("9999/12/31").ToString())
+                        if (tenure_row["DDATE"].ToString() == DateTime.Parse("9999/12/31").ToString())
                         {
                             aRow["CHECK_NOW"] = true;
                             aRow["TOTAL_DAYS"] = decimal.Parse(tenure_row["TODAYDIFF"].ToString());
@@ -934,7 +957,7 @@ namespace JBHR.Reports.EmpForm
 
                 foreach (DataRow sum_row in rq_tenure_sum.Rows)
                 {
-                    if(sum_row["CHECK_NOW"].ToString() == "False")
+                    if (sum_row["CHECK_NOW"].ToString() == "False")
                     {
                         sum_row.Delete();
                     }
@@ -977,6 +1000,7 @@ namespace JBHR.Reports.EmpForm
                     DataRow row_bankcode = rq_bankcode.Rows.Find(ds.Tables["rq_zz11s3"].Rows[i]["bankno"].ToString());
                     DataRow row_schl = rq_schl.Rows.Find(ds.Tables["rq_zz11s3"].Rows[i]["nobr"].ToString());
                     DataRow row_countcd = rq_countcd.Rows.Find(ds.Tables["rq_zz11s3"].Rows[i]["country"].ToString());
+                    
 
                     object[] value = new object[3];
                     value[0] = ds.Tables["rq_zz11s3"].Rows[i]["nobr"].ToString();
@@ -1027,7 +1051,7 @@ namespace JBHR.Reports.EmpForm
                         ds.Tables["rq_zz11s3"].Rows[i]["rotet"] = row_rotet["rotet_disp"].ToString();
                         ds.Tables["rq_zz11s3"].Rows[i]["rotetname"] = row_rotet["rotetname"].ToString();
                     }
-                    
+
                     object[] _value = new object[2];
                     _value[0] = ds.Tables["rq_zz11s3"].Rows[i]["nobr"].ToString();
                     _value[1] = ds.Tables["rq_zz11s3"].Rows[i]["jobl"].ToString();
@@ -1041,7 +1065,7 @@ namespace JBHR.Reports.EmpForm
                     {
                         ds.Tables["rq_zz11s3"].Rows[i]["dept_tree"] = row_dept_tree["d_no_disp"].ToString().Trim() + " " + row_dept_tree["d_name"].ToString();
                     }
-                        
+
                     if (row_depta != null)
                     {
                         ds.Tables["rq_zz11s3"].Rows[i]["deptm"] = row_depta["d_no_disp"].ToString();
@@ -1054,48 +1078,48 @@ namespace JBHR.Reports.EmpForm
                     {
                         ds.Tables["rq_zz11s3"].Rows[i]["di"] = row_di["name"].ToString();
                     }
-                        
+
                     if (row_saltycd != null)
                     {
                         ds.Tables["rq_zz11s3"].Rows[i]["saltyname"] = row_saltycd["saltyname"].ToString();
                     }
-                       
+
                     if (row_basecd != null)
                     {
                         ds.Tables["rq_zz11s3"].Rows[i]["basecdname"] = row_basecd["basecdname"].ToString();
                     }
-                       
+
                     if (row_empcd != null)
                     {
                         ds.Tables["rq_zz11s3"].Rows[i]["empdescr"] = row_empcd["empdescr"].ToString();
                     }
-                        
+
                     if (row_jobo != null)
                     {
                         ds.Tables["rq_zz11s3"].Rows[i]["jobo_name"] = row_jobo["job_name"].ToString();
                     }
-                        
+
                     if (row_costtype != null)
                     {
                         ds.Tables["rq_zz11s3"].Rows[i]["costtypename"] = row_costtype["costtypename"].ToString();
                     }
-                        
+
                     if (row_BonusGroup != null)
                     {
                         ds.Tables["rq_zz11s3"].Rows[i]["groupname"] = row_BonusGroup["groupname"].ToString();
                     }
-                    
+
                     //將轉帳銀行資料塞進資料表
                     if (row_bankcode != null)
                     {
                         ds.Tables["rq_zz11s3"].Rows[i]["bankno"] = row_bankcode["bankname"].ToString();
                     }
-                        
+
                     if (row_schl != null)
                     {
                         ds.Tables["rq_zz11s3"].Rows[i]["eduname"] = row_schl["name"].ToString();
                     }
-                        
+
                     if (row_countcd != null)
                     {
                         ds.Tables["rq_zz11s3"].Rows[i]["country"] = row_countcd["descr"].ToString();
@@ -1106,7 +1130,14 @@ namespace JBHR.Reports.EmpForm
                     {
                         ds.Tables["rq_zz11s3"].Rows[i]["tenure"] = decimal.Parse(Math.Round(double.Parse(row_tenure["TOTAL_DAYS"].ToString()) / 365, 2).ToString());
                     }
-                        
+                    if (ttstype == "3")
+                    {
+                        DataRow row_oudt = DT_OUDT.Rows.Find(ds.Tables["rq_zz11s3"].Rows[i]["nobr"].ToString());
+                        if (row_oudt != null)
+                        {
+                            ds.Tables["rq_zz11s3"].Rows[i]["oudt"] = DateTime.Parse(row_oudt["oudt"].ToString());
+                        }
+                    }
                     //if (report_type == "留職停薪明細")
                     //{
                     //    string sqlCmd40 = "select nobr,stindt,datediff(day,stdt,stindt) as pstdt_days from basetts";
@@ -1123,7 +1154,7 @@ namespace JBHR.Reports.EmpForm
                     //}
                 }
 
-                rq_zz11s3 = null; rq_job = null; rq_dept = null; rq_rotet = null; rq_depts = null;  rq_workcd = null; rq_jobs = null;
+                rq_zz11s3 = null; rq_job = null; rq_dept = null; rq_rotet = null; rq_depts = null; rq_workcd = null; rq_jobs = null;
                 rq_depta = null; rq_empcd = null; rq_saltycd = null; rq_di = null; rq_jobo = null; rq_costtype = null; rq_BonusGroup = null;
                 rq_basecd = null; rq_schl = null; rq_bankcode = null; rq_countcd = null;
                 if (exportexcel)
@@ -1134,7 +1165,7 @@ namespace JBHR.Reports.EmpForm
                 }
                 else
                 {
-                    
+
                     RptViewer.Visible = true;
                     RptViewer.Reset();
                     //string _floor1 = JBModule.Pluging.CReport.GetDirectory(Application.StartupPath, "Reports");
@@ -1144,47 +1175,47 @@ namespace JBHR.Reports.EmpForm
                     {
                         RptViewer.LocalReport.ReportPath = _rptpath + "Rpt_zz11.rdlc";
                     }
-                        
+
                     else if (report_type == "基本報表(NEW)")
                     {
                         RptViewer.LocalReport.ReportPath = _rptpath + "Rpt_zz112.rdlc";
                     }
-                        
+
                     else if (report_type == "基本報表-保險用")
                     {
                         RptViewer.LocalReport.ReportPath = _rptpath + "Rpt_zz113.rdlc";
                     }
-                        
+
                     else if (report_type == "基本報表-通訊用")
                     {
                         RptViewer.LocalReport.ReportPath = _rptpath + "Rpt_zz114.rdlc";
                     }
-                        
+
                     else if (report_type == "員工名冊")
                     {
                         RptViewer.LocalReport.ReportPath = _rptpath + "Rpt_zz115.rdlc";
                     }
-                       
+
                     else if (report_type == "員工名冊(年齡年資)")
                     {
                         RptViewer.LocalReport.ReportPath = _rptpath + "Rpt_zz115a.rdlc";
                     }
-                        
+
                     else if (report_type == "v新進一覽表")
                     {
                         RptViewer.LocalReport.ReportPath = _rptpath + "Rpt_zz116a.rdlc";
                     }
-                       
+
                     else if (report_type == "v離職一覽表")
                     {
                         RptViewer.LocalReport.ReportPath = _rptpath + "Rpt_zz117.rdlc";
                     }
-                        
+
                     else if (report_type == "v留職停薪明細")
                     {
                         RptViewer.LocalReport.ReportPath = _rptpath + "Rpt_zz118.rdlc";
                     }
-                        
+
                     //else if (report_type == "9")
                     //    RptViewer.LocalReport.ReportPath = _rptpath + "Rpt_zz11c.rdlc";
                     //else if (report_type == "10")
@@ -1193,20 +1224,20 @@ namespace JBHR.Reports.EmpForm
                     {
                         RptViewer.LocalReport.ReportPath = _rptpath + "Rpt_zz119.rdlc";
                     }
-                        
+
                     else if (report_type == "信封")
                     {
                         RptViewer.LocalReport.ReportPath = _rptpath + "Rpt_zz11a.rdlc";
                     }
-                        
+
                     RptViewer.LocalReport.DataSources.Clear();
                     RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Company", comp_name) });
-                    RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("UserName", username) });                    
+                    RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("UserName", username) });
                     RptViewer.LocalReport.DataSources.Add(new ReportDataSource("empdata_rq_zz11s3", ds.Tables["rq_zz11s3"]));
                     RptViewer.SetDisplayMode(DisplayMode.PrintLayout);
                     RptViewer.ZoomMode = ZoomMode.FullPage;
                     //RptViewer.ZoomPercent = JBHR.Reports.ReportClass.GetReportPercent();
-                }               
+                }
             }
             catch (Exception Ex)
             {
@@ -1218,7 +1249,7 @@ namespace JBHR.Reports.EmpForm
 
         void Export(DataTable DT)
         {
-            
+
             DataTable ExporDt = new DataTable();
             if (report_type != "v新進一覽表" && report_type != "v離職一覽表" && report_type != "v留職停薪明細")
             {
@@ -1261,7 +1292,7 @@ namespace JBHR.Reports.EmpForm
                     ExporDt.Columns.Add("居留證號", typeof(string));
                     ExporDt.Columns.Add("出生日期", typeof(string));
                     ExporDt.Columns.Add("到職日期", typeof(DateTime));
-                    //ExporDt.Columns.Add("離職日期", typeof(DateTime));
+                    ExporDt.Columns.Add("離職日期", typeof(DateTime));
                     ExporDt.Columns.Add("直間接", typeof(string));
                     ExporDt.Columns.Add("性別", typeof(string));
                     ExporDt.Columns.Add("身分別", typeof(string));
@@ -1309,7 +1340,7 @@ namespace JBHR.Reports.EmpForm
                     ExporDt.Columns.Add("國籍", typeof(string));
                     foreach (DataRow Row in DT.Rows)
                     {
-                        DataRow aRow = ExporDt.NewRow();                        
+                        DataRow aRow = ExporDt.NewRow();
                         aRow["部門代碼"] = Row["d_no"].ToString();
                         aRow["部門名稱"] = Row["d_name"].ToString();
                         aRow["員工編號"] = Row["nobr"].ToString();
@@ -1326,7 +1357,7 @@ namespace JBHR.Reports.EmpForm
                         //aRow["職類"] = Row["jobs_name"].ToString();
                         //aRow["進集團日"] = DateTime.Parse(Row["cindt"].ToString());
                         aRow["到職日期"] = DateTime.Parse(Row["indt"].ToString());
-                        //if (!Row.IsNull("oudt")) aRow["離職日期"] = DateTime.Parse(Row["oudt"].ToString());
+                        if (!Row.IsNull("oudt")) aRow["離職日期"] = DateTime.Parse(Row["oudt"].ToString());
                         if (!Row.IsNull("stdt")) aRow["留職日期"] = DateTime.Parse(Row["stdt"].ToString());
                         if (!Row.IsNull("stindt")) aRow["復職日期"] = DateTime.Parse(Row["stindt"].ToString());
                         if (!Row.IsNull("tax_date")) aRow["居留起日"] = Row["tax_date"].ToString();
@@ -1380,7 +1411,7 @@ namespace JBHR.Reports.EmpForm
                     ExporDt.Columns.Add("直接間", typeof(string));
                     ExporDt.Columns.Add("轉帳行號", typeof(string));
                     ExporDt.Columns.Add("轉帳帳號", typeof(string));
-                    ExporDt.Columns.Add("外勞帳號", typeof(string));                   
+                    ExporDt.Columns.Add("外勞帳號", typeof(string));
                     ExporDt.Columns.Add("居留證號", typeof(string));
                     ExporDt.Columns.Add("居留起日", typeof(DateTime));
                     ExporDt.Columns.Add("居留迄日", typeof(DateTime));
@@ -1391,7 +1422,7 @@ namespace JBHR.Reports.EmpForm
                         aRow["部門代碼"] = Row["d_no"].ToString();
                         aRow["部門名稱"] = Row["d_name"].ToString();
                         aRow["員工編號"] = Row["nobr"].ToString();
-                        aRow["員工姓名"] = Row["name_c"].ToString();                        
+                        aRow["員工姓名"] = Row["name_c"].ToString();
                         aRow["出生日期"] = DateTime.Parse(Row["birdt"].ToString());
                         aRow["身分證號"] = Row["idno"].ToString();
                         aRow["到職日期"] = DateTime.Parse(Row["indt"].ToString());
@@ -1421,7 +1452,7 @@ namespace JBHR.Reports.EmpForm
                         aRow["部門代碼"] = Row["d_no"].ToString();
                         aRow["部門名稱"] = Row["d_name"].ToString();
                         aRow["員工編號"] = Row["nobr"].ToString();
-                        aRow["員工姓名"] = Row["name_c"].ToString();                       
+                        aRow["員工姓名"] = Row["name_c"].ToString();
                         aRow["進集團日"] = DateTime.Parse(Row["cindt"].ToString());
                         aRow["到職日期"] = DateTime.Parse(Row["indt"].ToString());
                         aRow["行動電話"] = Row["gsm"].ToString();
@@ -1447,16 +1478,16 @@ namespace JBHR.Reports.EmpForm
                         aRow["部門代碼"] = Row["d_no"].ToString();
                         aRow["部門名稱"] = Row["d_name"].ToString();
                         aRow["員工編號"] = Row["nobr"].ToString();
-                        aRow["員工姓名"] = Row["name_c"].ToString();                        
+                        aRow["員工姓名"] = Row["name_c"].ToString();
                         aRow["成本代碼"] = Row["depts"].ToString();
                         aRow["成本名稱"] = Row["d_name2"].ToString();
                         aRow["職稱"] = Row["job_name"].ToString();
                         aRow["職等"] = Row["jobl_name"].ToString();
                         aRow["進集團日"] = DateTime.Parse(Row["cindt"].ToString());
                         aRow["性別"] = (Row["sex"].ToString().Trim() == "F") ? "女" : "男";
-                        aRow["年資"] = decimal.Round(decimal.Parse(Row["wk_yrs"].ToString()),2);
+                        aRow["年資"] = decimal.Round(decimal.Parse(Row["wk_yrs"].ToString()), 2);
                         aRow["年齡"] = decimal.Round(decimal.Parse(Row["age"].ToString()), 2);
-                        if(!string.IsNullOrEmpty(Row["tenure"].ToString()))
+                        if (!string.IsNullOrEmpty(Row["tenure"].ToString()))
                         {
                             aRow["現職年資"] = decimal.Round(decimal.Parse(Row["tenure"].ToString()), 2);
                         }
@@ -1490,7 +1521,7 @@ namespace JBHR.Reports.EmpForm
                 case "v新進一覽表":
                     ExporDt.Columns.Add("員工編號", typeof(string));
                     ExporDt.Columns.Add("員工姓名", typeof(string));
-                    ExporDt.Columns.Add("報表分析群組", typeof(string)); 
+                    ExporDt.Columns.Add("報表分析群組", typeof(string));
                     ExporDt.Columns.Add("部門代碼", typeof(string));
                     ExporDt.Columns.Add("部門名稱", typeof(string));
                     ExporDt.Columns.Add("輪班別代碼", typeof(string));
@@ -1501,7 +1532,7 @@ namespace JBHR.Reports.EmpForm
                     ExporDt.Columns.Add("到職日期", typeof(DateTime));
                     ExporDt.Columns.Add("離職日期", typeof(DateTime));
                     ExporDt.Columns.Add("性別", typeof(string));
-                    ExporDt.Columns.Add("出生日期", typeof(DateTime)); 
+                    ExporDt.Columns.Add("出生日期", typeof(DateTime));
                     ExporDt.Columns.Add("年齡", typeof(decimal));
                     foreach (DataRow Row in DT.Rows)
                     {
@@ -1510,7 +1541,7 @@ namespace JBHR.Reports.EmpForm
                         aRow["員工姓名"] = Row["name_c"].ToString();
                         aRow["報表分析群組"] = Row["dept_tree"].ToString();
                         aRow["部門代碼"] = Row["d_no"].ToString();
-                        aRow["部門名稱"] = Row["d_name"].ToString();                       
+                        aRow["部門名稱"] = Row["d_name"].ToString();
                         aRow["輪班別代碼"] = Row["rotet"].ToString();
                         aRow["輪班別"] = Row["rotetname"].ToString();
                         aRow["直間接"] = Row["di"].ToString();
@@ -1529,7 +1560,7 @@ namespace JBHR.Reports.EmpForm
                 case "v離職一覽表":
                     ExporDt.Columns.Add("員工編號", typeof(string));
                     ExporDt.Columns.Add("員工姓名", typeof(string));
-                    ExporDt.Columns.Add("報表分析群組", typeof(string)); 
+                    ExporDt.Columns.Add("報表分析群組", typeof(string));
                     ExporDt.Columns.Add("部門代碼", typeof(string));
                     ExporDt.Columns.Add("部門名稱", typeof(string));
                     ExporDt.Columns.Add("職稱代碼", typeof(string));
@@ -1547,7 +1578,7 @@ namespace JBHR.Reports.EmpForm
                     ExporDt.Columns.Add("停復日期", typeof(DateTime));
 
                     ExporDt.Columns.Add("年齡", typeof(decimal));
-                    ExporDt.Columns.Add("年資", typeof(decimal));                    
+                    ExporDt.Columns.Add("年資", typeof(decimal));
                     ExporDt.Columns.Add("性別", typeof(string));
                     ExporDt.Columns.Add("離職原因", typeof(string));
                     foreach (DataRow Row in DT.Rows)
@@ -1572,7 +1603,7 @@ namespace JBHR.Reports.EmpForm
                         //增加停復日期 - Added By Daniel Chih - 2021/07/19
                         if (!Row.IsNull("stindt")) aRow["停復日期"] = DateTime.Parse(Row["stindt"].ToString());
 
-                        aRow["性別"] = (Row["sex"].ToString().Trim() == "F") ? "女" : "男";                       
+                        aRow["性別"] = (Row["sex"].ToString().Trim() == "F") ? "女" : "男";
                         aRow["年齡"] = (((TimeSpan)(DateTime.Now - DateTime.Parse(Row["birdt"].ToString()))).Days) / 365.24;
                         aRow["年齡"] = decimal.Round(decimal.Parse(aRow["年齡"].ToString()), 2);
                         aRow["年資"] = decimal.Round(decimal.Parse(Row["wk_yrs"].ToString()), 2);
@@ -1583,7 +1614,7 @@ namespace JBHR.Reports.EmpForm
                 case "v留職停薪明細":
                     ExporDt.Columns.Add("員工編號", typeof(string));
                     ExporDt.Columns.Add("員工姓名", typeof(string));
-                    ExporDt.Columns.Add("報表分析群組", typeof(string)); 
+                    ExporDt.Columns.Add("報表分析群組", typeof(string));
                     ExporDt.Columns.Add("部門代碼", typeof(string));
                     ExporDt.Columns.Add("部門名稱", typeof(string));
                     ExporDt.Columns.Add("職稱代碼", typeof(string));
@@ -1607,19 +1638,19 @@ namespace JBHR.Reports.EmpForm
                         aRow["職稱"] = Row["job_name"].ToString();
                         aRow["輪班別代碼"] = Row["rotet"].ToString();
                         aRow["輪班別"] = Row["rotetname"].ToString();
-                        aRow["直間接"] = Row["di"].ToString();                      
+                        aRow["直間接"] = Row["di"].ToString();
                         if (!Row.IsNull("stdt")) aRow["留停日期"] = DateTime.Parse(Row["stdt"].ToString());
                         if (!Row.IsNull("stindt")) aRow["復職日期"] = DateTime.Parse(Row["stindt"].ToString());
                         if (!Row.IsNull("stoudt")) aRow["留離日期"] = DateTime.Parse(Row["stoudt"].ToString());
                         if (!Row.IsNull("pstdt_days")) aRow["留停天數"] = decimal.Round(decimal.Parse(Row["pstdt_days"].ToString()), 2);
                         ExporDt.Rows.Add(aRow);
                     }
-                    break;               
+                    break;
                 default:
                     break;
             }
             JBHR.Reports.ReportClass.Export(ExporDt, this.Name);
-            
-        }        
+
+        }
     }
 }
