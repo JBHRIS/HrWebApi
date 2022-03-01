@@ -51,6 +51,10 @@ namespace JBHR.Bas
                 var sql1 = from a in db.BASETTS where a.NOBR == Nobr && DateTime.Now.Date >= a.ADATE && DateTime.Now.Date <= a.DDATE select a;
                 if (sql1.Any())
                 {
+                    JBModule.Data.ApplicationConfigSettings AppConfig = new JBModule.Data.ApplicationConfigSettings("FRM12", MainForm.COMPANY);
+                    int month = Convert.ToInt16(AppConfig.GetConfig("MonthOfAp_date").Value.Trim());
+                    int day = Convert.ToInt16(AppConfig.GetConfig("DayOfAp_date").Value.Trim());
+
                     var rBasetts = sql1.First().Clone();
                     rBasetts.NOBR = NewNobr;
                     rBasetts.KEY_DATE = DateTime.Now;
@@ -66,6 +70,12 @@ namespace JBHR.Bas
                     rBasetts.STDT = null;
                     rBasetts.STINDT = null;
                     rBasetts.IS_SELFOUT = false;
+
+                    if (month > 0)
+                        rBasetts.AP_DATE = dIndt.AddMonths(month).AddDays(-1);
+                    else if (day > 0)
+                        rBasetts.AP_DATE = dIndt.AddDays(day - 1);
+
                     db.BASETTS.InsertOnSubmit(rBasetts);
                 }
                 if (cbxDetail.Checked)
