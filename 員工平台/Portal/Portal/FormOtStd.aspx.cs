@@ -5,6 +5,7 @@ using Dal;
 using Dal.Dao.Employee;
 using Dal.Dao.Flow;
 using Dal.Dao.Salary;
+using Dal.Dao.Share;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -46,6 +47,17 @@ namespace Portal
                 ddlOtrcd_DataBind();
                 ddlOtCat_DataBind();
                 ddlRote_DataBind();
+                var ShowOtClass = (from c in dcFlow.FormsExtend
+                                   where c.Active && c.FormsCode == "Ot" && c.Code == "ShowOtClass"
+                                   select c).FirstOrDefault();
+                if (ShowOtClass != null)
+                {
+                    plOtClass.Visible = true;
+                    OtDept.CssClass = "col-md-2";
+                    OtPayment.CssClass = "col-md-2";
+                    OtReason.CssClass = "col-md-2";
+                }
+
                 var IsCompensatoryFirst = (from c in dcFlow.FormsExtend
                                            where c.FormsCode == "Ot" && c.Code == "IsCompensatoryFirst" && c.Active == true
                                            select c).FirstOrDefault();
@@ -519,7 +531,10 @@ namespace Portal
 
             if (txtDateB.SelectedDate == null || txtDateE.SelectedDate == null)
             {
-                lblErrorMsg.Text = "您的開始或結束日期沒有輸入正確";
+                if (LanguageCookie != null && LanguageCookie != "")
+                    lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "DateInputError", "1", LanguageCookie);
+                else
+                    lblErrorMsg.Text = "您的開始或結束日期沒有輸入正確";
                 return;
             }
 
@@ -540,19 +555,28 @@ namespace Portal
 
             if (rBasS == null)
             {
-                lblErrorMsg.Text = "基本資料不正確，請洽人事單位";
+                if (LanguageCookie != null && LanguageCookie != "")
+                    lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "AttendDataError", "1", LanguageCookie);
+                else
+                    lblErrorMsg.Text = "基本資料不正確，請洽人事單位";
                 return;
             }
 
             if (TimeB.Length != 4 || TimeE.Length != 4)
             {
-                lblErrorMsg.Text = "您所輸入的時間不正確";
+                if (LanguageCookie != null && LanguageCookie != "")
+                    lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "DateInputError", "1", LanguageCookie);
+                else
+                    lblErrorMsg.Text = "您所輸入的時間不正確";
                 return;
             }
 
             if (Convert.ToInt32(TimeB) >= 2400 || Convert.ToInt32(TimeE) >= 2400)
             {
-                lblErrorMsg.Text = "請用24小時制輸入";
+                if (LanguageCookie != null && LanguageCookie != "")
+                    lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "DateInputError", "1", LanguageCookie);
+                else
+                    lblErrorMsg.Text = "請用24小時制輸入";
                 return;
 
             }
@@ -646,7 +670,10 @@ namespace Portal
             var rAttendDate = oAttendDao.GetAttendH(Nobr, DateB).FirstOrDefault();
             if (rAttendDate == null)
             {
-                lblErrorMsg.Text = "出勤資料錯誤，請洽人事單位";
+                if (LanguageCookie != null && LanguageCookie != "")
+                    lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "AttendDataError", "1", LanguageCookie);
+                else
+                    lblErrorMsg.Text = "出勤資料錯誤，請洽人事單位";
                 return;
             }
 
@@ -657,7 +684,10 @@ namespace Portal
 
             if (Is0XOt != null && rAttend.RoteCode == "0X")
             {
-                lblErrorMsg.Text = "休息日無法申請加班";
+                if (LanguageCookie != null && LanguageCookie != "")
+                    lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "cannotApplyInHoliday", "1", LanguageCookie);
+                else
+                    lblErrorMsg.Text = "休息日無法申請加班";
                 return;
             }
 
@@ -666,7 +696,10 @@ namespace Portal
                           select c).FirstOrDefault();
             if (Is0ZOt != null && rAttend.RoteCode == "0Z")
             {
-                lblErrorMsg.Text = "例假日無法申請加班";
+                if (LanguageCookie != null && LanguageCookie != "")
+                    lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "cannotApplyInRegularHoliday", "1", LanguageCookie);
+                else
+                    lblErrorMsg.Text = "例假日無法申請加班";
                 return;
             }
 
@@ -699,7 +732,10 @@ namespace Portal
 
             if (DateTimeB >= DateTimeE)
             {
-                lblErrorMsg.Text = "您的開始日期時間不能大於或等於結束日期時間";
+                if (LanguageCookie != null && LanguageCookie != "")
+                    lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "DateInputError", "1", LanguageCookie);
+                else
+                    lblErrorMsg.Text = "您的開始日期時間不能大於或等於結束日期時間";
                 return;
             }
 
@@ -746,7 +782,10 @@ namespace Portal
 
                 if (!IsAbs && !oAttcardDao.IsCardTime(Nobr, DateB, DateE, TimeB, TimeE))
                 {
-                    lblErrorMsg.Text = "您所申請的時間不在刷卡或公出時間裡";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "ApplicationTimeNotInTime", "1", LanguageCookie);
+                    else
+                        lblErrorMsg.Text = "您所申請的時間不在刷卡或公出時間裡";
                     return;
                 }
             }
@@ -763,7 +802,10 @@ namespace Portal
 
             if (DateTimeB > DateTime.Now)
             {
-                lblErrorMsg.Text = "不可申請預估加班單";
+                if(LanguageCookie != null && LanguageCookie != "")
+                    lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "CannotApplyInFutureTime", "1", LanguageCookie);
+                else
+                    lblErrorMsg.Text = "不可申請預估加班單";
                 return;
             }
 
@@ -792,7 +834,10 @@ namespace Portal
 
                 if (rAppS.DateTimeB < DateTimeE && rAppS.DateTimeE > DateTimeB && FormCode != "Ot1")
                 {
-                    lblErrorMsg.Text = "資料重複或流程正在進行中";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "DataRepeat", "1", LanguageCookie);
+                    else
+                        lblErrorMsg.Text = "資料重複或流程正在進行中";
                     return;
                 }
             }
@@ -801,7 +846,10 @@ namespace Portal
 
             if (rsOt.Where(p => p.DateTimeB < DateTimeE && p.DateTimeE > DateTimeB).Any())
             {
-                lblErrorMsg.Text = "人事資料重複";
+                if (LanguageCookie != null && LanguageCookie != "")
+                    lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "PesonnelDataRepeat", "1", LanguageCookie);
+                else
+                    lblErrorMsg.Text = "人事資料重複";
                 return;
             }
 
@@ -826,7 +874,13 @@ namespace Portal
 
             if (Calculate < OtMin)
             {
-                lblErrorMsg.Text = "計算時數必須大於" + OtMin.ToString() + "小時";
+                if (LanguageCookie != null && LanguageCookie != "")
+                {
+                    lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "TimeCalculateMustBeOver", "1", LanguageCookie);
+                    lblErrorMsg.Text += OtMin.ToString();
+                }
+                else
+                    lblErrorMsg.Text = "計算時數必須大於" + OtMin.ToString() + "小時";
                 return;
             }
 
@@ -864,11 +918,11 @@ namespace Portal
             {
                 if (calHour > OtLimit)
                 {
-                    if ((IsNightShift ? DateB.AddDays(-1) : DateB) > new DateTime(2022, 1, 26))
-                    {
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "OverTimeHourInMonthLimited", "1", LanguageCookie);
+                    else
                         lblErrorMsg.Text = Nobr + "本月加班時數已超過上限，請洽人事單位";
-                        return;
-                    }
+                    return;
                 }
             }
 
@@ -911,7 +965,10 @@ namespace Portal
                     WorkHour = RoteDetail.Where(p => p.RoteCode == GetAttend.RoteCodeH).FirstOrDefault().WorkHour;
                 if (WorkHour + Calculate > AttHrsDailyMax)
                 {
-                    lblErrorMsg.Text = "單日出勤時數已超過上限";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "OverTimeHourInDayLimited", "1", LanguageCookie);
+                    else
+                        lblErrorMsg.Text = "單日出勤時數已超過上限";
                     return;
                 }
             }
@@ -1004,13 +1061,17 @@ namespace Portal
             dcFlow.SubmitChanges();
 
             gvAppS.Rebind();
+            FindSubControl(gvAppS);
             var Script = "$(document).ready(function() {$('.footable').footable();});";
             ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);
             Session["sProcessID"] = lblProcessID.Text;
             Session["FormCode"] = _FormCode;
             Session["FlowTreeID"] = lblFlowTreeID.Text;
 
-            lblNotifyMsg.Text = "新增成功";
+            if (LanguageCookie != null && LanguageCookie != "")
+                lblNotifyMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "AddSuccess", "1", LanguageCookie);
+            else
+                lblNotifyMsg.Text = "新增成功";
             lblErrorMsg.Text = "";
         }
         protected void gvAppS_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
@@ -1040,8 +1101,11 @@ namespace Portal
                 {
                     dcFlow.FormsAppOt.DeleteOnSubmit(r);
 
-                    dcFlow.SubmitChanges();
-                    lblNotifyMsg.Text = "刪除成功";
+                    dcFlow.SubmitChanges(); 
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblNotifyMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "DeleteSuccess", "1", LanguageCookie);
+                    else
+                        lblNotifyMsg.Text = "刪除成功";
                 }
             }
             gvAppS.Rebind();
@@ -1095,6 +1159,92 @@ namespace Portal
             var lblAbsCount = gvAppS.FindControl("lblCount") as RadLabel;
             if (lblAbsCount != null)
                 lblAbsCount.Text = count.ToString();
+        }
+        public void FindSubControl(Control Ctl)
+        {
+            //判斷是否有子控制項
+            if (Ctl.Controls.Count > 0)
+            {
+                if (Ctl is RadListView)
+                {
+                    var ListView = Ctl as RadListView;
+                    if (ListView.Items.Count > 0)
+                        foreach (var item in ListView.Items)
+                            FindSubControl(item);
+                    else
+                    {
+                        var ListViewData = ListView.Controls[0];
+                        if (ListViewData != null)
+                            FindSubControl(ListViewData);
+                    }
+                }
+                else
+                    foreach (Control Ctl1 in Ctl.Controls)
+                        //繼續往下找(遞迴)
+                        FindSubControl(Ctl1);
+
+            }
+            else
+            {
+                var oShareDictionary = new ShareDictionaryDao();
+
+                if (Request.Cookies["Language"] != null && Request.Cookies["Language"].Value != "")
+                {
+                    var LanguageCookie = Request.Cookies["Language"].Value;
+
+                    if (Ctl is RadLabel)
+                    {
+                        var Label = Ctl as RadLabel;
+                        var TransText = oShareDictionary.TextTranslate("Portal", Label.ID, "1", LanguageCookie);
+                        if (TransText != "" && TransText != null)
+                            Label.Text = TransText;
+
+
+                    }
+
+                    if (Ctl is RadButton)
+                    {
+                        var Button = Ctl as RadButton;
+                        var TransText = oShareDictionary.TextTranslate("Portal", Button.ID, "1", LanguageCookie);
+                        if (TransText != "" && TransText != null)
+                            Button.Text = TransText;
+                    }
+
+                    if (Ctl is RadTextBox)
+                    {
+                        var TextBox = Ctl as RadTextBox;
+                        var TransText = oShareDictionary.TextTranslate("Portal", TextBox.EmptyMessage, "", LanguageCookie);
+                        if (TransText != "" && TransText != null)
+                            TextBox.EmptyMessage = TransText;
+                    }
+                    if (Ctl is CheckBox)
+                    {
+                        var CheckBox = Ctl as CheckBox;
+                        var TransText = oShareDictionary.TextTranslate("Portal", CheckBox.ID, "1", LanguageCookie);
+                        if (TransText != "" && TransText != null)
+                            CheckBox.Text = TransText;
+                    }
+                    if (Ctl is RadCheckBox)
+                    {
+                        var RadCheckBox = Ctl as RadCheckBox;
+                        var TransText = oShareDictionary.TextTranslate("Portal", RadCheckBox.ID, "1", LanguageCookie);
+                        if (TransText != "" && TransText != null)
+                            RadCheckBox.Text = TransText;
+                    }
+                    if (Ctl is RadRadioButtonList)
+                    {
+                        var RadioButtonList = Ctl as RadRadioButtonList;
+                        foreach (var r in RadioButtonList.Items)
+                        {
+                            var RadioButton = r as ButtonListItem;
+                            var TransText = oShareDictionary.TextTranslate("Portal", RadioButton.Text, "", LanguageCookie);
+                            if (TransText != "" && TransText != null)
+                                RadioButton.Text = TransText;
+                        }
+
+                    }
+                }
+            }
         }
     }
 }

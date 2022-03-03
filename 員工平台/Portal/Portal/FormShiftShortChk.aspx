@@ -95,7 +95,7 @@
             </telerik:RadAjaxPanel>
             <div class="row">
                 <div class="col-lg-12">
-                    <label class=" col-form-label ">意見</label>
+                    <label class=" col-form-label "><telerik:RadLabel runat="server" ID="lblOpinionDic" Text="意見"></telerik:RadLabel></label>
                     <telerik:RadTextBox ID="txtNote" runat="server" Skin="Bootstrap"
                         Height="50px" TextMode="MultiLine" Width="100%">
                     </telerik:RadTextBox>

@@ -462,7 +462,7 @@ namespace Portal
                 {
 
                     if (LanguageCookie != null && LanguageCookie != "")
-                        lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "NoAbsenceEntitledData", "1", LanguageCookie);
+                        lblBalanceDic.Text = oShareDictionary.TextTranslate("ErrorMsg", "NoAbsenceEntitledData", "1", LanguageCookie);
                     else
                         lblBalanceDic.Text = "沒有產生得假資料";
                 }
@@ -470,7 +470,7 @@ namespace Portal
             else
             {
                 if (LanguageCookie != null && LanguageCookie != "")
-                    lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "Without Checked", "1", LanguageCookie);
+                    lblBalanceDic.Text = oShareDictionary.TextTranslate("ErrorMsg", "Without Checked", "1", LanguageCookie);
                 else
                     lblBalanceDic.Text = "不用檢查";
             }
@@ -539,10 +539,10 @@ namespace Portal
                     return;
                 }
 
-                var IsNeedAbsReason = (from c in dcFlow.FormsExtend
-                                       where c.FormsCode == "Abs" && c.Code == "IsNeedAbsReason" && c.Active == true
+                var IsNeedAbs1Reason = (from c in dcFlow.FormsExtend
+                                       where c.FormsCode == "Abs1" && c.Code == "IsNeedAbs1Reason" && c.Active == true
                                        select c).FirstOrDefault();
-                if (IsNeedAbsReason != null && txtNote.Text == "")
+                if (IsNeedAbs1Reason != null && txtNote.Text == "")
                 {
                     if (LanguageCookie != null && LanguageCookie != "")
                         lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "NeedToEnterReason", "1", LanguageCookie);
@@ -818,7 +818,7 @@ namespace Portal
                 Session["FlowTreeID"] = lblFlowTreeID.Text;
 
                 if (LanguageCookie != null && LanguageCookie != "")
-                    lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "AddSuccess", "1", LanguageCookie);
+                    lblNotifyMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "AddSuccess", "1", LanguageCookie);
                 else
                     lblNotifyMsg.Text = "新增成功";
             }
@@ -826,7 +826,7 @@ namespace Portal
             {
 
                 if (LanguageCookie != null && LanguageCookie != "")
-                    lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "AddFailed", "1", LanguageCookie);
+                    lblNotifyMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "AddFailed", "1", LanguageCookie);
                 else
                     lblNotifyMsg.Text = "新增失敗";
             }
@@ -877,7 +877,7 @@ namespace Portal
                     dcFlow.SubmitChanges();
 
                     if (LanguageCookie != null && LanguageCookie != "")
-                        lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "DeleteSuccess", "1", LanguageCookie);
+                        lblNotifyMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "DeleteSuccess", "1", LanguageCookie);
                     else
                         lblNotifyMsg.Text = "刪除成功";
                 }

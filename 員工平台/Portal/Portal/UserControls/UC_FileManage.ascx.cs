@@ -32,7 +32,7 @@ namespace Portal.UserControls
             if (!this.IsPostBack)
             {
                 UnobtrusiveSession.Session["Files"] = null;
-                if (Request.Cookies["CompanyId"] != null)
+                if (Request.Cookies["CompanyId"] != null && Request.Cookies["CompanyId"].Value != "")
                 {
                     var CompanyId = Request.Cookies["CompanyId"].Value;
                     var oShareCompany = new ShareCompanyDao();
@@ -108,7 +108,7 @@ namespace Portal.UserControls
                             var ResultData = Result.Data as List<UploadMultipleRow>;
                             foreach (var resultData in ResultData)
                             {
-                                if (Request.Cookies["CompanyId"].Value != null)
+                                if (Request.Cookies["CompanyId"] != null && Request.Cookies["CompanyId"].Value != "")
                                     resultData.CompanyId = Request.Cookies["CompanyId"].Value;
                                 resultData.AccessToken = _User.AccessToken;
                                 result.Add(resultData);

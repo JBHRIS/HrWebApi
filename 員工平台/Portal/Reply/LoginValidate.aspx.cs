@@ -23,6 +23,7 @@ namespace Reply
                 var EmpId = "";
                 var EmpName = "未登入";
                 var Role = 64;
+                var Email = "";
                 //以上值用資料帶入
                 if (Request.QueryString["Param"] != null && Request.QueryString["Param"] != "")
                 {
@@ -34,7 +35,8 @@ namespace Reply
                     EmpId = UserData[3];
                     EmpName = UserData[4];
                     Role = Convert.ToInt32(UserData[5]);
-                    UnobtrusiveSession.Session["FileInfo"] = Convert.ToByte(UserData[6]);
+                    UnobtrusiveSession.Session["FormGuidCode"] = UserData[6];
+                    Email = UserData[7];
                 }
 
                 var oShareCompany = new ShareCompanyDao();
@@ -48,7 +50,9 @@ namespace Reply
                 oUser.CompanyId = CompanyId;
                 oUser.EmpName = EmpName;
                 oUser.RoleKey = Role;
-                
+                var oQuestionUserInfo = new ShareQuestionUserInfoDao();
+                oQuestionUserInfo.InsertQuestionUserInfo(CompanyId, EmpId, EmpId, Role, EmpName, Email);
+
                 _AuthManager.SignIn(oUser, oUser.UserCode, CompanySetting,true);
                 Response.Redirect("ProblemReturn.aspx");
             }

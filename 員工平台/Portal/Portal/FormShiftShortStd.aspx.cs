@@ -33,6 +33,7 @@ namespace Portal
                 SetDefault();
                 SetInfoAppM();
 
+                LanguageCookie = Request.Cookies["Language"]?.Value ?? "";
                 txtNameAppS_DataBind();
                 txtRote_DataBind();
                 txtDateA_SelectedDateChanged(null, null);
@@ -233,7 +234,10 @@ namespace Portal
                     dcFlow.FormsAppShiftShort.DeleteOnSubmit(r);
 
                     dcFlow.SubmitChanges();
-                    lblNotifyMsg.Text = "刪除成功";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblNotifyMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "DeleteSuccess", "1", LanguageCookie);
+                    else
+                        lblNotifyMsg.Text = "刪除成功";
                 }
             }
             gvAppS.Rebind();
@@ -245,7 +249,10 @@ namespace Portal
             {
                 if (txtDateB.SelectedDate == null || txtDateB.SelectedDate == null)
                 {
-                    lblErrorMsg.Text = "您的開始或結束日期沒有輸入正確";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "DateInputError", "1", LanguageCookie);
+                    else
+                        lblErrorMsg.Text = "您的開始或結束日期沒有輸入正確";
                     lblErrorMsg.CssClass = "shake";
                     return;
                 }
@@ -262,35 +269,50 @@ namespace Portal
 
                 if (ddlRoteB.Text == "")
                 {
-                    lblErrorMsg.Text = "請選擇調換班型";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "ChooseShiftClass", "1", LanguageCookie);
+                    else
+                        lblErrorMsg.Text = "請選擇調換班型";
                     lblErrorMsg.CssClass = "shake";
                     return;
                 }
 
                 if (lblRoteA.Text == "")
                 {
-                    lblErrorMsg.Text = "原上班日期無班別資料";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "NoAttendClassData", "1", LanguageCookie);
+                    else
+                        lblErrorMsg.Text = "原上班日期無班別資料";
                     lblErrorMsg.CssClass = "shake";
                     return;
                 }
 
                 if (Note.Length == 0)
                 {
-                    lblErrorMsg.Text = "您的原因沒有輸入";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "NeedToEnterReason", "1", LanguageCookie);
+                    else
+                        lblErrorMsg.Text = "您的原因沒有輸入";
                     lblErrorMsg.CssClass = "shake";
                     return;
                 }
 
                 if (RoteA.Length == 0 || RoteB.Length == 0)
                 {
-                    lblErrorMsg.Text = "有一天沒有班別，請洽人事單位";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "OneDayNoClass", "1", LanguageCookie);
+                    else
+                        lblErrorMsg.Text = "有一天沒有班別，請洽人事單位";
                     lblErrorMsg.CssClass = "shake";
                     return;
                 }
 
                 if (RoteA == "0Z" || RoteB == "0Z")
                 {
-                    lblErrorMsg.Text = "例假日不可調換，請洽人事單位";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "CannotShiftRegularHoliday", "1", LanguageCookie);
+                    else
+                        lblErrorMsg.Text = "例假日不可調換，請洽人事單位";
                     lblErrorMsg.CssClass = "shake";
                     return;
                 }
@@ -306,14 +328,20 @@ namespace Portal
                 {
                     if (RoteB != RoteB_Old)
                     {
-                        lblErrorMsg.Text = "調不同日期時，班別不可以調換";
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "ShiftCannotChangeInDiffrentDate", "1", LanguageCookie);
+                        else
+                            lblErrorMsg.Text = "調不同日期時，班別不可以調換";
                         lblErrorMsg.CssClass = "shake";
                         return;
                     }
 
                     if (RoteA == RoteB)
                     {
-                        lblErrorMsg.Text = "調不同日期，但班別相同";
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "SameClassInDiffrentDate", "1", LanguageCookie);
+                        else
+                            lblErrorMsg.Text = "調不同日期，但班別相同";
                         lblErrorMsg.CssClass = "shake";
                         return;
                     }
@@ -322,7 +350,10 @@ namespace Portal
                 {
                     if (RoteA == RoteB)
                     {
-                        lblErrorMsg.Text = "您沒有做任何更動";
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "NeedToChange", "1", LanguageCookie);
+                        else
+                            lblErrorMsg.Text = "您沒有做任何更動";
                         lblErrorMsg.CssClass = "shake";
                         return;
                     }
@@ -338,7 +369,10 @@ namespace Portal
 
                 if (rsAppS.Any())
                 {
-                    lblErrorMsg.Text = "資料重複或流程正在進行中";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "DataRepeat", "1", LanguageCookie);
+                    else
+                        lblErrorMsg.Text = "資料重複或流程正在進行中";
                     lblErrorMsg.CssClass = "shake";
                     return;
                 }
@@ -418,15 +452,39 @@ namespace Portal
                 Session["FormCode"] = _FormCode;
                 Session["FlowTreeID"] = lblFlowTreeID.Text;
 
-                lblNotifyMsg.Text = "新增成功";
+                if (LanguageCookie != null && LanguageCookie != "")
+                    lblNotifyMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "AddSuccess", "1", LanguageCookie);
+                else
+                    lblNotifyMsg.Text = "新增成功";
                 lblErrorMsg.Text = "";
             }
             catch (Exception ex)
             {
-                lblNotifyMsg.Text = "新增失敗";
+                if (LanguageCookie != null && LanguageCookie != "")
+                    lblNotifyMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "AddFailed", "1", LanguageCookie);
+                else
+                    lblNotifyMsg.Text = "新增失敗";
                 lblErrorMsg.Text = ex.Message;
             }
 
+        }
+
+        protected void gvAppS_DataBound(object sender, EventArgs e)
+        {
+            int count = 0;
+            foreach (var item in gvAppS.Items)
+            {
+                var No = item.FindControl("lblListNumber") as RadLabel;
+                if (No != null)
+                {
+                    count++;
+                    No.Text = count.ToString();
+                }
+
+            }
+            var lblAbsCount = gvAppS.FindControl("lblCount") as RadLabel;
+            if (lblAbsCount != null)
+                lblAbsCount.Text = count.ToString();
         }
     }
 }

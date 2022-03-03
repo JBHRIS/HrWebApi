@@ -1,7 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Portal.Main" %>
 
 <!DOCTYPE html >
-
 <html>
 <head runat="server">
     <meta charset="utf-8">
@@ -106,7 +105,30 @@
                     callMyPageMethod(data);
                 }
                 function callMyPageMethod(arg) {
-                    PageMethods.storeFile(arg, OnSucceeded, OnFailed);
+                    //PageMethods.storeFile(arg, OnSucceeded, OnFailed);
+                    //window.location = "Reply.ashx";
+                    const Url = 'Reply.ashx';
+                    var XMLHR = new XMLHttpRequest();
+                    //XMLHR.open("POST", Url);
+                    //XMLHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    //XMLHR.send('FileInfo=' + arg);
+                    //fetch("Reply.ashx", {
+                    //    method: "POST",
+
+                    //});
+                    var url = "Reply.ashx";
+                    var form = document.createElement("form");
+                    
+                    form.method = "POST";
+                    form.action = url;
+                    var input = document.createElement("input");
+                    input.type = "hidden";
+                    input.name = "FileInfo";
+                    input.value = arg;
+                    form.appendChild(input);
+                    var body = document.getElementsByTagName("body")[0];
+                    body.appendChild(form);
+                    form.submit();
                 }
                 function OnSucceeded(data) {
                     window.location = data;

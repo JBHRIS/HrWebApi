@@ -1,6 +1,7 @@
 ﻿using Bll.Flow.Vdb;
 using Dal;
 using Dal.Dao.Flow;
+using Dal.Dao.Share;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace Portal
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            LanguageCookie = Request.Cookies["Language"]?.Value ?? "";
             if (CompanySetting != null)
             {
                 dcHR.Connection.ConnectionString = CompanySetting.ConnHr;
@@ -181,7 +183,10 @@ namespace Portal
 
                     if (rsAppS.Any())
                     {
-                        lblNotifyMsg.Text = "單號" + AbscData.Serno + "流程進行中";
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            lblNotifyMsg.Text = AbscData.Serno + oShareDictionary.TextTranslate("ErrorMsg", "DataInFlow", "1", LanguageCookie);
+                        else
+                            lblNotifyMsg.Text = "單號" + AbscData.Serno + "流程進行中";
                         CheckBox.Checked = false;
                         return;
                     }
@@ -284,7 +289,10 @@ namespace Portal
             //}
             if (txtNameAppS.Text == "")
             {
-                lblErrorMsg.Text = "請選擇申請人";
+                if (LanguageCookie != null && LanguageCookie != "")
+                    lblErrorMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "SelectApplicant", "1", LanguageCookie);
+                else
+                    lblErrorMsg.Text = "請選擇申請人";
                 lblErrorMsg.CssClass = "badge badge-danger animated shake";
                 return;
             }
@@ -313,7 +321,7 @@ namespace Portal
             }
 
             gvAppS.DataSource = result;
-
+            FindSubControl(gvAppS);
             Session["sProcessID"] = lblProcessID.Text;
             Session["FormCode"] = _FormCode;
             Session["FlowTreeID"] = lblFlowTreeID.Text;
@@ -358,6 +366,92 @@ namespace Portal
             lblJobNameAppM.Text = rEmpS.JobName;
             lblJobCodeAppM.Text = rEmpS.JobCode;
             lblRoleAppM.Text = rEmpS.RoleId;
+        }
+        public void FindSubControl(Control Ctl)
+        {
+            //判斷是否有子控制項
+            if (Ctl.Controls.Count > 0)
+            {
+                if (Ctl is RadListView)
+                {
+                    var ListView = Ctl as RadListView;
+                    if (ListView.Items.Count > 0)
+                        foreach (var item in ListView.Items)
+                            FindSubControl(item);
+                    else
+                    {
+                        var ListViewData = ListView.Controls[0];
+                        if (ListViewData != null)
+                            FindSubControl(ListViewData);
+                    }
+                }
+                else
+                    foreach (Control Ctl1 in Ctl.Controls)
+                        //繼續往下找(遞迴)
+                        FindSubControl(Ctl1);
+
+            }
+            else
+            {
+                var oShareDictionary = new ShareDictionaryDao();
+
+                if (Request.Cookies["Language"] != null && Request.Cookies["Language"].Value != "")
+                {
+                    var LanguageCookie = Request.Cookies["Language"].Value;
+
+                    if (Ctl is RadLabel)
+                    {
+                        var Label = Ctl as RadLabel;
+                        var TransText = oShareDictionary.TextTranslate("Portal", Label.ID, "1", LanguageCookie);
+                        if (TransText != "" && TransText != null)
+                            Label.Text = TransText;
+
+
+                    }
+
+                    if (Ctl is RadButton)
+                    {
+                        var Button = Ctl as RadButton;
+                        var TransText = oShareDictionary.TextTranslate("Portal", Button.ID, "1", LanguageCookie);
+                        if (TransText != "" && TransText != null)
+                            Button.Text = TransText;
+                    }
+
+                    if (Ctl is RadTextBox)
+                    {
+                        var TextBox = Ctl as RadTextBox;
+                        var TransText = oShareDictionary.TextTranslate("Portal", TextBox.EmptyMessage, "", LanguageCookie);
+                        if (TransText != "" && TransText != null)
+                            TextBox.EmptyMessage = TransText;
+                    }
+                    if (Ctl is CheckBox)
+                    {
+                        var CheckBox = Ctl as CheckBox;
+                        var TransText = oShareDictionary.TextTranslate("Portal", CheckBox.ID, "1", LanguageCookie);
+                        if (TransText != "" && TransText != null)
+                            CheckBox.Text = TransText;
+                    }
+                    if (Ctl is RadCheckBox)
+                    {
+                        var RadCheckBox = Ctl as RadCheckBox;
+                        var TransText = oShareDictionary.TextTranslate("Portal", RadCheckBox.ID, "1", LanguageCookie);
+                        if (TransText != "" && TransText != null)
+                            RadCheckBox.Text = TransText;
+                    }
+                    if (Ctl is RadRadioButtonList)
+                    {
+                        var RadioButtonList = Ctl as RadRadioButtonList;
+                        foreach (var r in RadioButtonList.Items)
+                        {
+                            var RadioButton = r as ButtonListItem;
+                            var TransText = oShareDictionary.TextTranslate("Portal", RadioButton.Text, "", LanguageCookie);
+                            if (TransText != "" && TransText != null)
+                                RadioButton.Text = TransText;
+                        }
+
+                    }
+                }
+            }
         }
     }
 }

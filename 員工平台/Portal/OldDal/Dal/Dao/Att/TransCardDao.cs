@@ -8,6 +8,7 @@ using OldBll.Att.Vdb;
 using JBModule.Data.Linq;
 using JBTools;
 using JBTools.Extend;
+using System.Configuration;
 
 namespace OldDal.Dao.Att
 {
@@ -33,7 +34,7 @@ namespace OldDal.Dao.Att
         /// <param name="conn">連接字串 沒有等於預設</param>
         public TransCardDao(IDbConnection conn = null)
         {
-                dcHr = new HrDBDataContext(conn.ConnectionString);
+            dcHr = new HrDBDataContext(conn.ConnectionString);
         }
 
         /// <summary>
@@ -42,7 +43,7 @@ namespace OldDal.Dao.Att
         /// <param name="ConnectionString"></param>
         public TransCardDao(string ConnectionString = null)
         {
-                dcHr = new HrDBDataContext(ConnectionString);
+            dcHr = new HrDBDataContext(ConnectionString);
         }
 
         /// <summary>
@@ -55,14 +56,14 @@ namespace OldDal.Dao.Att
             string[] arrTtscode = { "1", "4", "6" };
             var Vdb = (from c in dcHr.BASETTS
                        join d in dcHr.DEPT on c.DEPT equals d.D_NO
-                       //join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on c.NOBR equals x.NOBR
+                       join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on c.NOBR equals x.NOBR
                        where Cond.sNobrB.CompareTo(c.NOBR) <= 0
                        && c.NOBR.CompareTo(Cond.sNobrE) <= 0
                        && c.ADATE.Date <= Cond.dDateE && Cond.dDateB <= c.DDATE.Value.Date
                        && Cond.sDeptB.CompareTo(d.D_NO_DISP) <= 0
                        && d.D_NO_DISP.CompareTo(Cond.sDeptE) <= 0
                        && arrTtscode.Contains(c.TTSCODE)
-                       && dcHr.UserReadDataGroupList(Cond.sUserID, Cond.sComp, Cond.bAdmin).Select(p => p.DATAGROUP).Contains(c.SALADR)
+                       //&& dcHr.UserReadDataGroupList(Cond.sUserID, Cond.sComp, Cond.bAdmin).Select(p => p.DATAGROUP).Contains(c.SALADR)
                        select new BaseTable()
                        {
                            Nobr = c.NOBR.Trim(),
@@ -186,7 +187,7 @@ namespace OldDal.Dao.Att
                         join b in dcHr.BASETTS on a.NOBR equals b.NOBR
                         join d in dcHr.DEPT on b.DEPT equals d.D_NO
                         join h in dcHr.HCODE on a.H_CODE equals h.H_CODE
-                        //join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on a.NOBR equals x.NOBR
+                        join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on a.NOBR equals x.NOBR
                         where Cond.sNobrB.CompareTo(a.NOBR) <= 0
                         && a.NOBR.CompareTo(Cond.sNobrE) <= 0
                         && Cond.dDateB <= Convert.ToDateTime(a.BDATE.Date).Date
@@ -196,7 +197,7 @@ namespace OldDal.Dao.Att
                         && a.BDATE >= b.ADATE && a.BDATE <= b.DDATE.Value
                         && Cond.sDeptB.CompareTo(d.D_NO_DISP) <= 0 && d.D_NO_DISP.CompareTo(Cond.sDeptE) <= 0
                         && h.FLAG == "-"
-                        && dcHr.UserReadDataGroupList(Cond.sUserID, Cond.sComp, Cond.bAdmin).Select(p => p.DATAGROUP).Contains(b.SALADR)
+                        //&& dcHr.UserReadDataGroupList(Cond.sUserID, Cond.sComp, Cond.bAdmin).Select(p => p.DATAGROUP).Contains(b.SALADR)
                         select new AbsTable()
                         {
                             Nobr = a.NOBR.Trim(),
@@ -209,7 +210,7 @@ namespace OldDal.Dao.Att
                         join b in dcHr.BASETTS on a.NOBR equals b.NOBR
                         join d in dcHr.DEPT on b.DEPT equals d.D_NO
                         join h in dcHr.HCODE on a.H_CODE equals h.H_CODE
-                        //join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on a.NOBR equals x.NOBR
+                        join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on a.NOBR equals x.NOBR
                         where Cond.sNobrB.CompareTo(a.NOBR) <= 0
                         && a.NOBR.CompareTo(Cond.sNobrE) <= 0
                         && Convert.ToDateTime(a.BDATE.Date).Date <= Cond.dDateE
@@ -218,7 +219,7 @@ namespace OldDal.Dao.Att
                         && a.ETIME.Trim().Length == 4
                         && a.BDATE >= b.ADATE && a.BDATE <= b.DDATE.Value
                         && Cond.sDeptB.CompareTo(d.D_NO_DISP) <= 0 && d.D_NO_DISP.CompareTo(Cond.sDeptE) <= 0
-                        && dcHr.UserReadDataGroupList(Cond.sUserID, Cond.sComp, Cond.bAdmin).Select(p => p.DATAGROUP).Contains(b.SALADR)
+                        //&& dcHr.UserReadDataGroupList(Cond.sUserID, Cond.sComp, Cond.bAdmin).Select(p => p.DATAGROUP).Contains(b.SALADR)
                         //&& h.FLAG == "-"
                         select new AbsTable()
                         {
@@ -255,7 +256,7 @@ namespace OldDal.Dao.Att
                        join d in dcHr.DEPT on b.DEPT equals d.D_NO
                        join t in dcHr.ATTEND on new { a.NOBR, a.BDATE.Date } equals new { t.NOBR, t.ADATE.Date }
                        join r in dcHr.ROTE on t.ROTE equals r.ROTE1
-                       //join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on a.NOBR equals x.NOBR
+                       join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on a.NOBR equals x.NOBR
                        where Cond.sNobrB.CompareTo(a.NOBR) <= 0
                        && a.NOBR.CompareTo(Cond.sNobrE) <= 0
                        && Cond.dDateB.AddDays(-1) <= Convert.ToDateTime(a.BDATE.Date).Date
@@ -264,7 +265,7 @@ namespace OldDal.Dao.Att
                        && r.ON_TIME.Trim().Length == 0 && r.OFF_TIME.Trim().Length == 0 && r.WK_HRS == 0
                        && a.BDATE >= b.ADATE && a.BDATE <= b.DDATE.Value
                        && Cond.sDeptB.CompareTo(d.D_NO_DISP) <= 0 && d.D_NO_DISP.CompareTo(Cond.sDeptE) <= 0
-                       && dcHr.UserReadDataGroupList(Cond.sUserID, Cond.sComp, Cond.bAdmin).Select(p => p.DATAGROUP).Contains(b.SALADR)
+                       //&& dcHr.UserReadDataGroupList(Cond.sUserID, Cond.sComp, Cond.bAdmin).Select(p => p.DATAGROUP).Contains(b.SALADR)
                        select new OtTable()
                        {
                            Nobr = a.NOBR.Trim(),
@@ -285,7 +286,7 @@ namespace OldDal.Dao.Att
             var Vdb = (from c in dcHr.CARD
                        join b in dcHr.BASETTS on c.NOBR equals b.NOBR
                        join d in dcHr.DEPT on b.DEPT equals d.D_NO
-                       //join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on c.NOBR equals x.NOBR
+                       join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on c.NOBR equals x.NOBR
                        where Cond.sNobrB.CompareTo(c.NOBR) <= 0
                        && c.NOBR.CompareTo(Cond.sNobrE) <= 0
                        && Cond.dDateB.AddDays(-1) <= Convert.ToDateTime(c.ADATE.Date).Date
@@ -295,7 +296,7 @@ namespace OldDal.Dao.Att
                        && Cond.sDeptB.CompareTo(d.D_NO_DISP) <= 0 && d.D_NO_DISP.CompareTo(Cond.sDeptE) <= 0
                        && !c.NOT_TRAN
                        //&& c.CODE != "9"
-                       && dcHr.UserReadDataGroupList(Cond.sUserID, Cond.sComp, Cond.bAdmin).Select(p => p.DATAGROUP).Contains(b.SALADR)
+                       //&& dcHr.UserReadDataGroupList(Cond.sUserID, Cond.sComp, Cond.bAdmin).Select(p => p.DATAGROUP).Contains(b.SALADR)
                        select new CardTable()
                        {
                            Nobr = c.NOBR.Trim(),
@@ -329,14 +330,14 @@ namespace OldDal.Dao.Att
             var Vdb = (from c in dcHr.ATTCARD
                        join b in dcHr.BASETTS on c.NOBR equals b.NOBR
                        join d in dcHr.DEPT on b.DEPT equals d.D_NO
-                       //join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on c.NOBR equals x.NOBR
+                       join x in dcHr.WriteRuleTable(Cond.sUserID, Cond.sComp, Cond.bAdmin) on c.NOBR equals x.NOBR
                        where Cond.sNobrB.CompareTo(c.NOBR) <= 0
                        && c.NOBR.CompareTo(Cond.sNobrE) <= 0
                        && Cond.dDateB.AddDays(-1) <= Convert.ToDateTime(c.ADATE.Date).Date
                        && Convert.ToDateTime(c.ADATE.Date).Date <= Cond.dDateE.AddDays(1)
                        && c.ADATE >= b.ADATE && c.ADATE <= b.DDATE.Value
                        && Cond.sDeptB.CompareTo(d.D_NO_DISP) <= 0 && d.D_NO_DISP.CompareTo(Cond.sDeptE) <= 0
-                       && dcHr.UserReadDataGroupList(Cond.sUserID, Cond.sComp, Cond.bAdmin).Select(p => p.DATAGROUP).Contains(b.SALADR)
+                       //&& dcHr.UserReadDataGroupList(Cond.sUserID, Cond.sComp, Cond.bAdmin).Select(p => p.DATAGROUP).Contains(b.SALADR)
                        select new AttCardTable()
                        {
                            Nobr = c.NOBR.Trim(),
@@ -467,55 +468,117 @@ namespace OldDal.Dao.Att
 
         public int TransCardPool(TransCardCondition oCond)
         {
-            int iPass = 0;
-
-            this.Report(5, "取得資料中...");
-            var lsNobr = (from c in dcHr.ATTEND
-                          join b in dcHr.BASETTS on c.NOBR equals b.NOBR
-                          join d in dcHr.DEPT on b.DEPT equals d.D_NO
-                          //join x in dcHr.WriteRuleTable(oCond.sUserID, oCond.sComp, oCond.bAdmin) on c.NOBR equals x.NOBR
-                          where c.NOBR.CompareTo(oCond.sNobrB) >= 0 && c.NOBR.CompareTo(oCond.sNobrE) <= 0
-                          && c.ADATE.Date >= oCond.dDateB.Date && c.ADATE.Date <= oCond.dDateE.Date
-                          && c.ADATE >= b.ADATE && c.ADATE <= b.DDATE.Value
-                          && oCond.sDeptB.CompareTo(d.D_NO_DISP) <= 0 && d.D_NO_DISP.CompareTo(oCond.sDeptE) <= 0
-                          && dcHr.UserReadDataGroupList(oCond.sUserID, oCond.sComp, oCond.bAdmin).Select(p => p.DATAGROUP).Contains(b.SALADR)
-                          orderby c.NOBR
-                          group c by c.NOBR into d
-                          select d.Key).ToList();
-
-            TransCardVdb Vdb = new TransCardVdb();
-            Vdb.TransCardCond = oCond;
-            Vdb.BaseData = GetBaseByNobr(oCond);
-            Vdb.AbsData = GetAbs(oCond);
-            Vdb.CardData = GetCard(oCond);
-            Vdb.OtData = GetOt(oCond);
-            Vdb.RoteData = GetRote(null);
-
-            int _ThreadCount = oCond.ThreadCount;
-            int _ThreadAvg = lsNobr.Count / _ThreadCount;
-            TransCardPools tcp;
-            this.Report(30, "判斷異常中...");
-
-            OldBll.Tools.ThreadPools stp = new OldBll.Tools.ThreadPools(_ThreadCount, System.Threading.ThreadPriority.BelowNormal);
-            foreach (var item in lsNobr.Split(300))
+            string Company = ConfigurationManager.AppSettings["Company"];
+            if (Company == null)
+                Company = "";
+            switch (Company)
             {
-                //for (int count = 0; count < lsNobr.Count; count++)
-                {
-                    this.Report(50, "判斷異常中...");// + lsNobr[count]);
+                case "FOXLINK":
+                    {
+                        int iPass = 0;
 
-                    tcp = new TransCardPools(dcHr.Connection, null, Vdb, oCond, item, string.Empty, iPass);// new List<string>(), lsNobr[count], iPass);
-                    stp.QueueUserWorkItem(new WaitCallback(tcp.TransCardThreadPoolCallback));//, string.Format("STP1[{0}]", count));
-                    //Thread.Sleep(new Random().Next(500));
-                    Thread.Sleep(0);
-                } 
+                        this.Report(5, "取得資料中...");
+
+                        TransCardVdb Vdb = new TransCardVdb();
+                        Vdb.TransCardCond = oCond;
+
+                        var lsNobr = (from c in dcHr.ATTEND
+                                      join b in dcHr.BASETTS on c.NOBR equals b.NOBR
+                                      join d in dcHr.DEPT on b.DEPT equals d.D_NO
+                                      join x in dcHr.WriteRuleTable(oCond.sUserID, oCond.sComp, oCond.bAdmin) on c.NOBR equals x.NOBR
+                                      where c.NOBR.CompareTo(oCond.sNobrB) >= 0 && c.NOBR.CompareTo(oCond.sNobrE) <= 0
+                                      && c.ADATE.Date >= oCond.dDateB.Date && c.ADATE.Date <= oCond.dDateE.Date
+                                      && c.ADATE >= b.ADATE && c.ADATE <= b.DDATE.Value
+                                      && oCond.sDeptB.CompareTo(d.D_NO_DISP) <= 0 && d.D_NO_DISP.CompareTo(oCond.sDeptE) <= 0
+                                      orderby c.NOBR
+                                      group c by c.NOBR into d
+                                      select d.Key).ToList();
+
+                        Vdb.BaseData = GetBaseByNobr(oCond);
+                        Vdb.AbsData = GetAbs(oCond);
+                        Vdb.CardData = GetCard(oCond);
+                        Vdb.OtData = GetOt(oCond);
+                        Vdb.RoteData = GetRote(null);
+
+                        int _ThreadCount = oCond.ThreadCount;
+                        int _ThreadAvg = lsNobr.Count / _ThreadCount;
+                        TransCardPools tcp;
+
+                        this.Report(30, "判斷異常中...");
+
+                        OldBll.Tools.ThreadPools stp = new OldBll.Tools.ThreadPools(_ThreadCount, System.Threading.ThreadPriority.BelowNormal);
+                        for (int count = 0; count < lsNobr.Count; count++)
+                        {
+                            this.Report(50, "判斷異常中..." + lsNobr[count]);
+
+                            tcp = new TransCardPools(dcHr.Connection, null, Vdb, oCond, new List<string>(), lsNobr[count], iPass);
+
+                            stp.QueueUserWorkItem(new WaitCallback(tcp.TransCardThreadPoolCallback), string.Format("STP1[{0}]", count));
+                            //Thread.Sleep(new Random().Next(500));
+                            Thread.Sleep(0);
+                        }
+
+                        this.Report(70, "資料批次處理中(這裡要很久)...");
+                        stp.EndPool();
+
+                        this.Report(100, "寫入完成！");
+
+                        return iPass;
+                    }
+                default:
+                    {
+                        int iPass = 0;
+
+                        this.Report(5, "取得資料中...");
+                        var lsNobr = (from c in dcHr.ATTEND
+                                      join b in dcHr.BASETTS on c.NOBR equals b.NOBR
+                                      join d in dcHr.DEPT on b.DEPT equals d.D_NO
+                                      join x in dcHr.WriteRuleTable(oCond.sUserID, oCond.sComp, oCond.bAdmin) on c.NOBR equals x.NOBR
+                                      where c.NOBR.CompareTo(oCond.sNobrB) >= 0 && c.NOBR.CompareTo(oCond.sNobrE) <= 0
+                                      && c.ADATE.Date >= oCond.dDateB.Date && c.ADATE.Date <= oCond.dDateE.Date
+                                      && c.ADATE >= b.ADATE && c.ADATE <= b.DDATE.Value
+                                      && oCond.sDeptB.CompareTo(d.D_NO_DISP) <= 0 && d.D_NO_DISP.CompareTo(oCond.sDeptE) <= 0
+                                      //&& dcHr.UserReadDataGroupList(oCond.sUserID, oCond.sComp, oCond.bAdmin).Select(p => p.DATAGROUP).Contains(b.SALADR)
+                                      orderby c.NOBR
+                                      group c by c.NOBR into d
+                                      select d.Key).ToList();
+
+                        TransCardVdb Vdb = new TransCardVdb();
+                        Vdb.TransCardCond = oCond;
+                        Vdb.BaseData = GetBaseByNobr(oCond);
+                        Vdb.AbsData = GetAbs(oCond);
+                        Vdb.CardData = GetCard(oCond);
+                        Vdb.OtData = GetOt(oCond);
+                        Vdb.RoteData = GetRote(null);
+
+                        int _ThreadCount = oCond.ThreadCount;
+                        int _ThreadAvg = lsNobr.Count / _ThreadCount;
+                        TransCardPools tcp;
+                        this.Report(30, "判斷異常中...");
+
+                        OldBll.Tools.ThreadPools stp = new OldBll.Tools.ThreadPools(_ThreadCount, System.Threading.ThreadPriority.BelowNormal);
+                        foreach (var item in lsNobr.Split(300))
+                        {
+                            //for (int count = 0; count < lsNobr.Count; count++)
+                            {
+                                this.Report(50, "判斷異常中...");// + lsNobr[count]);
+
+                                tcp = new TransCardPools(dcHr.Connection, null, Vdb, oCond, item, string.Empty, iPass);// new List<string>(), lsNobr[count], iPass);
+                                stp.QueueUserWorkItem(new WaitCallback(tcp.TransCardThreadPoolCallback));//, string.Format("STP1[{0}]", count));
+                                                                                                         //Thread.Sleep(new Random().Next(500));
+                                Thread.Sleep(0);
+                            }
+                        }
+
+                        this.Report(70, "資料批次處理中(這裡要很久)...");
+                        stp.EndPool();
+
+                        this.Report(100, "寫入完成！");
+
+                        return iPass;
+                    }
             }
 
-            this.Report(70, "資料批次處理中(這裡要很久)...");
-            stp.EndPool();
-
-            this.Report(100, "寫入完成！");
-
-            return iPass;
         }
 
         public class TransCardPools
@@ -589,7 +652,7 @@ namespace OldDal.Dao.Att
                                        && c.ADATE.Date <= oCond.dDateE.AddDays(1).Date
                                        //orderby c.ROTE descending, c.NOBR, c.ADATE
                                        //orderby c.ADATE, r.WK_HRS descending
-                                       orderby r.WK_HRS descending, c.ROTE,  c.ADATE
+                                       orderby r.WK_HRS descending, c.ROTE, c.ADATE
                                        select c).ToList());
 
                     rsATTCARD.AddRange((from c in dcHr.ATTCARD

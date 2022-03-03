@@ -39,6 +39,8 @@ namespace Portal
                 isView = true;
             if (!this.IsPostBack)
             {
+                UnobtrusiveSession.Session["LsSalaryData"] = null;
+                UnobtrusiveSession.Session["EmployChangeLog"] = null;
                 ContentPlaceHolder content = (ContentPlaceHolder)Master.Master.FindControl("ContentPlaceHolder1");
                 var btnCheck = content.FindControl("btnCheck") as RadRadioButtonList;
                 if (Request.QueryString["ProcessApParmAuto"] != null)

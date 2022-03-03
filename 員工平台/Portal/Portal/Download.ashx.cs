@@ -21,9 +21,9 @@ namespace Portal
         public void ProcessRequest(HttpContext context)
         {
             string CompanyId = "";
-            if (context.Request.Cookies["CompanyId"] != null)
+            if (context.Request.Cookies["CompanyId"] != null && context.Request.Cookies["CompanyId"].Value != "")
                 CompanyId = context.Request.Cookies["CompanyId"].Value;
-            else if (context.Request.Params["CompanyId"] != null)
+            else if (context.Request.Cookies["CompanyId"] != null && context.Request.Cookies["CompanyId"].Value != "")
                 CompanyId = context.Request.Params["CompanyId"];
             var oShareCompany = new ShareCompanyDao();
             var CompanySetting = oShareCompany.GetCompanySetting(CompanyId);

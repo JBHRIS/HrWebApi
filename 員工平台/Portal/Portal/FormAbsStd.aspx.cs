@@ -54,7 +54,6 @@ namespace Portal
                 txtAgent.Text = "";
                 lblNobrAgent1.Text = "";
             }
-
             //ScriptManager.GetCurrent(this.Page).RegisterPostBackControl(UploadQS);
         }
         protected void Page_Init(object sender, EventArgs e)
@@ -390,8 +389,8 @@ namespace Portal
 
         protected void txtHcode_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
         {
-            lblBalance.Text = "0";
-            lblBalanceUnit.Text = "";
+            lblBalanceDic.Text = "0";
+            lblUnitDic.Text = "";
 
             string Nobr = lblNobrAppS.Text;
             DateTime DateB = txtDateB.SelectedDate.Value;
@@ -419,16 +418,24 @@ namespace Portal
             {
                 if (rBalance != null)
                 {
-                    lblBalance.Text = rBalance.Balance.ToString();
-                    lblBalanceUnit.Text = rBalance.HcodeUnit == OldBll.MT.mtEnum.HcodeUnit.Day ? "天" : "小時";
+                    lblBalanceDic.Text = rBalance.Balance.ToString();
+                    lblUnitDic.Text = rBalance.HcodeUnit == OldBll.MT.mtEnum.HcodeUnit.Day ? "天" : "小時";
                 }
                 else
                 {
-                    lblBalance.Text = "沒有產生得假資料";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblBalanceDic.Text = oShareDictionary.TextTranslate("ErrorMsg", "NoAbsenceEntitledData", "1", LanguageCookie);
+                    else
+                        lblBalanceDic.Text = "沒有產生得假資料";
                 }
             }
             else
-                lblBalance.Text = "不用檢查";
+            {
+                if (LanguageCookie != null && LanguageCookie != "")
+                    lblBalanceDic.Text = oShareDictionary.TextTranslate("ErrorMsg", "Without Checked", "1", LanguageCookie);
+                else
+                    lblBalanceDic.Text = "不用檢查";
+            }
         }
         protected void txtDateB_SelectedDateChanged(object sender, Telerik.Web.UI.Calendar.SelectedDateChangedEventArgs e)
         {
@@ -458,7 +465,10 @@ namespace Portal
                         rSysVar = rsSysVar.Data as SysVarRow;
                         if (rSysVar.SysClose)
                         {
-                            lblMsg.Text = "系統維護中，請稍後再送出表單";
+                            if (LanguageCookie != null && LanguageCookie != "")
+                                lblMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "SystemMaintain", "1", LanguageCookie);
+                            else
+                                lblMsg.Text = "系統維護中，請稍後再送出表單";
                             return;
                         }
                     }
@@ -466,25 +476,37 @@ namespace Portal
 
                 if (txtDateB.SelectedDate == null || txtDateE.SelectedDate == null)
                 {
-                    lblMsg.Text = "您的開始或結束日期沒有輸入正確";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "DateInputError", "1", LanguageCookie);
+                    else
+                        lblMsg.Text = "您的開始或結束日期沒有輸入正確";
                     return;
                 }
 
                 if (txtTimeB.Text.Length != 4 || txtTimeE.Text.Length != 4)
                 {
-                    lblMsg.Text = "您的開始或結束時間沒有輸入正確";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "DateInputError", "1", LanguageCookie);
+                    else
+                        lblMsg.Text = "您的開始或結束時間沒有輸入正確";
                     return;
                 }
 
                 if (Convert.ToInt32(txtTimeB.Text) >= 2400 || Convert.ToInt32(txtTimeE.Text) >= 2400)
                 {
-                    lblMsg.Text = "請用24小時輸入";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "DateInputError", "1", LanguageCookie);
+                    else
+                        lblMsg.Text = "請用24小時輸入";
                     return;
 
                 }
                 if (txtNote.Text.Length >= 100)
                 {
-                    lblMsg.Text = "您的原因欄位只能輸入100個字";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "ReasonLessThan100Character", "1", LanguageCookie);
+                    else
+                        lblMsg.Text = "您的原因欄位只能輸入100個字";
                     return;
                 }
 
@@ -517,13 +539,19 @@ namespace Portal
                     //二擇一
                     if (lblNobrAgent1.Text.Trim().Length == 0)
                     {
-                        lblMsg.Text = "您的代理人沒有輸入正確";
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            lblMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "AgentWrong", "1", LanguageCookie);
+                        else
+                            lblMsg.Text = "您的代理人沒有輸入正確";
                         return;
                     }
 
                     if (Nobr == NobrAgent1)
                     {
-                        lblMsg.Text = "代理與被申請人不可相同";
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            lblMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "AgentAndRespondentCannotBeTheSame", "1", LanguageCookie);
+                        else
+                            lblMsg.Text = "代理與被申請人不可相同";
                         return;
                     }
 
@@ -531,21 +559,30 @@ namespace Portal
                     var rsAbsAgent = oAbsDaoAgent.GetAbs(NobrAgent1, DateB, DateE, false);
                     if (rsAbsAgent.Where(c => c.DateTimeB < DateTimeE && c.DateTimeE > DateTimeB).Any())
                     {
-                        lblMsg.Text = "代理人已經請假";
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            lblMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "AgentAndRespondentCannotBeTheSame", "1", LanguageCookie);
+                        else
+                            lblMsg.Text = "代理人已經請假";
                         return;
                     }
                 }
 
                 if (DateTimeB >= DateTimeE)
                 {
-                    lblMsg.Text = "您的開始日期時間不能大於或等於結束日期時間";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "BeginTimeCannotBiggerThanEndTime", "1", LanguageCookie);
+                    else
+                        lblMsg.Text = "您的開始日期時間不能大於或等於結束日期時間";
                     return;
                 }
 
 
                 if (rAttendDate == null)
                 {
-                    lblMsg.Text = "出勤資料錯誤，請洽人事單位";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "AttendDataError", "1", LanguageCookie);
+                    else
+                        lblMsg.Text = "出勤資料錯誤，請洽人事單位";
                     return;
                 }
 
@@ -565,7 +602,10 @@ namespace Portal
 
                 if (rsAppS.Where(c => c.DateTimeB < DateTimeE && c.DateTimeE > DateTimeB).Any())
                 {
-                    lblMsg.Text = "資料重複或流程正在進行中";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "DataRepeat", "1", LanguageCookie);
+                    else
+                        lblMsg.Text = "資料重複或流程正在進行中";
                     return;
                 }
 
@@ -574,7 +614,10 @@ namespace Portal
                 var rsAbs = oAbsDao.GetAbs(Nobr, DateB.AddDays(-1), DateE, false);
                 if (rsAbs.Where(c => c.DateTimeB < DateTimeE && c.DateTimeE > DateTimeB).Any())
                 {
-                    lblMsg.Text = "人事資料重複";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "PesonnelDataRepeat", "1", LanguageCookie);
+                    else
+                        lblMsg.Text = "人事資料重複";
                     return;
                 }
                 //if (oRoteDao.RoteIsNightShift(rAttend.RoteCode))//夜班需-1天
@@ -587,7 +630,10 @@ namespace Portal
 
                 if (Calculate.TotalUse <= 0)
                 {
-                    lblMsg.Text = "計算時數不可以為零";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "ApplyHourCannot0", "1", LanguageCookie);
+                    else
+                        lblMsg.Text = "計算時數不可以為零";
                     return;
                 }
                 //if (IsNightShift)//夜班前面判斷需-1天，這邊加回來
@@ -600,7 +646,10 @@ namespace Portal
                                        select c).FirstOrDefault();
                 if (IsNeedAbsReason != null && txtNote.Text == "")
                 {
-                    lblMsg.Text = "原因為必填";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "NeedToEnterReason", "1", LanguageCookie);
+                    else
+                        lblMsg.Text = "原因為必填";
                     return;
                 }
 
@@ -630,7 +679,10 @@ namespace Portal
 
                     if (rBalance == null || (rBalance.Balance - Calculate.TotalUse) < 0 || (rBalance.BalanceGroup - Calculate.TotalUse) < 0)
                     {
-                        lblMsg.Text = "剩餘時數不足(包含流程進行中)";
+                        if (LanguageCookie != null && LanguageCookie != "")
+                            lblMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "BalanceHourLack", "1", LanguageCookie);
+                        else
+                            lblMsg.Text = "剩餘時數不足(包含流程進行中)";
                         return;
                     }
 
@@ -749,18 +801,26 @@ namespace Portal
 
 
                 gvAppS.Rebind();
+                //var MainPage = new Main();
+
                 var Script = "$(document).ready(function() {$('.footable').footable();});";
                 ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);
                 Session["sProcessID"] = lblProcessID.Text;
                 Session["FormCode"] = _FormCode;
                 Session["FlowTreeID"] = lblFlowTreeID.Text;
 
-                lblNotifyMsg.Text = "新增成功";
+                if (LanguageCookie != null && LanguageCookie != "")
+                    lblNotifyMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "AddSuccess", "1", LanguageCookie);
+                else
+                    lblNotifyMsg.Text = "新增成功";
                 lblMsg.Text = "";
             }
             catch (Exception ex)
             {
-                lblNotifyMsg.Text = "新增失敗";
+                if (LanguageCookie != null && LanguageCookie != "")
+                    lblNotifyMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "AddFailed", "1", LanguageCookie);
+                else
+                    lblNotifyMsg.Text = "新增失敗";
                 lblMsg.Text = ex.Message;
             }
 
@@ -810,7 +870,10 @@ namespace Portal
                     dcFlow.FormsAppAbs.DeleteOnSubmit(r);
 
                     dcFlow.SubmitChanges();
-                    lblNotifyMsg.Text = "刪除成功";
+                    if (LanguageCookie != null && LanguageCookie != "")
+                        lblNotifyMsg.Text = oShareDictionary.TextTranslate("ErrorMsg", "DeleteSuccess", "1", LanguageCookie);
+                    else
+                        lblNotifyMsg.Text = "刪除成功";
                 }
             }
             gvAppS.Rebind();
@@ -828,5 +891,6 @@ namespace Portal
             ucFileManage._lblKey.Text = ca;
             ucFileManage._lvMain.Rebind();
         }
+       
     }
 }
