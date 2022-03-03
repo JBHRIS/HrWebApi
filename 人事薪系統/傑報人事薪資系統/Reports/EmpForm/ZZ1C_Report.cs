@@ -85,7 +85,7 @@ namespace JBHR.Reports.EmpForm
                 //DataTable rq_basetts = SqlConn.GetDataTable(sqlCmd21);
                 string sqlCmd6 = "SELECT B.NOBR,SUM(DATEDIFF(DAY,B.STDT,B.STINDT)) AS DAYS " +
                         " FROM BASE A,BASETTS B" +
-                      "  LEFT OUTER JOIN DEPT D ON B.DEPT=D.D_NO"+
+                      " LEFT OUTER JOIN DEPT D ON B.DEPT=D.D_NO"+
                       " WHERE A.NOBR=B.NOBR" +
                       " AND B.NOBR BETWEEN '" + nobr_b + "' AND '" + nobr_e + "'" +
                       " AND D.D_NO_DISP BETWEEN '" + dept_b + "' AND '" + dept_e + "'" +
@@ -97,7 +97,7 @@ namespace JBHR.Reports.EmpForm
 
                 if (report_type == "1")
                 {
-                    string sqlCmd1 = "SELECT D.D_NO_DISP AS DEPT,B.JOB,B.INDT,A.NAME_C,A.NAME_E,A.BIRDT,C.NOBR,C.EDUCCODE,H.NAME AS EDUDESC,C.ADATE,C.SCHL," +
+                    string sqlCmd1 = "SELECT A.SEX, D.D_NO_DISP AS DEPT,B.JOB,B.INDT,A.NAME_C,A.NAME_E,A.BIRDT,C.NOBR,C.EDUCCODE,H.NAME AS EDUDESC,C.ADATE,C.SCHL," +
                         "C.SUBJ,C.DATE_B,C.DATE_E,D.D_NAME,'' AS COMPANY,'' AS TITLE,'' AS JOBW,DATEDIFF(DAY,B.INDT,'" + date_b + "') AS WK_YRS1," +
                         "C.DATE_B,C.DATE_E,C.OK,B.DI,B.EMPCD,B.TTSCODE,B.JOBL,B.JOBS,B.OUDT,B.STDT,B.WK_YRS AS WKYRS, F.SUBDESC AS SUBJ_DETAIL, C.SUBJ_DETAIL AS SUBJ_DETAIL_BAK, B.DI, D.DEPT_TREE," +
                         "DATEDIFF(DAY,A.BIRDT,'" + date_b + "')/365.24 AS AGE"+
@@ -134,6 +134,15 @@ namespace JBHR.Reports.EmpForm
                         if (string.IsNullOrEmpty(Row["SUBJ_DETAIL"].ToString()))
                         {
                             Row["SUBJ_DETAIL"] = Row["SUBJ_DETAIL_BAK"].ToString();
+                        }
+
+                        if (Row["SEX"].ToString() == "M")
+                        {
+                            Row["SEX"] = "男";
+                        }
+                        else
+                        {
+                            Row["SEX"] = "女";
                         }
 
                         ds.Tables["rq_zz1cs1"].ImportRow(Row);
@@ -198,7 +207,7 @@ namespace JBHR.Reports.EmpForm
                 }
                 else if (report_type == "2")
                 {
-                    string sqlCmd3 = "SELECT D.D_NO_DISP AS DEPT,E.JOB_DISP AS JOB,E.JOB_NAME,B.INDT,A.NAME_C,A.NAME_E,A.BIRDT," +
+                    string sqlCmd3 = "SELECT A.SEX, D.D_NO_DISP AS DEPT,E.JOB_DISP AS JOB,E.JOB_NAME,B.INDT,A.NAME_C,A.NAME_E,A.BIRDT," +
                         "C.NOBR,C.EDUCCODE,G.NAME AS EDUDESC,C.ADATE,C.SCHL,C.SUBJ,C.DATE_B,C.DATE_E,D.D_NAME,'' AS COMPANY," +
                         "'' AS TITLE,'' AS JOBW,DATEDIFF(DAY,B.INDT,'" + date_b + "') AS WK_YRS1,C.DATE_B,C.DATE_E,C.OK, H.SUBDESC AS SUBJ_DETAIL, C.SUBJ_DETAIL AS SUBJ_DETAIL_BAK, B.DI,B.EMPCD," +
                         "B.TTSCODE,B.JOBL,B.JOBS,B.OUDT,B.STDT,B.WK_YRS AS WKYRS,B.DI,D.DEPT_TREE," +
@@ -250,7 +259,7 @@ namespace JBHR.Reports.EmpForm
                         " ORDER BY C.NOBR";
                     DataTable rq_nobr = SqlConn.GetDataTable(sqlCmd5);
 
-                    string sqlCmd4 = "SELECT C.NOBR,A.NAME_C,A.NAME_E,A.BIRDT,C.COMPANY,C.TITLE,C.BDATE,C.EDATE,E.JOB_DISP AS JOB," +
+                    string sqlCmd4 = "SELECT A.SEX, C.NOBR,A.NAME_C,A.NAME_E,A.BIRDT,C.COMPANY,C.TITLE,C.BDATE,C.EDATE,E.JOB_DISP AS JOB," +
                         "E.JOB_NAME,D.D_NO_DISP AS DEPT,D.D_NAME,B.INDT,D.DEPT_TREE" +
                         " FROM WORKS C ,BASE A,BASETTS B" +
                         " LEFT OUTER JOIN DEPT D ON B.DEPT=D.D_NO"+
@@ -283,6 +292,16 @@ namespace JBHR.Reports.EmpForm
                                 aRow2["nobr"] = row1[j]["nobr"].ToString();
                                 aRow2["name_c"] = row1[j]["name_c"].ToString();
                                 aRow2["name_e"] = row1[j]["name_e"].ToString();
+
+                                if (row1[j]["sex"].ToString() == "M")
+                                {
+                                    aRow2["sex"] = "男";
+                                }
+                                else
+                                {
+                                    aRow2["sex"] = "女";
+                                }
+
                                 aRow2["dept"] = row1[j]["dept"].ToString();
                                 aRow2["d_name"] = row1[j]["d_name"].ToString();
                                 aRow2["job"] = row1[j]["job"].ToString();
@@ -344,6 +363,16 @@ namespace JBHR.Reports.EmpForm
                                 aRow["nobr"] = row2[j]["nobr"].ToString();
                                 aRow["name_c"] = row2[j]["name_c"].ToString();
                                 aRow["name_e"] = row2[j]["name_e"].ToString();
+
+                                if (row2[j]["sex"].ToString() == "M")
+                                {
+                                    aRow["sex"] = "男";
+                                }
+                                else
+                                {
+                                    aRow["sex"] = "女";
+                                }
+
                                 aRow["dept"] = row2[j]["dept"].ToString();
                                 aRow["d_name"] = row2[j]["d_name"].ToString();
                                 aRow["job"] = row2[j]["job"].ToString();
@@ -505,6 +534,7 @@ namespace JBHR.Reports.EmpForm
             ExporDt.Columns.Add("員工編號", typeof(string));
             ExporDt.Columns.Add("員工姓名", typeof(string));
             ExporDt.Columns.Add("英文姓名", typeof(string));
+            ExporDt.Columns.Add("性別", typeof(string));
             ExporDt.Columns.Add("職稱代碼", typeof(string));
             ExporDt.Columns.Add("職稱", typeof(string));
             ExporDt.Columns.Add("到職日期", typeof(DateTime));
@@ -536,6 +566,7 @@ namespace JBHR.Reports.EmpForm
                 aRow["員工編號"] = Row["nobr"].ToString();
                 aRow["員工姓名"] = Row["name_c"].ToString();
                 aRow["英文姓名"] = Row["name_e"].ToString();
+                aRow["性別"] = Row["sex"].ToString();
                 aRow["職稱代碼"] = Row["job"].ToString();
                 aRow["職稱"] = Row["job_name"].ToString();
                 aRow["到職日期"] = DateTime.Parse(Row["indt"].ToString());

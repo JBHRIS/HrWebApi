@@ -38,38 +38,38 @@
                             <div class="col-md-9">
                                 <div class="row">
                                     <div class="col-6 col-lg-3">
-                                        開始日期：<%# Eval("DateB","{0:yyyy/MM/dd}") %>
+                                        <telerik:RadLabel runat="server" ID="lblBeginDateDic" Text="開始日期"></telerik:RadLabel>：<%# Eval("DateB","{0:yyyy/MM/dd}") %>
                                     </div>
                                     <div class="col-6 col-lg-3">
-                                        開始時間：<%# Eval("TimeB") %>
+                                        <telerik:RadLabel runat="server" ID="lblBeginTimeDic" Text="開始時間"></telerik:RadLabel>：<%# Eval("TimeB") %>
                                     </div>
                                     <div class="col-6 col-lg-3">
-                                        結束日期：<%# Eval("DateE","{0:yyyy/MM/dd}") %>
+                                        <telerik:RadLabel runat="server" ID="lblEndDateDic" Text="結束日期"></telerik:RadLabel>：<%# Eval("DateE","{0:yyyy/MM/dd}") %>
                                     </div>
                                     <div class="col-6 col-lg-3">
-                                        結束時間：<%# Eval("TimeE") %>
+                                        <telerik:RadLabel runat="server" ID="lblEndTimeDic" Text="結束時間"></telerik:RadLabel>：<%# Eval("TimeE") %>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6 col-lg-3">
-                                        給付方式：<%# Eval("OtCateName") %>
+                                        <telerik:RadLabel runat="server" ID="lblOtPaymentDic" Text="給付方式"></telerik:RadLabel> ：<%# Eval("OtCateName") %>
                                     </div>
                                     <div class="col-6 col-lg-3">
-                                        加班原因：<%# Eval("OtrcdName") %>
+                                        <telerik:RadLabel runat="server" ID="lblReasonDic" Text="加班原因"></telerik:RadLabel> ：<%# Eval("OtrcdName") %>
                                     </div>
                                     <div class="col-6 col-lg-3">
-                                        申請時數：<%# Eval("Use") %>
+                                        <telerik:RadLabel runat="server" ID="lblOtHourDic" Text="申請時數"></telerik:RadLabel> ：<%# Eval("Use") %>
                                     </div>
                                     <div class="col-6 col-lg-3">
-                                        單位：<%# Eval("UnitCode") %>
+                                        <telerik:RadLabel runat="server" ID="lblUnitDic" Text="單位"></telerik:RadLabel>：<%# Eval("UnitCode") %>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        加班班別：<%# Eval("RoteName") %>
+                                        <telerik:RadLabel runat="server" ID="lblOverTimeClassDic" Text="加班班別"></telerik:RadLabel>：<%# Eval("RoteName") %>
                                     </div>
                                     <div class="col-lg-6">
-                                        備註：<%# Eval("Note") %>
+                                        <telerik:RadLabel runat="server" ID="lblNoteDic" Text="備註"></telerik:RadLabel>：<%# Eval("Note") %>
                                     </div>
                                 </div>
                             </div>
@@ -116,7 +116,7 @@
                                 </tr>--%>
                 </ItemTemplate>
                 <EmptyDataTemplate>
-                    尚未新增加班資料
+                     <telerik:RadLabel runat="server" ID="lblOtEmptyMessageDic" Text="尚未新增加班資料"></telerik:RadLabel>
                 </EmptyDataTemplate>
             </telerik:RadListView>
             <telerik:RadLabel ID="lblNotifyMsg" runat="server" CssClass="text-danger" Text=""></telerik:RadLabel>
@@ -127,7 +127,7 @@
             <div class="col-lg-12">
                 <div class="ibox" style="margin-bottom: 0px">
                     <div class="ibox-title">
-                        <h5>申請資訊</h5>
+                        <h5><telerik:RadLabel runat="server" ID="lblApplicationInfoDic" Text="申請資訊"></telerik:RadLabel></h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -138,47 +138,45 @@
                         <telerik:RadAjaxPanel ID="plAppS" runat="server">
                             <div class="form-group row">
                                 <div class="col-md-3">
-                                    <label class=" col-form-label">被申請人姓名</label>
+                                    <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblRespondentNameDic" Text="被申請人姓名"></telerik:RadLabel></label>
                                     <telerik:RadComboBox ID="txtNameAppS" runat="server" Culture="zh-TW" AllowCustomText="True" Skin="Bootstrap"
                                         AutoPostBack="True" EnableVirtualScrolling="True" ItemsPerRequest="10" Filter="Contains"
                                         LoadingMessage="載入中…" Width="100%" OnDataBound="txtNameAppS_DataBound"
                                         OnSelectedIndexChanged="txtNameAppS_SelectedIndexChanged" OnTextChanged="txtNameAppS_TextChanged">
                                     </telerik:RadComboBox>
                                 </div>
-                                <asp:Panel runat="server" Visible="false">
-                                    <div class="col-md-3">
-                                        <label class="col-form-label">加班班別</label>
+                                <asp:Panel runat="server" ID="plOtClass" CssClass="col-md-3" Visible="false">
+                                        <label class="col-form-label"><telerik:RadLabel runat="server" ID="lblOverTimeClassDic1" Text="加班班別"></telerik:RadLabel></label>
                                         <telerik:RadComboBox ID="ddlRote" runat="server" Culture="zh-TW" EnableVirtualScrolling="True" ItemsPerRequest="10" LoadingMessage="載入中…" Width="100%" Skin="Bootstrap">
                                         </telerik:RadComboBox>
-                                    </div>
                                 </asp:Panel>
-                                <div class="col-md-3">
-                                    <label class="col-form-label">申請原因</label>
+                                <asp:Panel CssClass="col-md-3" id="OtReason" runat="server">
+                                    <label class="col-form-label"><telerik:RadLabel runat="server" ID="lblReasonDic1" Text="加班原因"></telerik:RadLabel></label>
                                     <telerik:RadComboBox ID="ddlOtrcd" runat="server" Culture="zh-TW" EnableVirtualScrolling="True" ItemsPerRequest="10" LoadingMessage="載入中…" Width="100%" Skin="Bootstrap">
                                     </telerik:RadComboBox>
-                                </div>
-                                <div class="col-md-3">
-                                    <label class="col-form-label">加班部門</label>
+                                </asp:Panel>
+                                <asp:Panel CssClass="col-md-3" id="OtDept" runat="server">
+                                    <label class="col-form-label"><telerik:RadLabel runat="server" ID="lblOtDeptDic" Text="加班部門"></telerik:RadLabel></label>
                                     <telerik:RadComboBox ID="ddlDepts" runat="server" Culture="zh-TW" EnableVirtualScrolling="True" ItemsPerRequest="10" LoadingMessage="載入中…" Width="100%" Skin="Bootstrap">
                                     </telerik:RadComboBox>
-                                </div>
-                                <%-- 修正開始 --%><div class="col-md-3">
-                                    <label class=" col-form-label">給付方式</label>
+                                </asp:Panel>
+                                <%-- 修正開始 --%><asp:Panel CssClass="col-md-3" id="OtPayment" runat="server">
+                                    <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblOtPaymentDic1" Text="給付方式"></telerik:RadLabel></label>
                                     <telerik:RadComboBox ID="ddlOtCat" runat="server" Culture="zh-TW" EnableVirtualScrolling="True" ItemsPerRequest="10" LoadingMessage="載入中…" Width="100%" Skin="Bootstrap">
                                     </telerik:RadComboBox>
-                                </div>
+                                </asp:Panel>
                                 <%-- 修正結束 --%>
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-3" id="data_1">
-                                    <label class=" col-form-label">開始日期</label>
+                                    <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblBeginDateDic" Text="開始日期"></telerik:RadLabel></label>
                                     <telerik:RadDatePicker ID="txtDateB" runat="server" AutoPostBack="True" Skin="Bootstrap" Width="100%"
                                         OnSelectedDateChanged="txtDateB_SelectedDateChanged">
                                     </telerik:RadDatePicker>
                                 </div>
 
                                 <div class="col-md-3" id="data_2">
-                                    <label class=" col-form-label">結束日期</label>
+                                    <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblEndDateDic" Text="結束日期"></telerik:RadLabel></label>
                                     <telerik:RadDatePicker ID="txtDateE" runat="server" AutoPostBack="True" Skin="Bootstrap" Width="100%"
                                         OnSelectedDateChanged="txtDateE_SelectedDateChanged">
                                     </telerik:RadDatePicker>
@@ -187,13 +185,13 @@
                                 <%-- 修正開始 --%>
                                 <div class="col-md-3">
                                     <%-- 修正結束 --%>
-                                    <label class=" col-form-label">開始時間</label>
+                                    <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblBeginTimeDic" Text="開始時間"></telerik:RadLabel></label>
                                     <telerik:RadMaskedTextBox ID="txtTimeB" runat="server" Mask="####" Width="100%" Skin="Bootstrap">
                                     </telerik:RadMaskedTextBox>
                                 </div>
                                 <%-- 修正開始 --%><div class="col-md-3">
                                     <%-- 修正結束 --%>
-                                    <label class=" col-form-label">結束時間</label>
+                                    <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblEndTimeDic" Text="結束時間"></telerik:RadLabel></label>
                                     <%--<div class="input-group clockpicker" data-autoclose="true">
                                         <telerik:RadLabel type="text" class="form-control" value="17:30">
                                         <span class="input-group-addon">
@@ -207,13 +205,13 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-6">
-                                    <label class=" col-form-label">刷卡時間</label>
+                                    <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblCardTimeDic" Text="刷卡時間"></telerik:RadLabel></label>
                                     <div class="box">
                                         <asp:Label ID="lblCardTime" runat="server"></asp:Label></div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class=" col-form-label">備註</label>
+                                        <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblNoteDic1" Text="備註"></telerik:RadLabel></label>
                                         <telerik:RadTextBox ID="txtNote" runat="server" EmptyMessage="請輸入您的原因..."
                                             TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="3">
                                         </telerik:RadTextBox>
@@ -224,7 +222,7 @@
                             <asp:Panel runat="server" ID="plOtInfo">
                                 <div class="form-group row">
                                     <div class="col-md-6">
-                                        <h5>加班資訊</h5>
+                                        <h5><telerik:RadLabel runat="server" ID="lblOtInfoDic" Text="加班資訊"></telerik:RadLabel></h5>
                                         <div class="form-group">
                                             <table class="table table-bordered text-center">
                                                 <thead>
@@ -251,7 +249,7 @@
                             </asp:Panel>
                             <div class="form-group row">
                                 <div class="col-md-12">
-                                    <label class=" col-form-label">備註事項：</label>
+                                    <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblNoteDic2" Text="備註事項"></telerik:RadLabel>：</label>
                                     <telerik:RadLabel ID="lblFormNoteStd" runat="server"></telerik:RadLabel>
                                 </div>
                             </div>

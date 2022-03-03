@@ -346,7 +346,7 @@ namespace Portal
                         foreach (var r in res)
                         {
                             var resSalCode = res.Select(p => p.SalCode).ToList();
-                            var removeData = resSalaryChangeRow.Where(p => resSalCode.Contains(p.SalCode)).FirstOrDefault();
+                            var removeData = resSalaryChangeRow.Where(p => resSalCode.Contains(p.SalCode)).Last();
                             resSalaryChangeRow.Remove(removeData);
                             if (EmployApproveSalary != null)
                             {
@@ -356,6 +356,11 @@ namespace Portal
                                     {
                                         rsSalary.Value = AccessData.DESEncrypt(r.Amount.ToString(), "JBSalary", lblProcessID.Text.Substring(0, 8));
                                     }
+                                }
+                                foreach (var resSalaryRow in resSalaryChangeRow)
+                                {
+                                    if (resSalaryRow.SalCode == r.SalCode)
+                                        resSalaryRow.Amount = r.Amount;
                                 }
                             }
                             else

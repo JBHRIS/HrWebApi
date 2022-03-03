@@ -101,6 +101,10 @@ namespace JBHR.Reports.SalForm
             this.MedianMon3 = new System.Windows.Forms.RadioButton();
             this.MedianMon2 = new System.Windows.Forms.RadioButton();
             this.MedianMon1 = new System.Windows.Forms.RadioButton();
+            this.jobl_e = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.jobl_b = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salaryDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bASEBindingSource)).BeginInit();
@@ -116,7 +120,7 @@ namespace JBHR.Reports.SalForm
             this.date_b.DecimalPlace = 2;
             this.date_b.Font = new System.Drawing.Font("細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.date_b.IsEmpty = false;
-            this.date_b.Location = new System.Drawing.Point(104, 170);
+            this.date_b.Location = new System.Drawing.Point(104, 197);
             this.date_b.Mask = "0000/00/00";
             this.date_b.MaxLength = -1;
             this.date_b.Name = "date_b";
@@ -131,7 +135,7 @@ namespace JBHR.Reports.SalForm
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(26, 174);
+            this.label3.Location = new System.Drawing.Point(26, 201);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 13);
             this.label3.TabIndex = 1043;
@@ -145,7 +149,7 @@ namespace JBHR.Reports.SalForm
             this.seq_e.DecimalPlace = 2;
             this.seq_e.Font = new System.Drawing.Font("細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.seq_e.IsEmpty = false;
-            this.seq_e.Location = new System.Drawing.Point(379, 140);
+            this.seq_e.Location = new System.Drawing.Point(379, 167);
             this.seq_e.Mask = "";
             this.seq_e.MaxLength = -1;
             this.seq_e.Name = "seq_e";
@@ -160,7 +164,7 @@ namespace JBHR.Reports.SalForm
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label4.Location = new System.Drawing.Point(343, 143);
+            this.label4.Location = new System.Drawing.Point(343, 170);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 1042;
@@ -174,7 +178,7 @@ namespace JBHR.Reports.SalForm
             this.month_e.DecimalPlace = 2;
             this.month_e.Font = new System.Drawing.Font("細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.month_e.IsEmpty = false;
-            this.month_e.Location = new System.Drawing.Point(311, 140);
+            this.month_e.Location = new System.Drawing.Point(311, 167);
             this.month_e.Mask = "";
             this.month_e.MaxLength = -1;
             this.month_e.Name = "month_e";
@@ -194,7 +198,7 @@ namespace JBHR.Reports.SalForm
             this.year_e.DecimalPlace = 2;
             this.year_e.Font = new System.Drawing.Font("新細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.year_e.IsEmpty = false;
-            this.year_e.Location = new System.Drawing.Point(280, 140);
+            this.year_e.Location = new System.Drawing.Point(280, 167);
             this.year_e.Mask = "";
             this.year_e.MaxLength = -1;
             this.year_e.Name = "year_e";
@@ -210,7 +214,7 @@ namespace JBHR.Reports.SalForm
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(242, 144);
+            this.label1.Location = new System.Drawing.Point(242, 171);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(21, 13);
             this.label1.TabIndex = 1041;
@@ -229,7 +233,7 @@ namespace JBHR.Reports.SalForm
             "月份別公司薪資匯總表",
             "月份別薪資匯總表",
             "非主管平均及中位數薪資"});
-            this.report_type.Location = new System.Drawing.Point(104, 269);
+            this.report_type.Location = new System.Drawing.Point(104, 296);
             this.report_type.Name = "report_type";
             this.report_type.Size = new System.Drawing.Size(180, 20);
             this.report_type.TabIndex = 22;
@@ -239,7 +243,7 @@ namespace JBHR.Reports.SalForm
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label30.Location = new System.Drawing.Point(40, 272);
+            this.label30.Location = new System.Drawing.Point(40, 299);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(63, 13);
             this.label30.TabIndex = 1040;
@@ -248,7 +252,7 @@ namespace JBHR.Reports.SalForm
             // ExportExcel
             // 
             this.ExportExcel.AutoSize = true;
-            this.ExportExcel.Location = new System.Drawing.Point(104, 308);
+            this.ExportExcel.Location = new System.Drawing.Point(104, 335);
             this.ExportExcel.Name = "ExportExcel";
             this.ExportExcel.Size = new System.Drawing.Size(78, 16);
             this.ExportExcel.TabIndex = 23;
@@ -257,7 +261,7 @@ namespace JBHR.Reports.SalForm
             // 
             // LeaveForm
             // 
-            this.LeaveForm.Location = new System.Drawing.Point(260, 337);
+            this.LeaveForm.Location = new System.Drawing.Point(260, 364);
             this.LeaveForm.Name = "LeaveForm";
             this.LeaveForm.Size = new System.Drawing.Size(75, 23);
             this.LeaveForm.TabIndex = 25;
@@ -267,7 +271,7 @@ namespace JBHR.Reports.SalForm
             // 
             // Create_Report
             // 
-            this.Create_Report.Location = new System.Drawing.Point(108, 337);
+            this.Create_Report.Location = new System.Drawing.Point(108, 364);
             this.Create_Report.Name = "Create_Report";
             this.Create_Report.Size = new System.Drawing.Size(75, 23);
             this.Create_Report.TabIndex = 24;
@@ -281,7 +285,7 @@ namespace JBHR.Reports.SalForm
             this.groupBox2.Controls.Add(this.type_data2);
             this.groupBox2.Controls.Add(this.type_data4);
             this.groupBox2.Controls.Add(this.type_data1);
-            this.groupBox2.Location = new System.Drawing.Point(104, 194);
+            this.groupBox2.Location = new System.Drawing.Point(104, 221);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(230, 35);
             this.groupBox2.TabIndex = 18;
@@ -337,7 +341,7 @@ namespace JBHR.Reports.SalForm
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label24.Location = new System.Drawing.Point(40, 207);
+            this.label24.Location = new System.Drawing.Point(40, 234);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(63, 13);
             this.label24.TabIndex = 1039;
@@ -351,7 +355,7 @@ namespace JBHR.Reports.SalForm
             this.seq_b.DecimalPlace = 2;
             this.seq_b.Font = new System.Drawing.Font("細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.seq_b.IsEmpty = false;
-            this.seq_b.Location = new System.Drawing.Point(203, 140);
+            this.seq_b.Location = new System.Drawing.Point(203, 167);
             this.seq_b.Mask = "";
             this.seq_b.MaxLength = -1;
             this.seq_b.Name = "seq_b";
@@ -366,7 +370,7 @@ namespace JBHR.Reports.SalForm
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(167, 143);
+            this.label2.Location = new System.Drawing.Point(167, 170);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 1038;
@@ -380,7 +384,7 @@ namespace JBHR.Reports.SalForm
             this.month_b.DecimalPlace = 2;
             this.month_b.Font = new System.Drawing.Font("細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.month_b.IsEmpty = false;
-            this.month_b.Location = new System.Drawing.Point(135, 140);
+            this.month_b.Location = new System.Drawing.Point(135, 167);
             this.month_b.Mask = "";
             this.month_b.MaxLength = -1;
             this.month_b.Name = "month_b";
@@ -400,7 +404,7 @@ namespace JBHR.Reports.SalForm
             this.year_b.DecimalPlace = 2;
             this.year_b.Font = new System.Drawing.Font("新細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.year_b.IsEmpty = false;
-            this.year_b.Location = new System.Drawing.Point(104, 140);
+            this.year_b.Location = new System.Drawing.Point(104, 167);
             this.year_b.Mask = "";
             this.year_b.MaxLength = -1;
             this.year_b.Name = "year_b";
@@ -415,7 +419,7 @@ namespace JBHR.Reports.SalForm
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label29.Location = new System.Drawing.Point(40, 144);
+            this.label29.Location = new System.Drawing.Point(40, 171);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(63, 13);
             this.label29.TabIndex = 1037;
@@ -630,7 +634,7 @@ namespace JBHR.Reports.SalForm
             // 
             this.empcd_e.DisplayMember = "empdescr";
             this.empcd_e.FormattingEnabled = true;
-            this.empcd_e.Location = new System.Drawing.Point(280, 113);
+            this.empcd_e.Location = new System.Drawing.Point(280, 140);
             this.empcd_e.Name = "empcd_e";
             this.empcd_e.Size = new System.Drawing.Size(130, 20);
             this.empcd_e.TabIndex = 10;
@@ -640,7 +644,7 @@ namespace JBHR.Reports.SalForm
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label21.Location = new System.Drawing.Point(242, 116);
+            this.label21.Location = new System.Drawing.Point(242, 143);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(21, 13);
             this.label21.TabIndex = 1051;
@@ -650,7 +654,7 @@ namespace JBHR.Reports.SalForm
             // 
             this.empcd_b.DisplayMember = "empdescr";
             this.empcd_b.FormattingEnabled = true;
-            this.empcd_b.Location = new System.Drawing.Point(104, 113);
+            this.empcd_b.Location = new System.Drawing.Point(104, 140);
             this.empcd_b.Name = "empcd_b";
             this.empcd_b.Size = new System.Drawing.Size(130, 20);
             this.empcd_b.TabIndex = 9;
@@ -660,7 +664,7 @@ namespace JBHR.Reports.SalForm
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label23.Location = new System.Drawing.Point(67, 117);
+            this.label23.Location = new System.Drawing.Point(67, 144);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(35, 13);
             this.label23.TabIndex = 1050;
@@ -670,7 +674,7 @@ namespace JBHR.Reports.SalForm
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label20.Location = new System.Drawing.Point(25, 243);
+            this.label20.Location = new System.Drawing.Point(25, 270);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(77, 13);
             this.label20.TabIndex = 1053;
@@ -681,7 +685,7 @@ namespace JBHR.Reports.SalForm
             this.groupBox3.Controls.Add(this.MedianMon3);
             this.groupBox3.Controls.Add(this.MedianMon2);
             this.groupBox3.Controls.Add(this.MedianMon1);
-            this.groupBox3.Location = new System.Drawing.Point(104, 228);
+            this.groupBox3.Location = new System.Drawing.Point(104, 255);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(251, 35);
             this.groupBox3.TabIndex = 1052;
@@ -722,11 +726,57 @@ namespace JBHR.Reports.SalForm
             this.MedianMon1.Text = "全部";
             this.MedianMon1.UseVisualStyleBackColor = true;
             // 
+            // jobl_e
+            // 
+            this.jobl_e.DisplayMember = "job_name";
+            this.jobl_e.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.jobl_e.FormattingEnabled = true;
+            this.jobl_e.Location = new System.Drawing.Point(280, 115);
+            this.jobl_e.Name = "jobl_e";
+            this.jobl_e.Size = new System.Drawing.Size(130, 20);
+            this.jobl_e.TabIndex = 1157;
+            this.jobl_e.ValueMember = "jobl";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label18.Location = new System.Drawing.Point(242, 118);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(21, 13);
+            this.label18.TabIndex = 1159;
+            this.label18.Text = "至";
+            // 
+            // jobl_b
+            // 
+            this.jobl_b.DisplayMember = "job_name";
+            this.jobl_b.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.jobl_b.FormattingEnabled = true;
+            this.jobl_b.Location = new System.Drawing.Point(104, 114);
+            this.jobl_b.Name = "jobl_b";
+            this.jobl_b.Size = new System.Drawing.Size(130, 20);
+            this.jobl_b.TabIndex = 1156;
+            this.jobl_b.ValueMember = "jobl";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label10.Location = new System.Drawing.Point(67, 118);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(35, 13);
+            this.label10.TabIndex = 1158;
+            this.label10.Text = "職等";
+            // 
             // ZZ46
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 371);
+            this.ClientSize = new System.Drawing.Size(440, 404);
+            this.Controls.Add(this.jobl_e);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.jobl_b);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.empcd_e);
@@ -838,5 +888,9 @@ namespace JBHR.Reports.SalForm
         internal System.Windows.Forms.RadioButton MedianMon3;
         internal System.Windows.Forms.RadioButton MedianMon2;
         internal System.Windows.Forms.RadioButton MedianMon1;
+        internal System.Windows.Forms.ComboBox jobl_e;
+        private System.Windows.Forms.Label label18;
+        internal System.Windows.Forms.ComboBox jobl_b;
+        private System.Windows.Forms.Label label10;
     }
 }

@@ -100,6 +100,7 @@
                         <tbody id="Container" runat="server">
                         </tbody>
                         <tfoot>
+                        <div>總共新增：<strong><telerik:RadLabel ID="lblCount" runat="server"  /></strong> 筆資料</div>
                             <tr>
                                 <td colspan="5">
                                     <ul class="pagination float-right"></ul>
@@ -113,6 +114,7 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <h3>
+                                    <span class="label label-primary m-r-sm"><telerik:RadLabel ID="lblListNumber" runat="server"  /></span>
                                     <%# Eval("EmpName") %>,
                                     <%# Eval("EmpId") %>
                                 </h3>

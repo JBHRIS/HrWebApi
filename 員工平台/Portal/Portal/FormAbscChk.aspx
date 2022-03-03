@@ -31,24 +31,24 @@
                                 <div class="col-md-5">
                                     <div class="row">
                                         <div class="col col-xs-6">
-                                            <span>開始日期：<%# Eval("DateTimeB","{0:yyyy/MM/dd}") %></span><br>
-                                            <span>開始時間：<%# Eval("DateTimeB","{0:HH:mm}") %></span>
+                                            <span><telerik:RadLabel runat="server" ID="lblBeginDateDic" Text="開始日期"></telerik:RadLabel>：<%# Eval("DateTimeB","{0:yyyy/MM/dd}") %></span><br>
+                                            <span><telerik:RadLabel runat="server" ID="lblBeginTimeDic" Text="開始時間"></telerik:RadLabel>：<%# Eval("DateTimeB","{0:HH:mm}") %></span>
                                         </div>
 
                                         <div class="col col-xs-6">
-                                            <span>結束日期：<%# Eval("DateTimeE","{0:yyyy/MM/dd}") %></span><br>
-                                            <span>結束時間：<%# Eval("DateTimeE","{0:HH:mm}") %></span>
+                                            <span><telerik:RadLabel runat="server" ID="lblEndDateDic" Text="結束日期"></telerik:RadLabel>：<%# Eval("DateTimeE","{0:yyyy/MM/dd}") %></span><br>
+                                            <span><telerik:RadLabel runat="server" ID="lblEndTimeDic" Text="結束時間"></telerik:RadLabel>：<%# Eval("DateTimeE","{0:HH:mm}") %></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="row">
                                         <div class="col col-xs-6">
-                                            <span>假別：<%# Eval("HolidayName") %></span><br>
+                                            <span><telerik:RadLabel runat="server" ID="lblAbsenceNameDic" Text="假別"></telerik:RadLabel>：<%# Eval("HolidayName") %></span><br>
                                         </div>
 
                                         <div class="col col-xs-6">
-                                            <span>請假時數：<%# Eval("Use") %></span><br>
+                                            <span><telerik:RadLabel runat="server" ID="lblAbsenceHourDic" Text="請假時數(天數)"></telerik:RadLabel>：<%# Eval("Use") %></span><br>
                                             
                                         </div>
                                     </div>
@@ -56,7 +56,7 @@
                                 <div class="col-md-1">
                                     <div class="row">
                                         <div class="col col-xs-12">
-                                            <span>單位：<%# Eval("UnitCode") %></span>
+                                            <span><telerik:RadLabel runat="server" ID="lblUnitDic" Text="單位"></telerik:RadLabel>：<%# Eval("UnitCode") %></span>
                                         </div>
                                     </div>
                                 </div>
@@ -116,7 +116,7 @@
             <div class="hr-line-dashed"></div>
             <div class="row">
                 <div class="col-lg-12">
-                    <h5>簽核過程</h5>
+                    <h5><telerik:RadLabel runat="server" ID="lblSignPathDic" Text="簽核過程"></telerik:RadLabel></h5>
                     <div>
                         <telerik:RadListView ID="lvSignM" runat="server" RenderMode="Lightweight" Skin="" ItemPlaceholderID="Container" OnNeedDataSource="lvSignM_NeedDataSource">
                             <LayoutTemplate>
@@ -131,10 +131,10 @@
                                             <th>單位</th>
                                             <th>代理人</th>
                                         </tr>--%>
-                                        <th>簽核主管</th>
-                                        <th>簽核部門</th>
-                                        <th>簽核日期</th>
-                                        <th>意見</th>
+                                        <th><telerik:RadLabel runat="server" ID="lblSignManagerDic" Text="簽核主管"></telerik:RadLabel></th>
+                                        <th><telerik:RadLabel runat="server" ID="lblSignDeptDic" Text="簽核部門"></telerik:RadLabel></th>
+                                        <th><telerik:RadLabel runat="server" ID="lblSignDateDIc" Text="簽核日期"></telerik:RadLabel></th>
+                                        <th><telerik:RadLabel runat="server" ID="lblOpinionDic1" Text="意見"></telerik:RadLabel></th>
                                     </thead>
                                     <tbody id="Container" runat="server">
                                         <tr>
@@ -160,7 +160,7 @@
                                 </tr>
                             </ItemTemplate>
                             <EmptyDataTemplate>
-                                尚未有主管簽核紀錄
+                                <telerik:RadLabel runat="server" ID="lblManagerSignRecordDic" Text="尚未有主管簽核紀錄"></telerik:RadLabel>
                             </EmptyDataTemplate>
                         </telerik:RadListView>
                     </div>

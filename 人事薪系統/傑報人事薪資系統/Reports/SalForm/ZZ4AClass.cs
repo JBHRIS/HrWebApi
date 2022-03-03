@@ -8,7 +8,7 @@ namespace JBHR.Reports.SalForm
 {
     class ZZ4AClass
     {
-        public static void GetZz4at(DataTable DT_zz4ata,DataTable DT_zz4at, DataTable DT_waged)
+        public static void GetZz4at(DataTable DT_zz4ata, DataTable DT_zz4at, DataTable DT_waged)
         {
             DataTable rq_zz4ata = new DataTable();
             rq_zz4ata.Columns.Add("salattr", typeof(string));
@@ -21,7 +21,7 @@ namespace JBHR.Reports.SalForm
                 DataRow row = rq_zz4ata.Rows.Find(str_salattr);
                 if (row == null)
                 {
-                    DataRow [] row1 = rq_zz4ata.Select("sal_name='" + Row["sal_name"].ToString().Trim() + "'");                    
+                    DataRow[] row1 = rq_zz4ata.Select("sal_name='" + Row["sal_name"].ToString().Trim() + "'");
                     DataRow aRow = rq_zz4ata.NewRow();
                     aRow["salattr"] = str_salattr;
                     aRow["sal_name"] = (row1.Length > 0) ? Row["sal_name"].ToString().Trim() + 1 : Row["sal_name"].ToString().Trim();
@@ -53,8 +53,8 @@ namespace JBHR.Reports.SalForm
             aRow5["salattr"] = "EZZZZ";
             aRow5["sal_name"] = "實發總額";
             rq_zz4ata.Rows.Add(aRow5);
-            
-            DataRow[] Orow = rq_zz4ata.Select("", "salattr asc");            
+
+            DataRow[] Orow = rq_zz4ata.Select("", "salattr asc");
             foreach (DataRow Row1 in Orow)
             {
                 DataRow aRow6 = DT_zz4at.NewRow();
@@ -74,10 +74,10 @@ namespace JBHR.Reports.SalForm
         public static void GetWageds1(DataTable DT_wageds1, DataTable DT_waged)
         {
             DT_wageds1.PrimaryKey = new DataColumn[] { DT_wageds1.Columns["nobr"], DT_wageds1.Columns["dept"] };
-           
+
             DataRow[] Srow = DT_waged.Select("acc_tr='A'");
             foreach (DataRow Row in Srow)
-            {  
+            {
                 object[] _value = new object[2];
                 _value[0] = Row["nobr"].ToString();
                 _value[1] = Row["dept"].ToString();
@@ -101,7 +101,7 @@ namespace JBHR.Reports.SalForm
             DataRow[] Srow = DT_waged.Select("acc_tr='B'");
             foreach (DataRow Row in Srow)
             {
-                int _amt = int.Parse(Row["amt"].ToString());               
+                int _amt = int.Parse(Row["amt"].ToString());
                 object[] _value = new object[2];
                 _value[0] = Row["nobr"].ToString();
                 _value[1] = Row["dept"].ToString();
@@ -148,7 +148,7 @@ namespace JBHR.Reports.SalForm
             DataRow[] Srow = DT_waged.Select("acc_tr='D'");
             foreach (DataRow Row in Srow)
             {
-                int _amt = int.Parse(Row["amt"].ToString());               
+                int _amt = int.Parse(Row["amt"].ToString());
                 object[] _value = new object[2];
                 _value[0] = Row["nobr"].ToString();
                 _value[1] = Row["dept"].ToString();
@@ -190,7 +190,7 @@ namespace JBHR.Reports.SalForm
 
         public static void GetWagebt(DataTable DT_wagebt, DataTable DT_waged)
         {
-            DT_wagebt.PrimaryKey = new DataColumn[] { DT_wagebt.Columns["comp"],DT_wagebt.Columns["nobr"] };
+            DT_wagebt.PrimaryKey = new DataColumn[] { DT_wagebt.Columns["comp"], DT_wagebt.Columns["nobr"] };
             DataRow[] Srow = DT_waged.Select("salattr <='F'");
             foreach (DataRow Row in Srow)
             {
@@ -235,7 +235,7 @@ namespace JBHR.Reports.SalForm
         }
 
         public static void GetWage7(DataTable DT_wage7, DataTable DT_wagetax, DataTable DT_wagebt)
-        {            
+        {
             foreach (DataRow Row in DT_wagebt.Rows)
             {
                 DataRow row = DT_wage7.Rows.Find(Row["comp"].ToString());
@@ -271,7 +271,7 @@ namespace JBHR.Reports.SalForm
             rq_tax7.Columns.Add("comp", typeof(string));
             rq_tax7.Columns.Add("tax", typeof(int));
             rq_tax7.PrimaryKey = new DataColumn[] { rq_tax7.Columns["comp"] };
-            
+
             foreach (DataRow Row in DT_wagetax.Rows)
             {
                 DataRow row = rq_tax7.Rows.Find(Row["comp"].ToString());
@@ -285,7 +285,7 @@ namespace JBHR.Reports.SalForm
                     rq_tax7.Rows.Add(aRow);
                 }
             }
-            
+
             foreach (DataRow Row1 in DT_wage7.Rows)
             {
                 DataRow row = rq_tax7.Rows.Find(Row1["comp"].ToString());
@@ -325,7 +325,7 @@ namespace JBHR.Reports.SalForm
                         rq_nowage7.Rows.Add(aRow);
                     }
                 }
-            }            
+            }
 
             foreach (DataRow Row1 in rq_nowage7.Rows)
             {
@@ -378,11 +378,11 @@ namespace JBHR.Reports.SalForm
         }
 
         public static void GeWage7p1(DataTable DT_Wage7p, DataTable DT_wage7)
-        {            
+        {
             foreach (DataRow Row in DT_wage7.Rows)
             {
                 DataRow row = DT_Wage7p.Rows.Find(Row["comp"].ToString());
-                if (row!=null)
+                if (row != null)
                 {
                     row["amt1"] = int.Parse(row["amt1"].ToString()) + int.Parse(Row["amt1"].ToString());
                     row["no1"] = int.Parse(row["no1"].ToString()) + int.Parse(Row["no1"].ToString());
@@ -413,7 +413,7 @@ namespace JBHR.Reports.SalForm
             _key[3] = DT_zztatd.Columns["nobr"];
             DT_zztatd.PrimaryKey = _key;
             DataRow[] Srow = DT_waged.Select("", "comp,dept,nobr asc");
-            int j = 0;           
+            int j = 0;
             foreach (DataRow Row in Srow)
             {
                 string str_salattr = Row["acc_tr"].ToString() + Row["acccd"].ToString().Trim();
@@ -425,11 +425,11 @@ namespace JBHR.Reports.SalForm
                 _value[2] = Row["di"].ToString();
                 _value[3] = Row["nobr"].ToString();
                 DataRow row = DT_zztatd.Rows.Find(_value);
-                                
+
                 if (row != null)
                 {
                     for (int i = 0; i < DT_zz4at.Rows.Count; i++)
-                    { 
+                    {
                         if (str_salattr == DT_zz4at.Rows[i]["salattr"].ToString())
                         {
                             row["Fld" + (i + 1)] = int.Parse(row["Fld" + (i + 1)].ToString()) + int.Parse(Row["amt"].ToString());
@@ -441,13 +441,13 @@ namespace JBHR.Reports.SalForm
                 {
                     object[] _value1 = new object[2];
                     _value1[0] = Row["nobr"].ToString();
-                    _value1[1] = Row["dept"].ToString();                     
-                     DataRow row1 = DT_wageds1.Rows.Find(_value1);
-                     DataRow row2 = DT_wageds2.Rows.Find(_value1);
-                     DataRow row3 = DT_wageds3.Rows.Find(_value1);
-                     DataRow row4 = DT_wageds4.Rows.Find(_value1);
-                     DataRow row5 = DT_wagedsz.Rows.Find(_value1);                     
-                    
+                    _value1[1] = Row["dept"].ToString();
+                    DataRow row1 = DT_wageds1.Rows.Find(_value1);
+                    DataRow row2 = DT_wageds2.Rows.Find(_value1);
+                    DataRow row3 = DT_wageds3.Rows.Find(_value1);
+                    DataRow row4 = DT_wageds4.Rows.Find(_value1);
+                    DataRow row5 = DT_wagedsz.Rows.Find(_value1);
+
                     DataRow aRow = DT_zztatd.NewRow();
                     aRow["comp"] = Row["comp"].ToString();
                     aRow["compname"] = Row["compname"].ToString();
@@ -463,12 +463,12 @@ namespace JBHR.Reports.SalForm
                     aRow["account"] = Row["account"].ToString();
                     aRow["pno"] = (Row.IsNull("pno")) ? 0 : decimal.Parse(Row["pno"].ToString());
                     aRow["rate"] = (Row.IsNull("rate")) ? 1 : decimal.Parse(Row["rate"].ToString());
-                   
-                    for (int i = 0; i < DT_zz4at.Rows.Count;i++ )
+
+                    for (int i = 0; i < DT_zz4at.Rows.Count; i++)
                     {
                         aRow["Fld" + (i + 1)] = 0;
                         if (str_salattr == DT_zz4at.Rows[i]["salattr"].ToString())
-                            aRow["Fld"+(i + 1)] = int.Parse(Row["amt"].ToString());
+                            aRow["Fld" + (i + 1)] = int.Parse(Row["amt"].ToString());
                         else if (DT_zz4at.Rows[i]["salattr"].ToString() == "AZZZZ")
                         {
                             if (row1 != null) aRow["Fld" + (i + 1)] = int.Parse(row1["amt"].ToString());
@@ -495,7 +495,7 @@ namespace JBHR.Reports.SalForm
             }
         }
 
-        public static void Get_ZZ4atd5(DataTable DT_zztatd, DataTable DT_waged, DataTable DT_wageds1, DataTable DT_wageds2, DataTable DT_wageds3, DataTable DT_wageds4, DataTable DT_wagedsz, DataTable DT_zz4at, DataTable DT_explab,string reporttype)
+        public static void Get_ZZ4atd5(DataTable DT_zztatd, DataTable DT_waged, DataTable DT_wageds1, DataTable DT_wageds2, DataTable DT_wageds3, DataTable DT_wageds4, DataTable DT_wagedsz, DataTable DT_zz4at, DataTable DT_explab, string reporttype)
         {
             DataColumn[] _key = new DataColumn[4];
             _key[0] = DT_zztatd.Columns["comp"];
@@ -559,7 +559,7 @@ namespace JBHR.Reports.SalForm
                     aRow["adate"] = DateTime.Parse(Row["adate"].ToString());
                     aRow["count_ma"] = bool.Parse(Row["count_ma"].ToString());
                     aRow["account"] = Row["account"].ToString();
-                    aRow["pno"] = (Row.IsNull("pno")) ? 0 : int.Parse(Row["pno"].ToString());
+                    aRow["pno"] = (Row.IsNull("pno")) ? 0 : decimal.Parse(Row["pno"].ToString());
                     aRow["rate"] = (Row.IsNull("rate")) ? 1 : decimal.Parse(Row["rate"].ToString());
                     if (row6 != null)
                     {
@@ -607,7 +607,7 @@ namespace JBHR.Reports.SalForm
             }
         }
 
-        public static void Get_ZZ4atd4(DataTable DT_zztatd, DataTable DT_waged, DataTable DT_wageds1, DataTable DT_wageds2, DataTable DT_wageds3, DataTable DT_wageds4, DataTable DT_wagedsz, DataTable DT_zz4at,DataTable DT_cost)
+        public static void Get_ZZ4atd4(DataTable DT_zztatd, DataTable DT_waged, DataTable DT_wageds1, DataTable DT_wageds2, DataTable DT_wageds3, DataTable DT_wageds4, DataTable DT_wagedsz, DataTable DT_zz4at, DataTable DT_cost)
         {
             DataColumn[] _key = new DataColumn[4];
             _key[0] = DT_zztatd.Columns["comp"];
@@ -661,7 +661,7 @@ namespace JBHR.Reports.SalForm
                     aRow["adate"] = DateTime.Parse(Row["adate"].ToString());
                     aRow["count_ma"] = bool.Parse(Row["count_ma"].ToString());
                     aRow["account"] = Row["account"].ToString();
-                    aRow["pno"] = (Row.IsNull("pno")) ? 0 : int.Parse(Row["pno"].ToString());
+                    aRow["pno"] = (Row.IsNull("pno")) ? 0 : decimal.Parse(Row["pno"].ToString());
                     for (int i = 0; i < DT_zz4at.Rows.Count; i++)
                     {
                         aRow["Fld" + (i + 1)] = 0;
@@ -707,7 +707,7 @@ namespace JBHR.Reports.SalForm
             else if (reporttype == "5")
             {
                 _key = new DataColumn[1];
-                _key[0] = DT_zztatd1.Columns["comp"];                
+                _key[0] = DT_zztatd1.Columns["comp"];
                 DT_zztatd1.PrimaryKey = _key;
             }
             string strcomp1 = "";
@@ -761,7 +761,7 @@ namespace JBHR.Reports.SalForm
                         aRow["d_name"] = "";
                     }
                     aRow["cnt"] = 1;
-                    if (row6 != null && strcomp!=strcomp1)
+                    if (row6 != null && strcomp != strcomp1)
                     {
                         aRow["amt1"] = int.Parse(row6["amt1"].ToString());
                         aRow["amt2"] = int.Parse(row6["amt2"].ToString());
@@ -804,7 +804,7 @@ namespace JBHR.Reports.SalForm
 
         }
 
-        public static void Get_ZZ4atd2(DataTable DT_zztatd, DataTable DT_zztatd2, DataTable DT_zz4at,string reporttype)
+        public static void Get_ZZ4atd2(DataTable DT_zztatd, DataTable DT_zztatd2, DataTable DT_zz4at, string reporttype)
         {
             DataColumn[] _key;
             if (reporttype == "1")
@@ -812,21 +812,21 @@ namespace JBHR.Reports.SalForm
                 _key = new DataColumn[2];
                 _key[0] = DT_zztatd2.Columns["dept"];
                 _key[1] = DT_zztatd2.Columns["mark"];
-                DT_zztatd2.PrimaryKey = _key;                 
+                DT_zztatd2.PrimaryKey = _key;
             }
             else if (reporttype == "4")
             {
                 _key = new DataColumn[1];
                 _key[0] = DT_zztatd2.Columns["dept"];
-                DT_zztatd2.PrimaryKey = _key; 
+                DT_zztatd2.PrimaryKey = _key;
             }
-            
+
             DataRow[] Srow = DT_zztatd.Select("", "comp,dept asc");
-            
+
             foreach (DataRow Row in Srow)
             {
                 string mark = "";
-                object[] _value ;
+                object[] _value;
                 DataRow row = null;
                 if (reporttype == "1")
                 {
@@ -843,7 +843,7 @@ namespace JBHR.Reports.SalForm
                 }
                 else if (reporttype == "4")
                     row = DT_zztatd2.Rows.Find(Row["dept"].ToString());
-                
+
                 if (row != null)
                 {
                     row["cnt"] = int.Parse(row["cnt"].ToString()) + 1;
@@ -853,30 +853,30 @@ namespace JBHR.Reports.SalForm
                     }
                 }
                 else
-                {                    
+                {
                     DataRow aRow = DT_zztatd2.NewRow();
                     aRow["dept"] = Row["dept"].ToString();
                     aRow["d_name"] = Row["d_name"].ToString();
                     aRow["mark"] = mark;
-                    aRow["cnt"] = 1;                    
+                    aRow["cnt"] = 1;
                     for (int i = 0; i < DT_zz4at.Rows.Count; i++)
                     {
                         aRow["Fld" + (i + 1)] = int.Parse(Row["Fld" + (i + 1)].ToString());
                     }
                     DT_zztatd2.Rows.Add(aRow);
-                   
+
                 }
             }
         }
 
-        public static void Get_ZZ4atd3(DataTable DT_zztatd, DataTable DT_zztatd1,DataTable DT_zztatd3, DataTable DT_zz4at, DataTable DT_wage7)
+        public static void Get_ZZ4atd3(DataTable DT_zztatd, DataTable DT_zztatd1, DataTable DT_zztatd3, DataTable DT_zz4at, DataTable DT_wage7)
         {
-            DataColumn[] _key = new DataColumn[1];            
+            DataColumn[] _key = new DataColumn[1];
             _key[0] = DT_zztatd1.Columns["comp"];
             DT_zztatd1.PrimaryKey = _key;
-            
+
             string strcomp1 = "";
-            DataRow[] Srow = DT_zztatd.Select("", "comp,dept asc");            
+            DataRow[] Srow = DT_zztatd.Select("", "comp,dept asc");
             foreach (DataRow Row in Srow)
             {
                 object[] _value = new object[1];
@@ -900,7 +900,7 @@ namespace JBHR.Reports.SalForm
                     aRow["account"] = Row["account"].ToString();
                     aRow["adate"] = DateTime.Parse(Row["adate"].ToString());
                     aRow["dept"] = "";
-                    aRow["d_name"] = "";                    
+                    aRow["d_name"] = "";
                     aRow["cnt"] = 1;
                     if (row6 != null && strcomp != strcomp1)
                     {
@@ -996,18 +996,18 @@ namespace JBHR.Reports.SalForm
                     aRow["amt"] = Math.Round(decimal.Parse(row[i]["amt"].ToString()) * decimal.Parse(Row["rate"].ToString()), MidpointRounding.AwayFromZero);
                     aRow["pno"] = decimal.Parse(row[i]["pno"].ToString());
                     aRow["rate"] = decimal.Parse(Row["rate"].ToString());
-                                       
+
                     DT_wagedb.Rows.Add(aRow);
-                }                
+                }
                 str_nobr1 = Row["nobr"].ToString();
-                
+
             }
         }
 
         public static void GeWagedN(DataTable DT_cost, DataTable DT_waged, DataTable DT_wagedb)
         {
             int _rowcnt = 0; string str_nobr1 = "";
-            foreach (DataRow Row in DT_waged.Select("","nobr asc"))
+            foreach (DataRow Row in DT_waged.Select("", "nobr asc"))
             {
                 decimal _amt = decimal.Parse(Row["amt"].ToString());
                 if (Row["nobr"].ToString() == str_nobr1)
@@ -1037,7 +1037,7 @@ namespace JBHR.Reports.SalForm
                         aRow["flag"] = Row["flag"].ToString();
                         aRow["acc_tr"] = Row["acc_tr"].ToString();
                         aRow["salattr"] = Row["salattr"].ToString();
-                        aRow["acccd"] = Row["acccd"].ToString();                        
+                        aRow["acccd"] = Row["acccd"].ToString();
                         aRow["rate"] = decimal.Parse(row[i]["rate"].ToString());
                         aRow["pno"] = (str_nobr1 == Row["nobr"].ToString()) ? 0 : decimal.Parse(row[i]["rate"].ToString());
                         if (i == row.Length - 1)
@@ -1073,7 +1073,7 @@ namespace JBHR.Reports.SalForm
                     aRow["acccd"] = Row["acccd"].ToString();
                     aRow["amt"] = decimal.Parse(Row["amt"].ToString());
                     aRow["rate"] = 1;
-                    aRow["pno"] = 1;                    
+                    aRow["pno"] = 1;
                     DT_wagedb.Rows.Add(aRow);
                 }
                 str_nobr1 = Row["nobr"].ToString();
@@ -1096,7 +1096,7 @@ namespace JBHR.Reports.SalForm
                     DataRow aRow = DT_wagedc.NewRow();
                     aRow["nobr"] = Row["nobr"].ToString();
                     aRow["sal_code"] = Row["sal_code"].ToString();
-                    aRow["amt"] = int.Parse(Row["amt"].ToString());                                     
+                    aRow["amt"] = int.Parse(Row["amt"].ToString());
                     DT_wagedc.Rows.Add(aRow);
                 }
             }
@@ -1114,7 +1114,7 @@ namespace JBHR.Reports.SalForm
                 int _damt = 0; int _salamt = 0;
                 DataRow[] row = DT_waged.Select("nobr='" + Row["nobr"].ToString() + "' and sal_code='" + Row["sal_code"].ToString() + "'");
                 DataRow[] row1 = DT_wageb.Select("nobr='" + Row["nobr"].ToString() + "' and sal_code='" + Row["sal_code"].ToString() + "'");
-                if (row.Length > 0 && row1.Length >0)
+                if (row.Length > 0 && row1.Length > 0)
                 {
                     _damt = int.Parse(row[0]["amt"].ToString()) - int.Parse(row1[0]["amt"].ToString());
                     Row["amt"] = int.Parse(Row["amt"].ToString()) + _damt;
@@ -1134,8 +1134,8 @@ namespace JBHR.Reports.SalForm
                         aRow["diffamt"] = int.Parse(row[0]["amt"].ToString()) - _salamt;
                         rq_diff.Rows.Add(aRow);
                     }
-                    
-                } 
+
+                }
             }
             foreach (DataRow Row1 in DT_waged.Rows)
             {
@@ -1200,8 +1200,8 @@ namespace JBHR.Reports.SalForm
                     aRow["amt"] = int.Parse(Row1["amt"].ToString());
                     DT_wageds1a.Rows.Add(aRow);
                 }
-            }            
-        }       
+            }
+        }
 
         public static void GetWageds2a(DataTable DT_wageds2a, DataTable DT_waged)
         {
@@ -1296,16 +1296,16 @@ namespace JBHR.Reports.SalForm
 
         public static void Get_ZZ4atd4(DataTable DT_zztatd, DataTable DT_zztatd4, DataTable DT_zz4at, string reporttype)
         {
-            string str_di="";            
+            string str_di = "";
             DataColumn[] _key;
             _key = new DataColumn[2];
             _key[0] = DT_zztatd4.Columns["dept"];
             if (reporttype == "2")
             {
-                _key[1] = DT_zztatd4.Columns["di"];               
+                _key[1] = DT_zztatd4.Columns["di"];
             }
             else
-            { 
+            {
                 _key[1] = DT_zztatd4.Columns["nobr"];
             }
             DT_zztatd4.PrimaryKey = _key;
@@ -1327,8 +1327,8 @@ namespace JBHR.Reports.SalForm
                 else
                 {
                     _value = new object[2];
-                    _value[0] = Row["dept"].ToString(); 
-                    _value[1] = Row["nobr"].ToString();                   
+                    _value[0] = Row["dept"].ToString();
+                    _value[1] = Row["nobr"].ToString();
                     row = DT_zztatd4.Rows.Find(_value);
                 }
                 if (row != null)
@@ -1350,7 +1350,7 @@ namespace JBHR.Reports.SalForm
                     row["pno"] = decimal.Parse(row["pno"].ToString()) + decimal.Parse(Row["pno"].ToString());
                 }
                 else
-                {                    
+                {
                     DataRow aRow = DT_zztatd4.NewRow();
                     aRow["dept"] = Row["dept"].ToString();
                     aRow["d_name"] = Row["d_name"].ToString();
@@ -1361,14 +1361,14 @@ namespace JBHR.Reports.SalForm
                         aRow["nobr"] = "";
                         aRow["name_c"] = "";
                         aRow["name_e"] = "";
-                        aRow["di"] = str_di;                       
+                        aRow["di"] = str_di;
                     }
                     else
                     {
                         aRow["nobr"] = Row["nobr"].ToString();
                         aRow["name_c"] = Row["name_c"].ToString();
                         aRow["name_e"] = Row["name_e"].ToString();
-                    }                    
+                    }
                     for (int i = 0; i < DT_zz4at.Rows.Count; i++)
                     {
                         aRow["Fld" + (i + 1)] = int.Parse(Row["Fld" + (i + 1)].ToString());
@@ -1388,7 +1388,7 @@ namespace JBHR.Reports.SalForm
             }
         }
 
-        public static void ExPort1(DataTable DT_4atd1, DataTable DT_4ata, string FileName,string reporttype)
+        public static void ExPort1(DataTable DT_4atd1, DataTable DT_4ata, string FileName, string reporttype)
         {
             DataTable ExporDt = new DataTable();
             ExporDt.Columns.Add("公司別", typeof(string));
@@ -1396,7 +1396,7 @@ namespace JBHR.Reports.SalForm
             if (reporttype == "0")
             {
                 ExporDt.Columns.Add("部門代碼", typeof(string));
-                ExporDt.Columns.Add("部門名稱", typeof(string));                
+                ExporDt.Columns.Add("部門名稱", typeof(string));
             }
             ExporDt.Columns.Add("人數", typeof(int));
             if (reporttype == "0")
@@ -1445,12 +1445,12 @@ namespace JBHR.Reports.SalForm
             JBHR.Reports.ReportClass.Export(ExporDt, FileName);
         }
 
-        public static void ExPort2(DataTable DT_4atd2, DataTable DT_4ata, string FileName,string reporttype)
+        public static void ExPort2(DataTable DT_4atd2, DataTable DT_4ata, string FileName, string reporttype)
         {
-            DataTable ExporDt = new DataTable();            
+            DataTable ExporDt = new DataTable();
             ExporDt.Columns.Add("部門代碼", typeof(string));
             ExporDt.Columns.Add("部門名稱", typeof(string));
-            if (reporttype=="1") ExporDt.Columns.Add("直間接", typeof(string));
+            if (reporttype == "1") ExporDt.Columns.Add("直間接", typeof(string));
             ExporDt.Columns.Add("人數", typeof(int));
             for (int i = 0; i < DT_4ata.Columns.Count; i++)
             {
@@ -1464,10 +1464,10 @@ namespace JBHR.Reports.SalForm
             foreach (DataRow Row01 in DT_4atd2.Rows)
             {
                 DataRow aRow = ExporDt.NewRow();
-                
+
                 aRow["部門代碼"] = Row01["dept"].ToString();
                 aRow["部門名稱"] = Row01["d_name"].ToString();
-                if (reporttype == "1")  aRow["直間接"] = Row01["mark"].ToString();
+                if (reporttype == "1") aRow["直間接"] = Row01["mark"].ToString();
                 aRow["人數"] = int.Parse(Row01["cnt"].ToString());
                 for (int i = 0; i < DT_4ata.Columns.Count; i++)
                 {
@@ -1489,7 +1489,7 @@ namespace JBHR.Reports.SalForm
             DataTable ExporDt = new DataTable();
             ExporDt.Columns.Add("公司別", typeof(string));
             ExporDt.Columns.Add("公司名稱", typeof(string));
-            if (reporttype=="6") ExporDt.Columns.Add("人數", typeof(int));
+            if (reporttype == "6") ExporDt.Columns.Add("人數", typeof(int));
             for (int i = 0; i < DT_4ata.Columns.Count; i++)
             {
                 if (DT_4ata.Rows[0]["Fld" + (i + 1)].ToString().Trim() != "")
@@ -1504,7 +1504,7 @@ namespace JBHR.Reports.SalForm
                 DataRow aRow = ExporDt.NewRow();
                 aRow["公司別"] = Row01["comp"].ToString();
                 aRow["公司名稱"] = Row01["compname"].ToString();
-                if (reporttype == "6")  aRow["人數"] = int.Parse(Row01["cnt"].ToString());
+                if (reporttype == "6") aRow["人數"] = int.Parse(Row01["cnt"].ToString());
                 for (int i = 0; i < DT_4ata.Columns.Count; i++)
                 {
                     if (DT_4ata.Rows[0]["Fld" + (i + 1)].ToString() != "")
@@ -1528,7 +1528,7 @@ namespace JBHR.Reports.SalForm
             if (reporttype == "2")
             {
                 ExporDt.Columns.Add("直間接", typeof(string));
-                ExporDt.Columns.Add("人數", typeof(int));
+                ExporDt.Columns.Add("人數", typeof(decimal));
             }
             else
             {
@@ -1553,7 +1553,7 @@ namespace JBHR.Reports.SalForm
                 if (reporttype == "2")
                 {
                     aRow["直間接"] = Row01["di"].ToString();
-                    aRow["人數"] = int.Parse(Row01["pno"].ToString());
+                    aRow["人數"] = decimal.Parse(Row01["pno"].ToString());
                 }
                 else
                 {

@@ -1716,6 +1716,7 @@
     <Content Include="Templates\Inspinia\js\popper.min.js" />
     <Content Include="UserControls\UC_FileView.ascx" />
     <Content Include="WebServices\SaveAbn.asmx" />
+    <Content Include="WebServices\SendMail.asmx" />
     <Content Include="WebServices\SaveAbsForHunya.asmx" />
     <Content Include="WebServices\SaveAppoint.asmx" />
     <Content Include="WebServices\SaveEmploy.asmx" />
@@ -2474,6 +2475,9 @@
     <Compile Include="NewsManage.aspx.designer.cs">
       <DependentUpon>NewsManage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reply.ashx.cs">
+      <DependentUpon>Reply.ashx</DependentUpon>
+    </Compile>
     <Compile Include="SalarySearch.aspx.cs">
       <DependentUpon>SalarySearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2631,6 +2635,10 @@
     </Compile>
     <Compile Include="WebServices\SaveAbn.asmx.cs">
       <DependentUpon>SaveAbn.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WebServices\SendMail.asmx.cs">
+      <DependentUpon>SendMail.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WebServices\SaveAbsForHunya.asmx.cs">
@@ -2815,6 +2823,7 @@
     <Content Include="Single.Master" />
     <Content Include="Data\slMain.db" />
     <None Include="Properties\PublishProfiles\IISProfile1.pubxml" />
+    <Content Include="Reply.ashx" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -2882,7 +2891,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

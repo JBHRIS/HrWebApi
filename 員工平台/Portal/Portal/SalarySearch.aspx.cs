@@ -316,7 +316,9 @@ namespace Portal
             var SalaryRetirementSeqConfig = (from c in dcFlow.FormsExtend
                                              where c.FormsCode == "Salary" && c.Code == "SalaryRetirementSeqConfig" && c.Active
                                              select c).FirstOrDefault();
-            var lsSalarySeq = SalaryRetirementSeqConfig.Column1.Split(';');
+            var lsSalarySeq = new List<string>();
+            if(SalaryRetirementSeqConfig != null)
+                lsSalarySeq = SalaryRetirementSeqConfig.Column1.Split(';').ToList();
             if (!lsSalarySeq.Contains(Seq))
             {
                 var oRetirementThisMonth = new RetirementThisMonthDao();

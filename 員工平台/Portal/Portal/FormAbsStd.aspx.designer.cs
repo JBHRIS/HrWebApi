@@ -51,6 +51,15 @@ namespace Portal
         protected global::Telerik.Web.UI.RadLabel lblNotifyMsg;
 
         /// <summary>
+        /// lblApplicationInfoDic 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblApplicationInfoDic;
+
+        /// <summary>
         /// plAppS 控制項。
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace Portal
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel plName;
+
+        /// <summary>
+        /// lblRespondentNameDic 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblRespondentNameDic;
 
         /// <summary>
         /// txtNameAppS 控制項。
@@ -87,6 +105,15 @@ namespace Portal
         protected global::System.Web.UI.WebControls.Panel plAgent;
 
         /// <summary>
+        /// lblAgentDic 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblAgentDic;
+
+        /// <summary>
         /// txtNameAgent1 控制項。
         /// </summary>
         /// <remarks>
@@ -94,6 +121,15 @@ namespace Portal
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::Telerik.Web.UI.RadComboBox txtNameAgent1;
+
+        /// <summary>
+        /// lblAbsenceTypeDic 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblAbsenceTypeDic;
 
         /// <summary>
         /// txtHcode 控制項。
@@ -105,22 +141,31 @@ namespace Portal
         protected global::Telerik.Web.UI.RadComboBox txtHcode;
 
         /// <summary>
-        /// lblBalance 控制項。
+        /// lblBalanceDic 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadLabel lblBalance;
+        protected global::Telerik.Web.UI.RadLabel lblBalanceDic;
 
         /// <summary>
-        /// lblBalanceUnit 控制項。
+        /// lblUnitDic 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Telerik.Web.UI.RadLabel lblBalanceUnit;
+        protected global::Telerik.Web.UI.RadLabel lblUnitDic;
+
+        /// <summary>
+        /// lblBeginDateDic 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblBeginDateDic;
 
         /// <summary>
         /// txtDateB 控制項。
@@ -132,6 +177,15 @@ namespace Portal
         protected global::Telerik.Web.UI.RadDatePicker txtDateB;
 
         /// <summary>
+        /// lblEndDateDic 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblEndDateDic;
+
+        /// <summary>
         /// txtDateE 控制項。
         /// </summary>
         /// <remarks>
@@ -139,6 +193,15 @@ namespace Portal
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::Telerik.Web.UI.RadDatePicker txtDateE;
+
+        /// <summary>
+        /// lblBeginTimeDic 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblBeginTimeDic;
 
         /// <summary>
         /// txtTimeB 控制項。
@@ -150,6 +213,15 @@ namespace Portal
         protected global::Telerik.Web.UI.RadMaskedTextBox txtTimeB;
 
         /// <summary>
+        /// lblEndTimeDic 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblEndTimeDic;
+
+        /// <summary>
         /// txtTimeE 控制項。
         /// </summary>
         /// <remarks>
@@ -157,6 +229,15 @@ namespace Portal
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::Telerik.Web.UI.RadMaskedTextBox txtTimeE;
+
+        /// <summary>
+        /// lblReasonDic 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblReasonDic;
 
         /// <summary>
         /// txtNote 控制項。
@@ -168,6 +249,15 @@ namespace Portal
         protected global::Telerik.Web.UI.RadTextBox txtNote;
 
         /// <summary>
+        /// lblAgentNoteDic 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblAgentNoteDic;
+
+        /// <summary>
         /// txtAgent 控制項。
         /// </summary>
         /// <remarks>
@@ -175,6 +265,15 @@ namespace Portal
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::Telerik.Web.UI.RadTextBox txtAgent;
+
+        /// <summary>
+        /// lblNoteDic 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblNoteDic;
 
         /// <summary>
         /// lblFormNoteStd 控制項。

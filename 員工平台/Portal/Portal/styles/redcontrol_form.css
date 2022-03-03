@@ -242,6 +242,38 @@
 	right: 19px;
 }
 
+/* 流程檢視_全部展開按鈕 */
+
+.allopen:before {
+	content: "全部收合";
+	color: #fff;
+	font-weight: bold;
+	width: 70px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	background-color: #ccc;
+	border-radius: 3px;
+	position: absolute;
+	top: 9px;
+	right: 32px;
+}
+
+.allopen.collapsed:before {
+	content: "全部展開";
+	background-color: #179d82;
+	line-height: 30px;
+	color: #FFFFFF;
+	font-weight: bold;
+	width: 70px;
+	height: 30px;
+	text-align: center;
+	border-radius: 3px;
+	position: absolute;
+	top: 9px;
+	right: 32px;
+}
+
 .flow-item {
 	padding: 0px;
 	margin-bottom: 2px;
@@ -273,4 +305,12 @@
 
 Input {
 	font-style:normal;
+}
+
+.RadLabel{
+	padding-right:0px !important;
+}
+
+.m-r-sm{
+	margin-right:0px;
 }

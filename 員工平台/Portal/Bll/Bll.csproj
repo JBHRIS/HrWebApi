@@ -139,6 +139,7 @@
     <Compile Include="Files\Vdb\DeleteFilesVdb.cs" />
     <Compile Include="Files\Vdb\DownloadFilesVdb.cs" />
     <Compile Include="Files\Vdb\ExcelSheetNameVdb.cs" />
+    <Compile Include="Files\Vdb\UploadMultipleInPostedFileBaseVdb.cs" />
     <Compile Include="Files\Vdb\UploadMultipleVdb.cs" />
     <Compile Include="Files\Vdb\ImportAttendExcelCoverVdb.cs" />
     <Compile Include="Files\Vdb\UploadSingleFileVdb.cs" />

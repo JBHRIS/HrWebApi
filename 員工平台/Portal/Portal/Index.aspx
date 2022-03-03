@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="styles/dashboard.css" rel="stylesheet">
-    <telerik:RadCodeBlock runat="server">
+    <%--<telerik:RadCodeBlock runat="server">
         <script>
             function OnClientPdfExporting(sender, args) {
                 args.set_cancel(true);
@@ -20,7 +20,7 @@
             }
         </script>
 
-    </telerik:RadCodeBlock>
+    </telerik:RadCodeBlock>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="wrapper wrapper-content">

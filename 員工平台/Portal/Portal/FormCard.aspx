@@ -34,38 +34,42 @@
                 </div>
             </div>--%>
             <div class="col-lg-3">
-                <div class="widget-head-color-box navy-bg p-lg">
-                    <div class="row">
-                        <div class="col-4">
-                            <i class="fa fa-clock-o fa-4x"></i>
+                <telerik:RadAjaxPanel runat="server">
+
+                    <div class="widget-head-color-box navy-bg p-lg">
+                        <div class="row">
+                            <div class="col-4">
+                                <i class="fa fa-clock-o fa-4x"></i>
+                            </div>
+                            <div class="col-8 text-right">
+                                <span>現在時間</span>
+
+                                <h2 class="font-bold" style="margin-top: 5px; font-size: 30px;">
+                                    <telerik:RadAjaxPanel runat="server">
+                                        <asp:Timer ID="Timer" runat="server" Interval="1000"></asp:Timer>
+                                        <telerik:RadLabel runat="server" ID="lblTime"></telerik:RadLabel>
+                                    </telerik:RadAjaxPanel>
+                                </h2>
+
+                                <span>IP:<telerik:RadLabel runat="server" ID="lblCardIP"></telerik:RadLabel>
+                                </span>
+                            </div>
                         </div>
-                        <div class="col-8 text-right">
-                            <span>現在時間</span>
 
-                            <h2 class="font-bold" style="margin-top: 5px; font-size: 30px;">
-                                <telerik:RadAjaxPanel runat="server">
-                                    <asp:Timer ID="Timer" runat="server" Interval="1000"></asp:Timer>
-                                    <telerik:RadLabel runat="server" ID="lblTime"></telerik:RadLabel>
-                                </telerik:RadAjaxPanel>
-                            </h2>
 
-                            <span>IP:<telerik:RadLabel runat="server" ID="lblCardIP"></telerik:RadLabel></span>
+                        <div class="row text-center m-t-sm">
+                            <telerik:RadButton runat="server" ID="btnSubmit" OnClick="btnSubmit_Click" Text="打卡" CssClass="btn btn-block btn-outline btn-default"></telerik:RadButton>
                         </div>
                     </div>
+                    <div class="widget-text-box">
+                        <h4 class="media-heading">打卡資訊</h4>
+                        <p>
+                            <telerik:RadLabel runat="server" ID="lblCardTime"></telerik:RadLabel>
+                        </p>
 
-
-                    <div class="row text-center m-t-sm">
-                        <telerik:RadButton runat="server" ID="btnSubmit" OnClick="btnSubmit_Click" Text="打卡" CssClass="btn btn-block btn-outline btn-default"></telerik:RadButton>
                     </div>
-                </div>
-                <div class="widget-text-box">
-                    <h4 class="media-heading">打卡資訊</h4>
-                    <p>
-                        <telerik:RadLabel runat="server" ID="lblCardTime"></telerik:RadLabel>
-                    </p>
-
-                </div>
-                <telerik:RadLabel runat="server" ID="lblMsg" CssClass="badge badge-danger animated shake"></telerik:RadLabel>
+                    <telerik:RadLabel runat="server" ID="lblMsg" CssClass="badge badge-danger animated shake"></telerik:RadLabel>
+                </telerik:RadAjaxPanel>
             </div>
         </div>
     </div>

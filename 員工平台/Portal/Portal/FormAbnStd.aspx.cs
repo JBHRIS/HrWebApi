@@ -113,7 +113,7 @@ namespace Portal
             OldDal.Dao.Att.AttendDao oAttendDao = new OldDal.Dao.Att.AttendDao(dcHR.Connection);
             var ReasonList = oAttendDao.GetAttendCheckRemarkType();
             foreach (var Reason in ReasonList)
-            { 
+            {
                 ddlReason.Items.Add(new RadComboBoxItem(Reason.Text, Reason.Value));
             }
             var AbnData = oAttendDao.GetAttendCheckType();
@@ -148,7 +148,7 @@ namespace Portal
                 //}
                 //else //沒有就新增
                 //{ 
-                    
+
                 //}
             }
             var isEarlyCome = lvData.Items[index].FindControl("isEarlyCheck") as RadCheckBox;
@@ -391,6 +391,104 @@ namespace Portal
                 if (DataS[Count].isLateInProcess || DataS[Count].LateTime == "0")
                     isLateCheck.Enabled = false;
                 Count++;
+            }
+        }
+
+        protected void cbSelectAll_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (var item in gvAppS.Items)
+            {
+
+                var isEarlyCheck = item.FindControl("isEarlyCheck") as RadCheckBox;
+                var isLateCheck = item.FindControl("isLateCheck") as RadCheckBox;
+                var ADate = item.FindControl("lblDate") as RadLabel;
+                if ((bool)cbSelectAll.Checked)
+                {
+                    if (isEarlyCheck.Enabled)
+                        isEarlyCheck.Checked = true;
+                    if (isLateCheck.Enabled)
+                        isLateCheck.Checked = true;
+                    var FormCode = isEarlyCheck.CommandArgument;
+                    var Exsist = (from c in dcFlow.FormsAppAbn
+                                  where c.Code == FormCode
+                                  select c).FirstOrDefault();
+                    if (Exsist != null)//如果有的話就更新
+                    {
+                        if (isEarlyCheck.Checked == true || isLateCheck.Checked == true)
+                        {
+                            Exsist.IsEarlyWork = (bool)isEarlyCheck.Checked;
+                            Exsist.EarlyWorkMin = (bool)isEarlyCheck.Checked ? Convert.ToInt32(isEarlyCheck.CommandName) : 0;
+                            Exsist.IsLateOut = (bool)isLateCheck.Checked;
+                            Exsist.LateOutMin = (bool)isLateCheck.Checked ? Convert.ToInt32(isLateCheck.CommandName) : 0;
+                            Exsist.UpdateDate = DateTime.Now;
+                            Exsist.UpdateMan = _User.EmpName;
+                        }
+                        else
+                        {
+                            var infoData = (from c in dcFlow.FormsAppInfo
+                                            where c.Code == FormCode
+                                            select c).FirstOrDefault();
+                            if (infoData != null)
+                                dcFlow.FormsAppInfo.DeleteOnSubmit(infoData);
+                            dcFlow.FormsAppAbn.DeleteOnSubmit(Exsist);
+                        }
+                        dcFlow.SubmitChanges();
+                    }
+                    else //沒有就新增
+                    {
+                        if (isEarlyCheck.Checked == true || isLateCheck.Checked == true)
+                        {
+                            var oFormsAppAbn = new FormsAppAbn();
+                            oFormsAppAbn.EmpName = _User.EmpName;
+                            oFormsAppAbn.EmpId = _User.EmpId;
+                            oFormsAppAbn.DeptName = _User.EmpDeptName;
+                            oFormsAppAbn.Code = FormCode;
+                            oFormsAppAbn.ProcessId = lblProcessID.Text;
+                            oFormsAppAbn.idProcess = 0;
+                            oFormsAppAbn.DateB = Convert.ToDateTime(ADate.Text);
+                            oFormsAppAbn.RoleId = lblRoleAppM.Text;
+                            oFormsAppAbn.DeptCode = lblDeptCodeAppM.Text;
+                            oFormsAppAbn.DeptName = lblDeptNameAppM.Text;
+                            oFormsAppAbn.JobCode = lblJobCodeAppM.Text;
+                            oFormsAppAbn.JobName = lblJobNameAppM.Text;
+                            oFormsAppAbn.IsEarlyWork = isEarlyCheck.Checked ?? false;
+                            oFormsAppAbn.EarlyWorkMin = (isEarlyCheck.Checked != null && isEarlyCheck.Checked == true) ? Convert.ToInt32(isEarlyCheck.CommandName) : 0;
+                            oFormsAppAbn.IsLateOut = isLateCheck.Checked ?? false;
+                            oFormsAppAbn.LateOutMin = (isLateCheck.Checked != null && isLateCheck.Checked == true) ? Convert.ToInt32(isLateCheck.CommandName) : 0;
+                            oFormsAppAbn.AbnCode = ddlReason.SelectedValue;
+                            oFormsAppAbn.Sign = true;
+                            oFormsAppAbn.SignState = "1";
+                            oFormsAppAbn.Note = ddlReason.Text;
+                            oFormsAppAbn.Status = "1";
+                            oFormsAppAbn.UpdateDate = DateTime.Now;
+                            oFormsAppAbn.UpdateMan = _User.EmpName;
+                            oFormsAppAbn.InsertDate = DateTime.Now;
+                            oFormsAppAbn.InsertMan = _User.EmpName;
+                            dcFlow.FormsAppAbn.InsertOnSubmit(oFormsAppAbn);
+
+                            var oFormsAppInfo = new FormsAppInfo();
+                            oFormsAppInfo.Code = FormCode;
+                            oFormsAppInfo.EmpId = _User.EmpId;
+                            oFormsAppInfo.EmpName = _User.EmpName;
+                            oFormsAppInfo.idProcess = 0;
+                            oFormsAppInfo.ProcessId = lblProcessID.Text;
+                            oFormsAppInfo.KeyDate = DateTime.Now;
+                            oFormsAppInfo.SignState = "1";
+                            oFormsAppInfo.InfoSign = oFormsAppAbn.EmpName + "," + oFormsAppAbn.DateB.ToShortDateString() + "," + (oFormsAppAbn.IsEarlyWork ? "早來" + oFormsAppAbn.EarlyWorkMin + "分鐘" : "") + (oFormsAppAbn.IsLateOut ? "晚退" + oFormsAppAbn.LateOutMin + "分鐘" : "");
+                            oFormsAppInfo.InfoMail = MessageSendMail.AbnBody(oFormsAppAbn.EmpId, oFormsAppAbn.EmpName, oFormsAppAbn.DeptName, oFormsAppAbn.DateB, "");
+                            dcFlow.FormsAppInfo.InsertOnSubmit(oFormsAppInfo);
+
+                            dcFlow.SubmitChanges();
+                        }
+                    }
+                }
+                else
+                {
+                    if (isEarlyCheck.Enabled)
+                        isEarlyCheck.Checked = false;
+                    if (isLateCheck.Enabled)
+                        isLateCheck.Checked = false;
+                }
             }
         }
     }

@@ -52,6 +52,11 @@ namespace JBHR.Reports.SalForm
             nobr_b.Text = Sal.BaseValue.MinNobr;
             nobr_e.Text = Sal.BaseValue.MaxNobr;
 
+            jobl_b.DataSource = JBHR.Reports.ReportClass.GetJobl(MainForm.COMPANY);
+            jobl_e.DataSource = JBHR.Reports.ReportClass.GetJobl(MainForm.COMPANY);
+            //jobl_b.SelectedIndex = -1;
+            jobl_e.SelectedIndex = jobl_e.Items.Count - 1;
+
             //dept_b.DataSource = JBHR.Reports.ReportClass.GetDept(MainForm.COMPANY);
             //dept_e.DataSource = JBHR.Reports.ReportClass.GetDept(MainForm.COMPANY);
             SystemFunction.SetComboBoxItems(dept_b, ReportClass.SourceConvert(ReportClass.GetDept(MainForm.COMPANY)), false, true, true);
@@ -110,6 +115,8 @@ namespace JBHR.Reports.SalForm
                 string depte = (dept_e.SelectedIndex == -1) ? "" : dept_e.SelectedValue.ToString();
                 string empb = (empcd_b.SelectedIndex == -1) ? "" : empcd_b.SelectedValue.ToString();
                 string empe = (empcd_e.SelectedIndex == -1) ? "" : empcd_e.SelectedValue.ToString();
+                string joblb = (jobl_b.SelectedIndex != -1) ? jobl_b.SelectedValue.ToString() : "";
+                string joble = (jobl_e.SelectedIndex == -1) ? "" : jobl_e.SelectedValue.ToString();
                 string dateb = date_b.Text;
                 string yyb = year_b.Text;
                 string yye = year_e.Text;
@@ -124,7 +131,7 @@ namespace JBHR.Reports.SalForm
                 string workadr = "";
                 workadr = " AND " + Sal.Function.GetFilterCmdByDataGroup("saladr");
                 bool _excelexport = ExportExcel.Checked;
-                zz4j_report = new ZZ4J_Report(nobrb, nobre, deptb, depte,empb,empe, dateb, yyb, monb, seb, yye, mone, see, typedata, workadr, _reporttype, _excelexport,MainForm.COMPANY_NAME,MainForm.COMPANY);
+                zz4j_report = new ZZ4J_Report(nobrb, nobre, deptb, depte, joblb, joble,empb,empe, dateb, yyb, monb, seb, yye, mone, see, typedata, workadr, _reporttype, _excelexport,MainForm.COMPANY_NAME,MainForm.COMPANY);
                 zz4j_report.Show();
             }
             catch (Exception Ex)

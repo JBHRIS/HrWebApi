@@ -8,18 +8,31 @@ using Telerik.Web.UI;
 using Bll;
 using Dal.Dao.Employee;
 using Bll.Employee.Vdb;
+using Dal;
 
 namespace Portal
 {
     public partial class EmployeeBaseDataEdit : WebPageBase
     {
+        private dcFlowDataContext dcFlow = new dcFlowDataContext();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (CompanySetting != null)
+            {
+                dcFlow.Connection.ConnectionString = CompanySetting.ConnFlow;
+            }
             if (!this.IsPostBack)
             {
                 LoadData(_User.UserCode);
                 ContactRelation_DataBind();
                 Base_DataBind();
+                var IsModifyResidenceAddress = (from c in dcFlow.FormsExtend
+                                                where c.Active && c.FormsCode == "EmployeeBaseDataEdit" && c.Code == "IsModifyResidenceAddress"
+                                                select c).FirstOrDefault();
+                if (IsModifyResidenceAddress != null)
+                {
+                    txtResidenceAddress.Enabled = false;
+                }
             }
         }
         public void LoadData(string Key = "")

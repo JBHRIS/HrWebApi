@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using JBHR.Sal.Core;
 using JBTools;
 using JBHR.BLL.Att;
+using JBHR.Sal;
+
 namespace JBHR.Att
 {
     /**補休規則
@@ -36,6 +38,7 @@ namespace JBHR.Att
         string Del_Serno = "";
         List<HCODE> HcodeList = new List<HCODE>();
         CheckTimeFormatControl CTFC = new CheckTimeFormatControl();
+        Dictionary<DateTime, decimal> TotalHrsList = new Dictionary<DateTime, decimal>();
         private void FRM28_Load(object sender, EventArgs e)
         {
             CTFC.AddControl(txtTimeB, true, false, false);
@@ -115,15 +118,19 @@ namespace JBHR.Att
             e.Values["btime"] = txtTimeB.Text;
             e.Values["etime"] = txtTimeE.Text;
 
-            DateTime d1 = Convert.ToDateTime(txtDateB.Text);
-            string saladr = Sal.Core.SalaryDate.GetSaladr(ptxNobr.Text, d1);
             if (fullDataCtrl1.EditType == JBControls.FullDataCtrl.EEditType.Add)
             {
-                if (Sal.Core.SalaryDate.CheckAttendLock(d1, saladr) && Sal.Core.SalaryDate.GetUnLockYYMM(d1, saladr).CompareTo(txtYymm.Text) > 0)
+                DateTime d1 = Convert.ToDateTime(txtDateB.Text);
+                DateTime d2 = Convert.ToDateTime(txtDateE.Text);
+                for (DateTime i = d1; i <= d2; i = i.AddDays(1))
                 {
-                    MessageBox.Show(Resources.Att.AttendDateLocked + "," + Resources.Att.YymmMoveToNextMonth, Resources.All.DialogTitle, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    e.Cancel = true;
-                    return;
+                    string saladr = Sal.Core.SalaryDate.GetSaladr(ptxNobr.Text, i);
+                    if (Sal.Core.SalaryDate.CheckAttendLock(i, saladr) && Sal.Core.SalaryDate.GetUnLockYYMM(i, saladr).CompareTo(txtYymm.Text) > 0)
+                    {
+                        MessageBox.Show(Resources.Att.AttendDateLocked + "," + Resources.Att.YymmMoveToNextMonth, Resources.All.DialogTitle, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        e.Cancel = true;
+                        return;
+                    }
                 }
             }
             if (fullDataCtrl1.EditType == JBControls.FullDataCtrl.EEditType.Add)
@@ -204,18 +211,108 @@ namespace JBHR.Att
             //}
             var rhcode = HcodeList.Where(pp => pp.H_CODE == ptxHcode.SelectedValue.ToString()).First();
 
-            decimal chkDiscount = 0;//修改時檢查修正
-            if (fullDataCtrl1.EditType == JBControls.FullDataCtrl.EEditType.Modify)
+            if (rhcode.CHE)
             {
-                //var chkSQL = from a in db.ABS where a.Guid == lblSerno.Tag.ToString() && a.H_CODE == rhcode.H_CODE select a;
-                var chkSQL = from a in db.ABS where a.Guid == txtGuid.Text.ToString() && a.H_CODE == rhcode.H_CODE select a;
-                if (chkSQL.Any()) chkDiscount = chkSQL.First().TOL_HOURS;
-            }
-            if (rhcode.CHE && CheckAbsHrs() < Convert.ToDecimal(txtTotalHours.Text) - chkDiscount)
-            {
-                MessageBox.Show("剩餘時數不足", Resources.All.DialogTitle, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                e.Cancel = true;
+                //decimal chkDiscount = 0;//修改時檢查修正
+                //if (fullDataCtrl1.EditType == JBControls.FullDataCtrl.EEditType.Modify)
+                //{
+                //    //var chkSQL = from a in db.ABS where a.Guid == lblSerno.Tag.ToString() select a;
+                //    var chkSQL = from a in db.ABS where a.Guid == txtGuid.Text.ToString() && a.H_CODE == rhcode.H_CODE select a;
+                //    if (chkSQL.Any()) chkDiscount = chkSQL.First().TOL_HOURS;
+                //}
 
+                JBModule.Data.Linq.HrDBDataContext dbchk = new JBModule.Data.Linq.HrDBDataContext();
+                string nobr = ptxNobr.Text;
+                string hcode = ptxHcode.SelectedValue.ToString();
+                DateTime Bdate = Convert.ToDateTime(txtDateB.Text);
+                DateTime Edate = Convert.ToDateTime(txtDateE.Text);
+                var ABSPlus = (from a in dbchk.ABS
+                               join b in dbchk.HCODE on a.H_CODE equals b.H_CODE
+                               join c in dbchk.HCODE on b.HTYPE equals c.HTYPE
+                               where a.NOBR == nobr && Edate >= a.BDATE && Bdate <= a.EDATE
+                               && c.H_CODE == hcode
+                               && b.FLAG == "+"
+                               select a).ToList();
+
+                if (fullDataCtrl1.EditType == JBControls.FullDataCtrl.EEditType.Modify)
+                {
+                    //var chkSQL = from a in db.ABS where a.Guid == txtGuid.Text.ToString() && a.H_CODE == rhcode.H_CODE select a;
+                    //if (chkSQL.Any()) chkDiscount = chkSQL.First().TOL_HOURS;
+                    var chkSQL = (from a in dbchk.ABSD
+                                  join b in dbchk.ABS on a.ABSADD equals b.Guid
+                                  where a.ABSSUBTRACT == txtGuid.Text.ToString()
+                                  select a).ToList();
+
+                    ABSPlus = (from a in ABSPlus
+                               join b in chkSQL on a.Guid equals b.ABSADD into b1
+                               from b in b1.DefaultIfEmpty()
+                               select new
+                               JBModule.Data.Linq.ABS
+                               {
+                                   A_NAME = a.A_NAME,
+                                   BDATE = a.BDATE,
+                                   EDATE = a.EDATE,
+                                   KEY_DATE = a.KEY_DATE,
+                                   KEY_MAN = a.KEY_MAN,
+                                   //SALABS = a.SALABS,
+                                   SYSCREATE = a.SYSCREATE,
+                                   SYSCREATE1 = a.SYSCREATE1,
+                                   TOL_DAY = a.TOL_DAY,
+                                   Balance = a.Balance + (b != null ? b.USEHOUR : 0.0M),
+                                   BTIME = a.BTIME,
+                                   ETIME = a.ETIME,
+                                   Guid = a.Guid,
+                                   HCODE = a.HCODE,
+                                   H_CODE = a.H_CODE,
+                                   LeaveHours = a.LeaveHours,
+                                   //Memo = a.Memo,
+                                   NOBR = a.NOBR,
+                                   nocalc = a.nocalc,
+                                   NOTE = a.NOTE,
+                                   NOTEDIT = a.NOTEDIT,
+                                   //OT_HRS = a.OT_HRS,
+                                   SERNO = a.SERNO,
+                                   TOL_HOURS = a.TOL_HOURS,
+                                   YYMM = a.YYMM,
+                               }).ToList();
+                }
+
+                Dictionary<DateTime, decimal> insufficientList = new Dictionary<DateTime, decimal>();
+                foreach (var item in TotalHrsList)
+                {
+                    decimal balance = item.Value;
+                    foreach (var abs in ABSPlus.Where(p => item.Key >= p.BDATE && item.Key <= p.EDATE).ToList())
+                    {
+                        if (abs.Balance >= balance)
+                        {
+                            abs.Balance -= balance;
+                            balance = 0;
+                            break;
+                        }
+                        else
+                        {
+                            balance -= abs.Balance.Value;
+                            abs.Balance = 0;
+                        }
+                    }
+                    if (balance > 0)
+                    {
+                        insufficientList.Add(item.Key, balance);
+                        e.Cancel = true;
+                    }
+                }
+                if (insufficientList.Count > 0)
+                {
+                    MessageBox.Show("剩餘時數不足", Resources.All.DialogTitle, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    if (Bdate != Edate)
+                    {
+                        PreviewForm frm = new PreviewForm();
+                        frm.DataTable = insufficientList.Select(p => new { 請假日期 = p.Key, 不足時數 = p.Value }).CopyToDataTable();
+                        frm.Form_Title = "剩餘時數不足";
+                        frm.ShowDialog();
+                    }
+                    e.Cancel = true;
+                }
             }
             //}
         }
@@ -320,17 +417,18 @@ namespace JBHR.Att
                         //foreach (var it in dtAbs)
                         //    AutoABSD(it.NOBR, it.H_CODE, it.BDATE, it.Guid, it.TOL_HOURS, true);
                         dsAtt.ABS.Merge(dtAbs);
+                        guid = dtAbs.Rows[0].Field<string>("guid");
                     }
                 }
                 else
                 {
-                    var rows = dsAtt.ABS.Where(p => p.Guid == guid);
+                    var rows = dsAtt.ABS.Where(p => !p.IsGuidNull() && p.Guid == guid);
                     foreach (var it in rows)
                     {
                         AutoABSD(it.NOBR, it.H_CODE, it.BDATE, it.Guid, it.TOL_HOURS, true, prehocde);
                     }
                 }
-                CheckAbsHrs();
+                CheckAbsHrs(guid);
             }
             IsNew = false;
         }
@@ -442,8 +540,16 @@ namespace JBHR.Att
                     //        txtTotalHours.Text = apData.Sum(p => p.TOL_HOURS).ToString();
                     //    else txtTotalHours.Text = "0";
                     Dal.Dao.Att.AbsDao oAbsDao = new Dal.Dao.Att.AbsDao(db.Connection);
-                    var Calculate = oAbsDao.GetCalculate(nobr, hcode, Bdate, Edate, TimeB, TimeE);
-                    txtTotalHours.Text = Calculate.TotalUse.ToString(); 
+                    decimal TotalUse = 0;
+                    TotalHrsList.Clear();
+                    for (DateTime i = Bdate; i <= Edate; i = i.AddDays(1))
+                    {
+                        var Calculate = oAbsDao.GetCalculate(nobr, hcode, i, i, TimeB, TimeE);
+                        if (Calculate.TotalUse != 0)
+                            TotalHrsList.Add(i, Calculate.TotalUse);
+                        TotalUse += Calculate.TotalUse;
+                    }
+                    txtTotalHours.Text = TotalUse.ToString();
                 }
                 else
                     txtTotalHours.Text = "";
@@ -453,7 +559,7 @@ namespace JBHR.Att
                 txtTotalHours.Text = "";
             }
         }
-        decimal CheckAbsHrs()
+        decimal CheckAbsHrs(string chkguid = "")
         {
             if (ptxHcode.SelectedValue != null)
             {
@@ -468,6 +574,18 @@ namespace JBHR.Att
                 //condition.HolidayCode = hcode;
                 //var absInfo = aif.getInfo(condition);
                 JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
+                if (!string.IsNullOrWhiteSpace(chkguid))
+                {
+                    var sqlbyGuid = (from a in db.ABS
+                                     where a.Guid == guid
+                                     select new { a.NOBR, a.BDATE, a.H_CODE }).SingleOrDefault();
+                    if (sqlbyGuid != null)
+                    {
+                        nobr = sqlbyGuid.NOBR;
+                        Bdate = sqlbyGuid.BDATE;
+                        hcode = sqlbyGuid.H_CODE;
+                    }
+                }
                 var sql = from a in db.ABS
                           join b in db.HCODE on a.H_CODE equals b.H_CODE
                           join c in db.HCODE on b.HTYPE equals c.HTYPE
@@ -590,6 +708,7 @@ namespace JBHR.Att
         {
             UnitSet();//設定該假別的時間單位
             AbsHrsCalc();//計算時數
+            CheckAbsHrs();
             //if (dataGridView1.CurrentRow != null && dataGridView1.CurrentRow.Cells[0].Value.ToString().Trim().Length > 0)
             //{
             //    String hcode = Convert.ToString(dataGridView1.CurrentRow.Cells[2].Value);
@@ -616,6 +735,7 @@ namespace JBHR.Att
             DateTime d2 = Convert.ToDateTime(txtDateE.Text);
             if (d2 < d1) txtDateB.Text = txtDateE.Text;
             AbsHrsCalc();
+            CheckAbsHrs();
             dataGridView3.DataSource = Sal.Function.GetAttend(ptxNobr.Text, Convert.ToDateTime(txtDateB.Text), Convert.ToDateTime(txtDateE.Text));
             if (dataGridView3.RowCount > 2)
             {
@@ -649,6 +769,7 @@ namespace JBHR.Att
                 }
                 //}
             }
+            CheckAbsHrs();
         }
         void SetDepts()
         {

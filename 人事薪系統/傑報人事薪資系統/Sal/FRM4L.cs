@@ -149,6 +149,7 @@ namespace JBHR.Sal
             frm.Allow_Repeat_Delete = true;
             frm.Allow_Repeat_Ignore = true;
             frm.Allow_Repeat_Override = true;
+            frm.Allow_Repeat_CoExists = true;
 
             frm.FieldForm = new FRM4LI();
             frm.DataTransfer = new ImportTransferToENRICH();

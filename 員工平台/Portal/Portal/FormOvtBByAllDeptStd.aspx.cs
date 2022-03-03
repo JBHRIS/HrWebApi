@@ -1043,8 +1043,10 @@ namespace Portal
                                 }
                             }
                         }
-
-                        if (RoteDetail.Where(p => p.RoteCode == GetAttend.RoteCodeH).FirstOrDefault().WorkHour + Calculate > AttHrsDailyMax)
+                        decimal WorkHour = 0;
+                        if (!GetAttend.IsHoliDay)
+                            WorkHour = RoteDetail.Where(p => p.RoteCode == GetAttend.RoteCodeH).FirstOrDefault().WorkHour;
+                        if (WorkHour + Calculate > AttHrsDailyMax)
                         {
                             lblErrorMsg.Text = "單日出勤時數已超過上限";
                             return;

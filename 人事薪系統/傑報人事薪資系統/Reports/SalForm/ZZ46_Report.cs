@@ -34,10 +34,10 @@ namespace JBHR.Reports.SalForm
     {
         SalDataSet ds = new SalDataSet();
         string type_data, nobr_b, nobr_e, year_b, year_e, month_b, month_e, seq_b, seq_e, dept_b, dept_e, comp_b, comp_e, date_b, comp_name, CompId;
-        string reporttype, yymm_b, yymm_e, work_b, work_e, emp_b, emp_e, workadr, workadr1, username, MedianMon;
+        string reporttype, yymm_b, yymm_e, work_b, work_e, emp_b, emp_e, workadr, workadr1, username, MedianMon, jobl_b, jobl_e;
         bool exportexcel;
         string ErrorMessage = string.Empty;
-        public ZZ46_Report(string nobrb, string nobre, string yearb, string yeare, string _mb, string _me, string _seb, string _see, string deptb, string depte, string compb, string compe, string workb, string worke, string empb, string empe, string _typedata, string _reporttype, bool _excelexport, string dateb, string _workadr, string _MedianMon, string _username, string compname, string _CompId)
+        public ZZ46_Report(string nobrb, string nobre, string yearb, string yeare, string _mb, string _me, string _seb, string _see, string deptb, string depte, string joblb, string joble, string compb, string compe, string workb, string worke, string empb, string empe, string _typedata, string _reporttype, bool _excelexport, string dateb, string _workadr, string _MedianMon, string _username, string compname, string _CompId)
         {
             InitializeComponent();
             nobr_b = nobrb;   nobr_e = nobre;    year_b = yearb; year_e = yeare; month_b = _mb;
@@ -46,7 +46,7 @@ namespace JBHR.Reports.SalForm
             exportexcel = _excelexport; date_b = dateb; workadr = _workadr;
             work_b = workb; work_e = worke; username = _username; CompId = _CompId;
             yymm_b = year_b + month_b; yymm_e = year_e + month_e; comp_name = compname;
-            emp_b = empb; emp_e = empe; MedianMon = _MedianMon;
+            emp_b = empb; emp_e = empe; MedianMon = _MedianMon; jobl_b = joblb; jobl_e = joble;
             //date_b = Convert.ToString(Convert.ToDecimal(year_e) + 1911) + "/" + Convert.ToString(month_e) + "/25";
             //_date = DateTime.Parse(Convert.ToString(decimal.Parse(year_e) + 1911) + "/" + month_e + "/" + "01").AddMonths(1).AddDays(-1);
         }
@@ -62,11 +62,13 @@ namespace JBHR.Reports.SalForm
                 sqlCmd += "  from base a,basetts b";
                 sqlCmd += " left outer join dept c on b.dept=c.d_no";
                 sqlCmd += " left outer join job e on b.job=e.job";
+                sqlCmd += " left outer join jobl f on b.jobl =f.jobl";
                 sqlCmd += " where a.nobr=b.nobr ";
                 sqlCmd += string.Format(@" and '{0}' between b.adate and b.ddate", date_e);
                 sqlCmd += string.Format(@" and b.nobr between '{0}' and '{1}'", nobr_b, nobr_e);
                 sqlCmd += string.Format(@" and c.d_no_disp between '{0}' and '{1}'", dept_b, dept_e);
                 sqlCmd += string.Format(@" and b.empcd between '{0}' and '{1}'", emp_b, emp_e);
+                sqlCmd += string.Format(@" and f.jobl_disp between '{0}' and '{1}'", jobl_b, jobl_e);
                 //if (workadr != "") sqlCmd += string.Format(@" and b.saladr='{0}'", workadr);
                 sqlCmd += type_data;
                 DataTable rq_base = SqlConn.GetDataTable(sqlCmd);

@@ -29,6 +29,8 @@ using Dal.Dao.Files;
 using Bll.Files.Vdb;
 using Dal.Dao.Salary;
 using Bll.Salary.Vdb;
+using Telerik.Web.UI;
+using Dal.Dao.Share;
 
 namespace Portal
 {
@@ -41,56 +43,56 @@ namespace Portal
                 index_DataBind();
             }
         }
-        [WebMethod]
-        public static string storeFile(string base64)
-        {
-            //string Key1 = HttpContext.Current.Session["Key1"].ToString();
-            //string Key2 = "041";
+        //[WebMethod]
+        //public static string storeFile(string base64)
+        //{
+        //    //string Key1 = HttpContext.Current.Session["Key1"].ToString();
+        //    //string Key2 = "041";
 
-            //InsertRow oInsertRow = new InsertRow();
-            //oInsertRow.KeyMan = HttpContext.Current.Session["User"].ToString();
+        //    //InsertRow oInsertRow = new InsertRow();
+        //    //oInsertRow.KeyMan = HttpContext.Current.Session["User"].ToString();
 
-            byte[] fileContents = Convert.FromBase64String(base64);
-            //var _User = UnobtrusiveSession.Session["UserData"] as User;
-            //var CompanySetting = UnobtrusiveSession.Session["CompanySetting"] as Bll.Share.Vdb.CompanySettingRow;
-            //var GuidCode = Guid.NewGuid().ToString();
+        //    byte[] fileContents = Convert.FromBase64String(base64);
+        //    //var _User = UnobtrusiveSession.Session["UserData"] as User;
+        //    //var CompanySetting = UnobtrusiveSession.Session["CompanySetting"] as Bll.Share.Vdb.CompanySettingRow;
+        //    //var GuidCode = Guid.NewGuid().ToString();
 
-            //var oUploadMultipleDao = new UploadMultipleDao();
-            //var UploadMultipleCond = new UploadMultipleConditions();
-            //UploadMultipleCond.AccessToken = _User.AccessToken;
-            //UploadMultipleCond.RefreshToken = _User.RefreshToken;
-            //UploadMultipleCond.CompanySetting = CompanySetting;
-            //UploadMultipleCond.FileTicket = GuidCode;
-            //UploadMultipleCond.files = fileContents;
-            //var UploadMultipleResult = oUploadMultipleDao.GetData(UploadMultipleCond);
+        //    //var oUploadMultipleDao = new UploadMultipleDao();
+        //    //var UploadMultipleCond = new UploadMultipleConditions();
+        //    //UploadMultipleCond.AccessToken = _User.AccessToken;
+        //    //UploadMultipleCond.RefreshToken = _User.RefreshToken;
+        //    //UploadMultipleCond.CompanySetting = CompanySetting;
+        //    //UploadMultipleCond.FileTicket = GuidCode;
+        //    //UploadMultipleCond.files = fileContents;
+        //    //var UploadMultipleResult = oUploadMultipleDao.GetData(UploadMultipleCond);
 
-            //if (UploadMultipleResult.Status)
-            //{
-            //    if (UploadMultipleResult.Data != null)
-            //    {
-            //        //成功
+        //    //if (UploadMultipleResult.Status)
+        //    //{
+        //    //    if (UploadMultipleResult.Data != null)
+        //    //    {
+        //    //        //成功
                     
-            //    }
-            //    else
-            //    {
-            //    }
+        //    //    }
+        //    //    else
+        //    //    {
+        //    //    }
 
 
-            //}
-            //else
-            //{
-            //    //失敗
-            //}
-            UnobtrusiveSession.Session["FileContents"] = fileContents;
-            var Index = new Index();
-            var Result = Index.Reply_Click(fileContents);
-            //MainDao oMainDao = new MainDao();
-            //oMainDao.InsertShareUploadFiles(Key1, Key2, 20, fileContents, oInsertRow);
-            //store file on server here
-            //string path = "C:\\test\\some.pdf";
-            //File.WriteAllBytes(path, fileContents);
-            return Result;
-        }
+        //    //}
+        //    //else
+        //    //{
+        //    //    //失敗
+        //    //}
+        //    UnobtrusiveSession.Session["FileContents"] = fileContents;
+        //    var Index = new Index();
+        //    var Result = Index.Reply_Click(fileContents);
+        //    //MainDao oMainDao = new MainDao();
+        //    //oMainDao.InsertShareUploadFiles(Key1, Key2, 20, fileContents, oInsertRow);
+        //    //store file on server here
+        //    //string path = "C:\\test\\some.pdf";
+        //    //File.WriteAllBytes(path, fileContents);
+        //    return Result;
+        //}
         public void index_DataBind()
         {
             var IndexFeatureResult = new List<IndexFeaturesRow>();
@@ -654,48 +656,49 @@ namespace Portal
             //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "title", Script, true);
             Response.Redirect(TurnUrl + "ProcessApParmAuto=" + ca);
         }
-        protected string Reply_Click(byte[] FileInfo)
-        {
-            _User = UnobtrusiveSession.Session["UserData"] as User;
-            CompanySetting = UnobtrusiveSession.Session["CompanySetting"] as Bll.Share.Vdb.CompanySettingRow;
-            var oEncryptHepler = new EncryptHepler();
-            var ReplySite = System.Web.Configuration.WebConfigurationManager.AppSettings["ReplySite"];
-            var AccessToken = _User.AccessToken;
-            var RefreshToken = _User.RefreshToken;
-            var CompanyId = CompanySetting.AccountCode;
-            var EmpId = _User.EmpId;
-            var EmpName = _User.EmpName;
-            var Role = 64;
-            var Parameter = "";
-            var UserData = new List<string>();
-            if (_User.Role != null && (_User.Role.Contains("HR") || _User.Role.Contains("Hr")))
-            {
-                Role = 8;
-                
-                UserData.Add(AccessToken);
-                UserData.Add(RefreshToken);
-                UserData.Add(CompanyId);
-                UserData.Add(EmpId);
-                UserData.Add(EmpName);
-                UserData.Add(Role.ToString());
-                UserData.Add(System.Text.Encoding.UTF8.GetString(FileInfo));
-                Parameter = JsonConvert.SerializeObject(UserData);
-                //Response.Redirect(ReplySite + "?Param=" + Server.UrlEncode(oEncryptHepler.Encrypt(Parameter)));
-            }
-            else
-            {
-                UserData.Add(AccessToken);
-                UserData.Add(RefreshToken);
-                UserData.Add(CompanyId);
-                UserData.Add(EmpId);
-                UserData.Add(EmpName);
-                UserData.Add(Role.ToString());
-                UserData.Add(System.Text.Encoding.UTF8.GetString(FileInfo));
-                Parameter = JsonConvert.SerializeObject(UserData);
-                //Response.Redirect(ReplySite + "?Param=" + Server.UrlEncode(oEncryptHepler.Encrypt(Parameter)));
-            }
-            return ReplySite + "?Param=" + Server.UrlEncode(oEncryptHepler.Encrypt(Parameter));
-        }
+        
+        //protected string Reply_Click(byte[] FileInfo)
+        //{
+        //    _User = UnobtrusiveSession.Session["UserData"] as User;
+        //    CompanySetting = UnobtrusiveSession.Session["CompanySetting"] as Bll.Share.Vdb.CompanySettingRow;
+        //    var oEncryptHepler = new EncryptHepler();
+        //    var ReplySite = System.Web.Configuration.WebConfigurationManager.AppSettings["ReplySite"];
+        //    var AccessToken = _User.AccessToken;
+        //    var RefreshToken = _User.RefreshToken;
+        //    var CompanyId = CompanySetting.AccountCode;
+        //    var EmpId = _User.EmpId;
+        //    var EmpName = _User.EmpName;
+        //    var Role = 64;
+        //    var Parameter = "";
+        //    var UserData = new List<string>();
+        //    if (_User.Role != null && (_User.Role.Contains("HR") || _User.Role.Contains("Hr")))
+        //    {
+        //        Role = 8;
+
+        //        UserData.Add(AccessToken);
+        //        UserData.Add(RefreshToken);
+        //        UserData.Add(CompanyId);
+        //        UserData.Add(EmpId);
+        //        UserData.Add(EmpName);
+        //        UserData.Add(Role.ToString());
+        //        UserData.Add(System.Text.Encoding.UTF8.GetString(FileInfo));
+        //        Parameter = JsonConvert.SerializeObject(UserData);
+        //        //Response.Redirect(ReplySite + "?Param=" + Server.UrlEncode(oEncryptHepler.Encrypt(Parameter)));
+        //    }
+        //    else
+        //    {
+        //        UserData.Add(AccessToken);
+        //        UserData.Add(RefreshToken);
+        //        UserData.Add(CompanyId);
+        //        UserData.Add(EmpId);
+        //        UserData.Add(EmpName);
+        //        UserData.Add(Role.ToString());
+        //        UserData.Add(System.Text.Encoding.UTF8.GetString(FileInfo));
+        //        Parameter = JsonConvert.SerializeObject(UserData);
+        //        //Response.Redirect(ReplySite + "?Param=" + Server.UrlEncode(oEncryptHepler.Encrypt(Parameter)));
+        //    }
+        //    return ReplySite + "?Param=" + Server.UrlEncode(oEncryptHepler.Encrypt(Parameter));
+        //}
 
     }
 }
