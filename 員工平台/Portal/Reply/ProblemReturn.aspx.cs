@@ -19,12 +19,16 @@ namespace Portal
 {
     public partial class ProblemReturn : WebPageBase
     {
-        List<UploadMultipleRow> result = new List<UploadMultipleRow>();
+        List<UploadMultipleRow> UMR = new List<UploadMultipleRow>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                UnobtrusiveSession.Session["FormGuidCode"] = Guid.NewGuid().ToString();
+                if (UnobtrusiveSession.Session["FormGuidCode"] == null)
+                {
+                    UnobtrusiveSession.Session["FormGuidCode"] = Guid.NewGuid().ToString();
+                }
+
                 txtReturnS_DataBind();
                 SetUserInfo();
                 Security.GetRoleKeyToBinaryKey(72);
@@ -120,7 +124,7 @@ namespace Portal
             InsertQuestionCond.InsertDate = DateTime.Now;
             InsertQuestionCond.UpdateMan = "";
             InsertQuestionCond.UpdateDate =null;
-
+           
             var result = oQuestionMain.GetData(InsertQuestionCond);
             if (result.Status)
             {
@@ -184,11 +188,13 @@ namespace Portal
                                 if (Request.Cookies["CompanyId"].Value != null)
                                     resultData.CompanyId = Request.Cookies["CompanyId"].Value;
                                 resultData.AccessToken = _User.AccessToken;
-                                result.Add(resultData);
+                                UMR.Add(resultData);
+                                
                             }
                            
                             lblMsg.CssClass = "badge badge-primary animated shake";
                             lblMsg.Text = "上傳成功";
+                            DataUpload.Rebind();
                             //dcFlow.SubmitChanges();
                         }
                         else
@@ -220,100 +226,29 @@ namespace Portal
             }
 
         }
-            //public void ApiTest()
-            //{
-            //    var oGetQuestionMainByCompanyDao = new ShareInsertQuestionMainDao();
-            //    var IQMCD = new ShareInsertQuestionMainConditions();
-            //    IQMCD.AutoKey = 0;
-            //    IQMCD.Code = "1";
-            //    IQMCD.CompanyId = "1";
-            //    IQMCD.Complete = false;
-            //    IQMCD.Content = "1";
-            //    IQMCD.DateE = DateTime.Now;
-            //    IQMCD.InsertDate = DateTime.Now;
-            //    IQMCD.InsertMan = "1";
-            //    IQMCD.IpAddress = "1";
-            //    IQMCD.Key1 = "1";
-            //    IQMCD.Key2 = "2";
-            //    IQMCD.Key3 = "3";
-            //    IQMCD.Name = "1";
-            //    IQMCD.Note = "1";
-            //    IQMCD.QuestionCategoryCode = "1";
-            //    IQMCD.Status = "1";
-            //    IQMCD.SystemCategoryCode = "1";
-            //    IQMCD.TitleContent = "1";
-            //    IQMCD.UpdateDate = DateTime.Now;
-            //    IQMCD.UpdateMan = "1";
-            //    var Result = oGetQuestionMainByCompanyDao.GetData(IQMCD);
+        protected void DataUpload_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
+        {
+            var oFilesByFileTicket = new FilesByFileTicketDao();
+            var FilesByFileTicketCond = new FilesByFileTicketConditions();
+            var result = new List<FilesByFileTicketRow>();
+            FilesByFileTicketCond.AccessToken = _User.AccessToken;
+            FilesByFileTicketCond.RefreshToken = _User.RefreshToken;
+            FilesByFileTicketCond.CompanySetting = CompanySetting;
+            FilesByFileTicketCond.fileTicket = UnobtrusiveSession.Session["FormGuidCode"].ToString();
+            var Result = oFilesByFileTicket.GetData(FilesByFileTicketCond);
+            if (Result.Status)
+            {
+                if (Result.Data != null)
+                {
+                    result = Result.Data as List<FilesByFileTicketRow>;
+                    DataUpload.DataSource = result;
+                }
+            }
 
-
-
-            //    #region InsertQuestionMain
-            //    IQMCD.AutoKey = 0;
-            //    IQMCD.Code = "1";
-            //    IQMCD.CompanyId = "1";
-            //    IQMCD.Complete = false;
-            //    IQMCD.Content = "1";
-            //    IQMCD.DateE = DateTime.Now;
-            //    IQMCD.InsertDate = DateTime.Now;
-            //    IQMCD.InsertMan = "1";
-            //    IQMCD.IpAddress = "1";
-            //    IQMCD.Key1 = "1";
-            //    IQMCD.Key2 = "2";
-            //    IQMCD.Key3 = "3";
-            //    IQMCD.Name = "1";
-            //    IQMCD.Note = "1";
-            //    IQMCD.QuestionCategoryCode = "1";
-            //    IQMCD.Status = "1";
-            //    IQMCD.SystemCategoryCode = "1";
-            //    IQMCD.TitleContent = "1";
-            //    IQMCD.UpdateDate = DateTime.Now;
-            //    IQMCD.UpdateMan = "1";
-            //    #endregion
-
-            //    #region InsertQuestionReply
-            //    IQMCD.AutoKey = 0;
-            //    IQMCD.Code = "1";
-            //    IQMCD.QuestionMainCode = "1";
-            //    IQMCD.Content = "1";
-            //    IQMCD.RoleKey = 1;
-            //    IQMCD.InsertDate = DateTime.Now;
-            //    IQMCD.InsertMan = "1";
-            //    IQMCD.IpAddress = "1";
-            //    IQMCD.Key1 = "1";
-            //    IQMCD.Key2 = "2";
-            //    IQMCD.Key3 = "3";
-            //    IQMCD.Name = "1";
-            //    IQMCD.Note = "1";
-            //    IQMCD.ParentCode = "1";
-
-            //    IQMCD.ReplyToCode = "1";
-            //    IQMCD.Send = false;
-            //    IQMCD.Status = "1";
-            //    IQMCD.UpdateDate = DateTime.Now;
-            //    IQMCD.UpdateMan = "1";
-            //    #endregion
-
-            //    #region InsertQuestionDefaultMessage
-            //    IQMCD.AutoKey = 1;
-            //    IQMCD.CompanyId = "測試";
-            //    IQMCD.Code = "4";
-            //    IQMCD.Name = "測試";
-            //    IQMCD.Contents = "測試";
-            //    IQMCD.RoleKey = 1;
-            //    IQMCD.Note = "測試";
-            //    IQMCD.Status = "測試";
-            //    IQMCD.InsertMan = "測試";
-            //    IQMCD.InsertDate = DateTime.Now;
-            //    IQMCD.UpdateMan = "測試";
-            //    IQMCD.UpdateDate = DateTime.Now;
-            //    #endregion
-
-            //    if (Result.Status)
-            //    {
-
-            //    }
-
-            //}
         }
+        protected void DataUpload_ItemCommand(object sender, RadListViewCommandEventArgs e)
+        {
+
+        }
+    }
 }

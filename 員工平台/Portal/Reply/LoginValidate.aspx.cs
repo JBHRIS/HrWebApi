@@ -53,7 +53,7 @@ namespace Reply
                 var oQuestionUserInfo = new ShareQuestionUserInfoDao();
                 oQuestionUserInfo.InsertQuestionUserInfo(CompanyId, EmpId, EmpId, Role, EmpName, Email);
 
-                _AuthManager.SignIn(oUser, oUser.UserCode, CompanySetting,true);
+                _AuthManager.SignIn(oUser, oUser.UserCode, CompanySetting,false);
                 Response.Redirect("ProblemReturn.aspx");
             }
         }

@@ -1716,7 +1716,6 @@
     <Content Include="Templates\Inspinia\js\popper.min.js" />
     <Content Include="UserControls\UC_FileView.ascx" />
     <Content Include="WebServices\SaveAbn.asmx" />
-    <Content Include="WebServices\SendMail.asmx" />
     <Content Include="WebServices\SaveAbsForHunya.asmx" />
     <Content Include="WebServices\SaveAppoint.asmx" />
     <Content Include="WebServices\SaveEmploy.asmx" />
@@ -2637,10 +2636,6 @@
       <DependentUpon>SaveAbn.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WebServices\SendMail.asmx.cs">
-      <DependentUpon>SendMail.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="WebServices\SaveAbsForHunya.asmx.cs">
       <DependentUpon>SaveAbsForHunya.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -2891,7 +2886,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
