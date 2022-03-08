@@ -28,7 +28,6 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.資料維護DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -348,7 +347,6 @@
             this.cardTableAdapter1 = new JBHR.Dll.dsAttTableAdapters.CARDTableAdapter();
             this.buttonRestart = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -2574,10 +2572,6 @@
             resources.ApplyResources(this.progressBar1, "progressBar1");
             this.progressBar1.Name = "progressBar1";
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -2922,7 +2916,6 @@
         private System.Windows.Forms.ToolStripMenuItem 員工規則設定ToolStripMenuItem;
         private System.Windows.Forms.Button buttonRestart;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Timer timer1;
     }
 }
 

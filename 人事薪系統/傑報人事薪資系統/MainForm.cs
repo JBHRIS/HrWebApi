@@ -1502,15 +1502,10 @@ namespace JBHR
             if (!ApplicationDeployment.IsNetworkDeployed)
                 return;
 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 600000;//10mins
-            this.timer1.Start();
-
             ApplicationDeployment deploy = ApplicationDeployment.CurrentDeployment;
             bool isUpdate = ApplicationDeployment.CurrentDeployment.CheckForUpdate();
             if (isUpdate && (this._updateFlag == false))
             {
-                this.timer1.Stop();
                 DialogResult updateResult = MessageBox.Show("線上有新的版本，是否馬上更新版本?", "更新通知", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
                 if (updateResult == DialogResult.Yes)
@@ -1543,14 +1538,6 @@ namespace JBHR
             //更新狀態更新
             this.progressBar1.Value = e.ProgressPercentage;
             Application.DoEvents();
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (!this._updateFlag)
-                UpdateApplication();
-            else
-                timer1.Stop();
         }
 
         //private void Form1_Load(object sender, EventArgs e)

@@ -124,86 +124,6 @@
   <data name="menuStrip1.Font" type="System.Drawing.Font, System.Drawing">
     <value>微軟正黑體, 10pt</value>
   </data>
-  <data name="資料維護DToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 23</value>
-  </data>
-  <data name="資料維護DToolStripMenuItem.Text" xml:space="preserve">
-    <value>資料維護(&amp;D)</value>
-  </data>
-  <data name="報表列印RToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 23</value>
-  </data>
-  <data name="報表列印RToolStripMenuItem.Text" xml:space="preserve">
-    <value>報表列印(&amp;R)</value>
-  </data>
-  <data name="自訂查詢QtoolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 23</value>
-  </data>
-  <data name="自訂查詢QtoolStripMenuItem.Text" xml:space="preserve">
-    <value>自訂查詢(&amp;Q)</value>
-  </data>
-  <data name="視窗WToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 23</value>
-  </data>
-  <data name="視窗WToolStripMenuItem.Text" xml:space="preserve">
-    <value>視窗(&amp;W)</value>
-  </data>
-  <data name="系統維護SToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 23</value>
-  </data>
-  <data name="系統維護SToolStripMenuItem.Text" xml:space="preserve">
-    <value>系統維護(&amp;S)</value>
-  </data>
-  <data name="工具ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 23</value>
-  </data>
-  <data name="工具ToolStripMenuItem.Text" xml:space="preserve">
-    <value>工具(&amp;T)</value>
-  </data>
-  <data name="toolStripCbxCompany.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 23</value>
-  </data>
-  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 1, 0, 1</value>
-  </data>
-  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>940, 25</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="menuStrip1.Text" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="人事資料AToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 22</value>
-  </data>
-  <data name="人事資料AToolStripMenuItem.Text" xml:space="preserve">
-    <value>人事資料(&amp;A)</value>
-  </data>
-  <data name="代碼資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
-  </data>
-  <data name="代碼資料ToolStripMenuItem.Text" xml:space="preserve">
-    <value>代碼資料</value>
-  </data>
   <data name="編制部門代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
   </data>
@@ -414,12 +334,19 @@
   <data name="toolStripMenuItem29.Text" xml:space="preserve">
     <value>殘障身分代碼</value>
   </data>
+  <data name="代碼資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 22</value>
+  </data>
+  <data name="代碼資料ToolStripMenuItem.Text" xml:space="preserve">
+    <value>代碼資料</value>
+  </data>
   <data name="自定義欄位設定ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 22</value>
   </data>
   <data name="自定義欄位設定ToolStripMenuItem.Text" xml:space="preserve">
     <value>自定義欄位設定</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="員工資料ToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>F1</value>
   </data>
@@ -510,17 +437,11 @@
   <data name="黑名單資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>黑名單資料</value>
   </data>
-  <data name="考勤資料BToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="人事資料AToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>161, 22</value>
   </data>
-  <data name="考勤資料BToolStripMenuItem.Text" xml:space="preserve">
-    <value>考勤資料(&amp;B)</value>
-  </data>
-  <data name="代碼資料ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
-  </data>
-  <data name="代碼資料ToolStripMenuItem1.Text" xml:space="preserve">
-    <value>代碼資料</value>
+  <data name="人事資料AToolStripMenuItem.Text" xml:space="preserve">
+    <value>人事資料(&amp;A)</value>
   </data>
   <data name="toolStripMenuItem31.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 22</value>
@@ -587,6 +508,12 @@
   </data>
   <data name="其他加班比率設定ToolStripMenuItem.Text" xml:space="preserve">
     <value>其他加班比率設定</value>
+  </data>
+  <data name="代碼資料ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 22</value>
+  </data>
+  <data name="代碼資料ToolStripMenuItem1.Text" xml:space="preserve">
+    <value>代碼資料</value>
   </data>
   <data name="領卡資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 22</value>
@@ -777,11 +704,11 @@
   <data name="toolStripMenuItem3.Text" xml:space="preserve">
     <value>延休作業</value>
   </data>
-  <data name="保險資料CToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="考勤資料BToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>161, 22</value>
   </data>
-  <data name="保險資料CToolStripMenuItem.Text" xml:space="preserve">
-    <value>保險資料(&amp;C)</value>
+  <data name="考勤資料BToolStripMenuItem.Text" xml:space="preserve">
+    <value>考勤資料(&amp;B)</value>
   </data>
   <data name="保險等級資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>278, 22</value>
@@ -873,11 +800,11 @@
   <data name="團保保險等級資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>團保投保資料</value>
   </data>
-  <data name="薪資資料DToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="保險資料CToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>161, 22</value>
   </data>
-  <data name="薪資資料DToolStripMenuItem.Text" xml:space="preserve">
-    <value>薪資資料(&amp;D)</value>
+  <data name="保險資料CToolStripMenuItem.Text" xml:space="preserve">
+    <value>保險資料(&amp;C)</value>
   </data>
   <data name="科目代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 22</value>
@@ -1086,11 +1013,11 @@
   <data name="計算薪資ToolStripMenuItem.Text" xml:space="preserve">
     <value>計算薪資</value>
   </data>
-  <data name="媒體申報EToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="薪資資料DToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>161, 22</value>
   </data>
-  <data name="媒體申報EToolStripMenuItem.Text" xml:space="preserve">
-    <value>媒體申報(&amp;E)</value>
+  <data name="薪資資料DToolStripMenuItem.Text" xml:space="preserve">
+    <value>薪資資料(&amp;D)</value>
   </data>
   <data name="格式代號ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
@@ -1116,11 +1043,11 @@
   <data name="年度所得資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>年度所得作業</value>
   </data>
-  <data name="福利金資料toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="媒體申報EToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>161, 22</value>
   </data>
-  <data name="福利金資料toolStripMenuItem.Text" xml:space="preserve">
-    <value>福利金資料(&amp;F)</value>
+  <data name="媒體申報EToolStripMenuItem.Text" xml:space="preserve">
+    <value>媒體申報(&amp;E)</value>
   </data>
   <data name="福利金代號ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>146, 22</value>
@@ -1134,17 +1061,11 @@
   <data name="福利金資料ToolStripMenuItem1.Text" xml:space="preserve">
     <value>福利金資料</value>
   </data>
-  <data name="考核資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="福利金資料toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>161, 22</value>
   </data>
-  <data name="考核資料ToolStripMenuItem.Text" xml:space="preserve">
-    <value>考核資料</value>
-  </data>
-  <data name="代碼資料ToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="代碼資料ToolStripMenuItem2.Text" xml:space="preserve">
-    <value>代碼資料</value>
+  <data name="福利金資料toolStripMenuItem.Text" xml:space="preserve">
+    <value>福利金資料(&amp;F)</value>
   </data>
   <data name="考績等級代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
@@ -1170,23 +1091,23 @@
   <data name="考核種類代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>考核種類代碼</value>
   </data>
+  <data name="代碼資料ToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
+  </data>
+  <data name="代碼資料ToolStripMenuItem2.Text" xml:space="preserve">
+    <value>代碼資料</value>
+  </data>
   <data name="個人考核資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
   </data>
   <data name="個人考核資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>個人考核資料</value>
   </data>
-  <data name="教育訓練ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="考核資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>161, 22</value>
   </data>
-  <data name="教育訓練ToolStripMenuItem.Text" xml:space="preserve">
-    <value>教育訓練</value>
-  </data>
-  <data name="代碼資料ToolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="代碼資料ToolStripMenuItem3.Text" xml:space="preserve">
-    <value>代碼資料</value>
+  <data name="考核資料ToolStripMenuItem.Text" xml:space="preserve">
+    <value>考核資料</value>
   </data>
   <data name="課程類別代碼ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
@@ -1206,6 +1127,12 @@
   <data name="課程評估代碼ToolStripMenuItem.Text" xml:space="preserve">
     <value>課程評估代碼</value>
   </data>
+  <data name="代碼資料ToolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
+  </data>
+  <data name="代碼資料ToolStripMenuItem3.Text" xml:space="preserve">
+    <value>代碼資料</value>
+  </data>
   <data name="訓練課程資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
   </data>
@@ -1218,11 +1145,11 @@
   <data name="訓練人員資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>訓練人員資料</value>
   </data>
-  <data name="防疫分流班ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="教育訓練ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>161, 22</value>
   </data>
-  <data name="防疫分流班ToolStripMenuItem.Text" xml:space="preserve">
-    <value>防疫分流班</value>
+  <data name="教育訓練ToolStripMenuItem.Text" xml:space="preserve">
+    <value>教育訓練</value>
   </data>
   <data name="分流上班類別代碼toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 22</value>
@@ -1242,11 +1169,17 @@
   <data name="分流組別資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>分流組別資料</value>
   </data>
-  <data name="人事ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+  <data name="防疫分流班ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 22</value>
   </data>
-  <data name="人事ToolStripMenuItem.Text" xml:space="preserve">
-    <value>人事</value>
+  <data name="防疫分流班ToolStripMenuItem.Text" xml:space="preserve">
+    <value>防疫分流班</value>
+  </data>
+  <data name="資料維護DToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 23</value>
+  </data>
+  <data name="資料維護DToolStripMenuItem.Text" xml:space="preserve">
+    <value>資料維護(&amp;D)</value>
   </data>
   <data name="人事資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 22</value>
@@ -1344,11 +1277,11 @@
   <data name="合同資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>合同資料</value>
   </data>
-  <data name="出勤ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="人事ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>132, 22</value>
   </data>
-  <data name="出勤ToolStripMenuItem.Text" xml:space="preserve">
-    <value>出勤</value>
+  <data name="人事ToolStripMenuItem.Text" xml:space="preserve">
+    <value>人事</value>
   </data>
   <data name="員工出勤明細表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>230, 22</value>
@@ -1398,6 +1331,7 @@
   <data name="加班班表與出勤班表差異ToolStripMenuItem.Text" xml:space="preserve">
     <value>加班班表與出勤班表差異</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="加班班表與出勤班表差異ToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -1503,11 +1437,11 @@
   <data name="rBA標準工時表ToolStripMenuItem.Text" xml:space="preserve">
     <value>RBA標準工時表</value>
   </data>
-  <data name="保險ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="出勤ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>132, 22</value>
   </data>
-  <data name="保險ToolStripMenuItem.Text" xml:space="preserve">
-    <value>保險</value>
+  <data name="出勤ToolStripMenuItem.Text" xml:space="preserve">
+    <value>出勤</value>
   </data>
   <data name="勞健保保險資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>286, 22</value>
@@ -1575,11 +1509,11 @@
   <data name="勞保健保勞退費用匯入比對資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>勞保健保/勞退費用匯入比對資料</value>
   </data>
-  <data name="薪資ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="保險ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>132, 22</value>
   </data>
-  <data name="薪資ToolStripMenuItem.Text" xml:space="preserve">
-    <value>薪資</value>
+  <data name="保險ToolStripMenuItem.Text" xml:space="preserve">
+    <value>保險</value>
   </data>
   <data name="基本薪資ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>216, 22</value>
@@ -1752,11 +1686,11 @@
   <data name="舊制勞退金提撥明細表ToolStripMenuItem.Text" xml:space="preserve">
     <value>舊制勞退金提撥明細表</value>
   </data>
-  <data name="媒體申報ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="薪資ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>132, 22</value>
   </data>
-  <data name="媒體申報ToolStripMenuItem.Text" xml:space="preserve">
-    <value>媒體申報</value>
+  <data name="薪資ToolStripMenuItem.Text" xml:space="preserve">
+    <value>薪資</value>
   </data>
   <data name="年度所得資料ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
@@ -1767,11 +1701,11 @@
   <data name="toolStripMenuItem14.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 6</value>
   </data>
-  <data name="教育訓練ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="媒體申報ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>132, 22</value>
   </data>
-  <data name="教育訓練ToolStripMenuItem1.Text" xml:space="preserve">
-    <value>教育訓練</value>
+  <data name="媒體申報ToolStripMenuItem.Text" xml:space="preserve">
+    <value>媒體申報</value>
   </data>
   <data name="員工個人受訓資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>202, 22</value>
@@ -1791,17 +1725,41 @@
   <data name="教育訓練資料明細表ToolStripMenuItem.Text" xml:space="preserve">
     <value>教育訓練資料明細表</value>
   </data>
-  <data name="考核ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="教育訓練ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>132, 22</value>
   </data>
-  <data name="考核ToolStripMenuItem.Text" xml:space="preserve">
-    <value>考核</value>
+  <data name="教育訓練ToolStripMenuItem1.Text" xml:space="preserve">
+    <value>教育訓練</value>
   </data>
   <data name="考核資料明細表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 22</value>
   </data>
   <data name="考核資料明細表ToolStripMenuItem.Text" xml:space="preserve">
     <value>考核資料明細表</value>
+  </data>
+  <data name="考核ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 22</value>
+  </data>
+  <data name="考核ToolStripMenuItem.Text" xml:space="preserve">
+    <value>考核</value>
+  </data>
+  <data name="報表列印RToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 23</value>
+  </data>
+  <data name="報表列印RToolStripMenuItem.Text" xml:space="preserve">
+    <value>報表列印(&amp;R)</value>
+  </data>
+  <data name="自訂查詢QtoolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 23</value>
+  </data>
+  <data name="自訂查詢QtoolStripMenuItem.Text" xml:space="preserve">
+    <value>自訂查詢(&amp;Q)</value>
+  </data>
+  <data name="視窗WToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 23</value>
+  </data>
+  <data name="視窗WToolStripMenuItem.Text" xml:space="preserve">
+    <value>視窗(&amp;W)</value>
   </data>
   <data name="系統設定ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>258, 22</value>
@@ -1950,6 +1908,12 @@
   <data name="薪資鎖檔記錄作業ToolStripMenuItem.Text" xml:space="preserve">
     <value>薪資鎖檔記錄作業</value>
   </data>
+  <data name="系統維護SToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 23</value>
+  </data>
+  <data name="系統維護SToolStripMenuItem.Text" xml:space="preserve">
+    <value>系統維護(&amp;S)</value>
+  </data>
   <data name="信件管理ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
   </data>
@@ -1974,17 +1938,17 @@
   <data name="報表參數ToolStripMenuItem.Text" xml:space="preserve">
     <value>報表參數</value>
   </data>
-  <data name="薪資工具ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="薪資工具ToolStripMenuItem.Text" xml:space="preserve">
-    <value>薪資工具</value>
-  </data>
   <data name="計算公式ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>132, 22</value>
   </data>
   <data name="計算公式ToolStripMenuItem.Text" xml:space="preserve">
     <value>計算公式</value>
+  </data>
+  <data name="薪資工具ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
+  </data>
+  <data name="薪資工具ToolStripMenuItem.Text" xml:space="preserve">
+    <value>薪資工具</value>
   </data>
   <data name="自訂查詢設定ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
@@ -1997,6 +1961,42 @@
   </data>
   <data name="版本ToolStripMenuItem.Text" xml:space="preserve">
     <value>版本</value>
+  </data>
+  <data name="工具ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 23</value>
+  </data>
+  <data name="工具ToolStripMenuItem.Text" xml:space="preserve">
+    <value>工具(&amp;T)</value>
+  </data>
+  <data name="toolStripCbxCompany.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 23</value>
+  </data>
+  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 1, 0, 1</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>940, 25</value>
+  </data>
+  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="menuStrip1.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="toolStripStatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>224, 19</value>
@@ -2061,30 +2061,6 @@
   <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>299, 17</value>
   </metadata>
-  <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 443</value>
-  </data>
-  <data name="statusStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>940, 24</value>
-  </data>
-  <data name="statusStrip1.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="statusStrip1.Text" xml:space="preserve">
-    <value>statusStrip1</value>
-  </data>
-  <data name="&gt;&gt;statusStrip1.Name" xml:space="preserve">
-    <value>statusStrip1</value>
-  </data>
-  <data name="&gt;&gt;statusStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;statusStrip1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;statusStrip1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="toolStripUserList.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -2138,6 +2114,30 @@
   </data>
   <data name="btnMenuManagement.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
+  </data>
+  <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 443</value>
+  </data>
+  <data name="statusStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>940, 24</value>
+  </data>
+  <data name="statusStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="statusStrip1.Text" xml:space="preserve">
+    <value>statusStrip1</value>
+  </data>
+  <data name="&gt;&gt;statusStrip1.Name" xml:space="preserve">
+    <value>statusStrip1</value>
+  </data>
+  <data name="&gt;&gt;statusStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;statusStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;statusStrip1.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <metadata name="cardTableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>136, 17</value>
@@ -2202,9 +2202,6 @@
   <data name="&gt;&gt;progressBar1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>419, 17</value>
-  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -4673,12 +4670,6 @@
   </data>
   <data name="&gt;&gt;cardTableAdapter1.Type" xml:space="preserve">
     <value>JBHR.Dll.dsAttTableAdapters.CARDTableAdapter, JBHR.Dll, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;timer1.Name" xml:space="preserve">
-    <value>timer1</value>
-  </data>
-  <data name="&gt;&gt;timer1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>
