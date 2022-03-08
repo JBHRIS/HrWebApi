@@ -644,6 +644,8 @@ namespace JBHR
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            UpdateApplication();
+
             #region 複製所有功能選單
             foreach (var sub_MenuItem in this.MainMenuStrip.Items)
             {
@@ -1492,6 +1494,74 @@ namespace JBHR
         private void 信件管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+        #region 更新檢查
+        bool _updateFlag = false;
+        public void UpdateApplication()
+        {
+            if (!ApplicationDeployment.IsNetworkDeployed)
+                return;
+
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 600000;//10mins
+            this.timer1.Start();
+
+            ApplicationDeployment deploy = ApplicationDeployment.CurrentDeployment;
+            bool isUpdate = ApplicationDeployment.CurrentDeployment.CheckForUpdate();
+            if (isUpdate && (this._updateFlag == false))
+            {
+                this.timer1.Stop();
+                DialogResult updateResult = MessageBox.Show("線上有新的版本，是否馬上更新版本?", "更新通知", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (updateResult == DialogResult.Yes)
+                {
+                    this._updateFlag = true;
+                    //this.timer1.Stop();
+                    deploy.UpdateProgressChanged += new DeploymentProgressChangedEventHandler(deploy_UpdateProgressChanged);
+                    deploy.UpdateCompleted += new AsyncCompletedEventHandler(deploy_UpdateCompleted);
+                    deploy.UpdateAsync();
+                }
+                else
+                {
+                    //TODO:不馬上通知的動作
+                    //this._updateFlag = true;
+                    //this.timer1.Stop();
+                }
+            }
+        }
+
+        void deploy_UpdateCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            //更新完成
+            if (MessageBox.Show("更新完畢，是否要重新啟動?", "訊息", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                Application.Restart();
+            buttonRestart.Visible = true;
+        }
+
+        void deploy_UpdateProgressChanged(object sender, DeploymentProgressChangedEventArgs e)
+        {
+            //更新狀態更新
+            this.progressBar1.Value = e.ProgressPercentage;
+            Application.DoEvents();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (!this._updateFlag)
+                UpdateApplication();
+            else
+                timer1.Stop();
+        }
+
+        //private void Form1_Load(object sender, EventArgs e)
+        //{
+        //    UpdateApplication();
+        //}
+        #endregion
+
+        private void buttonRestart_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }

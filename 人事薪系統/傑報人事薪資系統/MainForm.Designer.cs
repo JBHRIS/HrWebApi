@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.資料維護DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -345,6 +346,9 @@
             this.toolStripUserList = new System.Windows.Forms.ToolStripDropDownButton();
             this.btnMenuManagement = new System.Windows.Forms.ToolStripSplitButton();
             this.cardTableAdapter1 = new JBHR.Dll.dsAttTableAdapters.CARDTableAdapter();
+            this.buttonRestart = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -352,7 +356,6 @@
             // menuStrip1
             // 
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.資料維護DToolStripMenuItem,
@@ -2559,10 +2562,28 @@
             // 
             this.cardTableAdapter1.ClearBeforeFill = true;
             // 
+            // buttonRestart
+            // 
+            resources.ApplyResources(this.buttonRestart, "buttonRestart");
+            this.buttonRestart.Name = "buttonRestart";
+            this.buttonRestart.UseVisualStyleBackColor = true;
+            this.buttonRestart.Click += new System.EventHandler(this.buttonRestart_Click);
+            // 
+            // progressBar1
+            // 
+            resources.ApplyResources(this.progressBar1, "progressBar1");
+            this.progressBar1.Name = "progressBar1";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonRestart);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
@@ -2899,6 +2920,9 @@
         private System.Windows.Forms.ToolStripMenuItem 分流上班類別代碼toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 假日班别批次调整toolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 員工規則設定ToolStripMenuItem;
+        private System.Windows.Forms.Button buttonRestart;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
