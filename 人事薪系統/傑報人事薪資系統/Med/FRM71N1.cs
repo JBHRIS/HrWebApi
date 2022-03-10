@@ -76,6 +76,7 @@ namespace JBHR.Med
             frm.DataTransfer.ColumnList.Add("補充保費", typeof(decimal?));
             frm.DataTransfer.ColumnList.Add("自提退休金", typeof(decimal?));
             frm.DataTransfer.ColumnList.Add("已申報", typeof(string));
+            frm.DataTransfer.ColumnList.Add("稅籍編號", typeof(string));
             frm.DataTransfer.ColumnList.Add("備註", typeof(string));
             frm.DataTransfer.ColumnList.Add("警告", typeof(string));
             frm.DataTransfer.ColumnList.Add("錯誤註記", typeof(string));
@@ -414,7 +415,7 @@ namespace JBHR.Med
                 }
                 else
                     item.SUBCODE = 0;
-                item.TAXNO = "";
+                item.TAXNO = TransferRow["稅籍編號"].ToString();
                 item.TR_TYPE = "";
                 item.COMP = TransferRow["公司"].ToString();
                 item.INA_ID = "";
