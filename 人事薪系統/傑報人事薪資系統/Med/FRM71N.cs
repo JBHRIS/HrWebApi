@@ -141,6 +141,7 @@ namespace JBHR.Med
                     string FORMAT = TYRTAXRow.FORMAT.Trim().GetFullLenStr(2);
                     string ID = TYRTAXRow.ID.Trim().GetFullLenStr(10);
                     string IDCODE = TYRTAXRow.IDCODE.Trim().GetFullLenStr(1);
+                    string IncomeRemark = "".GetFullLenStr(1);
                     string TOT_AMT = Convert.ToInt32(JBModule.Data.CDecryp.Number(TYRTAXRow.AMT)).ToString().PadLeft(10, '0');
                     string TAX_AMT = Convert.ToInt32(JBModule.Data.CDecryp.Number(TYRTAXRow.D_AMT)).ToString().PadLeft(10, '0');
                     string REL_AMT = Convert.ToInt32(JBModule.Data.CDecryp.Number(TYRTAXRow.AMT) - JBModule.Data.CDecryp.Number(TYRTAXRow.D_AMT)).ToString().PadLeft(10, '0');
@@ -163,7 +164,10 @@ namespace JBHR.Med
 
                     ACC_NO = ACC_NO.ToUpper().GetFullLenStr(12);
                     if (FORMAT.Trim() == "51")
+                    {
                         ACC_NO = TYRTAXRow.TAXNO.ToUpper().GetFullLenStr(12);
+                        IncomeRemark = Subcode.M_FORSUB;
+                    }
                     string BLANK_1 = "".GetFullLenStr(1);
                     string ERR_MARK = "".GetFullLenStr(1);
                     string YEAR = (Convert.ToInt32(TaxDataMain.YearMonth.Substring(0, 4)) - 1911).ToString("000");
@@ -247,6 +251,7 @@ namespace JBHR.Med
                         FileDate = DATE,
                         IdType = IDCODE,
                         IncomeFormat = FORMAT,
+                        IncomeRemark = IncomeRemark,
                         IncomeInterval = YYMM,
                         IncomeNet = JBModule.Data.CDecryp.Number(TYRTAXRow.AMT) - JBModule.Data.CDecryp.Number(TYRTAXRow.D_AMT),
                         IncomePayment = JBModule.Data.CDecryp.Number(TYRTAXRow.AMT),

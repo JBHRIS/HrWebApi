@@ -56,6 +56,8 @@
             this.cbxNote2 = new System.Windows.Forms.ComboBox();
             this.lbSup_Amt = new System.Windows.Forms.Label();
             this.cbxSup_Amt = new System.Windows.Forms.ComboBox();
+            this.lbTAXNO = new System.Windows.Forms.Label();
+            this.cbxTAXNO = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +65,7 @@
             // 
             this.lblMemo.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblMemo.AutoSize = true;
-            this.lblMemo.Location = new System.Drawing.Point(59, 142);
+            this.lblMemo.Location = new System.Drawing.Point(241, 142);
             this.lblMemo.Name = "lblMemo";
             this.lblMemo.Size = new System.Drawing.Size(29, 12);
             this.lblMemo.TabIndex = 31;
@@ -129,7 +131,7 @@
             // 
             this.cbxMemo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbxMemo.FormattingEnabled = true;
-            this.cbxMemo.Location = new System.Drawing.Point(94, 138);
+            this.cbxMemo.Location = new System.Drawing.Point(276, 138);
             this.cbxMemo.Name = "cbxMemo";
             this.cbxMemo.Size = new System.Drawing.Size(85, 20);
             this.cbxMemo.TabIndex = 10;
@@ -313,10 +315,12 @@
             this.tableLayoutPanel1.Controls.Add(this.cbxD_Amt, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.lbRet_Amt, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.cbxRet_Amt, 3, 4);
-            this.tableLayoutPanel1.Controls.Add(this.lblMemo, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.cbxMemo, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.lbSup_Amt, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.cbxSup_Amt, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.cbxMemo, 3, 5);
+            this.tableLayoutPanel1.Controls.Add(this.lblMemo, 2, 5);
+            this.tableLayoutPanel1.Controls.Add(this.lbTAXNO, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.cbxTAXNO, 1, 5);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
@@ -393,6 +397,27 @@
             this.cbxSup_Amt.TabIndex = 8;
             this.cbxSup_Amt.Tag = "補充保費";
             // 
+            // lbTAXNO
+            // 
+            this.lbTAXNO.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lbTAXNO.AutoSize = true;
+            this.lbTAXNO.ForeColor = System.Drawing.Color.Black;
+            this.lbTAXNO.Location = new System.Drawing.Point(35, 142);
+            this.lbTAXNO.Name = "lbTAXNO";
+            this.lbTAXNO.Size = new System.Drawing.Size(53, 12);
+            this.lbTAXNO.TabIndex = 37;
+            this.lbTAXNO.Text = "稅籍編號";
+            // 
+            // cbxTAXNO
+            // 
+            this.cbxTAXNO.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbxTAXNO.FormattingEnabled = true;
+            this.cbxTAXNO.Location = new System.Drawing.Point(94, 138);
+            this.cbxTAXNO.Name = "cbxTAXNO";
+            this.cbxTAXNO.Size = new System.Drawing.Size(85, 20);
+            this.cbxTAXNO.TabIndex = 38;
+            this.cbxTAXNO.Tag = "稅籍編號";
+            // 
             // FRM71N1_IMPORT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -436,5 +461,7 @@
         private System.Windows.Forms.ComboBox cbxNote2;
         private System.Windows.Forms.Label lbSup_Amt;
         private System.Windows.Forms.ComboBox cbxSup_Amt;
+        private System.Windows.Forms.Label lbTAXNO;
+        private System.Windows.Forms.ComboBox cbxTAXNO;
     }
 }
