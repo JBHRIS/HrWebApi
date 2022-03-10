@@ -774,6 +774,24 @@ namespace JBHR.Reports
             return rq_trandate;
         }
 
+        public static DataTable GetTranDateSeqArea(string YYMM, string Seq_b, string Seq_e, string saladr)
+        {
+            JBModule.Data.CSQL sql = new JBModule.Data.CSQL("JBHR.Properties.Settings.JBHRConnectionString");
+            DataTable rq_trandate = new DataTable();
+            try
+            {
+                string sSelect = "select Convert(char(10), adate,111) as adate from wage where yymm='" + YYMM + "' and seq between '" + Seq_b + "' and '" + Seq_e + "' ";
+                sSelect += saladr;
+                sSelect += " group by adate order by adate";
+                rq_trandate = sql.GetDataTable(sSelect);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return rq_trandate;
+        }
+
         public static DataTable GetTranDate1(string YYMM, string Seq_b, string Seq_e)
         {
             JBModule.Data.CSQL sql = new JBModule.Data.CSQL("JBHR.Properties.Settings.JBHRConnectionString");

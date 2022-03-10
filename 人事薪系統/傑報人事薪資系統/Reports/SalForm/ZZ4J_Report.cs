@@ -162,14 +162,46 @@ namespace JBHR.Reports.SalForm
                 rq_wage = null;
                 rq_waged = null;
 
+
+
+                int Count_Number = 0;
+                decimal Total_Amt = 0;
+                decimal Total_Amt_B = 0;
+
+                decimal Avg_Amt = 0;
+                decimal Avg_Amt_B = 0;
+
+                if (reporttype == "0")
+                {
+                    foreach (DataRow Result_Row in ds.Tables["zz4j"].Rows)
+                    {
+                        Count_Number = Count_Number + 1;
+                        Total_Amt = Total_Amt + decimal.Parse(Result_Row["avgamt"].ToString());
+                    }
+
+                    Avg_Amt = Math.Round((Total_Amt / Count_Number), 2);
+                }
+                else if (reporttype == "2")
+                {
+                    foreach (DataRow Result_Row in ds.Tables["zz4j2"].Rows)
+                    {
+                        Count_Number = Count_Number + 1;
+                        Total_Amt = Total_Amt + decimal.Parse(Result_Row["mamt"].ToString());
+                        Total_Amt_B = Total_Amt_B + decimal.Parse(Result_Row["a01amt"].ToString());
+                    }
+
+                    Avg_Amt = Math.Round((Total_Amt / Count_Number), 2);
+                    Avg_Amt_B = Math.Round((Total_Amt_B / Count_Number), 2);
+                }
+
                 if (exportexcel)
                 {
                     if (reporttype == "0")
-                        JBHR.Reports.SalForm.ZZ4JClass.ExPort1(ds.Tables["zz4j"], this.Name);
+                        JBHR.Reports.SalForm.ZZ4JClass.ExPort1(ds.Tables["zz4j"], this.Name, Count_Number, Avg_Amt);
                     else if (reporttype == "1")
                         JBHR.Reports.SalForm.ZZ4JClass.ExPort2(ds.Tables["zz4j1"], this.Name);
                     else if (reporttype == "2")
-                        JBHR.Reports.SalForm.ZZ4JClass.ExPort3(ds.Tables["zz4j2"], this.Name);
+                        JBHR.Reports.SalForm.ZZ4JClass.ExPort3(ds.Tables["zz4j2"], this.Name, Count_Number, Avg_Amt, Avg_Amt_B);
                     this.Close();
                 }
                 else
@@ -193,11 +225,22 @@ namespace JBHR.Reports.SalForm
                     if (reporttype == "0" || reporttype == "1")
                         RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Data_Type", typedataname) });
                     if (reporttype == "0")
+                    {
                         RptViewer.LocalReport.DataSources.Add(new ReportDataSource("SalDataSet_zz4j", ds.Tables["zz4j"]));
+
+                        RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Count_Number", Count_Number.ToString()) });
+                        RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Avg_Amt", Avg_Amt.ToString()) });
+                    }
                     else if (reporttype == "1")
                         RptViewer.LocalReport.DataSources.Add(new ReportDataSource("SalDataSet_zz4j1", ds.Tables["zz4j1"]));
                     else if (reporttype == "2")
+                    {
                         RptViewer.LocalReport.DataSources.Add(new ReportDataSource("SalDataSet_zz4j2", ds.Tables["zz4j2"]));
+
+                        RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Count_Number", Count_Number.ToString()) });
+                        RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Avg_Amt", Avg_Amt.ToString()) });
+                        RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Avg_Amt_B", Avg_Amt_B.ToString()) });
+                    }
                     RptViewer.SetDisplayMode(DisplayMode.PrintLayout);
                     RptViewer.ZoomMode = ZoomMode.FullPage;
                     //RptViewer.ZoomPercent = JBHR.Reports.ReportClass.GetReportPercent();
