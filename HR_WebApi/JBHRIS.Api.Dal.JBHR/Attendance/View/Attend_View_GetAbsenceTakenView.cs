@@ -56,6 +56,7 @@ namespace JBHRIS.Api.Dal.JBHR.Attendance.View
                                                    Remark = abs.Note,
                                                    DepartmentCode = d.DNo,
                                                    DepartmentName = d.DName,
+                                                   Comp = btts.Comp
                                                };
                     result.AddRange(AbsencesTakenByEntry);
                 }
