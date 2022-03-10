@@ -165,7 +165,10 @@ namespace JBHR.Med
                     ACC_NO = ACC_NO.ToUpper().GetFullLenStr(12);
                     if (FORMAT.Trim() == "51")
                     {
-                        ACC_NO = TYRTAXRow.TAXNO.ToUpper().GetFullLenStr(12);
+                        if (subcode.M_FORSUB.Trim() == "")
+                            ACC_NO = TYRTAXRow.TAXNO.ToUpper().GetFullLenStr(12);
+                        else
+                            ACC_NO = "";
                         IncomeRemark = Subcode.M_FORSUB;
                     }
                     string BLANK_1 = "".GetFullLenStr(1);
