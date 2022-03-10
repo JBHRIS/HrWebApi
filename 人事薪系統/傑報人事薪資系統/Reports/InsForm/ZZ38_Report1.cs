@@ -271,7 +271,7 @@ namespace JBHR.Reports.InsForm
                 string sqlCmd1 = "select a.nobr,b.s_no_disp as s_no,a.fa_idno,a.exp,a.comp, a.insur_type,a.jobamt,a.fundamt";
                 //sqlCmd1 += ", ISNULL(cc.D_NO_DISP,cd.D_NO_DISP) AS DEPTS";
                 sqlCmd1 += ", cd.D_NO_DISP AS DEPTS";
-                sqlCmd1 += " from explab a left outer join inscomp b on a.s_no=b.s_no";
+                sqlCmd1 += " from explab a inner join inscomp b on a.s_no=b.s_no";
 
                 //sqlCmd1 += string.Format(@" left join cost c on a.nobr = c.nobr and '{0}' between c.cadate and c.cddate", date_b);
                 sqlCmd1 += string.Format(@" left join basetts d on a.nobr = d.nobr and '{0}' between d.adate and d.ddate", date_b);
@@ -287,7 +287,7 @@ namespace JBHR.Reports.InsForm
                 string sqlCmd2 = "select a.nobr,b.s_no_disp as s_no,a.fa_idno,a.exp,a.comp, a.insur_type,a.jobamt,a.fundamt";
                 //sqlCmd2 += ", ISNULL(cc.D_NO_DISP,cd.D_NO_DISP) AS DEPTS";
                 sqlCmd2 += ", cd.D_NO_DISP AS DEPTS";
-                sqlCmd2 += " from explab a left outer join inscomp b on a.s_no=b.s_no";
+                sqlCmd2 += " from explab a inner join inscomp b on a.s_no=b.s_no";
 
                 //sqlCmd2 += string.Format(@" left join cost c on a.nobr = c.nobr and '{0}' between c.cadate and c.cddate", date_b);
                 sqlCmd2 += string.Format(@" left join basetts d on a.nobr = d.nobr and '{0}' between d.adate and d.ddate", date_b);
@@ -296,6 +296,7 @@ namespace JBHR.Reports.InsForm
 
                 sqlCmd2 += string.Format(@" where a.nobr between '{0}' and '{1}'", nobr_b, nobr_e);
                 sqlCmd2 += string.Format(@" and a.yymm between '{0}' and '{1}'", yy_b, yy_e);
+                sqlCmd2 += string.Format(@" and b.s_no_disp between '{0}' and '{1}'", sno_b, sno_e);
                 sqlCmd2 += " and a.insur_type='3'";
                 DataTable rq_explab2 = SqlConn.GetDataTable(sqlCmd2);
                 rq_explab.Merge(rq_explab2);
