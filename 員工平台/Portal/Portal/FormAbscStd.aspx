@@ -34,30 +34,30 @@
                                     <div class="col-md-6">
                                         <div class="row">
                                             <div class="col col-xs-6">
-                                                <span>開始日期：<%# Eval("DateTimeB","{0:yyyy/MM/dd}") %></span><%--<span>開始日期：<%# Eval("AbscDateB","{0:yyyy/MM/dd}") %></span>--%>
+                                                <span><telerik:RadLabel runat="server" ID="lblBeginDateDic" Text="開始日期"></telerik:RadLabel> ：<%# Eval("DateTimeB","{0:yyyy/MM/dd}") %></span><%--<span>開始日期：<%# Eval("AbscDateB","{0:yyyy/MM/dd}") %></span>--%>
                                                 <br>
-                                                <span>開始時間：<%# Eval("DateTimeB","{0:HH:mm}") %></span><%--<span>開始時間：<%# Eval("AbscTimeB") %></span>--%>
+                                                <span><telerik:RadLabel runat="server" ID="lblBeginTimeDic" Text="開始時間"></telerik:RadLabel>：<%# Eval("DateTimeB","{0:HH:mm}") %></span><%--<span>開始時間：<%# Eval("AbscTimeB") %></span>--%>
                                             </div>
 
                                             <div class="col col-xs-6">
-                                                <span>結束日期：<%# Eval("DateTimeE","{0:yyyy/MM/dd}") %></span><%--<span>結束日期：<%# Eval("AbscDateE","{0:yyyy/MM/dd}") %></span>--%>
+                                                <span><telerik:RadLabel runat="server" ID="lblEndDateDic" Text="結束日期"></telerik:RadLabel>：<%# Eval("DateTimeE","{0:yyyy/MM/dd}") %></span><%--<span>結束日期：<%# Eval("AbscDateE","{0:yyyy/MM/dd}") %></span>--%>
                                                 <br>
-                                                <span>結束時間：<%# Eval("DateTimeE","{0:HH:mm}") %></span><%--<span>結束時間：<%# Eval("AbscTimeE") %></span>--%>
+                                                <span><telerik:RadLabel runat="server" ID="lblEndTimeDic" Text="結束時間"></telerik:RadLabel>：<%# Eval("DateTimeE","{0:HH:mm}") %></span><%--<span>結束時間：<%# Eval("AbscTimeE") %></span>--%>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="row">
                                             <div class="col col-xs-6">
-                                                <span>假別：<%# Eval("HcodeName") %></span><%--<span>假別：<%# Eval("HolidayName") %></span>--%>
+                                                <span><telerik:RadLabel runat="server" ID="lblAbsenceNameDic" Text="假別"></telerik:RadLabel>：<%# Eval("HcodeName") %></span><%--<span>假別：<%# Eval("HolidayName") %></span>--%>
                                                 <br>
-                                                <span>單號：<%# Eval("Serno") %></span><%--<span>單號：<%# Eval("ProcessId") %></span>--%>
+                                                <span><telerik:RadLabel runat="server" ID="lblProcessIdDic" Text="單號"></telerik:RadLabel>：<%# Eval("Serno") %></span><%--<span>單號：<%# Eval("ProcessId") %></span>--%>
                                             </div>
 
                                             <div class="col col-xs-6">
-                                                <span>請假時數：<%# Eval("Use") %></span><%--<span>請假時數：<%# Eval("AbscTotalTime") %></span>--%>
+                                                <span><telerik:RadLabel runat="server" ID="lblAbsenceHourDic" Text="請假時數(天數)"></telerik:RadLabel>：<%# Eval("Use") %></span><%--<span>請假時數：<%# Eval("AbscTotalTime") %></span>--%>
                                                 <br>
-                                                <span>單位：<%# Eval("HcodeUnitName") %></span><%--<span>單位：<%# Eval("Unit") %></span>--%>
+                                                <span><telerik:RadLabel runat="server" ID="lblUnitDic" Text="單位"></telerik:RadLabel>：<%# Eval("HcodeUnitName") %></span><%--<span>單位：<%# Eval("Unit") %></span>--%>
                                             </div>
                                         </div>
                                     </div>
@@ -94,12 +94,12 @@
     <telerik:RadAjaxPanel ID="plAppS" runat="server">
         <div class="ibox">
             <div class="ibox-title">
-                <h5>條件</h5>
+                <h5><telerik:RadLabel runat="server" ID="lblConditionDic" Text="條件"></telerik:RadLabel></h5>
             </div>
             <div class="ibox-content">
                 <div class="form-group row">
                     <div class="col-md-4">
-                        <label class=" col-form-label">被申請人姓名</label>
+                        <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblRespondentNameDic" Text="被申請人姓名"></telerik:RadLabel></label>
                         <telerik:RadComboBox ID="txtNameAppS" runat="server" Culture="zh-TW" AllowCustomText="True" Skin="Bootstrap"
                             AutoPostBack="True" EnableVirtualScrolling="True" ItemsPerRequest="10" Filter="Contains"
                             LoadingMessage="載入中…" Width="100%">
@@ -129,7 +129,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <label class=" col-form-label">備註事項：</label>
+                        <label class=" col-form-label"><telerik:RadLabel runat="server" ID="lblNoteDic" Text="備註事項"></telerik:RadLabel> ：</label>
                         <telerik:RadLabel ID="lblFormNoteStd" runat="server"></telerik:RadLabel>
                     </div>
                 </div>

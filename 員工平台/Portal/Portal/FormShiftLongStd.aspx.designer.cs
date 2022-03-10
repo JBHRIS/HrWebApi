@@ -51,6 +51,15 @@ namespace Portal
         protected global::Telerik.Web.UI.RadLabel lblNotifyMsg;
 
         /// <summary>
+        /// lblApplicationInfoDic 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblApplicationInfoDic;
+
+        /// <summary>
         /// plAppS 控制項。
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace Portal
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::Telerik.Web.UI.RadAjaxPanel plAppS;
+
+        /// <summary>
+        /// lblRespondentNameDic 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lblRespondentNameDic;
 
         /// <summary>
         /// txtNameAppS 控制項。

@@ -2292,6 +2292,12 @@ namespace Portal
                              Auth = role.deptMg.Value,
                          }).FirstOrDefault();
 
+            if (UnobtrusiveSession.Session["EmployChangeLog"] == null)
+            {
+                lblErrorMsg.Text = "請先點選下方更新後，再送出審核";
+                return;
+            }
+
             if (rEmpM != null)
             {
                 var oEmployChangeLog = UnobtrusiveSession.Session["EmployChangeLog"] as FormsAppEmployChangeLog;
@@ -2466,6 +2472,12 @@ namespace Portal
                              JobName = pos.name,
                              Auth = role.deptMg.Value,
                          }).FirstOrDefault();
+
+            if (UnobtrusiveSession.Session["EmployChangeLog"] == null)
+            {
+                lblErrorMsg.Text = "請先點選下方更新後，再送出審核";
+                return;
+            }
 
             if (rEmpM != null)
             {

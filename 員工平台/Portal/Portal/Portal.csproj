@@ -2474,6 +2474,9 @@
     <Compile Include="NewsManage.aspx.designer.cs">
       <DependentUpon>NewsManage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reply.ashx.cs">
+      <DependentUpon>Reply.ashx</DependentUpon>
+    </Compile>
     <Compile Include="SalarySearch.aspx.cs">
       <DependentUpon>SalarySearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2815,6 +2818,7 @@
     <Content Include="Single.Master" />
     <Content Include="Data\slMain.db" />
     <None Include="Properties\PublishProfiles\IISProfile1.pubxml" />
+    <Content Include="Reply.ashx" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

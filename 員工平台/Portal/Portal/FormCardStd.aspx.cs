@@ -37,7 +37,7 @@ namespace Portal
                 SetCardTime(lblNobrAppM.Text, DateTime.Now.Date);
                 gvAppS.Rebind();
             }
-            
+
 
         }
         private void SetDefault()
@@ -166,8 +166,8 @@ namespace Portal
         public void txtNameAppS_DataBind()
         {
             var CardOnlyShowSelf = (from c in dcFlow.FormsExtend
-                                   where c.FormsCode == "Card" && c.Code == "CardOnlyShowSelf" && c.Active == true
-                                   select c).FirstOrDefault();
+                                    where c.FormsCode == "Card" && c.Code == "CardOnlyShowSelf" && c.Active == true
+                                    select c).FirstOrDefault();
             if (CardOnlyShowSelf == null)
             {
                 var rs = AccessData.GetPeopleByDeptTree(_User, CompanySetting);
@@ -438,10 +438,51 @@ namespace Portal
                 }
 
                 int i = lsDate.Sum(p => Convert.ToInt32(p.Value));
+                var ForgetTime = (from c in dcFlow.FormsExtend
+                                  where c.Active && c.FormsCode == "Card" && c.Code == "ForgetTime"
+                                  select c.Column1).FirstOrDefault();
 
-                if (i > 3)
+                var ForgetCheck = (from c in dcFlow.FormsExtend
+                                   where c.Active && c.FormsCode == "Card" && c.Code == "ForgetCheck"
+                                   select c.Column1).FirstOrDefault();
+                
+
+                if (ForgetCheck != null)
                 {
-                    lblErrorMsg.Text = "本月的忘刷次數已超過3次";
+                    var Count = 0; 
+                    var lsCardCode = ForgetCheck.Split(';').ToList();
+                    for (var ADate = TwoDate.DateA; ADate <= TwoDate.DateD; ADate = ADate.AddDays(1))
+                    {
+                        var CardData = oCardDao.GetData(Nobr, ADate).GroupBy(p => p.DateA).ToList();
+                        foreach (var CardTime in CardData)
+                        {
+                            if (lsDate.Where(p => p.Text == CardTime.Key.ToShortDateString()).Any())
+                                foreach (var Data in CardTime)
+                                {
+                                    if (Data.Los && lsCardCode.Contains(Data.Reason))
+                                    {
+                                        Count++;
+                                        break;
+                                    }
+                                    else if (Data.Los)
+                                    {
+                                        var Forget = lsDate.Where(p => p.Text == CardTime.Key.ToShortDateString()).Select(p => p.Value).FirstOrDefault();
+                                        Count += Convert.ToInt32(Forget);
+                                        break;
+                                    }
+                                }
+                        }
+                    }
+                    if (ForgetTime != null && Count >= Convert.ToInt32(ForgetTime))
+                    {
+                        lblErrorMsg.Text = "本月的忘刷次數已超過" + ForgetTime + "次";
+                        return;
+                    }
+                }
+
+                else if (ForgetTime != null && i > Convert.ToInt32(ForgetTime))
+                {
+                    lblErrorMsg.Text = "本月的忘刷次數已超過" + ForgetTime + "次";
                     return;
                 }
 
@@ -581,7 +622,20 @@ namespace Portal
 
         protected void gvAppS_DataBound(object sender, EventArgs e)
         {
+            int count = 0;
+            foreach (var item in gvAppS.Items)
+            {
+                var No = item.FindControl("lblListNumber") as RadLabel;
+                if (No != null)
+                {
+                    count++;
+                    No.Text = count.ToString();
+                }
 
+            }
+            var lblAbsCount = gvAppS.FindControl("lblCount") as RadLabel;
+            if (lblAbsCount != null)
+                lblAbsCount.Text = count.ToString();
         }
 
         protected void gvAppS_ItemCommand(object sender, RadListViewCommandEventArgs e)

@@ -231,6 +231,15 @@ namespace Portal
         protected global::Telerik.Web.UI.RadCheckBox isLateOut;
 
         /// <summary>
+        /// cbSelectAll 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadCheckBox cbSelectAll;
+
+        /// <summary>
         /// btnSearch 控制項。
         /// </summary>
         /// <remarks>

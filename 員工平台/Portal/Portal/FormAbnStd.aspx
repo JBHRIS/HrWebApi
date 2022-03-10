@@ -11,6 +11,12 @@
                     <telerik:AjaxUpdatedControl ControlID="plReason" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
+            <telerik:AjaxSetting AjaxControlID="cbSelectAll">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="plInfo" />
+                    <telerik:AjaxUpdatedControl ControlID="plReason" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
         </AjaxSettings>
     </telerik:RadAjaxManagerProxy>
     <div class="ibox-content">
@@ -109,7 +115,11 @@
                             <telerik:RadCheckBox runat="server" ID="isLateOut" Checked="true" Text="晚退" Width="100%" Skin="Bootstrap"></telerik:RadCheckBox>
                         </div>
                     </div>
-                    
+                    <div class="col-md-1">
+                        <div class="form-check abc-checkbox cleckbox_sy">
+                            <telerik:RadCheckBox runat="server" ID="cbSelectAll" OnCheckedChanged="cbSelectAll_CheckedChanged" Text="全選" Width="100%" Skin="Bootstrap"></telerik:RadCheckBox>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="hr-line-dashed"></div>

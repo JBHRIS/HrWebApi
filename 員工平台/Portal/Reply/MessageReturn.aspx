@@ -65,6 +65,57 @@
                     <%--<label>內容 :</label>--%>
                         <telerik:RadLabel ID="lblContent" runat="server" Text="" />
                 </p>
+                   <div id="iboxContent" class="ibox">
+                <div class="ibox-title">
+                    <h5>附件列表</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="fullscreen-link">
+                            <i class="fa fa-expand"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <telerik:RadAjaxPanel ID="RadAjaxPanel4" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
+                        <telerik:RadListView ID="DataUpload" runat="server" ItemPlaceholderID="Container" RenderMode="Lightweight" OnNeedDataSource="DataUpload_NeedDataSource">
+                            <LayoutTemplate>
+                                <table class="footable table table-stripped" data-page-size="10" data-filter="#filter">
+                                    <thead>
+                                        <tr>
+                                            <th>檔名</th>
+                                            <th data-hide="phone,tablet">大小</th>
+                                            <th>動作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Container" runat="server">
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="5">
+                                                <ul class="pagination float-right"></ul>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </LayoutTemplate>
+                            <ItemTemplate>
+                                <tr class="gradeX">
+                                    <td data-th="檔名"><%#Eval("FileName") %></td>
+                                    <td data-th="大小"><%#Eval("FileSize") %></td>
+                                    <td data-th="動作">
+                                        <asp:Button ID="btnDownload" runat="server" CommandArgument='<%#Eval("FileId") %>' Width="60%" OnClientClick='<%#"download(\""+Eval("FileId")+"\");" %>' CommandName="Download" Text="下載" CssClass="btn-white btn btn-xs" />
+                                    </td>
+                                </tr>
+                            </ItemTemplate>
+                            <EmptyDataTemplate>
+                                目前並無上傳任何檔案
+                            </EmptyDataTemplate>
+                        </telerik:RadListView>
+                    </telerik:RadAjaxPanel>
+                </div>
+            </div>
             </div>
             <div class="social-footer">
                 <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">

@@ -39,6 +39,8 @@ namespace Portal
                 isView = true;
             if (!this.IsPostBack)
             {
+                UnobtrusiveSession.Session["LsSalaryData"] = null;
+                UnobtrusiveSession.Session["EmployChangeLog"] = null;
                 if (Request.QueryString["ProcessApParmAuto"] != null)
                 {
                     int RequestValue = 0;
@@ -281,7 +283,7 @@ namespace Portal
         {
             var LsSalaryData = new List<TextValueRow>();
             
-            if (ddlResult.SelectedItem.Text == "" || ddlResult.SelectedValue == "00")
+            if (ddlResult.SelectedItem.Text == "" || ddlResult.SelectedValue == "01")
             {
                 lblError.Text = "請選擇結果";
                 lblError.CssClass = "badge badge-danger animated shake";

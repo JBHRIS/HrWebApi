@@ -94,9 +94,12 @@ namespace JBHR.Med
                         {
                             instance.ERROR += "找不到公司資料;";
                         }
-                        db.TW_TAX_SUMMARY.InsertOnSubmit(instance);
-                        db.SubmitChanges();
-                        i++;
+                        if (instance.AMT != 10 || instance.D_AMT != 10 || instance.RET_AMT != 10 || instance.SUP_AMT != 10)
+                        {
+                            db.TW_TAX_SUMMARY.InsertOnSubmit(instance);
+                            db.SubmitChanges();
+                            i++;
+                        }
                     }
                     catch (Exception ex)
                     {

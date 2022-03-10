@@ -17,7 +17,7 @@ namespace Portal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            UnobtrusiveSession.Session["FormGuidCode"] = null;
             if (Request.QueryString["Param"] != null)
             {
                 var Param = Request.QueryString["Param"];

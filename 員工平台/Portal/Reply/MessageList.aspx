@@ -38,16 +38,16 @@
 
                         <telerik:RadListView ID="lvMain" runat="server" ItemPlaceholderID="Container" OnItemCommand="lvMain_ItemCommand" OnNeedDataSource="lvMain_NeedDataSource">
                             <LayoutTemplate>
-                                 <table id="footable" class="footable table table-stripped rwd-table" data-page-size="10" data-filter="#filter">
+                                 <table id="footable" class="footable table table-stripped rwd-table" style="table-layout:fixed;width:100%" data-page-size="10" data-filter="#filter">
                                     <thead>
                                         <tr>
-                                            <th class="col-lg-2">標題</th>
-                                            <th class="col-lg-4">內容</th>
-                                            <th>新增日期</th>
-                                            <th>新增人員</th>
-                                            <th>更新日期</th>
-                                            <th>更新人員</th>
-                                            <th>操作</th>
+                                            <th style="width:20%">標題</th>
+                                            <th style="width:20%">內容</th>
+                                            <th style="width:10%">新增日期</th>
+                                            <th style="width:10%">新增人員</th>
+                                            <th style="width:10%">更新日期</th>
+                                            <th style="width:10%">更新人員</th>
+                                            <th style="width:20%">操作</th>
                                         </tr>
                                     </thead>
                                     <tbody id="Container" runat="server">
@@ -68,13 +68,13 @@
                                
                                 <tr class="gradeX" >
 
-                                    <td data-th="標題"><%# Eval("Name") %></td>
-                                    <td data-th="內容"><%# Eval("Contents") %></td>
-                                    <td data-th="新增日期"><%# Eval("InsertDate","{0:yyyy-MM-dd}") %></td>
-                                    <td data-th="新增人員"><%# Eval("InsertMan") %></td>
-                                    <td data-th="更新日期"><%# Eval("UpdateDate","{0:yyyy-MM-dd}") %></td>
-                                    <td data-th="更新人員"><%# Eval("UpdateMan") %></td>
-                                    <td data-th="操作">
+                                    <td data-th="標題" style="width:auto;overflow:hidden"><%# Eval("Name") %></td>
+                                    <td data-th="內容" style="width:auto;overflow:hidden"><%# Eval("Contents") %></td>
+                                    <td data-th="新增日期" style="width:auto"><%# Eval("InsertDate","{0:yyyy-MM-dd}") %></td>
+                                    <td data-th="新增人員" style="width:auto"><%# Eval("InsertMan") %></td>
+                                    <td data-th="更新日期" style="width:auto"><%# Eval("UpdateDate","{0:yyyy-MM-dd}") %></td>
+                                    <td data-th="更新人員" style="width:auto"><%# Eval("UpdateMan") %></td>
+                                    <td data-th="操作" style="width:auto">
                                         <telerik:RadButton ID="btnUpdate" CommandArgument='<%# Eval("Code") %>' CommandName="Update" runat="server" Text="編輯" CssClass="btn btn-white btn-xs" >
                                             <Icon PrimaryIconCssClass="rbEdit" /> 
                                         </telerik:RadButton>

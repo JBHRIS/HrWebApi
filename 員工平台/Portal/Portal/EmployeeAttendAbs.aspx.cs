@@ -25,7 +25,7 @@ namespace Portal
                 _DataBind();
                 ddlHcode_DataBind();
                 ButtonShown();
-
+                lvMainTaken.Rebind();
             }
         }
         public void LoadData(string Key = "")

@@ -30,6 +30,8 @@ namespace Portal
         }
         private CompanySettingRow CompanySetting;
 
+        //public override rad
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Cookies["CompanyId"] != null && Request.Cookies["CompanyId"].Value != "")
@@ -52,9 +54,11 @@ namespace Portal
             }
 
             DateTime Begin = DateTime.Now;
+            Page.SaveStateComplete += Page_DataBinding;
             if (!this.IsPostBack)
             {
                 Page.PreRenderComplete += Page_PreRenderComplete;
+                
                 var LocalPath = System.IO.Path.GetFileName(Request.PhysicalPath);
                 if (LocalPath == "Index.aspx")
                     plSiteMap.Visible = false;
@@ -193,7 +197,12 @@ namespace Portal
                     plLogOut.Visible = false;
             }
         }
-        
+
+        private void Page_DataBinding(object sender, EventArgs e)
+        {
+            ChangeLanguage();
+        }
+
         private void Page_PreRenderComplete(object sender, EventArgs e)
         {
             //將css檔放在最後不然沒有效果
@@ -559,7 +568,7 @@ namespace Portal
         /// <param name="ListSystemPage"></param>
         /// <param name="ParentCode">上層代碼</param>
         /// <param name="ItemLevel">層級</param>
-        /// <param name="ListActivePageParentCode">作用頁面代碼</param>
+        /// <param name="ListActivePageCode">作用頁面代碼</param>
         /// <param name="HtmlMenu"></param>
         private void SetNodeValues(List<SystemPageRow> ListSystemPage, string ParentCode, int ItemLevel, List<string> ListActivePageCode, ref string HtmlMenu)
         {

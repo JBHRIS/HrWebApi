@@ -16,7 +16,7 @@
     </telerik:RadAjaxManagerProxy>
     <div class="ibox-content">
         <telerik:RadAjaxPanel ID="plInfo" runat="server">
-            <telerik:RadListView ID="gvAppS" runat="server" RenderMode="Lightweight" Skin="" ItemPlaceholderID="Container" OnNeedDataSource="gvAppS_NeedDataSource" OnItemCommand="gvAppS_ItemCommand">
+            <telerik:RadListView ID="gvAppS" runat="server" RenderMode="Lightweight" Skin="" ItemPlaceholderID="Container" OnNeedDataSource="gvAppS_NeedDataSource" OnItemCommand="gvAppS_ItemCommand" OnDataBound="gvAppS_DataBound">
                 <LayoutTemplate>
                     <table id="footableTaken" class="footable table table-stripped" data-page-size="10" data-filter="#filterTaken">
                         <thead>
@@ -36,6 +36,7 @@
                         <tbody id="Container" runat="server">
                         </tbody>
                         <tfoot>
+                            <div>總共新增：<strong><telerik:RadLabel ID="lblCount" runat="server"  /></strong> 筆資料</div>
                         </tfoot>
                     </table>
                 </LayoutTemplate>
@@ -44,6 +45,7 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <h3>
+                                    <span class="label label-primary m-r-sm"><telerik:RadLabel ID="lblListNumber" runat="server"  /></span>
                                     <%# Eval("EmpName") %>,
                                     <%# Eval("EmpId") %>
                                 </h3>
@@ -51,18 +53,18 @@
                             <div class="col-md-9">
                                 <div class="row">
                                     <div class="col-lg-4">
-                                        調班日期：<%#Eval("Date","{0:yyyy/MM/dd}") %>
+                                        <telerik:RadLabel runat="server" ID="lblChangeWorkDateDic" Text="調班日期"></telerik:RadLabel>：<%#Eval("Date","{0:yyyy/MM/dd}") %>
                                     </div>
                                     <div class="col-lg-4">
-                                        原班別：<%#Eval("RotetNameOrigin") %>
+                                        <telerik:RadLabel runat="server" ID="lblOriginalWorkClassDic" Text="原班別"></telerik:RadLabel>：<%#Eval("RotetNameOrigin") %>
                                     </div>
                                     <div class="col-lg-4">
-                                        換班班別：<%#Eval("RotetName") %>
+                                        <telerik:RadLabel runat="server" ID="lblChangeWorkClassDic" Text="換班班別"></telerik:RadLabel>：<%#Eval("RotetName") %>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        原因：<%# Eval("Note") %>
+                                        <telerik:RadLabel runat="server" ID="lblReasonDic" Text="原因" ></telerik:RadLabel>：<%# Eval("Note") %>
                                     </div>
 
                                 </div>
@@ -90,7 +92,7 @@
             <div class="col-lg-12">
                 <div class="ibox" style="margin-bottom: 0px">
                     <div class="ibox-title">
-                        <h5>申請資訊</h5>
+                        <h5><telerik:RadLabel runat="server" ID="lblApplicationInfoDic" Text="申請日期"></telerik:RadLabel></h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -101,7 +103,7 @@
                         <telerik:RadAjaxPanel ID="plAppS" runat="server">
                             <div class="form-group row">
                                 <div class="col-md-3">
-                                    <label class="col-form-label">被申請人姓名</label>
+                                    <label class="col-form-label"><telerik:RadLabel runat="server" ID="lblRespondentNameDic" Text="被申請人姓名"></telerik:RadLabel></label>
                                     <telerik:RadComboBox ID="txtNameAppS" runat="server" Culture="zh-TW" AllowCustomText="True" Skin="Bootstrap"
                                         AutoPostBack="True" EnableVirtualScrolling="True" ItemsPerRequest="10" Filter="Contains"
                                         LoadingMessage="載入中…" Width="100%" OnDataBound="txtNameAppS_DataBound" OnTextChanged="txtNameAppS_TextChanged">

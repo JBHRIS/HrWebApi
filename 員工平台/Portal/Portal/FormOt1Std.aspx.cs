@@ -45,7 +45,13 @@ namespace Portal
                 ddlOtrcd_DataBind();
                 //ddlOtCat_DataBind();
                 ddlRote_DataBind();
-
+                var ShowOtClass = (from c in dcFlow.FormsExtend
+                                   where c.Active && c.FormsCode == "Ot" && c.Code == "ShowOtClass"
+                                   select c).FirstOrDefault();
+                if (ShowOtClass != null)
+                {
+                    plOtClass.Visible = true;
+                }
                 //SetRoteTime(lblNobrAppM.Text, DateTime.Now.Date);
                 //SetCardTime(lblNobrAppM.Text, DateTime.Now.Date);
                 SetRote(lblNobrAppM.Text, DateTime.Now.Date);
@@ -784,8 +790,10 @@ namespace Portal
                         }
                     }
                 }
-
-                if (RoteDetail.Where(p => p.RoteCode == GetAttend.RoteCodeH).FirstOrDefault().WorkHour + Calculate > AttHrsDailyMax)
+                decimal WorkHour = 0;
+                if (!GetAttend.IsHoliDay)
+                    WorkHour = RoteDetail.Where(p => p.RoteCode == GetAttend.RoteCodeH).FirstOrDefault().WorkHour;
+                if (WorkHour + Calculate > AttHrsDailyMax)
                 {
                     lblErrorMsg.Text = "單日出勤時數已超過上限";
                     return;

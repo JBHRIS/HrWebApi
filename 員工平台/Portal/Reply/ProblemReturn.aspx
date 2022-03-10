@@ -12,6 +12,7 @@
                 </UpdatedControls>
             </telerik:AjaxSetting>
         </AjaxSettings>
+       
     </telerik:RadAjaxManager>
     <div class="ibox">
 
@@ -47,17 +48,18 @@
                         </div>
                     </div>--%>
                     <div class="form-group">
-                          <label>附件<span class="text-navy">檔案大小限制為10MB；一次最多上傳三個附件</span></label>
+                        <label>附件<span class="text-navy">檔案大小限制為10MB；一次最多上傳三個附件</span></label>
                         <div id="dZUpload" class="dropzone" style="border: 1px solid #e5e6e7;">
                             <div class="dz-default dz-message text-center m-t-md">
                                 <i class="fa fa-cloud-upload fa-2x text-primary"></i>
                                 <br />
-                                請按這裡上傳檔案
+                                請點此選擇上傳的檔案
                             </div>
                         </div>
                     </div>
+                       <telerik:RadAjaxPanel ID="plUpload" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
                     <div class="form-group">
-                        <telerik:RadAjaxPanel ID="plUpload" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
+                     
                             <div class="row">
                                 <div class="col-4 col-sm-2">
                                     <telerik:RadButton ID="btnUpload" runat="server" Text="上傳檔案" CssClass="btn btn-primary btn-outline" OnClick="btnUpload_Click" />
@@ -67,8 +69,60 @@
                                     <telerik:RadLabel ID="lblKey" runat="server" Visible="false" />
                                 </div>
                             </div>
-                        </telerik:RadAjaxPanel>
+                     
                     </div>
+                    <div id="iboxContent" class="ibox">
+                        <div class="ibox-title">
+                            <h5>附件列表</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="fullscreen-link">
+                                    <i class="fa fa-expand"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <telerik:RadAjaxPanel ID="RadAjaxPanel4" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
+                                <telerik:RadListView ID="DataUpload" runat="server" ItemPlaceholderID="Container" RenderMode="Lightweight" OnNeedDataSource="DataUpload_NeedDataSource">
+                                    <LayoutTemplate>
+                                        <table class="footable table table-stripped" data-page-size="10" data-filter="#filter">
+                                            <thead>
+                                                <tr>
+                                                    <th>檔名</th>
+                                                    <th data-hide="phone,tablet">大小</th>
+                                                    <th>動作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="Container" runat="server">
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="5">
+                                                        <ul class="pagination float-right"></ul>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </LayoutTemplate>
+                                    <ItemTemplate>
+                                        <tr class="gradeX">
+                                            <td data-th="檔名"><%#Eval("FileName") %></td>
+                                            <td data-th="大小"><%#Eval("FileSize") %></td>
+                                            <td data-th="動作">
+                                                <asp:Button ID="btnDownload" runat="server" CommandArgument='<%#Eval("FileId") %>' Width="60%" OnClientClick='<%#"download(\""+Eval("FileId")+"\");" %>' CommandName="Download" Text="下載" CssClass="btn-white btn btn-xs" />
+                                            </td>
+                                        </tr>
+                                    </ItemTemplate>
+                                    <EmptyDataTemplate>
+                                        目前並無上傳任何檔案
+                                    </EmptyDataTemplate>
+                                </telerik:RadListView>
+                            </telerik:RadAjaxPanel>
+                        </div>
+                    </div>
+                   </telerik:RadAjaxPanel>
                     <div class="hr-line-dashed"></div>
                     <div class="row">
                         <div class="col-5 col-lg-2">
@@ -83,32 +137,32 @@
 
 
                     </div>
-                <asp:Label ID="lblUserCode" runat="server" Visible="False"></asp:Label>
-                <asp:Label ID="lblEmpID" runat="server" Visible="False"></asp:Label>
-                <asp:Label ID="lblCompanyId" runat="server" Visible="False"></asp:Label>
-                <asp:Label ID="lblEmpName" runat="server" Visible="False"></asp:Label>
-                <asp:Label ID="lblRoleKey" runat="server" Visible="False"></asp:Label>
-            </div>
-
-            <div class="col-lg-5">
-                <h2>你可能還想知道....</h2>
-                <span class="keyword_tag">特殊假別</span>
-                <span class="keyword_tag">Scroll navbar</span>
-                <span class="keyword_tag">Scroll navbar</span>
-                <span class="keyword_tag">Scroll navbar</span>
-
-                <div class="row col-lg-12 m-t-md">
-                    <div class="keyword_font">特殊假別相關問題</div>
+                    <asp:Label ID="lblUserCode" runat="server" Visible="False"></asp:Label>
+                    <asp:Label ID="lblEmpID" runat="server" Visible="False"></asp:Label>
+                    <asp:Label ID="lblCompanyId" runat="server" Visible="False"></asp:Label>
+                    <asp:Label ID="lblEmpName" runat="server" Visible="False"></asp:Label>
+                    <asp:Label ID="lblRoleKey" runat="server" Visible="False"></asp:Label>
                 </div>
-                <div class="row col-lg-12">
-                    <span class="keyword_font">特殊假別相關問題</span>
+
+                <div class="col-lg-5">
+                    <h2>你可能還想知道....</h2>
+                    <span class="keyword_tag">特殊假別</span>
+                    <span class="keyword_tag">Scroll navbar</span>
+                    <span class="keyword_tag">Scroll navbar</span>
+                    <span class="keyword_tag">Scroll navbar</span>
+
+                    <div class="row col-lg-12 m-t-md">
+                        <div class="keyword_font">特殊假別相關問題</div>
+                    </div>
+                    <div class="row col-lg-12">
+                        <span class="keyword_font">特殊假別相關問題</span>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
 
-    </div>
- 
 
 
 </asp:Content>
@@ -156,7 +210,33 @@
                 }
             });
         }
+        function download(FileId) {
 
+            //檔案下載網址
+            var url = "Download.ashx?openExternalBrowser=1";
+
+            //產生 form
+            var form = document.createElement("form");
+
+            form.method = "GET";
+            form.action = url;
+
+            //如果想要另開視窗可加上target
+            //form.target = "_blank";
+
+            //index為要下載的檔案編號，存入hidden跟表單一起送出
+            var input = document.createElement("input");
+            input.type = "hidden";
+            input.name = "index";
+            input.value = FileId;
+            form.appendChild(input);
+
+            //送出表單並移除 form
+            var body = document.getElementsByTagName("body")[0];
+            body.appendChild(form);
+            form.submit();
+            form.remove();
+        };
 
     </script>
 

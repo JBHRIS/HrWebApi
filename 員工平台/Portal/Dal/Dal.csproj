@@ -173,6 +173,7 @@
     <Compile Include="Dao\File\DownloadFilesDao.cs" />
     <Compile Include="Dao\File\FilesByFileTicketDao.cs" />
     <Compile Include="Dao\File\ExcelSheetNameDao.cs" />
+    <Compile Include="Dao\File\UploadMultipleInPostedFileBaseDao.cs" />
     <Compile Include="Dao\File\UploadMultipleDao.cs" />
     <Compile Include="Dao\File\ImportAttendExcelCoverDao.cs" />
     <Compile Include="Dao\File\UploadSingleFileDao.cs" />

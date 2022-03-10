@@ -14,6 +14,8 @@ using Bll.Tools;
 using System.Net.Mail;
 using System.IO;
 using Bll.Token.Vdb;
+using Dal.Dao.Files;
+using Bll.Files.Vdb;
 
 namespace Portal
 {
@@ -424,8 +426,31 @@ namespace Portal
 
         }
 
+        protected void DataUpload_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
+        {
+            var oFilesByFileTicket = new FilesByFileTicketDao();
+            var FilesByFileTicketCond = new FilesByFileTicketConditions();
+            var result = new List<FilesByFileTicketRow>();
+            FilesByFileTicketCond.AccessToken = _User.AccessToken;
+            FilesByFileTicketCond.RefreshToken = _User.RefreshToken;
+            FilesByFileTicketCond.CompanySetting = CompanySetting;
+            FilesByFileTicketCond.fileTicket = Request.QueryString["Code"];
+            var Result = oFilesByFileTicket.GetData(FilesByFileTicketCond);
+            if (Result.Status)
+            {
+                if (Result.Data != null)
+                {
+                    result = Result.Data as List<FilesByFileTicketRow>;
+                    DataUpload.DataSource = result;
+                }
+            }
 
-     
+        }
+        protected void DataUpload_ItemCommand(object sender, RadListViewCommandEventArgs e)
+        {
+
+        }
+
 
         public void SetDefaultMessage(object sender, EventArgs e)
         {

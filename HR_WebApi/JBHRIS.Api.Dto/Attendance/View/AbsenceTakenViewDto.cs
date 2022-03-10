@@ -59,5 +59,9 @@ namespace JBHRIS.Api.Dto.Attendance.View
         /// 備註
         /// </summary>
         public string Remark { get; set; }
+        /// <summary>
+        /// 公司別
+        /// </summary>
+        public string Comp { get; set; }
     }
 }

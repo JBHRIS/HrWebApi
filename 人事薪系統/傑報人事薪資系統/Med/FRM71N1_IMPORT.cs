@@ -25,6 +25,7 @@ namespace JBHR.Med
             BindingControls.Add(cbxD_Amt);
             BindingControls.Add(cbxRet_Amt);
             BindingControls.Add(cbxSup_Amt);
+            BindingControls.Add(cbxTAXNO);
             BindingControls.Add(cbxYymm);
             BindingControls.Add(cbxSeq);
             BindingControls.Add(cbxNote1);

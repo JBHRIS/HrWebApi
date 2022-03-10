@@ -16,7 +16,7 @@
                         <tbody id="Container" runat="server">
                         </tbody>
                         <tfoot>
-                        <div>總共新增：<strong><telerik:RadLabel ID="lblCount" runat="server"  /></strong> 筆資料</div>
+                            <div>總共新增：<strong><telerik:RadLabel ID="lblCount" runat="server" /></strong> 筆資料</div>
                             <tr>
                                 <td colspan="5">
                                     <ul class="pagination float-right"></ul>
@@ -30,7 +30,9 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <h3>
-                                    <span class="label label-primary m-r-sm"><telerik:RadLabel ID="lblListNumber" runat="server"  /></span>
+                                    <span class="label label-primary m-r-sm">
+                                        <telerik:RadLabel ID="lblListNumber" runat="server" />
+                                    </span>
                                     <%# Eval("EmpName") %>,
                                     <%# Eval("EmpId") %>
                                 </h3>
@@ -61,7 +63,8 @@
                                 </telerik:RadButton>
                             </div>
                         </div>
-                        <%--<div class="row">
+                    </div>
+                    <%--<div class="row">
                             <div class="col-md-2 m-t-xs">
                                 <h3>
                                     <%# Eval("EmpName") %>,
@@ -104,7 +107,7 @@
                                     <span>備註：<%# Eval("Note") %></span>
                                 </div>
                             </div>--%>
-                        <%--<div class="col-md-1">
+                    <%--<div class="col-md-1">
 
                                 <telerik:RadButton ID="btnDelete" runat="server" CommandArgument='<%# Eval("AutoKey") %>' CssClass="btn btn-outline btn-danger" OnClientClicking="Clicking"
                                     CommandName="Del" Text="刪除">
@@ -169,12 +172,10 @@
                                         OnSelectedIndexChanged="txtNameAppS_SelectedIndexChanged" OnTextChanged="txtNameAppS_TextChanged">
                                     </telerik:RadComboBox>
                                 </div>
-                                <asp:Panel runat="server" Visible="false">
-                                    <div class="col-md-3">
-                                        <label class="col-form-label">加班班別</label>
-                                        <telerik:RadComboBox ID="ddlRote" runat="server" Culture="zh-TW" EnableVirtualScrolling="True" ItemsPerRequest="10" LoadingMessage="載入中…" Width="100%" Skin="Bootstrap">
-                                        </telerik:RadComboBox>
-                                    </div>
+                                <asp:Panel ID="plOtClass" CssClass="col-md-3" runat="server" Visible="false">
+                                    <label class="col-form-label">加班班別</label>
+                                    <telerik:RadComboBox ID="ddlRote" runat="server" Culture="zh-TW" EnableVirtualScrolling="True" ItemsPerRequest="10" LoadingMessage="載入中…" Width="100%" Skin="Bootstrap">
+                                    </telerik:RadComboBox>
                                 </asp:Panel>
                                 <div class="col-md-3">
                                     <label class="col-form-label">申請原因</label>
