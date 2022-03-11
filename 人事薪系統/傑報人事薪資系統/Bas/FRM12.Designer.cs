@@ -195,7 +195,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.cbJOBS = new System.Windows.Forms.ComboBox();
             this.cbJOBL = new System.Windows.Forms.ComboBox();
-            this.comboBoxJobo = new System.Windows.Forms.ComboBox();
+            this.cbJOBO = new System.Windows.Forms.ComboBox();
             this.label47 = new System.Windows.Forms.Label();
             this.cbDI = new System.Windows.Forms.ComboBox();
             this.label41 = new System.Windows.Forms.Label();
@@ -2124,7 +2124,7 @@
             this.basettstblayout1.Controls.Add(this.label13, 3, 4);
             this.basettstblayout1.Controls.Add(this.cbJOBS, 4, 2);
             this.basettstblayout1.Controls.Add(this.cbJOBL, 4, 3);
-            this.basettstblayout1.Controls.Add(this.comboBoxJobo, 4, 4);
+            this.basettstblayout1.Controls.Add(this.cbJOBO, 4, 4);
             this.basettstblayout1.Controls.Add(this.label47, 0, 7);
             this.basettstblayout1.Controls.Add(this.cbDI, 4, 5);
             this.basettstblayout1.Controls.Add(this.label41, 3, 5);
@@ -2962,15 +2962,15 @@
             this.cbJOBL.Size = new System.Drawing.Size(194, 20);
             this.cbJOBL.TabIndex = 17;
             // 
-            // comboBoxJobo
+            // cbJOBO
             // 
-            this.comboBoxJobo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.basettstblayout1.SetColumnSpan(this.comboBoxJobo, 2);
-            this.comboBoxJobo.FormattingEnabled = true;
-            this.comboBoxJobo.Location = new System.Drawing.Point(403, 116);
-            this.comboBoxJobo.Name = "comboBoxJobo";
-            this.comboBoxJobo.Size = new System.Drawing.Size(194, 20);
-            this.comboBoxJobo.TabIndex = 18;
+            this.cbJOBO.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.basettstblayout1.SetColumnSpan(this.cbJOBO, 2);
+            this.cbJOBO.FormattingEnabled = true;
+            this.cbJOBO.Location = new System.Drawing.Point(403, 116);
+            this.cbJOBO.Name = "cbJOBO";
+            this.cbJOBO.Size = new System.Drawing.Size(194, 20);
+            this.cbJOBO.TabIndex = 18;
             // 
             // label47
             // 
@@ -8172,7 +8172,7 @@
         private JBControls.TextBox textBoxADATE;
         private System.Windows.Forms.ComboBox comboBoxGroup;
         private System.Windows.Forms.ComboBox comboBoxCostType;
-        private System.Windows.Forms.ComboBox comboBoxJobo;
+        private System.Windows.Forms.ComboBox cbJOBO;
         private System.Windows.Forms.ComboBox comboBoxLesson;
         private System.Windows.Forms.Label label90;
         private System.Windows.Forms.Label label84;
