@@ -86,6 +86,7 @@ namespace JBHR.Bas
             cc.AddControl(cbJOBL);      //職等
             cc.AddControl(cbJOBS);      //職類
             cc.AddControl(cbJOB);       //職稱
+            cc.AddControl(cbJOBO); //職等
             cc.AddControl(cbDEPTA);     //簽核部門
             cc.AddControl(cbDEPTS);     //成本部門
             cc.AddControl(cbDEPT);      //編制部門
@@ -105,7 +106,7 @@ namespace JBHR.Bas
             SystemFunction.SetComboBoxItems(comboBoxDisabilityRank, CodeFunction.GetDisabilityRank(), true, false, true);//殘障身分
             SystemFunction.SetComboBoxItems(comboBoxDisabilityType, CodeFunction.GetDisabilityType(), true, false, true);//殘障類別
             SystemFunction.SetComboBoxItems(comboBoxGroup, CodeFunction.GetGroupType(), true, false, true);//組別
-            SystemFunction.SetComboBoxItems(comboBoxJobo, CodeFunction.GetJobo(), true, false, true);//職級
+            SystemFunction.SetComboBoxItems(cbJOBO, CodeFunction.GetJobo(), true, false, true);//職級
             SystemFunction.SetComboBoxItems(comboBoxLesson, CodeFunction.GetLessonType(), true, false, true);//職級
             SystemFunction.SetComboBoxItems(comboBoxResponsibility, CodeFunction.GetResponsibilityType(), true, false, true);//責任區別
             SystemFunction.SetComboBoxItems(cbCANDIDATES_WAYS, CodeFunction.GetCandidates_ways(), true, false, true);//錄取管道
@@ -434,7 +435,7 @@ namespace JBHR.Bas
                 comboBoxERP.SelectedValue = (BASETTSRow.IsOldSaladrNull()) ? "" : BASETTSRow.OldSaladr;
 
                 comboBoxGroup.SelectedValue = BASETTSRow.APGRPCD;
-                comboBoxJobo.SelectedValue = BASETTSRow.JOBO;
+                cbJOBO.SelectedValue = BASETTSRow.JOBO;
                 comboBoxResponsibility.SelectedValue = BASETTSRow.CARCD;
                 comboBoxLesson.SelectedValue = BASETTSRow.IsSTATIONNull() ? "" : BASETTSRow.STATION;
                 checkBoxNOTLATE.Checked = BASETTSRow.NOTLATE;
@@ -639,7 +640,7 @@ namespace JBHR.Bas
             comboBoxBonusGroup.SelectedValue = "";
             comboBoxERP.SelectedValue = "";
             comboBoxGroup.SelectedValue = "";
-            comboBoxJobo.SelectedValue = "";
+            cbJOBO.SelectedValue = "";
             comboBoxResponsibility.SelectedValue = "";
             comboBoxLesson.SelectedValue = "";
             checkBoxCOUNT_PASS.Checked = false;
@@ -933,7 +934,7 @@ namespace JBHR.Bas
             comboBoxERP.Enabled = is_enable;
             comboBoxCostType.Enabled = is_enable;
             comboBoxGroup.Enabled = is_enable;
-            comboBoxJobo.Enabled = is_enable;
+            cbJOBO.Enabled = is_enable;
             comboBoxResponsibility.Enabled = is_enable;
             txtCardID.Enabled = is_enable;
             cbDoorGuard.Enabled = is_enable;
@@ -2274,7 +2275,7 @@ namespace JBHR.Bas
                 e.Values["JOB"] = cbJOB.SelectedValue;
                 e.Values["JOBS"] = cbJOBS.SelectedValue;
                 e.Values["JOBL"] = cbJOBL.SelectedValue;
-                e.Values["JOBO"] = comboBoxJobo.SelectedValue;
+                e.Values["JOBO"] = cbJOBO.SelectedValue;
                 e.Values["DI"] = cbDI.SelectedValue;
                 e.Values["EMPCD"] = cbEMPCD.SelectedValue;
                 e.Values["CARD"] = cbxCard.SelectedValue;
