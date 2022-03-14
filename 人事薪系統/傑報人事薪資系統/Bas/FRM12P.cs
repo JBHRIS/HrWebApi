@@ -13,11 +13,16 @@ namespace JBHR.Bas
     {
         JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
         string Emp = "";
+        //CheckControl cc;//必要欄位檢察
         public FRM12P(string Nobr, DateTime Adate)
         {
             InitializeComponent();
             txtRoutDate.Text = Adate.ToShortDateString();
             txtOutDate.Text = Adate.ToShortDateString();
+            //cc.AddControl(comboBoxCode1);
+            SystemFunction.SetComboBoxItems(comboBoxCode1, CodeFunction.GetInsName(), false, true, true);
+            comboBoxCode1.SelectedValue = "4" +
+                "";
             Emp = Nobr;
         }
         private void bnSave_Click(object sender, EventArgs e)
@@ -50,6 +55,11 @@ namespace JBHR.Bas
                     {
                         MessageBox.Show(string.Format("退保日期輸入錯誤，不可小於最後一次異動日期 {0}", item.IN_DATE.ToShortDateString()));
                         return;
+                    }
+                    item.CODE1 = comboBoxCode1.SelectedValue.ToString();
+                    if (!string.IsNullOrEmpty( item.FA_IDNO))
+                    {
+                        item.CODE1 = "3";
                     }
                     item.OUT_DATE = item.IN_DATE > outDate? item.IN_DATE: outDate;
                     item.ROUT_DATE = item.IN_DATE > routDate ? item.IN_DATE : routDate;
