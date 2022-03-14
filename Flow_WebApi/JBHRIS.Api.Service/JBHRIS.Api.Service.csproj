@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\JBHRIS.Api.Dal.ezFlow\JBHRIS.Api.Dal.ezFlow.csproj" />
     <ProjectReference Include="..\JBHRIS.Api.Dal\JBHRIS.Api.Dal.csproj" />
     <ProjectReference Include="..\JBHRIS.Api.Dto\JBHRIS.Api.Dto.csproj" />
   </ItemGroup>

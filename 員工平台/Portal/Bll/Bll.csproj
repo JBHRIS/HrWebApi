@@ -145,6 +145,9 @@
     <Compile Include="Files\Vdb\UploadSingleFileVdb.cs" />
     <Compile Include="Files\Vdb\FilesByFileTicketVdb.cs" />
     <Compile Include="Flow\ucFormStd.cs" />
+    <Compile Include="Flow\Vdb\DownloadByAutoKeyVdb.cs" />
+    <Compile Include="Flow\Vdb\FileListByCodeVdb.cs" />
+    <Compile Include="Flow\Vdb\DeleteByAutoKeyVdb.cs" />
     <Compile Include="Flow\Vdb\FlowImageVdb.cs" />
     <Compile Include="Flow\Vdb\FormAppShiftLongVdb.cs" />
     <Compile Include="Flow\Vdb\FormAppShiftShortVdb.cs" />
@@ -164,6 +167,8 @@
     <Compile Include="Flow\Vdb\RoleVdb.cs" />
     <Compile Include="Flow\Vdb\FlowImageByidProcessVdb.cs" />
     <Compile Include="Flow\Vdb\SysVarVdb.cs" />
+    <Compile Include="Flow\Vdb\SaveInPostedFileBaseVdb.cs" />
+    <Compile Include="Flow\Vdb\SaveVdb.cs" />
     <Compile Include="Flow\Vdb\UserFormAssignVdb.cs" />
     <Compile Include="FormView\Vdb\FormViewVdb.cs" />
     <Compile Include="Index\Vdb\IndexVdb.cs" />

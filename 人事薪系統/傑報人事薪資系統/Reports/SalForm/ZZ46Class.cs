@@ -684,6 +684,7 @@ namespace JBHR.Reports.SalForm
              foreach (DataRow Row in SRow1)    //Select("cnt>=6", "dept,nobr asc")MedianMon
              {
                  Row["YMedian"] = Math.Round((decimal.Parse(Row["RegularEarnings"].ToString()) / decimal.Parse(Row["cnt"].ToString())) * 12M, MidpointRounding.AwayFromZero);
+                 Row["YIrregularEarning"] = Math.Round((decimal.Parse(Row["IrregularEarning"].ToString()) / decimal.Parse(Row["cnt"].ToString())) * 12M, MidpointRounding.AwayFromZero);
                  Row["Yamt"] = int.Parse(Row["IrregularEarning"].ToString()) + int.Parse(Row["YMedian"].ToString());
                  DT_zz465.ImportRow(Row);
              }
@@ -1029,7 +1030,7 @@ namespace JBHR.Reports.SalForm
             JBHR.Reports.ReportClass.Export(ExporDt, FileName);
         }
 
-        public static void ExPort9(DataTable DT_465, string FileName)
+        public static void ExPort9(DataTable DT_465, string FileName, string yymm_b, string yymm_e, string seq_b, string seq_e, string saladr)
         {
             DataTable ExporDt = new DataTable();
             ExporDt.Columns.Add("部門代碼", typeof(string));
@@ -1037,40 +1038,242 @@ namespace JBHR.Reports.SalForm
             ExporDt.Columns.Add("職稱", typeof(string));
             ExporDt.Columns.Add("員工編號", typeof(string));
             ExporDt.Columns.Add("員工姓名", typeof(string));
-            ExporDt.Columns.Add("到職日期", typeof(DateTime));
-            ExporDt.Columns.Add("離職日期", typeof(DateTime));
+            ExporDt.Columns.Add("到職日期", typeof(string));
+            ExporDt.Columns.Add("離職日期", typeof(string));
             for (int i = 1; i < 13; i++)
             {
                 ExporDt.Columns.Add(i.ToString() + "月", typeof(int));
             }
-            ExporDt.Columns.Add("原始年薪金額", typeof(int));
-            ExporDt.Columns.Add("在職給薪月數", typeof(int));
-            ExporDt.Columns.Add("非經常性薪資", typeof(int));
-            ExporDt.Columns.Add("經常性薪資", typeof(int));
-            ExporDt.Columns.Add("經常性薪資(年化)", typeof(int));
-            ExporDt.Columns.Add("總薪資(年化)", typeof(int));
+            ExporDt.Columns.Add("在職給薪月數", typeof(string));
+
+            ExporDt.Columns.Add("經常性薪資", typeof(string));
+            ExporDt.Columns.Add("非經常性薪資", typeof(string));
+            ExporDt.Columns.Add("原始年薪金額", typeof(string));
+            ExporDt.Columns.Add("經常性薪資(年化)", typeof(string));
+            ExporDt.Columns.Add("總薪資(年化)", typeof(string));
+
+            //總人數
+            int Total_Count = 0;
+            //各月人數
+            int[] Month_Count = new int[12];
+            //各月人數加總總數
+            int Month_Count_Total = 0;
+            //各月總計
+            int[] Month_Total = new int[12];
+            for (int i = 1; i <= 12; i++)
+            {
+                Month_Count[i - 1] = 0;
+                Month_Total[i - 1] = 0;
+            }
+            //月數總計
+            int Total_Month = 0;
+            //年薪總計
+            int Year_Total = 0;
+            //非經常總計
+            int I_Total = 0;
+            //經常總計
+            int R_Total = 0;
+            //總薪年化總計
+            int Estimated_Year = 0;
+            //非經常年化總計
+            int Estimated_I = 0;
+            //經常年化總計
+            int Estimated_R = 0;
+
+
+
             foreach (DataRow Row01 in DT_465.Rows)
             {
+                Total_Count = Total_Count + 1;
+
                 DataRow aRow = ExporDt.NewRow();
                 aRow["部門代碼"] = Row01["dept"].ToString();
                 aRow["部門名稱"] = Row01["d_name"].ToString();
                 aRow["職稱"] = Row01["job_name"].ToString();
                 aRow["員工編號"] = Row01["nobr"].ToString();
                 aRow["員工姓名"] = Row01["name_c"].ToString();
-                aRow["到職日期"] = DateTime.Parse(Row01["indt"].ToString());
-                if (!Row01.IsNull("oudt")) aRow["離職日期"] = DateTime.Parse(Row01["oudt"].ToString());
-                for (int i = 1; i < 13; i++)
+                aRow["到職日期"] = DateTime.Parse(Row01["indt"].ToString()).ToString("yyyy/MM/dd");
+                if (!Row01.IsNull("oudt")) 
+                    aRow["離職日期"] = DateTime.Parse(Row01["oudt"].ToString()).ToString("yyyy/MM/dd");
+                for (int i = 1; i <= 12; i++)
                 {
                     aRow[i.ToString() + "月"] = int.Parse(Row01["C_" + i.ToString().PadLeft(2, '0')].ToString());
+
+                    if(int.Parse(Row01["C_" + i.ToString().PadLeft(2, '0')].ToString()) != 0)
+                    {
+                        Month_Count[i - 1] = Month_Count[i - 1] + 1;
+                        Month_Total[i - 1] = Month_Total[i - 1] + int.Parse(Row01["C_" + i.ToString().PadLeft(2, '0')].ToString());
+                    }
                 }
-                aRow["原始年薪金額"] = int.Parse(Row01["Csum"].ToString());
                 aRow["在職給薪月數"] = int.Parse(Row01["cnt"].ToString());
-                aRow["非經常性薪資"] = int.Parse(Row01["IrregularEarning"].ToString());
+                Total_Month = Total_Month + int.Parse(Row01["cnt"].ToString());
+
                 aRow["經常性薪資"] = int.Parse(Row01["RegularEarnings"].ToString());
+                R_Total = R_Total + int.Parse(Row01["RegularEarnings"].ToString());
+
+                aRow["非經常性薪資"] = int.Parse(Row01["IrregularEarning"].ToString());
+                I_Total = I_Total + int.Parse(Row01["IrregularEarning"].ToString());
+
+                aRow["原始年薪金額"] = int.Parse(Row01["Csum"].ToString());
+                Year_Total = Year_Total + int.Parse(Row01["Csum"].ToString());
+
+                //aRow["非經常性薪資(年化)"] = int.Parse(Row01["YIrregularEarning"].ToString());
+                //Estimated_I = Estimated_I + int.Parse(Row01["YIrregularEarning"].ToString());
+
                 aRow["經常性薪資(年化)"] = int.Parse(Row01["YMedian"].ToString());
+                Estimated_R = Estimated_R + int.Parse(Row01["YMedian"].ToString());
+
                 aRow["總薪資(年化)"] = int.Parse(Row01["Yamt"].ToString());
+                Estimated_Year = Estimated_Year + int.Parse(Row01["Yamt"].ToString());
+
                 ExporDt.Rows.Add(aRow);
             }
+
+            //第一欄
+            DataRow aRow_1st = ExporDt.NewRow();
+            aRow_1st["職稱"] = "人數總計";
+            aRow_1st["員工編號"] = Total_Count;
+
+            aRow_1st["離職日期"] = "總計";
+            for (int i = 1; i <= 12; i++)
+            {
+                aRow_1st[i.ToString() + "月"] = Month_Total[i - 1];
+            }
+            aRow_1st["在職給薪月數"] = Total_Month;
+            aRow_1st["經常性薪資"] = R_Total;
+            aRow_1st["非經常性薪資"] = I_Total;
+            aRow_1st["原始年薪金額"] = Year_Total;
+            //aRow_1st["非經常性薪資(年化)"] = Estimated_I;
+            aRow_1st["經常性薪資(年化)"] = Estimated_R;
+            aRow_1st["總薪資(年化)"] = Estimated_Year;
+
+            ExporDt.Rows.Add(aRow_1st);
+
+            //第二欄
+            DataRow aRow_2nd = ExporDt.NewRow();
+            aRow_2nd["離職日期"] = "各月人數";
+            for (int i = 1; i <= 12; i++)
+            {
+                aRow_2nd[i.ToString() + "月"] = Month_Count[i - 1];
+
+                ////判斷是否跨年
+                //if(int.Parse(yymm_b.Substring(0, 4)) < int.Parse(yymm_e.Substring(0, 4)))
+                //{
+                //    //若起算年月小於等於12月
+                //    if(int.Parse(yymm_b.Substring(4, 2)) - 1 + i <= 12)
+                //    {
+                //        //計算平均人數（有發薪的月份才算）
+                //        if (JBHR.Reports.ReportClass.GetTranDateSeqArea(yymm_e.Substring(0, 4) + i.ToString().PadLeft(2, '0'), seq_b, seq_e, saladr).Rows.Count != 0)
+                //        {
+                //            Month_Count_Total = Month_Count_Total + Month_Count[i - 1];
+                //        }
+                //    }
+                //    else
+                //    {
+                //        //計算平均人數（有發薪的月份才算）
+                //        if (JBHR.Reports.ReportClass.GetTranDateSeqArea(yymm_b.Substring(0, 4) + i.ToString().PadLeft(2, '0'), seq_b, seq_e, saladr).Rows.Count != 0)
+                //        {
+                //            Month_Count_Total = Month_Count_Total + Month_Count[i - 1];
+                //        }
+                //    }
+                //}
+                //else
+                //{
+                //    //計算平均人數（有發薪的月份才算）
+                //    if (JBHR.Reports.ReportClass.GetTranDateSeqArea(yymm_b.Substring(0, 4) + i.ToString().PadLeft(2, '0'), seq_b, seq_e, saladr).Rows.Count != 0)
+                //    {
+                        Month_Count_Total = Month_Count_Total + Month_Count[i - 1];
+                //    }
+                //}
+            }
+            aRow_2nd["在職給薪月數"] = "平均人數";
+            aRow_2nd["經常性薪資"] = "平均經常性年薪";
+            aRow_2nd["非經常性薪資"] = "平均非經常性年薪";
+            aRow_2nd["原始年薪金額"] = "平均年薪";
+            //aRow_2nd["非經常性薪資(年化)"] = "平均非經常性年薪";
+            aRow_2nd["經常性薪資(年化)"] = "平均經常性薪資（年化）";
+            aRow_2nd["總薪資(年化)"] = "平均總薪資（年化）";
+
+            ExporDt.Rows.Add(aRow_2nd);
+
+            //第三欄
+            DataRow aRow_3rd = ExporDt.NewRow();
+            aRow_3rd["離職日期"] = "平均薪資";
+            for (int i = 1; i <= 12; i++)
+            {
+                if (Month_Total[i - 1] == 0)
+                {
+                    aRow_3rd[i.ToString() + "月"] = 0;
+                }
+                else
+                {
+                    aRow_3rd[i.ToString() + "月"] = Math.Round((Month_Total[i - 1] / decimal.Parse(Month_Count[i - 1].ToString())), 2);
+                }
+            }
+
+            //平均人數
+            if (Month_Count_Total == 0) 
+            {
+                aRow_3rd["在職給薪月數"] = 0;
+            }
+            else
+            {
+                aRow_3rd["在職給薪月數"] = Math.Round((decimal.Parse(Month_Count_Total.ToString()) / 12), 2);
+            }
+
+            if (R_Total == 0)
+            {
+                aRow_3rd["經常性薪資"] = 0;
+            }
+            else
+            {
+                //aRow_3rd["經常性薪資"] = Math.Round((R_Total / decimal.Parse(Total_Month.ToString())), 2);
+                aRow_3rd["經常性薪資"] = Math.Round((R_Total / decimal.Parse(aRow_3rd["在職給薪月數"].ToString())), 2);
+            }
+
+            if (I_Total == 0)
+            {
+                aRow_3rd["非經常性薪資"] = 0;
+            }
+            else
+            {
+                //aRow_3rd["非經常性薪資"] = Math.Round((I_Total / decimal.Parse(Total_Month.ToString())), 2);
+                aRow_3rd["非經常性薪資"] = Math.Round((I_Total / decimal.Parse(aRow_3rd["在職給薪月數"].ToString())), 2);
+            }
+
+            //平均年薪
+            if (Year_Total == 0)
+            {
+                aRow_3rd["原始年薪金額"] = 0;
+            }
+            else
+            {
+                //aRow_3rd["原始年薪金額"] = Math.Round((Year_Total / decimal.Parse(Total_Month.ToString())), 2);
+                aRow_3rd["原始年薪金額"] = Math.Round((Year_Total / decimal.Parse(aRow_3rd["在職給薪月數"].ToString())), 2);
+            }
+
+            if (Estimated_R == 0)
+            {
+                aRow_3rd["經常性薪資(年化)"] = 0;
+            }
+            else
+            {
+                //aRow_3rd["經常性薪資(年化)"] = Math.Round((Estimated_R / decimal.Parse(Total_Count.ToString())), 2);
+                aRow_3rd["經常性薪資(年化)"] = Math.Round((Estimated_R / decimal.Parse(aRow_3rd["在職給薪月數"].ToString())), 2);
+            }
+
+            if (Estimated_Year == 0)
+            {
+                aRow_3rd["總薪資(年化)"] = 0;
+            }
+            else
+            {
+                //aRow_3rd["總薪資(年化)"] = Math.Round((Estimated_Year / decimal.Parse(Total_Count.ToString())), 2);
+                aRow_3rd["總薪資(年化)"] = Math.Round((Estimated_Year / decimal.Parse(aRow_3rd["在職給薪月數"].ToString())), 2);
+            }
+
+            ExporDt.Rows.Add(aRow_3rd);
+
             JBHR.Reports.ReportClass.Export(ExporDt, FileName);
         }
     }

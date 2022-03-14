@@ -1,8 +1,10 @@
 ﻿using Bll.Employee.Vdb;
 using Bll.Files.Vdb;
+using Bll.Flow.Vdb;
 using Bll.Tools;
 using Dal.Dao.Employee;
 using Dal.Dao.Files;
+using Dal.Dao.Flow;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -80,7 +82,7 @@ namespace Portal
             }
 
             var bytes = Convert.FromBase64String(FileInfo);
-            HttpPostedFileBase objFile = (HttpPostedFileBase)new MemoryPostedFile(bytes, "Pic", "application/pdf");
+            HttpPostedFileBase objFile = (HttpPostedFileBase)new MemoryPostedFile(bytes, "Pic.pdf", "application/pdf");
             
             //var oImportAttend = new ImportAttendExcelCoverDao();
             //var ImportAttendCond = new ImportAttendExcelCoverConditions();
@@ -91,15 +93,25 @@ namespace Portal
             //ImportAttendCond.file = objFile;
 
             //var Result = oImportAttend.GetData(ImportAttendCond);
-            var oUploadMultipleDao = new UploadMultipleInPostedFileBaseDao();
-            var UploadMultipleCond = new UploadMultipleInPostedFileBaseConditions();
-            UploadMultipleCond.AccessToken = _User.AccessToken;
-            UploadMultipleCond.RefreshToken = _User.RefreshToken;
-            UploadMultipleCond.CompanySetting = CompanySetting;
-            UploadMultipleCond.FileTicket = FileTicket;
-            UploadMultipleCond.files = objFile;
-            var Result = oUploadMultipleDao.GetData(UploadMultipleCond);
+            //var oUploadMultipleDao = new UploadMultipleInPostedFileBaseDao();
+            //var UploadMultipleCond = new UploadMultipleInPostedFileBaseConditions();
+            //UploadMultipleCond.AccessToken = _User.AccessToken;
+            //UploadMultipleCond.RefreshToken = _User.RefreshToken;
+            //UploadMultipleCond.CompanySetting = CompanySetting;
+            //UploadMultipleCond.FileTicket = FileTicket;
+            //UploadMultipleCond.files = objFile;
+            // = oUploadMultipleDao.GetData(UploadMultipleCond);
 
+            var oSaveInPostedFileBaseDao = new SaveInPostedFileBaseDao();
+            var SaveInPostedFileBaseCond = new SaveInPostedFileBaseConditions();
+            SaveInPostedFileBaseCond.AccessToken = _User.AccessToken;
+            SaveInPostedFileBaseCond.RefreshToken = _User.RefreshToken;
+            SaveInPostedFileBaseCond.CompanySetting = CompanySetting;
+            SaveInPostedFileBaseCond.Company = CompanySetting.AccountCode;
+            SaveInPostedFileBaseCond.Code = FileTicket;
+            SaveInPostedFileBaseCond.InsertMan = _User.EmpName;
+            SaveInPostedFileBaseCond.files = objFile;
+            var Result = oSaveInPostedFileBaseDao.GetData(SaveInPostedFileBaseCond);
             //if (Result.Status)
             //{
 

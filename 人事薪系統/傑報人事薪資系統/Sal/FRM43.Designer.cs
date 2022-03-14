@@ -648,9 +648,9 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(17, 4);
+            this.label1.Location = new System.Drawing.Point(44, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 18);
+            this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "薪資代碼";
             // 
@@ -680,9 +680,9 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(17, 31);
+            this.label2.Location = new System.Drawing.Point(44, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 18);
+            this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 10;
             this.label2.Text = "薪資名稱";
             // 
@@ -713,9 +713,9 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(17, 54);
+            this.label3.Location = new System.Drawing.Point(20, 61);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 27);
+            this.label3.Size = new System.Drawing.Size(77, 12);
             this.label3.TabIndex = 12;
             this.label3.Text = "英文薪資名稱";
             // 
@@ -746,9 +746,9 @@
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(17, 81);
+            this.label15.Location = new System.Drawing.Point(20, 88);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(80, 27);
+            this.label15.Size = new System.Drawing.Size(77, 12);
             this.label15.TabIndex = 12;
             this.label15.Text = "越文薪資名稱";
             // 
@@ -760,7 +760,7 @@
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(103, 192);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(198, 26);
+            this.comboBox4.Size = new System.Drawing.Size(198, 20);
             this.comboBox4.TabIndex = 7;
             // 
             // textBox9
@@ -793,7 +793,7 @@
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(103, 165);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(196, 26);
+            this.comboBox3.Size = new System.Drawing.Size(196, 20);
             this.comboBox3.TabIndex = 6;
             // 
             // label4
@@ -801,9 +801,9 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(17, 112);
+            this.label4.Location = new System.Drawing.Point(44, 115);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 18);
+            this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 14;
             this.label4.Text = "薪資屬性";
             // 
@@ -815,7 +815,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(103, 138);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(196, 26);
+            this.comboBox2.Size = new System.Drawing.Size(196, 20);
             this.comboBox2.TabIndex = 5;
             // 
             // comboBox1
@@ -826,7 +826,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(103, 111);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(196, 26);
+            this.comboBox1.Size = new System.Drawing.Size(196, 20);
             this.comboBox1.TabIndex = 4;
             // 
             // label5
@@ -834,9 +834,9 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(17, 139);
+            this.label5.Location = new System.Drawing.Point(44, 142);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 18);
+            this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 16;
             this.label5.Text = "計算方式";
             // 
@@ -845,9 +845,9 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(17, 166);
+            this.label6.Location = new System.Drawing.Point(44, 169);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 18);
+            this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 18;
             this.label6.Text = "計算單位";
             // 
@@ -856,9 +856,9 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(17, 193);
+            this.label7.Location = new System.Drawing.Point(44, 196);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(80, 18);
+            this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 20;
             this.label7.Text = "月給總額";
             // 
@@ -867,9 +867,9 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(17, 220);
+            this.label8.Location = new System.Drawing.Point(44, 223);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(80, 18);
+            this.label8.Size = new System.Drawing.Size(53, 12);
             this.label8.TabIndex = 22;
             this.label8.Text = "自訂天數";
             // 
@@ -899,9 +899,9 @@
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(17, 243);
+            this.label16.Location = new System.Drawing.Point(20, 251);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(80, 28);
+            this.label16.Size = new System.Drawing.Size(77, 12);
             this.label16.TabIndex = 26;
             this.label16.Text = "計算參數類別";
             // 
@@ -911,9 +911,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.comboBox7, 2);
             this.comboBox7.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.sALCODEBindingSource, "SALBASE", true));
             this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(103, 246);
+            this.comboBox7.Location = new System.Drawing.Point(103, 247);
             this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(175, 26);
+            this.comboBox7.Size = new System.Drawing.Size(175, 20);
             this.comboBox7.TabIndex = 16;
             // 
             // label9
@@ -921,9 +921,9 @@
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(324, 243);
+            this.label9.Location = new System.Drawing.Point(333, 251);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(62, 28);
+            this.label9.Size = new System.Drawing.Size(53, 12);
             this.label9.TabIndex = 24;
             this.label9.Text = "會計科目";
             // 
@@ -933,9 +933,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.comboBox5, 2);
             this.comboBox5.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.sALCODEBindingSource, "ACCCD", true));
             this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(392, 246);
+            this.comboBox5.Location = new System.Drawing.Point(392, 247);
             this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(175, 26);
+            this.comboBox5.Size = new System.Drawing.Size(175, 20);
             this.comboBox5.TabIndex = 17;
             // 
             // label10
@@ -943,9 +943,9 @@
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(324, 216);
+            this.label10.Location = new System.Drawing.Point(333, 223);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(62, 27);
+            this.label10.Size = new System.Drawing.Size(53, 12);
             this.label10.TabIndex = 26;
             this.label10.Text = "計算公式";
             // 
@@ -957,7 +957,7 @@
             this.comboBox6.FormattingEnabled = true;
             this.comboBox6.Location = new System.Drawing.Point(392, 219);
             this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(175, 26);
+            this.comboBox6.Size = new System.Drawing.Size(175, 20);
             this.comboBox6.TabIndex = 9;
             // 
             // label11
@@ -965,9 +965,9 @@
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(409, 0);
+            this.label11.Location = new System.Drawing.Point(418, 7);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(62, 27);
+            this.label11.Size = new System.Drawing.Size(53, 12);
             this.label11.TabIndex = 28;
             this.label11.Text = "請假時數";
             // 
@@ -997,9 +997,9 @@
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(409, 27);
+            this.label12.Location = new System.Drawing.Point(418, 34);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(62, 27);
+            this.label12.Size = new System.Drawing.Size(53, 12);
             this.label12.TabIndex = 30;
             this.label12.Text = "固定稅率";
             // 
@@ -1029,9 +1029,9 @@
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(409, 54);
+            this.label13.Location = new System.Drawing.Point(418, 61);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(62, 27);
+            this.label13.Size = new System.Drawing.Size(53, 12);
             this.label13.TabIndex = 32;
             this.label13.Text = "最大金額";
             // 
@@ -1061,9 +1061,9 @@
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(409, 81);
+            this.label14.Location = new System.Drawing.Point(418, 88);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(62, 27);
+            this.label14.Size = new System.Drawing.Size(53, 12);
             this.label14.TabIndex = 34;
             this.label14.Text = "最小金額";
             // 
@@ -1093,9 +1093,9 @@
             this.label17.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label17.AutoSize = true;
             this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(427, 112);
+            this.label17.Location = new System.Drawing.Point(442, 115);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(44, 18);
+            this.label17.Size = new System.Drawing.Size(29, 12);
             this.label17.TabIndex = 34;
             this.label17.Text = "期別";
             // 
@@ -1125,9 +1125,9 @@
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(427, 139);
+            this.label18.Location = new System.Drawing.Point(442, 142);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(44, 18);
+            this.label18.Size = new System.Drawing.Size(29, 12);
             this.label18.TabIndex = 51;
             this.label18.Text = "排序";
             // 
@@ -1159,9 +1159,9 @@
             this.checkBox1.CaptionLabel = null;
             this.checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.sALCODEBindingSource, "DAILY", true));
             this.checkBox1.IsImitateCaption = true;
-            this.checkBox1.Location = new System.Drawing.Point(573, 3);
+            this.checkBox1.Location = new System.Drawing.Point(573, 5);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(70, 21);
+            this.checkBox1.Size = new System.Drawing.Size(48, 16);
             this.checkBox1.TabIndex = 36;
             this.checkBox1.TabStop = false;
             this.checkBox1.Text = "日薪";
@@ -1174,9 +1174,9 @@
             this.checkBox9.CaptionLabel = null;
             this.checkBox9.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.sALCODEBindingSource, "ABSPAY", true));
             this.checkBox9.IsImitateCaption = true;
-            this.checkBox9.Location = new System.Drawing.Point(677, 3);
+            this.checkBox9.Location = new System.Drawing.Point(677, 5);
             this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(100, 21);
+            this.checkBox9.Size = new System.Drawing.Size(84, 16);
             this.checkBox9.TabIndex = 42;
             this.checkBox9.TabStop = false;
             this.checkBox9.Text = "不休假獎金";
@@ -1189,9 +1189,9 @@
             this.checkBox2.CaptionLabel = null;
             this.checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.sALCODEBindingSource, "ADVPAY", true));
             this.checkBox2.IsImitateCaption = true;
-            this.checkBox2.Location = new System.Drawing.Point(573, 30);
+            this.checkBox2.Location = new System.Drawing.Point(573, 32);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(70, 21);
+            this.checkBox2.Size = new System.Drawing.Size(48, 16);
             this.checkBox2.TabIndex = 37;
             this.checkBox2.TabStop = false;
             this.checkBox2.Text = "借支";
@@ -1204,9 +1204,9 @@
             this.checkBox8.CaptionLabel = null;
             this.checkBox8.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.sALCODEBindingSource, "RETIRE", true));
             this.checkBox8.IsImitateCaption = true;
-            this.checkBox8.Location = new System.Drawing.Point(677, 30);
+            this.checkBox8.Location = new System.Drawing.Point(677, 32);
             this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(100, 21);
+            this.checkBox8.Size = new System.Drawing.Size(84, 16);
             this.checkBox8.TabIndex = 43;
             this.checkBox8.TabStop = false;
             this.checkBox8.Text = "退休金提撥";
@@ -1219,9 +1219,9 @@
             this.checkBox3.CaptionLabel = null;
             this.checkBox3.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.sALCODEBindingSource, "WEL", true));
             this.checkBox3.IsImitateCaption = true;
-            this.checkBox3.Location = new System.Drawing.Point(573, 57);
+            this.checkBox3.Location = new System.Drawing.Point(573, 59);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(88, 21);
+            this.checkBox3.Size = new System.Drawing.Size(60, 16);
             this.checkBox3.TabIndex = 38;
             this.checkBox3.TabStop = false;
             this.checkBox3.Text = "福利金";
@@ -1234,9 +1234,9 @@
             this.checkBox7.CaptionLabel = null;
             this.checkBox7.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.sALCODEBindingSource, "YEARPAY", true));
             this.checkBox7.IsImitateCaption = true;
-            this.checkBox7.Location = new System.Drawing.Point(677, 57);
+            this.checkBox7.Location = new System.Drawing.Point(677, 59);
             this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(100, 21);
+            this.checkBox7.Size = new System.Drawing.Size(96, 16);
             this.checkBox7.TabIndex = 44;
             this.checkBox7.TabStop = false;
             this.checkBox7.Text = "年終獎金提撥";
@@ -1249,9 +1249,9 @@
             this.checkBox6.CaptionLabel = null;
             this.checkBox6.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.sALCODEBindingSource, "OT", true));
             this.checkBox6.IsImitateCaption = true;
-            this.checkBox6.Location = new System.Drawing.Point(573, 84);
+            this.checkBox6.Location = new System.Drawing.Point(573, 86);
             this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(70, 21);
+            this.checkBox6.Size = new System.Drawing.Size(48, 16);
             this.checkBox6.TabIndex = 39;
             this.checkBox6.TabStop = false;
             this.checkBox6.Text = "加班";
@@ -1264,9 +1264,9 @@
             this.checkBox12.CaptionLabel = null;
             this.checkBox12.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.sALCODEBindingSource, "INSLAB", true));
             this.checkBox12.IsImitateCaption = true;
-            this.checkBox12.Location = new System.Drawing.Point(677, 84);
+            this.checkBox12.Location = new System.Drawing.Point(677, 86);
             this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(100, 21);
+            this.checkBox12.Size = new System.Drawing.Size(96, 16);
             this.checkBox12.TabIndex = 45;
             this.checkBox12.TabStop = false;
             this.checkBox12.Text = "勞健保投保額";
@@ -1279,9 +1279,9 @@
             this.checkBox5.CaptionLabel = null;
             this.checkBox5.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.sALCODEBindingSource, "ATT", true));
             this.checkBox5.IsImitateCaption = true;
-            this.checkBox5.Location = new System.Drawing.Point(573, 111);
+            this.checkBox5.Location = new System.Drawing.Point(573, 113);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(70, 21);
+            this.checkBox5.Size = new System.Drawing.Size(48, 16);
             this.checkBox5.TabIndex = 40;
             this.checkBox5.TabStop = false;
             this.checkBox5.Text = "全勤";
@@ -1294,9 +1294,9 @@
             this.checkBox11.CaptionLabel = null;
             this.checkBox11.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.sALCODEBindingSource, "NOTFREQ", true));
             this.checkBox11.IsImitateCaption = true;
-            this.checkBox11.Location = new System.Drawing.Point(677, 111);
+            this.checkBox11.Location = new System.Drawing.Point(677, 113);
             this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(100, 21);
+            this.checkBox11.Size = new System.Drawing.Size(96, 16);
             this.checkBox11.TabIndex = 46;
             this.checkBox11.TabStop = false;
             this.checkBox11.Text = "非經常性薪資";
@@ -1309,9 +1309,9 @@
             this.checkBox4.CaptionLabel = null;
             this.checkBox4.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.sALCODEBindingSource, "FORCASH", true));
             this.checkBox4.IsImitateCaption = true;
-            this.checkBox4.Location = new System.Drawing.Point(573, 138);
+            this.checkBox4.Location = new System.Drawing.Point(573, 140);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(98, 21);
+            this.checkBox4.Size = new System.Drawing.Size(72, 16);
             this.checkBox4.TabIndex = 41;
             this.checkBox4.TabStop = false;
             this.checkBox4.Text = "外勞現金";
@@ -1324,9 +1324,9 @@
             this.checkBox10.CaptionLabel = null;
             this.checkBox10.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.sALCODEBindingSource, "FORBANK", true));
             this.checkBox10.IsImitateCaption = true;
-            this.checkBox10.Location = new System.Drawing.Point(677, 138);
+            this.checkBox10.Location = new System.Drawing.Point(677, 140);
             this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(100, 21);
+            this.checkBox10.Size = new System.Drawing.Size(72, 16);
             this.checkBox10.TabIndex = 47;
             this.checkBox10.TabStop = false;
             this.checkBox10.Text = "外勞轉帳";
@@ -1339,9 +1339,9 @@
             this.checkBox14.CaptionLabel = null;
             this.checkBox14.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.sALCODEBindingSource, "SALBASD1", true));
             this.checkBox14.IsImitateCaption = true;
-            this.checkBox14.Location = new System.Drawing.Point(573, 165);
+            this.checkBox14.Location = new System.Drawing.Point(573, 167);
             this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(98, 21);
+            this.checkBox14.Size = new System.Drawing.Size(96, 16);
             this.checkBox14.TabIndex = 48;
             this.checkBox14.TabStop = false;
             this.checkBox14.Text = "變動薪資基礎";
@@ -1354,9 +1354,9 @@
             this.checkBox13.CaptionLabel = null;
             this.checkBox13.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.sALCODEBindingSource, "OLDRETIRE", true));
             this.checkBox13.IsImitateCaption = true;
-            this.checkBox13.Location = new System.Drawing.Point(677, 165);
+            this.checkBox13.Location = new System.Drawing.Point(677, 167);
             this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(100, 21);
+            this.checkBox13.Size = new System.Drawing.Size(96, 16);
             this.checkBox13.TabIndex = 41;
             this.checkBox13.TabStop = false;
             this.checkBox13.Text = "勞退舊制提撥";
@@ -1369,9 +1369,9 @@
             this.checkBox15.CaptionLabel = null;
             this.checkBox15.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.sALCODEBindingSource, "SUP", true));
             this.checkBox15.IsImitateCaption = true;
-            this.checkBox15.Location = new System.Drawing.Point(573, 192);
+            this.checkBox15.Location = new System.Drawing.Point(573, 194);
             this.checkBox15.Name = "checkBox15";
-            this.checkBox15.Size = new System.Drawing.Size(98, 21);
+            this.checkBox15.Size = new System.Drawing.Size(72, 16);
             this.checkBox15.TabIndex = 49;
             this.checkBox15.TabStop = false;
             this.checkBox15.Text = "補充保費";
@@ -1384,9 +1384,9 @@
             this.checkBox16.CaptionLabel = null;
             this.checkBox16.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.sALCODEBindingSource, "NOTFREQSEQ", true));
             this.checkBox16.IsImitateCaption = true;
-            this.checkBox16.Location = new System.Drawing.Point(677, 192);
+            this.checkBox16.Location = new System.Drawing.Point(677, 194);
             this.checkBox16.Name = "checkBox16";
-            this.checkBox16.Size = new System.Drawing.Size(100, 21);
+            this.checkBox16.Size = new System.Drawing.Size(96, 16);
             this.checkBox16.TabIndex = 46;
             this.checkBox16.TabStop = false;
             this.checkBox16.Text = "非經常性期別";
@@ -1399,9 +1399,9 @@
             this.chkImportSEQ2.CaptionLabel = null;
             this.chkImportSEQ2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.sALCODEBindingSource, "ImportSEQ2", true));
             this.chkImportSEQ2.IsImitateCaption = true;
-            this.chkImportSEQ2.Location = new System.Drawing.Point(573, 219);
+            this.chkImportSEQ2.Location = new System.Drawing.Point(573, 221);
             this.chkImportSEQ2.Name = "chkImportSEQ2";
-            this.chkImportSEQ2.Size = new System.Drawing.Size(97, 21);
+            this.chkImportSEQ2.Size = new System.Drawing.Size(66, 16);
             this.chkImportSEQ2.TabIndex = 52;
             this.chkImportSEQ2.TabStop = false;
             this.chkImportSEQ2.Text = "轉至B帳";
@@ -1462,7 +1462,7 @@
             this.fullDataCtrl1.SelectCmd = "";
             this.fullDataCtrl1.ShowExceptionMsg = true;
             this.fullDataCtrl1.Size = new System.Drawing.Size(784, 73);
-            this.fullDataCtrl1.SortFields = "sal_code,sal_name";
+            this.fullDataCtrl1.SortFields = "sal_code_disp";
             this.fullDataCtrl1.TabIndex = 3;
             this.fullDataCtrl1.WhereCmd = "";
             this.fullDataCtrl1.AfterAdd += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterAdd);
@@ -1537,7 +1537,7 @@
             // 
             // FRM43
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.splitContainer1);

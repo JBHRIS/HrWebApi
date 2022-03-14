@@ -53,6 +53,7 @@ namespace Flow_WebApi
             services.AddScoped<JBHRIS.Api.Service.Interface.System.IFormsAppShiftLongInterface, JBHRIS.Api.Service.Implement.System.FormsAppShiftLongService>();
             services.AddScoped<JBHRIS.Api.Service.Interface.System.IFormsAppInfoInterface, JBHRIS.Api.Service.Implement.System.FormsAppInfoService>();
             services.AddScoped<JBHRIS.Api.Service.Interface.System.IProcessIdInterface, JBHRIS.Api.Service.Implement.System.ProcessIdService>();
+            services.AddScoped<JBHRIS.Api.Service.Interface.System.IShareUploadInterface, JBHRIS.Api.Service.Implement.System.ShareUploadService>();
             services.AddScoped<JBHRIS.Api.Service.Interface.System.ISysVarInterface, JBHRIS.Api.Service.Implement.System.SysVarService>();
             services.AddScoped<JBHRIS.Api.Service.Interface.System.IFlowControlInterface, JBHRIS.Api.Service.Implement.System.FlowControlService>();
             services.AddScoped<JBHRIS.Api.Service.Interface.System.QuestionDefaultMessageInterFace, JBHRIS.Api.Service.Implement.System.QuestionDefaultMessageService>();
@@ -91,6 +92,7 @@ namespace Flow_WebApi
             services.AddScoped<JBHRIS.Api.Dal.Interface.ISystem_FormsAppInfo_View, JBHRIS.Api.Dal.ezFlow.Implement.System_FormsAppInfo_View>();
             services.AddScoped<JBHRIS.Api.Dal.Interface.ISystem_FormsOT_View, JBHRIS.Api.Dal.ezFlow.Implement.System_FormsOT_View>();
             services.AddScoped<JBHRIS.Api.Dal.Interface.ISystem_ProcessId_View, JBHRIS.Api.Dal.ezFlow.Implement.System_ProcessId_View>();
+            services.AddScoped<JBHRIS.Api.Dal.ezEngineServices.Dao.IShareUploadDaoInterface, JBHRIS.Api.Dal.ezFlow.ezEngineServicesImplement.Dao.ShareUploadDao>();
             services.AddScoped<JBHRIS.Api.Dal.Interface.ISystem_SysVar_View, JBHRIS.Api.Dal.ezFlow.Implement.System_SysVar_View>();
             services.AddScoped<JBHRIS.Api.Dal.Interface.ISystem_FlowControl_View, JBHRIS.Api.Dal.ezFlow.Implement.System_FlowControl_View>();
             services.AddScoped<JBHRIS.Api.Dal.Interface.ISystem_QuestionDefaultMessage_View, JBHRIS.Api.Dal.ezFlow.Implement.System_QuestionDefaultMessage_View>();

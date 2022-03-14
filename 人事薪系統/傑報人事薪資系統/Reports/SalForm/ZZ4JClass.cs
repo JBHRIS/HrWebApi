@@ -388,7 +388,7 @@ namespace JBHR.Reports.SalForm
         }
 
 
-        public static void ExPort1(DataTable DT,string FileName)
+        public static void ExPort1(DataTable DT, string FileName, int Count_Number, decimal Avg_Amt)
         {
             DataTable ExporDt = new DataTable();
             ExporDt.Columns.Add("部門代碼", typeof(string));
@@ -434,6 +434,23 @@ namespace JBHR.Reports.SalForm
                 
                 ExporDt.Rows.Add(aRow);
             }
+
+            DataRow Row_Avg = ExporDt.NewRow();
+            //aRow["部門代碼"] = "";
+            //aRow["部門名稱"] = "";
+            //aRow["英文部門名稱"] = "";
+            //aRow["職稱"] = "";
+            Row_Avg["員工編號"] = "總人數";
+            Row_Avg["員工姓名"] = Count_Number;
+            //aRow["英文姓名"] = "";
+            //aRow["到職日期"] = DateTime.Parse(Row01["indt"].ToString());
+            //aRow["年資"] = decimal.Parse(Row01["i_year"].ToString());
+
+            //Row_Avg["薪資總額"] = "總平均薪資";
+            Row_Avg["平均薪資"] = Avg_Amt;
+
+            ExporDt.Rows.Add(Row_Avg);
+
             JBHR.Reports.ReportClass.Export(ExporDt, FileName);
         }
 
@@ -464,7 +481,7 @@ namespace JBHR.Reports.SalForm
             JBHR.Reports.ReportClass.Export(ExporDt, FileName);
         }
 
-        public static void ExPort3(DataTable DT, string FileName)
+        public static void ExPort3(DataTable DT, string FileName, int Count_Number, decimal Avg_Amt, decimal Avg_Amt_B)
         {
             DataTable ExporDt = new DataTable();
             ExporDt.Columns.Add("部門代碼", typeof(string));
@@ -498,6 +515,17 @@ namespace JBHR.Reports.SalForm
                 aRow["月本俸"] = int.Parse(Row01["a01amt"].ToString());
                 ExporDt.Rows.Add(aRow);
             }
+
+            DataRow Row_Avg = ExporDt.NewRow();
+
+            Row_Avg["員工編號"] = "總人數";
+            Row_Avg["員工姓名"] = Count_Number;
+
+            Row_Avg["職稱"] = "總平均";
+            Row_Avg["月薪"] = Avg_Amt;
+            Row_Avg["月本俸"] = Avg_Amt_B;
+            ExporDt.Rows.Add(Row_Avg);
+
             JBHR.Reports.ReportClass.Export(ExporDt, FileName);
         }
 

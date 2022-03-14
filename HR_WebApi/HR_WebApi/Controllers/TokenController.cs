@@ -96,7 +96,6 @@ namespace WebApiAuthDemo.Controllers
             ApiResult<string> ValidateUser = _userValidateService.ValidateAdUser(AdName);
             return Login(ValidateUser);
         }
-
         /// <summary>
         /// 共用Login方法
         /// </summary>
