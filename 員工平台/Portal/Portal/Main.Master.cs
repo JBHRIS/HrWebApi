@@ -87,8 +87,6 @@ namespace Portal
                     {
                         if (Request.Cookies["CompanyId"] != null && Request.Cookies["CompanyId"].Value != "")
                         {
-
-
                             var oShareCompany = new ShareCompanyDao();
                             var CompanySetting = oShareCompany.GetCompanySetting(Request.Cookies["CompanyId"].Value);
 
@@ -181,7 +179,8 @@ namespace Portal
             if (TimeCountDown != null)
             {
                 CountDown();
-                plCountDown.Visible = true;
+                if(TimeCountDown.Column1 != "1")
+                    plCountDown.Visible = true;
             }
             
             if (FormTitle != "")
@@ -223,6 +222,9 @@ namespace Portal
         {
             DateTime BalanceTime = new DateTime();
             int CountDownMin = 20;
+            var TimeCountDown = (from c in dcFlow.FormsExtend
+                                 where c.FormsCode == "Common" && c.Code == "TimeCountDown" && c.Active == true
+                                 select c).FirstOrDefault();
             if (!this.IsPostBack)
             {
                 BalanceTime = DateTime.Now.AddMinutes(CountDownMin);
@@ -243,8 +245,11 @@ namespace Portal
             }
             else
             {
-                string strMsg = "權限已到期，是否繼續?", strUrl_Yes = "", strUrl_No = "../Portal?Param=Logout";
-                ScriptManager.RegisterClientScriptBlock(this.UpdatePanel, typeof(UpdatePanel), "test", "if ( window.confirm('" + strMsg + "')) { } else {window.location.href='" + strUrl_No + "' };", true);
+                if (TimeCountDown.Column1 != "1")
+                {
+                    string strMsg = "權限已到期，是否繼續?", strUrl_Yes = "", strUrl_No = "../Portal?Param=Logout";
+                    ScriptManager.RegisterClientScriptBlock(this.UpdatePanel, typeof(UpdatePanel), "test", "if ( window.confirm('" + strMsg + "')) { } else {window.location.href='" + strUrl_No + "' };", true);
+                }
                 //Response.Write("<script Language='JavaScript'>if ( window.confirm('" + strMsg + "')) { window.location.href='" + strUrl_Yes +
                 //                        "' } else {window.location.href='" + strUrl_No + "' };</script>");
                 var userData = Request.Cookies[FormsAuthentication.FormsCookieName];
@@ -281,6 +286,10 @@ namespace Portal
                                 _User.RefreshToken = rSignin.RefreshToken;
                             }
                         }
+                        else
+                        {
+                            Response.Redirect("../Portal?Param=Logout");
+                        }
                         _AuthManager.SignIn(_User, _User.UserCode, CompanySetting);
                         BalanceTime = DateTime.Now.AddMinutes(CountDownMin);
                         UnobtrusiveSession.Session["BalanceTime"] = BalanceTime;
@@ -302,6 +311,8 @@ namespace Portal
                                 _User.RefreshToken = rSignin.RefreshToken;
                             }
                         }
+                        else
+                            Response.Redirect("../Portal?Param=Logout");
                         _AuthManager.SignIn(_User, _User.UserCode, CompanySetting);
                         BalanceTime = DateTime.Now.AddMinutes(CountDownMin);
                         UnobtrusiveSession.Session["BalanceTime"] = BalanceTime;
@@ -874,7 +885,7 @@ namespace Portal
             var btn = sender as RadButton;
             var lan = btn.CommandName;
             HttpContext.Current.Response.Cookies.Add(new HttpCookie("Language", lan));
-            Response.Redirect("Index.aspx");
+            Response.Redirect(Path.GetFileName(Request.PhysicalPath));
         }
 
         protected void btnReply_Click(object sender, EventArgs e)

@@ -177,6 +177,9 @@
     <Compile Include="Dao\File\UploadMultipleDao.cs" />
     <Compile Include="Dao\File\ImportAttendExcelCoverDao.cs" />
     <Compile Include="Dao\File\UploadSingleFileDao.cs" />
+    <Compile Include="Dao\Flow\DownloadFilesDao.cs" />
+    <Compile Include="Dao\Flow\FileListByCodeDao.cs" />
+    <Compile Include="Dao\Flow\DeleteByAutoKeyDao.cs" />
     <Compile Include="Dao\Flow\FlowImageDao.cs" />
     <Compile Include="Dao\Flow\FormGetFlowParmUrlDao.cs" />
     <Compile Include="Dao\Flow\FormGetFlowViewUrlDao.cs" />
@@ -195,6 +198,8 @@
     <Compile Include="Dao\Flow\RoleDao.cs" />
     <Compile Include="Dao\Flow\FlowImageByidProcessDao.cs" />
     <Compile Include="Dao\Flow\SysVarDao.cs" />
+    <Compile Include="Dao\Flow\SaveInPostedFileBaseDao.cs" />
+    <Compile Include="Dao\Flow\SaveDao.cs" />
     <Compile Include="Dao\Flow\UserFormAssignDao.cs" />
     <Compile Include="Dao\MainDao.cs" />
     <Compile Include="Dao\Menu\AllMenuDao.cs" />

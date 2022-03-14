@@ -10,6 +10,7 @@ namespace JBHRIS.Api.Dal.ezFlow.Entity.Share
         public int AutoKey { get; set; }
         public string SystemCode { get; set; }
         public string Code { get; set; }
+        public string CompanyId { get; set; }
         public string Key1 { get; set; }
         public string Key2 { get; set; }
         public string Key3 { get; set; }
