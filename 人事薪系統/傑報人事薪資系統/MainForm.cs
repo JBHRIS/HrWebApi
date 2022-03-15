@@ -1503,25 +1503,33 @@ namespace JBHR
                 return;
 
             ApplicationDeployment deploy = ApplicationDeployment.CurrentDeployment;
-            bool isUpdate = ApplicationDeployment.CurrentDeployment.CheckForUpdate();
-            if (isUpdate && (this._updateFlag == false))
+            try
             {
-                DialogResult updateResult = MessageBox.Show("線上有新的版本，是否馬上更新版本?", "更新通知", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                bool isUpdate = ApplicationDeployment.CurrentDeployment.CheckForUpdate();
+                if (isUpdate && (this._updateFlag == false))
+                {
+                    DialogResult updateResult = MessageBox.Show("線上有新的版本，是否馬上更新版本?", "更新通知", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-                if (updateResult == DialogResult.Yes)
-                {
-                    this._updateFlag = true;
-                    //this.timer1.Stop();
-                    deploy.UpdateProgressChanged += new DeploymentProgressChangedEventHandler(deploy_UpdateProgressChanged);
-                    deploy.UpdateCompleted += new AsyncCompletedEventHandler(deploy_UpdateCompleted);
-                    deploy.UpdateAsync();
+                    if (updateResult == DialogResult.Yes)
+                    {
+                        this._updateFlag = true;
+                        //this.timer1.Stop();
+                        deploy.UpdateProgressChanged += new DeploymentProgressChangedEventHandler(deploy_UpdateProgressChanged);
+                        deploy.UpdateCompleted += new AsyncCompletedEventHandler(deploy_UpdateCompleted);
+                        deploy.UpdateAsync();
+                    }
+                    else
+                    {
+                        //TODO:不馬上通知的動作
+                        //this._updateFlag = true;
+                        //this.timer1.Stop();
+                    }
                 }
-                else
-                {
-                    //TODO:不馬上通知的動作
-                    //this._updateFlag = true;
-                    //this.timer1.Stop();
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("更新失敗，程式依然可正常運行.");
+                JBModule.Message.DbLog.WriteToDB(ex.Message, "更新失敗", "err", this.Name, -1, MainForm.USER_NAME, Guid.NewGuid().ToString());
             }
         }
 
