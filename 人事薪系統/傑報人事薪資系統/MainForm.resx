@@ -2139,9 +2139,6 @@
   <data name="&gt;&gt;statusStrip1.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <metadata name="cardTableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>136, 17</value>
-  </metadata>
   <data name="buttonRestart.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
@@ -2208,6 +2205,9 @@
   <data name="lbUpdateError.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="lbUpdateError.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="lbUpdateError.Location" type="System.Drawing.Point, System.Drawing">
     <value>737, 6</value>
   </data>
@@ -2218,7 +2218,7 @@
     <value>13</value>
   </data>
   <data name="lbUpdateError.Text" xml:space="preserve">
-    <value>更新失敗，請洽傑播工程師</value>
+    <value>更新失敗，請洽傑報工程師</value>
   </data>
   <data name="lbUpdateError.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -2235,6 +2235,9 @@
   <data name="&gt;&gt;lbUpdateError.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <metadata name="cardTableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>136, 17</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -2816,6 +2819,9 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>人事薪資考勤管理系統</value>

@@ -344,10 +344,10 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripUserList = new System.Windows.Forms.ToolStripDropDownButton();
             this.btnMenuManagement = new System.Windows.Forms.ToolStripSplitButton();
-            this.cardTableAdapter1 = new JBHR.Dll.dsAttTableAdapters.CARDTableAdapter();
             this.buttonRestart = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.lbUpdateError = new System.Windows.Forms.Label();
+            this.cardTableAdapter1 = new JBHR.Dll.dsAttTableAdapters.CARDTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -2557,10 +2557,6 @@
             this.btnMenuManagement.Name = "btnMenuManagement";
             this.btnMenuManagement.ButtonClick += new System.EventHandler(this.btnMenuManagement_ButtonClick);
             // 
-            // cardTableAdapter1
-            // 
-            this.cardTableAdapter1.ClearBeforeFill = true;
-            // 
             // buttonRestart
             // 
             resources.ApplyResources(this.buttonRestart, "buttonRestart");
@@ -2578,6 +2574,10 @@
             resources.ApplyResources(this.lbUpdateError, "lbUpdateError");
             this.lbUpdateError.ForeColor = System.Drawing.Color.Red;
             this.lbUpdateError.Name = "lbUpdateError";
+            // 
+            // cardTableAdapter1
+            // 
+            this.cardTableAdapter1.ClearBeforeFill = true;
             // 
             // MainForm
             // 
