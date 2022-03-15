@@ -1528,7 +1528,7 @@ namespace JBHR
             }
             catch (Exception ex)
             {
-                MessageBox.Show("更新失敗，程式依然可正常運行.");
+                lbUpdateError.Visible = true;
                 JBModule.Message.DbLog.WriteToDB(ex.Message, "更新失敗", "err", this.Name, -1, MainForm.USER_NAME, Guid.NewGuid().ToString());
             }
         }

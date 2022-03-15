@@ -347,6 +347,7 @@
             this.cardTableAdapter1 = new JBHR.Dll.dsAttTableAdapters.CARDTableAdapter();
             this.buttonRestart = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.lbUpdateError = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -2572,11 +2573,18 @@
             resources.ApplyResources(this.progressBar1, "progressBar1");
             this.progressBar1.Name = "progressBar1";
             // 
+            // lbUpdateError
+            // 
+            resources.ApplyResources(this.lbUpdateError, "lbUpdateError");
+            this.lbUpdateError.ForeColor = System.Drawing.Color.Red;
+            this.lbUpdateError.Name = "lbUpdateError";
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.buttonRestart);
+            this.Controls.Add(this.lbUpdateError);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -2916,6 +2924,7 @@
         private System.Windows.Forms.ToolStripMenuItem 員工規則設定ToolStripMenuItem;
         private System.Windows.Forms.Button buttonRestart;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label lbUpdateError;
     }
 }
 
