@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bll.Share.Vdb
 {
-    class ShareGetQuestionDefaultMessageByCompanyIdByCompanyIdVdb
+    class ShareGetQuestionDefaultMessageByCompanyIdVdb
     {
     }
     public class ShareGetQuestionDefaultMessageByCompanyIdConditions : DataConditions

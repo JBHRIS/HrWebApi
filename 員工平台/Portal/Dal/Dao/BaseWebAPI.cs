@@ -823,6 +823,14 @@ namespace Dal.Dao
                             //oMainDao.MessageLog("3", Contents, SystemContents, AppName, "", "");
                             DoCall = false;
                         }
+                        else
+                        {
+                            var Contents = "API：" + fooUrl;
+                            var SystemContents = "呼叫失敗:" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss fff");
+                            var AppName = "API";
+                            var oMainDao = new MainDao();
+                            oMainDao.MessageLog("3", Contents, SystemContents, AppName, "", "");
+                        }
 
                         //超過系統設定上限次數
                         if (DoCall && CallFrequency > Constants.ReCallFrequencyMax)
