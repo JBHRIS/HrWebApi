@@ -542,14 +542,10 @@ namespace JBHR.Att
                     Dal.Dao.Att.AbsDao oAbsDao = new Dal.Dao.Att.AbsDao(db.Connection);
                     decimal TotalUse = 0;
                     TotalHrsList.Clear();
-                    for (DateTime i = Bdate; i <= Edate; i = i.AddDays(1))
-                    {
-                        var Calculate = oAbsDao.GetCalculate(nobr, hcode, i, i, TimeB, TimeE);
-                        if (Calculate.TotalUse != 0)
-                            TotalHrsList.Add(i, Calculate.TotalUse);
-                        TotalUse += Calculate.TotalUse;
-                    }
-                    txtTotalHours.Text = TotalUse.ToString();
+                    var Calculate = oAbsDao.GetCalculate(nobr, hcode, Bdate, Edate, TimeB, TimeE);
+                    foreach (var item in Calculate.Day)
+                        TotalHrsList.Add(item.DateB, item.Use);
+                    txtTotalHours.Text = Calculate.TotalUse.ToString();
                 }
                 else
                     txtTotalHours.Text = "";
@@ -561,7 +557,7 @@ namespace JBHR.Att
         }
         decimal CheckAbsHrs(string chkguid = "")
         {
-            if (ptxHcode.SelectedValue != null)
+            if (ptxHcode.SelectedValue != null && txtDateB.Text != null)
             {
                 string nobr = ptxNobr.Text;
                 string hcode = ptxHcode.SelectedValue.ToString();

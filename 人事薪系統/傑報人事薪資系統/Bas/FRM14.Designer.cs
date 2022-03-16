@@ -152,6 +152,8 @@
             this.doorGuardTableAdapter = new JBHR.Bas.BasDSTableAdapters.DoorGuardTableAdapter();
             this.oilSubsidyTypeTableAdapter = new JBHR.Bas.BasDSTableAdapters.OilSubsidyTypeTableAdapter();
             this.sTATIONTableAdapter = new JBHR.Bas.BasDSTableAdapters.STATIONTableAdapter();
+            this.jOBOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.jOBOTableAdapter = new JBHR.Bas.BasDSTableAdapters.JOBOTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -185,6 +187,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rETCHOOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bASETTSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jOBOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -1256,6 +1259,15 @@
             // 
             this.sTATIONTableAdapter.ClearBeforeFill = true;
             // 
+            // jOBOBindingSource
+            // 
+            this.jOBOBindingSource.DataMember = "JOBO";
+            this.jOBOBindingSource.DataSource = this.basDS;
+            // 
+            // jOBOTableAdapter
+            // 
+            this.jOBOTableAdapter.ClearBeforeFill = true;
+            // 
             // FRM14
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1300,6 +1312,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rETCHOOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bASETTSBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jOBOBindingSource)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -1428,5 +1441,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn mENODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kEYMANDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kEYDATEDataGridViewTextBoxColumn;
-	}
+        private System.Windows.Forms.BindingSource jOBOBindingSource;
+        private BasDSTableAdapters.JOBOTableAdapter jOBOTableAdapter;
+    }
 }
