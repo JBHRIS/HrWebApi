@@ -319,7 +319,39 @@ namespace JBHR.Reports.SalForm
                 bool _labchedk = LABCHECK.Checked;
                 bool nodispot = NoDispOt.Checked;
 
-                zz42_report = new ZZ42_Report(_temporary_empcd, SalaryTransferMode, AnnualLeaveType, CompensatoryLeaveType, nobrb, nobre, compb, compe, deptb, depte, deptsb, deptse, saladrb, saladre, empb, empe, attdateb, attdatee, dateb, datet, reporttype, report_type_item, _year, _month, _seq, type_data, _note, _note1, _note3, note_en, _loginuser, _loginpwd, _username, _exportexcel, _pa, _pa1, _pa2, _pa3, _order1, _order2, _order3, noupwage, noname, prnnoemail, prnpaa, trancount, salarypa1, nodeptcount, nocomp, workadr, workadr1, reponame, _sumdi, MainForm.COMPANY_NAME, MainForm.COMPANY, print_pdf.Checked, _noout, _noret, _sendsalary, _seqmerge, _labchedk, nodispot, _A3_BigCharacter);
+                //ITCT-F01-220118-酷碼-20220316：Added By Daniel Chih - 2022/03/16
+                string dd = FreezeDatePicker.Value.ToString("yyyy/MM/dd");
+                int hrs = FreezeTimePicker.Value.Hour;
+                int mins = FreezeTimePicker.Value.Minute;
+
+                DateTime senddate = DateTime.Parse(dd).AddHours(hrs).AddMinutes(mins);
+                if (Convert.ToString(report_type.SelectedIndex + 1) == "5"
+                    || Convert.ToString(report_type.SelectedIndex + 1) == "6"
+                    || Convert.ToString(report_type.SelectedIndex + 1) == "7"
+                    || Convert.ToString(report_type.SelectedIndex + 1) == "9"
+                    || Convert.ToString(report_type.SelectedIndex + 1) == "18")
+                {
+                    if (Convert.ToInt32(DateTime.Parse(dd).ToString("yyyyMMdd")) < Convert.ToInt32(DateTime.Parse(datet).ToString("yyyyMMdd")) && _sendsalary)
+                    {
+                        MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                        //MessageBox.Show("提醒發送日期小於轉帳日期", Resources.All.DialogTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult result;
+                        result = MessageBox.Show("提醒發送日期小於轉帳日期\n\n按是繼續發送,按否取消發送", Resources.All.DialogTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (result == DialogResult.No)
+                        {
+                            return;
+                        }
+
+                    }
+                }
+
+                zz42_report = new ZZ42_Report(_temporary_empcd, SalaryTransferMode, AnnualLeaveType, CompensatoryLeaveType
+                    , nobrb, nobre, compb, compe, deptb, depte, deptsb, deptse, saladrb, saladre, empb, empe, attdateb, attdatee
+                    , dateb, datet, reporttype, report_type_item, _year, _month, _seq, type_data, _note, _note1, _note3, note_en
+                    , _loginuser, _loginpwd, _username, _exportexcel, _pa, _pa1, _pa2, _pa3, _order1, _order2, _order3, noupwage
+                    , noname, prnnoemail, prnpaa, trancount, salarypa1, nodeptcount, nocomp, workadr, workadr1, reponame, _sumdi
+                    , MainForm.COMPANY_NAME, MainForm.COMPANY, print_pdf.Checked, _noout, _noret, _sendsalary, _seqmerge
+                    , _labchedk, nodispot, _A3_BigCharacter, senddate);
                 zz42_report.Show();
             }
             catch (Exception Ex)

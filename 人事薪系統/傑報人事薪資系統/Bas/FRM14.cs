@@ -20,6 +20,8 @@ namespace JBHR.Bas
 
         private void FRM14_Load(object sender, EventArgs e)
         {
+            // TODO: 這行程式碼會將資料載入 'basDS.JOBO' 資料表。您可以視需要進行移動或移除。
+            this.jOBOTableAdapter.Fill(this.basDS.JOBO);
             this.oilSubsidyTypeTableAdapter.Fill(this.basDS.OilSubsidyType);
             this.doorGuardTableAdapter.Fill(this.basDS.DoorGuard);
             this.dATAGROUPTableAdapter.Fill(this.sysDS.DATAGROUP);
@@ -295,6 +297,10 @@ namespace JBHR.Bas
             cid = new JBControls.CheckImportData { DisplayCode = "職類", DisplayName = "職類", RealCode = "JOBS" };
             TtsFieldList.Add(cid);
             frm.DataTransfer.CheckData.Add(cid.DisplayName, this.basDS.JOBS.Select(p => new JBControls.CheckImportData { DisplayCode = p.JOBS_DISP, RealCode = p.JOBS, DisplayName = p.JOB_NAME }).ToList());
+
+            cid = new JBControls.CheckImportData { DisplayCode = "職級", DisplayName = "職級", RealCode = "JOBO" };
+            TtsFieldList.Add(cid);
+            frm.DataTransfer.CheckData.Add(cid.DisplayName, this.basDS.JOBO.Select(p => new JBControls.CheckImportData { DisplayCode = p.JOBO, RealCode = p.JOBO, DisplayName = p.JOB_NAME }).ToList());
 
             cid = new JBControls.CheckImportData { DisplayCode = "行事曆", DisplayName = "行事曆", RealCode = "HOLI_CODE" };
             TtsFieldList.Add(cid);

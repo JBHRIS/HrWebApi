@@ -40,6 +40,7 @@ namespace Portal
                 {
                     var CompanySetting = UnobtrusiveSession.Session["CompanySetting"] as CompanySettingRow;
                     this.CompanySetting = CompanySetting;
+                    imgMenuTopIcon.ImageUrl = CompanySetting.FileNameMenuTop;
                     dcFlow.Connection.ConnectionString = CompanySetting.ConnFlow;
                 }
                 else
