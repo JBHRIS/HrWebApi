@@ -187,11 +187,16 @@ namespace JBHR.Bas
             //        }
             //    }
             //}
+            if (SourceRow.IsNull("詳細科系名稱") && string.IsNullOrWhiteSpace(SourceRow["詳細科系名稱"].ToString()))
+            {
+                TargetRow["錯誤註記"] += string.Format("[詳細科系名稱]為必填欄位.");
+            }
+
             if (!SourceRow.IsNull("入學年月") && !string.IsNullOrWhiteSpace(SourceRow["入學年月"].ToString()) && !check_YYMM(SourceRow["入學年月"].ToString(), out Msg))
             {
                 if (TargetRow.Table != null && TargetRow.Table.Columns.Contains("錯誤註記"))
                 {
-                    TargetRow["錯誤註記"] += string.Format("入學年月{0}.", Msg);
+                    TargetRow["錯誤註記"] += string.Format("[入學年月]{0}.", Msg);
                 }
             }
 
@@ -199,7 +204,7 @@ namespace JBHR.Bas
             {
                 if (TargetRow.Table != null && TargetRow.Table.Columns.Contains("錯誤註記"))
                 {
-                    TargetRow["錯誤註記"] += string.Format("畢業年月{0}.", Msg);
+                    TargetRow["錯誤註記"] += string.Format("[畢業年月]{0}.", Msg);
                 }
             }
 
