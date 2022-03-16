@@ -18,8 +18,8 @@ namespace Dal.Dao.Files
 
         public FileListByCodeDao() : base()
         {
-            this.restURL = "/api/Files/FileListByCode";
-            this.ApiSetting = "Hr";
+            this.restURL = "/api/ShareUpload/GetFileListByCode";
+            this.ApiSetting = "Flow";
             IsCollectionType = false;
             EncodingType = EnctypeMethod.JSON;
             NeedSaveData = true;

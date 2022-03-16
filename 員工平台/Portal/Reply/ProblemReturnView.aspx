@@ -95,10 +95,10 @@
                             </LayoutTemplate>
                             <ItemTemplate>
                                 <tr class="gradeX">
-                                    <td data-th="檔名"><%#Eval("FileName") %></td>
-                                    <td data-th="大小"><%#Eval("FileSize") %></td>
+                                    <td data-th="檔名"><%#Eval("UploadName") %></td>
+                                    <td data-th="大小"><%#Eval("Size") %></td>
                                     <td data-th="動作">
-                                        <asp:Button ID="btnDownload" runat="server" CommandArgument='<%#Eval("FileId") %>' Width="60%" OnClientClick='<%#"download(\""+Eval("FileId")+"\");" %>' CommandName="Download" Text="下載" CssClass="btn-white btn btn-xs" />
+                                        <asp:Button ID="btnDownload" runat="server" CommandArgument='<%#Eval("AutoKey") %>' Width="60%" OnClientClick='<%#"download(\""+Eval("AutoKey")+"\");" %>' CommandName="Download" Text="下載" CssClass="btn-white btn btn-xs" />
                                     </td>
                                 </tr>
                             </ItemTemplate>

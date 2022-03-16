@@ -12,7 +12,7 @@ using Dal.Dao.Flow;
 using System.Windows;
 using Bll.Tools;
 using Dal.Dao.Files;
-using Bll.Files.Vdb;
+using Bll.Flow.Vdb;
 using Bll.Token.Vdb;
 using System.Net.Mail;
 
@@ -220,19 +220,19 @@ namespace Portal
 
         protected void DataUpload_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
         {
-            var oFilesByFileTicket = new FilesByFileTicketDao();
-            var FilesByFileTicketCond = new FilesByFileTicketConditions();
-            var result = new List<FilesByFileTicketRow>();
-            FilesByFileTicketCond.AccessToken = _User.AccessToken;
-            FilesByFileTicketCond.RefreshToken = _User.RefreshToken;
-            FilesByFileTicketCond.CompanySetting = CompanySetting;
-            FilesByFileTicketCond.fileTicket = Request.QueryString["Code"];
-            var Result = oFilesByFileTicket.GetData(FilesByFileTicketCond);
+            var oFileListByCodeDao = new FileListByCodeDao();
+            var FileListByCodeCond = new FileListByCodeConditions();
+            var result = new List<FileListByCodeRow>();
+            FileListByCodeCond.AccessToken = _User.AccessToken;
+            FileListByCodeCond.RefreshToken = _User.RefreshToken;
+            FileListByCodeCond.CompanySetting = CompanySetting;
+            FileListByCodeCond.Code = Request.QueryString["Code"];
+            var Result = oFileListByCodeDao.GetData(FileListByCodeCond);
             if (Result.Status)
             {
                 if (Result.Data != null)
                 {
-                    result = Result.Data as List<FilesByFileTicketRow>;
+                    result = Result.Data as List<FileListByCodeRow>;
                     DataUpload.DataSource = result;
                 }
             }

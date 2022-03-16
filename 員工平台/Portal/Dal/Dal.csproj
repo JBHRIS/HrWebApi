@@ -177,7 +177,7 @@
     <Compile Include="Dao\File\UploadMultipleDao.cs" />
     <Compile Include="Dao\File\ImportAttendExcelCoverDao.cs" />
     <Compile Include="Dao\File\UploadSingleFileDao.cs" />
-    <Compile Include="Dao\Flow\DownloadFilesDao.cs" />
+    <Compile Include="Dao\Flow\DownloadByAutoKeyDao.cs" />
     <Compile Include="Dao\Flow\FileListByCodeDao.cs" />
     <Compile Include="Dao\Flow\DeleteByAutoKeyDao.cs" />
     <Compile Include="Dao\Flow\FlowImageDao.cs" />
@@ -499,6 +499,7 @@
     <Folder Include="bin\Debug\SQL\" />
     <Folder Include="bin\Release\" />
     <Folder Include="Dao\Performance\" />
+    <Folder Include="Dao\Resume\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

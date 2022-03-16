@@ -14,12 +14,14 @@ using System.Windows;
 using Bll.Files.Vdb;
 using Dal.Dao.Files;
 using System.Net.Mail;
+using Bll.Flow.Vdb;
+using Bll.Token.Vdb;
 
 namespace Portal
 {
     public partial class ProblemReturn : WebPageBase
     {
-        List<UploadMultipleRow> UMR = new List<UploadMultipleRow>();
+        List<FileListByCodeRow> UMR = new List<FileListByCodeRow>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -158,100 +160,115 @@ namespace Portal
         }
         public void btnUpload_Click(object sender, EventArgs e)
         {
-            if (_User.EmpName == "未登入")
+            try 
             {
-                string strUrl_No = "../Reply/LoginBind.aspx";
-                ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "script", "if ( window.alert('登入已逾時，請重新登入')) { } else {window.location.href='" + strUrl_No + "' };", true);
-                return;
-            }
-
-            if (UnobtrusiveSession.Session["Files"] != null)
-            {
-               
-                var Files = (HttpFileCollection)UnobtrusiveSession.Session["Files"];
-
-                string dirFullPath = HttpContext.Current.Server.MapPath("~/Upload/");
-           
-
-                if (Files != null)
+                if (_User.EmpName == "未登入")
                 {
-                    var oUploadMultipleDao = new UploadMultipleDao();
-                    var UploadMultipleCond = new UploadMultipleConditions();
-                    UploadMultipleCond.AccessToken = _User.AccessToken;
-                    UploadMultipleCond.RefreshToken = _User.RefreshToken;
-                    UploadMultipleCond.CompanySetting = CompanySetting;
-                    if (UnobtrusiveSession.Session["FormGuidCode"] != null && UnobtrusiveSession.Session["FormGuidCode"].ToString() != "")
-                        UploadMultipleCond.FileTicket = UnobtrusiveSession.Session["FormGuidCode"].ToString();
-                    UploadMultipleCond.files = Files;
-                    var Result = oUploadMultipleDao.GetData(UploadMultipleCond);
+                    string strUrl_No = "../Reply/LoginBind.aspx";
+                    ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "script", "if ( window.alert('登入已逾時，請重新登入')) { } else {window.location.href='" + strUrl_No + "' };", true);
+                    return;
+                }
 
-                    if (Result.Status)
+                if (UnobtrusiveSession.Session["Files"] != null)
+                {
+
+                    var Files = (HttpFileCollection)UnobtrusiveSession.Session["Files"];
+
+                    string dirFullPath = HttpContext.Current.Server.MapPath("~/Upload/");
+
+
+                    if (Files != null)
                     {
-                        if (Result.Data != null)
+                        var oSaveDao = new SaveDao();
+                        var SaveCond = new SaveConditions();
+                        SaveCond.AccessToken = _User.AccessToken;
+                        SaveCond.RefreshToken = _User.RefreshToken;
+                        SaveCond.CompanySetting = CompanySetting;
+                        SaveCond.Company = _User.CompanyId;
+                        SaveCond.InsertMan = _User.EmpId;
+                        if (UnobtrusiveSession.Session["FormGuidCode"] != null && UnobtrusiveSession.Session["FormGuidCode"].ToString() != "")
+                            SaveCond.Code = UnobtrusiveSession.Session["FormGuidCode"].ToString();
+                        SaveCond.files = Files;
+                         var Result = oSaveDao.GetData(SaveCond);
+                        
+                       
+                       
+
+                        if (Result.Status)
                         {
-                            //成功
-                            var ResultData = Result.Data as List<UploadMultipleRow>;
-                            foreach (var resultData in ResultData)
+                            if (Result.Data != null)
                             {
-                                if (Request.Cookies["CompanyId"].Value != null)
-                                    resultData.CompanyId = Request.Cookies["CompanyId"].Value;
-                                resultData.AccessToken = _User.AccessToken;
-                                UMR.Add(resultData);
-                                
+                                //成功
+                            
+
+
+                                lblMsg.CssClass = "badge badge-primary animated shake";
+                                lblMsg.Text = "上傳成功";
+                                DataUpload.Rebind();
+                                //dcFlow.SubmitChanges();
                             }
-                           
-                            lblMsg.CssClass = "badge badge-primary animated shake";
-                            lblMsg.Text = "上傳成功";
-                            DataUpload.Rebind();
-                            //dcFlow.SubmitChanges();
+                            else
+                            {
+                                lblMsg.CssClass = "badge badge-danger animated shake";
+                                lblMsg.Text = "上傳失敗";
+                            }
+
+
                         }
                         else
                         {
+                            //失敗
                             lblMsg.CssClass = "badge badge-danger animated shake";
                             lblMsg.Text = "上傳失敗";
                         }
 
 
                     }
-                    else
-                    {
-                        //失敗
-                        lblMsg.CssClass = "badge badge-danger animated shake";
-                        lblMsg.Text = "上傳失敗";
-                    }
+                    UnobtrusiveSession.Session["Files"] = null;
+                    //var Script = "Sys.Application.add_load(DropzoneInit);";
+                    //ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "DropzoneInit", Script, true);
 
-                  
                 }
-                UnobtrusiveSession.Session["Files"] = null;
-                //var Script = "Sys.Application.add_load(DropzoneInit);";
-                //ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "DropzoneInit", Script, true);
+                else
+                {
+                    lblMsg.CssClass = "badge badge-danger animated shake";
+                    lblMsg.Text = "上傳失敗";
+                }
 
             }
-            else
-            {             
-                lblMsg.CssClass = "badge badge-danger animated shake";
-                lblMsg.Text = "上傳失敗";
+            catch (Exception ex)
+            { 
+            
             }
+           
 
         }
         protected void DataUpload_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
         {
-            var oFilesByFileTicket = new FilesByFileTicketDao();
-            var FilesByFileTicketCond = new FilesByFileTicketConditions();
-            var result = new List<FilesByFileTicketRow>();
-            FilesByFileTicketCond.AccessToken = _User.AccessToken;
-            FilesByFileTicketCond.RefreshToken = _User.RefreshToken;
-            FilesByFileTicketCond.CompanySetting = CompanySetting;
-            FilesByFileTicketCond.fileTicket = UnobtrusiveSession.Session["FormGuidCode"].ToString();
-            var Result = oFilesByFileTicket.GetData(FilesByFileTicketCond);
-            if (Result.Status)
+            try
             {
-                if (Result.Data != null)
+                var oFileListByCode = new FileListByCodeDao();
+                var FileListByCodeCond = new FileListByCodeConditions();
+                var result = new List<FileListByCodeRow>();
+                FileListByCodeCond.AccessToken = _User.AccessToken;
+                FileListByCodeCond.RefreshToken = _User.RefreshToken;
+                FileListByCodeCond.CompanySetting = CompanySetting;
+                FileListByCodeCond.Code = UnobtrusiveSession.Session["FormGuidCode"].ToString();
+                var Result = oFileListByCode.GetData(FileListByCodeCond);
+                if (Result.Status)
                 {
-                    result = Result.Data as List<FilesByFileTicketRow>;
-                    DataUpload.DataSource = result;
+                    if (Result.Data != null)
+                    {
+                        result = Result.Data as List<FileListByCodeRow>;
+                        DataUpload.DataSource = result;
+                    }
                 }
             }
+            catch (Exception ex)
+            { 
+            
+            }
+          
 
         }
         protected void DataUpload_ItemCommand(object sender, RadListViewCommandEventArgs e)

@@ -111,6 +111,8 @@ public class AuthManager
             user.EmpName = Userdata.UserName;
             user.EmpId = Userdata.Code;
             user.EmpEmail = Userdata.Email;
+            var oQuestionUserInfo = new ShareQuestionUserInfoDao();
+            oQuestionUserInfo.InsertQuestionUserInfo(user.CompanyId, user.EmpId, user.EmpId, Userdata.RoleKey, Userdata.UserName, Userdata.Email);
         }
         
         //UnobtrusiveSession.Session["AccessToken"] = user.AccessToken;
