@@ -300,7 +300,7 @@ namespace JBHR.Bas
 
             cid = new JBControls.CheckImportData { DisplayCode = "職級", DisplayName = "職級", RealCode = "JOBO" };
             TtsFieldList.Add(cid);
-            frm.DataTransfer.CheckData.Add(cid.DisplayName, this.basDS.JOBO.Select(p => new JBControls.CheckImportData { DisplayCode = p.JOBO, RealCode = p.JOB_NAME, DisplayName = p.JOB_NAME }).ToList());
+            frm.DataTransfer.CheckData.Add(cid.DisplayName, this.basDS.JOBO.Select(p => new JBControls.CheckImportData { DisplayCode = p.JOBO, RealCode = p.JOBO, DisplayName = p.JOB_NAME }).ToList());
 
             cid = new JBControls.CheckImportData { DisplayCode = "行事曆", DisplayName = "行事曆", RealCode = "HOLI_CODE" };
             TtsFieldList.Add(cid);
