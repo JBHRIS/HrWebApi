@@ -140,54 +140,59 @@ namespace JBHR.Bas
             JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
 
             string Msg = "";
-            if (ColumnValidate(TargetRow, "員工編號", TransferCheckDataField.RealCode, out Msg))
-            {
-                TargetRow["員工編號"] = Msg;
-            }
-            else
-            {
-                if (TargetRow.Table != null && TargetRow.Table.Columns.Contains("錯誤註記"))
-                {
-                    TargetRow["錯誤註記"] = Msg;
-                }
-            }
+            //if (ColumnValidate(TargetRow, "員工編號", TransferCheckDataField.RealCode, out Msg))
+            //{
+            //    TargetRow["員工編號"] = Msg;
+            //}
+            //else
+            //{
+            //    if (TargetRow.Table != null && TargetRow.Table.Columns.Contains("錯誤註記"))
+            //    {
+            //        TargetRow["錯誤註記"] += string.Format("{0}.", Msg);
+            //    }
+            //}
 
-            if (ColumnValidate(TargetRow, "教育程度代號", TransferCheckDataField.RealCode, out Msg))
-            {
-                TargetRow["教育程度代號"] = Msg;
-            }
-            else
-            {
-                if (TargetRow.Table != null && TargetRow.Table.Columns.Contains("錯誤註記"))
-                {
-                    TargetRow["錯誤註記"] = Msg;
-                }
-            }
+            //if (ColumnValidate(TargetRow, "教育程度代號", TransferCheckDataField.RealCode, out Msg))
+            //{
+            //    TargetRow["教育程度代號"] = Msg;
+            //}
+            //else
+            //{
+            //    if (TargetRow.Table != null && TargetRow.Table.Columns.Contains("錯誤註記"))
+            //    {
+            //        TargetRow["錯誤註記"] += string.Format("{0}.", Msg);
+            //    }
+            //}
 
-            if (ColumnValidate(TargetRow, "科系", TransferCheckDataField.RealCode, out Msg))
-            {
-                TargetRow["科系"] = Msg;
-            }
-            else
-            {
-                if (TargetRow.Table != null && TargetRow.Table.Columns.Contains("錯誤註記"))
-                {
-                    TargetRow["錯誤註記"] = Msg;
-                }
-            }
-            if (!SourceRow.IsNull("日夜") && !string.IsNullOrWhiteSpace(SourceRow["日夜"].ToString()) && ColumnValidate(TargetRow, "日夜", TransferCheckDataField.RealCode, out Msg))
-            {
-                if (TargetRow.Table != null && TargetRow.Table.Columns.Contains("錯誤註記"))
-                {
-                    TargetRow["錯誤註記"] = Msg;
-                }
-            }
+            //if (ColumnValidate(TargetRow, "科系", TransferCheckDataField.RealCode, out Msg))
+            //{
+            //    TargetRow["科系"] = Msg;
+            //}
+            //else
+            //{
+            //    if (TargetRow.Table != null && TargetRow.Table.Columns.Contains("錯誤註記"))
+            //    {
+            //        TargetRow["錯誤註記"] += string.Format("{0}.", Msg);
+            //    }
+            //}
+            //if (!SourceRow.IsNull("日夜") && !string.IsNullOrWhiteSpace(SourceRow["日夜"].ToString()) )
+            //{
+            //    if (ColumnValidate(TargetRow, "日夜", TransferCheckDataField.RealCode, out Msg))
+            //        TargetRow["日夜"] = Msg;
+            //    else
+            //    {
+            //        if (TargetRow.Table != null && TargetRow.Table.Columns.Contains("錯誤註記"))
+            //        {
+            //            TargetRow["錯誤註記"] += string.Format("{0}.", Msg);
+            //        }
+            //    }
+            //}
 
             if (!SourceRow.IsNull("入學年月") && !string.IsNullOrWhiteSpace(SourceRow["入學年月"].ToString()) && !check_YYMM(SourceRow["入學年月"].ToString(), out Msg))
             {
                 if (TargetRow.Table != null && TargetRow.Table.Columns.Contains("錯誤註記"))
                 {
-                    TargetRow["錯誤註記"] = Msg;
+                    TargetRow["錯誤註記"] += string.Format("入學年月{0}.", Msg);
                 }
             }
 
@@ -195,7 +200,7 @@ namespace JBHR.Bas
             {
                 if (TargetRow.Table != null && TargetRow.Table.Columns.Contains("錯誤註記"))
                 {
-                    TargetRow["錯誤註記"] = Msg;
+                    TargetRow["錯誤註記"] += string.Format("畢業年月{0}.", Msg);
                 }
             }
 
@@ -257,15 +262,8 @@ namespace JBHR.Bas
                 }
                 catch { }
             }
-            msg = errorMsg("年月格式YYYYMM或YYYY/MM");
+            msg = "格式應為YYYYMM或YYYY/MM";
             return false;
         }
-
-        string errorMsg(string name)
-        {
-            string msg = "無效的資料[" + name + "]";
-            return msg;
-        }
     }
-
 }

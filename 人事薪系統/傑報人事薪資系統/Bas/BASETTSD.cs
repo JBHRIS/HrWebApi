@@ -33,7 +33,7 @@ namespace JBHR.Bas
             cc.AddControl(cbJob);       //職稱
             cc.AddControl(cbJobs);      //職類
             cc.AddControl(cbJobl);      //職等
-            //cc.AddControl(comboBoxJobo);   //職級
+            cc.AddControl(comboBoxJobo);   //職級
             cc.AddControl(cbDI);        //直間接
             cc.AddControl(cbEmpcd);     //員別
             cc.AddControl(cbRotet);     //班別

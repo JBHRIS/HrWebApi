@@ -1,36 +1,37 @@
 ﻿/* ======================================================================================================
- * 功能名稱：發放薪資報表
- * 功能代號：ZZ42
- * 功能路徑：報表列印 > 薪資 > 發放薪資報表
- * 檔案路徑：~\Customer\JBHR2\人事薪系統\傑報人事薪資系統\Reports\SalForm\ZZ42_Report.cs
- * 功能用途：
- *  用於產出發放薪資報表
- * 
- * 版本記錄：
+ * 【功能名稱】：發放薪資
+ * 【功能代號】：ZZ42
+ * 【功能路徑】：報表列印 > 薪資 > 發放薪資
+ * 【檔案路徑】：~\Customer\JBHR2\人事薪系統\傑報人事薪資系統\Reports\SalForm\ZZ42_Report.cs
+ * 【功能用途】：
+ *  用於產出發放薪資各類報表
+ */
+/* 【版本記錄】：
  * ======================================================================================================
- *    日期           人員           版本           說明
+ *    日期           人員               版本              單號                          說明
  * ------------------------------------------------------------------------------------------------------
- * 2021/01/13    Daniel Chih    Ver 1.0.01     1. 新增條件欄位：公司
- * 2021/02/05    Daniel Chih    Ver 1.0.02     1. 增加薪資單列印時判斷 loginUser 和當前使用頁面的公司類型
- * 2021/04/27    Daniel Chih    Ver 1.0.03     1. 增加僅【清展】可用的轉帳明細表
- * 2021/05/03    Daniel Chih    Ver 1.0.04     1. 補充外文薪資單對於 MTLNG 沒有資料時的判斷
- * 2021/05/10    Daniel Chih    Ver 1.0.05     1. 修正country資料沒有帶入的問題
- * 2021/05/10    Daniel Chih    Ver 1.0.06     1. 修改成本部門Primary Key同時讀d_no和d_no_disp
- * 2021/06/10    Daniel Chih    Ver 1.0.07     1. Re：修正country資料沒有帶入的問題
- * 2021/06/18    Daniel Chih    Ver 1.0.08     1. 合併期別後相同薪資代碼的資金合併項目
- * 2021/06/18    Daniel Chih    Ver 1.0.09     1. 增加選項：大張大字
- * 2021/07/07    Daniel Chih    Ver 1.0.10     1. 修改特休代碼與補休代碼的參考來源
- * 2021/07/15    Daniel Chih    Ver 1.0.11     1. 增加薪資彙總表：大張大字
- * 2021/07/30    Daniel Chih    Ver 1.0.12     1. 修正外籍薪資單譯文Code順序錯亂的問題，更新外籍薪資單多語係寫法穩定性
- * 2021/08/13    Daniel Chih    Ver 1.0.13     1. 修正清展轉賬明細表參數來源到原始來源
- * 2021/09/22    Daniel Chih    Ver 1.0.14     1. 清展轉賬明細表：備註欄位帶畫面上的備註欄位
- * 2021/09/24    Daniel Chih    Ver 1.0.15     1. 先增加日翔用的薪資轉帳Excel
- * 2021/11/10    Daniel Chih    Ver 1.0.16     1. 修改【臨時人數】撈取規則，代碼讀自Appconfig，報表結果增加【公司名稱】欄位
+ * 2021/01/13    Daniel Chih        Ver 1.0.01                                      1. 新增條件欄位：公司
+ * 2021/02/05    Daniel Chih        Ver 1.0.02                                      1. 增加薪資單列印時判斷 loginUser 和當前使用頁面的公司類型
+ * 2021/04/27    Daniel Chih        Ver 1.0.03                                      1. 增加僅【清展】可用的轉帳明細表
+ * 2021/05/03    Daniel Chih        Ver 1.0.04                                      1. 補充外文薪資單對於 MTLNG 沒有資料時的判斷
+ * 2021/05/10    Daniel Chih        Ver 1.0.05                                      1. 修正country資料沒有帶入的問題
+ * 2021/05/10    Daniel Chih        Ver 1.0.06                                      1. 修改成本部門Primary Key同時讀d_no和d_no_disp
+ * 2021/06/10    Daniel Chih        Ver 1.0.07                                      1. Re：修正country資料沒有帶入的問題
+ * 2021/06/18    Daniel Chih        Ver 1.0.08                                      1. 合併期別後相同薪資代碼的資金合併項目
+ * 2021/06/18    Daniel Chih        Ver 1.0.09                                      1. 增加選項：大張大字
+ * 2021/07/07    Daniel Chih        Ver 1.0.10                                      1. 修改特休代碼與補休代碼的參考來源
+ * 2021/07/15    Daniel Chih        Ver 1.0.11                                      1. 增加薪資彙總表：大張大字
+ * 2021/07/30    Daniel Chih        Ver 1.0.12                                      1. 修正外籍薪資單譯文Code順序錯亂的問題，更新外籍薪資單多語係寫法穩定性
+ * 2021/08/13    Daniel Chih        Ver 1.0.13                                      1. 修正清展轉賬明細表參數來源到原始來源
+ * 2021/09/22    Daniel Chih        Ver 1.0.14                                      1. 清展轉賬明細表：備註欄位帶畫面上的備註欄位
+ * 2021/09/24    Daniel Chih        Ver 1.0.15                                      1. 先增加日翔用的薪資轉帳Excel
+ * 2021/11/10    Daniel Chih        Ver 1.0.16                                      1. 修改【臨時人數】撈取規則，代碼讀自Appconfig，報表結果增加【公司名稱】欄位
+ * 2022/03/16    Daniel Chih        Ver 1.0.17    ITCT-F01-220118-酷碼-20220316     1. 增加薪資單寄送的預約寄送欄位
  * 
  * 
  * ======================================================================================================
  * 
- * 最後修改：Daniel Chih (0492) - 2021/11/10
+ * 最後修改：Daniel Chih (0492) - 2022/03/16
  */
 
 using System;
@@ -60,7 +61,8 @@ namespace JBHR.Reports.SalForm
         string ErrorMessage = "";
         string AnnualLeave_Type, CompensatoryLeave_Type, Temporary_Empcd;
         string DataName = JBHR.Reports.ReportClass.GetDataName();
-        public ZZ42_Report(string _temporary_empcd, bool SalaryTransferMode, string AnnualLeaveType, string CompensatoryLeaveType, string nobrb, string nobre, string compb, string compe, string deptb, string depte, string deptsb, string deptse, string salardb, string salarde, string empb, string empe, string attdateb, string attdatee, string dateb, string datet, string _reporttype, string str_report_type_item, string _year, string _month, string _seq, string typedata, string _note, string _note1, string _note3, string noteen, string _loginuser, string _loginpwd, string _username, bool _exportexcel, bool _pa, bool _pa1, bool _pa2, bool _pa3, bool _order1, bool _order2, bool _order3, bool noupwage, bool noname, bool prnnoemail, bool prnpaa, bool trancount, bool salarypa1, bool nodeptcount, bool nocomp, string _workadr, string _workadr1, string reponame, bool _sumdi, string compname, string _CompId, bool printpdf, bool _noout, bool _noret, bool _sendsalary, string _seqmerge, bool _labchedk, bool _nodispot, bool _A3_BigCharacter)
+        DateTime SendDate;
+        public ZZ42_Report(string _temporary_empcd, bool SalaryTransferMode, string AnnualLeaveType, string CompensatoryLeaveType, string nobrb, string nobre, string compb, string compe, string deptb, string depte, string deptsb, string deptse, string salardb, string salarde, string empb, string empe, string attdateb, string attdatee, string dateb, string datet, string _reporttype, string str_report_type_item, string _year, string _month, string _seq, string typedata, string _note, string _note1, string _note3, string noteen, string _loginuser, string _loginpwd, string _username, bool _exportexcel, bool _pa, bool _pa1, bool _pa2, bool _pa3, bool _order1, bool _order2, bool _order3, bool noupwage, bool noname, bool prnnoemail, bool prnpaa, bool trancount, bool salarypa1, bool nodeptcount, bool nocomp, string _workadr, string _workadr1, string reponame, bool _sumdi, string compname, string _CompId, bool printpdf, bool _noout, bool _noret, bool _sendsalary, string _seqmerge, bool _labchedk, bool _nodispot, bool _A3_BigCharacter, DateTime _SendDate)
         {
             InitializeComponent();
             nobr_b = nobrb; nobr_e = nobre; dept_b = deptb; dept_e = depte; saladr_b = salardb; saladr_e = salarde;
@@ -76,7 +78,7 @@ namespace JBHR.Reports.SalForm
             sendsalary = _sendsalary; labchedk = _labchedk; seqmerge = _seqmerge; note_en = noteen;
             nodispot = _nodispot; comp_b = compb; comp_e = compe; depts_b = deptsb; depts_e = deptse;
             AnnualLeave_Type = AnnualLeaveType; CompensatoryLeave_Type = CompensatoryLeaveType; A3_BigCharacter = _A3_BigCharacter;
-            Salary_Transfer_Mode = SalaryTransferMode; Temporary_Empcd = _temporary_empcd;
+            Salary_Transfer_Mode = SalaryTransferMode; Temporary_Empcd = _temporary_empcd; SendDate = _SendDate;
         }
 
         private void ZZ42_Report_Load(object sender, EventArgs e)
@@ -2048,7 +2050,7 @@ namespace JBHR.Reports.SalForm
                             {
                                 DataTable rqparameter = Sql.GetDataTable("select code,value from Parameter where code in ('JbMail.sys_mail','JbMail.TestAccount','JbMail.Sender')");
                                 string _rptpath1 = JBModule.Pluging.CDisk.FindDirectory(Application.StartupPath, "SalReport", "*.rdlc");
-                                JBHR.Reports.SalForm.MailSalary.Get_SendSalary1(ds.Tables["zz4219"], year, month, _rptpath1, note, date_t, comp_name, reporttype, note3, note_en, rqparameter, salary_pa1, nodispot, displns);
+                                JBHR.Reports.SalForm.MailSalary.Get_SendSalary1(ds.Tables["zz4219"], year, month, _rptpath1, note, date_t, comp_name, reporttype, note3, note_en, rqparameter, salary_pa1, nodispot, displns, SendDate);
                                 JBModule.Data.ApplicationConfigSettings AppConfig = new JBModule.Data.ApplicationConfigSettings("ZZ42", MainForm.COMPANY);
                                 string SendMailBWSW = AppConfig.GetConfig("SendMailBWSW").GetString("N");
                                 if (SendMailBWSW != "Y")
