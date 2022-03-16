@@ -43,7 +43,7 @@ namespace JBHR.Reports.SalForm
     {
         private const string T_FONT = "textfont";
         static SendMailBW sendMailBW = null;
-        public static void Get_SendSalary1(DataTable DT_4219, string yy, string mm, string _rptpath, string note, string date_t, string company, string reporttype, string note3, string note_en, DataTable rqparameter, bool salary_pa1, bool nodispot,bool displns)
+        public static void Get_SendSalary1(DataTable DT_4219, string yy, string mm, string _rptpath, string note, string date_t, string company, string reporttype, string note3, string note_en, DataTable rqparameter, bool salary_pa1, bool nodispot,bool displns, DateTime SendDate)
         {
             JBModule.Data.ApplicationConfigSettings AppConfig = new JBModule.Data.ApplicationConfigSettings("ZZ42", MainForm.COMPANY);
             string SendMailBWSW = AppConfig.GetConfig("SendMailBWSW").GetString("N");
@@ -148,7 +148,7 @@ namespace JBHR.Reports.SalForm
 
                         //直接發送
                         //Email內容部分改成讀Note欄位的文字 - Modified By Daniel Chih - 2021/08/13
-                        Smail.SendMailWithQueue(new MailAddress(MailFrom), new MailAddress(Row["email"].ToString().Trim()), mailtitle, note, listFild);
+                        Smail.SendMailWithQueue(new MailAddress(MailFrom), new MailAddress(Row["email"].ToString().Trim()), mailtitle, note, listFild, SendDate);
                         JBModule.Message.TextLog.WriteLog("薪資單發送至員工編號：" + Row["nobr"].ToString() + "->" + Row["email"].ToString());
                         //os.Close();
                         //os.Dispose();
