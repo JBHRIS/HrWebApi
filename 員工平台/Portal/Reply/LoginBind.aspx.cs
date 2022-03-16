@@ -219,11 +219,12 @@ namespace Portal
                 oUser.UserCode = AccountCode;
                 oUser.UserPassword = AccountPassword;
                 oUser.UserCodeOriginal = AccountCode;
+                
                 oUser.LoginStatus = "1";
 
                 oUser.AccessToken = AccessToken;
                 oUser.RefreshToken = RefreshToken;
-
+               
                 _AuthManager.SignIn(oUser, oUser.UserCode,CompanySetting,Pass);
 
                 //撰寫歡迎訊息

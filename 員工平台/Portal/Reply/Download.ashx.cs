@@ -1,5 +1,5 @@
-﻿using Dal.Dao.Files;
-using Bll.Files.Vdb;
+﻿using Dal.Dao.Flow;
+using Bll.Flow.Vdb;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +27,7 @@ namespace Portal
                 CompanyId = context.Request.Params["CompanyId"];
             var oShareCompany = new ShareCompanyDao();
             var CompanySetting = oShareCompany.GetCompanySetting(CompanyId);
-            var index = context.Request.Params["index"];
+            var index = Int32.Parse(context.Request.Params["index"]);
             string AccessToken = "";
             string RefreshToken = "";
             if (UnobtrusiveSession.Session["AccessToken"] != null)
@@ -42,12 +42,12 @@ namespace Portal
             {
                 RefreshToken = (string)UnobtrusiveSession.Session["RefreshToken"];
             }
-            var oDownloadFile = new DownloadFilesDao();
-            var DownloadFileCond = new DownloadFilesConditions();
+            var oDownloadFile = new DownloadByAutoKeyDao();
+            var DownloadFileCond = new DownloadByAutoKeyConditions();
             DownloadFileCond.AccessToken = AccessToken;
             DownloadFileCond.RefreshToken = RefreshToken;
             DownloadFileCond.CompanySetting = CompanySetting;
-            DownloadFileCond.fileGuid = index;
+            DownloadFileCond.AutoKey = index;
             var Result = oDownloadFile.GetData(DownloadFileCond);
             if (Result.Status)
             {

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
+
 namespace Dal.Dao.Share
 {
     public class ShareGetQuestionMainDao : BaseWebAPI<ShareGetQuestionMainApiRow>
@@ -17,6 +18,7 @@ namespace Dal.Dao.Share
 
         public ShareGetQuestionMainDao() : base()
         {
+           
             this.restURL = "/api/QuestionMain/GetQuestionMain";
             this.ApiSetting = "Flow";
             IsCollectionType = false;
