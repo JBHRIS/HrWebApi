@@ -118,7 +118,7 @@
                     //});
                     var url = "Reply.ashx";
                     var form = document.createElement("form");
-                    
+
                     form.method = "POST";
                     form.action = url;
                     var input = document.createElement("input");
@@ -137,7 +137,7 @@
                     //alert(error.get_message());
                 }
 
-                
+
             </script>
         </telerik:RadCodeBlock>
         <telerik:RadClientExportManager runat="server" ID="RadClientExportManager1">
@@ -209,13 +209,14 @@
                         </div>
                         <ul class="nav navbar-top-links navbar-right">
                             <telerik:RadAjaxPanel runat="server" ID="plCountDown" Visible="false">
-                                <li class="text-danger text-pd"><strong>
-                                    <telerik:RadLabel ID="lblCountDown" runat="server" Text="自動登出倒數"></telerik:RadLabel>
-                                </strong>
+                                <li class="text-danger text-pd">
                                     <strong>
+                                        <telerik:RadLabel ID="lblCountDown" runat="server" Text="自動登出倒數"></telerik:RadLabel>
                                         <asp:Timer ID="Timer" runat="server" Interval="1000"></asp:Timer>
                                         <telerik:RadLabel runat="server" ID="lblTime"></telerik:RadLabel>
-                                    </strong></li>
+                                    </strong>
+
+                                </li>
                             </telerik:RadAjaxPanel>
                             <asp:Panel runat="server" ID="plLanguage" Visible="false">
                                 <li class="dropdown">
@@ -298,7 +299,7 @@
                     </div>
                 </ContentTemplate>
             </telerik:RadButton>
-            
+
         </div>
     </form>
     <%--<div style="position: fixed; top: 73%; right: 0.5%;">

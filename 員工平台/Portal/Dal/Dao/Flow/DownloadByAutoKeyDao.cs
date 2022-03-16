@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Dal.Dao.Files
+namespace Dal.Dao.Flow
 {
     public class DownloadByAutoKeyDao : BaseWebAPI<DownloadByAutoKeyApiRow>
     {

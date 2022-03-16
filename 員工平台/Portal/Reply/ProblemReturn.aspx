@@ -48,7 +48,7 @@
                         </div>
                     </div>--%>
                     <div class="form-group">
-                        <label>附件<span class="text-navy">檔案大小限制為10MB；一次最多上傳三個附件</span></label>
+                        <label>附件<span class="text-navy">檔案大小限制為10MB；一次請上傳一個附件</span></label>
                         <div id="dZUpload" class="dropzone" style="border: 1px solid #e5e6e7;">
                             <div class="dz-default dz-message text-center m-t-md">
                                 <i class="fa fa-cloud-upload fa-2x text-primary"></i>
@@ -108,10 +108,10 @@
                                     </LayoutTemplate>
                                     <ItemTemplate>
                                         <tr class="gradeX">
-                                            <td data-th="檔名"><%#Eval("FileName") %></td>
-                                            <td data-th="大小"><%#Eval("FileSize") %></td>
+                                            <td data-th="檔名"><%#Eval("UploadName") %></td>
+                                            <td data-th="大小"><%#Eval("Size") %></td>
                                             <td data-th="動作">
-                                                <asp:Button ID="btnDownload" runat="server" CommandArgument='<%#Eval("FileId") %>' Width="60%" OnClientClick='<%#"download(\""+Eval("FileId")+"\");" %>' CommandName="Download" Text="下載" CssClass="btn-white btn btn-xs" />
+                                                <asp:Button ID="btnDownload" runat="server" CommandArgument='<%#Eval("AutoKey") %>' Width="60%" OnClientClick='<%#"download(\""+Eval("AutoKey")+"\");" %>' CommandName="Download" Text="下載" CssClass="btn-white btn btn-xs" />
                                             </td>
                                         </tr>
                                     </ItemTemplate>
@@ -185,11 +185,11 @@
                 //也就是添加一张图片向服务器发送一次请求
                 autoProcessQueue: true,
                 //允许上传多个照片
-                uploadMultiple: true,
+                uploadMultiple: false,
                 //每次上传的最多文件数，经测试默认为2，坑啊
                 //记得修改web.config 限制上传文件大小的节
-                parallelUploads: 3, //手动触发时一次最大可以上传多少个文件
-                maxFiles: 3, //一次上传的量
+                parallelUploads: 1, //手动触发时一次最大可以上传多少个文件
+                maxFiles: 1, //一次上传的量
                 maxFilesize: 10,   //M为单位
                 acceptedFiles: ".jpg,.jpeg,.doc,.docx,.ppt,.pptx,.txt,.pdf,.mp3,.zip,.png,.xls,.xlsx",//可接受的上传类型
                 dictDefaultMessage: "點擊或拖入要上傳的文件",      //上传框默认显示文字

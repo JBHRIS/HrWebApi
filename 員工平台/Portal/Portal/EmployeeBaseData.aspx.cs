@@ -251,6 +251,7 @@ namespace Portal
                     }
                     if (Res.WorkStateList.Count > 0)
                     {
+                        Res.WorkStateList = Res.WorkStateList.OrderBy(p => p.ADate).ToList();
                         var JobData = Res.WorkStateList[Res.WorkStateList.Count - 1];
                         lblState.Text = JobData.JobState;
                         lblWorkDate.Text = Convert.ToDateTime(JobData.ADate).ToString("yyyy/MM/dd");

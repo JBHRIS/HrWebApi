@@ -88,7 +88,7 @@ namespace JBHR.Bas
                     SCHL = TransferRow["學校"].ToString(),
                     EDUCCODE = TransferRow["教育程度代號"].ToString(),
                     SUBJ = TransferRow["科系"].ToString(),
-                    SUBJ_DETAIL = TransferRow["科系詳細名稱"].ToString(),
+                    SUBJ_DETAIL = TransferRow["詳細科系名稱"].ToString(),
                     ADATE = TransferRow["生效日期"].ToString() != "" ? Convert.ToDateTime(TransferRow["生效日期"].ToString()) : DateTime.Today,
                     DATE_B = TransferRow["入學年月"].ToString(),
                     DATE_E = TransferRow["畢業年月"].ToString(),
@@ -187,7 +187,6 @@ namespace JBHR.Bas
             //        }
             //    }
             //}
-
             if (!SourceRow.IsNull("入學年月") && !string.IsNullOrWhiteSpace(SourceRow["入學年月"].ToString()) && !check_YYMM(SourceRow["入學年月"].ToString(), out Msg))
             {
                 if (TargetRow.Table != null && TargetRow.Table.Columns.Contains("錯誤註記"))
