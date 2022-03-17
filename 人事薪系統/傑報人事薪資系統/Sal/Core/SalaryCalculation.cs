@@ -778,7 +778,7 @@ namespace JBHR.Sal.Core
                                && b.INDT <= InEDate
                                //&& db.GetFilterByNobr(a.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
                                && db.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Select(p => p.DATAGROUP).Contains(b.SALADR)
-                               select new { a.NOBR, a.ADATE, a.DDATE, a.SAL_CODE, a.AMT, c.MONTHTYPE, c.CAL_FREQ }).ToList();
+                               select new { a.NOBR, a.ADATE, a.DDATE, a.SAL_CODE, a.AMT, c.MONTHTYPE, c.CAL_FREQ, c.DEFINEDAYS }).ToList();
             //var sql = from a in smd.BASETTS
             //          join b in smd.SALBASD on a.NOBR equals b.NOBR into ab
             //          from salbasd in ab
@@ -888,7 +888,7 @@ namespace JBHR.Sal.Core
                     bc.MonthDays = monthDays;
                     bc.OnJobDays = AvailableDays;
                     bc.RealWorkDays = AttDataOfNobr.Where(p => !CodeFunction.GetHolidayRoteList().Contains(p.ROTE)).Count();
-
+                    bc.CustomDays = salbasdRow.DEFINEDAYS > 0 ? salbasdRow.DEFINEDAYS : 30M;
                     if (AppConfig.GetConfig("PTWkHrsIncludeOt").Value == "True")
                         bc.WorkHrs = WorkHrs;// -AbsHrs + OtHrs; 
                     else
@@ -1058,7 +1058,7 @@ namespace JBHR.Sal.Core
                         bc.MonthDays = monthDays;
                         bc.OnJobDays = AvailableDays;
                         bc.RealWorkDays = AttDataOfNobr.Where(p => !CodeFunction.GetHolidayRoteList().Contains(p.ROTE)).Count();
-
+                        bc.CustomDays = itm.SALCODE.DEFINEDAYS > 0 ? itm.SALCODE.DEFINEDAYS : 30M;
                         bc.WorkHrs = WorkHrs - AbsHrs + OtHrs;
                         if (FullWork)//整月在職
                         {
@@ -1762,7 +1762,7 @@ namespace JBHR.Sal.Core
                                join b in db.BASETTS on a.NOBR equals b.NOBR
                                join c in db.SALCODE on a.SAL_CODE equals c.SAL_CODE
                                join e in db.DEPT on b.DEPT equals e.D_NO
-							   //join wrnt in db.WriteRuleNobrTable.Where(p => p.GUID == guid) on a.NOBR equals wrnt.EMPID																						
+                               //join wrnt in db.WriteRuleNobrTable.Where(p => p.GUID == guid) on a.NOBR equals wrnt.EMPID																						
                                where b.NOBR.CompareTo(NOBR_B) >= 0 && b.NOBR.CompareTo(NOBR_E) <= 0
                                && e.D_NO_DISP.CompareTo(DEPT_B) >= 0 && e.D_NO_DISP.CompareTo(DEPT_E) <= 0
                                && DATE_E >= b.ADATE && DATE_E <= b.DDATE.Value
@@ -1773,7 +1773,7 @@ namespace JBHR.Sal.Core
                                && b.INDT <= InEDate
                                //&& db.GetFilterByNobr(a.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
                                && db.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Select(p => p.DATAGROUP).Contains(b.SALADR)
-                               select new { a.NOBR, a.ADATE, a.DDATE, a.SAL_CODE, a.AMT, c.MONTHTYPE, c.CAL_FREQ }).ToList();
+                               select new { a.NOBR, a.ADATE, a.DDATE, a.SAL_CODE, a.AMT, c.MONTHTYPE, c.CAL_FREQ, c.DEFINEDAYS }).ToList();
 
             var yearrestList = new List<string>();
             yearrestList.Add("1");
@@ -1808,7 +1808,7 @@ namespace JBHR.Sal.Core
                     BaseSalary_Core bc = new BaseSalary_Core();
                     bc.MonthDays = monthDays;
                     bc.OnJobDays = AvailableDays;
-
+                    bc.CustomDays = salbasdRow.DEFINEDAYS > 0 ? salbasdRow.DEFINEDAYS : 30M;
                     if (FullWork)//整月在職
                     {
                         bc.MonthType = "2";//整月在職直接用預設(月曆天)
@@ -2981,7 +2981,7 @@ namespace JBHR.Sal.Core
                                && b.INDT <= InEDate
                                //&& db.GetFilterByNobr(a.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
                                && db.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Select(p => p.DATAGROUP).Contains(b.SALADR)
-                               select new { a.NOBR, a.ADATE, a.DDATE, a.SAL_CODE, a.AMT, c.MONTHTYPE, c.CAL_FREQ }).ToList();
+                               select new { a.NOBR, a.ADATE, a.DDATE, a.SAL_CODE, a.AMT, c.MONTHTYPE, c.CAL_FREQ, c.DEFINEDAYS }).ToList();
 
             int counts = EmpList.Count();
             SalaryDate sd = new SalaryDate(YYMM);
@@ -3009,6 +3009,7 @@ namespace JBHR.Sal.Core
                     BaseSalary_Core bc = new BaseSalary_Core();
                     bc.MonthDays = monthDays;
                     bc.OnJobDays = AvailableDays;
+                    bc.CustomDays = salbasdRow.DEFINEDAYS > 0 ? salbasdRow.DEFINEDAYS : 30M;
                     if (FullWork)//整月在職
                     {
                         bc.MonthType = "2";//整月在職直接用預設(月曆天)
