@@ -1502,6 +1502,8 @@ namespace JBHR
             if (!ApplicationDeployment.IsNetworkDeployed)
                 return;
 
+            lbUpdateError.Visible = false;
+            progressBar1.Visible = false;
             ApplicationDeployment deploy = ApplicationDeployment.CurrentDeployment;
             try
             {
@@ -1512,6 +1514,7 @@ namespace JBHR
 
                     if (updateResult == DialogResult.Yes)
                     {
+                        progressBar1.Visible = true;
                         this._updateFlag = true;
                         //this.timer1.Stop();
                         deploy.UpdateProgressChanged += new DeploymentProgressChangedEventHandler(deploy_UpdateProgressChanged);
@@ -1538,6 +1541,11 @@ namespace JBHR
             //更新完成
             if (MessageBox.Show("更新完畢，是否要重新啟動?", "訊息", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 Application.Restart();
+            else
+            {
+                lbUpdateError.Visible = false;
+                progressBar1.Visible = false;
+            }
             buttonRestart.Visible = true;
         }
 
