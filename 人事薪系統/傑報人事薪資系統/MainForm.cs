@@ -1532,7 +1532,6 @@ namespace JBHR
             catch (Exception ex)
             {
                 lbUpdateError.Visible = true;
-                JBModule.Message.DbLog.WriteToDB(ex.Message, "更新失敗", "err", this.Name, -1, MainForm.USER_NAME, Guid.NewGuid().ToString());
             }
         }
 
