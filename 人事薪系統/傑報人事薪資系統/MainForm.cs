@@ -1504,9 +1504,9 @@ namespace JBHR
 
             lbUpdateError.Visible = false;
             progressBar1.Visible = false;
-            ApplicationDeployment deploy = ApplicationDeployment.CurrentDeployment;
             try
             {
+                ApplicationDeployment deploy = ApplicationDeployment.CurrentDeployment;
                 bool isUpdate = ApplicationDeployment.CurrentDeployment.CheckForUpdate();
                 if (isUpdate && (this._updateFlag == false))
                 {
@@ -1532,7 +1532,6 @@ namespace JBHR
             catch (Exception ex)
             {
                 lbUpdateError.Visible = true;
-                JBModule.Message.DbLog.WriteToDB(ex.Message, "更新失敗", "err", this.Name, -1, MainForm.USER_NAME, Guid.NewGuid().ToString());
             }
         }
 
