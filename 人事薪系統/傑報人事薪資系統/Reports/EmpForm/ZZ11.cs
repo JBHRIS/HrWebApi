@@ -79,8 +79,25 @@ namespace JBHR.Reports.EmpForm
             comp_e.SelectedIndex = comp_e.Items.Count - 1;
 
             report_type.SelectedIndex = 0;
-            ttstype.SelectedIndex = 0;    
-            
+            ttstype.SelectedIndex = 0;
+
+            SystemFunction.CheckAppConfigRule(btnConfig);
+            JBModule.Data.ApplicationConfigSettings AppConfig = new JBModule.Data.ApplicationConfigSettings("ZZ11", MainForm.COMPANY);
+
+            AppConfig.CheckParameterAndSetDefault("CINDT_Check", "【預設勾選】固定以集團到職日計算年資", "False", "設定是否預設勾選【固定以集團到職日計算年資】", "ComboBox", "SELECT CODE, RESULT FROM (SELECT CAST('True' AS NVARCHAR) AS True, CAST('False' AS NVARCHAR) AS False) AS TF UNPIVOT(CODE FOR RESULT IN(TF.TRUE,TF.FALSE)) AS PV"
+                , "String");
+
+            JBModule.Data.Linq.HrDBDataContext dcHr = new JBModule.Data.Linq.HrDBDataContext();
+            var configs = dcHr.AppConfig.Where(p => p.Category == "ZZ11" && p.Comp == string.Empty);
+
+            if(AppConfig.GetConfig("CINDT_Check").GetString("False").Trim() == "True")
+            {
+                cindt_check.Checked = true;
+            }
+            else
+            {
+                cindt_check.Checked = false;
+            }
         }
 
         private void ttstype_SelectedIndexChanged(object sender, EventArgs e)
@@ -189,6 +206,7 @@ namespace JBHR.Reports.EmpForm
                 string reportname = report_type.SelectedItem.ToString();
                 bool _exportexcel = ExportExcel.Checked;
                 bool _include_leave = include_leave.Checked;
+                bool _cindt_check = cindt_check.Checked;
 
                 string data_report = " AND " + Sal.Function.GetFilterCmdByDataGroup("b.saladr");
                 string _username = MainForm.USER_NAME;                
@@ -199,7 +217,7 @@ namespace JBHR.Reports.EmpForm
                 else if (type_data4.Checked)
                     data_report += " AND A.COUNT_MA=1 ";
                
-                zz11_report = new ZZ11_Report(dateb, datee, nobrb, nobre, deptb, depte, deptsb, deptse, joblb, joble, empcdb, empcde, workb, worke, compb, compe, _ttstype, reporttype, datet, reportname, data_report, _exportexcel, _include_leave, ageb, agee, seniorityb, senioritye, _username,MainForm.COMPANY_NAME);
+                zz11_report = new ZZ11_Report(dateb, datee, nobrb, nobre, deptb, depte, deptsb, deptse, joblb, joble, empcdb, empcde, workb, worke, compb, compe, _ttstype, reporttype, datet, reportname, data_report, _exportexcel, _include_leave, ageb, agee, seniorityb, senioritye, _username,MainForm.COMPANY_NAME, _cindt_check);
                 zz11_report.Show();
             }
             catch (Exception Ex)

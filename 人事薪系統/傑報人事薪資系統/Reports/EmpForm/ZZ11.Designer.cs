@@ -106,6 +106,8 @@ namespace JBHR.Reports.EmpForm
             this.depts_b = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.include_leave = new System.Windows.Forms.CheckBox();
+            this.btnConfig = new System.Windows.Forms.Button();
+            this.cindt_check = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salaryDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bASEBindingSource)).BeginInit();
@@ -796,11 +798,34 @@ namespace JBHR.Reports.EmpForm
             this.include_leave.UseVisualStyleBackColor = true;
             this.include_leave.Visible = false;
             // 
+            // btnConfig
+            // 
+            this.btnConfig.BackgroundImage = global::JBHR.Properties.Resources.Settings_icon;
+            this.btnConfig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnConfig.Location = new System.Drawing.Point(404, 383);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Size = new System.Drawing.Size(25, 23);
+            this.btnConfig.TabIndex = 1189;
+            this.btnConfig.Tag = "ZZ11";
+            this.btnConfig.UseVisualStyleBackColor = true;
+            // 
+            // cindt_check
+            // 
+            this.cindt_check.AutoSize = true;
+            this.cindt_check.Location = new System.Drawing.Point(218, 357);
+            this.cindt_check.Name = "cindt_check";
+            this.cindt_check.Size = new System.Drawing.Size(168, 16);
+            this.cindt_check.TabIndex = 1190;
+            this.cindt_check.Text = "固定以集團到職日計算年資";
+            this.cindt_check.UseVisualStyleBackColor = true;
+            // 
             // ZZ11
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(441, 420);
+            this.Controls.Add(this.cindt_check);
+            this.Controls.Add(this.btnConfig);
             this.Controls.Add(this.include_leave);
             this.Controls.Add(this.depts_e);
             this.Controls.Add(this.label16);
@@ -925,5 +950,7 @@ namespace JBHR.Reports.EmpForm
         internal System.Windows.Forms.ComboBox depts_b;
         private System.Windows.Forms.Label label17;
         internal System.Windows.Forms.CheckBox include_leave;
+        private System.Windows.Forms.Button btnConfig;
+        internal System.Windows.Forms.CheckBox cindt_check;
     }
 }

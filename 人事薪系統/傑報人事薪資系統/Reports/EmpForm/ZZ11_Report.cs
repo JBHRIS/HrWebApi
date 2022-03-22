@@ -48,11 +48,11 @@ namespace JBHR.Reports.EmpForm
         empdata ds = new empdata();
         string date_b, date_e, nobr_b, nobr_e, dept_b, dept_e, depts_b, depts_e, empcd_b, empcd_e, work_b, work_e, comp_b, comp_e;
         string jobl_b, jobl_e, ttstype, report_type, date_t, report_name, data_report, username, comp_name;
-        bool exportexcel, include_leave;
+        bool exportexcel, include_leave, cindt_check;
         decimal seniority_b, seniority_e, age_b, age_e;
         DataTable rq_zz11s3 = new DataTable();
 
-        public ZZ11_Report(string dateb, string datee, string nobrb, string nobre, string deptb, string depte, string deptsb, string deptse, string joblb, string joble, string empcdb, string empcde, string workb, string worke, string compb, string compe, string _ttstype, string reporttype, string datet, string reportname, string datareport, bool _exportexcel, bool _include_leave, string ageb, string agee, string seniorityb, string senioritye, string _username, string compname)
+        public ZZ11_Report(string dateb, string datee, string nobrb, string nobre, string deptb, string depte, string deptsb, string deptse, string joblb, string joble, string empcdb, string empcde, string workb, string worke, string compb, string compe, string _ttstype, string reporttype, string datet, string reportname, string datareport, bool _exportexcel, bool _include_leave, string ageb, string agee, string seniorityb, string senioritye, string _username, string compname, bool _cindt_check)
         {
             InitializeComponent();
             //日期區間
@@ -93,6 +93,8 @@ namespace JBHR.Reports.EmpForm
             jobl_b = joblb; jobl_e = joble;
             //公司名稱
             comp_name = compname;
+            //固定以集團到職日計算年資
+            cindt_check = _cindt_check;
         }
 
         private void ZZ11_Report_Load(object sender, EventArgs e)
@@ -130,8 +132,16 @@ namespace JBHR.Reports.EmpForm
                 string sqlCmdSelect = " A.NOBR, A.NAME_C, A.NAME_E, A.BIRDT, A.SEX, A.IDNO, A.GSM, A.TEL1, A.POSTCODE1, A.ADDR1" +
                     ", A.ADDR2, A.ACCOUNT_NO, A.BANKNO, A.POSTCODE1, B.INDT, B.OUDT, B.STOUDT, B.DEPT AS D_NO, B.JOB, B.DEPTS, B.SALTP, B.STDT, B.STINDT" +
                     ", F.JOBL_DISP AS JOBL, F.JOB_NAME AS JOBL_NAME, B.DI, B.ROTET, B.CALOT, B.EMPCD, B.MANG, B.CARD, B.WORKCD, A.TEL2, B.COMP, B.CINDT, '' AS DESCR" +
-                    ", B.JOBS, B.TTSCODE, DBO.GETTOTALYEARS(A.NOBR,'" + date_e + "') AS WK_YRS1" +
-                    ", DATEDIFF(DAY,A.BIRDT,GETDATE())/365.24 AS AGE, A.MATNO, B.TAX_DATE, B.TAX_EDATE" +
+                    ", B.JOBS, B.TTSCODE";
+                if (cindt_check)
+                {
+                    sqlCmdSelect += ", DBO.GETTOTALYEARS1(A.NOBR,'" + date_e + "') AS WK_YRS1";
+                }
+                else
+                {
+                    sqlCmdSelect += ", DBO.GETTOTALYEARS(A.NOBR,'" + date_e + "') AS WK_YRS1";
+                }
+                sqlCmdSelect += ", DATEDIFF(DAY,A.BIRDT,GETDATE())/365.24 AS AGE, A.MATNO, B.TAX_DATE, B.TAX_EDATE" +
                     ", DATEDIFF(DAY,STDT,STINDT) AS PSTDT_DAYS, A.ACCOUNT_MA, A.ACCOUNT_NA, B.SALADR, C.DEPT_TREE" +
                     ", B.RETCHOO, B.RETRATE, B.RETDATE, B.DEPTM, A.BASECD, B.OilSubsidy, B.JOBO, B.INSG_TYPE" +
                     ", A.EMAIL, A.TAXNO, A.CONT_MAN, A.CONT_TEL, A.CONT_GSM, A.COUNTRY";
