@@ -66,7 +66,7 @@
             this.ptxNobr = new JBControls.PopupTextBox();
             this.bASEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ptxFaName = new JBControls.PopupTextBox();
-            this.fAMILYBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fAMILYBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.txtYymm = new JBControls.TextBox();
             this.txtAmt = new JBControls.TextBox();
             this.txtComp = new JBControls.TextBox();
@@ -83,6 +83,8 @@
             this.sALCODETableAdapter = new JBHR.Sal.SalaryDSTableAdapters.SALCODETableAdapter();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.fAMILYBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fAMILY1TableAdapter = new JBHR.Sal.BaseDSTableAdapters.FAMILY1TableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eXPLABBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salaryDS)).BeginInit();
@@ -91,7 +93,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.sALCODEBindingSource)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bASEBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fAMILYBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fAMILYBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSURTYPEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -102,6 +104,7 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fAMILYBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -507,10 +510,10 @@
             this.ptxFaName.ValueMember = "fa_idno";
             this.ptxFaName.WhereCmd = "";
             // 
-            // fAMILYBindingSource
+            // fAMILYBindingSource2
             // 
-            this.fAMILYBindingSource.DataMember = "FAMILY";
-            this.fAMILYBindingSource.DataSource = this.baseDS;
+            this.fAMILYBindingSource2.DataMember = "FAMILY";
+            this.fAMILYBindingSource2.DataSource = this.baseDS;
             // 
             // txtYymm
             // 
@@ -728,6 +731,15 @@
             this.splitContainer2.SplitterDistance = 197;
             this.splitContainer2.TabIndex = 0;
             // 
+            // fAMILYBindingSource
+            // 
+            this.fAMILYBindingSource.DataMember = "FAMILY1";
+            this.fAMILYBindingSource.DataSource = this.baseDS;
+            // 
+            // fAMILY1TableAdapter
+            // 
+            this.fAMILY1TableAdapter.ClearBeforeFill = true;
+            // 
             // FRM49
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -747,7 +759,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bASEBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fAMILYBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fAMILYBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSURTYPEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewDS)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -759,6 +771,7 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.fAMILYBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -784,7 +797,7 @@
         private JBControls.CheckBox cbxModify;
         private System.Windows.Forms.BindingSource bASEBindingSource;
         private JBHR.Sal.SalaryDSTableAdapters.BASETableAdapter bASETableAdapter;
-        private System.Windows.Forms.BindingSource fAMILYBindingSource;
+        private System.Windows.Forms.BindingSource fAMILYBindingSource2;
         private BaseDS baseDS;
         private ViewDS viewDS;
         private System.Windows.Forms.BindingSource iNSURTYPEBindingSource;
@@ -819,5 +832,7 @@
         private System.Windows.Forms.Label label7;
         private JBControls.TextBox textBox1;
         private System.Windows.Forms.ComboBox cbINSUR_TYPE;
+        private System.Windows.Forms.BindingSource fAMILYBindingSource;
+        private BaseDSTableAdapters.FAMILY1TableAdapter fAMILY1TableAdapter;
     }
 }
