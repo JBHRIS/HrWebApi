@@ -1504,9 +1504,9 @@ namespace JBHR
 
             lbUpdateError.Visible = false;
             progressBar1.Visible = false;
-            ApplicationDeployment deploy = ApplicationDeployment.CurrentDeployment;
             try
             {
+                ApplicationDeployment deploy = ApplicationDeployment.CurrentDeployment;
                 bool isUpdate = ApplicationDeployment.CurrentDeployment.CheckForUpdate();
                 if (isUpdate && (this._updateFlag == false))
                 {
