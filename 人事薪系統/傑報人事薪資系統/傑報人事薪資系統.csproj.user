@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <PublishUrlHistory>ftp://192.168.1.24/JBHR2_Alpha/|ftp://192.168.1.24/JBHR2/|ftp://192.168.1.24/GINTUNG/|ftp://192.168.1.24/HIRATA/|ftp://192.168.1.24/AROMATE/</PublishUrlHistory>
-    <InstallUrlHistory>http://publish.jbjob.com.tw/Publish/JBHR2_Alpha/|http://publish.jbjob.com.tw/Publish/JBHR2/|http://publish.jbjob.com.tw/Publish/GINTUNG/|http://publish.jbjob.com.tw/Publish/HIRATA/|http://publish.jbjob.com.tw/Publish/AROMATE/</InstallUrlHistory>
+    <PublishUrlHistory>ftp://192.168.1.24/JBHR2_Alpha/|ftp://13.70.40.203/Publish/JBHR2/|ftp://192.168.1.24/JBHR2/|ftp://192.168.1.24/GINTUNG/|ftp://192.168.1.24/HIRATA/</PublishUrlHistory>
+    <InstallUrlHistory>http://publish.jbjob.com.tw/Publish/JBHR2_Alpha/|http://publishcn.jbhr.com.tw:23333/Publish/JBHR2/|http://publish.jbjob.com.tw/Publish/JBHR2/|http://publish.jbjob.com.tw/Publish/GINTUNG/|http://publish.jbjob.com.tw/Publish/HIRATA/</InstallUrlHistory>
     <SupportUrlHistory />
     <UpdateUrlHistory />
     <BootstrapperUrlHistory />

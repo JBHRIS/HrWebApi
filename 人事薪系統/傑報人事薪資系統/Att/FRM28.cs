@@ -462,6 +462,7 @@ namespace JBHR.Att
                         }
                     }
                 }
+                SetDepts();
             }
         }
         void TimeSet()
