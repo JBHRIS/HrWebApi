@@ -2377,6 +2377,9 @@
     <Content Include="SqlStorage\sql\2022030801_AlterU_CODE_FRM43_薪資代碼.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="SqlStorage\sql\2022032801_匯入Mtcode出勤種類資料給portal使用.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="SqlStorage\sql\AlterSalcode.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
