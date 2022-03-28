@@ -78,6 +78,7 @@ namespace JBHR.Att
             txtDateB.Text = Sal.Core.SalaryDate.DateString();
             txtDateE.Text = txtDateB.Text;
             //cbxDepts.Enabled = false;
+            cbxDepts.SelectedValue = string.Empty;
             dataGridView3.DataSource = Sal.Function.GetAttend(ptxNobr.Text, Convert.ToDateTime(txtDateB.Text), Convert.ToDateTime(txtDateE.Text));
             txtSerNO.Text = Guid.NewGuid().ToString();
             txtSerNO.Enabled = false;
