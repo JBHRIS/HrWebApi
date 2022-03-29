@@ -3787,33 +3787,7 @@ namespace JBHR.Reports
             _key1[1] = rq_ots.Columns["di"];
             _key1[2] = rq_ots.Columns["sex"];
             rq_ots.PrimaryKey = _key1;
-            foreach (DataRow Row in rq_ot.Rows)
-            {
-                DataRow row = DT_base.Rows.Find(Row["nobr"].ToString());
-                if (row != null)
-                {
-                    object[] _value1 = new object[3];
-                    _value1[0] = row["comp"].ToString();
-                    _value1[1] = row["di"].ToString().Trim();
-                    _value1[2] = row["sex"].ToString();
-                    DataRow row1 = rq_ots.Rows.Find(_value1);
-                    if (row1 != null)
-                    {
-                        row1["ot_hrs"] = decimal.Parse(row1["ot_hrs"].ToString()) + decimal.Parse(Row["ot_hrs"].ToString());
-                        row1["rest_hrs"] = decimal.Parse(row1["rest_hrs"].ToString()) + decimal.Parse(Row["rest_hrs"].ToString());
-                    }
-                    else
-                    {
-                        DataRow aRow = rq_ots.NewRow();
-                        aRow["comp"] = row["comp"].ToString();
-                        aRow["di"] = row["di"].ToString().Trim();
-                        aRow["sex"] = row["sex"].ToString();
-                        aRow["ot_hrs"] = decimal.Parse(Row["ot_hrs"].ToString());
-                        aRow["rest_hrs"] = decimal.Parse(Row["rest_hrs"].ToString());
-                        rq_ots.Rows.Add(aRow);
-                    }
-                }
-            }
+            
             string mdateb = ""; string mdatee = "";
             mdateb = JBHR.Reports.ReportClass.GetAttBDate(year, month);
             mdatee = JBHR.Reports.ReportClass.GetAttEDate(year, month);
@@ -4090,6 +4064,34 @@ namespace JBHR.Reports
                         aRow["wk_hrs"] = decimal.Parse(Row["wk_hrs"].ToString());
                         aRow["count"] = 1;
                         rq_attends.Rows.Add(aRow);
+                    }
+                }
+            }
+
+            foreach (DataRow Row in rq_ot.Rows)
+            {
+                DataRow row = rq_cc2.Rows.Find(Row["nobr"].ToString());
+                if (row != null)
+                {
+                    object[] _value1 = new object[3];
+                    _value1[0] = row["comp"].ToString();
+                    _value1[1] = row["di"].ToString().Trim();
+                    _value1[2] = row["sex"].ToString();
+                    DataRow row1 = rq_ots.Rows.Find(_value1);
+                    if (row1 != null)
+                    {
+                        row1["ot_hrs"] = decimal.Parse(row1["ot_hrs"].ToString()) + decimal.Parse(Row["ot_hrs"].ToString());
+                        row1["rest_hrs"] = decimal.Parse(row1["rest_hrs"].ToString()) + decimal.Parse(Row["rest_hrs"].ToString());
+                    }
+                    else
+                    {
+                        DataRow aRow = rq_ots.NewRow();
+                        aRow["comp"] = row["comp"].ToString();
+                        aRow["di"] = row["di"].ToString().Trim();
+                        aRow["sex"] = row["sex"].ToString();
+                        aRow["ot_hrs"] = decimal.Parse(Row["ot_hrs"].ToString());
+                        aRow["rest_hrs"] = decimal.Parse(Row["rest_hrs"].ToString());
+                        rq_ots.Rows.Add(aRow);
                     }
                 }
             }
