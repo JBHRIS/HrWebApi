@@ -109,7 +109,7 @@ public class AuthManager
             var Userdata = oShareUser.GetShareUser(ShareUserCond);
             user.RoleKey = Userdata.RoleKey;
             user.EmpName = Userdata.UserName;
-            user.EmpId = Userdata.Code;
+            user.EmpId = Userdata.AccountCode;
             user.EmpEmail = Userdata.Email;
             var oQuestionUserInfo = new ShareQuestionUserInfoDao();
             oQuestionUserInfo.InsertQuestionUserInfo(user.CompanyId, user.EmpId, user.EmpId, Userdata.RoleKey, Userdata.UserName, Userdata.Email);

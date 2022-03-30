@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-                    <telerik:RadAjaxPanel ID="RadAjaxPanel4" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
+                    <telerik:RadAjaxPanel ID="RadAjaxPanel4" runat="server" LoadingPanelID="RadAjaxLoadingPanel4">
                         <telerik:RadListView ID="DataUpload" runat="server" ItemPlaceholderID="Container" RenderMode="Lightweight" OnNeedDataSource="DataUpload_NeedDataSource">
                             <LayoutTemplate>
                                 <table class="footable table table-stripped" data-page-size="10" data-filter="#filter">
@@ -298,7 +298,7 @@
 
                                 <div class="form-group  col-lg-6">
                                     <telerik:RadAjaxPanel ID="RadAjaxPanel2" runat="server"
-                                        LoadingPanelID="RadAjaxLoadingPanel1">
+                                        LoadingPanelID="RadAjaxLoadingPanel2">
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <h3>訊息回覆</h3>

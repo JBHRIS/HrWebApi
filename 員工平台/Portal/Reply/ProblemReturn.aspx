@@ -193,7 +193,7 @@
                 maxFilesize: 10,   //M为单位
                 acceptedFiles: ".jpg,.jpeg,.doc,.docx,.ppt,.pptx,.txt,.pdf,.mp3,.zip,.png,.xls,.xlsx",//可接受的上传类型
                 dictDefaultMessage: "點擊或拖入要上傳的文件",      //上传框默认显示文字
-                dictMaxFilesExceeded: "一次只能上傳3個檔案",
+                dictMaxFilesExceeded: "一次只能上傳1個檔案",
                 dictResponseError: "上傳失敗",
                 dictInvalidFileType: "此檔案類型不能上傳",
                 dictFallbackMessage: "瀏覽器不支援",
@@ -205,8 +205,8 @@
 
                     //this.removeAllFiles();
                 },
-                error: function (file, response) {
-                    file.previewElement.classList.add("dz-error");
+                error: function (file, response) {                
+                    $(file.previewElement).addClass("dz-error").find('.dz-error-message').text("請檢查檔案類型及大小，或已達上傳上限");
                 }
             });
         }

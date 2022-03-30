@@ -713,13 +713,17 @@ namespace Portal
                         dcParameter.Add("MainCode", Request.QueryString["Code"]);
                         oShareMail.OutMailContent(out Subject, out Body, "02", 0, true, dcParameter);
                         oSendMail.SendMail(address, Subject, Body, true);
-                        if (RadioFourth.Checked.Value)
+                        if (RadioFourth.Checked!= null)
                         {
-                            Subject = "";
-                            Body = "";
-                            dcParameter.Add("ReplyToUserCode", txtReturnS.SelectedValue);
-                            oShareMail.OutMailContent(out Subject, out Body, "05", 0, true, dcParameter);
-                            oSendMail.SendMail(address, Subject, Body, true);
+                            if (RadioFourth.Checked.Value&& RadioFourth.Value!="")
+                            {
+                                Subject = "";
+                                Body = "";
+                                dcParameter.Add("ReplyToUserCode", txtReturnS.SelectedValue);
+                                oShareMail.OutMailContent(out Subject, out Body, "05", 0, true, dcParameter);
+                                oSendMail.SendMail(address, Subject, Body, true);
+                            }
+                           
                         }    
                     }                   
                 }                
