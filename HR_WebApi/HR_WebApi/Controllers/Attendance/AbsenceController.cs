@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -264,45 +266,58 @@ namespace HR_WebApi.Controllers.Attendance
         [Route("HunyaAbsenceDataSave")]
         [HttpPost]
         [Authorize(Roles = "Absence/HunyaAbsenceDataSave,Admin")]
-        public async Task<ApiResult<LoginResponseDto>> HunyaAbsenceDataSave(HunyaAbsenceDataSaveEntry hunyaAbsenceDataSaveEntry)
+        public async Task<ApiResult<LoginResponseDto>[]> HunyaAbsenceDataSave(List<HunyaAbsenceDataSaveEntry> hunyaAbsenceDataSaveEntrys)
         {
+            //List<ApiResult<LoginResponseDto>> apiResults = new List<ApiResult<LoginResponseDto>>();
+            ConcurrentBag<ApiResult<LoginResponseDto>> apiResults = new  ConcurrentBag<ApiResult<LoginResponseDto>>();
             string loginApi = _configuration.GetSection("Hunya:loginApi").Get<string>().ToString();
             string loginApiKey = _configuration.GetSection("Hunya:loginApiKey").Get<string>().ToString();
             string loginApiUser = _configuration.GetSection("Hunya:loginApiUser").Get<string>().ToString();
             string dataApi = _configuration.GetSection("Hunya:dataApi").Get<string>().ToString();
-            ApiResult<LoginResponseDto> apiResult = new ApiResult<LoginResponseDto>();
-            try
+            #region 登入取得sessionID
+            var urlLogin = loginApi;
+            LoginRequestDto loginRequestDto = new LoginRequestDto()
             {
-                #region 登入取得sessionID
-                var urlLogin = loginApi;
-                LoginRequestDto loginRequestDto = new LoginRequestDto()
+                key = loginApiKey,
+                user = loginApiUser
+            };
+            var jsonLogin = JsonConvert.SerializeObject(loginRequestDto);
+            HttpClient clientLogin = new HttpClient();
+            HttpContent contentLogin = new StringContent(jsonLogin, Encoding.UTF8, "application/json");
+            var responseLogin = await clientLogin.PostAsync(urlLogin, contentLogin);
+            LoginResponseDto loginResponseDto = JsonConvert.DeserializeObject<LoginResponseDto>(await responseLogin.Content.ReadAsStringAsync());
+            #endregion
+            var sessionid = loginResponseDto.sessionid;
+            List<LeaveRequestDto> leaveRequestDtos = new List<LeaveRequestDto>();
+            foreach (var hunyaAbsenceDataSaveEntry in hunyaAbsenceDataSaveEntrys)
+            {
+                leaveRequestDtos.Add(new LeaveRequestDto()
                 {
-                    key = loginApiKey,
-                    user = loginApiUser
-                };
-                var jsonLogin = JsonConvert.SerializeObject(loginRequestDto);
-                HttpClient clientLogin = new HttpClient();
-                HttpContent contentLogin = new StringContent(jsonLogin, Encoding.UTF8, "application/json");
-                var responseLogin = await clientLogin.PostAsync(urlLogin, contentLogin);
-                LoginResponseDto loginResponseDto = JsonConvert.DeserializeObject<LoginResponseDto>(await responseLogin.Content.ReadAsStringAsync());
-                #endregion
-
-                #region 用session ID呼叫API傳入請假資料
-                var url = dataApi;
-                UserLeaveRequestDto userLeaveDto = new UserLeaveRequestDto()
-                {
-                    sessionid = loginResponseDto.sessionid,
                     cmd = "hr_user_leave",
                     工號 = hunyaAbsenceDataSaveEntry.Nobr,
                     請假起始 = hunyaAbsenceDataSaveEntry.AtteendDate.Date.AddTime(hunyaAbsenceDataSaveEntry.OnTime).ToString("yyyy-MM-dd HH:mm"),
                     請假結束 = hunyaAbsenceDataSaveEntry.AtteendDate.Date.AddTime(hunyaAbsenceDataSaveEntry.OffTime).ToString("yyyy-MM-dd HH:mm")
+                });
+            }
+            ApiResult<LoginResponseDto> apiResult = new ApiResult<LoginResponseDto>();
+
+            try
+            {
+                #region 用session ID呼叫API傳入請假資料
+                var url = dataApi;
+                UserLeaveRequestDto userLeaveDto = new UserLeaveRequestDto()
+                {
+                    cmd = "hr_mix_cmd",
+                    cmds = leaveRequestDtos,
+                    sessionid = sessionid
                 };
                 var jsonLeave = JsonConvert.SerializeObject(userLeaveDto);
                 HttpClient clientLeave = new HttpClient();
                 HttpContent contentLeave = new StringContent(jsonLeave, Encoding.UTF8, "application/json");
-                var responseLeave = await clientLeave.PostAsync(url, contentLeave);
+                var responseLeave =  clientLeave.PostAsync(url, contentLeave).Result;
                 #endregion
-                LoginResponseDto leaveResponseDto = JsonConvert.DeserializeObject<LoginResponseDto>(await responseLeave.Content.ReadAsStringAsync());
+                LoginResponseDto leaveResponseDto = JsonConvert.DeserializeObject<LoginResponseDto>( responseLeave.Content.ReadAsStringAsync().Result);
+
                 if (!leaveResponseDto.pass)
                 {
                     _logger.Info("AbsenceService.HunyaAbsenceDataSave錯誤：" + JsonConvert.SerializeObject(url));
@@ -315,9 +330,12 @@ namespace HR_WebApi.Controllers.Attendance
             {
                 apiResult.State = false;
                 apiResult.Message = ex.Message.ToString();
-                _logger.Info("AbsenceService.HunyaAbsenceDataSave錯誤："+ ex.Message.ToString());
+                _logger.Info("AbsenceService.HunyaAbsenceDataSave錯誤：" + ex.Message.ToString());
             }
-            return apiResult;
+            apiResults.Add(apiResult);
+
+            //await Task.Delay(1000);
+            return apiResults.ToArray();
         }
     }
 }

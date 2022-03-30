@@ -184,19 +184,19 @@ namespace HR_WebApi.Controllers.Attendance
         [Authorize(Roles = "Attendance/GetAttendType,Admin")]
         public ApiResult<List<AttendanceTypeDto>> GetAttendType()
         {
-            List<AttendanceTypeDto> attendanceTypes = new List<AttendanceTypeDto>()
+            _logger.Info("開始呼叫AttendanceService.GetRote");
+            ApiResult<List<AttendanceTypeDto>> apiResult = new ApiResult<List<AttendanceTypeDto>>();
+            apiResult.State = false;
+            try
             {
-                new AttendanceTypeDto(){Code = "AttendType_Attend", Name = "出勤",Sort = 1,Display = true},
-                new AttendanceTypeDto(){Code = "AttendType_Card", Name = "刷卡",Sort = 2,Display = true},
-                new AttendanceTypeDto(){Code = "AttendType_Abs", Name = "請假",Sort = 3,Display = true},
-                new AttendanceTypeDto(){Code = "AttendType_Ot", Name = "加班",Sort = 4,Display = true},
-                new AttendanceTypeDto(){Code = "AttendType_Abnormal", Name = "異常",Sort = 5,Display = true},
-            };
-            ApiResult<List<AttendanceTypeDto>> attendanceTypeResultDto = new ApiResult<List<AttendanceTypeDto>>();
-            attendanceTypeResultDto.Result = attendanceTypes;
-            attendanceTypeResultDto.State = true;
-
-            return attendanceTypeResultDto;
+                apiResult.Result = _attendanceService.GetAttendType();
+                apiResult.State = true;
+            }
+            catch (Exception ex)
+            {
+                apiResult.Message = ex.ToString();
+            }
+            return apiResult;
         }
 
         /// <summary>
