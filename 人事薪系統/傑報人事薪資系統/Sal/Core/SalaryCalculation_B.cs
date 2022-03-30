@@ -212,7 +212,7 @@ namespace JBHR.Sal.Core
                                && SkipSalcodeList.Contains(a.SAL_CODE)
                                //&& db.GetFilterByNobr(a.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
                                && db.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Select(p => p.DATAGROUP).Contains(b.SALADR)
-                               select new { a.NOBR, a.ADATE, a.DDATE, a.SAL_CODE, a.AMT, c.MONTHTYPE, c.CAL_FREQ }).ToList();
+                               select new { a.NOBR, a.ADATE, a.DDATE, a.SAL_CODE, a.AMT, c.MONTHTYPE, c.CAL_FREQ, c.DEFINEDAYS }).ToList();
 
             var yearrestList = new List<string>();
             yearrestList.Add("1");
@@ -247,7 +247,7 @@ namespace JBHR.Sal.Core
                     BaseSalary_Core bc = new BaseSalary_Core();
                     bc.MonthDays = monthDays;
                     bc.OnJobDays = AvailableDays;
-
+                    bc.CustomDays = salbasdRow.DEFINEDAYS > 0 ? salbasdRow.DEFINEDAYS : 30M;
                     if (FullWork)//整月在職
                     {
                         bc.MonthType = "2";//整月在職直接用預設(月曆天)

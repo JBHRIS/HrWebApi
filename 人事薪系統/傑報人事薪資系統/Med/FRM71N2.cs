@@ -32,13 +32,66 @@ namespace JBHR.Med
                     MessageBox.Show("起始序號除第一個字元可以是英文字以外，其餘只能是數字", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                db.ExecuteCommand(string.Format("DELETE TW_TAX_SUMMARY WHERE PID={0}", TW_TAX_Auto))
-                    ;
+                db.ExecuteCommand(string.Format("DELETE TW_TAX_SUMMARY WHERE PID={0}", TW_TAX_Auto));
                 var TaxData = (from a in db.TW_TAX_ITEM
                                where a.PID == TW_TAX_Auto
                                select a).ToList();
                 var EmpData = db.TBASE.ToList();
                 var CompData = db.COMP.ToList();
+
+                var TaxData1 = (from td in TaxData
+                                join ed in EmpData on td.NOBR.Trim() equals ed.NOBR.Trim()
+                                select new { ed.IDNO, NOBR = td.NOBR.Trim(), td.COMP }).Distinct().ToList();
+                var RepeatList = (from td1 in TaxData1
+                                  group td1 by new { td1.COMP, td1.IDNO } into grp
+                                  where grp.Count() > 1
+                                  select grp.Key).ToList();
+                var RepeatTaxData = (from td1 in TaxData1
+                                     join rl in RepeatList on new { td1.COMP, td1.IDNO } equals new { rl.COMP, rl.IDNO }
+                                     join c in CompData on td1.COMP equals c.COMP1
+                                     orderby rl.IDNO
+                                     select new {
+                                         COMP = td1.COMP,
+                                         COMPNAME = c.COMPNAME,
+                                         IDNO = td1.IDNO,
+                                         NOBR = td1.NOBR,
+                                     }).ToList();
+
+                if (RepeatTaxData.Any()
+                    && MessageBox.Show("發現有重複的身分證但不同員工編號的資料，是否要進行資料合併?" + Environment.NewLine + " Yes：合併作業，NO：直接轉換.", "合併確認", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    var RepeatTaxDataGP = (from rtd in RepeatTaxData
+                                           group rtd by new { rtd.COMP, rtd.COMPNAME, rtd.IDNO } into grp
+                                           select new
+                                           {
+                                               COMP = grp.Key.COMP,
+                                               COMPNAME = grp.Key.COMPNAME,
+                                               IDNO = grp.Key.IDNO,
+                                               NOBRList = grp.Select(p => p.NOBR).ToList(),
+                                           }).ToList();
+                    foreach (var item in RepeatTaxDataGP)
+                    {
+                        FRM71N2_RepeatIDNO frm = new FRM71N2_RepeatIDNO();
+                        frm.COMP = item.COMP;
+                        frm.COMPNAME = item.COMPNAME;
+                        frm.IDNO = item.IDNO;
+                        frm.NOBRList = item.NOBRList;
+                        frm.TBASEs = (from a in EmpData
+                                      join b in item.NOBRList on new { a.IDNO, a.NOBR } equals new { item.IDNO, NOBR = b }
+                                      select a).ToList();
+                        frm.ShowDialog();
+                        if (!string.IsNullOrWhiteSpace(frm.rpNOBR ))
+                        {
+                            foreach (var nobr in item.NOBRList)
+                            {
+                                var TaxDataByRp = TaxData.Where(p => p.COMP == item.COMP && p.NOBR == nobr);
+                                foreach (var tdbr in TaxDataByRp)
+                                    tdbr.NOBR = frm.rpNOBR;
+                            }
+                        }
+                    }
+                }
+
                 var TaxDataGroup = TaxData.GroupBy(p => new { COMP = p.COMP.Trim(), NOBR = p.NOBR.Trim(), FORMAT = p.FORMAT.Trim(), p.SUBCODE, p.IS_FILE });
                 int i = 0;
                 foreach (var gp in TaxDataGroup)
@@ -264,6 +317,12 @@ namespace JBHR.Med
             frm.ShowDialog();
         }
     }
+    //public class TBaseRepeatIDNO
+    //{
+    //    public string COMP { get; set; }
+    //    public string IDNO { get; set; }
+    //    public Dictionary<string,string> NOBRList { get; set; }
+    //}
     public class TwYearTaxSummaryImport : JBControls.ImportTransfer
     {
 

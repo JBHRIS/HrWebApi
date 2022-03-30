@@ -78,6 +78,7 @@ namespace JBHR.Att
             txtDateB.Text = Sal.Core.SalaryDate.DateString();
             txtDateE.Text = txtDateB.Text;
             //cbxDepts.Enabled = false;
+            cbxDepts.SelectedValue = string.Empty;
             dataGridView3.DataSource = Sal.Function.GetAttend(ptxNobr.Text, Convert.ToDateTime(txtDateB.Text), Convert.ToDateTime(txtDateE.Text));
             txtSerNO.Text = Guid.NewGuid().ToString();
             txtSerNO.Enabled = false;
@@ -462,6 +463,7 @@ namespace JBHR.Att
                         }
                     }
                 }
+                SetDepts();
             }
         }
         void TimeSet()
@@ -1101,7 +1103,7 @@ namespace JBHR.Att
                       &&
                       (//借假須追朔至原沖銷得假，無法單由請假日期去找
                         (
-                          (hcodeSql.FLAG == "X" ? BDate == a.BDATE && EDate == a.EDATE : dDate >= a.BDATE && dDate <= a.EDATE) 
+                          ((hcodeCheck != null && hcodeCheck.FLAG == "X") ? BDate == a.BDATE && EDate == a.EDATE : dDate >= a.BDATE && dDate <= a.EDATE) 
                           && 
                           (from c in myDB.HCODE where c.HTYPE == b.HTYPE && c.H_CODE == Hcode && c.HTYPE.Trim().Length > 0 select 1).Any()
                         )
@@ -1117,7 +1119,7 @@ namespace JBHR.Att
                 decimal current = 0;
                 if (absdOfEntitle.Any()) current = absdOfEntitle.Sum(pp => pp.USEHOUR);
                 //if (Hrs <= 0) break;
-                if (hcodeCheck.FLAG == "X" || it.Guid == advABSDexpire)
+                if ((hcodeCheck != null && hcodeCheck.FLAG == "X") || it.Guid == advABSDexpire)
                 {
                     it.LeaveHours += current;
                     decimal useHrs = it.LeaveHours.GetValueOrDefault(0);
@@ -1125,7 +1127,7 @@ namespace JBHR.Att
                     decimal Balance = it.TOL_HOURS - useHrs;
                     decimal absHrs = Hrs;
                     insertABSD(myDB, it, guid, absHrs);
-                    if (hcodeCheck.FLAG == "X") Hrs -= absHrs;
+                    if ((hcodeCheck != null && hcodeCheck.FLAG == "X")) Hrs -= absHrs;
                     it.LeaveHours -= absHrs;
                 }
                 else
@@ -1169,7 +1171,7 @@ namespace JBHR.Att
                     if (absdOfEntitle.Any()) current = absdOfEntitle.Sum(pp => pp.USEHOUR);
                     //if (Hrs <= 0) break;
 
-                    if (hcodeCheck.FLAG == "X" || it.Guid == advABSDexpire)
+                    if ((hcodeCheck != null && hcodeCheck.FLAG == "X") || it.Guid == advABSDexpire)
                     {
                         it.LeaveHours += current;
                         decimal useHrs = it.LeaveHours.GetValueOrDefault(0);
@@ -1177,7 +1179,7 @@ namespace JBHR.Att
                         decimal Balance = it.TOL_HOURS - useHrs;
                         decimal absHrs = Hrs;
                         insertABSD(myDB, it, guid, absHrs);
-                        if (hcodeCheck.FLAG == "X") Hrs -= absHrs;
+                        if ((hcodeCheck != null && hcodeCheck.FLAG == "X")) Hrs -= absHrs;
                         it.LeaveHours -= absHrs;
                     }
                     else
@@ -1220,7 +1222,7 @@ namespace JBHR.Att
                         decimal current = 0;
                         if (absdOfEntitle.Any()) current = absdOfEntitle.Sum(pp => pp.USEHOUR);
 
-                        if (hcodeCheck.FLAG == "X" || it.Guid == advABSDexpire)
+                        if ((hcodeCheck != null && hcodeCheck.FLAG == "X") || it.Guid == advABSDexpire)
                         {
                             it.LeaveHours += current;
                             decimal useHrs = it.LeaveHours.GetValueOrDefault(0);
@@ -1228,7 +1230,7 @@ namespace JBHR.Att
                             decimal Balance = it.TOL_HOURS - useHrs;
                             decimal absHrs = Hrs;
                             insertABSD(myDB, it, guid, absHrs);
-                            if (hcodeCheck.FLAG == "X") Hrs -= absHrs;
+                            if ((hcodeCheck != null && hcodeCheck.FLAG == "X")) Hrs -= absHrs;
                             it.LeaveHours -= absHrs;
                         }
                         else
