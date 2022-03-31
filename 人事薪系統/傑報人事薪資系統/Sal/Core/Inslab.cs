@@ -421,8 +421,8 @@ namespace JBHR.Sal.Core.Inslab
                         DateTime retdate1 = ri.basetts.RETDATE1 == null ? new DateTime(1900, 1, 1) : ri.basetts.RETDATE1.Value;
                         decimal adays = ins.r_adays();
                         decimal r_amt = JBModule.Data.CDecryp.Number(ri.inslab.R_AMT);
-                        decimal work_rate = adays / 30;
-                        decimal comp = Math.Round(r_amt * MainForm.LabConfig.NRETIRERATE.Value * work_rate, MidpointRounding.AwayFromZero);
+                        //decimal work_rate = adays / 30;
+                        decimal comp = Math.Round(r_amt / 30M * adays * MainForm.LabConfig.NRETIRERATE.Value, MidpointRounding.AwayFromZero);
                         //decimal rate = ri.basetts.RETRATE / 100;
                         decimal self = 0;
                         //decimal self_adays = 0;
@@ -446,7 +446,7 @@ namespace JBHR.Sal.Core.Inslab
                                 if (bdate <= edate)
                                     rate += itm.RETRATE * ins.r_adays(bdate, edate) / 100;
                             }
-                            self = Math.Round(r_amt * rate / 30, MidpointRounding.AwayFromZero);
+                            self = Math.Round(r_amt / 30 * rate , MidpointRounding.AwayFromZero);
                         }
                         re = new EXPLAB();
                         re.ADATE = date_e;
