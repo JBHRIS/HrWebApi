@@ -421,7 +421,7 @@ namespace JBHR.Sal.Core.Inslab
                         DateTime retdate1 = ri.basetts.RETDATE1 == null ? new DateTime(1900, 1, 1) : ri.basetts.RETDATE1.Value;
                         decimal adays = ins.r_adays();
                         decimal r_amt = JBModule.Data.CDecryp.Number(ri.inslab.R_AMT);
-                        decimal work_rate = adays / 30;
+                        //decimal work_rate = adays / 30;
                         decimal comp = Math.Round(r_amt / 30M * adays * MainForm.LabConfig.NRETIRERATE.Value, MidpointRounding.AwayFromZero);
                         //decimal rate = ri.basetts.RETRATE / 100;
                         decimal self = 0;
