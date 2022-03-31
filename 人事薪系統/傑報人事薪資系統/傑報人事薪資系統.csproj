@@ -2380,6 +2380,9 @@
     <Content Include="SqlStorage\sql\2022032801_匯入Mtcode出勤種類資料給portal使用.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="SqlStorage\sql\2022033101_Create_Index_For_SALATT.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="SqlStorage\sql\AlterSalcode.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
