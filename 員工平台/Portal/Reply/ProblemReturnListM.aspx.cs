@@ -63,14 +63,14 @@ namespace Portal
                 txtReturnS.DataBind();
                 //txtReturnS.SelectedIndex = 0;
             }
-            txtReturnS.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "回報類型", Value = "0" });
-            txtReturnS.Items.Insert(1, new Telerik.Web.UI.RadComboBoxItem { Text = "所有類型", Value = "" });
-            txtReturnS.SelectedIndex = 0;
-            txtReturnX.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "結單狀態", Value = "0" });
-            txtReturnX.Items.Insert(1, new Telerik.Web.UI.RadComboBoxItem { Text = "所有類型", Value = "" });
-            txtReturnX.Items.Insert(2, new Telerik.Web.UI.RadComboBoxItem { Text = "已結單", Value = "已結單" });
-            txtReturnX.Items.Insert(3, new Telerik.Web.UI.RadComboBoxItem { Text = "尚未結單", Value = "尚未結單" });
-            txtReturnX.SelectedIndex = 0;
+           
+            txtReturnS.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "所有類型", Value = "" });
+            
+           
+            txtReturnX.Items.Insert(0, new Telerik.Web.UI.RadComboBoxItem { Text = "所有類型", Value = "" });
+            txtReturnX.Items.Insert(1, new Telerik.Web.UI.RadComboBoxItem { Text = "已結單", Value = "已結單" });
+            txtReturnX.Items.Insert(2, new Telerik.Web.UI.RadComboBoxItem { Text = "尚未結單", Value = "尚未結單" });
+            txtReturnX.Items.Insert(3, new Telerik.Web.UI.RadComboBoxItem { Text = "已失效", Value = "已失效" });
 
         }
 
@@ -271,6 +271,7 @@ namespace Portal
                     }
                     //移除不顯示的欄位
                     dt.Columns.Remove("CompanyId");
+                    dt.Columns.Remove("Code");
                     dt.Columns.Remove("SystemCategoryCode");
                     dt.Columns.Remove("Key1");
                     dt.Columns.Remove("Key2");

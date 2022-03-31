@@ -397,7 +397,7 @@
                                                     <telerik:RadButton ID="SetDefaultMessage" runat="server" Text="選擇"
                                                         CommandName='<%# Eval("Name") %>'
                                                         CommandArgument='<%# Eval("Contents") %>'
-                                                        CssClass="btn-white btn btn-xs" OnClick="SetDefaultMessage" />
+                                                        CssClass="btnReply btn-white btn btn-xs" OnClick="SetDefaultMessage" />
                                                 </td>
                                             </tr>
                                                 </tbody>

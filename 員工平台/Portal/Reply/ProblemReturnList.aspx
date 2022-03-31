@@ -37,8 +37,8 @@
                                 <telerik:radcombobox id="txtReturnS" runat="server" class="txtReturnS"
                                     skin="Bootstrap" allowcustomtext="True" autopostback="true"
                                     enablevirtualscrolling="True" itemsperrequest="10" filter="Contains"
-                                    loadingmessage="載入中…" width="100%"
-                                    onselectedindexchanged="txtReturnS_SelectedIndexChanged">
+                                    loadingmessage="載入中…" width="100%" 
+                                    onselectedindexchanged="txtReturnS_SelectedIndexChanged" EmptyMessage="回報類型"> 
                                 </telerik:radcombobox>
                             </div>
                             <div class="col-lg-6">
@@ -47,7 +47,7 @@
                                     skin="Bootstrap" allowcustomtext="True" autopostback="true"
                                     enablevirtualscrolling="True" itemsperrequest="10" filter="Contains"
                                     loadingmessage="載入中…" width="100%"
-                                    onselectedindexchanged="txtReturnS_SelectedIndexChanged">
+                                    onselectedindexchanged="txtReturnS_SelectedIndexChanged" EmptyMessage="結單狀態">
                                 </telerik:radcombobox>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                                         <td data-th="標題" style="width:auto;overflow:hidden" ><%# Eval("TitleContent") %></td>
                                         <td data-th="回報人員"style="width:auto" ><%# Eval("InsertMan") %></td>
                                         <td data-th="回報類型"style="width:auto"><%# Eval("QuestionCategoryName") %></td>
-                                        <td data-th="填寫日期"style="width:auto"><%# Eval("DateE","{0:yyyy-MM-dd HH:mm}") %></td>
+                                        <td data-th="填寫日期"style="width:auto"><%# Eval("InsertDate","{0:yyyy-MM-dd HH:mm}") %></td>
                                         <td data-th="回覆日期"style="width:auto"><%# Eval("UpdateDate","{0:yyyy-MM-dd HH:mm}") %></td>
                                         <td data-th="是否結單"style="width:auto"><%# Eval("CompleteStatus") %></td>
                                       

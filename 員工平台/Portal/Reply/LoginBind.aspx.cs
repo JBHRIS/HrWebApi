@@ -37,7 +37,7 @@ namespace Portal
                     var RequestQueryString = Security.Decrypt(Request.QueryString["Param"]);
                     var dc = DataTrans.QueryStringToDictionary(RequestQueryString);
 
-                    ValidateBaseRedirect(dc["AccountCode"], "", true);
+                    ValidateBaseRedirect(dc["AccountCode"],"",true,"demo");
                 }
             }
            
@@ -77,14 +77,14 @@ namespace Portal
 
             var UserId = btn.CommandName;
             var UserPw = btn.CommandArgument;
-
+           
             if (UserId.Length == 0 || UserPw.Length == 0)
             {
                 lblMsg.Text = "帳號或密碼錯誤，請重新輸入1";
                 return;
             }
 
-            ValidateBaseRedirect(UserId, UserPw,false);
+            ValidateBaseRedirect(UserId, UserPw,false,"demo");
         }
 
         public bool ValidateBaseRedirect(string AccountCode, string AccountPassword, bool FromOutside = false,string CompanyAccountCode = "")
