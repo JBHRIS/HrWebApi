@@ -1297,10 +1297,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 128F));
             this.tableLayoutPanel1.Controls.Add(this.txtYymm, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.chkNotModi, 4, 8);
-            this.tableLayoutPanel1.Controls.Add(this.chkRes, 3, 9);
-            this.tableLayoutPanel1.Controls.Add(this.chkEat, 3, 8);
-            this.tableLayoutPanel1.Controls.Add(this.chkSysCreat, 2, 8);
             this.tableLayoutPanel1.Controls.Add(this.txtOtFoodH, 3, 5);
             this.tableLayoutPanel1.Controls.Add(this.txtAdate, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.label15, 2, 5);
@@ -1323,19 +1319,23 @@
             this.tableLayoutPanel1.Controls.Add(this.label30, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.label10, 0, 9);
             this.tableLayoutPanel1.Controls.Add(this.txtSerNO, 1, 9);
-            this.tableLayoutPanel1.Controls.Add(this.chkSysCreat1, 2, 9);
-            this.tableLayoutPanel1.Controls.Add(this.chkSysCreate, 4, 9);
             this.tableLayoutPanel1.Controls.Add(this.label27, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.cbxOtRote, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.cbxOtDepts, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.cbxOtRCD, 1, 8);
-            this.tableLayoutPanel1.Controls.Add(this.chkSysOT, 4, 7);
             this.tableLayoutPanel1.Controls.Add(this.label7, 2, 7);
             this.tableLayoutPanel1.Controls.Add(this.cbxOtRate, 3, 7);
             this.tableLayoutPanel1.Controls.Add(this.cbxRote, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtOtTimeB, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtOtTimeE, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.chkSysCreate, 3, 8);
+            this.tableLayoutPanel1.Controls.Add(this.chkSysCreat, 3, 9);
+            this.tableLayoutPanel1.Controls.Add(this.chkSysCreat1, 4, 9);
+            this.tableLayoutPanel1.Controls.Add(this.chkEat, 4, 8);
+            this.tableLayoutPanel1.Controls.Add(this.chkRes, 4, 7);
+            this.tableLayoutPanel1.Controls.Add(this.chkSysOT, 4, 5);
+            this.tableLayoutPanel1.Controls.Add(this.chkNotModi, 4, 4);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(10, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 10;
@@ -1389,13 +1389,14 @@
             this.chkNotModi.CaptionLabel = null;
             this.chkNotModi.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.oTBindingSource, "NOTMODI", true));
             this.chkNotModi.IsImitateCaption = true;
-            this.chkNotModi.Location = new System.Drawing.Point(406, 195);
+            this.chkNotModi.Location = new System.Drawing.Point(406, 113);
             this.chkNotModi.Name = "chkNotModi";
             this.chkNotModi.Size = new System.Drawing.Size(72, 16);
             this.chkNotModi.TabIndex = 18;
             this.chkNotModi.TabStop = false;
             this.chkNotModi.Text = "不可修改";
             this.chkNotModi.UseVisualStyleBackColor = true;
+            this.chkNotModi.Visible = false;
             // 
             // chkRes
             // 
@@ -1403,13 +1404,14 @@
             this.chkRes.CaptionLabel = null;
             this.chkRes.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.oTBindingSource, "RES", true));
             this.chkRes.IsImitateCaption = true;
-            this.chkRes.Location = new System.Drawing.Point(308, 221);
+            this.chkRes.Location = new System.Drawing.Point(406, 169);
             this.chkRes.Name = "chkRes";
             this.chkRes.Size = new System.Drawing.Size(60, 16);
             this.chkRes.TabIndex = 20;
             this.chkRes.TabStop = false;
             this.chkRes.Text = "未休息";
             this.chkRes.UseVisualStyleBackColor = true;
+            this.chkRes.Visible = false;
             // 
             // chkEat
             // 
@@ -1417,13 +1419,14 @@
             this.chkEat.CaptionLabel = null;
             this.chkEat.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.oTBindingSource, "EAT", true));
             this.chkEat.IsImitateCaption = true;
-            this.chkEat.Location = new System.Drawing.Point(308, 195);
+            this.chkEat.Location = new System.Drawing.Point(406, 195);
             this.chkEat.Name = "chkEat";
             this.chkEat.Size = new System.Drawing.Size(60, 16);
             this.chkEat.TabIndex = 17;
             this.chkEat.TabStop = false;
             this.chkEat.Text = "未用餐";
             this.chkEat.UseVisualStyleBackColor = true;
+            this.chkEat.Visible = false;
             // 
             // chkSysCreat
             // 
@@ -1431,7 +1434,7 @@
             this.chkSysCreat.CaptionLabel = null;
             this.chkSysCreat.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.oTBindingSource, "SYSCREAT", true));
             this.chkSysCreat.IsImitateCaption = true;
-            this.chkSysCreat.Location = new System.Drawing.Point(202, 195);
+            this.chkSysCreat.Location = new System.Drawing.Point(308, 221);
             this.chkSysCreat.Name = "chkSysCreat";
             this.chkSysCreat.Size = new System.Drawing.Size(72, 16);
             this.chkSysCreat.TabIndex = 16;
@@ -1748,7 +1751,7 @@
             this.chkSysCreat1.CaptionLabel = null;
             this.chkSysCreat1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.oTBindingSource, "SYSCREAT1", true));
             this.chkSysCreat1.IsImitateCaption = true;
-            this.chkSysCreat1.Location = new System.Drawing.Point(202, 221);
+            this.chkSysCreat1.Location = new System.Drawing.Point(406, 221);
             this.chkSysCreat1.Name = "chkSysCreat1";
             this.chkSysCreat1.Size = new System.Drawing.Size(78, 16);
             this.chkSysCreat1.TabIndex = 19;
@@ -1763,7 +1766,7 @@
             this.chkSysCreate.CaptionLabel = null;
             this.chkSysCreate.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.oTBindingSource, "SYSCREAT", true));
             this.chkSysCreate.IsImitateCaption = false;
-            this.chkSysCreate.Location = new System.Drawing.Point(406, 221);
+            this.chkSysCreate.Location = new System.Drawing.Point(308, 195);
             this.chkSysCreate.Name = "chkSysCreate";
             this.chkSysCreate.Size = new System.Drawing.Size(72, 16);
             this.chkSysCreate.TabIndex = 21;
@@ -1837,13 +1840,14 @@
             this.chkSysOT.CaptionLabel = null;
             this.chkSysOT.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.oTBindingSource, "SYS_OT", true));
             this.chkSysOT.IsImitateCaption = true;
-            this.chkSysOT.Location = new System.Drawing.Point(406, 169);
+            this.chkSysOT.Location = new System.Drawing.Point(406, 141);
             this.chkSysOT.Name = "chkSysOT";
             this.chkSysOT.Size = new System.Drawing.Size(72, 16);
             this.chkSysOT.TabIndex = 15;
             this.chkSysOT.TabStop = false;
             this.chkSysOT.Text = "系統假日";
             this.chkSysOT.UseVisualStyleBackColor = true;
+            this.chkSysOT.Visible = false;
             // 
             // label7
             // 
