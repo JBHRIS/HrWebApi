@@ -438,6 +438,23 @@ namespace JBHRIS.Api.Dal.JBHR.Salary.View
             return dList.ToList();
         }
 
+        public List<GetSalaryCodeDto> GetRetSalaryCode(string saladr)
+        {
+            var dList = from u4 in _unitOfWork.Repository<USys4>().Reads()
+                        join sc in _unitOfWork.Repository<Salcode>().Reads() on u4.Retsalcode equals sc.SalCode1
+                        where u4.Comp == saladr
+                        select new GetSalaryCodeDto
+                        {
+                            SalCode1 = sc.SalCode1,
+                            SalCodeDisp = sc.SalCodeDisp,
+                            SalName = sc.SalName,
+                            SalAttr = sc.SalAttr,
+                            Sort = (int)sc.Sort
+                        };
+
+            return dList.ToList();
+        }
+
         private DateTime FirstDayOfMonth
         {
             get

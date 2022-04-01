@@ -35,5 +35,11 @@ namespace JBHRIS.Api.Dal.Salary.View
         List<DateTime> GetDataPassList(string Nobr,DateTime beginDate,DateTime endDate);
 
         List<GetSalaryCodeDto> GetSalaryCode();
+
+        /// <summary>
+        /// 取得不扣應發的薪資代碼
+        /// </summary>
+        /// <returns></returns>
+        List<GetSalaryCodeDto> GetRetSalaryCode(string saladr);
     }
 }
