@@ -87,6 +87,7 @@
                                     
                             </ItemTemplate>
                             <EmptyDataTemplate>
+                                目前並無任何預設訊息
                             </EmptyDataTemplate>
                         </telerik:RadListView>
                         <asp:Label ID="lblUserCode" runat="server" Visible="False"></asp:Label>

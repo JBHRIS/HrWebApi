@@ -58,7 +58,7 @@
                                 </LayoutTemplate>
 
                                 <ItemTemplate>
-                                    <tr>
+                                  <%--  <tr>
                                         <div class="ibox-content">
                                             <div class="row">
                                                 <div class="col-lg-9">
@@ -75,21 +75,26 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </tr>
+                                    </tr>--%>
 
-
-                                    <%--<tr>
-                                            <td>標題 : 
-                                                    <telerik:RadLabel ID="lblName2" runat="server" CssClass="name_font" Text='<%# Eval("Name")%>' />
-
-                                                <td>內容 : 
-                                                     <telerik:RadLabel ID="lblDate2" runat="server" CssClass="text-muted" Text='<%# Eval("Contents")%>' />
+                                    <tbody id="Container" runat="server" style="background-color:#FFF;">
+                                            <tr style="border:1px solid #e7eaec;">
+                                                 <td style="width:80%;padding:15px;overflow:hidden">
+                                                    <telerik:RadLabel ID="RadLabel1" runat="server"
+                                                        CssClass="product-name" Text='<%# Eval("Name")%>' /><br>
+                                                    <telerik:RadLabel ID="RadLabel2" runat="server"
+                                                        CssClass="text-muted" Text='<%# Eval("Contents")%>' />
                                                 </td>
-                                            <td>
-                                                <telerik:RadButton ID="SetDefaultMessage" runat="server" Text="選擇" CommandName='<%# Eval("Name") %>' CommandArgument='<%# Eval("Contents") %>' CssClass="btn-white btn btn-xs" OnClick="SetDefaultMessage"/>
-                                            </td>
+                                                <td style="width:20%;text-align:center;vertical-align: middle !important;padding:15px;">
+                                                    <telerik:RadButton ID="RadButton1" runat="server" Text="選擇"
+                                                        CommandName='<%# Eval("Name") %>'
+                                                        CommandArgument='<%# Eval("Contents") %>'
+                                                        CssClass="btnSetDefault btn-white btn btn-xs" OnClick="SetDefaultMessage" />
+                                                </td>
+                                            </tr>
+                                                </tbody>
 
-                                        </tr>--%>
+
                                 </ItemTemplate>
                                 <EmptyDataTemplate>
                                     無任預設訊息

@@ -59,7 +59,7 @@ namespace Portal
                 RadioSecond.Text = "HR";
                 RadioSecond.Value = "10";//HR(8)與系統商(2)
                 RadioThird.Text = "提問者及HR";
-                RadioSecond.Value = "74";//提問者(64)HR(8)系統商(2)
+                RadioThird.Value = "74";//提問者(64)HR(8)系統商(2)
                 RadioFourth.Visible = true;
                 txtReturnS.Visible = true;
             }
@@ -73,7 +73,7 @@ namespace Portal
             var GetGetSystemUserCond = new ShareGetSystemUserConditions();
             var result = oGetGetSystemUserDao.GetData(GetGetSystemUserCond);
             var rsDataSource = result.Data as List<ShareGetSystemUserRow>;
-
+            rsDataSource = rsDataSource.Where(x => x.RoleKey == 2).ToList();
             if (rsDataSource != null)
             {
                 txtReturnS.DataSource = rsDataSource;
@@ -108,7 +108,7 @@ namespace Portal
                     lblDate.Text = Data.InsertDate.Value.ToString("yyyy/MM/dd");
                     lblTime.Text = Data.InsertDate.Value.ToString("HH:mm");
                     lblTitle.Text = Data.TitleContent;
-                    lblQuestionCategory.Text = Data.QuestionCategoryCode;
+                    lblQuestionCategory.Text = Data.QuestionCategoryName;
                     lblContent.Text = Data.Content;
 
                     var oGetQuestionDefaultMessage = new ShareGetQuestionDefaultMessageByCompanyIdDao();
@@ -179,12 +179,16 @@ namespace Portal
                 //var dataview = rsViewrsQM.GroupBy(x => x.ParentCode);
                 Reply = Reply.Where(x => Security.GetRoleKeyToBinaryKey(x.RoleKey).Contains(_User.RoleKey));
 
-            
+
 
                 QuestionReplyData.DataSource = Reply;
                 if (QuestionMain.Complete)
                 {
-                   
+                    
+                    txtContent.Enabled = false;
+                    txtContent.Text = "此回報單已結案，無法進行回覆";
+                    btnDraft.Enabled = false;
+                    btnAdd.Enabled = false;
 
                     //foreach (var control in QuestionReplyData.Items)
                     //{
@@ -195,8 +199,8 @@ namespace Portal
                     //    }
 
                     //}
-                    //var Script = "$('.btnReply').hide();";
-                    //ScriptManager.RegisterStartupScript(this, typeof(Button), "btnhide", Script, true);
+                    var Script = "$('.btnReply').hide();";
+                    ScriptManager.RegisterStartupScript(this, typeof(Button), "btnhide", Script, true);
                 }
 
             }
@@ -205,6 +209,8 @@ namespace Portal
 
             }
         }
+         
+        
         protected void lvMain_ItemCommand(object sender, RadListViewCommandEventArgs e)
         {
 
@@ -298,9 +304,23 @@ namespace Portal
                         var Body = "";
                         var oShareMail = new ShareMailDao();
                         var dcParameter = new Dictionary<string, string>();
+
                         dcParameter.Add("MainCode", Request.QueryString["Code"]);
-                        oShareMail.OutMailContent(out Subject, out Body, "02", 0, true, dcParameter);
-                        oSendMail.SendMail(address, Subject, Body, true);
+                        if (rsQRBP.RoleKey == 74)
+                        {
+                            oShareMail.OutMailContent(out Subject, out Body, "02", 0, true, dcParameter);
+                            oSendMail.SendMail(address, Subject, Body, true);
+                        }
+                        else if (rsQRBP.RoleKey == 10)
+                        {
+                            oShareMail.OutMailContent(out Subject, out Body, "06", 0, true, dcParameter);
+                            oSendMail.SendMail(address, Subject, Body, true);
+                        }
+                        else if(rsQRBP.RoleKey == 2)
+                        {
+                            oShareMail.OutMailContent(out Subject, out Body, "07", 0, true, dcParameter);
+                            oSendMail.SendMail(address, Subject, Body, true);
+                        }
                         ViewState["ParentCode"] = CN.ToString();
                         QuestionReplyData.Rebind();
                     }
@@ -375,7 +395,21 @@ namespace Portal
                         var oShareMail = new ShareMailDao();
                         var dcParameter = new Dictionary<string, string>();
                         dcParameter.Add("MainCode", Request.QueryString["Code"]);
-                        oShareMail.OutMailContent(out Subject, out Body, "02", 0, true, dcParameter);
+                        if (rsQRBP.RoleKey == 74)
+                        {
+                            oShareMail.OutMailContent(out Subject, out Body, "02", 0, true, dcParameter);
+                            oSendMail.SendMail(address, Subject, Body, true);
+                        }
+                        else if (rsQRBP.RoleKey == 10)
+                        {
+                            oShareMail.OutMailContent(out Subject, out Body, "06", 0, true, dcParameter);
+                            oSendMail.SendMail(address, Subject, Body, true);
+                        }
+                        else if (rsQRBP.RoleKey == 2)
+                        {
+                            oShareMail.OutMailContent(out Subject, out Body, "07", 0, true, dcParameter);
+                            oSendMail.SendMail(address, Subject, Body, true);
+                        }
                         oSendMail.SendMail(address, Subject, Body, true);
                         ViewState["ParentCode"] = CN.ToString();
                         QuestionReplyData.Rebind();
@@ -489,6 +523,7 @@ namespace Portal
         {
             RadioFirst.Checked = false;
             RadioThird.Checked = false;
+            RadioFourth.Checked = false;
             txtReturnS.Enabled = false;
             txtReturnS.SelectedIndex = 0;
             //var Script = "$(document).ready(function() {$('.footable').footable();});";
@@ -711,15 +746,32 @@ namespace Portal
                         var oShareMail = new ShareMailDao();
                         var dcParameter = new Dictionary<string, string>();
                         dcParameter.Add("MainCode", Request.QueryString["Code"]);
-                        oShareMail.OutMailContent(out Subject, out Body, "02", 0, true, dcParameter);
-                        oSendMail.SendMail(address, Subject, Body, true);
-                        if (RadioFourth.Checked.Value)
+                        if (InsertQuestionReplyCond.RoleKey == 74)
                         {
-                            Subject = "";
-                            Body = "";
-                            dcParameter.Add("ReplyToUserCode", txtReturnS.SelectedValue);
-                            oShareMail.OutMailContent(out Subject, out Body, "05", 0, true, dcParameter);
+                            oShareMail.OutMailContent(out Subject, out Body, "02", 0, true, dcParameter);
                             oSendMail.SendMail(address, Subject, Body, true);
+                        }
+                        else if (InsertQuestionReplyCond.RoleKey == 10)
+                        {
+                            oShareMail.OutMailContent(out Subject, out Body, "06", 0, true, dcParameter);
+                            oSendMail.SendMail(address, Subject, Body, true);
+                        }
+                        else if (InsertQuestionReplyCond.RoleKey == 2)
+                        {
+                            oShareMail.OutMailContent(out Subject, out Body, "07", 0, true, dcParameter);
+                            oSendMail.SendMail(address, Subject, Body, true);
+                        }
+                        if (RadioFourth.Checked!= null)
+                        {
+                            if (RadioFourth.Checked.Value&& RadioFourth.Value!="")
+                            {
+                                Subject = "";
+                                Body = "";
+                                dcParameter.Add("ReplyToUserCode", txtReturnS.SelectedValue);
+                                oShareMail.OutMailContent(out Subject, out Body, "05", 0, true, dcParameter);
+                                oSendMail.SendMail(address, Subject, Body, true);
+                            }
+                           
                         }    
                     }                   
                 }                

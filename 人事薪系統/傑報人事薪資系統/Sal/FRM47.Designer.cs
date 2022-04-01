@@ -814,6 +814,7 @@
             this.checkBox2.TabStop = false;
             this.checkBox2.Text = "不可修改";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.Visible = false;
             // 
             // tableLayoutPanel3
             // 

@@ -16,5 +16,6 @@ namespace JBHRIS.Api.Dal.Attendance.View
         List<RoteDto> GetRote(string RoteCode);
         List<RoteDto> GetRotes();
         ApiResult<string> UpdateAttendRote(UpdateAttendRoteEntry updateAttendRoteEntry,string keyman);
+        List<AttendanceTypeDto> GetAttendType();
     }
 }

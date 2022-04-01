@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseFile>License.txt</PackageLicenseFile>
+	  <DocumentationFile>.\JBHRIS.Api.Dto.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

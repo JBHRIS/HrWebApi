@@ -425,6 +425,10 @@ namespace JBHRIS.Api.Service.Attendance.Normal
             throw new NotImplementedException();
         }
 
+        public List<AttendanceTypeDto> GetAttendType()
+        {
+            return _attend_View_GetAttendRote.GetAttendType();
+        }
         public List<RoteDto> GetRote(string RoteCode)
         {
             return _attend_View_GetAttendRote.GetRote(RoteCode);

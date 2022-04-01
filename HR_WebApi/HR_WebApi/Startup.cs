@@ -206,6 +206,9 @@ namespace HR_WebApi
                 string commentsFileName = Assembly.GetExecutingAssembly().GetName().Name + ".XML";
                 string commentsFile = Path.Combine(baseDirectory, commentsFileName);
                 c.IncludeXmlComments(commentsFile);
+                commentsFileName = "JBHRIS.Api.Dto.xml";
+                commentsFile = Path.Combine(baseDirectory, commentsFileName);
+                c.IncludeXmlComments(commentsFile);
             });
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             // 允許 DefaultAuthorize(IAuthorizationFilter) 可以吃AllowAnonymousAttribute可以正確運作

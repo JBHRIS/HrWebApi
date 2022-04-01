@@ -32,7 +32,8 @@ namespace JBHRIS.Api.Dal.JBHR.Attendance.Normal
                                          join h in _unitOfWork.Repository<Hcode>().Reads() on abs.HCode equals h.HCode1
                                          where item.Contains(abs.Nobr)
                                          && ( absenceEntryDto.HcodeList.Count > 0 ? absenceEntryDto.HcodeList.Contains(h.HCode1) : true)
-                                         && h.Flag == "-" 
+                                         && h.Flag == "-"
+                                         && h.Mang == false
                                          && abs.Bdate >= absenceEntryDto.DateBegin && abs.Bdate <= absenceEntryDto.DateEnd 
                                          select new AbsenceTakenDto
                                          {
