@@ -134,10 +134,10 @@ namespace JBHR.Reports.SalForm
                     byte[] bytes = RptViewer.LocalReport.Render(
                        "PDF", null, out mimeType, out encoding, out extension,
                        out streamids, out warnings);
-                    using (FileStream fs = new FileStream(TranFile, FileMode.Create))
-                    {
-                        fs.Write(bytes, 0, bytes.Length);
-                    }
+                    //using (FileStream fs = new FileStream(TranFile, FileMode.Create))
+                    //{
+                    //    fs.Write(bytes, 0, bytes.Length);
+                    //}
                     ////RptViewer.Dispose();
                     //PdfReader reader = new PdfReader(TranFile);
                     ////iTextSharp.text.pdf加密程式
@@ -146,7 +146,7 @@ namespace JBHR.Reports.SalForm
                     //reader.Close();
                     //reader.Dispose();
 
-                    using (Stream input = new FileStream(TranFile, FileMode.Open, FileAccess.Read, FileShare.Read))
+                    using (Stream input = new MemoryStream(bytes))
                     {
                         using (Stream output = new FileStream(TranFile1, FileMode.Create, FileAccess.Write, FileShare.None))
                         {
@@ -172,6 +172,8 @@ namespace JBHR.Reports.SalForm
                     i++;
                     if (manualReset != null)
                         manualReset.WaitOne();
+                    RptViewer.Clear();
+                    RptViewer.Dispose();
                 }
             }
             //Directory.Delete(JBControls.ControlConfig.GetExportPath() + @"Salary", true);
