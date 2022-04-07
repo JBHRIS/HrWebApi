@@ -33,7 +33,7 @@
     <SccProvider>
     </SccProvider>
     <TargetFrameworkProfile />
-    <PublishUrl>ftp://13.70.40.203/Publish/JBHR2/</PublishUrl>
+    <PublishUrl>ftp://192.168.1.24/JBHR2/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -43,13 +43,13 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://publishcn.jbhr.com.tw:23333/Publish/JBHR2/</InstallUrl>
+    <InstallUrl>http://publish.jbjob.com.tw/Publish/JBHR2/</InstallUrl>
     <ProductName>傑報人事薪資系統</ProductName>
     <PublisherName>傑報資訊</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>22.3.16.1</ApplicationVersion>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>22.3.29.3</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -1710,6 +1710,12 @@
     <Compile Include="Med\FRM71N2.designer.cs">
       <DependentUpon>FRM71N2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Med\FRM71N2_RepeatIDNO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Med\FRM71N2_RepeatIDNO.Designer.cs">
+      <DependentUpon>FRM71N2_RepeatIDNO.cs</DependentUpon>
+    </Compile>
     <Compile Include="Med\FRM71N_ADD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2369,6 +2375,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlStorage\sql\2022030801_AlterU_CODE_FRM43_薪資代碼.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022032801_匯入Mtcode出勤種類資料給portal使用.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022033101_Create_Index_For_SALATT.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlStorage\sql\AlterSalcode.sql">
@@ -3308,6 +3320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Med\FRM71N2.resx">
       <DependentUpon>FRM71N2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Med\FRM71N2_RepeatIDNO.resx">
+      <DependentUpon>FRM71N2_RepeatIDNO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Med\FRM71N_ADD.resx">
       <DependentUpon>FRM71N_ADD.cs</DependentUpon>

@@ -1502,9 +1502,11 @@ namespace JBHR
             if (!ApplicationDeployment.IsNetworkDeployed)
                 return;
 
-            ApplicationDeployment deploy = ApplicationDeployment.CurrentDeployment;
+            lbUpdateError.Visible = false;
+            progressBar1.Visible = false;
             try
             {
+                ApplicationDeployment deploy = ApplicationDeployment.CurrentDeployment;
                 bool isUpdate = ApplicationDeployment.CurrentDeployment.CheckForUpdate();
                 if (isUpdate && (this._updateFlag == false))
                 {
@@ -1512,6 +1514,7 @@ namespace JBHR
 
                     if (updateResult == DialogResult.Yes)
                     {
+                        progressBar1.Visible = true;
                         this._updateFlag = true;
                         //this.timer1.Stop();
                         deploy.UpdateProgressChanged += new DeploymentProgressChangedEventHandler(deploy_UpdateProgressChanged);
@@ -1529,7 +1532,6 @@ namespace JBHR
             catch (Exception ex)
             {
                 lbUpdateError.Visible = true;
-                JBModule.Message.DbLog.WriteToDB(ex.Message, "更新失敗", "err", this.Name, -1, MainForm.USER_NAME, Guid.NewGuid().ToString());
             }
         }
 
@@ -1538,6 +1540,11 @@ namespace JBHR
             //更新完成
             if (MessageBox.Show("更新完畢，是否要重新啟動?", "訊息", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 Application.Restart();
+            else
+            {
+                lbUpdateError.Visible = false;
+                progressBar1.Visible = false;
+            }
             buttonRestart.Visible = true;
         }
 

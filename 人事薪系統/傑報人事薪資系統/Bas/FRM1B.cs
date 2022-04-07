@@ -155,7 +155,7 @@ namespace JBHR.Bas
 
             frm.DataTransfer.CheckData = new Dictionary<string, List<JBControls.CheckImportData>>();
             frm.DataTransfer.CheckData.Add("員工編號", this.basDS.V_BASE.Select(p => new JBControls.CheckImportData { DisplayCode = p.NOBR, RealCode = p.NOBR, DisplayName = p.NAME_C }).ToList());
-            frm.DataTransfer.CheckData.Add("教育程度代號", this.basDS.EDUCODE.Select(p => new JBControls.CheckImportData { DisplayCode = p.CODE, RealCode = p.CODE, DisplayName = p.NAME, CheckValue1 = p.CODE, CheckValue2 = p.NAME }).ToList());
+            frm.DataTransfer.CheckData.Add("教育程度代號", CodeFunction.GetMtCode("EDUCODE",false).Select(p => new JBControls.CheckImportData { DisplayCode = p.Key, RealCode = p.Key, DisplayName = p.Value }).ToList());
             frm.DataTransfer.CheckData.Add("科系", this.basDS.SUBCODE.Select(p => new JBControls.CheckImportData { DisplayCode = p.SUBCODE, RealCode = p.SUBCODE, DisplayName = p.SUBDESC }).ToList());
             frm.DataTransfer.CheckData.Add("日夜", dic.Select(p => new JBControls.CheckImportData { DisplayCode = p.Key, RealCode = p.Key, DisplayName = p.Value, CheckValue1 = p.Value }).ToList());
 
@@ -166,7 +166,7 @@ namespace JBHR.Bas
             frm.DataTransfer.ColumnList.Add("學校", typeof(string));
             frm.DataTransfer.ColumnList.Add("教育程度代號", typeof(string));
             frm.DataTransfer.ColumnList.Add("科系", typeof(string));
-            frm.DataTransfer.ColumnList.Add("科系詳細名稱", typeof(string));
+            frm.DataTransfer.ColumnList.Add("詳細科系名稱", typeof(string));
             frm.DataTransfer.ColumnList.Add("日夜", typeof(string));
             frm.DataTransfer.ColumnList.Add("生效日期", typeof(DateTime));
             frm.DataTransfer.ColumnList.Add("入學年月", typeof(string));
@@ -182,6 +182,7 @@ namespace JBHR.Bas
             frm.DataTransfer.UnMustColumnList.Add("畢業年月");
             frm.DataTransfer.UnMustColumnList.Add("畢業");
             frm.DataTransfer.UnMustColumnList.Add("肄業");
+            frm.DataTransfer.UnMustColumnList.Add("備註");
             frm.ShowDialog();
         }
     }

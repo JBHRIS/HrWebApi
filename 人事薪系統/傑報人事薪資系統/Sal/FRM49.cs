@@ -20,6 +20,8 @@ namespace JBHR.Sal
 
         private void FRM49_Load(object sender, EventArgs e)
         {
+            // TODO: 這行程式碼會將資料載入 'baseDS.FAMILY1' 資料表。您可以視需要進行移動或移除。
+            this.fAMILY1TableAdapter.FillByDistinct(this.baseDS.FAMILY1);
             SystemFunction.SetComboBoxItems(cbINSUR_TYPE, CodeFunction.GetMtCode("INSUR_TYPE"), true, false, true);
             cbINSUR_TYPE.Enabled = false;
             this.cOMPTableAdapter.Fill(this.baseDS.COMP);

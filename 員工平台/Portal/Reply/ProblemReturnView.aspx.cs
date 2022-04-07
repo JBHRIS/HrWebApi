@@ -681,7 +681,17 @@ namespace Portal
             UpdateQuestionMainCond.InsertMan = data.InsertMan;
             UpdateQuestionMainCond.InsertDate = data.InsertDate;
             UpdateQuestionMainCond.UpdateMan = _User.EmpName;
-            UpdateQuestionMainCond.UpdateDate = data.UpdateDate;
+            if (data.UpdateDate != null)
+            {
+                UpdateQuestionMainCond.UpdateDate = data.UpdateDate;
+            }
+            else
+            {
+                UpdateQuestionMainCond.UpdateDate = DateTime.Now;
+            }
+           
+           
+
             UpdateQuestionMainCond.AccessToken = _User.AccessToken;
             UpdateQuestionMainCond.RefreshToken = _User.RefreshToken;
             UpdateQuestionMainCond.CompanySetting = CompanySetting;
@@ -766,7 +776,7 @@ namespace Portal
                             DataDetail.ReplyContent = rsQM.Where(x => x.Code == DataDetail.ReplyToCode).FirstOrDefault().Content;
                             if (DataDetail.ReplyContent.Length > 200)
                             {
-                                DataDetail.ReplyContent = DataDetail.ReplyContent.Substring(0,200);
+                                DataDetail.ReplyContent = DataDetail.ReplyContent.Substring(0,30);
                                 DataDetail.ReplyContent += "……";
                             }
                         }

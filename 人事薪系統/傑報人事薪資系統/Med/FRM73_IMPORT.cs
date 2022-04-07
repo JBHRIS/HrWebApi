@@ -152,6 +152,10 @@ namespace JBHR.Med
                         }
                     }
                 }
+                if (SourceRow.IsNull("統一編號") || string.IsNullOrWhiteSpace(SourceRow["統一編號"].ToString()))
+                {
+                    TargetRow["錯誤註記"] += string.Format("[統一編號]為必填欄位.");
+                }
                 if (ColumnValidate(TargetRow, "證號別", TransferCheckDataField.RealCode, out Msg))
                 {
                     TargetRow["證號別"] = Msg;

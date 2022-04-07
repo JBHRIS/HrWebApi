@@ -171,6 +171,19 @@ namespace JBHR.Reports.SalForm
                 decimal Avg_Amt = 0;
                 decimal Avg_Amt_B = 0;
 
+                decimal Total_avgiyear = 0;
+                decimal Total_avgyyear = 0;
+                decimal Total_avg_amt = 0;
+                decimal Total_l_amt = 0;
+                decimal Total_h_amt = 0;
+
+                decimal Avg_avgiyear = 0;
+                decimal Avg_avgyyear = 0;
+                decimal Avg_avg_amt = 0;
+                decimal Avg_l_amt = 0;
+                decimal Avg_h_amt = 0;
+
+
                 if (reporttype == "0")
                 {
                     foreach (DataRow Result_Row in ds.Tables["zz4j"].Rows)
@@ -180,6 +193,24 @@ namespace JBHR.Reports.SalForm
                     }
 
                     Avg_Amt = Math.Round((Total_Amt / Count_Number), 2);
+                }
+                else if (reporttype == "1")
+                {
+                    foreach (DataRow Result_Row in ds.Tables["zz4j1"].Rows)
+                    {
+
+                        Count_Number = Count_Number + 1;
+                        Total_avgiyear = Total_avgiyear + decimal.Parse(Result_Row["avgiyear"].ToString());
+                        Total_avgyyear = Total_avgyyear + decimal.Parse(Result_Row["avgyyear"].ToString());
+                        Total_avg_amt = Total_avg_amt + int.Parse(Result_Row["avg_amt"].ToString());
+                        Total_l_amt = Total_l_amt + int.Parse(Result_Row["l_amt"].ToString());
+                        Total_h_amt = Total_h_amt + int.Parse(Result_Row["h_amt"].ToString());
+                    }
+                    Avg_avgiyear = Math.Round((Total_avgiyear / Count_Number), 2);
+                    Avg_avgyyear = Math.Round((Total_avgyyear / Count_Number), 2);
+                    Avg_avg_amt = Math.Round((Total_avg_amt / Count_Number), 2);
+                    Avg_l_amt = Math.Round((Total_l_amt / Count_Number), 2);
+                    Avg_h_amt = Math.Round((Total_h_amt / Count_Number), 2);
                 }
                 else if (reporttype == "2")
                 {
@@ -199,7 +230,7 @@ namespace JBHR.Reports.SalForm
                     if (reporttype == "0")
                         JBHR.Reports.SalForm.ZZ4JClass.ExPort1(ds.Tables["zz4j"], this.Name, Count_Number, Avg_Amt);
                     else if (reporttype == "1")
-                        JBHR.Reports.SalForm.ZZ4JClass.ExPort2(ds.Tables["zz4j1"], this.Name);
+                        JBHR.Reports.SalForm.ZZ4JClass.ExPort2(ds.Tables["zz4j1"], this.Name, Avg_avgiyear, Avg_avgyyear, Avg_avg_amt, Avg_l_amt, Avg_h_amt);
                     else if (reporttype == "2")
                         JBHR.Reports.SalForm.ZZ4JClass.ExPort3(ds.Tables["zz4j2"], this.Name, Count_Number, Avg_Amt, Avg_Amt_B);
                     this.Close();
@@ -232,7 +263,15 @@ namespace JBHR.Reports.SalForm
                         RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Avg_Amt", Avg_Amt.ToString()) });
                     }
                     else if (reporttype == "1")
+                    {
                         RptViewer.LocalReport.DataSources.Add(new ReportDataSource("SalDataSet_zz4j1", ds.Tables["zz4j1"]));
+
+                        RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Avg_avgiyear", Avg_avgiyear.ToString()) });
+                        RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Avg_avgyyear", Avg_avgyyear.ToString()) });
+                        RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Avg_avg_amt", Avg_avg_amt.ToString()) });
+                        RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Avg_l_amt", Avg_l_amt.ToString()) });
+                        RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Avg_h_amt", Avg_h_amt.ToString()) });
+                    }
                     else if (reporttype == "2")
                     {
                         RptViewer.LocalReport.DataSources.Add(new ReportDataSource("SalDataSet_zz4j2", ds.Tables["zz4j2"]));

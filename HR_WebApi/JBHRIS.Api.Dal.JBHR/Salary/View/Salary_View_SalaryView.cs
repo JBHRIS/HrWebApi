@@ -206,9 +206,21 @@ namespace JBHRIS.Api.Dal.JBHR.Salary.View
         public IQueryable<GetPayslipTitleDto> GetPayslipTitle(string Nobr, string YYMM, string Seq)
         {
             var sql = from w in _unitOfWork.Repository<Wage>().Reads()
-                      where w.Nobr == Nobr && w.Yymm == YYMM && w.Seq == Seq
+                      join b in _unitOfWork.Repository<Base>().Reads() on w.Nobr equals b.Nobr
+                      join bts in _unitOfWork.Repository<Basetts>().Reads() on b.Nobr equals bts.Nobr
+                      join d in _unitOfWork.Repository<Dept>().Reads() on bts.Dept equals d.DNo
+                      join j in _unitOfWork.Repository<Job>().Reads() on bts.Job equals j.Job1
+                      where w.Nobr == Nobr && w.Yymm == YYMM && w.Seq == Seq && bts.Adate <= w.DateE && bts.Ddate >= w.DateE
                       select new GetPayslipTitleDto
                       {
+                          EmployeeId = b.Nobr,
+                          EmployeeName = b.NameC,
+                          JobCode = j.Job1,
+                          JobDispName = j.JobDisp,
+                          JobName = j.JobName,
+                          DeptCode = d.DNo,
+                          DeptDispName = d.DNoDisp,
+                          DeptName = d.DName,
                           Adate = w.Adate,
                           DateB = w.DateB,
                           DateE = w.DateE,
@@ -218,6 +230,7 @@ namespace JBHRIS.Api.Dal.JBHR.Salary.View
                           SalDateE = w.DateE,
                           Note = w.Note
                       };
+
             return sql;
         }
 
@@ -426,6 +439,23 @@ namespace JBHRIS.Api.Dal.JBHR.Salary.View
         public List<GetSalaryCodeDto> GetSalaryCode()
         {
             var dList = from sc in _unitOfWork.Repository<Salcode>().Reads()
+                        select new GetSalaryCodeDto
+                        {
+                            SalCode1 = sc.SalCode1,
+                            SalCodeDisp = sc.SalCodeDisp,
+                            SalName = sc.SalName,
+                            SalAttr = sc.SalAttr,
+                            Sort = (int)sc.Sort
+                        };
+
+            return dList.ToList();
+        }
+
+        public List<GetSalaryCodeDto> GetRetSalaryCode(string saladr)
+        {
+            var dList = from u4 in _unitOfWork.Repository<USys4>().Reads()
+                        join sc in _unitOfWork.Repository<Salcode>().Reads() on u4.Retsalcode equals sc.SalCode1
+                        where u4.Comp == saladr
                         select new GetSalaryCodeDto
                         {
                             SalCode1 = sc.SalCode1,

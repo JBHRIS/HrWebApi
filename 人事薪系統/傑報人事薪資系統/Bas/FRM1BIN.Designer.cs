@@ -322,7 +322,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbxSCHL);
             this.Controls.Add(this.btnImport);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FRM1BIN";
             this.Load += new System.EventHandler(this.FRM1BIN_Load);
             this.ResumeLayout(false);

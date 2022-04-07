@@ -454,7 +454,7 @@ namespace JBHR.Reports.SalForm
             JBHR.Reports.ReportClass.Export(ExporDt, FileName);
         }
 
-        public static void ExPort2(DataTable DT, string FileName)
+        public static void ExPort2(DataTable DT, string FileName, decimal Avg_avgiyear, decimal Avg_avgyyear, decimal Avg_avg_amt, decimal Avg_l_amt, decimal Avg_h_amt)
         {
             DataTable ExporDt = new DataTable();
             ExporDt.Columns.Add("職稱代碼", typeof(string));            
@@ -463,8 +463,10 @@ namespace JBHR.Reports.SalForm
             ExporDt.Columns.Add("平均年資", typeof(decimal));
             ExporDt.Columns.Add("平均年齡", typeof(decimal));
             ExporDt.Columns.Add("平均薪資", typeof(decimal));
-            ExporDt.Columns.Add("最小平均薪資", typeof(int));
-            ExporDt.Columns.Add("最大平均薪資", typeof(int));           
+            ExporDt.Columns.Add("最小平均薪資", typeof(decimal));
+            ExporDt.Columns.Add("最大平均薪資", typeof(decimal));
+
+
             foreach (DataRow Row01 in DT.Rows)
             {
                 DataRow aRow = ExporDt.NewRow();
@@ -476,8 +478,21 @@ namespace JBHR.Reports.SalForm
                 aRow["平均薪資"] = int.Parse(Row01["avg_amt"].ToString());
                 aRow["最小平均薪資"] = int.Parse(Row01["l_amt"].ToString());
                 aRow["最大平均薪資"] = int.Parse(Row01["h_amt"].ToString());
+
                 ExporDt.Rows.Add(aRow);
             }
+
+            DataRow Avg_aRow = ExporDt.NewRow();
+            Avg_aRow["職稱"] = "總平均";
+
+            Avg_aRow["平均年資"] = Avg_avgiyear;
+            Avg_aRow["平均年齡"] = Avg_avgyyear;
+            Avg_aRow["平均薪資"] = Avg_avg_amt;
+            Avg_aRow["最小平均薪資"] = Avg_l_amt;
+            Avg_aRow["最大平均薪資"] = Avg_h_amt;
+
+            ExporDt.Rows.Add(Avg_aRow);
+
             JBHR.Reports.ReportClass.Export(ExporDt, FileName);
         }
 

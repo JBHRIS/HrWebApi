@@ -19,18 +19,21 @@ namespace JBHRIS.Api.Service.Salary.View
         ISalaryCalculateModule _salaryCalculateModule;
         ISalaryEncrypt _salaryEncrypt;
         ISalary_View_SalaryChangeView _salary_View_SalaryChangeView;
+        IEmployee_View_EmployeeJobStatus _employee_View_EmployeeJobStatus;
 
         public SalaryViewService(ISalary_View_SalaryView salary_View_SalaryView,
             IEmployee_View_GetEmployee employee_View_GetEmployee,
             ISalaryCalculateModule salaryCalculateModule,
             ISalaryEncrypt salaryEncrypt,
-            ISalary_View_SalaryChangeView salary_View_SalaryChangeView)
+            ISalary_View_SalaryChangeView salary_View_SalaryChangeView,
+            IEmployee_View_EmployeeJobStatus employee_View_EmployeeJobStatus)
         {
             _salary_View_SalaryView = salary_View_SalaryView;
             _employee_View_GetEmployee = employee_View_GetEmployee;
             _salaryCalculateModule = salaryCalculateModule;
             _salaryEncrypt = salaryEncrypt;
             _salary_View_SalaryChangeView = salary_View_SalaryChangeView;
+            _employee_View_EmployeeJobStatus = employee_View_EmployeeJobStatus;
         }
 
         public string GetSalaryYymm(DateTime date, string Nobr)
@@ -244,8 +247,11 @@ namespace JBHRIS.Api.Service.Salary.View
                           .ToList();
             var sumPayTaxe =  PayTaxe.Sum(p=>p.DecodeAmt);
 
-            var Pay = salary.Where(s => new string[] { "1", "2" }.Contains(s.Type))
-                          .Select(p => new { DecodeAmt = p.Flag == "-" ? _salaryEncrypt.Decode(p.Amt) * -1 : _salaryEncrypt.Decode(p.Amt) })
+            string empSaladr = _employee_View_EmployeeJobStatus.GetCurrentJobStatus(Nobr, DateTime.Now.Date).Saladr;
+            string retSalCode = _salary_View_SalaryView.GetRetSalaryCode(empSaladr).FirstOrDefault().SalCode1;
+
+            var Pay = salary.Where(s => new string[] { "1", "2" }.Contains(s.Type) && s.SalCode != retSalCode)
+                          .Select(p => new { DecodeAmt = p.Flag == "-"  ? _salaryEncrypt.Decode(p.Amt) * -1 : _salaryEncrypt.Decode(p.Amt) })
                           .ToList();
             var sumPay = Pay.Sum(p => p.DecodeAmt);
 

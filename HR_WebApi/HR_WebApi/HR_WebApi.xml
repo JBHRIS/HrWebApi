@@ -135,7 +135,7 @@
             請假存入
             </summary>
         </member>
-        <member name="M:HR_WebApi.Controllers.Attendance.AbsenceController.HunyaAbsenceDataSave(JBHRIS.Api.Dto.Attendance.Entry.HunyaAbsenceDataSaveEntry)">
+        <member name="M:HR_WebApi.Controllers.Attendance.AbsenceController.HunyaAbsenceDataSave(System.Collections.Generic.List{JBHRIS.Api.Dto.Attendance.Entry.HunyaAbsenceDataSaveEntry})">
             <summary>
             請假存入(宏亞)
             </summary>

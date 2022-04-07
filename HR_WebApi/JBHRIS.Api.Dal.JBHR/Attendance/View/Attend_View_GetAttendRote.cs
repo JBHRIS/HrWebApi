@@ -53,6 +53,21 @@ namespace JBHRIS.Api.Dal.JBHR.Attendance.View
             return attentRoteViewDtos;
         }
 
+        public List<AttendanceTypeDto> GetAttendType()
+        {
+            var data = from m in _unitOfWork.Repository<Mtcode>().Reads()
+                       where m.Category == "Portal_AttendType"
+                       select new AttendanceTypeDto
+                       {
+                           Code = m.Code,
+                           Name = m.Name,
+                           Sort = m.Sort,
+                           Display = (bool)m.Display
+                       };
+
+            return data.OrderBy(p => p.Sort).ToList();
+        }
+
         public List<AttRoteViewDto> GetAttRote(List<string> EmpIds, DateTime StartDate, DateTime EndDate)
         {
             DateTime today = DateTime.Today;
