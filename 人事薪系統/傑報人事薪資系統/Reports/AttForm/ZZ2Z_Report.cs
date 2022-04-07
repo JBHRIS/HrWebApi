@@ -18,11 +18,12 @@
  * 2021/06/03    Daniel Chih    Ver 1.0.07     1. 修正B帳勞檢多段加班上下班時間不會回推的問題
  * 2021/07/29    Daniel Chih    Ver 1.0.08     1. 【出勤明細1】增加【單位】欄
  * 2021/08/09    Daniel Chih    Ver 1.0.09     1. 修正勞檢出勤明細表，上班時間錯誤的問題
+ * 2022/04/07    Daniel Chih    Ver 1.0.10     1. 修正總工作天天數加總的算法，除班別00外，也不涵蓋0X、0Y、0Z
  * 
  * 
  * ======================================================================================================
  * 
- * 最後修改：Daniel Chih (0492) - 2021/08/09
+ * 最後修改：Daniel Chih (0492) - 2022/04/07
  */
 
 using System;
@@ -1434,7 +1435,8 @@ namespace JBHR.Reports.AttForm
                 foreach (DataRow Row in zz2z.Rows)
                 {
                     DataRow row = rq_countatt.Rows.Find(Row["nobr"].ToString());
-                    if (Row["rote"].ToString().Trim() != "00")
+                    //班別調整不僅僅只看00 - Modified By Daniel Chih - 2022/04/07
+                    if (Row["rote"].ToString().Trim() != "00" && Row["rote"].ToString().Trim() != "0X" && Row["rote"].ToString().Trim() != "0Y" && Row["rote"].ToString().Trim() != "0Z")
                     {
                         if (row != null)
                             row["cnt"] = int.Parse(row["cnt"].ToString()) + 1;
