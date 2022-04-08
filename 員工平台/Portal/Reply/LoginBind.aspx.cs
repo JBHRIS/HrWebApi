@@ -37,7 +37,7 @@ namespace Portal
                     var RequestQueryString = Security.Decrypt(Request.QueryString["Param"]);
                     var dc = DataTrans.QueryStringToDictionary(RequestQueryString);
 
-                    ValidateBaseRedirect(dc["AccountCode"],"",true,"demo");
+                    ValidateBaseRedirect(dc["AccountCode"],"",true,_User.CompanyId);
                 }
             }
            
