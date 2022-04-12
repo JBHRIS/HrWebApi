@@ -18,28 +18,31 @@ namespace JBHR2Service.KCR_Custom.Meal
                 JBModule.Message.TextLog.WriteLog(String.Format("{0}取得用餐設定.", EmployeeID));
                 try
                 {
-                    var Sql = (from MAS in db.KCR_MealApplySetting
-                               join MT in db.MealType on new { MAS.MealGroup, MAS.MealType } equals new { MT.MealGroup, MealType = MT.MealType_Code }
-                               where MAS.EmployeeID == EmployeeID
-                               && MAS.ADate.CompareTo(ADate) <= 0 && MAS.DDate.CompareTo(ADate) >= 0
-                               orderby MT.BTime
-                               select new
-                               {
-                                   MAS.AutoKey,
-                                   MAS.GID,
-                                   MAS.EmployeeID,
-                                   MAS.MealGroup,
-                                   MAS.MealType,
-                                   MT.BTime,
-                                   MAS.ApplyFlag,
-                                   MAS.HoliMealFlag,
-                                   MAS.ADate,
-                                   MAS.DDate,
-                                   MAS.Note,
-                                   MAS.Key_Man,
-                                   MAS.Key_Date,
-                               });
-                    var ApplySettingList = Sql.ToList();
+                    var ApplySettingSql = (from MAS in db.KCR_MealApplySetting
+                                           join MG in db.MealGroup on MAS.MealGroup equals MG.MealGroup_Code
+                                           join MT in db.MealType on new { MAS.MealGroup, MAS.MealType } equals new { MT.MealGroup, MealType = MT.MealType_Code }
+                                           where MAS.EmployeeID == EmployeeID
+                                           && MAS.ADate.CompareTo(ADate) <= 0 && MAS.DDate.CompareTo(ADate) >= 0
+                                           orderby MT.BTime
+                                           select new
+                                           {
+                                               MAS.AutoKey,
+                                               MAS.GID,
+                                               MAS.EmployeeID,
+                                               MAS.MealGroup,
+                                               MG.MealGroup_Name,
+                                               MAS.MealType,
+                                               MT.MealType_Name,
+                                               MT.BTime,
+                                               MAS.ApplyFlag,
+                                               MAS.HoliMealFlag,
+                                               MAS.ADate,
+                                               MAS.DDate,
+                                               MAS.Note,
+                                               MAS.Key_Man,
+                                               MAS.Key_Date,
+                                           });
+                    var ApplySettingList = ApplySettingSql.ToList();
                     var EmpDataSql = (from bts in db.BASETTS
                                       join b in db.BASE on bts.NOBR equals b.NOBR
                                       join h in db.HOLICD on bts.HOLI_CODE equals h.HOLI_CODE
@@ -63,7 +66,9 @@ namespace JBHR2Service.KCR_Custom.Meal
                                 GID = ApplySetting.GID,
                                 EmployeeID = ApplySetting.EmployeeID,
                                 MealGroup = ApplySetting.MealGroup,
+                                MealGroupName = ApplySetting.MealGroup_Name,
                                 MealType = ApplySetting.MealType,
+                                MealTypeName = ApplySetting.MealType_Name,
                                 BTime = ApplySetting.BTime,
                                 ApplyFlag = ApplySetting.ApplyFlag,
                                 HoliMealFlag = ApplySetting.HoliMealFlag,
@@ -77,13 +82,14 @@ namespace JBHR2Service.KCR_Custom.Meal
                     }
                     else
                     {
-                        var MealTypeSQL = from m in db.MealType
-                                          where m.MealGroup == MealGroup
-                                          select m;
+                        var MealTypeSQL = from mt in db.MealType
+                                          join mg in db.MealGroup on mt.MealGroup equals mg.MealGroup_Code
+                                          where mt.MealGroup == MealGroup
+                                          select new { mt, mg };
                         var MealTypeList = MealTypeSQL.ToList();
                         var UserDefineValueList = db.GetUserDefineValueList("MealType_Holi").ToList();
                         var FinalMealTypeList = (from m in MealTypeList
-                                                 join udv in UserDefineValueList on string.Format("{0},{1}", m.MealType_Code, m.MealGroup) equals udv.Code into udv1
+                                                 join udv in UserDefineValueList on string.Format("{0},{1}", m.mt.MealType_Code, m.mt.MealGroup) equals udv.Code into udv1
                                                  from udv in udv1.DefaultIfEmpty()
                                                  where (udv != null ? bool.Parse(udv.Value) : false) == HoliMealflag
                                                  select m).ToList();
@@ -95,8 +101,10 @@ namespace JBHR2Service.KCR_Custom.Meal
                                 GID = Guid.NewGuid(),
                                 EmployeeID = EmployeeID,
                                 MealGroup = MealGroup,
-                                MealType = FinalMealTypeList[i].MealType_Code,
-                                BTime = FinalMealTypeList[i].BTime,
+                                MealGroupName = FinalMealTypeList[i].mg.MealGroup_Name,
+                                MealType = FinalMealTypeList[i].mt.MealType_Code,
+                                MealTypeName = FinalMealTypeList[i].mt.MealType_Name,
+                                BTime = FinalMealTypeList[i].mt.BTime,
                                 ApplyFlag = (HoliMealflag ? (i == 0 ? true : false) : true),
                                 HoliMealFlag = HoliMealflag,
                                 ADate = ADate,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="OxZkSUCaGb+SPPABXteb8mOqLl1Jg4hiQtldHq5w2nU=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="MIj1bNfGG8l/H6j3oANnekKw47pdVz/+QfYdiWRNAjw=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IKCR_MealService1">
       <properties>
@@ -112,7 +112,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IKCR_MealService1" contract="JBHR2Service.IKCR_MealService" bindingType="basicHttpBinding" address="http://192.168.1.46/Jbhr2Service/KCR_MealService.svc" bindingConfiguration="BasicHttpBinding_IKCR_MealService1">
+    <endpoint name="BasicHttpBinding_IKCR_MealService" contract="JBHR2Service.IKCR_MealService" bindingType="basicHttpBinding" address="http://192.168.1.46/Jbhr2Service/KCR_MealService.svc" bindingConfiguration="BasicHttpBinding_IKCR_MealService1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://192.168.1.46/Jbhr2Service/KCR_MealService.svc</serializedValue>
@@ -187,7 +187,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IKCR_MealService1</serializedValue>
+          <serializedValue>BasicHttpBinding_IKCR_MealService</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

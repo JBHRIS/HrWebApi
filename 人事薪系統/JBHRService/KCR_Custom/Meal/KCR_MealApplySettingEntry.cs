@@ -15,10 +15,14 @@ namespace JBHR2Service.KCR_Custom.Meal
 		public string EmployeeID { get; set; }
 		//用餐群組
 		public string MealGroup { get; set; }
+		//用餐群組名稱
+		public string MealGroupName { get; set; }
 		//用餐餐別
 		public string MealType { get; set; }
-        //餐別時間(排序用)
-        public String BTime { get; set; }
+		//餐別名稱
+		public string MealTypeName { get; set; }
+		//餐別時間(排序用)
+		public String BTime { get; set; }
         //用餐旗標
         public bool ApplyFlag { get; set; }
 		//假日旗標

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="KCRHR" Class="HrDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=192.168.1.12;Initial Catalog=KCRHR;Persist Security Info=True;User ID=jb" SettingsObjectName="JBModule.Data.Properties.Settings" SettingsPropertyName="FEFCHR_DConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=192.168.1.12;Initial Catalog=HUNYAHR;Persist Security Info=True;User ID=jb" SettingsObjectName="JBModule.Data.Properties.Settings" SettingsPropertyName="FEFCHR_DConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.BASE" Member="BASE">
     <Type Name="BASE">
       <Column Name="NOBR" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -4033,12 +4033,12 @@
       <Column Name="AUTOKEY" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="NOBR" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="ADATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MealGroup" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="MealType" Storage="_MEALTYPE_CODE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="NOTE" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="SERONO" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="KEY_MAN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="KEY_DATE" Storage="_KET_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="MealGroup" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.MealCardType" Member="MealCardType">

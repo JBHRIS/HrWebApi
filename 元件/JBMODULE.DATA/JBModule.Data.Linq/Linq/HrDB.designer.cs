@@ -86546,6 +86546,8 @@ namespace JBModule.Data.Linq
 		
 		private System.DateTime _ADATE;
 		
+		private string _MealGroup;
+		
 		private string _MEALTYPE_CODE;
 		
 		private string _NOTE;
@@ -86555,8 +86557,6 @@ namespace JBModule.Data.Linq
 		private string _KEY_MAN;
 		
 		private System.DateTime _KET_DATE;
-		
-		private string _MealGroup;
 		
     #region 擴充性方法定義
     partial void OnLoaded();
@@ -86568,6 +86568,8 @@ namespace JBModule.Data.Linq
     partial void OnNOBRChanged();
     partial void OnADATEChanging(System.DateTime value);
     partial void OnADATEChanged();
+    partial void OnMealGroupChanging(string value);
+    partial void OnMealGroupChanged();
     partial void OnMealTypeChanging(string value);
     partial void OnMealTypeChanged();
     partial void OnNOTEChanging(string value);
@@ -86578,8 +86580,6 @@ namespace JBModule.Data.Linq
     partial void OnKEY_MANChanged();
     partial void OnKEY_DATEChanging(System.DateTime value);
     partial void OnKEY_DATEChanged();
-    partial void OnMealGroupChanging(string value);
-    partial void OnMealGroupChanged();
     #endregion
 		
 		public MEALAPPLYRECORD()
@@ -86643,6 +86643,26 @@ namespace JBModule.Data.Linq
 					this._ADATE = value;
 					this.SendPropertyChanged("ADATE");
 					this.OnADATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MealGroup", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string MealGroup
+		{
+			get
+			{
+				return this._MealGroup;
+			}
+			set
+			{
+				if ((this._MealGroup != value))
+				{
+					this.OnMealGroupChanging(value);
+					this.SendPropertyChanging();
+					this._MealGroup = value;
+					this.SendPropertyChanged("MealGroup");
+					this.OnMealGroupChanged();
 				}
 			}
 		}
@@ -86743,26 +86763,6 @@ namespace JBModule.Data.Linq
 					this._KET_DATE = value;
 					this.SendPropertyChanged("KEY_DATE");
 					this.OnKEY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MealGroup", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MealGroup
-		{
-			get
-			{
-				return this._MealGroup;
-			}
-			set
-			{
-				if ((this._MealGroup != value))
-				{
-					this.OnMealGroupChanging(value);
-					this.SendPropertyChanging();
-					this._MealGroup = value;
-					this.SendPropertyChanged("MealGroup");
-					this.OnMealGroupChanged();
 				}
 			}
 		}

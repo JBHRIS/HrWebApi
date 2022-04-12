@@ -824,20 +824,7 @@ namespace JBHR
                 MessageBox.Show("此使帳號無公司群組設定.");
                 this.MainMenuStrip.Items.Clear();
             }
-            ////JBHRService.Salary.ISalaryService salaryService = new HrService.Salary.SalaryServiceClient(BindingName, HrServiceEndPoint);
-            JBHR2Service.IKCR_MealService kCR_MealService = new JBHR2Service.KCR_MealServiceClient("BasicHttpBinding_IKCR_MealService", "http://192.168.1.46/Jbhr2Service/KCR_MealService.svc");
-            //var mealGenerator = new KCR_MealGenerator();
-            DateTime TestDate = new DateTime(2022, 2, 1 + offset);
-            var list = kCR_MealService.KCR_GetMealApplySettingByEmpID("00024", TestDate);
-            foreach (var item in list)
-            {
-                item.ADate = TestDate;
-                item.ApplyFlag = !item.ApplyFlag;
-            }
-            kCR_MealService.KCR_UpdateMealApplySettingByEmpID(list);
-            offset++;
         }
-        int offset = 0;
         private void SetNewMenuStrip()
         {
             HrDBDataContext db = new HrDBDataContext();

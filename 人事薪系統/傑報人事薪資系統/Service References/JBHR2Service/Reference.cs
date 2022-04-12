@@ -56,7 +56,13 @@ namespace JBHR.JBHR2Service {
         private string MealGroupField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MealGroupNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MealTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MealTypeNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NoteField;
@@ -215,6 +221,19 @@ namespace JBHR.JBHR2Service {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MealGroupName {
+            get {
+                return this.MealGroupNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MealGroupNameField, value) != true)) {
+                    this.MealGroupNameField = value;
+                    this.RaisePropertyChanged("MealGroupName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string MealType {
             get {
                 return this.MealTypeField;
@@ -223,6 +242,19 @@ namespace JBHR.JBHR2Service {
                 if ((object.ReferenceEquals(this.MealTypeField, value) != true)) {
                     this.MealTypeField = value;
                     this.RaisePropertyChanged("MealType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MealTypeName {
+            get {
+                return this.MealTypeNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MealTypeNameField, value) != true)) {
+                    this.MealTypeNameField = value;
+                    this.RaisePropertyChanged("MealTypeName");
                 }
             }
         }

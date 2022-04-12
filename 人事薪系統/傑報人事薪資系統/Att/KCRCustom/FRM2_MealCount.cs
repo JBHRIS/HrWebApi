@@ -28,10 +28,9 @@ namespace JBHR.Att.KCRCustom
         {
             var ADate = DateTime.Now.Date;
             dtpCountDate.Value = ADate;
-            UpdateMealApplySetting(ADate);
+            UpdateMealApplySetting(GetEmployeeList(ADate), ADate);
         }
-
-        private void UpdateMealApplySetting(DateTime ADate)
+        private List<string> GetEmployeeList(DateTime ADate)
         {
             JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
             var EmployeeList = (from bts in db.BASETTS
@@ -39,30 +38,11 @@ namespace JBHR.Att.KCRCustom
                                 && bts.ADATE.CompareTo(ADate) <= 0 && bts.DDATE.Value.CompareTo(ADate) >= 0
                                 && db.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Select(p => p.DATAGROUP).Contains(bts.SALADR)
                                 select bts.NOBR).ToList();
-            var MealApplyRecordSQL = from ma in db.MEALAPPLYRECORD
-                                     join mg in db.MealGroup on ma.MealGroup equals mg.MealGroup_Code
-                                     join mt in db.MealType on ma.MealType equals mt.MealType_Code
-                                     where
-                                     EmployeeList.Contains(ma.NOBR)
-                                     && ma.ADATE.CompareTo(ADate) == 0
-                                     select new { ma, mt, mg };
-            if (MealApplyRecordSQL.Any())
-            {
-                if (MessageBox.Show("已有統計資料，是否要重新產生?", "重新統計", MessageBoxButtons.YesNoCancel) == DialogResult.No)
-                {
-                    var MealApplyRecordGp = MealApplyRecordSQL.ToList().GroupBy(p => new
-                                              {
-                                                  用餐群組 = p.mg.MealGroup_DISP + "-" + p.mg.MealGroup_Name,
-                                                  用餐餐別 = p.mt.MealType_Code + "-" + p.mt.MealType_Name,
-                                              }).Select(p => new
-                                              {
-                                                  p.Key.用餐群組,
-                                                  p.Key.用餐餐別,
-                                                  數量 = p.Count(),
-                                              });
-                    return;
-                }
-            }
+            return EmployeeList;
+        }
+        private void UpdateMealApplySetting(List<string> EmployeeList, DateTime ADate,bool GenMealApply = false)
+        {
+            JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
             var ApplySettingSql = (from MAS in db.KCR_MealApplySetting
                                    join bts in db.BASETTS on MAS.EmployeeID equals bts.NOBR
                                    join b in db.BASE on bts.NOBR equals b.NOBR
@@ -108,7 +88,7 @@ namespace JBHR.Att.KCRCustom
                                  join o in db.OTHCODE on ho.OTHCODE equals o.OTHCODE1
                                  where o.STDHOLI || o.OTHHOLI
                                  select ho
-                              ) on ADate equals holi.H_DATE into holi1
+                              ) on new { HOLICD = h.HOLI_CODE, ADate } equals new { HOLICD = holi.HOLI_CODE, ADate = holi.H_DATE } into holi1
                               from holi in holi1.DefaultIfEmpty()
                               where //bts.NOBR == EmployeeID
                               new string[] { "1", "4", "6" }.Contains(bts.TTSCODE)
@@ -139,7 +119,7 @@ namespace JBHR.Att.KCRCustom
                                        是否用餐 = hfmt != null ? "V" : fmt.holi ? "" : "V",
                                        平假日 = fmt.holi ? "假日" : "平日",
                                        備註 = fmt.mt.NOTE,
-                                       登錄者 = "預設",
+                                       登錄者 = "程式預設",
                                        登錄日期 = DateTime.Now,
                                        _MealGroup = fmt.mg.MealGroup_Code,
                                        _MealType = fmt.mt.MealType_Code,
@@ -152,7 +132,7 @@ namespace JBHR.Att.KCRCustom
                                     join asl in ApplySettingList on new { emp = fsl.員工編號, MealGroup = fsl._MealGroup, MealType = fsl._MealType }
                                                                equals new { emp = asl.EmployeeID, MealGroup = asl.MealGroup_Code, MealType = asl.MealType_Code } into asl1
                                     from asl in asl1.DefaultIfEmpty()
-                                    orderby fsl.員工編號, fsl.用餐餐別
+                                    orderby fsl.員工編號, fsl.用餐群組, fsl.用餐餐別
                                     select new
                                     {
                                         員工編號 = fsl.員工編號,
@@ -171,37 +151,53 @@ namespace JBHR.Att.KCRCustom
                                         _ADate = asl != null ? asl.ADate : fsl._ADate,
                                         _DDate = asl != null ? asl.DDate : fsl._DDate,
                                     }).ToList();
-            var CountTable = FinalSettingList.GroupBy(p => new { p.用餐群組, p.用餐餐別 }).Select(p => new { p.Key.用餐群組, p.Key.用餐餐別, 數量 = p.Count(q => q.是否用餐 == "V") });
-            List<MEALAPPLYRECORD> mEALAPPLYRECORDs = new List<MEALAPPLYRECORD>();
-            foreach (var item in FinalSettingList)
+            if (GenMealApply)
             {
-                if (item.是否用餐 == "V")
+                List<MEALAPPLYRECORD> mEALAPPLYRECORDs = new List<MEALAPPLYRECORD>();
+                foreach (var item in FinalSettingList)
                 {
-                    MEALAPPLYRECORD instance = new MEALAPPLYRECORD() 
-                    { 
-                        AUTOKEY = -1,
-                        NOBR = item.員工編號,
-                        ADATE = ADate,
-                        MealGroup = item._MealGroup,
-                        MealType = item._MealType,
-                        NOTE = item.備註,
-                        SERONO = item._GID.ToString(),
-                        KEY_MAN = MainForm.USER_NAME,
-                        KEY_DATE = DateTime.Now,
-                    };
-                    mEALAPPLYRECORDs.Add(instance);
+                    if (item.是否用餐 == "V")
+                    {
+                        MEALAPPLYRECORD instance = new MEALAPPLYRECORD()
+                        {
+                            AUTOKEY = -1,
+                            NOBR = item.員工編號,
+                            ADATE = ADate,
+                            MealGroup = item._MealGroup,
+                            MealType = item._MealType,
+                            NOTE = item.備註,
+                            SERONO = item._GID.ToString(),
+                            KEY_MAN = MainForm.USER_NAME,
+                            KEY_DATE = DateTime.Now,
+                        };
+                        mEALAPPLYRECORDs.Add(instance);
+                    }
                 }
-            }
-            string MealApplyRecordDeleteSql = "DELETE MealApplyRecord WHERE ADATE = @ADate and NOBR IN @item";
-            string delerrMsg = "※產生報餐資料異常※";
-            foreach (var item in EmployeeList.Split(SplitSize))
-            {
-                object param = new { ADate , item };
-                db.BulkInsertWithDelete(db, mEALAPPLYRECORDs.Where(p => item.Contains(p.NOBR)), MealApplyRecordDeleteSql, param, delerrMsg);
+                string MealApplyRecordDeleteSql = "DELETE MealApplyRecord WHERE ADATE = @ADate and NOBR IN @item";
+                string delerrMsg = "※產生報餐資料異常※";
+                foreach (var item in EmployeeList.Split(SplitSize))
+                {
+                    object param = new { ADate, item };
+                    db.BulkInsertWithDelete(db, mEALAPPLYRECORDs.Where(p => item.Contains(p.NOBR)), MealApplyRecordDeleteSql, param, delerrMsg);
+                }
+
+                string ResultStr = string.Format("--依目前設定統計{2}用餐{1}(結算時間 {0}){1}", DateTime.Now, Environment.NewLine, ADate.ToShortDateString()); 
+                var CountTable = FinalSettingList.GroupBy(p => new { p.用餐群組, p.用餐餐別 }).Select(p => new { p.Key.用餐群組, p.Key.用餐餐別, 數量 = p.Count(q => q.是否用餐 == "V") });
+                foreach (var gp in CountTable.GroupBy(p => p.用餐群組))
+                {
+                    ResultStr += gp.Key.ToString() + Environment.NewLine;
+                    foreach (var item in gp)
+                    {
+                        if (item.數量 != 0)
+                            ResultStr += string.Format(" {0}:{1}{2}", item.用餐餐別, item.數量, Environment.NewLine);
+                    }
+                         
+                }
+                txtCountResult.Text = ResultStr;
             }
 
             #region Linq PIVOT
-            var allCols = FinalSettingList.Select(o => o.用餐餐別).Distinct().OrderBy(o => o).ToList();
+            var allCols = FinalSettingList.Select(o => o.用餐餐別).Distinct().ToList();
             var res = FinalSettingList.GroupBy(o => new { o.員工編號, o.員工姓名, o.用餐群組, o.平假日 })
                 .Select(o =>
                 {
@@ -217,7 +213,7 @@ namespace JBHR.Att.KCRCustom
                         dict[c] = o.Where(p => p.用餐餐別 == c).Select(p => p.是否用餐).FirstOrDefault();
                     });
                     d.備註 = o.FirstOrDefault() != null ? o.First().備註 : String.Empty;
-                    d.登錄者 = o.FirstOrDefault() != null ? o.First().登錄者 : "預設";
+                    d.登錄者 = o.FirstOrDefault() != null ? o.First().登錄者 : "程式預設";
                     d.登錄日期 = o.FirstOrDefault() != null ? o.First().登錄日期 : DateTime.Now;
                     return d;
                 }).ToList(); 
@@ -256,22 +252,44 @@ namespace JBHR.Att.KCRCustom
         {
             var ADate = dtpCountDate.Value;
             JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
-            var MealApplySQL = from MA in db.MEALAPPLYRECORD
-                               where MA.ADATE.CompareTo(ADate) == 0
-                               select MA;
-            var MealApplyList = MealApplySQL.ToList();
-            if (MealApplyList.Any())
+            var EmployeeList = GetEmployeeList(ADate);
+            var MealApplyRecordSQL = from ma in db.MEALAPPLYRECORD
+                                     join mg in db.MealGroup on ma.MealGroup equals mg.MealGroup_Code
+                                     join mt in db.MealType on new { ma.MealGroup, ma.MealType } equals new { mt.MealGroup, MealType = mt.MealType_Code }
+                                     where
+                                     EmployeeList.Contains(ma.NOBR)
+                                     && ma.ADATE.CompareTo(ADate) == 0
+                                     select new { ma, mt, mg };
+            if (MealApplyRecordSQL.Any())
             {
+                if (MessageBox.Show("已有統計資料，是否要重新產生?", "重新統計", MessageBoxButtons.YesNoCancel) == DialogResult.No)
+                {
+                    var MealApplyRecordGp = MealApplyRecordSQL.OrderBy(p => p.mg.MealGroup_DISP + "-" + p.mg.MealGroup_Name)
+                                              .ThenBy(p => p.mt.MealType_Code + "-" + p.mt.MealType_Name)
+                                              .ToList().GroupBy(p => new
+                                              {
+                                                  用餐群組 = p.mg.MealGroup_DISP + "-" + p.mg.MealGroup_Name,
+                                                  用餐餐別 = p.mt.MealType_Code + "-" + p.mt.MealType_Name,
+                                              }).Select(p => new
+                                              {
+                                                  p.Key.用餐群組,
+                                                  p.Key.用餐餐別,
+                                                  數量 = p.Count(),
+                                              });
 
+                    string ResultStr = string.Format("--依報餐紀錄統計{2}用餐{1}(結算時間 {0}){1}", DateTime.Now, Environment.NewLine, ADate.ToShortDateString());
+                    foreach (var gp in MealApplyRecordGp.GroupBy(p => p.用餐群組))
+                    {
+                        ResultStr += gp.Key.ToString() + Environment.NewLine;
+                        foreach (var item in gp)
+                            ResultStr += string.Format(" {0}:{1}{2}", item.用餐餐別, item.數量, Environment.NewLine);
+                    }
+                    txtCountResult.Text = ResultStr;
+
+                    return;
+                }
             }
-            else
-            {
-                UpdateMealApplySetting(ADate);
-                
-
-
-
-            }
+            UpdateMealApplySetting(EmployeeList, ADate, true);
 
         }
         #region DataGridView Filter Fuction
@@ -363,7 +381,7 @@ namespace JBHR.Att.KCRCustom
             cck.notExistsList = new List<string> { "MultiSelectCheckColumn" };
             foreach (DataGridViewColumn dc in dgv.Columns)
             {
-                if (dc.DataPropertyName.IndexOf("_") == 0)//如果用_當第一個字元，視為隱藏欄位
+                if (dc.DataPropertyName.IndexOf("_") == 0 || dc.DataPropertyName.IndexOf("-") != -1)//如果用_當第一個字元，視為隱藏欄位
                     cck.notExistsList.Add(dc.DataPropertyName);
             }
             cck.ShowDialog();
@@ -394,7 +412,7 @@ namespace JBHR.Att.KCRCustom
             columnFilter.Clear();
             foreach (DataColumn dc in Source.Columns)
             {
-                if (dc.ColumnName == "MultiSelectCheckColumn")//check欄位不搜尋
+                if (dc.ColumnName == "MultiSelectCheckColumn" || dc.ColumnName.IndexOf("-") != -1)//check欄位不搜尋
                     continue;//check欄位不搜尋
                 columnFilter.Add(dc.ColumnName);
             }
@@ -411,7 +429,13 @@ namespace JBHR.Att.KCRCustom
                 e.SuppressKeyPress = true;
                 textBoxFilter.SelectAll();
             }
-        } 
+        }
         #endregion
+
+        private void dtpCountDate_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime ADate = dtpCountDate.Value;
+            UpdateMealApplySetting(GetEmployeeList(ADate), ADate);
+        }
     }
 }

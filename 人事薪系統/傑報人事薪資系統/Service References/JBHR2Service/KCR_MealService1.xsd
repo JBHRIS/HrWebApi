@@ -20,7 +20,9 @@
       <xs:element minOccurs="0" name="Key_Date" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Key_Man" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MealGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MealGroupName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MealType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MealTypeName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
