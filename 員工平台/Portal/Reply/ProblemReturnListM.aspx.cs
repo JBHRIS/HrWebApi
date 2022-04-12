@@ -31,6 +31,7 @@ namespace Portal
                 SetUserInfo();
                
                 txtReturnS_DataBind();
+                txtReturnCompany_DataBind();
             }
             ScriptManager scriptManager = ScriptManager.GetCurrent(this.Page);
             scriptManager.RegisterPostBackControl(this.btnExportExcel);
@@ -73,6 +74,30 @@ namespace Portal
             txtReturnX.Items.Insert(3, new Telerik.Web.UI.RadComboBoxItem { Text = "已失效", Value = "已失效" });
 
         }
+        private void txtReturnCompany_DataBind()
+        {
+            if (_User.RoleKey == 2)
+            {
+                var oShareGetShareCompanyIdAndNameDao = new ShareGetShareCompanyIdAndNameDao();
+                var ShareGetShareCompanyIdAndNameDaoCond = new ShareGetShareCompanyIdAndNameConditions();
+                var result = oShareGetShareCompanyIdAndNameDao.GetData(ShareGetShareCompanyIdAndNameDaoCond);
+                var rsDataSource = result.Data as List<ShareGetShareCompanyIdAndNameRow>;
+                if (rsDataSource != null)
+                {
+                    txtReturnCompany.DataSource = rsDataSource;
+                    txtReturnCompany.DataTextField = "CompanyName";
+                    txtReturnCompany.DataValueField = "CompanyId";
+                    txtReturnCompany.DataBind();
+
+                }
+            }
+            else
+            {
+                txtReturnCompany.Visible = false;
+            }
+            
+        }
+
 
         protected void lvMain_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
         {
@@ -160,8 +185,7 @@ namespace Portal
         protected void txtReturnS_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
         {
             var selectitem = sender as RadComboBox;
-            if (txtReturnS.SelectedValue != "0")
-            {
+           
 
                 RadListViewContainsFilterExpression expression1 = new RadListViewContainsFilterExpression("QuestionCategoryCode");
                 lvMain.FilterExpressions.Remove(expression1);
@@ -171,22 +195,20 @@ namespace Portal
                     lvMain.FilterExpressions.Add(expression1);
                 }
 
-            }
 
-            if (txtReturnX.SelectedValue != "0")
+            RadListViewContainsFilterExpression expression2 = new RadListViewContainsFilterExpression("CompleteStatus");
+            lvMain.FilterExpressions.Remove(expression2);
+            if (txtReturnX.SelectedValue != "")
             {
-                RadListViewContainsFilterExpression expression2 = new RadListViewContainsFilterExpression("CompleteStatus");
-                lvMain.FilterExpressions.Remove(expression2);
-                if (txtReturnX.SelectedValue != "")
-                {
-                    expression2.CurrentValue = txtReturnX.SelectedValue;
-                    lvMain.FilterExpressions.Add(expression2);
-                }
-
+                expression2.CurrentValue = txtReturnX.SelectedValue;
+                lvMain.FilterExpressions.Add(expression2);
             }
+
+
             lvMain.Rebind();
         }
 
+     
         protected void btnExportExcel_Click(object sender, EventArgs e)
         {
             APIResult rsGetQuestionMain = new APIResult();
@@ -274,7 +296,7 @@ namespace Portal
                     dt.Columns.Remove("Code");
                     dt.Columns.Remove("SystemCategoryCode");
                     dt.Columns.Remove("Key1");
-                    dt.Columns.Remove("Key2");
+                   
                     dt.Columns.Remove("Key3");
                     dt.Columns.Remove("QuestionCategoryCode");
                     dt.Columns.Remove("IpAddress");

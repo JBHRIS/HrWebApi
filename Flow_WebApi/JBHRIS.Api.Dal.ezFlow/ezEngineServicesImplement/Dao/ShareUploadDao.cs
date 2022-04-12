@@ -67,7 +67,8 @@ namespace JBHRIS.Api.Dal.ezFlow.ezEngineServicesImplement.Dao
                          CompanyId = c.CompanyId,
                          ServerName = c.ServerName,
                          UploadName = c.UploadName,
-                         Type = c.Type
+                         Type = c.Type,
+                         Size = c.Size
                      }).ToList();
 
             return r;

@@ -12,7 +12,7 @@ using Bll.Absence.Vdb;
 
 namespace Dal.Dao.Absence
 {
-    public class HunyaAbsenceDataSaveDao : BaseWebAPI<HunyaAbsenceDataSaveApiRow>
+    public class HunyaAbsenceDataSaveDao : BaseWebAPI<List<HunyaAbsenceDataSaveApiRow>>
     {
 
         public HunyaAbsenceDataSaveDao() : base()
@@ -24,15 +24,20 @@ namespace Dal.Dao.Absence
             NeedSaveData = true;
         }
 
-        public async Task<APIResult> GetAsync(HunyaAbsenceDataSaveConditions Cond, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<APIResult> GetAsync(List<HunyaAbsenceDataSaveConditions> Cond, CancellationToken cancellationToken = default(CancellationToken))
         {
-            AuthenticationHeaderBearerTokenValue = Cond.AccessToken;
+            var AccessToken = "";
+            var RefreshToken = "";
+            if (Cond.Count > 0)
+            {
+                AuthenticationHeaderBearerTokenValue = Cond[0].AccessToken;
 
-            //移除敏感資料
-            var AccessToken = Cond.AccessToken;
-            var RefreshToken = Cond.RefreshToken;
-            Cond.AccessToken = "";
-            Cond.RefreshToken = "";
+                //移除敏感資料
+                AccessToken = Cond[0].AccessToken;
+                RefreshToken = Cond[0].RefreshToken;
+                Cond[0].AccessToken = "";
+                Cond[0].RefreshToken = "";
+            }
 
             #region 要傳遞的參數
             HTTPPayloadDictionary dic = new HTTPPayloadDictionary();
@@ -44,19 +49,24 @@ namespace Dal.Dao.Absence
             return mr;
         }
 
-        public APIResult Get(HunyaAbsenceDataSaveConditions Cond, CancellationToken cancellationToken = default(CancellationToken))
+        public APIResult Get(List<HunyaAbsenceDataSaveConditions> Cond, CancellationToken cancellationToken = default(CancellationToken))
         {
-            AuthenticationHeaderBearerTokenValue = Cond.AccessToken;
+            var AccessToken = "";
+            var RefreshToken = "";
+            if (Cond.Count > 0)
+            {
+                AuthenticationHeaderBearerTokenValue = Cond[0].AccessToken;
 
-            //移除敏感資料
-            var AccessToken = Cond.AccessToken;
-            var RefreshToken = Cond.RefreshToken;
-            Cond.AccessToken = "";
-            Cond.RefreshToken = "";
+                //移除敏感資料
+                AccessToken = Cond[0].AccessToken;
+                RefreshToken = Cond[0].RefreshToken;
+                Cond[0].AccessToken = "";
+                Cond[0].RefreshToken = "";
+            }
 
             #region 要傳遞的參數
             HTTPPayloadDictionary dic = new HTTPPayloadDictionary();
-            this.CompanySetting = Cond.CompanySetting;
+            this.CompanySetting = Cond[0].CompanySetting;
 
             dic.Add(Constants.JSONDataKeyName, JsonConvert.SerializeObject(Cond));
             #endregion
@@ -66,7 +76,7 @@ namespace Dal.Dao.Absence
             return mr;
         }
 
-        public async Task<APIResult> GetDataAsync(HunyaAbsenceDataSaveConditions Cond, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<APIResult> GetDataAsync(List<HunyaAbsenceDataSaveConditions> Cond, CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var Vdb = await GetAsync(Cond, cancellationToken);
@@ -81,30 +91,32 @@ namespace Dal.Dao.Absence
             return Vdb;
         }
 
-        public APIResult GetData(HunyaAbsenceDataSaveConditions Cond, CancellationToken cancellationToken = default(CancellationToken))
+        public APIResult GetData(List<HunyaAbsenceDataSaveConditions> Cond, CancellationToken cancellationToken = default(CancellationToken))
         {
             var Vdb = Get(Cond, cancellationToken);
-
             if (Vdb.Status)
             {
                 if (Vdb.Data != null)
                 {
                     if (Vdb.Payload != null && Vdb.Data != null)
                     {
-                        //實作DTO轉換
-                        var oSource = Vdb.Data as HunyaAbsenceDataSaveApiRow;
-                        if (oSource != null)
-                        {
-                            Vdb.Status = oSource.state;
-                            Vdb.Message = oSource.message;
-                            Vdb.StackTrace = oSource.stackTrace;
 
-                            if (oSource.state)
+                        //實作DTO轉換
+                        var oSource = Vdb.Data as List<HunyaAbsenceDataSaveApiRow>;
+                        if (oSource != null && oSource.Count > 0)
+                        {
+                            Vdb.Status = oSource[0].state;
+                            Vdb.Message = oSource[0].message;
+                            Vdb.StackTrace = oSource[0].stackTrace;
+                            var rsTarget = new HunyaAbsenceDataSaveRow();
+                            rsTarget.pass = true;
+                            foreach (var rsSource in oSource)
                             {
-                                var rsTarget = new HunyaAbsenceDataSaveRow();
-                                rsTarget.pass = oSource.result.pass;
-                                Vdb.Data = rsTarget;
+                                if (!rsSource.result.pass)
+                                    rsTarget.pass = false;
                             }
+                            Vdb.Data = rsTarget;
+
                         }
                     }
                 }

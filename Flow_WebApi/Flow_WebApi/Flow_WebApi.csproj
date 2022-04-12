@@ -59,6 +59,7 @@
   <ItemGroup>
     <Folder Include="Controllers\Mail\" />
     <Folder Include="Controllers\wfFormSign\" />
+    <Folder Include="Entity\" />
   </ItemGroup>
 
   <ItemGroup>

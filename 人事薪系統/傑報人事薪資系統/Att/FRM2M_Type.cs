@@ -17,6 +17,8 @@ namespace JBHR.Att
         }
         CheckTimeFormatControl CTFC = new CheckTimeFormatControl();
         public string MealGroup { set; get; } = string.Empty;
+        List<Control> controlList = new List<Control>();
+        List<string> pklist = new List<string>();
         private void FRM2M_Type_Load(object sender, EventArgs e)
         {
             CTFC.AddControl(txtBTime, true, true, false);
@@ -35,17 +37,24 @@ namespace JBHR.Att
                 fdc.bnExportEnable = u_prg.PRINT_;
             }
             fdc.Init_Ctrls();
+            //繪製自定義欄位
+            controlList = SystemFunction.UserDefineLayoutSetFrmLayout(this, MainForm.COMPANY);
+            pklist.Add("mEALTYPEDISPDataGridViewTextBoxColumn");
+            pklist.Add("MEALGROUP");
+            SystemFunction.updateUserDefineValue(dgv, controlList, pklist);
         }
 
         private void fdc_AfterAdd(object sender, JBControls.FullDataCtrl.AfterEventArgs e)
         {
             txtCODE.Focus();
+            SystemFunction.SetUserDefineEnable(controlList, true);
         }
 
         private void fdc_AfterDel(object sender, JBControls.FullDataCtrl.AfterEventArgs e)
         {
             if (!e.Error)
                 CDataLog.Save(this.Name, MainForm.USER_ID, DateTime.Now, fdc.BackupDataTable);
+            SystemFunction.SetUserDefineEnable(controlList, false);
         }
 
         private void fdc_AfterExport(object sender, JBControls.FullDataCtrl.AfterEventArgs e)
@@ -99,7 +108,22 @@ namespace JBHR.Att
         private void fdc_AfterSave(object sender, JBControls.FullDataCtrl.AfterEventArgs e)
         {
             if (!e.Error)
+            {
                 CDataLog.Save(this.Name, MainForm.USER_ID, DateTime.Now, fdc.BackupDataTable);
+                SystemFunction.submitchangesUserDefineValue(dgv, controlList, pklist);
+            }
+            SystemFunction.SetUserDefineEnable(controlList, false);
+        }
+
+        private void fdc_AfterEdit(object sender, JBControls.FullDataCtrl.AfterEventArgs e)
+        {
+            SystemFunction.SetUserDefineEnable(controlList, true);
+        }
+
+        private void dgv_SelectionChanged(object sender, EventArgs e)
+        {
+            if (fdc.EditType == JBControls.FullDataCtrl.EEditType.None)
+                SystemFunction.updateUserDefineValue(dgv, controlList, pklist);
         }
     }
 }

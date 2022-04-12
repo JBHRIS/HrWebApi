@@ -79,12 +79,17 @@ namespace Portal
                 if (Result.Data != null)
                 {
                     rs = Result.Data as List<AttendTypeRow>;
+                    foreach (var r in rs.ToArray())
+                    {
+                        if (!r.Display)
+                            rs.Remove(r);
+                    }
                 }
             }
-            var AttendRow = new AttendTypeRow();
-            AttendRow.Name = "分流班別";
-            AttendRow.Code = "Diversion";
-            rs.Add(AttendRow);
+            //var AttendRow = new AttendTypeRow();
+            //AttendRow.Name = "分流班別";
+            //AttendRow.Code = "Diversion";
+            //rs.Add(AttendRow);
 
             cblAttendType.DataSource = rs;
             cblAttendType.DataBindings.DataTextField = "Name";

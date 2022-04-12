@@ -110,6 +110,7 @@ namespace Dal.Dao.Attendance
                                     rTarget.Display = rSource.display;
                                     rsTarget.Add(rTarget);
                                 }
+                                rsTarget.OrderBy(p => p.Sort);
                                 Vdb.Data = rsTarget;
                             }
                         }

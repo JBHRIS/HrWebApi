@@ -146,7 +146,6 @@
     <Compile Include="Files\Vdb\FilesByFileTicketVdb.cs" />
     <Compile Include="Flow\ucFormStd.cs" />
     <Compile Include="Flow\Vdb\DownloadByAutoKeyVdb.cs" />
-    <Compile Include="Flow\Vdb\DeleteByAutoKey.cs" />
     <Compile Include="Flow\Vdb\FileListByCodeVdb.cs" />
     <Compile Include="Flow\Vdb\FlowImageVdb.cs" />
     <Compile Include="Flow\Vdb\FormAppShiftLongVdb.cs" />
@@ -274,6 +273,8 @@
     <Compile Include="Salary\Vdb\SalaryVdb.cs" />
     <Compile Include="ShareVdb.cs" />
     <Compile Include="Resume\Account\Vdb\ResumeGetAccountVdb.cs" />
+    <Compile Include="Share\Vdb\ShareGetQuestionUserInfo.cs" />
+    <Compile Include="Share\Vdb\ShareGetShareCompanyIdAndNameVdb.cs" />
     <Compile Include="Share\Vdb\ShareCodeVdb.cs" />
     <Compile Include="Share\Vdb\ShareCompanyVdb.cs" />
     <Compile Include="Share\Vdb\ShareDefaultVdb.cs" />
