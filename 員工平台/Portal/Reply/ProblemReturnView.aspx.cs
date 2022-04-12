@@ -774,7 +774,7 @@ namespace Portal
                         {
                             DataDetail.ReplyName = rsQM.Where(x => x.Code == DataDetail.ReplyToCode).FirstOrDefault().Name;
                             DataDetail.ReplyContent = rsQM.Where(x => x.Code == DataDetail.ReplyToCode).FirstOrDefault().Content;
-                            if (DataDetail.ReplyContent.Length > 200)
+                            if (DataDetail.ReplyContent.Length > 30)
                             {
                                 DataDetail.ReplyContent = DataDetail.ReplyContent.Substring(0,30);
                                 DataDetail.ReplyContent += "……";

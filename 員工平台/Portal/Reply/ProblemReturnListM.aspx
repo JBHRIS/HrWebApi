@@ -37,14 +37,21 @@
                     <div class="row">
                         <div class="col-lg-6 ml-auto">
                             <div class="row form-group">
-                                <div class="col-lg-6">
+                                   <div class="col-lg-4">
+                                    <%--<label>公司別 :</label>--%>
+                                <telerik:RadComboBox ID="txtReturnCompany" runat="server" class="txtReturnS" Skin="Bootstrap" AllowCustomText="True"
+                                    AutoPostBack="true" EnableVirtualScrolling="True" ItemsPerRequest="10" Filter="Contains"
+                                    LoadingMessage="載入中…" Width="100%" OnSelectedIndexChanged="txtReturnS_SelectedIndexChanged" EmptyMessage="公司別">
+                                </telerik:RadComboBox>
+                                </div>
+                                <div class="col-lg-4">
                                     <%--<label>回報類型 :</label>--%>
                                 <telerik:RadComboBox ID="txtReturnS" runat="server" class="txtReturnS" Skin="Bootstrap" AllowCustomText="True"
                                     AutoPostBack="true" EnableVirtualScrolling="True" ItemsPerRequest="10" Filter="Contains"
                                     LoadingMessage="載入中…" Width="100%" OnSelectedIndexChanged="txtReturnS_SelectedIndexChanged" EmptyMessage="回報類型">
                                 </telerik:RadComboBox>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-4">
                                     <%--<label>結單狀態 :</label>--%>
                                 <telerik:RadComboBox ID="txtReturnX" runat="server" class="txtReturnS" Skin="Bootstrap" AllowCustomText="True"
                                     AutoPostBack="true" EnableVirtualScrolling="True" ItemsPerRequest="10" Filter="Contains"
@@ -67,8 +74,9 @@
                                             data-page-size="10" data-filter="#filterTaken">
                                             <thead>
                                                 <tr>
-                                                  <th style="width:25%">標題</th>
-                                                <th style="width:15%">回報人員</th>
+                                                  <th style="width:20%">標題</th>
+                                                  <th style="width:10%">提問者角色</th>
+                                                <th style="width:10%">提問人員</th>
                                                 <th style="width:10%">回報類型</th>
                                                 <th style="width:15%">填寫日期</th>
                                                 <th style="width:15%">回覆日期</th>
@@ -93,6 +101,7 @@
 
                                         <tr class="gradeX">
                                                  <td data-th="標題" style="width:auto;overflow:hidden" ><%# Eval("TitleContent") %></td>
+                                               <td data-th="提問者角色" style="width:auto;overflow:hidden" ><%# Eval("Key2") %></td>
                                         <td data-th="回報人員"style="width:auto" ><%# Eval("InsertMan") %></td>
                                         <td data-th="回報類型"style="width:auto"><%# Eval("QuestionCategoryName") %></td>
                                         <td data-th="填寫日期"style="width:auto"><%# Eval("DateE","{0:yyyy-MM-dd HH:mm}") %></td>

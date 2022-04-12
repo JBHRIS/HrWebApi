@@ -273,6 +273,8 @@
     <Compile Include="Salary\Vdb\SalaryVdb.cs" />
     <Compile Include="ShareVdb.cs" />
     <Compile Include="Resume\Account\Vdb\ResumeGetAccountVdb.cs" />
+    <Compile Include="Share\Vdb\ShareGetQuestionUserInfo.cs" />
+    <Compile Include="Share\Vdb\ShareGetShareCompanyIdAndNameVdb.cs" />
     <Compile Include="Share\Vdb\ShareCodeVdb.cs" />
     <Compile Include="Share\Vdb\ShareCompanyVdb.cs" />
     <Compile Include="Share\Vdb\ShareDefaultVdb.cs" />
