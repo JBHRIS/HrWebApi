@@ -584,7 +584,7 @@ namespace Portal
                 var rsProcessNode = (from pn in dcFlow.ProcessNode
                                      join pc in dcFlow.ProcessCheck on pn.auto equals pc.ProcessNode_auto
                                      where pn.ProcessFlow_id.ToString() == c.ProcessId
-                                     orderby pc.adate.Value descending
+                                     orderby pn.adate.Value descending
                                      select pc).FirstOrDefault();
 
                 if (rsProcessNode != null)
@@ -790,7 +790,10 @@ namespace Portal
         private void SetDeptCoordinator()//部門名稱取得
         {
             OldDal.Dao.Bas.DeptDao oDeptDao = new OldDal.Dao.Bas.DeptDao(dcHR.Connection);
-            var rsDept = oDeptDao.GetDept();
+            var lsCode = new List<string>();
+            lsCode.Add(_User.Dept);
+            lsCode.AddRange(_User.EmpDeptCode);
+            var rsDept = oDeptDao.GetDept(lsCode,new List<string>());
 
             ddlDeptCoordinator.DataSource = rsDept;
             ddlDeptCoordinator.DataTextField = "Name";
@@ -969,13 +972,56 @@ namespace Portal
                     break;
             }
 
+            List<string> EmpId = new List<string> { };
+
+            var oDept = new DeptDao();
+            var DeptCond = new DeptConditions();
+            DeptCond.AccessToken = _User.AccessToken;
+            DeptCond.RefreshToken = _User.RefreshToken;
+            DeptCond.CompanySetting = CompanySetting;
+            var DeptResult = oDept.GetData(DeptCond);
+            if (DeptResult.Status && DeptResult.Data != null)
+            {
+                var rsDept = DeptResult.Data as List<DeptRow>;
+
+                var rsPeopleByDept = new List<PeopleByDeptRow>();
+                {
+                    var oPeopleByDept = new PeopleByDeptDao();
+                    var PeopleByDeptCond = new PeopleByDeptConditions();
+                    PeopleByDeptCond.AccessToken = _User.AccessToken;
+                    PeopleByDeptCond.RefreshToken = _User.RefreshToken;
+                    PeopleByDeptCond.CompanySetting = CompanySetting;
+                    PeopleByDeptCond.checkDate = DateTime.Now.Date;
+                    PeopleByDeptCond.deptList = rsDept.Select(p => p.DeptCode).ToList();
+                    var Result = oPeopleByDept.GetData(PeopleByDeptCond);
+
+                    if (Result.Status)
+                    {
+                        if (Result.Data != null)
+                        {
+                            rsPeopleByDept = Result.Data as List<PeopleByDeptRow>;
+                            EmpId = rsPeopleByDept.Select(p => p.EmpId).ToList();
+                        }
+                    }
+                }
+            }
+
+
+            foreach (var c in result.ToArray())
+            {
+                if (!EmpId.Contains(c.EmpId))
+                {
+                    result.Remove(c);
+                }
+            }
+
             foreach (var c in result)
             {
                 string SignEmpId = "";
                 var rsProcessNode = (from pn in dcFlow.ProcessNode
                                      join pc in dcFlow.ProcessCheck on pn.auto equals pc.ProcessNode_auto
                                      where pn.ProcessFlow_id.ToString() == c.ProcessId
-                                     orderby pc.adate.Value descending
+                                     orderby pn.adate.Value descending
                                      select pc).FirstOrDefault();
 
                 if (rsProcessNode != null)
@@ -1142,7 +1188,7 @@ namespace Portal
                 var rsProcessNode = (from pn in dcFlow.ProcessNode
                                      join pc in dcFlow.ProcessCheck on pn.auto equals pc.ProcessNode_auto
                                      where pn.ProcessFlow_id.ToString() == c.ProcessId
-                                     orderby pc.adate.Value descending
+                                     orderby pn.adate.Value descending
                                      select pc).FirstOrDefault();
 
                 if (rsProcessNode != null)

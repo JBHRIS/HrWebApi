@@ -146,7 +146,6 @@
     <Compile Include="Files\Vdb\FilesByFileTicketVdb.cs" />
     <Compile Include="Flow\ucFormStd.cs" />
     <Compile Include="Flow\Vdb\DownloadByAutoKeyVdb.cs" />
-    <Compile Include="Flow\Vdb\DeleteByAutoKey.cs" />
     <Compile Include="Flow\Vdb\FileListByCodeVdb.cs" />
     <Compile Include="Flow\Vdb\FlowImageVdb.cs" />
     <Compile Include="Flow\Vdb\FormAppShiftLongVdb.cs" />

@@ -179,7 +179,6 @@
     <Compile Include="Dao\File\UploadSingleFileDao.cs" />
     <Compile Include="Dao\Flow\DownloadByAutoKeyDao.cs" />
     <Compile Include="Dao\Flow\FileListByCodeDao.cs" />
-    <Compile Include="Dao\Flow\DeleteByAutoKeyDao.cs" />
     <Compile Include="Dao\Flow\FlowImageDao.cs" />
     <Compile Include="Dao\Flow\FormGetFlowParmUrlDao.cs" />
     <Compile Include="Dao\Flow\FormGetFlowViewUrlDao.cs" />
