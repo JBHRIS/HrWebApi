@@ -845,7 +845,55 @@ namespace JBHR
             return anchorStyles;
         }
         #endregion
+        public static void updateUserDefineValue(DataGridView dataGridView, List<Control> controlList, string primarykey)
+        {
+            if (dataGridView.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = dataGridView.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataGridView.Rows[selectedrowindex];
+                string cellValue = Convert.ToString(selectedRow.Cells[primarykey].Value);
+                SystemFunction.UserDefineLayoutGetValue(controlList, cellValue);
+            }
+        }
 
+        public static void updateUserDefineValue(DataGridView dataGridView, List<Control> controlList, List<string> primarykey)
+        {
+            if (dataGridView.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = dataGridView.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataGridView.Rows[selectedrowindex];
+                string cellValue = String.Empty;
+                for (int i = 0; i < primarykey.Count; i++)
+                {
+                    cellValue += String.Format(i == 0 ? "{0}" : ",{0}", Convert.ToString(selectedRow.Cells[primarykey[i]].Value));
+                }
+                SystemFunction.UserDefineLayoutGetValue(controlList, cellValue);
+            }
+        }
+        public static void submitchangesUserDefineValue(DataGridView dataGridView, List<Control> controlList, string primarykey)
+        {
+            if (dataGridView.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = dataGridView.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataGridView.Rows[selectedrowindex];
+                string cellValue = Convert.ToString(selectedRow.Cells[primarykey].Value);
+                SystemFunction.UserDefineLayoutSaveValue(controlList, cellValue);
+            }
+        }
+        public static void submitchangesUserDefineValue(DataGridView dataGridView, List<Control> controlList, List<string> primarykey)
+        {
+            if (dataGridView.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = dataGridView.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataGridView.Rows[selectedrowindex];
+                string cellValue = String.Empty;
+                for (int i = 0; i < primarykey.Count; i++)
+                {
+                    cellValue += String.Format(i == 0 ? "{0}" : ",{0}", Convert.ToString(selectedRow.Cells[primarykey[i]].Value));
+                }
+                SystemFunction.UserDefineLayoutSaveValue(controlList, cellValue);
+            }
+        }
         #endregion
     }
     public class CheckControl

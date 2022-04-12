@@ -22,7 +22,7 @@ namespace JBModule.Data.Linq
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="HUNYAHR")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="KCRHR")]
 	public partial class HrDBDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -792,6 +792,9 @@ namespace JBModule.Data.Linq
     partial void InsertHunya_ABPersonalBonus(Hunya_ABPersonalBonus instance);
     partial void UpdateHunya_ABPersonalBonus(Hunya_ABPersonalBonus instance);
     partial void DeleteHunya_ABPersonalBonus(Hunya_ABPersonalBonus instance);
+    partial void InsertKCR_MealApplySetting(KCR_MealApplySetting instance);
+    partial void UpdateKCR_MealApplySetting(KCR_MealApplySetting instance);
+    partial void DeleteKCR_MealApplySetting(KCR_MealApplySetting instance);
     #endregion
 		
 		public HrDBDataContext() : 
@@ -2981,6 +2984,14 @@ namespace JBModule.Data.Linq
 			get
 			{
 				return this.GetTable<Hunya_ABPersonalBonus>();
+			}
+		}
+		
+		public System.Data.Linq.Table<KCR_MealApplySetting> KCR_MealApplySetting
+		{
+			get
+			{
+				return this.GetTable<KCR_MealApplySetting>();
 			}
 		}
 		
@@ -100182,6 +100193,332 @@ namespace JBModule.Data.Linq
 					this._AttDays = value;
 					this.SendPropertyChanged("AttDays");
 					this.OnAttDaysChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.KCR_MealApplySetting")]
+	public partial class KCR_MealApplySetting : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _AutoKey;
+		
+		private System.Guid _GID;
+		
+		private string _EmployeeID;
+		
+		private string _MealGroup;
+		
+		private string _MealType;
+		
+		private bool _ApplyFlag;
+		
+		private bool _HoliMealFlag;
+		
+		private System.DateTime _ADate;
+		
+		private System.DateTime _DDate;
+		
+		private string _Note;
+		
+		private string _Key_Man;
+		
+		private System.DateTime _Key_Date;
+		
+    #region 擴充性方法定義
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAutoKeyChanging(int value);
+    partial void OnAutoKeyChanged();
+    partial void OnGIDChanging(System.Guid value);
+    partial void OnGIDChanged();
+    partial void OnEmployeeIDChanging(string value);
+    partial void OnEmployeeIDChanged();
+    partial void OnMealGroupChanging(string value);
+    partial void OnMealGroupChanged();
+    partial void OnMealTypeChanging(string value);
+    partial void OnMealTypeChanged();
+    partial void OnApplyFlagChanging(bool value);
+    partial void OnApplyFlagChanged();
+    partial void OnHoliMealFlagChanging(bool value);
+    partial void OnHoliMealFlagChanged();
+    partial void OnADateChanging(System.DateTime value);
+    partial void OnADateChanged();
+    partial void OnDDateChanging(System.DateTime value);
+    partial void OnDDateChanged();
+    partial void OnNoteChanging(string value);
+    partial void OnNoteChanged();
+    partial void OnKey_ManChanging(string value);
+    partial void OnKey_ManChanged();
+    partial void OnKey_DateChanging(System.DateTime value);
+    partial void OnKey_DateChanged();
+    #endregion
+		
+		public KCR_MealApplySetting()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AutoKey", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int AutoKey
+		{
+			get
+			{
+				return this._AutoKey;
+			}
+			set
+			{
+				if ((this._AutoKey != value))
+				{
+					this.OnAutoKeyChanging(value);
+					this.SendPropertyChanging();
+					this._AutoKey = value;
+					this.SendPropertyChanged("AutoKey");
+					this.OnAutoKeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GID", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid GID
+		{
+			get
+			{
+				return this._GID;
+			}
+			set
+			{
+				if ((this._GID != value))
+				{
+					this.OnGIDChanging(value);
+					this.SendPropertyChanging();
+					this._GID = value;
+					this.SendPropertyChanged("GID");
+					this.OnGIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					this.OnEmployeeIDChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeID = value;
+					this.SendPropertyChanged("EmployeeID");
+					this.OnEmployeeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MealGroup", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string MealGroup
+		{
+			get
+			{
+				return this._MealGroup;
+			}
+			set
+			{
+				if ((this._MealGroup != value))
+				{
+					this.OnMealGroupChanging(value);
+					this.SendPropertyChanging();
+					this._MealGroup = value;
+					this.SendPropertyChanged("MealGroup");
+					this.OnMealGroupChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MealType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string MealType
+		{
+			get
+			{
+				return this._MealType;
+			}
+			set
+			{
+				if ((this._MealType != value))
+				{
+					this.OnMealTypeChanging(value);
+					this.SendPropertyChanging();
+					this._MealType = value;
+					this.SendPropertyChanged("MealType");
+					this.OnMealTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplyFlag", DbType="Bit NOT NULL")]
+		public bool ApplyFlag
+		{
+			get
+			{
+				return this._ApplyFlag;
+			}
+			set
+			{
+				if ((this._ApplyFlag != value))
+				{
+					this.OnApplyFlagChanging(value);
+					this.SendPropertyChanging();
+					this._ApplyFlag = value;
+					this.SendPropertyChanged("ApplyFlag");
+					this.OnApplyFlagChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoliMealFlag", DbType="Bit NOT NULL")]
+		public bool HoliMealFlag
+		{
+			get
+			{
+				return this._HoliMealFlag;
+			}
+			set
+			{
+				if ((this._HoliMealFlag != value))
+				{
+					this.OnHoliMealFlagChanging(value);
+					this.SendPropertyChanging();
+					this._HoliMealFlag = value;
+					this.SendPropertyChanged("HoliMealFlag");
+					this.OnHoliMealFlagChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADate", DbType="DateTime NOT NULL")]
+		public System.DateTime ADate
+		{
+			get
+			{
+				return this._ADate;
+			}
+			set
+			{
+				if ((this._ADate != value))
+				{
+					this.OnADateChanging(value);
+					this.SendPropertyChanging();
+					this._ADate = value;
+					this.SendPropertyChanged("ADate");
+					this.OnADateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DDate", DbType="DateTime NOT NULL")]
+		public System.DateTime DDate
+		{
+			get
+			{
+				return this._DDate;
+			}
+			set
+			{
+				if ((this._DDate != value))
+				{
+					this.OnDDateChanging(value);
+					this.SendPropertyChanging();
+					this._DDate = value;
+					this.SendPropertyChanged("DDate");
+					this.OnDDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(500) NOT NULL", CanBeNull=false)]
+		public string Note
+		{
+			get
+			{
+				return this._Note;
+			}
+			set
+			{
+				if ((this._Note != value))
+				{
+					this.OnNoteChanging(value);
+					this.SendPropertyChanging();
+					this._Note = value;
+					this.SendPropertyChanged("Note");
+					this.OnNoteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Key_Man", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Key_Man
+		{
+			get
+			{
+				return this._Key_Man;
+			}
+			set
+			{
+				if ((this._Key_Man != value))
+				{
+					this.OnKey_ManChanging(value);
+					this.SendPropertyChanging();
+					this._Key_Man = value;
+					this.SendPropertyChanged("Key_Man");
+					this.OnKey_ManChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Key_Date", DbType="DateTime NOT NULL")]
+		public System.DateTime Key_Date
+		{
+			get
+			{
+				return this._Key_Date;
+			}
+			set
+			{
+				if ((this._Key_Date != value))
+				{
+					this.OnKey_DateChanging(value);
+					this.SendPropertyChanging();
+					this._Key_Date = value;
+					this.SendPropertyChanged("Key_Date");
+					this.OnKey_DateChanged();
 				}
 			}
 		}

@@ -32,13 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.fdc = new JBControls.FullDataCtrl();
             this.dgv = new JBControls.DataGridView();
-            this.mEALTYPEDISPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mEALTYPENAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bTIMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eTIMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOTEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mEALTYPEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsAtt = new JBHR.Att.dsAtt();
             this.lbCode = new System.Windows.Forms.Label();
@@ -57,6 +50,14 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.mealTypeTableAdapter = new JBHR.Att.dsAttTableAdapters.MealTypeTableAdapter();
+            this.mEALTYPEDISPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mEALTYPENAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bTIMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eTIMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nOTEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MEALGROUP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mEALTYPEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsAtt)).BeginInit();
@@ -107,6 +108,7 @@
             this.fdc.TabIndex = 0;
             this.fdc.WhereCmd = "";
             this.fdc.AfterAdd += new JBControls.FullDataCtrl.AfterEventHandler(this.fdc_AfterAdd);
+            this.fdc.AfterEdit += new JBControls.FullDataCtrl.AfterEventHandler(this.fdc_AfterEdit);
             this.fdc.AfterDel += new JBControls.FullDataCtrl.AfterEventHandler(this.fdc_AfterDel);
             this.fdc.BeforeSave += new JBControls.FullDataCtrl.BeforeEventHandler(this.fdc_BeforeSave);
             this.fdc.AfterSave += new JBControls.FullDataCtrl.AfterEventHandler(this.fdc_AfterSave);
@@ -135,7 +137,8 @@
             this.eTIMEDataGridViewTextBoxColumn,
             this.nOTEDataGridViewTextBoxColumn,
             this.kEYMANDataGridViewTextBoxColumn,
-            this.kEYDATEDataGridViewTextBoxColumn});
+            this.kEYDATEDataGridViewTextBoxColumn,
+            this.MEALGROUP});
             this.dgv.DataSource = this.mEALTYPEBindingSource;
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.Location = new System.Drawing.Point(0, 0);
@@ -147,55 +150,7 @@
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv.Size = new System.Drawing.Size(736, 331);
             this.dgv.TabIndex = 7;
-            // 
-            // mEALTYPEDISPDataGridViewTextBoxColumn
-            // 
-            this.mEALTYPEDISPDataGridViewTextBoxColumn.DataPropertyName = "MEALTYPE_CODE";
-            this.mEALTYPEDISPDataGridViewTextBoxColumn.HeaderText = "用餐種類代碼";
-            this.mEALTYPEDISPDataGridViewTextBoxColumn.Name = "mEALTYPEDISPDataGridViewTextBoxColumn";
-            this.mEALTYPEDISPDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // mEALTYPENAMEDataGridViewTextBoxColumn
-            // 
-            this.mEALTYPENAMEDataGridViewTextBoxColumn.DataPropertyName = "MEALTYPE_NAME";
-            this.mEALTYPENAMEDataGridViewTextBoxColumn.HeaderText = "用餐種類名稱";
-            this.mEALTYPENAMEDataGridViewTextBoxColumn.Name = "mEALTYPENAMEDataGridViewTextBoxColumn";
-            this.mEALTYPENAMEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bTIMEDataGridViewTextBoxColumn
-            // 
-            this.bTIMEDataGridViewTextBoxColumn.DataPropertyName = "BTIME";
-            this.bTIMEDataGridViewTextBoxColumn.HeaderText = "開始名稱";
-            this.bTIMEDataGridViewTextBoxColumn.Name = "bTIMEDataGridViewTextBoxColumn";
-            this.bTIMEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // eTIMEDataGridViewTextBoxColumn
-            // 
-            this.eTIMEDataGridViewTextBoxColumn.DataPropertyName = "ETIME";
-            this.eTIMEDataGridViewTextBoxColumn.HeaderText = "結束時間";
-            this.eTIMEDataGridViewTextBoxColumn.Name = "eTIMEDataGridViewTextBoxColumn";
-            this.eTIMEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nOTEDataGridViewTextBoxColumn
-            // 
-            this.nOTEDataGridViewTextBoxColumn.DataPropertyName = "NOTE";
-            this.nOTEDataGridViewTextBoxColumn.HeaderText = "備註";
-            this.nOTEDataGridViewTextBoxColumn.Name = "nOTEDataGridViewTextBoxColumn";
-            this.nOTEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // kEYMANDataGridViewTextBoxColumn
-            // 
-            this.kEYMANDataGridViewTextBoxColumn.DataPropertyName = "KEY_MAN";
-            this.kEYMANDataGridViewTextBoxColumn.HeaderText = "登錄者";
-            this.kEYMANDataGridViewTextBoxColumn.Name = "kEYMANDataGridViewTextBoxColumn";
-            this.kEYMANDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // kEYDATEDataGridViewTextBoxColumn
-            // 
-            this.kEYDATEDataGridViewTextBoxColumn.DataPropertyName = "KEY_DATE";
-            this.kEYDATEDataGridViewTextBoxColumn.HeaderText = "登錄日期";
-            this.kEYDATEDataGridViewTextBoxColumn.Name = "kEYDATEDataGridViewTextBoxColumn";
-            this.kEYDATEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 
             // mEALTYPEBindingSource
             // 
@@ -427,6 +382,63 @@
             // 
             this.mealTypeTableAdapter.ClearBeforeFill = true;
             // 
+            // mEALTYPEDISPDataGridViewTextBoxColumn
+            // 
+            this.mEALTYPEDISPDataGridViewTextBoxColumn.DataPropertyName = "MEALTYPE_CODE";
+            this.mEALTYPEDISPDataGridViewTextBoxColumn.HeaderText = "用餐種類代碼";
+            this.mEALTYPEDISPDataGridViewTextBoxColumn.Name = "mEALTYPEDISPDataGridViewTextBoxColumn";
+            this.mEALTYPEDISPDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // mEALTYPENAMEDataGridViewTextBoxColumn
+            // 
+            this.mEALTYPENAMEDataGridViewTextBoxColumn.DataPropertyName = "MEALTYPE_NAME";
+            this.mEALTYPENAMEDataGridViewTextBoxColumn.HeaderText = "用餐種類名稱";
+            this.mEALTYPENAMEDataGridViewTextBoxColumn.Name = "mEALTYPENAMEDataGridViewTextBoxColumn";
+            this.mEALTYPENAMEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bTIMEDataGridViewTextBoxColumn
+            // 
+            this.bTIMEDataGridViewTextBoxColumn.DataPropertyName = "BTIME";
+            this.bTIMEDataGridViewTextBoxColumn.HeaderText = "開始名稱";
+            this.bTIMEDataGridViewTextBoxColumn.Name = "bTIMEDataGridViewTextBoxColumn";
+            this.bTIMEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // eTIMEDataGridViewTextBoxColumn
+            // 
+            this.eTIMEDataGridViewTextBoxColumn.DataPropertyName = "ETIME";
+            this.eTIMEDataGridViewTextBoxColumn.HeaderText = "結束時間";
+            this.eTIMEDataGridViewTextBoxColumn.Name = "eTIMEDataGridViewTextBoxColumn";
+            this.eTIMEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nOTEDataGridViewTextBoxColumn
+            // 
+            this.nOTEDataGridViewTextBoxColumn.DataPropertyName = "NOTE";
+            this.nOTEDataGridViewTextBoxColumn.HeaderText = "備註";
+            this.nOTEDataGridViewTextBoxColumn.Name = "nOTEDataGridViewTextBoxColumn";
+            this.nOTEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // kEYMANDataGridViewTextBoxColumn
+            // 
+            this.kEYMANDataGridViewTextBoxColumn.DataPropertyName = "KEY_MAN";
+            this.kEYMANDataGridViewTextBoxColumn.HeaderText = "登錄者";
+            this.kEYMANDataGridViewTextBoxColumn.Name = "kEYMANDataGridViewTextBoxColumn";
+            this.kEYMANDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // kEYDATEDataGridViewTextBoxColumn
+            // 
+            this.kEYDATEDataGridViewTextBoxColumn.DataPropertyName = "KEY_DATE";
+            this.kEYDATEDataGridViewTextBoxColumn.HeaderText = "登錄日期";
+            this.kEYDATEDataGridViewTextBoxColumn.Name = "kEYDATEDataGridViewTextBoxColumn";
+            this.kEYDATEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // MEALGROUP
+            // 
+            this.MEALGROUP.DataPropertyName = "MEALGROUP";
+            this.MEALGROUP.HeaderText = "MEALGROUP";
+            this.MEALGROUP.Name = "MEALGROUP";
+            this.MEALGROUP.ReadOnly = true;
+            this.MEALGROUP.Visible = false;
+            // 
             // FRM2M_Type
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -486,5 +498,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nOTEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kEYMANDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kEYDATEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MEALGROUP;
     }
 }
