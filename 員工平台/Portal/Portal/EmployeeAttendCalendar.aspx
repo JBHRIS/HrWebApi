@@ -10,29 +10,42 @@
     </style>
     <script>
         function OnClientLoad(sender, args) {
-            sender.get_items()[0]._element.firstChild.style.color = "#23c6c8";
-            sender.get_items()[0]._element.children[1].style = "font-weight:600";
-            sender.get_items()[0]._element.children[1].style.color = "#24b8ba";
-            sender.get_items()[1]._element.firstChild.style.color = "#1c84c6";
-            //style the text
-            sender.get_items()[1]._element.children[1].style = "font-weight:600";
-            sender.get_items()[1]._element.children[1].style.color = "#1778b6";
-            sender.get_items()[2]._element.firstChild.style.color = "#1ab394";
-            //style the text
-            sender.get_items()[2]._element.children[1].style = "font-weight:600";
-            sender.get_items()[2]._element.children[1].style.color = "#17977d";
-            sender.get_items()[3]._element.firstChild.style.color = "#f8ac59";
-            //style the text
-            sender.get_items()[3]._element.children[1].style = "font-weight:600";
-            sender.get_items()[3]._element.children[1].style.color = "#eba456";
-            sender.get_items()[4]._element.firstChild.style.color = "#ed5565";
-            //style the text
-            sender.get_items()[4]._element.children[1].style = "font-weight:600";
-            sender.get_items()[4]._element.children[1].style.color = "#e15665";
-            sender.get_items()[5]._element.firstChild.style.color = "#a387be";
-            //style the text
-            sender.get_items()[5]._element.children[1].style = "font-weight:600";
-            sender.get_items()[5]._element.children[1].style.color = "#A06CD5";
+            if (sender.get_items()[0] != null)
+            {
+                sender.get_items()[0]._element.firstChild.style.color = "#23c6c8";
+                sender.get_items()[0]._element.children[1].style = "font-weight:600";
+                sender.get_items()[0]._element.children[1].style.color = "#24b8ba";
+            }
+            if (sender.get_items()[1] != null) {
+                sender.get_items()[1]._element.firstChild.style.color = "#1c84c6";
+                //style the text
+                sender.get_items()[1]._element.children[1].style = "font-weight:600";
+                sender.get_items()[1]._element.children[1].style.color = "#1778b6";
+            }
+            if (sender.get_items()[2] != null) {
+                sender.get_items()[2]._element.firstChild.style.color = "#1ab394";
+                //style the text
+                sender.get_items()[2]._element.children[1].style = "font-weight:600";
+                sender.get_items()[2]._element.children[1].style.color = "#17977d";
+            }
+            if (sender.get_items()[3] != null) {
+                sender.get_items()[3]._element.firstChild.style.color = "#f8ac59";
+                //style the text
+                sender.get_items()[3]._element.children[1].style = "font-weight:600";
+                sender.get_items()[3]._element.children[1].style.color = "#eba456";
+            }
+            if (sender.get_items()[4] != null) {
+                sender.get_items()[4]._element.firstChild.style.color = "#ed5565";
+                //style the text
+                sender.get_items()[4]._element.children[1].style = "font-weight:600";
+                sender.get_items()[4]._element.children[1].style.color = "#e15665";
+            }
+            if (sender.get_items()[5] != null) {
+                sender.get_items()[5]._element.firstChild.style.color = "#a387be";
+                //style the text
+                sender.get_items()[5]._element.children[1].style = "font-weight:600";
+                sender.get_items()[5]._element.children[1].style.color = "#A06CD5";
+            }
         }
     </script>
 </asp:Content>

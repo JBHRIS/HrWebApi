@@ -3,15 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace JBHRIS.Api.Dal.Interface
+namespace JBHRIS.Api.Service.Interface.System
 {
-    public interface ISystem_QuestionUserInfo_View
+    public interface QuestionUserInfoInterFace
     {
-
         List<QuestionUserInfoVdb> GetQuestionUserInfoByCode(string Code);
-
-      
-
+        
 
 
     }

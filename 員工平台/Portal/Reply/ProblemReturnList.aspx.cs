@@ -24,6 +24,7 @@ namespace Portal
 
                 SetUserInfo();
                 txtReturnS_DataBind();
+                txtReturnCompany_DataBind();
 
             }
         }
@@ -63,6 +64,30 @@ namespace Portal
            
 
         }
+        private void txtReturnCompany_DataBind()
+        {
+            if (_User.RoleKey == 2)
+            {
+                var oShareGetShareCompanyIdAndNameDao = new ShareGetShareCompanyIdAndNameDao();
+                var ShareGetShareCompanyIdAndNameDaoCond = new ShareGetShareCompanyIdAndNameConditions();
+                var result = oShareGetShareCompanyIdAndNameDao.GetData(ShareGetShareCompanyIdAndNameDaoCond);
+                var rsDataSource = result.Data as List<ShareGetShareCompanyIdAndNameRow>;
+                if (rsDataSource != null)
+                {
+                    txtReturnCompany.DataSource = rsDataSource;
+                    txtReturnCompany.DataTextField = "CompanyName";
+                    txtReturnCompany.DataValueField = "CompanyId";
+                    txtReturnCompany.DataBind();
+
+                }
+            }
+            else
+            {
+                txtReturnCompany.Visible = false;
+            }
+
+        }
+
         protected void lvMain_NeedDataSource(object sender, RadListViewNeedDataSourceEventArgs e)
         {
             APIResult rsGetQuestionMain = new APIResult();

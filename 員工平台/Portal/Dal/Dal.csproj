@@ -179,7 +179,6 @@
     <Compile Include="Dao\File\UploadSingleFileDao.cs" />
     <Compile Include="Dao\Flow\DownloadByAutoKeyDao.cs" />
     <Compile Include="Dao\Flow\FileListByCodeDao.cs" />
-    <Compile Include="Dao\Flow\DeleteByAutoKeyDao.cs" />
     <Compile Include="Dao\Flow\FlowImageDao.cs" />
     <Compile Include="Dao\Flow\FormGetFlowParmUrlDao.cs" />
     <Compile Include="Dao\Flow\FormGetFlowViewUrlDao.cs" />
@@ -245,6 +244,7 @@
     <Compile Include="Dao\Salary\SetSalaryPassWordDao.cs" />
     <Compile Include="Dao\Salary\SalaryLockDao.cs" />
     <Compile Include="Dao\Share\ShareGetQuestionDefaultMessageByCompanyIdVdbDao.cs" />
+    <Compile Include="Dao\Share\ShareGetShareCompanyVdbDao.cs" />
     <Compile Include="Dao\Share\ShareMailDao.cs" />
     <Compile Include="Dao\Share\ShareCodeDao.cs" />
     <Compile Include="Dao\Share\ShareCompanyDao.cs" />

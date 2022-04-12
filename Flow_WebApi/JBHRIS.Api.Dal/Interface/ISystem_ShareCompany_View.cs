@@ -5,14 +5,11 @@ using System.Text;
 
 namespace JBHRIS.Api.Dal.Interface
 {
-    public interface ISystem_QuestionUserInfo_View
+   
+    public interface ISystem_ShareCompany_View
     {
 
-        List<QuestionUserInfoVdb> GetQuestionUserInfoByCode(string Code);
-
-      
-
-
+        List<ShareCompanyVdb> GetShareCompanyIdAndName();
 
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Services;
 using Bll.Absence.Vdb;
@@ -9,6 +10,7 @@ using Dal;
 using Dal.Dao;
 using Dal.Dao.Absence;
 using Dal.Dao.Token;
+using OldDal.Dao.Att;
 
 namespace Portal.WebServices
 {
@@ -83,33 +85,43 @@ namespace Portal.WebServices
             foreach (var rAppS in rsAppS)
             {
                 MainDao oMainDao = new MainDao();
+                AbsDao oAbsDao = new AbsDao(dcHR.Connection);
+                var Success = true;
+                var AbsData = oAbsDao.GetCalculate(rAppS.EmpId, rAppS.HolidayCode, rAppS.DateB, rAppS.DateE, rAppS.TimeB, rAppS.TimeE, false, true, 0, false, "");
+                var lsHunyaAbsenceDataSave = new List<HunyaAbsenceDataSaveConditions>();
                 var oHunyaAbsenceDataSave = new HunyaAbsenceDataSaveDao();
-                var HunyaAbsenceDataSaveCond = new HunyaAbsenceDataSaveConditions();
-                HunyaAbsenceDataSaveCond.AccessToken = ClientToken;
-                HunyaAbsenceDataSaveCond.atteendDate = rAppS.DateB;
-                HunyaAbsenceDataSaveCond.onTime = rAppS.TimeB;
-                HunyaAbsenceDataSaveCond.offTime = rAppS.TimeE;
-                HunyaAbsenceDataSaveCond.nobr = rAppS.EmpId;
-                var rs = oHunyaAbsenceDataSave.GetData(HunyaAbsenceDataSaveCond);
+                foreach (var Vdb in AbsData.Day)
+                {
+                    
+                    var HunyaAbsenceDataSaveCond = new HunyaAbsenceDataSaveConditions();
+                    HunyaAbsenceDataSaveCond.AccessToken = ClientToken;
+                    HunyaAbsenceDataSaveCond.atteendDate = Vdb.DateB;
+                    HunyaAbsenceDataSaveCond.onTime = Vdb.TimeB;
+                    HunyaAbsenceDataSaveCond.offTime = Vdb.TimeE;
+                    HunyaAbsenceDataSaveCond.nobr = rAppS.EmpId;
+                    lsHunyaAbsenceDataSave.Add(HunyaAbsenceDataSaveCond);
+                    
+                }
+                var rs = oHunyaAbsenceDataSave.GetData(lsHunyaAbsenceDataSave);
                 if (rs.Status && rs.Data != null)
                 {
                     var r = rs.Data as HunyaAbsenceDataSaveRow;
                     if (r != null && r.pass)
                     {
-                        var Contents = rAppS.EmpId + " 呼叫HunyaAbsenceDataSave成功，" + DateTime.Now.ToString();
-                        var SystemContents = "HunyaApi呼叫";
-                        var AppName = "HunyaAbsenceDataSave";
-                        var Ip = WebPage.GetClientIP(Context);
-                        oMainDao.MessageLog("5", Contents, SystemContents, AppName, Ip, rAppS.EmpId);
+
                     }
                     else
-                    {
-                        var Contents = rAppS.EmpId + " 呼叫HunyaAbsenceDataSave失敗，" + DateTime.Now.ToString();
-                        var SystemContents = "HunyaApi呼叫";
-                        var AppName = "HunyaAbsenceDataSave";
-                        var Ip = WebPage.GetClientIP(Context);
-                        oMainDao.MessageLog("5", Contents, SystemContents, AppName, Ip, rAppS.EmpId);
-                    }
+                        Success = false;
+                }
+                else
+                    Success = false;
+                if (Success)
+                {
+                    var Contents = rAppS.EmpId + " 呼叫HunyaAbsenceDataSave成功，" + DateTime.Now.ToString();
+                    var SystemContents = "HunyaApi呼叫";
+                    var AppName = "HunyaAbsenceDataSave";
+                    var Ip = WebPage.GetClientIP(Context);
+                    oMainDao.MessageLog("5", Contents, SystemContents, AppName, Ip, rAppS.EmpId);
                 }
                 else
                 {
@@ -119,6 +131,42 @@ namespace Portal.WebServices
                     var Ip = WebPage.GetClientIP(Context);
                     oMainDao.MessageLog("5", Contents, SystemContents, AppName, Ip, rAppS.EmpId);
                 }
+                //var oHunyaAbsenceDataSave = new HunyaAbsenceDataSaveDao();
+                //var HunyaAbsenceDataSaveCond = new HunyaAbsenceDataSaveConditions();
+                //HunyaAbsenceDataSaveCond.AccessToken = ClientToken;
+                //HunyaAbsenceDataSaveCond.atteendDate = rAppS.DateB;
+                //HunyaAbsenceDataSaveCond.onTime = rAppS.TimeB;
+                //HunyaAbsenceDataSaveCond.offTime = rAppS.TimeE;
+                //HunyaAbsenceDataSaveCond.nobr = rAppS.EmpId;
+                //var rs = oHunyaAbsenceDataSave.GetData(HunyaAbsenceDataSaveCond);
+                //if (rs.Status && rs.Data != null)
+                //{
+                //    var r = rs.Data as HunyaAbsenceDataSaveRow;
+                //    if (r != null && r.pass)
+                //    {
+                //        var Contents = rAppS.EmpId + " 呼叫HunyaAbsenceDataSave成功，" + DateTime.Now.ToString();
+                //        var SystemContents = "HunyaApi呼叫";
+                //        var AppName = "HunyaAbsenceDataSave";
+                //        var Ip = WebPage.GetClientIP(Context);
+                //        oMainDao.MessageLog("5", Contents, SystemContents, AppName, Ip, rAppS.EmpId);
+                //    }
+                //    else
+                //    {
+                //        var Contents = rAppS.EmpId + " 呼叫HunyaAbsenceDataSave失敗，" + DateTime.Now.ToString();
+                //        var SystemContents = "HunyaApi呼叫";
+                //        var AppName = "HunyaAbsenceDataSave";
+                //        var Ip = WebPage.GetClientIP(Context);
+                //        oMainDao.MessageLog("5", Contents, SystemContents, AppName, Ip, rAppS.EmpId);
+                //    }
+                //}
+                //else
+                //{
+                //    var Contents = rAppS.EmpId + " 呼叫HunyaAbsenceDataSave失敗，" + DateTime.Now.ToString();
+                //    var SystemContents = "HunyaApi呼叫";
+                //    var AppName = "HunyaAbsenceDataSave";
+                //    var Ip = WebPage.GetClientIP(Context);
+                //    oMainDao.MessageLog("5", Contents, SystemContents, AppName, Ip, rAppS.EmpId);
+                //}
             }
             //string sSignNote = "";
             //foreach (var rFormSignM in rsFormSignM)
