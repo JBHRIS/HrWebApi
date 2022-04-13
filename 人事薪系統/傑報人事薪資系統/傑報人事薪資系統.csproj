@@ -8069,6 +8069,10 @@
       <Project>{05dac84f-258e-41fc-b490-0fccd4ab15b5}</Project>
       <Name>JBModule.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\JBHRService\JBHRService.csproj">
+      <Project>{ef0371f5-3f46-4eb5-a5d7-f4e26e522950}</Project>
+      <Name>JBHRService</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
