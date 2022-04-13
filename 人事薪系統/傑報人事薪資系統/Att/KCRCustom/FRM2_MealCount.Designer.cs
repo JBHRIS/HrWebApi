@@ -130,6 +130,7 @@
             this.txtCountResult.Location = new System.Drawing.Point(703, 3);
             this.txtCountResult.Multiline = true;
             this.txtCountResult.Name = "txtCountResult";
+            this.txtCountResult.ReadOnly = true;
             this.tlpMain.SetRowSpan(this.txtCountResult, 2);
             this.txtCountResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtCountResult.Size = new System.Drawing.Size(278, 112);

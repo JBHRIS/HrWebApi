@@ -19,6 +19,7 @@ namespace JBHR.Att
         public string MealGroup { set; get; } = string.Empty;
         List<Control> controlList = new List<Control>();
         List<string> pklist = new List<string>();
+        string MealType = string.Empty;
         private void FRM2M_Type_Load(object sender, EventArgs e)
         {
             CTFC.AddControl(txtBTime, true, true, false);
@@ -53,7 +54,16 @@ namespace JBHR.Att
         private void fdc_AfterDel(object sender, JBControls.FullDataCtrl.AfterEventArgs e)
         {
             if (!e.Error)
+            {
                 CDataLog.Save(this.Name, MainForm.USER_ID, DateTime.Now, fdc.BackupDataTable);
+                JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
+                string DeleteSystemCreateCmd = @" IF (EXISTS (SELECT *  FROM INFORMATION_SCHEMA.TABLES WHERE  TABLE_NAME = 'KCR_MealApplySetting'))
+                                                    BEGIN
+                                                          delete KCR_MealApplySetting
+                                                          where MealGroup = {0} and MealType = {1}
+                                                    END ";
+                db.ExecuteCommand(DeleteSystemCreateCmd, new object[] { MealGroup, MealType });
+            }
             SystemFunction.SetUserDefineEnable(controlList, false);
         }
 
@@ -124,6 +134,22 @@ namespace JBHR.Att
         {
             if (fdc.EditType == JBControls.FullDataCtrl.EEditType.None)
                 SystemFunction.updateUserDefineValue(dgv, controlList, pklist);
+        }
+
+        private void fdc_BeforeDel(object sender, JBControls.FullDataCtrl.BeforeEventArgs e)
+        {
+            JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
+            string DeleteSystemCreateCmd = @" IF (EXISTS (SELECT *  FROM INFORMATION_SCHEMA.TABLES WHERE  TABLE_NAME = 'KCR_MealApplySetting'))
+                                                    BEGIN
+                                                          SELECT count(*) as c from KCR_MealApplySetting
+                                                          where MealGroup = {0} and MealType = {1} and ApplyFlag = 1
+                                                    END ";
+            MealType = txtCODE.Text;
+            if (db.ExecuteQuery<int>(DeleteSystemCreateCmd, new object[] { MealGroup, MealType }).Single() > 0)
+            {
+                MessageBox.Show("使用中的代碼不能刪除.", "警告",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Cancel = true;
+            }    
         }
     }
 }

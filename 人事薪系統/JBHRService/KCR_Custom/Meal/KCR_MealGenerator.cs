@@ -18,6 +18,56 @@ namespace JBHR2Service.KCR_Custom.Meal
                 JBModule.Message.TextLog.WriteLog(String.Format("{0}取得用餐設定.", EmployeeID));
                 try
                 {
+                    var EmpDataSql = (from bts in db.BASETTS
+                                      join b in db.BASE on bts.NOBR equals b.NOBR
+                                      join h in db.HOLICD on bts.HOLI_CODE equals h.HOLI_CODE
+                                      from holi in (
+                                         from ho in db.HOLI
+                                         join o in db.OTHCODE on ho.OTHCODE equals o.OTHCODE1
+                                         where o.STDHOLI || o.OTHHOLI
+                                         select ho
+                                      ).Where(p => p.H_DATE == ADate).DefaultIfEmpty()
+                                      where bts.NOBR == EmployeeID
+                                      && bts.ADATE.CompareTo(ADate) <= 0 && bts.DDATE.Value.CompareTo(ADate) >= 0
+                                      select new { Basetts = bts, Base = b, holi });
+                    bool HoliMealflag = EmpDataSql.First().holi != null;
+
+                    var MealTypeSQL = from mt in db.MealType
+                                      join mg in db.MealGroup on mt.MealGroup equals mg.MealGroup_Code
+                                      where mt.MealGroup == MealGroup
+                                      select new { mt, mg };
+                    var MealTypeList = MealTypeSQL.ToList();
+                    var UserDefineValueList = db.GetUserDefineValueList("MealType_Holi").ToList();
+                    var FinalMealTypeList = (from m in MealTypeList
+                                             join udv in UserDefineValueList on string.Format("{0},{1}", m.mt.MealType_Code, m.mt.MealGroup) equals udv.Code into udv1
+                                             from udv in udv1.DefaultIfEmpty()
+                                                 //where (udv != null ? bool.Parse(udv.Value) : false) == HoliMealflag
+                                             select new { m.mt, m.mg, HoliMealflag = udv != null && bool.Parse(udv.Value) }).ToList();
+                    int j = 0;
+                    for (int i = 0; i < FinalMealTypeList.Count; i++)
+                    {
+                        MealApplySettingList.Add(new KCR_MealApplySettingEntry
+                        {
+                            AutoKey = -1,
+                            GID = Guid.NewGuid(),
+                            EmployeeID = EmployeeID,
+                            MealGroup = MealGroup,
+                            MealGroupName = FinalMealTypeList[i].mg.MealGroup_Name,
+                            MealType = FinalMealTypeList[i].mt.MealType_Code,
+                            MealTypeName = FinalMealTypeList[i].mt.MealType_Name,
+                            BTime = FinalMealTypeList[i].mt.BTime,
+                            ApplyFlag = (FinalMealTypeList[i].HoliMealflag ? (j == 0) : true),
+                            HoliMealFlag = FinalMealTypeList[i].HoliMealflag,
+                            ADate = ADate,
+                            DDate = new DateTime(9999, 12, 31),
+                            Note = String.Empty,
+                            Key_Man = EmpDataSql.First().Base.NAME_C,
+                            Key_Date = DateTime.Now,
+                        });
+                        if (FinalMealTypeList[i].HoliMealflag)
+                            j++;
+                    }
+
                     var ApplySettingSql = (from MAS in db.KCR_MealApplySetting
                                            join MG in db.MealGroup on MAS.MealGroup equals MG.MealGroup_Code
                                            join MT in db.MealType on new { MAS.MealGroup, MAS.MealType } equals new { MT.MealGroup, MealType = MT.MealType_Code }
@@ -43,76 +93,26 @@ namespace JBHR2Service.KCR_Custom.Meal
                                                MAS.Key_Date,
                                            });
                     var ApplySettingList = ApplySettingSql.ToList();
-                    var EmpDataSql = (from bts in db.BASETTS
-                                      join b in db.BASE on bts.NOBR equals b.NOBR
-                                      join h in db.HOLICD on bts.HOLI_CODE equals h.HOLI_CODE
-                                      from holi in (
-                                         from ho in db.HOLI
-                                         join o in db.OTHCODE on ho.OTHCODE equals o.OTHCODE1
-                                         where o.STDHOLI || o.OTHHOLI
-                                         select ho
-                                      ).Where(p => p.H_DATE == ADate).DefaultIfEmpty()
-                                      where bts.NOBR == EmployeeID
-                                      && bts.ADATE.CompareTo(ADate) <= 0 && bts.DDATE.Value.CompareTo(ADate) >= 0
-                                      select new { Basetts = bts, Base = b, holi });
-                    bool HoliMealflag = EmpDataSql.First().holi != null;
-                    if (ApplySettingList.Any() && ApplySettingList.Where(p => p.HoliMealFlag == HoliMealflag).Any())
+                    foreach (var ApplySetting in ApplySettingList)
                     {
-                        foreach (var ApplySetting in ApplySettingList.Where(p => p.HoliMealFlag == HoliMealflag))
+                        var instance= MealApplySettingList.Where(p => p.MealType == ApplySetting.MealType).FirstOrDefault();
+                        if (instance != null)
                         {
-                            MealApplySettingList.Add(new KCR_MealApplySettingEntry
-                            {
-                                AutoKey = ApplySetting.AutoKey,
-                                GID = ApplySetting.GID,
-                                EmployeeID = ApplySetting.EmployeeID,
-                                MealGroup = ApplySetting.MealGroup,
-                                MealGroupName = ApplySetting.MealGroup_Name,
-                                MealType = ApplySetting.MealType,
-                                MealTypeName = ApplySetting.MealType_Name,
-                                BTime = ApplySetting.BTime,
-                                ApplyFlag = ApplySetting.ApplyFlag,
-                                HoliMealFlag = ApplySetting.HoliMealFlag,
-                                ADate = ApplySetting.ADate,
-                                DDate = ApplySetting.DDate,
-                                Note = ApplySetting.Note,
-                                Key_Man = ApplySetting.Key_Man,
-                                Key_Date = ApplySetting.Key_Date,
-                            });
-                        }
-                    }
-                    else
-                    {
-                        var MealTypeSQL = from mt in db.MealType
-                                          join mg in db.MealGroup on mt.MealGroup equals mg.MealGroup_Code
-                                          where mt.MealGroup == MealGroup
-                                          select new { mt, mg };
-                        var MealTypeList = MealTypeSQL.ToList();
-                        var UserDefineValueList = db.GetUserDefineValueList("MealType_Holi").ToList();
-                        var FinalMealTypeList = (from m in MealTypeList
-                                                 join udv in UserDefineValueList on string.Format("{0},{1}", m.mt.MealType_Code, m.mt.MealGroup) equals udv.Code into udv1
-                                                 from udv in udv1.DefaultIfEmpty()
-                                                 where (udv != null ? bool.Parse(udv.Value) : false) == HoliMealflag
-                                                 select m).ToList();
-                        for (int i = 0; i < FinalMealTypeList.Count; i++)
-                        {
-                            MealApplySettingList.Add(new KCR_MealApplySettingEntry
-                            {
-                                AutoKey = -1,
-                                GID = Guid.NewGuid(),
-                                EmployeeID = EmployeeID,
-                                MealGroup = MealGroup,
-                                MealGroupName = FinalMealTypeList[i].mg.MealGroup_Name,
-                                MealType = FinalMealTypeList[i].mt.MealType_Code,
-                                MealTypeName = FinalMealTypeList[i].mt.MealType_Name,
-                                BTime = FinalMealTypeList[i].mt.BTime,
-                                ApplyFlag = (HoliMealflag ? (i == 0 ? true : false) : true),
-                                HoliMealFlag = HoliMealflag,
-                                ADate = ADate,
-                                DDate = new DateTime(9999, 12, 31),
-                                Note = String.Empty,
-                                Key_Man = EmpDataSql.First().Base.NAME_C,
-                                Key_Date = DateTime.Now,
-                            });
+                            instance.AutoKey = ApplySetting.AutoKey;
+                            instance.GID = ApplySetting.GID;
+                            instance.EmployeeID = ApplySetting.EmployeeID;
+                            instance.MealGroup = ApplySetting.MealGroup;
+                            instance.MealGroupName = ApplySetting.MealGroup_Name;
+                            instance.MealType = ApplySetting.MealType;
+                            instance.MealTypeName = ApplySetting.MealType_Name;
+                            instance.BTime = ApplySetting.BTime;
+                            instance.ApplyFlag = ApplySetting.ApplyFlag;
+                            instance.HoliMealFlag = ApplySetting.HoliMealFlag;
+                            instance.ADate = ApplySetting.ADate;
+                            instance.DDate = ApplySetting.DDate;
+                            instance.Note = ApplySetting.Note;
+                            instance.Key_Man = ApplySetting.Key_Man;
+                            instance.Key_Date = ApplySetting.Key_Date; 
                         }
                     }
                 }
@@ -152,6 +152,8 @@ namespace JBHR2Service.KCR_Custom.Meal
                         if (ApplySetting.GID.CompareTo(MealApplySetting.GID) == 0 && ApplySetting.ADate.CompareTo(MealApplySetting.ADate) == 0)
                         {
                             ApplySetting.ApplyFlag = MealApplySetting.ApplyFlag;
+                            ApplySetting.ADate = MealApplySetting.ADate;
+                            ApplySetting.DDate = MealApplySetting.DDate;
                             ApplySetting.Key_Man = MealApplySetting.Key_Man;
                             ApplySetting.Key_Date = MealApplySetting.Key_Date;
                         }
