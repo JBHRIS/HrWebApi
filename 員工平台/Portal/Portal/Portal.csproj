@@ -92,6 +92,8 @@
     </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -282,6 +284,19 @@
     <Content Include="bin\Telerik.Windows.Zip.dll" />
     <Content Include="bin\zxing.dll" />
     <Content Include="bin\zxing.presentation.dll" />
+    <None Include="Connected Services\KCR_MealService\KCR_MealService.disco" />
+    <None Include="Connected Services\KCR_MealService\configuration91.svcinfo" />
+    <None Include="Connected Services\KCR_MealService\configuration.svcinfo" />
+    <Content Include="Connected Services\KCR_MealService\Portal.KCR_MealService.KCR_MealApplySettingEntry.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\KCR_MealService\Portal.KCR_MealService.KCR_MealResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\KCR_MealService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="FormAbsApplyByDeptStd.aspx" />
     <Content Include="FormAbsWithApiStd.aspx" />
     <Content Include="FormAgent.aspx" />
@@ -1715,6 +1730,7 @@
     <Content Include="Templates\Inspinia\js\plugins\wow\wow.min.js" />
     <Content Include="Templates\Inspinia\js\popper.min.js" />
     <Content Include="UserControls\UC_FileView.ascx" />
+    <Content Include="EmployeeMealSetting.aspx" />
     <Content Include="WebServices\SaveAbn.asmx" />
     <Content Include="WebServices\SaveAbsForHunya.asmx" />
     <Content Include="WebServices\SaveAppoint.asmx" />
@@ -1924,6 +1940,11 @@
     <Compile Include="ClassLibrary\AccessData.cs" />
     <Compile Include="ClassLibrary\FlexUrlEditor.cs" />
     <Compile Include="ClassLibrary\UnobtrusiveSession.cs" />
+    <Compile Include="Connected Services\KCR_MealService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="DownloadTEST.ashx.cs">
       <DependentUpon>DownloadTEST.ashx</DependentUpon>
     </Compile>
@@ -2633,6 +2654,13 @@
     <Compile Include="UserControls\UC_FileView.ascx.designer.cs">
       <DependentUpon>UC_FileView.ascx</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeMealSetting.aspx.cs">
+      <DependentUpon>EmployeeMealSetting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeMealSetting.aspx.designer.cs">
+      <DependentUpon>EmployeeMealSetting.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebServices\SaveAbn.asmx.cs">
       <DependentUpon>SaveAbn.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -2818,6 +2846,16 @@
     <Content Include="bin\JBTools.dll.config" />
     <Content Include="bin\OldDal.dll.config" />
     <Content Include="bin\Portal.dll.config" />
+    <None Include="Connected Services\KCR_MealService\KCR_MealService.wsdl" />
+    <None Include="Connected Services\KCR_MealService\KCR_MealService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\KCR_MealService\KCR_MealService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\KCR_MealService\KCR_MealService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <Content Include="Single.Master" />
@@ -2871,6 +2909,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\KCR_MealService\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
@@ -2891,7 +2935,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
