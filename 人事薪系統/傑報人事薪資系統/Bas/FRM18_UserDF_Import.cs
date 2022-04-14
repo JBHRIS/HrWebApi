@@ -50,6 +50,9 @@ namespace JBHR.Bas
                     {
                         var control = UDFL.Where(p => p.ControlID.Equals(ColumnForControlID[column.Key])).First();
                         string sourceID = CodeFunction.GetUDFControlTagPropByID(control.ControlID, "SourceID");
+                        string RealValue = TransferRow[column.Key].ToString();
+                        if (CheckData.ContainsKey(column.Key))
+                            ColumnValidate(TransferRow, column.Key, TransferCheckDataField.RealCode, out RealValue);
 
                         UserDefineDto userDefineDto = new UserDefineDto()
                         {
@@ -57,7 +60,7 @@ namespace JBHR.Bas
                             ControlID = control.ControlID,
                             SourceID = !string.IsNullOrEmpty(sourceID) ? Guid.Parse(sourceID) : (Guid?)null,
                             ValueTYPE = control.Type,
-                            Value = TransferRow[column.Key].ToString(),
+                            Value = RealValue,//TransferRow[column.Key].ToString(),
                             Key_Date = DateTime.Now,
                             Key_Man = MainForm.USER_ID
                         };
