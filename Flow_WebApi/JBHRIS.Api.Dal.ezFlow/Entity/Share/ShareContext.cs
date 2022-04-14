@@ -23,6 +23,7 @@ namespace JBHRIS.Api.Dal.ezFlow.Entity.Share
         public virtual DbSet<AppMapScope> AppMapScopes { get; set; }
         public virtual DbSet<AppMapScopeAndUserBind> AppMapScopeAndUserBinds { get; set; }
         public virtual DbSet<AppMapScopeAndUserGroupBind> AppMapScopeAndUserGroupBinds { get; set; }
+        public virtual DbSet<AppNotification> AppNotifications { get; set; }
         public virtual DbSet<AppQRCode> AppQRCodes { get; set; }
         public virtual DbSet<AppQRCodeAndUserBind> AppQRCodeAndUserBinds { get; set; }
         public virtual DbSet<AppQRCodeAndUserGroupBind> AppQRCodeAndUserGroupBinds { get; set; }
@@ -34,6 +35,7 @@ namespace JBHRIS.Api.Dal.ezFlow.Entity.Share
         public virtual DbSet<QuestionDefaultMessage> QuestionDefaultMessages { get; set; }
         public virtual DbSet<QuestionMain> QuestionMains { get; set; }
         public virtual DbSet<QuestionReply> QuestionReplies { get; set; }
+        public virtual DbSet<QuestionUserInfo> QuestionUserInfos { get; set; }
         public virtual DbSet<ShareCode> ShareCodes { get; set; }
         public virtual DbSet<ShareCompany> ShareCompanies { get; set; }
         public virtual DbSet<ShareDefault> ShareDefaults { get; set; }
@@ -303,6 +305,42 @@ namespace JBHRIS.Api.Dal.ezFlow.Entity.Share
                 entity.Property(e => e.UpdateDate).HasColumnType("datetime");
 
                 entity.Property(e => e.UpdateMan).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<AppNotification>(entity =>
+            {
+                entity.HasKey(e => e.iAutoKey)
+                    .HasName("PK_APP_NOTIFICATIONS");
+
+                entity.Property(e => e.BODY)
+                    .IsRequired()
+                    .HasMaxLength(1000);
+
+                entity.Property(e => e.COMP)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.EMPID).HasMaxLength(50);
+
+                entity.Property(e => e.FREEZE_TIME).HasColumnType("datetime");
+
+                entity.Property(e => e.KEY_DATE).HasColumnType("datetime");
+
+                entity.Property(e => e.KEY_MAN)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.NOTE).HasMaxLength(50);
+
+                entity.Property(e => e.NOTE1).HasMaxLength(50);
+
+                entity.Property(e => e.NOTE2).HasMaxLength(50);
+
+                entity.Property(e => e.SUBJECT)
+                    .IsRequired()
+                    .HasMaxLength(200);
+
+                entity.Property(e => e.SUCCESS_TIME).HasColumnType("datetime");
             });
 
             modelBuilder.Entity<AppQRCode>(entity =>
@@ -763,6 +801,57 @@ namespace JBHRIS.Api.Dal.ezFlow.Entity.Share
                 entity.Property(e => e.UpdateDate).HasColumnType("datetime");
 
                 entity.Property(e => e.UpdateMan).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<QuestionUserInfo>(entity =>
+            {
+                entity.HasKey(e => e.AutoKey);
+
+                entity.ToTable("QuestionUserInfo");
+
+                entity.Property(e => e.AccountCode)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.AccountPassword).HasMaxLength(200);
+
+                entity.Property(e => e.Code)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.CompanyId)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.DateA).HasColumnType("datetime");
+
+                entity.Property(e => e.DateD).HasColumnType("datetime");
+
+                entity.Property(e => e.Email).HasMaxLength(50);
+
+                entity.Property(e => e.InsertDate).HasColumnType("datetime");
+
+                entity.Property(e => e.InsertMan).HasMaxLength(50);
+
+                entity.Property(e => e.Key1).HasMaxLength(50);
+
+                entity.Property(e => e.Key2).HasMaxLength(50);
+
+                entity.Property(e => e.Key3).HasMaxLength(50);
+
+                entity.Property(e => e.Status)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.UpdateDate).HasColumnType("datetime");
+
+                entity.Property(e => e.UpdateMan).HasMaxLength(50);
+
+                entity.Property(e => e.UserId)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.UserName).HasMaxLength(50);
             });
 
             modelBuilder.Entity<ShareCode>(entity =>
@@ -1287,9 +1376,9 @@ namespace JBHRIS.Api.Dal.ezFlow.Entity.Share
 
                 entity.ToTable("ShareUpload");
 
-                entity.Property(e => e.Code)
-                    .HasMaxLength(10)
-                    .IsFixedLength(true);
+                entity.Property(e => e.Code).HasMaxLength(50);
+
+                entity.Property(e => e.CompanyId).HasMaxLength(50);
 
                 entity.Property(e => e.InsertDate).HasColumnType("datetime");
 

@@ -1,5 +1,7 @@
-﻿using Bll.Salary.Vdb;
+﻿using Bll.Employee.Vdb;
+using Bll.Salary.Vdb;
 using Dal;
+using Dal.Dao.Employee;
 using Dal.Dao.Salary;
 using System;
 using System.Collections.Generic;
@@ -136,9 +138,56 @@ namespace Portal
                         lblSalaryAttendDateE.Text = Payslipresult.AttDateE.ToShortDateString();
                         lblSalaryNote.Text = "備註:" + Payslipresult.Note;
                         lblSalaryTransDate.Text = Payslipresult.ADate.ToShortDateString();
+
+                        //調整
                         lblSalaryDept.Text = _User.EmpDeptName;
                         lblSalaryName.Text = _User.EmpId + " " + _User.EmpName;
                         lblSalaryPosition.Text = _User.EmpJobName;
+                        var oCurrentJobStatus = new CurrentJobStatusDao();
+                        var CurrentJobStatusCond = new CurrentJobStatusConditions();
+                        CurrentJobStatusCond.AccessToken = _User.AccessToken;
+                        CurrentJobStatusCond.RefreshToken = _User.RefreshToken;
+                        CurrentJobStatusCond.CompanySetting = CompanySetting;
+                        CurrentJobStatusCond.nobr = _User.EmpId;
+                        CurrentJobStatusCond.Adate = Payslipresult.SalDateE;
+                        var CurrentJobStatusResult = oCurrentJobStatus.GetData(CurrentJobStatusCond);
+                        if (CurrentJobStatusResult.Status && CurrentJobStatusResult.Data != null)
+                        {
+                            var CurrentJobStatusresult = CurrentJobStatusResult.Data as CurrentJobStatusRow;
+                            if (CurrentJobStatusresult != null)
+                            {
+                                var JobCode = CurrentJobStatusresult.Result.Job;
+                                var DeptCode = CurrentJobStatusresult.Result.Dept;
+                                var oJob = new JobDao();
+                                var JobCond = new JobConditions();
+                                JobCond.AccessToken = _User.AccessToken;
+                                JobCond.RefreshToken = _User.RefreshToken;
+                                JobCond.CompanySetting = CompanySetting;
+                                var JobResult = oJob.GetData(JobCond);
+                                if (JobResult.Status && JobResult.Data != null)
+                                {
+                                    var Jobresult = JobResult.Data as List<JobRow>;
+                                    if (Jobresult != null)
+                                    {
+                                        lblSalaryPosition.Text = Jobresult.Where(p => p.JobCode == JobCode).Select(p => p.JobName).FirstOrDefault();
+                                    }
+                                }
+                                var oDept = new DeptDao();
+                                var DeptCond = new DeptConditions();
+                                DeptCond.AccessToken = _User.AccessToken;
+                                DeptCond.RefreshToken = _User.RefreshToken;
+                                DeptCond.CompanySetting = CompanySetting;
+                                var DeptResult = oDept.GetData(DeptCond);
+                                if (DeptResult.Status && DeptResult.Data != null)
+                                {
+                                    var Deptresult = DeptResult.Data as List<DeptRow>;
+                                    if (Deptresult != null)
+                                    {
+                                        lblSalaryDept.Text = Deptresult.Where(p => p.DeptCode == DeptCode).Select(p => p.DeptName).FirstOrDefault();
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
                 plMain.Visible = true;

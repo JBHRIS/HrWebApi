@@ -58,7 +58,7 @@ namespace Dal.Dao.Share
                     rQuesitonUserInfo.DateD = DateTime.MaxValue;
                     rQuesitonUserInfo.Status = "1";
                     rQuesitonUserInfo.InsertMan = AccountCode;
-                    rQuesitonUserInfo.InseetDate = DateTime.Now;
+                    rQuesitonUserInfo.InsertDate = DateTime.Now;
                     dcShare.QuestionUserInfo.InsertOnSubmit(rQuesitonUserInfo);
                     dcShare.SubmitChanges();
                 }
@@ -86,9 +86,9 @@ namespace Dal.Dao.Share
                     oUserInfo.DateD = oUserInfo.DateD;
                     oUserInfo.Status = "1";
                     oUserInfo.InsertMan = oUserInfo.InsertMan;
-                    oUserInfo.InseetDate = oUserInfo.InseetDate;
+                    oUserInfo.InsertDate = oUserInfo.InsertDate;
                     oUserInfo.UpdateMan = UserName;
-                    oUserInfo.UpdateTime = DateTime.Now;
+                    oUserInfo.UpdateDate = DateTime.Now;
                     dcShare.SubmitChanges();
                 }
                 catch (Exception ex)

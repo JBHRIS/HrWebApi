@@ -10652,11 +10652,11 @@ namespace Dal
 		
 		private string _InsertMan;
 		
-		private System.Nullable<System.DateTime> _InseetDate;
+		private System.Nullable<System.DateTime> _InsertDate;
 		
 		private string _UpdateMan;
 		
-		private System.Nullable<System.DateTime> _UpdateTime;
+		private System.Nullable<System.DateTime> _UpdateDate;
 		
     #region 擴充性方法定義
     partial void OnLoaded();
@@ -10698,12 +10698,12 @@ namespace Dal
     partial void OnStatusChanged();
     partial void OnInsertManChanging(string value);
     partial void OnInsertManChanged();
-    partial void OnInseetDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnInseetDateChanged();
+    partial void OnInsertDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnInsertDateChanged();
     partial void OnUpdateManChanging(string value);
     partial void OnUpdateManChanged();
-    partial void OnUpdateTimeChanging(System.Nullable<System.DateTime> value);
-    partial void OnUpdateTimeChanged();
+    partial void OnUpdateDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnUpdateDateChanged();
     #endregion
 		
 		public QuestionUserInfo()
@@ -11071,22 +11071,22 @@ namespace Dal
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InseetDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> InseetDate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InsertDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> InsertDate
 		{
 			get
 			{
-				return this._InseetDate;
+				return this._InsertDate;
 			}
 			set
 			{
-				if ((this._InseetDate != value))
+				if ((this._InsertDate != value))
 				{
-					this.OnInseetDateChanging(value);
+					this.OnInsertDateChanging(value);
 					this.SendPropertyChanging();
-					this._InseetDate = value;
-					this.SendPropertyChanged("InseetDate");
-					this.OnInseetDateChanged();
+					this._InsertDate = value;
+					this.SendPropertyChanged("InsertDate");
+					this.OnInsertDateChanged();
 				}
 			}
 		}
@@ -11111,22 +11111,22 @@ namespace Dal
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateTime", DbType="DateTime")]
-		public System.Nullable<System.DateTime> UpdateTime
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> UpdateDate
 		{
 			get
 			{
-				return this._UpdateTime;
+				return this._UpdateDate;
 			}
 			set
 			{
-				if ((this._UpdateTime != value))
+				if ((this._UpdateDate != value))
 				{
-					this.OnUpdateTimeChanging(value);
+					this.OnUpdateDateChanging(value);
 					this.SendPropertyChanging();
-					this._UpdateTime = value;
-					this.SendPropertyChanged("UpdateTime");
-					this.OnUpdateTimeChanged();
+					this._UpdateDate = value;
+					this.SendPropertyChanged("UpdateDate");
+					this.OnUpdateDateChanged();
 				}
 			}
 		}

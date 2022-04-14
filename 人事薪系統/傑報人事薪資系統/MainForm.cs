@@ -825,7 +825,6 @@ namespace JBHR
                 this.MainMenuStrip.Items.Clear();
             }
         }
-
         private void SetNewMenuStrip()
         {
             HrDBDataContext db = new HrDBDataContext();

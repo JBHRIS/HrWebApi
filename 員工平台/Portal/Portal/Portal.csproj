@@ -1727,6 +1727,7 @@
     <Content Include="WebServices\SaveOt1.asmx" />
     <Content Include="WebServices\SaveShiftLong.asmx" />
     <Content Include="WebServices\SaveShiftShort.asmx" />
+    <Content Include="WebServices\SendMail.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="scripts\scripts.js" />
@@ -2680,6 +2681,10 @@
       <DependentUpon>SaveShiftShort.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="WebServices\SendMail.asmx.cs">
+      <DependentUpon>SendMail.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\RadSpell\de-DE.tdf" />
@@ -2886,7 +2891,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

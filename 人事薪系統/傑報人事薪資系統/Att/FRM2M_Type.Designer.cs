@@ -39,6 +39,7 @@
             this.nOTEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MEALGROUP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mEALTYPEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsAtt = new JBHR.Att.dsAtt();
             this.lbCode = new System.Windows.Forms.Label();
@@ -107,6 +108,8 @@
             this.fdc.TabIndex = 0;
             this.fdc.WhereCmd = "";
             this.fdc.AfterAdd += new JBControls.FullDataCtrl.AfterEventHandler(this.fdc_AfterAdd);
+            this.fdc.AfterEdit += new JBControls.FullDataCtrl.AfterEventHandler(this.fdc_AfterEdit);
+            this.fdc.BeforeDel += new JBControls.FullDataCtrl.BeforeEventHandler(this.fdc_BeforeDel);
             this.fdc.AfterDel += new JBControls.FullDataCtrl.AfterEventHandler(this.fdc_AfterDel);
             this.fdc.BeforeSave += new JBControls.FullDataCtrl.BeforeEventHandler(this.fdc_BeforeSave);
             this.fdc.AfterSave += new JBControls.FullDataCtrl.AfterEventHandler(this.fdc_AfterSave);
@@ -135,7 +138,8 @@
             this.eTIMEDataGridViewTextBoxColumn,
             this.nOTEDataGridViewTextBoxColumn,
             this.kEYMANDataGridViewTextBoxColumn,
-            this.kEYDATEDataGridViewTextBoxColumn});
+            this.kEYDATEDataGridViewTextBoxColumn,
+            this.MEALGROUP});
             this.dgv.DataSource = this.mEALTYPEBindingSource;
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.Location = new System.Drawing.Point(0, 0);
@@ -147,6 +151,7 @@
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv.Size = new System.Drawing.Size(736, 331);
             this.dgv.TabIndex = 7;
+            this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 
             // mEALTYPEDISPDataGridViewTextBoxColumn
             // 
@@ -196,6 +201,14 @@
             this.kEYDATEDataGridViewTextBoxColumn.HeaderText = "登錄日期";
             this.kEYDATEDataGridViewTextBoxColumn.Name = "kEYDATEDataGridViewTextBoxColumn";
             this.kEYDATEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // MEALGROUP
+            // 
+            this.MEALGROUP.DataPropertyName = "MEALGROUP";
+            this.MEALGROUP.HeaderText = "MEALGROUP";
+            this.MEALGROUP.Name = "MEALGROUP";
+            this.MEALGROUP.ReadOnly = true;
+            this.MEALGROUP.Visible = false;
             // 
             // mEALTYPEBindingSource
             // 
@@ -486,5 +499,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nOTEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kEYMANDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kEYDATEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MEALGROUP;
     }
 }

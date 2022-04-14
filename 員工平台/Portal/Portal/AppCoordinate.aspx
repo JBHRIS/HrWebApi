@@ -86,7 +86,7 @@
 
                     <div class="hr-line-dashed"></div>
                     <div class="form-group  row">
-                        <label class="col-sm-2 col-form-label">經度 :</label>
+                        <label class="col-sm-2 col-form-label">緯度 :</label>
                         <div class="col-sm-10 col-lg-4 row">
                             <telerik:RadTextBox ID="txt_latitude" runat="server" CssClass="form-control" Width="100%" />
                         </div>
@@ -165,8 +165,8 @@
                             <table class="footable table table-stripped" data-page-size="10" data-filter="#filter">
                                 <thead>
                                     <tr>
+                                        <th>緯度\</th>
                                         <th>經度</th>
-                                        <th>緯度</th>
                                         <th>公尺</th>
                                         <th>說明</th>
                                     </tr>

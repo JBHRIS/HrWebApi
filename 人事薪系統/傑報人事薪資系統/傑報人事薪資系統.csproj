@@ -33,7 +33,7 @@
     <SccProvider>
     </SccProvider>
     <TargetFrameworkProfile />
-    <PublishUrl>ftp://192.168.1.24/JBHR2/</PublishUrl>
+    <PublishUrl>ftp://13.70.40.203/Publish/JBHR2/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -43,13 +43,13 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://publish.jbjob.com.tw/Publish/JBHR2/</InstallUrl>
+    <InstallUrl>http://publishcn.jbhr.com.tw:23333/Publish/JBHR2/</InstallUrl>
     <ProductName>傑報人事薪資系統</ProductName>
     <PublisherName>傑報資訊</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>3</ApplicationRevision>
-    <ApplicationVersion>22.3.29.3</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>22.4.13.1</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -855,6 +855,12 @@
     </Compile>
     <Compile Include="Att\FRM2_DiversionShift_Import.Designer.cs">
       <DependentUpon>FRM2_DiversionShift_Import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Att\KCRCustom\FRM2_MealCount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Att\KCRCustom\FRM2_MealCount.Designer.cs">
+      <DependentUpon>FRM2_MealCount.cs</DependentUpon>
     </Compile>
     <Compile Include="BasDataClasses.designer.cs">
       <AutoGen>True</AutoGen>
@@ -1941,6 +1947,18 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\JBHR2Service\configuration91.svcinfo" />
+    <None Include="Service References\JBHR2Service\configuration.svcinfo" />
+    <None Include="Service References\JBHR2Service\JBHR.JBHR2Service.KCR_MealApplySettingEntry1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\JBHR2Service\JBHR.JBHR2Service.KCR_MealResult1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\JBHR2Service\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="SqlStorage\sql\20191126_FullScriptForTwTax.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -2500,6 +2518,16 @@
     <None Include="Service References\HPX_WebService\Service9.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\JBHR2Service\KCR_MealService.wsdl" />
+    <None Include="Service References\JBHR2Service\KCR_MealService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\JBHR2Service\KCR_MealService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\JBHR2Service\KCR_MealService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\JBHRService\JBHR.JBHRService.SCardWebDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -2870,6 +2898,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Att\FRM2_DiversionShift_ADD.resx">
       <DependentUpon>FRM2_DiversionShift_ADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Att\KCRCustom\FRM2_MealCount.resx">
+      <DependentUpon>FRM2_MealCount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bas\BASETTSD.resx">
       <DependentUpon>BASETTSD.cs</DependentUpon>
@@ -7198,6 +7229,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\JBHR2Service\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\JBHRService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -8033,6 +8069,10 @@
       <Project>{05dac84f-258e-41fc-b490-0fccd4ab15b5}</Project>
       <Name>JBModule.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\JBHRService\JBHRService.csproj">
+      <Project>{ef0371f5-3f46-4eb5-a5d7-f4e26e522950}</Project>
+      <Name>JBHRService</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -8040,6 +8080,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\HolyStoneService\" />
     <WCFMetadataStorage Include="Service References\HPX_WebService\" />
+    <WCFMetadataStorage Include="Service References\JBHR2Service\" />
     <WCFMetadataStorage Include="Service References\JBHRService\" />
   </ItemGroup>
   <ItemGroup />

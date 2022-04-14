@@ -17,6 +17,9 @@ namespace JBHR.Att
         }
         CheckTimeFormatControl CTFC = new CheckTimeFormatControl();
         public string MealGroup { set; get; } = string.Empty;
+        List<Control> controlList = new List<Control>();
+        List<string> pklist = new List<string>();
+        string MealType = string.Empty;
         private void FRM2M_Type_Load(object sender, EventArgs e)
         {
             CTFC.AddControl(txtBTime, true, true, false);
@@ -35,17 +38,33 @@ namespace JBHR.Att
                 fdc.bnExportEnable = u_prg.PRINT_;
             }
             fdc.Init_Ctrls();
+            //繪製自定義欄位
+            controlList = SystemFunction.UserDefineLayoutSetFrmLayout(this, MainForm.COMPANY);
+            pklist.Add("mEALTYPEDISPDataGridViewTextBoxColumn");
+            pklist.Add("MEALGROUP");
+            SystemFunction.updateUserDefineValue(dgv, controlList, pklist);
         }
 
         private void fdc_AfterAdd(object sender, JBControls.FullDataCtrl.AfterEventArgs e)
         {
             txtCODE.Focus();
+            SystemFunction.SetUserDefineEnable(controlList, true);
         }
 
         private void fdc_AfterDel(object sender, JBControls.FullDataCtrl.AfterEventArgs e)
         {
             if (!e.Error)
+            {
                 CDataLog.Save(this.Name, MainForm.USER_ID, DateTime.Now, fdc.BackupDataTable);
+                JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
+                string DeleteSystemCreateCmd = @" IF (EXISTS (SELECT *  FROM INFORMATION_SCHEMA.TABLES WHERE  TABLE_NAME = 'KCR_MealApplySetting'))
+                                                    BEGIN
+                                                          delete KCR_MealApplySetting
+                                                          where MealGroup = {0} and MealType = {1}
+                                                    END ";
+                db.ExecuteCommand(DeleteSystemCreateCmd, new object[] { MealGroup, MealType });
+            }
+            SystemFunction.SetUserDefineEnable(controlList, false);
         }
 
         private void fdc_AfterExport(object sender, JBControls.FullDataCtrl.AfterEventArgs e)
@@ -99,7 +118,38 @@ namespace JBHR.Att
         private void fdc_AfterSave(object sender, JBControls.FullDataCtrl.AfterEventArgs e)
         {
             if (!e.Error)
+            {
                 CDataLog.Save(this.Name, MainForm.USER_ID, DateTime.Now, fdc.BackupDataTable);
+                SystemFunction.submitchangesUserDefineValue(dgv, controlList, pklist);
+            }
+            SystemFunction.SetUserDefineEnable(controlList, false);
+        }
+
+        private void fdc_AfterEdit(object sender, JBControls.FullDataCtrl.AfterEventArgs e)
+        {
+            SystemFunction.SetUserDefineEnable(controlList, true);
+        }
+
+        private void dgv_SelectionChanged(object sender, EventArgs e)
+        {
+            if (fdc.EditType == JBControls.FullDataCtrl.EEditType.None)
+                SystemFunction.updateUserDefineValue(dgv, controlList, pklist);
+        }
+
+        private void fdc_BeforeDel(object sender, JBControls.FullDataCtrl.BeforeEventArgs e)
+        {
+            JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
+            string DeleteSystemCreateCmd = @" IF (EXISTS (SELECT *  FROM INFORMATION_SCHEMA.TABLES WHERE  TABLE_NAME = 'KCR_MealApplySetting'))
+                                                    BEGIN
+                                                          SELECT count(*) as c from KCR_MealApplySetting
+                                                          where MealGroup = {0} and MealType = {1} and ApplyFlag = 1
+                                                    END ";
+            MealType = txtCODE.Text;
+            if (db.ExecuteQuery<int>(DeleteSystemCreateCmd, new object[] { MealGroup, MealType }).Single() > 0)
+            {
+                MessageBox.Show("使用中的代碼不能刪除.", "警告",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Cancel = true;
+            }    
         }
     }
 }

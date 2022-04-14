@@ -5,18 +5,12 @@ using System.Text;
 
 namespace JBHRIS.Api.Dal.Interface
 {
-    public interface ISystem_QuestionReply_View
+    public interface ISystem_QuestionUserInfo_View
     {
 
-        List<QuestionReplyVdb> GetQuestionReplyByQuestionMainCode(string QMainCode);
+        List<QuestionUserInfoVdb> GetQuestionUserInfoByCode(string Code);
 
-        List<QuestionReplyVdb> GetQuestionReplyByCode(string Code);
-
-        bool InsertQuestionReply(QuestionReplyVdb vdb);
-
-        bool UpdateQuestionReplyContent(string Code, string QRContent);
-        bool UpdateQuestionReplySend(string Code, bool QRsend);
-
+      
 
 
 

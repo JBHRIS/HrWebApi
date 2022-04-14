@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="ec3cfa95-c4be-47bd-b03b-d353eb234f77" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.1.46/Jbhr2Service/KCR_MealService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="KCR_MealService.xsd" MetadataType="Schema" ID="d17c4ea6-27ee-4a71-bfa6-93b267044bbb" SourceId="1" SourceUrl="http://192.168.1.46/Jbhr2Service/KCR_MealService.svc?xsd=xsd1" />
+    <MetadataFile FileName="KCR_MealService1.xsd" MetadataType="Schema" ID="57dc56f7-c327-46fc-a2d4-41449cf435df" SourceId="1" SourceUrl="http://192.168.1.46/Jbhr2Service/KCR_MealService.svc?xsd=xsd2" />
+    <MetadataFile FileName="KCR_MealService.wsdl" MetadataType="Wsdl" ID="63a0b5da-a542-4141-b429-0f32de77c9eb" SourceId="1" SourceUrl="http://192.168.1.46/Jbhr2Service/KCR_MealService.svc?wsdl" />
+    <MetadataFile FileName="KCR_MealService2.xsd" MetadataType="Schema" ID="3da902b6-e644-4f64-911e-678baedd33aa" SourceId="1" SourceUrl="http://192.168.1.46/Jbhr2Service/KCR_MealService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

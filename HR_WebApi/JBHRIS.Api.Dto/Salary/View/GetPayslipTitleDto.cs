@@ -6,6 +6,14 @@ namespace JBHRIS.Api.Dto.Salary.View
 {
     public class GetPayslipTitleDto
     {
+        public string EmployeeId { get; set; }
+        public string EmployeeName { get; set; }
+        public string DeptCode { get; set; }
+        public string DeptName { get; set; }
+        public string DeptDispName { get; set; }
+        public string JobCode { get; set; }
+        public string JobDispName { get; set; }
+        public string JobName { get; set; }
         public DateTime Adate { get; set; }
         public DateTime DateB { get; set; }
         public DateTime DateE { get; set; }

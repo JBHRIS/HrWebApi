@@ -129,7 +129,7 @@ namespace Portal
         {
 
             OldDal.Dao.Att.HcodeDao oHcodeDao = new OldDal.Dao.Att.HcodeDao(dcHR.Connection);
-            var rsHcode = oHcodeDao.GetHocde();
+            var rsHcode = oHcodeDao.GetHocdeByFilter(sNobr: lblNobrAppS.Text,dDate:DateTime.Now);
             txtHcode.DataSource = rsHcode;
             txtHcode.DataTextField = "NameC";
             txtHcode.DataValueField = "Code";
@@ -272,6 +272,7 @@ namespace Portal
         {
             SetName(e.Text);
             txtNameAgent_DataBind();
+            txtHcode_DataBind();
         }
         protected void txtNameAppS_DataBound(object sender, EventArgs e)
         {

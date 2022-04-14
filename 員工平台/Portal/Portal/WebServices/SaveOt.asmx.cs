@@ -64,7 +64,7 @@ namespace Portal.WebServices
             var D1 = new DateTime();
             var D2 = new DateTime();
             D1 = rAppM.DateTimeA.Value.Date;
-            D2 = rAppM.DateTimeD.Value.Date;
+            D2 = rAppM.DateTimeD == null ? DateTime.Now : rAppM.DateTimeD.Value.Date;
 
             var rsFormSignM = (from c in dcFlow.FormsSign
                                where c.idProcess == ProcessID
