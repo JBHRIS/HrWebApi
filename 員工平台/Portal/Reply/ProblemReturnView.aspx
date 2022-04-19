@@ -146,11 +146,11 @@
                             </div>
                             <div class="media-body">
                                 <span>
-                                    <telerik:RadLabel ID="lblName2" runat="server" CssClass="name_font" Text='<%# Eval("Name") %>' />
+                                    <telerik:RadLabel ID="lblName2" runat="server" CssClass="name_font" Text='<%# Eval("ColorUserWithRole") %>' />
                                 </span>
                                 <span>
                                     <label id='<%# Eval("Code") %>'>
-                                        <%# Eval("Content") %><label>
+                                        <%# Eval("ColorContent") %><label>
                                 </span>
                                 <br />
 
@@ -201,7 +201,7 @@
                                             </div>
                                             <div class="media-body" style="text-align: justify;">
                                                 <span>
-                                                    <telerik:RadLabel ID="lblName2" runat="server" CssClass="name_font" Text='<%# Eval("Name") %>' />
+                                                    <telerik:RadLabel ID="lblName2" runat="server" CssClass="name_font" Text='<%# Eval("ColorUserWithRole") %>' />
                                                     <span class="text-blue"><i class="fa fa-share "></i><%# Eval("ReplyName")%></span>
                                                     <span class="replyreply_text">
                                                         <%# Eval("ReplyContent")%>
@@ -210,7 +210,7 @@
                                                 </span>
                                                 <span>
                                                     <label id='<%# Eval("Code") %>'>
-                                                        <%# Eval("Content") %><label>
+                                                        <%# Eval("ColorContent") %><label>
                                                 </span>
                                                 <br />
 
