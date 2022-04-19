@@ -184,6 +184,8 @@
       <HintPath>..\..\..\..\Standard\ThirdPartyLib\Telerik\WinForm\Telerik.WinControls.UI.dll</HintPath>
     </Reference>
     <Reference Include="TelerikData, Version=2017.2.613.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Xceed.Document.NET, Version=2.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL" />
+    <Reference Include="Xceed.Words.NET, Version=2.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnnualBonus\HunyaCustom\Code\Hunya_ABLevelCode.cs">
@@ -2112,6 +2114,9 @@
     <Content Include="SqlStorage\sql\2020121501_RoteBonusConditionTypeInsertJOB.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="SqlStorage\sql\2022041801_create_ENCODE_function.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="SqlStorage\sql\2020121801_create_ENCODE_function.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -2381,6 +2386,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlStorage\sql\2022033101_Create_Index_For_SALATT.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022041802_AlterWelfAddNote1Note2.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022041803_Create_View_Welf.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlStorage\sql\AlterSalcode.sql">
@@ -5313,6 +5324,12 @@
     <EmbeddedResource Include="Wel\FRM62N.resx">
       <DependentUpon>FRM62N.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Wel\FRM62N_ADD.resx">
+      <DependentUpon>FRM62N_ADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wel\FRM62N_IMPORT.resx">
+      <DependentUpon>FRM62N_IMPORT.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Wel\FRM63.resx">
       <DependentUpon>FRM63.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -7527,6 +7544,18 @@
     </Compile>
     <Compile Include="Wel\FRM62N.Designer.cs">
       <DependentUpon>FRM62N.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wel\FRM62N_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wel\FRM62N_ADD.Designer.cs">
+      <DependentUpon>FRM62N_ADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wel\FRM62N_IMPORT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wel\FRM62N_IMPORT.Designer.cs">
+      <DependentUpon>FRM62N_IMPORT.cs</DependentUpon>
     </Compile>
     <Compile Include="Wel\FRM63.cs">
       <SubType>Form</SubType>

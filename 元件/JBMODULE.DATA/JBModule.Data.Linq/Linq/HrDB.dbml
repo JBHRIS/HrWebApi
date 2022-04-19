@@ -4725,6 +4725,24 @@
       <Column Name="AttDays" Type="System.Decimal" DbType="Decimal(16,4) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.WELF" Member="WELF">
+    <Type Name="WELF">
+      <Column Name="NOBR" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="YYMM" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SEQ" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SAL_CODE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AMT" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="D_AMT" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="KEY_MAN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="KEY_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FORMAT" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TR_TYPE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SALADR" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AUTO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Note1" Type="System.String" DbType="nvarchar(50) null" CanBeNull="true" />
+      <Column Name="Note2" Type="System.String" DbType="nvarchar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.GetHolidayYears" Method="GetHolidayYears" IsComposable="true">
     <Parameter Name="nobr" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="date" Type="System.DateTime" DbType="DateTime" />

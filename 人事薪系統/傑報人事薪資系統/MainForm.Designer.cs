@@ -1457,7 +1457,7 @@
             // 
             this.福利金資料ToolStripMenuItem1.Name = "福利金資料ToolStripMenuItem1";
             resources.ApplyResources(this.福利金資料ToolStripMenuItem1, "福利金資料ToolStripMenuItem1");
-            this.福利金資料ToolStripMenuItem1.Tag = "WEL.FRM62";
+            this.福利金資料ToolStripMenuItem1.Tag = "WEL.FRM62N";
             // 
             // 考核資料ToolStripMenuItem
             // 

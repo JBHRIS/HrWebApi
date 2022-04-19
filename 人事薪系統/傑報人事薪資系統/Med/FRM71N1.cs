@@ -78,7 +78,7 @@ namespace JBHR.Med
             frm.DataTransfer.ColumnList.Add("已申報", typeof(string));
             frm.DataTransfer.ColumnList.Add("稅籍編號", typeof(string));
             frm.DataTransfer.ColumnList.Add("備註", typeof(string));
-            frm.DataTransfer.ColumnList.Add("警告", typeof(string));
+            frm.DataTransfer.ColumnList.Add("警告註記", typeof(string));
             frm.DataTransfer.ColumnList.Add("錯誤註記", typeof(string));
 
             frm.DataTransfer.UnMustColumnList = new List<string>();
