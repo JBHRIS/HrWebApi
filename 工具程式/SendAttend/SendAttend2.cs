@@ -89,6 +89,17 @@ namespace sendAttendMail
                 string MonthDayB = ConfigurationSettings.AppSettings["MonthDayB"];
                 string MonthDayE = ConfigurationSettings.AppSettings["MonthDayE"];
                 string AttMonth = ConfigurationSettings.AppSettings["AttMonth"];
+                string ExcludeDept = "";
+                //排除的編制部門
+                if (string.IsNullOrEmpty(ConfigurationSettings.AppSettings["ExcludeDept"].Trim()))
+                {
+                    ExcludeDept = "";
+                }
+                else
+                {
+                    ExcludeDept = "'" + ConfigurationSettings.AppSettings["ExcludeDept"].Trim().Replace(",", "', '") + "'";
+                }
+
                 //抓取hr郵件參數設定天數及mail
                 string MailFrom = "";
                 string TestAccount = "";
@@ -177,6 +188,12 @@ namespace sendAttendMail
                 CmdUdataid += " from attend a,base d,basetts b";
                 CmdUdataid += dept_rela;
                 CmdUdataid += " where a.nobr=b.nobr ";
+
+                if (!string.IsNullOrEmpty(ExcludeDept))
+                {
+                    CmdUdataid += string.Format(@" and c.d_no_disp not in ({0})", ExcludeDept);
+                }
+
                 CmdUdataid += string.Format(@" and b.nobr=d.nobr and '{0}' between b.adate and b.ddate", date_e);
                 CmdUdataid += string.Format(@" and a.adate between '{0}' and '{1}'", date_b, date_e);
                 CmdUdataid += " and b.card='Y' and b.noter=0 and a.rote not in ('00','0X','0Z') and (a.late_mins!=0 or a.e_mins!=0 or abs=1)";

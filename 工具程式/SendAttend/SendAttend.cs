@@ -80,6 +80,17 @@ namespace sendAttendMail
                 string MonthDayB = ConfigurationSettings.AppSettings["MonthDayB"];
                 string MonthDayE = ConfigurationSettings.AppSettings["MonthDayE"];
                 string AttMonth = ConfigurationSettings.AppSettings["AttMonth"];
+                string ExcludeDept = "";
+                //排除的編制部門
+                if (string.IsNullOrEmpty(ConfigurationSettings.AppSettings["ExcludeDept"].Trim()))
+                {
+                    ExcludeDept = "";
+                }
+                else
+                {
+                    ExcludeDept = "'" + ConfigurationSettings.AppSettings["ExcludeDept"].Trim().Replace(",", "', '") + "'";
+                }
+
                 //抓取hr郵件參數設定天數
                 string MailFrom = "";
                 string TestAccount = "";
@@ -168,6 +179,12 @@ namespace sendAttendMail
                 CmdAttend += " from base d,attend a,basetts b ";
                 CmdAttend += dept_rela;
                 CmdAttend += " where a.nobr=b.nobr and b.nobr=d.nobr";
+
+                if (!string.IsNullOrEmpty(ExcludeDept))
+                {
+                    CmdAttend += string.Format(@" and c.d_no_disp not in ({0})", ExcludeDept);
+                }
+
                 CmdAttend += string.Format(@" and '{0}' between b.adate and b.ddate", date_e);
                 CmdAttend += string.Format(@" and a.adate between '{0}' and '{1}'", date_b, date_e);
                 CmdAttend += " and (a.late_mins!=0 or a.e_mins!=0 or abs=1 )";
