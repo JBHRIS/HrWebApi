@@ -14,6 +14,7 @@
  * 2021/04/22    Daniel Chih        Ver 1.0.02                                          1. 得假對沖報表假期加總規則條件變更，改看BDATE
  * 2021/07/07    Daniel Chih        Ver 1.0.03                                          1. 修改請假資料的 Htype 改成讀 Hcodetype
  * 2022/02/21    Daniel Chih        Ver 1.0.04      ITCT-F01-220087-寶齡富錦-20220221   1. 修改【假別】條件欄位的查詢規則，修復1~2會包含11、12……等資料的問題
+ * 2022/04/22    Daniel Chih        Ver 1.0.05                                          1. 增加時長的單位欄位，對沖表RDLC增加加總
  * 
  */
 /* ======================================================================================================
@@ -55,6 +56,11 @@ namespace JBHR.Reports.AttForm
         bool exportexcel;
 
         string Total_Hours = "0";
+        string Total_Days = "0";
+        string Total_Leave_Hours = "0";
+        string Total_Leave_Days = "0";
+        string Hours_Left = "0";
+        string Days_Left = "0";
 
         public ZZ23B_Report(string nobrb, string nobre, string deptb, string depte, string compb, string compe, string htypeb, string htypee, string saladrb, string saladre, string yymmb, string yymme, string dateb, string datee, string checkrote, string typedata, string _lcstr, string _reporttype, bool _exportexcel, string _username, string compname)
         {
@@ -222,7 +228,7 @@ namespace JBHR.Reports.AttForm
                     foreach (DataRow Row in SRow)
                     {
                         decimal _tolhours = decimal.Parse(Row["tol_hours"].ToString());
-                        string sqlAbsd = "select b.bdate,datename(dw,b.bdate) as dw,c.h_code_disp as h_code,c.h_name,b.btime,b.etime,a.usehour as tol_hours";
+                        string sqlAbsd = "select b.bdate,datename(dw,b.bdate) as dw,c.h_code_disp as h_code,c.h_name,b.btime,b.etime,a.usehour as tol_hours, c.unit";
                         sqlAbsd += " from absd a,abs b ";
                         sqlAbsd += " left outer join hcode c on b.h_code=c.h_code";
                         sqlAbsd += string.Format(@" where a.absadd='{0}'", Row["guid"].ToString());
@@ -257,8 +263,10 @@ namespace JBHR.Reports.AttForm
                                 aRow["deduct_btime"] = Row1["btime"].ToString();
                                 aRow["deduct_etime"] = Row1["etime"].ToString();
                                 aRow["deduct_hrs"] = decimal.Parse(Row1["tol_hours"].ToString());
+                                aRow["deduct_unit"] = Row1["unit"].ToString();
                                 aRow["balance"] = decimal.Parse(Row["balance"].ToString());
                                 aRow["deduct_balance"] = _tolhours;
+                                aRow["deduct_balance_unit"] = Row1["unit"].ToString();
                                 aRow["grp"] = grp;
                                 ds.Tables["zz23b"].Rows.Add(aRow);
                             }
@@ -329,6 +337,7 @@ namespace JBHR.Reports.AttForm
                                 aRow["deduct_btime"] = Row["btime"].ToString();
                                 aRow["deduct_etime"] = Row["etime"].ToString();
                                 aRow["deduct_hrs"] = decimal.Parse(Row["tol_hours"].ToString());
+                                aRow["deduct_unit"] = Row1["unit"].ToString();
                                 aRow["balance"] = decimal.Parse(Row1["balance"].ToString());
                                 aRow["grp"] = grp;
                                 ds.Tables["zz23b"].Rows.Add(aRow);
@@ -417,25 +426,97 @@ namespace JBHR.Reports.AttForm
                 }
 
                 //得假對沖 避開重複加總 取得總計得假時數 - Added By Daniel Chih - 2021/04/07
-                if(reporttype == "1")
+                if (reporttype == "1")
                 {
                     string compareA = "";
                     string compareB = "";
 
                     foreach (DataRow Row in ds.Tables["zz23b"].Rows)
                     {
-                        compareA = Row["Dept"].ToString().Trim() + Row["Nobr"].ToString().Trim() + Row["H_Code"].ToString().Trim() +
-                            (string.IsNullOrEmpty(Row["BDate"].ToString()) ? "" : Row["BDate"].ToString());
-
-                        if (compareA != compareB)
+                        if (Row["unit"].ToString() == "小時")
                         {
-                            compareB = compareA;
-                            Total_Hours = Math.Round(decimal.Parse(Total_Hours) + decimal.Parse(Row["tol_hours"].ToString()), 2).ToString();
+                            compareA = Row["Dept"].ToString().Trim() + Row["Nobr"].ToString().Trim() + Row["H_Code"].ToString().Trim() +
+                                (string.IsNullOrEmpty(Row["BDate"].ToString()) ? "" : Row["BDate"].ToString());
+
+                            if (compareA != compareB)
+                            {
+                                compareB = compareA;
+                                Total_Hours = Math.Round(decimal.Parse(Total_Hours) + decimal.Parse(Row["tol_hours"].ToString()), 2).ToString();
+                            }
+                        }
+                    }
+                    compareA = "";
+                    compareB = "";
+
+                    foreach (DataRow Row in ds.Tables["zz23b"].Rows)
+                    {
+                        if (Row["unit"].ToString() == "天")
+                        {
+                            compareA = Row["Dept"].ToString().Trim() + Row["Nobr"].ToString().Trim() + Row["H_Code"].ToString().Trim() +
+                                (string.IsNullOrEmpty(Row["BDate"].ToString()) ? "" : Row["BDate"].ToString());
+
+                            if (compareA != compareB)
+                            {
+                                compareB = compareA;
+                                Total_Days = Math.Round(decimal.Parse(Total_Days) + decimal.Parse(Row["tol_hours"].ToString()), 2).ToString();
+                            }
+                        }
+                    }
+
+                    foreach (DataRow Row in ds.Tables["zz23b"].Rows)
+                    {
+                        //請假
+                        if (!string.IsNullOrEmpty(Row["deduct_hrs"].ToString()))
+                        {
+                            if (Row["deduct_unit"].ToString() == "小時")
+                            {
+                                Total_Leave_Hours = Math.Round(decimal.Parse(Total_Leave_Hours) + decimal.Parse(Row["deduct_hrs"].ToString()), 2).ToString();
+                            }
+
+                            if (Row["deduct_unit"].ToString() == "天")
+                            {
+                                Total_Leave_Days = Math.Round(decimal.Parse(Total_Leave_Days) + decimal.Parse(Row["deduct_hrs"].ToString()), 2).ToString();
+                            }
+                        }
+                    }
+
+                    Hours_Left = Math.Round(decimal.Parse(Total_Hours) - decimal.Parse(Total_Leave_Hours), 2).ToString();
+                    Days_Left = Math.Round(decimal.Parse(Total_Days) - decimal.Parse(Total_Leave_Days), 2).ToString();
+
+                }
+                else if (reporttype == "2")
+                {
+                    foreach (DataRow Row in ds.Tables["zz23b"].Rows)
+                    {
+                        //請假
+                        if (!string.IsNullOrEmpty(Row["deduct_hrs"].ToString()))
+                        {
+                            if (Row["unit"].ToString() == "小時")
+                            {
+                                Total_Leave_Hours = Math.Round(decimal.Parse(Total_Leave_Hours) + decimal.Parse(Row["deduct_hrs"].ToString()), 2).ToString();
+                            }
+
+                            if (Row["unit"].ToString() == "天")
+                            {
+                                Total_Leave_Days = Math.Round(decimal.Parse(Total_Leave_Days) + decimal.Parse(Row["deduct_hrs"].ToString()), 2).ToString();
+                            }
+                        }
+
+                        //沖假
+                        if (!string.IsNullOrEmpty(Row["usehour"].ToString()))
+                        {
+                            if (Row["unit"].ToString() == "小時")
+                            {
+                                Total_Hours = Math.Round(decimal.Parse(Total_Hours) + decimal.Parse(Row["usehour"].ToString()), 2).ToString();
+                            }
+
+                            if (Row["unit"].ToString() == "天")
+                            {
+                                Total_Days = Math.Round(decimal.Parse(Total_Days) + decimal.Parse(Row["usehour"].ToString()), 2).ToString();
+                            }
                         }
                     }
                 }
-
-                
                 
                 if (exportexcel)
                 {       
@@ -485,6 +566,18 @@ namespace JBHR.Reports.AttForm
                         if(reporttype == "1")
                         {
                             RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Total_Hours", Total_Hours) });
+                            RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Total_Days", Total_Days) });
+                            RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Total_Leave_Hours", Total_Leave_Hours) });
+                            RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Total_Leave_Days", Total_Leave_Days) });
+                            RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Hours_Left", Hours_Left) });
+                            RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Days_Left", Days_Left) });
+                        }
+                        else if(reporttype == "2")
+                        {
+                            RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Total_Hours", Total_Hours) });
+                            RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Total_Days", Total_Days) });
+                            RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Total_Leave_Hours", Total_Leave_Hours) });
+                            RptViewer.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("Total_Leave_Days", Total_Leave_Days) });
                         }
                         RptViewer.LocalReport.DataSources.Add(new ReportDataSource("attenddata_zz23b", ds.Tables["zz23b"]));
                     }
@@ -514,7 +607,7 @@ namespace JBHR.Reports.AttForm
             ExporDt.Columns.Add("星期", typeof(string));
             ExporDt.Columns.Add("請起時間", typeof(string));
             ExporDt.Columns.Add("請迄時間", typeof(string));
-            ExporDt.Columns.Add("請假時數", typeof(decimal));
+            ExporDt.Columns.Add("請假時長", typeof(decimal));
             ExporDt.Columns.Add("單位", typeof(string));
             DataRow[] DTrow = DT.Select("", "dept,nobr,bdate,h_code asc");
             foreach (DataRow Row in DTrow)
@@ -529,7 +622,7 @@ namespace JBHR.Reports.AttForm
                 aRow["星期"] = Row["dw"].ToString();
                 aRow["請起時間"] = Row["deduct_btime"].ToString();
                 aRow["請迄時間"] = Row["deduct_etime"].ToString();
-                aRow["請假時數"] = decimal.Parse(Row["deduct_hrs"].ToString());
+                aRow["請假時長"] = decimal.Parse(Row["deduct_hrs"].ToString());
                 aRow["單位"] = Row["unit"].ToString();
                 ExporDt.Rows.Add(aRow);
             }
@@ -544,8 +637,8 @@ namespace JBHR.Reports.AttForm
             ExporDt.Columns.Add("員工編號", typeof(string));
             ExporDt.Columns.Add("員工姓名", typeof(string));
             ExporDt.Columns.Add("得假假別", typeof(string));
-            ExporDt.Columns.Add("單位", typeof(string));
-            ExporDt.Columns.Add("得假時數", typeof(decimal));            
+            ExporDt.Columns.Add("得假時長", typeof(decimal));
+            ExporDt.Columns.Add("單位（得假）", typeof(string));
             ExporDt.Columns.Add("生效日期", typeof(DateTime));
             ExporDt.Columns.Add("失效日期", typeof(DateTime));
             ExporDt.Columns.Add("請假假別", typeof(string));
@@ -553,8 +646,10 @@ namespace JBHR.Reports.AttForm
             ExporDt.Columns.Add("星期", typeof(string));
             ExporDt.Columns.Add("時間起", typeof(string));
             ExporDt.Columns.Add("時間迄", typeof(string));
-            ExporDt.Columns.Add("請假時數", typeof(decimal));
-            ExporDt.Columns.Add("剩餘時數", typeof(decimal));
+            ExporDt.Columns.Add("請假時長", typeof(decimal));
+            ExporDt.Columns.Add("單位（請假）", typeof(string));
+            ExporDt.Columns.Add("剩餘時長", typeof(decimal));
+            ExporDt.Columns.Add("單位（剩餘）", typeof(string));
             DataRow[] DTrow = DT.Select("", "dept,nobr,bdate,h_code asc");
             foreach (DataRow Row in DTrow)
             {
@@ -564,8 +659,8 @@ namespace JBHR.Reports.AttForm
                 aRow["員工編號"] = Row["nobr"].ToString();
                 aRow["員工姓名"] = Row["name_c"].ToString();
                 aRow["得假假別"] = Row["h_name"].ToString();
-                aRow["單位"] = Row["unit"].ToString();
-                aRow["得假時數"] = decimal.Parse(Row["tol_hours"].ToString());                
+                aRow["得假時長"] = decimal.Parse(Row["tol_hours"].ToString());
+                aRow["單位（得假）"] = Row["unit"].ToString();
                 aRow["生效日期"] = DateTime.Parse(Row["bdate"].ToString());
                 aRow["失效日期"] = DateTime.Parse(Row["edate"].ToString());
                 if (!Row.IsNull("deduct_date"))
@@ -575,8 +670,10 @@ namespace JBHR.Reports.AttForm
                     aRow["星期"] = Row["dw"].ToString();
                     aRow["時間起"] = Row["deduct_btime"].ToString();
                     aRow["時間迄"] = Row["deduct_etime"].ToString();
-                    aRow["請假時數"] = decimal.Parse(Row["deduct_hrs"].ToString());
-                    aRow["剩餘時數"] = decimal.Parse(Row["deduct_balance"].ToString());
+                    aRow["請假時長"] = decimal.Parse(Row["deduct_hrs"].ToString());
+                    aRow["單位（請假）"] = Row["deduct_unit"].ToString();
+                    aRow["剩餘時長"] = decimal.Parse(Row["deduct_balance"].ToString());
+                    aRow["單位（剩餘）"] = Row["deduct_balance_unit"].ToString();
                 }
 
                 ExporDt.Rows.Add(aRow);
@@ -596,12 +693,13 @@ namespace JBHR.Reports.AttForm
             ExporDt.Columns.Add("星期", typeof(string));
             ExporDt.Columns.Add("請起時間", typeof(string));
             ExporDt.Columns.Add("請迄時間", typeof(string));
-            ExporDt.Columns.Add("請假時數", typeof(decimal));
+            ExporDt.Columns.Add("請假時長", typeof(decimal));
             ExporDt.Columns.Add("單位", typeof(string));
             ExporDt.Columns.Add("得假假別", typeof(string));
             //ExporDt.Columns.Add("得假時數", typeof(decimal));
             //ExporDt.Columns.Add("剩餘時數", typeof(decimal));
-            ExporDt.Columns.Add("沖假時數", typeof(decimal));
+            ExporDt.Columns.Add("沖假時長", typeof(decimal));
+            ExporDt.Columns.Add("單位（沖假）", typeof(string));
             ExporDt.Columns.Add("生效日期", typeof(DateTime));
             ExporDt.Columns.Add("失效日期", typeof(DateTime));
             DataRow[] DTrow = DT.Select("", "dept,nobr,bdate,h_code asc");
@@ -617,14 +715,15 @@ namespace JBHR.Reports.AttForm
                 aRow["星期"] = Row["dw"].ToString();
                 aRow["請起時間"] = Row["deduct_btime"].ToString();
                 aRow["請迄時間"] = Row["deduct_etime"].ToString();
-                aRow["請假時數"] = decimal.Parse(Row["deduct_hrs"].ToString());
+                aRow["請假時長"] = decimal.Parse(Row["deduct_hrs"].ToString());
                 aRow["單位"] = Row["unit"].ToString();
                 if (!Row.IsNull("h_name"))
                 {
                     aRow["得假假別"] = Row["h_name"].ToString();
                     //aRow["得假時數"] = decimal.Parse(Row["tol_hours"].ToString());
                     //aRow["剩餘時數"] = decimal.Parse(Row["balance"].ToString());
-                    aRow["沖假時數"] = decimal.Parse(Row["usehour"].ToString());
+                    aRow["沖假時長"] = decimal.Parse(Row["usehour"].ToString());
+                    aRow["單位（沖假）"] = Row["unit"].ToString();
                     aRow["生效日期"] = DateTime.Parse(Row["bdate"].ToString());
                     aRow["失效日期"] = DateTime.Parse(Row["edate"].ToString());
                 }
