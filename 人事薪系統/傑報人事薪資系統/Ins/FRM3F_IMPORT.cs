@@ -20,7 +20,14 @@ namespace JBHR.Ins
             //BindingControls.Add(comboBox3);
             BindingControls.Add(comboBox4);
         }
-
+        private void FRM3F_IMPORT_Load(object sender, EventArgs e)
+        {
+            SystemFunction.SetComboBoxItems(comboBoxInsType, CodeFunction.GetMtCode("INSUR_TYPE"));
+            Sal.Core.SalaryDate sd = new Sal.Core.SalaryDate(DateTime.Today, true);
+            sd = sd.GetPrevSalaryDate();
+            txtYYMM.Text = sd.FirstDayOfMonth.ToString("yyyyMM");
+            LoadColumnSettings();
+        }
         private void buttonConfig_Click(object sender, EventArgs e)
         {
             CombinationData = new DataTable();
@@ -54,7 +61,7 @@ namespace JBHR.Ins
 
             JBModule.Data.Linq.HrDBDataContext hrdb = new JBModule.Data.Linq.HrDBDataContext();
             var CheckListOfEmpData = (from a in hrdb.BASE
-                                      //join b in hrdb.WriteRuleTable(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) on a.NOBR equals b.NOBR
+                                          //join b in hrdb.WriteRuleTable(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) on a.NOBR equals b.NOBR
                                       join c in hrdb.INSLAB on a.NOBR equals c.NOBR
                                       where c.IN_DATE <= sd.LastDayOfMonth && c.OUT_DATE >= sd.FirstDayOfMonth
                                       && c.FA_IDNO.Trim().Length == 0
@@ -73,7 +80,7 @@ namespace JBHR.Ins
                                       }
                                       ).ToList();
             var CheckListOfFamilyData = (from a in hrdb.FAMILY
-                                         //join b in hrdb.WriteRuleTable(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) on a.NOBR equals b.NOBR
+                                             //join b in hrdb.WriteRuleTable(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) on a.NOBR equals b.NOBR
                                          join c in hrdb.INSLAB on new { a.NOBR, a.FA_IDNO } equals new { c.NOBR, c.FA_IDNO }
                                          where c.IN_DATE <= sd.LastDayOfMonth && c.OUT_DATE >= sd.FirstDayOfMonth
                                          && c.FA_IDNO.Trim().Length > 0
@@ -90,17 +97,23 @@ namespace JBHR.Ins
                                              ReturnValue = a.FA_IDNO,
                                          }
                                    ).ToList();
-            this.ImportTransfer.CheckData["身分證號"] = CheckListOfEmpData.Union(CheckListOfFamilyData).ToList();
+            var CheckListOfEmpDataAll = (from a in hrdb.BASE
+                                         where (from bts in hrdb.BASETTS
+                                                where bts.NOBR == a.NOBR
+                                                && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
+                                                && (from urdg in hrdb.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
+                                                select 1).Any()
+                                         select new JBControls.CheckImportData
+                                         {
+                                             RealCode = a.NOBR,
+                                             DisplayCode = a.IDNO,
+                                             DisplayName = a.NAME_C,
+                                             CheckValue1 = a.MATNO,
+                                             CheckValue2 = a.TAXNO,
+                                         }
+                                    ).ToList();
+            this.ImportTransfer.CheckData["身分證號"] = CheckListOfEmpData.Union(CheckListOfFamilyData).Union(CheckListOfEmpDataAll).ToList();
             this.Close();
-        }
-
-        private void FRM3F_IMPORT_Load(object sender, EventArgs e)
-        {
-            SystemFunction.SetComboBoxItems(comboBoxInsType, CodeFunction.GetMtCode("INSUR_TYPE"));
-            Sal.Core.SalaryDate sd = new Sal.Core.SalaryDate(DateTime.Today, true);
-            sd = sd.GetPrevSalaryDate();
-            txtYYMM.Text = sd.FirstDayOfMonth.ToString("yyyyMM");
-            LoadColumnSettings();
         }
     }
     public class InsuranceCompareImport : JBControls.ImportTransfer
@@ -164,10 +177,10 @@ namespace JBHR.Ins
             instance.FA_IDNO = TransferRow["身分證號"].ToString();
             instance.YYMM = TransferRow["保險年月"].ToString();
             instance.INSUR_TYPE = TransferRow["費用種類"].ToString();
-            if (TransferRow["個人負擔"]!=DBNull.Value)
-            instance.EXP = Convert.ToDecimal(TransferRow["個人負擔"]);
+            if (TransferRow["個人負擔"] != DBNull.Value)
+                instance.EXP = Convert.ToDecimal(TransferRow["個人負擔"]);
             if (TransferRow["公司負擔"] != DBNull.Value)
-            instance.COMP = Convert.ToDecimal(TransferRow["公司負擔"]);
+                instance.COMP = Convert.ToDecimal(TransferRow["公司負擔"]);
             instance.ADATE = new DateTime(1900, 1, 1);
             instance.DAYS = 0;
             instance.INSCD = 0;
