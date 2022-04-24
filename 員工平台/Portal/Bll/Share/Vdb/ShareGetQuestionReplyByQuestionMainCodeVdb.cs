@@ -88,5 +88,9 @@ namespace Bll.Share.Vdb
         
         public string UserRole { get; set; }
 
+        public string ColorUserWithRole { get; set; }
+
+        public string ColorContent { get; set; }
+
     }
 }
