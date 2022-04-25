@@ -187,6 +187,7 @@
             this.福利金資料toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.福利金代號ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.福利金資料ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.福利金年度作業ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.考核資料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.代碼資料ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.考績等級代碼ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -1443,7 +1444,8 @@
             // 
             this.福利金資料toolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.福利金代號ToolStripMenuItem,
-            this.福利金資料ToolStripMenuItem1});
+            this.福利金資料ToolStripMenuItem1,
+            this.福利金年度作業ToolStripMenuItem});
             this.福利金資料toolStripMenuItem.Name = "福利金資料toolStripMenuItem";
             resources.ApplyResources(this.福利金資料toolStripMenuItem, "福利金資料toolStripMenuItem");
             // 
@@ -1458,6 +1460,12 @@
             this.福利金資料ToolStripMenuItem1.Name = "福利金資料ToolStripMenuItem1";
             resources.ApplyResources(this.福利金資料ToolStripMenuItem1, "福利金資料ToolStripMenuItem1");
             this.福利金資料ToolStripMenuItem1.Tag = "WEL.FRM62N";
+            // 
+            // 福利金年度作業ToolStripMenuItem
+            // 
+            this.福利金年度作業ToolStripMenuItem.Name = "福利金年度作業ToolStripMenuItem";
+            resources.ApplyResources(this.福利金年度作業ToolStripMenuItem, "福利金年度作業ToolStripMenuItem");
+            this.福利金年度作業ToolStripMenuItem.Tag = "WEL.FRM63N";
             // 
             // 考核資料ToolStripMenuItem
             // 
@@ -2925,6 +2933,7 @@
         private System.Windows.Forms.Button buttonRestart;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label lbUpdateError;
+        private System.Windows.Forms.ToolStripMenuItem 福利金年度作業ToolStripMenuItem;
     }
 }
 

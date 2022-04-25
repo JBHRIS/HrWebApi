@@ -1061,6 +1061,12 @@
   <data name="福利金資料ToolStripMenuItem1.Text" xml:space="preserve">
     <value>福利金資料</value>
   </data>
+  <data name="福利金年度作業ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="福利金年度作業ToolStripMenuItem.Text" xml:space="preserve">
+    <value>福利金年度作業</value>
+  </data>
   <data name="福利金資料toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 22</value>
   </data>
@@ -3766,6 +3772,12 @@
     <value>福利金資料ToolStripMenuItem1</value>
   </data>
   <data name="&gt;&gt;福利金資料ToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;福利金年度作業ToolStripMenuItem.Name" xml:space="preserve">
+    <value>福利金年度作業ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;福利金年度作業ToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;考核資料ToolStripMenuItem.Name" xml:space="preserve">

@@ -7574,6 +7574,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FRM63DataClasses.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Wel\FRM63N.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wel\FRM63N.Designer.cs">
+      <DependentUpon>FRM63N.cs</DependentUpon>
+    </Compile>
     <Compile Include="Wel\WelDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
