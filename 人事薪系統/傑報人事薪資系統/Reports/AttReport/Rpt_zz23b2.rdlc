@@ -39,6 +39,9 @@
               <Width>1.75001cm</Width>
             </TablixColumn>
             <TablixColumn>
+              <Width>1.20354cm</Width>
+            </TablixColumn>
+            <TablixColumn>
               <Width>2cm</Width>
             </TablixColumn>
             <TablixColumn>
@@ -303,7 +306,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>請假時數</Value>
+                              <Value>請假時長</Value>
                               <Style>
                                 <FontFamily>標楷體</FontFamily>
                               </Style>
@@ -408,7 +411,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>沖假時數</Value>
+                              <Value>沖假時長</Value>
                               <Style>
                                 <FontFamily>標楷體</FontFamily>
                               </Style>
@@ -418,6 +421,41 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox91</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <VerticalAlign>Bottom</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox79">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>單位</Value>
+                              <Style>
+                                <FontFamily>標楷體</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox77</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -707,6 +745,35 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox92</rd:DefaultName>
+                      <Style>
+                        <Border />
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox12">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>標楷體</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox12</rd:DefaultName>
                       <Style>
                         <Border />
                         <PaddingLeft>2pt</PaddingLeft>
@@ -1101,6 +1168,35 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="Textbox13">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>標楷體</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox13</rd:DefaultName>
+                      <Style>
+                        <Border />
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="Textbox122">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -1471,6 +1567,35 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>tol_hours</rd:DefaultName>
+                      <Style>
+                        <Border />
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="unit2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!unit.Value</Value>
+                              <Style>
+                                <FontFamily>標楷體</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>unit</rd:DefaultName>
                       <Style>
                         <Border />
                         <PaddingLeft>2pt</PaddingLeft>
@@ -1920,6 +2045,40 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="Textbox21">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>標楷體</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox21</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <TopBorder>
+                          <Style>Dashed</Style>
+                        </TopBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="Textbox109">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -2312,6 +2471,35 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="Textbox24">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>標楷體</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox24</rd:DefaultName>
+                      <Style>
+                        <Border />
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="Textbox110">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -2462,14 +2650,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox48">
+                    <Textbox Name="Textbox98">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>請假總計：</Value>
                               <Style>
                                 <FontFamily>標楷體</FontFamily>
                               </Style>
@@ -2478,123 +2666,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox48</rd:DefaultName>
-                      <Style>
-                        <Border />
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox55">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>標楷體</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox55</rd:DefaultName>
-                      <Style>
-                        <Border />
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox62">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>標楷體</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox62</rd:DefaultName>
-                      <Style>
-                        <Border />
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox69">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>標楷體</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox69</rd:DefaultName>
-                      <Style>
-                        <Border />
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox76">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>標楷體</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox76</rd:DefaultName>
+                      <rd:DefaultName>Textbox96</rd:DefaultName>
                       <Style>
                         <Border />
                         <PaddingLeft>2pt</PaddingLeft>
@@ -2614,7 +2686,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>=Parameters!Total_Leave_Hours.Value + "小時 / " + Parameters!Total_Leave_Days.Value + "天"</Value>
                               <Style>
                                 <FontFamily>標楷體</FontFamily>
                               </Style>
@@ -2623,7 +2695,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox83</rd:DefaultName>
+                      <rd:DefaultName>Textbox76</rd:DefaultName>
                       <Style>
                         <Border />
                         <PaddingLeft>2pt</PaddingLeft>
@@ -2632,18 +2704,23 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <ColSpan>5</ColSpan>
                   </CellContents>
                 </TablixCell>
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox90">
+                    <Textbox Name="Textbox99">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>沖假總計：</Value>
                               <Style>
                                 <FontFamily>標楷體</FontFamily>
                               </Style>
@@ -2652,7 +2729,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox90</rd:DefaultName>
+                      <rd:DefaultName>Textbox96</rd:DefaultName>
                       <Style>
                         <Border />
                         <PaddingLeft>2pt</PaddingLeft>
@@ -2672,7 +2749,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>=Parameters!Total_Hours.Value + "小時 / " + Parameters!Total_Days.Value + "天"</Value>
                               <Style>
                                 <FontFamily>標楷體</FontFamily>
                               </Style>
@@ -2690,72 +2767,19 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <ColSpan>4</ColSpan>
                   </CellContents>
                 </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox111">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>標楷體</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox111</rd:DefaultName>
-                      <Style>
-                        <Border />
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox118">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>標楷體</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox118</rd:DefaultName>
-                      <Style>
-                        <Border />
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
               </TablixCells>
             </TablixRow>
           </TablixRows>
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
+            <TablixMember />
             <TablixMember />
             <TablixMember />
             <TablixMember />
@@ -2828,8 +2852,8 @@
         </TablixRowHierarchy>
         <DataSetName>attenddata_zz23b</DataSetName>
         <Left>0.5cm</Left>
-        <Height>3.59999cm</Height>
-        <Width>24cm</Width>
+        <Height>3.6cm</Height>
+        <Width>25.20357cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -3207,14 +3231,26 @@
           <DataField>deduct_hrs</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="deduct_unit">
+          <DataField>deduct_unit</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="balance">
           <DataField>balance</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="deduct_balance">
+          <DataField>deduct_balance</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="deduct_balance_unit">
+          <DataField>deduct_balance_unit</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>attenddata</rd:DataSetName>
-        <rd:SchemaPath>D:\JB-SVN\Customer\JBHR\人事薪系統\傑報人事薪資系統\Reports\AttForm\attenddata.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\GitHub\JB\Customer\JBHR2\人事薪系統\傑報人事薪資系統\Reports\AttForm\attenddata.xsd</rd:SchemaPath>
         <rd:TableName>zz23b</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -3234,6 +3270,26 @@
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="DateE">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Total_Leave_Hours">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Total_Leave_Days">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Total_Hours">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Total_Days">
       <DataType>String</DataType>
       <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
