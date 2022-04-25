@@ -1862,6 +1862,9 @@
     <Content Include="Resources\ICON\favicon_C.ico" />
     <Content Include="Resources\ICON\傑報資訊_icon_01.png" />
     <Content Include="Resources\ICON\傑報資訊_icon_02.png" />
+    <EmbeddedResource Include="Wel\FRM63N.resx">
+      <DependentUpon>FRM63N.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="AnnualBonus\HunyaCustom\Hunya_AnnualBonus.xsc">
       <DependentUpon>Hunya_AnnualBonus.xsd</DependentUpon>
     </None>
