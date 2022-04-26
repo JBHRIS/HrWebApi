@@ -35,7 +35,7 @@
                         </telerik:RadComboBox>
                     </div>
                     <div class="form-group">
-                        <label>內容 <small id="contentlength" style="color: #1ab394">(0/200)</small></label>
+                        <label>內容 <small id="contentlength" style="color: #1ab394">(0/500)</small></label>
                         <telerik:RadTextBox ID="txtContent" runat="server" EmptyMessage="請填寫您想回報的內容..."
                             TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="4">
                         </telerik:RadTextBox>
@@ -247,15 +247,15 @@
             if (isPostBack) {
                 $('#titlelength').text('(' + $('#ctl00_ContentPlaceHolder1_txtTitle').val().length + '/30)')
                 isTyping = false;
-                if ($('#ctl00_ContentPlaceHolder1_txtContent').val().length > 200) {
+                if ($('#ctl00_ContentPlaceHolder1_txtContent').val().length > 500) {
                     $('#contentlength').css('color', 'red')
 
-                    $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/200)')
+                    $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/500)')
                     isTyping = false;
                 }
                 else {
                     $('#contentlength').css('color', '#1ab394')
-                    $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/200)')
+                    $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/500)')
                     isTyping = false;
                 }
                 if ($('#ctl00_ContentPlaceHolder1_txtTitle').val().length > 30) {
@@ -271,7 +271,7 @@
             }
             else {
                 $('#titlelength').text('(0/30)')
-                $('#contentlength').text('(0/200)')
+                $('#contentlength').text('(0/500)')
                 isTyping = false;
 
             }
@@ -313,15 +313,15 @@
                 isTyping = false;
             });
             if (!isTyping) {
-                if ($('#ctl00_ContentPlaceHolder1_txtContent').val().length > 200) {
+                if ($('#ctl00_ContentPlaceHolder1_txtContent').val().length > 500) {
                     $('#contentlength').css('color', 'red')
 
-                    $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/200)')
+                    $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/500)')
                     isTyping = false;
                 }
                 else {
                     $('#contentlength').css('color', '#1ab394')
-                    $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/200)')
+                    $('#contentlength').text('(' + $('#ctl00_ContentPlaceHolder1_txtContent').val().length + '/500)')
                     isTyping = false;
 
                 }

@@ -135,15 +135,31 @@ namespace Dal.Dao.Share
                                         if (rSource.Key2 == "Admin")
                                         {
                                             rTarget.UserRole = "<i class=\"fa fa-users\"></i>";
+                                            rTarget.ColorUserWithRole = "<font color=\"#B20000\">系統商-" + rSource.Name+"</Font>";
                                         }
                                         else if (rSource.Key2 == "Hr")
                                         {
                                             rTarget.UserRole = "<i class=\"fa fa-user-plus\"></i>";
+                                            rTarget.ColorUserWithRole = "<font color=\"#B27400\">Hr-" + rSource.Name + "</Font>";
                                         }
                                         else if (rSource.Key2 == "User")
                                         {
                                             rTarget.UserRole = "<i class=\"fa fa-user\"></i>";
+                                            rTarget.ColorUserWithRole = "員工-"+rSource.Name;
                                         }
+                                        if (rSource.RoleKey == 10)
+                                        {
+                                            rTarget.ColorContent = "<font color=\"#B27400\">" + rSource.Content + "</Font>";
+                                        }
+                                        else if (rSource.RoleKey == 2)
+                                        {
+                                            rTarget.ColorContent = "<font color=\"#B20000\">" + rSource.Content + "</Font>";
+                                        }
+                                        else
+                                        {
+                                            rTarget.ColorContent =  rSource.Content;
+                                        }
+
                                         rsTarget.Add(rTarget);
                                     }
 

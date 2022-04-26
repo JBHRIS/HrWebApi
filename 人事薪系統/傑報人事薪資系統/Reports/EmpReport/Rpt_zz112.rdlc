@@ -36,13 +36,13 @@
               <Width>0.8cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.5cm</Width>
+              <Width>2.25cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.25cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>0.5cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.5cm</Width>
@@ -988,7 +988,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!depts.Value</Value>
+                              <Value>=Fields!ds_name.Value</Value>
                               <Style>
                                 <FontFamily>標楷體</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -1018,7 +1018,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!job.Value</Value>
+                              <Value>=Fields!job_name.Value</Value>
                               <Style>
                                 <FontFamily>標楷體</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -2008,7 +2008,7 @@
         <DataSetName>empdata_rq_zz11s3</DataSetName>
         <Left>0.5cm</Left>
         <Height>1.76984cm</Height>
-        <Width>26.00002cm</Width>
+        <Width>28.50002cm</Width>
         <Style>
           <FontFamily>新細明體</FontFamily>
           <FontSize>9pt</FontSize>
@@ -2260,7 +2260,7 @@
     <DataSet Name="empdata_rq_zz11s3">
       <Query>
         <DataSourceName>DummyDataSource</DataSourceName>
-        <CommandText />
+        <CommandText>/* Local Query */</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
@@ -2272,9 +2272,17 @@
           <DataField>name_c</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="name_e">
+          <DataField>name_e</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="birdt">
           <DataField>birdt</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="age">
+          <DataField>age</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="sex">
           <DataField>sex</DataField>
@@ -2308,8 +2316,20 @@
           <DataField>bankno</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="account_ma">
+          <DataField>account_ma</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="account_na">
+          <DataField>account_na</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="indt">
           <DataField>indt</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="cindt">
+          <DataField>cindt</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="oudt">
@@ -2324,16 +2344,68 @@
           <DataField>d_no</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="d_mang">
+          <DataField>d_mang</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="d_mangname">
+          <DataField>d_mangname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="job">
           <DataField>job</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="jobs">
+          <DataField>jobs</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="jobs_name">
+          <DataField>jobs_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="comp">
+          <DataField>comp</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="depts">
           <DataField>depts</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="ds_name">
+          <DataField>ds_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="basecd">
+          <DataField>basecd</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="basecdname">
+          <DataField>basecdname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="saltp">
           <DataField>saltp</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="saltyname">
+          <DataField>saltyname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="deptm">
+          <DataField>deptm</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="dm_name">
+          <DataField>dm_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="dm_mang">
+          <DataField>dm_mang</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="dm_mangname">
+          <DataField>dm_mangname</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="stdt">
@@ -2343,6 +2415,18 @@
         <Field Name="stindt">
           <DataField>stindt</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="tax_date">
+          <DataField>tax_date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="tax_edate">
+          <DataField>tax_edate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="matno">
+          <DataField>matno</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="jobl">
           <DataField>jobl</DataField>
@@ -2354,10 +2438,6 @@
         </Field>
         <Field Name="di">
           <DataField>di</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="rote">
-          <DataField>rote</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="rotet">
@@ -2372,6 +2452,10 @@
           <DataField>empcd</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="empdescr">
+          <DataField>empdescr</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="mang">
           <DataField>mang</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
@@ -2380,40 +2464,12 @@
           <DataField>card</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="rote_w">
-          <DataField>rote_w</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="workcd">
           <DataField>workcd</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="in_job">
-          <DataField>in_job</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="educcode">
-          <DataField>educcode</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="edudesc">
-          <DataField>edudesc</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="schl">
-          <DataField>schl</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="subj">
-          <DataField>subj</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="educ_l">
-          <DataField>educ_l</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="descr">
-          <DataField>descr</DataField>
+        <Field Name="work_addr">
+          <DataField>work_addr</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="outcd">
@@ -2432,6 +2488,10 @@
           <DataField>d_name</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="d_ename">
+          <DataField>d_ename</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="d_name2">
           <DataField>d_name2</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -2444,29 +2504,33 @@
           <DataField>jobl_name</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="jobo">
+          <DataField>jobo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="jobo_name">
+          <DataField>jobo_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OilSubsidy">
+          <DataField>OilSubsidy</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="costtypename">
+          <DataField>costtypename</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="insg_type">
+          <DataField>insg_type</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="groupname">
+          <DataField>groupname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="wk_yrs">
           <DataField>wk_yrs</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="retchoo">
-          <DataField>retchoo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="retdate">
-          <DataField>retdate</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="retrate">
-          <DataField>retrate</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="pstdt">
-          <DataField>pstdt</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="effects">
-          <DataField>effects</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="stdt_days">
           <DataField>stdt_days</DataField>
@@ -2484,22 +2548,70 @@
           <DataField>jobldays</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="comp">
-          <DataField>comp</DataField>
+        <Field Name="retchoo">
+          <DataField>retchoo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="cindt">
-          <DataField>cindt</DataField>
+        <Field Name="retdate">
+          <DataField>retdate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="jobs">
-          <DataField>jobs</DataField>
+        <Field Name="retrate">
+          <DataField>retrate</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="saladr">
+          <DataField>saladr</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="rotetname">
+          <DataField>rotetname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="dept_tree">
+          <DataField>dept_tree</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="eduname">
+          <DataField>eduname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="email">
+          <DataField>email</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="taxno">
+          <DataField>taxno</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="cont_man">
+          <DataField>cont_man</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="cont_tel">
+          <DataField>cont_tel</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="cont_gsm">
+          <DataField>cont_gsm</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="country">
+          <DataField>country</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="tenure">
+          <DataField>tenure</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>empdata</rd:DataSetName>
+        <rd:SchemaPath>C:\GitHub\JB\Customer\JBHR2\人事薪系統\傑報人事薪資系統\Reports\EmpForm\empdata.xsd</rd:SchemaPath>
         <rd:TableName>rq_zz11s3</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

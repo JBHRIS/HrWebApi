@@ -56,7 +56,7 @@ namespace JBHR2Service.KCR_Custom.Meal
                             MealType = FinalMealTypeList[i].mt.MealType_Code,
                             MealTypeName = FinalMealTypeList[i].mt.MealType_Name,
                             BTime = FinalMealTypeList[i].mt.BTime,
-                            ApplyFlag = (FinalMealTypeList[i].HoliMealflag ? (j == 0) : true),
+                            ApplyFlag = (FinalMealTypeList[i].HoliMealflag ? false : true),
                             HoliMealFlag = FinalMealTypeList[i].HoliMealflag,
                             ADate = ADate,
                             DDate = new DateTime(9999, 12, 31),
