@@ -26,9 +26,9 @@ namespace JBHR.Wel
                 MessageBox.Show("請先選擇主檔資料");
                 return;
             }
-            //FRM63N frm = new FRM63N();
-            //frm.TW_TAX_Auto = Convert.ToInt32(jbQuery1.SelectedKey);
-            //frm.ShowDialog();
+            FRM63N1 frm = new FRM63N1();
+            frm.TW_TAX_Auto = Convert.ToInt32(jbQuery1.SelectedKey);
+            frm.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -38,9 +38,9 @@ namespace JBHR.Wel
                 MessageBox.Show("請先選擇主檔資料");
                 return;
             }
-            //FRM71N2 frm = new FRM71N2();
-            //frm.TW_TAX_Auto = Convert.ToInt32(jbQuery1.SelectedKey);
-            //frm.ShowDialog();
+            FRM63N2 frm = new FRM63N2();
+            frm.TW_TAX_Auto = Convert.ToInt32(jbQuery1.SelectedKey);
+            frm.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -281,15 +281,15 @@ namespace JBHR.Wel
 
         private void jbQuery1_RowInsert(object sender, JBControls.JBQuery.RowInsertEventArgs e)
         {
-            //FRM71N_ADD frm = new FRM71N_ADD();
-            //frm.ShowDialog();
+            FRM63N_ADD frm = new FRM63N_ADD();
+            frm.ShowDialog();
         }
 
         private void jbQuery1_RowUpdate(object sender, JBControls.JBQuery.RowUpdateEventArgs e)
         {
-            //FRM71N_ADD frm = new FRM71N_ADD();
-            //frm.TW_TAX_AUTO = Convert.ToInt32(jbQuery1.SelectedKey);
-            //frm.ShowDialog();
+            FRM63N_ADD frm = new FRM63N_ADD();
+            frm.TW_TAX_AUTO = Convert.ToInt32(jbQuery1.SelectedKey);
+            frm.ShowDialog();
         }
 
         private void jbQuery1_RowDelete(object sender, JBControls.JBQuery.RowDeleteEventArgs e)

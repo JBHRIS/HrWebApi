@@ -67,6 +67,7 @@
             this.buttonReport.TabIndex = 13;
             this.buttonReport.Text = "產生報表";
             this.buttonReport.UseVisualStyleBackColor = true;
+            this.buttonReport.Click += new System.EventHandler(this.buttonReport_Click);
             // 
             // button2
             // 
@@ -76,6 +77,7 @@
             this.button2.TabIndex = 10;
             this.button2.Text = "產生媒體檔";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -85,6 +87,7 @@
             this.button1.TabIndex = 11;
             this.button1.Text = "申報資料結轉";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // buttonData
             // 
@@ -94,6 +97,7 @@
             this.buttonData.TabIndex = 12;
             this.buttonData.Text = "申報資料維護";
             this.buttonData.UseVisualStyleBackColor = true;
+            this.buttonData.Click += new System.EventHandler(this.buttonData_Click);
             // 
             // jbQuery1
             // 
@@ -111,6 +115,9 @@
             this.jbQuery1.SortString = "";
             this.jbQuery1.SourceTable = null;
             this.jbQuery1.TabIndex = 8;
+            this.jbQuery1.RowDelete += new JBControls.JBQuery.RowDeleteEventHandler(this.jbQuery1_RowDelete);
+            this.jbQuery1.RowInsert += new JBControls.JBQuery.RowInsertEventHandler(this.jbQuery1_RowInsert);
+            this.jbQuery1.RowUpdate += new JBControls.JBQuery.RowUpdateEventHandler(this.jbQuery1_RowUpdate);
             // 
             // FRM63N
             // 

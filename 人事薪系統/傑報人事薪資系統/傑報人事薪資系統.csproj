@@ -1865,6 +1865,24 @@
     <EmbeddedResource Include="Wel\FRM63N.resx">
       <DependentUpon>FRM63N.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Wel\FRM63N1.resx">
+      <DependentUpon>FRM63N1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wel\FRM63N1_ADD.resx">
+      <DependentUpon>FRM63N1_ADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wel\FRM63N1_IMPORT.resx">
+      <DependentUpon>FRM63N1_IMPORT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wel\FRM63N1_T.resx">
+      <DependentUpon>FRM63N1_T.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wel\FRM63N2.resx">
+      <DependentUpon>FRM63N2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wel\FRM63N2_RepeatIDNO.resx">
+      <DependentUpon>FRM63N2_RepeatIDNO.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="AnnualBonus\HunyaCustom\Hunya_AnnualBonus.xsc">
       <DependentUpon>Hunya_AnnualBonus.xsd</DependentUpon>
     </None>
@@ -7582,6 +7600,42 @@
     </Compile>
     <Compile Include="Wel\FRM63N.Designer.cs">
       <DependentUpon>FRM63N.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wel\FRM63N1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wel\FRM63N1.Designer.cs">
+      <DependentUpon>FRM63N1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wel\FRM63N1_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wel\FRM63N1_ADD.Designer.cs">
+      <DependentUpon>FRM63N1_ADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wel\FRM63N1_IMPORT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wel\FRM63N1_IMPORT.Designer.cs">
+      <DependentUpon>FRM63N1_IMPORT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wel\FRM63N1_T.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wel\FRM63N1_T.designer.cs">
+      <DependentUpon>FRM63N1_T.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wel\FRM63N2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wel\FRM63N2.designer.cs">
+      <DependentUpon>FRM63N2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wel\FRM63N2_RepeatIDNO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wel\FRM63N2_RepeatIDNO.Designer.cs">
+      <DependentUpon>FRM63N2_RepeatIDNO.cs</DependentUpon>
     </Compile>
     <Compile Include="Wel\WelDS.Designer.cs">
       <AutoGen>True</AutoGen>
