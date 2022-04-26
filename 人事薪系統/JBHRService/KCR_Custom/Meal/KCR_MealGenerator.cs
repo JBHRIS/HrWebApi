@@ -16,21 +16,29 @@ namespace JBHR2Service.KCR_Custom.Meal
             if (!string.IsNullOrEmpty(MealGroup))
             {
                 JBModule.Message.TextLog.WriteLog(String.Format("{0}取得用餐設定.", EmployeeID));
+                List<string> HolidayList = new List<string>() { "00", "0X", "0Z" };
                 try
                 {
                     var EmpDataSql = (from bts in db.BASETTS
                                       join b in db.BASE on bts.NOBR equals b.NOBR
-                                      join h in db.HOLICD on bts.HOLI_CODE equals h.HOLI_CODE
-                                      from holi in (
-                                         from ho in db.HOLI
-                                         join o in db.OTHCODE on ho.OTHCODE equals o.OTHCODE1
-                                         where o.STDHOLI || o.OTHHOLI
-                                         select ho
-                                      ).Where(p => p.H_DATE == ADate).DefaultIfEmpty()
+                                      //join h in db.HOLICD on bts.HOLI_CODE equals h.HOLI_CODE
+                                      //from holi in (
+                                      //   from ho in db.HOLI
+                                      //   join o in db.OTHCODE on ho.OTHCODE equals o.OTHCODE1
+                                      //   where o.STDHOLI || o.OTHHOLI
+                                      //   select ho
+                                      //).Where(p => p.H_DATE == ADate).DefaultIfEmpty()
+                                      join att in (
+                                           from at in db.ATTEND
+                                           where at.ADATE.CompareTo(ADate) == 0
+                                           select at
+                                      ) on bts.NOBR equals att.NOBR into att1
+                                      from att in att1.DefaultIfEmpty()
                                       where bts.NOBR == EmployeeID
                                       && bts.ADATE.CompareTo(ADate) <= 0 && bts.DDATE.Value.CompareTo(ADate) >= 0
-                                      select new { Basetts = bts, Base = b, holi });
-                    bool HoliMealflag = EmpDataSql.First().holi != null;
+                                      select new { Basetts = bts, Base = b, Rote = att.ROTE ?? "" });
+                    var EmpData = EmpDataSql.FirstOrDefault();
+                    bool HoliMealflag = EmpData != null && HolidayList.Contains(EmpData.Rote);
 
                     var MealTypeSQL = from mt in db.MealType
                                       join mg in db.MealGroup on mt.MealGroup equals mg.MealGroup_Code
@@ -61,7 +69,7 @@ namespace JBHR2Service.KCR_Custom.Meal
                             ADate = ADate,
                             DDate = new DateTime(9999, 12, 31),
                             Note = String.Empty,
-                            Key_Man = EmpDataSql.First().Base.NAME_C,
+                            Key_Man = EmpData != null ? EmpData.Base.NAME_C : "無出勤",
                             Key_Date = DateTime.Now,
                         });
                         if (FinalMealTypeList[i].HoliMealflag)
