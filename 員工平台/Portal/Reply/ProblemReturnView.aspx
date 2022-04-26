@@ -44,16 +44,16 @@
         </div>
         <div class="social-body">
             <p>
-                <%--  <label>標題 :</label>--%>
+                  <label>標題 :</label>
                 <telerik:RadLabel ID="lblTitle" runat="server" Text="" />
             </p>
             <p>
-                <%--<label>回覆類型 :</label>--%>
+                <label>回覆類型 :</label>
                 <telerik:RadLabel ID="lblQuestionCategory" runat="server" Text="" />
             </p>
-            
-            <p>             
-                <%--<label>內容 :</label>--%>
+
+            <p>
+                <label>內容 :</label>
                 <telerik:RadLabel ID="lblContent" runat="server" Text="" />
             </p>
 
@@ -140,8 +140,7 @@
                         <div class="social-comment message_line" id='div<%# Eval("Code")%>'>
                             <div class="float-left">
                                 <div class="navy-bg admin_circle">
-                                   <%#Eval("UserRole")%>
-                                  
+                                    <%#Eval("UserRole")%>
                                 </div>
                             </div>
                             <div class="media-body">
@@ -192,11 +191,11 @@
                                     </LayoutTemplate>
 
                                     <ItemTemplate>
-                                       
+
                                         <div class="social-comment" id='div<%# Eval("Code")%>'>
                                             <div class="float-left">
                                                 <div class="navy-bg admin_circle">
-                                                     <%#Eval("UserRole")%>
+                                                    <%#Eval("UserRole")%>
                                                 </div>
                                             </div>
                                             <div class="media-body" style="text-align: justify;">
@@ -232,7 +231,7 @@
                                                 </div>
                                                 <br />
 
-                                              
+
 
                                             </div>
 
@@ -260,12 +259,12 @@
                         <telerik:RadButton ID="btnHelpless" runat="server" Text="沒有" CssClass="btn btn-white btn-w-m m-b-xs" data-toggle="collapse" data-target="#demo" />
 
 
-                        <div id="divCompleteStatus" class="hr-line-dashed" runat="server" visible="false"  ></div>
-                            <p  id="pCompleteStatus" runat="server" class="text-success" visible="false">
-                                此筆回報單已經結案！<br>
-                                如後續有相關問題，請重新建立回報單，感謝您的使用！
-                            </p>
-                        
+                        <div id="divCompleteStatus" class="hr-line-dashed" runat="server" visible="false"></div>
+                        <p id="pCompleteStatus" runat="server" class="text-success" visible="false">
+                            此筆回報單已經結案！<br>
+                            如後續有相關問題，請重新建立回報單，感謝您的使用！
+                        </p>
+
                     </div>
                 </div>
             </telerik:RadAjaxPanel>
@@ -289,7 +288,7 @@
 
 
         </div>
-       
+
 
 
     </div>

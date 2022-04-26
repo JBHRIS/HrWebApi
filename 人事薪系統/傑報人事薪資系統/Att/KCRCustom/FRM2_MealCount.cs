@@ -42,6 +42,7 @@ namespace JBHR.Att.KCRCustom
         }
         private void UpdateMealApplySetting(List<string> EmployeeList, DateTime ADate,bool GenMealApply = false)
         {
+            List<string> HolidayList = new List<string>() { "00", "0X", "0Z" };
             JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
             var ApplySettingSql = (from MAS in db.KCR_MealApplySetting
                                    join bts in db.BASETTS on MAS.EmployeeID equals bts.NOBR
@@ -79,22 +80,28 @@ namespace JBHR.Att.KCRCustom
                               join b in db.BASE on bts.NOBR equals b.NOBR
                               join m in (
                                  from mg in db.GetUserDefineValueList("MealGroup")
-                                 join  mt in db.MealType on mg.Value equals mt.MealGroup
-                                 select new {mg , mt = mt.MealType_Code}
-                              ) on bts.NOBR equals m.mg.Code 
-                              join h in db.HOLICD on bts.HOLI_CODE equals h.HOLI_CODE
-                              join holi in (
-                                 from ho in db.HOLI
-                                 join o in db.OTHCODE on ho.OTHCODE equals o.OTHCODE1
-                                 where o.STDHOLI || o.OTHHOLI
-                                 select ho
-                              ) on new { HOLICD = h.HOLI_CODE, ADate } equals new { HOLICD = holi.HOLI_CODE, ADate = holi.H_DATE } into holi1
-                              from holi in holi1.DefaultIfEmpty()
+                                 join mt in db.MealType on mg.Value equals mt.MealGroup
+                                 select new { mg, mt = mt.MealType_Code }
+                              ) on bts.NOBR equals m.mg.Code
+                              //join h in db.HOLICD on bts.HOLI_CODE equals h.HOLI_CODE
+                              //join holi in (
+                              //   from ho in db.HOLI
+                              //   join o in db.OTHCODE on ho.OTHCODE equals o.OTHCODE1
+                              //   where o.STDHOLI || o.OTHHOLI
+                              //   select ho
+                              //) on new { HOLICD = h.HOLI_CODE, ADate } equals new { HOLICD = holi.HOLI_CODE, ADate = holi.H_DATE } into holi1
+                              //from holi in holi1.DefaultIfEmpty()
+                              join att in (
+                                   from at in db.ATTEND
+                                   where at.ADATE.CompareTo(ADate) == 0
+                                   select at
+                              ) on bts.NOBR equals att.NOBR into att1
+                              from att in att1.DefaultIfEmpty()
                               where //bts.NOBR == EmployeeID
                               new string[] { "1", "4", "6" }.Contains(bts.TTSCODE)
                               && bts.ADATE.CompareTo(ADate) <= 0 && bts.DDATE.Value.CompareTo(ADate) >= 0
                               && db.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Select(p => p.DATAGROUP).Contains(bts.SALADR)
-                              select new { Basetts = bts, Base = b, holi = holi != null, MealGroup = m.mg, MealType = m.mt });
+                              select new { Basetts = bts, Base = b, holi = att != null && HolidayList.Contains(att.ROTE), MealGroup = m.mg, MealType = m.mt });
             var EmpDataList = EmpDataSql.ToList();
             var MealTypeList = db.MealType.ToList();
             var MealGroupList = db.MealGroup.ToList();
