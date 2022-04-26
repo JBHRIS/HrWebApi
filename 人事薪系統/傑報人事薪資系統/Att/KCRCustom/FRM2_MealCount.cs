@@ -116,7 +116,7 @@ namespace JBHR.Att.KCRCustom
                                        員工姓名 = emp.Base.NAME_C,
                                        用餐群組 = fmt.mg.MealGroup_DISP + "-" + fmt.mg.MealGroup_Name,
                                        用餐餐別 = fmt.mt.MealType_Code + "-" + fmt.mt.MealType_Name,
-                                       是否用餐 = hfmt != null ? "V" : fmt.holi ? "" : "V",
+                                       是否用餐 = hfmt != null ? "" : fmt.holi ? "" : "V",
                                        平假日 = fmt.holi ? "假日" : "平日",
                                        備註 = fmt.mt.NOTE,
                                        登錄者 = "程式預設",
