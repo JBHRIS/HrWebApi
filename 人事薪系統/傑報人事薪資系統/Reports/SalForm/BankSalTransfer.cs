@@ -516,7 +516,7 @@ namespace JBHR.Reports.SalForm
                 }
                 File.Delete(_Folder + "台新" + yyyymmdd + ".txt");
                 //(DataRow[] TransData, string date_t, string compaccount, string CompID, string Num, string totalamt, string totalcnt, string Folder, string FileName)
-                JBHR.Reports.SalForm.BankTransfer.Bank812(rowa1, yymmdd, Compaccount, CompId, CustId, toltalamt.ToString(), toltalrow.ToString(), _Folder, _FileName);
+                JBHR.Reports.SalForm.BankTransfer.Bank812(rowa1, date_t, Compaccount, CompId, CustId, toltalamt.ToString(), toltalrow.ToString(), _Folder, _FileName);
 
                 MessageBox.Show("產生轉帳磁片完畢" + _FileName);
                 //MessageBox.Show("產生磁片完畢 " + _Folder + _FileName + " 總共" + Convert.ToString(rowa1.Length) + "筆 總金額" + Convert.ToString(postsum2) + "元");.
@@ -870,7 +870,7 @@ namespace JBHR.Reports.SalForm
                     }
                     if (string.IsNullOrEmpty(_FileName))
                     {
-                        _FileName = Row_Comp_Bank["COMPANY_BANK_NAME"].ToString().Trim() + " - " + date_t.ToString() + ".txt";
+                        _FileName = Row_Comp_Bank["COMPANY_BANK_NAME"].ToString().Trim() + " - " + DateTime.Parse(date_t).ToString("yyyyMMdd") + ".txt";
                     }
                     DT_zz4215.Rows.Add(aRow);
                     totamt += int.Parse(Row[str_t].ToString());
@@ -878,15 +878,22 @@ namespace JBHR.Reports.SalForm
             }
             DataTable zz4215_bank = new DataTable();
             zz4215_bank.Columns.Add("bankno", typeof(string));
+            zz4215_bank.Columns.Add("filename", typeof(string));
             zz4215_bank.PrimaryKey = new DataColumn[] { zz4215_bank.Columns["bankno"] };
             foreach (DataRow zz4215_row in DT_zz4215.Rows)
             {
                 DataRow bank_row = zz4215_bank.Rows.Find(zz4215_row["bankno"].ToString());
 
-                if(bank_row == null)
+                object[] value = new object[2];
+                value[0] = zz4215_row["compid"].ToString();
+                value[1] = zz4215_row["bankno"].ToString();
+                DataRow Row_Comp_Bank = DT_salary_transfer_bank.Rows.Find(value);
+
+                if (bank_row == null)
                 {
                     DataRow new_bank_row = zz4215_bank.NewRow();
                     new_bank_row["bankno"] = zz4215_row["bankno"].ToString();
+                    new_bank_row["filename"] = Row_Comp_Bank["COMPANY_BANK_NAME"].ToString().Trim() + " - " + DateTime.Parse(date_t).ToString("yyyyMMdd") + ".txt";
 
                     zz4215_bank.Rows.Add(new_bank_row);
                 }
@@ -959,9 +966,10 @@ namespace JBHR.Reports.SalForm
                     }
                     
 
-                    JBHR.Reports.SalForm.BankTransfer.Get_Bank(bank_row["bankno"].ToString(), rowa1, date_t, Compaccount, "", CompId, _Folder, _FileName, DT_salary_transfer_bank, toltalamt.ToString(), toltalrow.ToString());
+                    JBHR.Reports.SalForm.BankTransfer.Get_Bank(bank_row["bankno"].ToString(), rowa1, date_t, Compaccount, "", CompId, _Folder, bank_row["filename"].ToString(), DT_salary_transfer_bank, toltalamt.ToString(), toltalrow.ToString());
 
-                    MessageBox.Show("產生轉帳磁片完畢 " + _FileName);
+                    MessageBox.Show("產生轉帳磁片完畢 " + bank_row["filename"].ToString());
+                    //_FileName = string.Empty;
                 }
 
                 CompId = string.Empty;

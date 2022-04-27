@@ -417,6 +417,7 @@ namespace JBHR.Reports.SalForm
 
             totalamt = (long.Parse(totalamt) * 100).ToString();
 
+
             Dictionary<string, string> bodydt1 = new Dictionary<string, string>()
                 {
                     {Sal.SettingNameHeader.ComID1,Num},
