@@ -561,8 +561,7 @@ namespace Dal.Dao.Att
                                        && c.ADATE.Date >= oCond.dDateB.AddDays(-1).Date
                                        && c.ADATE.Date <= oCond.dDateE.AddDays(1).Date
                                        //orderby c.ROTE descending, c.NOBR, c.ADATE
-                                       //orderby c.ADATE, r.WK_HRS descending
-                                       orderby r.WK_HRS descending, c.ROTE, c.ADATE
+                                       orderby c.ADATE, r.WK_HRS descending
                                        select c).ToList());
 
                     rsATTCARD.AddRange((from c in dcHr.ATTCARD
@@ -587,8 +586,7 @@ namespace Dal.Dao.Att
                                        && c.ADATE.Date >= oCond.dDateB.AddDays(-1).Date
                                        && c.ADATE.Date <= oCond.dDateE.AddDays(1).Date
                                        //orderby c.ROTE descending, c.NOBR, c.ADATE
-                                       //orderby c.ADATE, r.WK_HRS descending
-                                       orderby r.WK_HRS descending, c.ROTE, c.ADATE
+                                       orderby c.ADATE, r.WK_HRS descending
                                        select c).ToList());
 
                     rsATTCARD.AddRange((from c in dcHr.ATTCARD
