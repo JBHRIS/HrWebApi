@@ -140,6 +140,7 @@
                     <asp:Label ID="lblUserCode" runat="server" Visible="False"></asp:Label>
                     <asp:Label ID="lblEmpID" runat="server" Visible="False"></asp:Label>
                     <asp:Label ID="lblCompanyId" runat="server" Visible="False"></asp:Label>
+                     <asp:Label ID="lblEmpEmail" runat="server" Visible="False"></asp:Label>
                     <asp:Label ID="lblEmpName" runat="server" Visible="False"></asp:Label>
                     <asp:Label ID="lblRoleKey" runat="server" Visible="False"></asp:Label>
                 </div>

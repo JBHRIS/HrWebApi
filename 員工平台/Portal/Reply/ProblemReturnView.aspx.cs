@@ -40,7 +40,7 @@ namespace Portal
             _User.EmpId = _User.EmpId;
             _User.EmpName = _User.EmpName;
             lblRoleKey.Text = _User.RoleKey.ToString();
-
+            lblEmpEmail.Text = _User.EmpEmail;
 
         }
         private void SetDefault()
@@ -116,76 +116,10 @@ namespace Portal
                 {
                     txtContent.Text = Draft.Content;
                 }
-                //foreach (var select in rsQM)
-                //{
-
-                //    if (Security.GetRoleKeyToBinaryKey(select.RoleKey).Contains(_User.RoleKey))
-                //    {
-                //        rsViewrsQM.Add(select);
-                //    }
-
-
-                    //}
-                    //var dataview = rsViewrsQM.GroupBy(x => x.ParentCode);
+                
                     Reply = Reply.Where(x => Security.GetRoleKeyToBinaryKey(x.RoleKey).Contains(_User.RoleKey));
               
-                //string Jumpto = "";
-                //foreach (var Data in Reply)
-                //{
-                //    foreach (var v in dataview)
-                //    {
-                //        if (Data.Code == v.Key)
-                //        {
-                //            foreach (var DataDetail in v)
-                //            {
-
-                //                var Parent = v.Where(x => x.Code == DataDetail.ReplyToCode);
-                //                if (Parent.FirstOrDefault() != null)
-                //                {
-                //                    var oParent = Parent.FirstOrDefault();
-                //                    DataDetail.ReplyContent = oParent.Content;
-                //                    DataDetail.ReplyName = oParent.Name;
-                //                    Jumpto = oParent.Code;
-                //                }
-                //                else
-                //                {
-                //                    DataDetail.ReplyContent = Data.Content;
-                //                    DataDetail.ReplyName = Data.Name;
-                //                    Jumpto = Data.Code;
-                //                }
-                //                //DataDetail.ReplyName = v.Where(x => x.Code == DataDetail.ReplyToCode).DefaultIfEmpty().FirstOrDefault().Name;
-                //                Data.DataView +=
-                //             "<div class=\"float-left\">" +
-                //             "<div class=\"navy-bg admin_circle\">";
-                //                if (DataDetail.Key2 == "admin")
-                //                {
-                //                    Data.DataView += "<i class=\"fa fa-users\"></i>";
-                //                }
-                //                {
-                //                    Data.DataView += "<i class=\"fa fa-user\"></i>";
-                //                }
-                //                Data.DataView +=
-                //               "</div>" +
-                //             "</div>" +
-                //            "<div class=\"media-body\">" +
-                //           "<span class = \"name_font\"/>" + DataDetail.Name + " </span>" +
-                //           "<a href=\"#" + Jumpto + "\"><span class=\"text-blue\"><i class=\"fa fa-share \"></i>" + DataDetail.ReplyName + "</span></a><span class=\"replyreply_text\">" + DataDetail.ReplyContent + "</span><br/>" +
-                //           "<span>" + DataDetail.Content + "</span><br/>" +
-                //           "<button ID=\"btnSubReply\" type = \"button\" class=\"btnReply btn btn-white btn-xs\" data-toggle=\"collapse\" data-target=\"#rep" + DataDetail.Code + "\"> <i class=\"fa fa-comments\"></i> 回覆</button>" +
-                //           "<span class=\"text-muted\">" + DataDetail.InsertDate.Value.ToString("yyyy/MM/dd") + " </span>-" +
-                //           "<span class=\"text-muted\">" + DataDetail.InsertDate.Value.ToString("HH:mm") + "</span><br/>" +
-                //            "<div class=\"form-group\">" +
-                //           "<div id=\"rep" + DataDetail.Code + "\"class=\"collapse\"><span style=\"width:100%;\"class=\"RadInput RadInput_Bootstrap RadInputMultiline RadInputMultiline_Bootstrap\">" +
-                //           "<textarea style=\"resize: none\" rows=\"3\" cols=\"20\" class=\"riTextBox riEmpty\" id=\"con" + DataDetail.Code + "\" placeholder=\"請填寫您想回覆的內容...\" ></textarea></span><br/>" +
-                //             "<asp:Button id=\""+DataDetail.Code+"\" runat=\"server\" CssClass=\"btn btn-primary btn-primary btn-md\" Text=\"送出\" OnClick=\"ReplyAdd\"></asp:Button>" +
-                //           "</div>" + "</div>" +
-                //           "</div><br/>";
-
-                //            }
-                //        }
-                //    }
-                //}
-
+             
                 QuestionReplyData.DataSource = Reply;
                 if (QuestionMain.Complete)
                 {
@@ -392,18 +326,23 @@ namespace Portal
                     }
                     if (Result.Status)
                     {
-                        var oSendMail = new ShareSendQueueDao();
-                        MailAddress address = new MailAddress("aron@jbjob.com.tw");
-                        var Subject = "";
-                        var Body = "";
-                        var oShareMail = new ShareMailDao();
-                        var dcParameter = new Dictionary<string, string>();
-                        dcParameter.Add("MainCode", Request.QueryString["Code"]);
-                       
-                        oShareMail.OutMailContent(out Subject, out Body, "02", 0, true, dcParameter);
-                        oSendMail.SendMail(address, Subject, Body, true);
-                        ViewState["ParentCode"] = CN.ToString();
-                        QuestionReplyData.Rebind();
+                        if (lblEmpEmail.Text != _User.EmpEmail)
+                        {
+
+
+                            var oSendMail = new ShareSendQueueDao();
+                            MailAddress address = new MailAddress(lblEmpEmail.Text);
+                            var Subject = "";
+                            var Body = "";
+                            var oShareMail = new ShareMailDao();
+                            var dcParameter = new Dictionary<string, string>();
+                            dcParameter.Add("MainCode", Request.QueryString["Code"]);
+
+                            oShareMail.OutMailContent(out Subject, out Body, "02", 0, true, dcParameter);
+                            oSendMail.SendMail(address, Subject, Body, true);
+                            ViewState["ParentCode"] = CN.ToString();
+                            QuestionReplyData.Rebind();
+                        }
                     }
                 }
             }
@@ -502,17 +441,20 @@ namespace Portal
                     Result =oInsertQuestionReply.GetData(InsertQuestionReplyCond);
                     if (Result.Status)
                     {
-                        var oSendMail = new ShareSendQueueDao();
-                        MailAddress address = new MailAddress("aron@jbjob.com.tw");
-                        var Subject = "";
-                        var Body = "";
-                        var oShareMail = new ShareMailDao();
-                        var dcParameter = new Dictionary<string, string>();
-                        dcParameter.Add("MainCode", Request.QueryString["Code"]);
-                        oShareMail.OutMailContent(out Subject, out Body, "02", 0, true, dcParameter);
-                        oSendMail.SendMail(address, Subject, Body, true);
-                        ViewState["ParentCode"] = CN.ToString();
-                        QuestionReplyData.Rebind();
+                        if (lblEmpEmail.Text != _User.EmpEmail)
+                        {
+                            var oSendMail = new ShareSendQueueDao();
+                            MailAddress address = new MailAddress("aron@jbjob.com.tw");
+                            var Subject = "";
+                            var Body = "";
+                            var oShareMail = new ShareMailDao();
+                            var dcParameter = new Dictionary<string, string>();
+                            dcParameter.Add("MainCode", Request.QueryString["Code"]);
+                            oShareMail.OutMailContent(out Subject, out Body, "02", 0, true, dcParameter);
+                            oSendMail.SendMail(address, Subject, Body, true);
+                            ViewState["ParentCode"] = CN.ToString();
+                            QuestionReplyData.Rebind();
+                        }
                     }
                 }
                 else if (Action == "btnSubReplyAdd")
@@ -577,17 +519,20 @@ namespace Portal
                     Result=oInsertQuestionReply.GetData(InsertQuestionReplyCond);
                     if (Result.Status)
                     {
-                        var oSendMail = new ShareSendQueueDao();
-                        MailAddress address = new MailAddress("aron@jbjob.com.tw");
-                        var Subject = "";
-                        var Body = "";
-                        var oShareMail = new ShareMailDao();
-                        var dcParameter = new Dictionary<string, string>();
-                        dcParameter.Add("MainCode", Request.QueryString["Code"]);
-                        oShareMail.OutMailContent(out Subject, out Body, "02", 0, true, dcParameter);
-                        oSendMail.SendMail(address, Subject, Body, true);
-                        ViewState["ParentCode"] = CN.ToString();
-                        QuestionReplyData.Rebind();
+                        if (lblEmpEmail.Text != _User.EmpEmail)
+                        {
+                            var oSendMail = new ShareSendQueueDao();
+                            MailAddress address = new MailAddress("aron@jbjob.com.tw");
+                            var Subject = "";
+                            var Body = "";
+                            var oShareMail = new ShareMailDao();
+                            var dcParameter = new Dictionary<string, string>();
+                            dcParameter.Add("MainCode", Request.QueryString["Code"]);
+                            oShareMail.OutMailContent(out Subject, out Body, "02", 0, true, dcParameter);
+                            oSendMail.SendMail(address, Subject, Body, true);
+                            ViewState["ParentCode"] = CN.ToString();
+                            QuestionReplyData.Rebind();
+                        }
                     }
                 }
                 var oGetQuestionMain = new ShareGetQuestionMainByCodeDao();
@@ -700,6 +645,7 @@ namespace Portal
             Result = oUpdateQuestionMain.GetData(UpdateQuestionMainCond);
             if (Result.Status)
             {
+
                 var oSendMail = new ShareSendQueueDao();
                 MailAddress address = new MailAddress("aron@jbjob.com.tw");
                 var Subject = "";

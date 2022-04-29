@@ -288,7 +288,7 @@
 
     </div>
 
-    <div class="row">
+    <div class="row" id="MessageReturnDiv" runat="server">
 
         <div class="col-lg-12">
 
