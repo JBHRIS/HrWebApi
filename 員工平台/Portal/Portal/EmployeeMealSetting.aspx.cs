@@ -30,6 +30,7 @@ namespace Portal
         private void GetData()
         {
             
+
             var list = kCR_MealService.KCR_GetMealApplySettingByEmpID(ddlEmp.SelectedValue, DateTime.Now.Date);
 
             UnobtrusiveSession.Session["list"] = list;
@@ -89,6 +90,10 @@ namespace Portal
         }
         public void ddlEmp_DataBind()
         {
+            UnobtrusiveSession.Session["SearchListEmp"] = null;
+            UnobtrusiveSession.Session["DeptListEmp"] = null;
+            UnobtrusiveSession.Session["DepartmentExtraEmp"] = null;
+
             var rs = AccessData.GetSearchListEmp(_User, CompanySetting);
 
             foreach (var r in rs)
@@ -160,6 +165,8 @@ namespace Portal
             GetData();
             ResultText.Text = "餐別設定更新成功";
             ResultText.CssClass = "label-primary";
+
+           
         }
 
         protected void ckblMealDay_SelectedIndexChanged(object sender, EventArgs e)

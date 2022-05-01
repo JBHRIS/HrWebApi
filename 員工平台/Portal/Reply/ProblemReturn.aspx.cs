@@ -82,7 +82,7 @@ namespace Portal
                     lblAddStatus.InnerText = "未輸入標題或回報內容";
                     return;
                 }
-                if (txtTitle.Text.Length > 30 || txtContent.Text.Length > 200)
+                if (txtTitle.Text.Length > 30 || txtContent.Text.Length > 500)
                 {
                     lblAddStatus.InnerText = "標題或內容長度過長";
                     return;
@@ -133,6 +133,7 @@ namespace Portal
                 if (result.Status)
                 {
                     lblAddStatus.InnerText = "送出成功!";
+
                     var oSendMail = new ShareSendQueueDao();
                     if (_User.EmpEmail != "" && _User.EmpEmail != null)
                     {
@@ -146,7 +147,7 @@ namespace Portal
                         oShareMail.OutMailContent(out Subject, out Body, "01", 0, true, dcParameter);
                         oSendMail.SendMail(address, Subject, Body, true);
                     }
-
+                    UnobtrusiveSession.Session["FormGuidCode"] = null;
                 }
 
                 Response.Redirect("ProblemReturnList.aspx");
