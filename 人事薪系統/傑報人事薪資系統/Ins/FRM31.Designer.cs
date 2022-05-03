@@ -32,16 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new JBControls.DataGridView();
-            this.aMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eFFDATELDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eFFDATEHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EFF_RATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lFFDATELDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lFFDATEHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eFFDATERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lFFDATERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iNSURLVBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.insDS = new JBHR.Ins.InsDS();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -66,6 +56,22 @@
             this.fullDataCtrl1 = new JBControls.FullDataCtrl();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.iNSURLVTableAdapter = new JBHR.Ins.InsDSTableAdapters.INSURLVTableAdapter();
+            this.aMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eFFDATELDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eFFDATEHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EFF_RATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lFFDATELDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lFFDATEHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eFFDATERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lFFDATERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EFF_DATEJ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LFF_DATEJ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox9 = new JBControls.TextBox();
+            this.textBox10 = new JBControls.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -96,8 +102,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(626, 440);
-            this.splitContainer1.SplitterDistance = 266;
+            this.splitContainer1.Size = new System.Drawing.Size(784, 561);
+            this.splitContainer1.SplitterDistance = 387;
             this.splitContainer1.TabIndex = 0;
             // 
             // dataGridView1
@@ -123,6 +129,8 @@
             this.lFFDATEHDataGridViewTextBoxColumn,
             this.eFFDATERDataGridViewTextBoxColumn,
             this.lFFDATERDataGridViewTextBoxColumn,
+            this.EFF_DATEJ,
+            this.LFF_DATEJ,
             this.kEYMANDataGridViewTextBoxColumn,
             this.kEYDATEDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.iNSURLVBindingSource;
@@ -134,78 +142,8 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(626, 266);
+            this.dataGridView1.Size = new System.Drawing.Size(784, 387);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // aMTDataGridViewTextBoxColumn
-            // 
-            this.aMTDataGridViewTextBoxColumn.DataPropertyName = "AMT";
-            this.aMTDataGridViewTextBoxColumn.HeaderText = "投保金額";
-            this.aMTDataGridViewTextBoxColumn.Name = "aMTDataGridViewTextBoxColumn";
-            this.aMTDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // eFFDATELDataGridViewTextBoxColumn
-            // 
-            this.eFFDATELDataGridViewTextBoxColumn.DataPropertyName = "EFF_DATEL";
-            this.eFFDATELDataGridViewTextBoxColumn.HeaderText = "勞保生效日";
-            this.eFFDATELDataGridViewTextBoxColumn.Name = "eFFDATELDataGridViewTextBoxColumn";
-            this.eFFDATELDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // eFFDATEHDataGridViewTextBoxColumn
-            // 
-            this.eFFDATEHDataGridViewTextBoxColumn.DataPropertyName = "LFF_DATEL";
-            this.eFFDATEHDataGridViewTextBoxColumn.HeaderText = "勞保失效日";
-            this.eFFDATEHDataGridViewTextBoxColumn.Name = "eFFDATEHDataGridViewTextBoxColumn";
-            this.eFFDATEHDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // EFF_RATE
-            // 
-            this.EFF_RATE.DataPropertyName = "EFF_RATE";
-            this.EFF_RATE.HeaderText = "健保費率";
-            this.EFF_RATE.Name = "EFF_RATE";
-            this.EFF_RATE.ReadOnly = true;
-            // 
-            // lFFDATELDataGridViewTextBoxColumn
-            // 
-            this.lFFDATELDataGridViewTextBoxColumn.DataPropertyName = "EFF_DATEH";
-            this.lFFDATELDataGridViewTextBoxColumn.HeaderText = "健保生效日";
-            this.lFFDATELDataGridViewTextBoxColumn.Name = "lFFDATELDataGridViewTextBoxColumn";
-            this.lFFDATELDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // lFFDATEHDataGridViewTextBoxColumn
-            // 
-            this.lFFDATEHDataGridViewTextBoxColumn.DataPropertyName = "LFF_DATEH";
-            this.lFFDATEHDataGridViewTextBoxColumn.HeaderText = "健保失效日";
-            this.lFFDATEHDataGridViewTextBoxColumn.Name = "lFFDATEHDataGridViewTextBoxColumn";
-            this.lFFDATEHDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // eFFDATERDataGridViewTextBoxColumn
-            // 
-            this.eFFDATERDataGridViewTextBoxColumn.DataPropertyName = "EFF_DATER";
-            this.eFFDATERDataGridViewTextBoxColumn.HeaderText = "勞退生效日";
-            this.eFFDATERDataGridViewTextBoxColumn.Name = "eFFDATERDataGridViewTextBoxColumn";
-            this.eFFDATERDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // lFFDATERDataGridViewTextBoxColumn
-            // 
-            this.lFFDATERDataGridViewTextBoxColumn.DataPropertyName = "LFF_DATER";
-            this.lFFDATERDataGridViewTextBoxColumn.HeaderText = "勞退失效日";
-            this.lFFDATERDataGridViewTextBoxColumn.Name = "lFFDATERDataGridViewTextBoxColumn";
-            this.lFFDATERDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // kEYMANDataGridViewTextBoxColumn
-            // 
-            this.kEYMANDataGridViewTextBoxColumn.DataPropertyName = "KEY_MAN";
-            this.kEYMANDataGridViewTextBoxColumn.HeaderText = "登錄者";
-            this.kEYMANDataGridViewTextBoxColumn.Name = "kEYMANDataGridViewTextBoxColumn";
-            this.kEYMANDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // kEYDATEDataGridViewTextBoxColumn
-            // 
-            this.kEYDATEDataGridViewTextBoxColumn.DataPropertyName = "KEY_DATE";
-            this.kEYDATEDataGridViewTextBoxColumn.HeaderText = "登錄日期";
-            this.kEYDATEDataGridViewTextBoxColumn.Name = "kEYDATEDataGridViewTextBoxColumn";
-            this.kEYDATEDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // iNSURLVBindingSource
             // 
@@ -234,7 +172,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.fullDataCtrl1);
-            this.splitContainer2.Size = new System.Drawing.Size(626, 170);
+            this.splitContainer2.Size = new System.Drawing.Size(784, 170);
             this.splitContainer2.SplitterDistance = 86;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -245,18 +183,22 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(626, 86);
+            this.panel1.Size = new System.Drawing.Size(784, 86);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 6;
+            this.tableLayoutPanel1.ColumnCount = 8;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel1.Controls.Add(this.label9, 6, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label10, 6, 2);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
@@ -273,6 +215,8 @@
             this.tableLayoutPanel1.Controls.Add(this.label6, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.textBox8, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBox9, 7, 1);
+            this.tableLayoutPanel1.Controls.Add(this.textBox10, 7, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -280,7 +224,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(553, 82);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(716, 82);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -579,12 +523,159 @@
             // 
             this.iNSURLVTableAdapter.ClearBeforeFill = true;
             // 
+            // aMTDataGridViewTextBoxColumn
+            // 
+            this.aMTDataGridViewTextBoxColumn.DataPropertyName = "AMT";
+            this.aMTDataGridViewTextBoxColumn.HeaderText = "投保金額";
+            this.aMTDataGridViewTextBoxColumn.Name = "aMTDataGridViewTextBoxColumn";
+            this.aMTDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // eFFDATELDataGridViewTextBoxColumn
+            // 
+            this.eFFDATELDataGridViewTextBoxColumn.DataPropertyName = "EFF_DATEL";
+            this.eFFDATELDataGridViewTextBoxColumn.HeaderText = "勞保生效日";
+            this.eFFDATELDataGridViewTextBoxColumn.Name = "eFFDATELDataGridViewTextBoxColumn";
+            this.eFFDATELDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // eFFDATEHDataGridViewTextBoxColumn
+            // 
+            this.eFFDATEHDataGridViewTextBoxColumn.DataPropertyName = "LFF_DATEL";
+            this.eFFDATEHDataGridViewTextBoxColumn.HeaderText = "勞保失效日";
+            this.eFFDATEHDataGridViewTextBoxColumn.Name = "eFFDATEHDataGridViewTextBoxColumn";
+            this.eFFDATEHDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // EFF_RATE
+            // 
+            this.EFF_RATE.DataPropertyName = "EFF_RATE";
+            this.EFF_RATE.HeaderText = "健保費率";
+            this.EFF_RATE.Name = "EFF_RATE";
+            this.EFF_RATE.ReadOnly = true;
+            // 
+            // lFFDATELDataGridViewTextBoxColumn
+            // 
+            this.lFFDATELDataGridViewTextBoxColumn.DataPropertyName = "EFF_DATEH";
+            this.lFFDATELDataGridViewTextBoxColumn.HeaderText = "健保生效日";
+            this.lFFDATELDataGridViewTextBoxColumn.Name = "lFFDATELDataGridViewTextBoxColumn";
+            this.lFFDATELDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // lFFDATEHDataGridViewTextBoxColumn
+            // 
+            this.lFFDATEHDataGridViewTextBoxColumn.DataPropertyName = "LFF_DATEH";
+            this.lFFDATEHDataGridViewTextBoxColumn.HeaderText = "健保失效日";
+            this.lFFDATEHDataGridViewTextBoxColumn.Name = "lFFDATEHDataGridViewTextBoxColumn";
+            this.lFFDATEHDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // eFFDATERDataGridViewTextBoxColumn
+            // 
+            this.eFFDATERDataGridViewTextBoxColumn.DataPropertyName = "EFF_DATER";
+            this.eFFDATERDataGridViewTextBoxColumn.HeaderText = "勞退生效日";
+            this.eFFDATERDataGridViewTextBoxColumn.Name = "eFFDATERDataGridViewTextBoxColumn";
+            this.eFFDATERDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // lFFDATERDataGridViewTextBoxColumn
+            // 
+            this.lFFDATERDataGridViewTextBoxColumn.DataPropertyName = "LFF_DATER";
+            this.lFFDATERDataGridViewTextBoxColumn.HeaderText = "勞退失效日";
+            this.lFFDATERDataGridViewTextBoxColumn.Name = "lFFDATERDataGridViewTextBoxColumn";
+            this.lFFDATERDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // EFF_DATEJ
+            // 
+            this.EFF_DATEJ.DataPropertyName = "EFF_DATEJ";
+            this.EFF_DATEJ.HeaderText = "職災生效日";
+            this.EFF_DATEJ.Name = "EFF_DATEJ";
+            this.EFF_DATEJ.ReadOnly = true;
+            // 
+            // LFF_DATEJ
+            // 
+            this.LFF_DATEJ.DataPropertyName = "LFF_DATEJ";
+            this.LFF_DATEJ.HeaderText = "職災失效日";
+            this.LFF_DATEJ.Name = "LFF_DATEJ";
+            this.LFF_DATEJ.ReadOnly = true;
+            // 
+            // kEYMANDataGridViewTextBoxColumn
+            // 
+            this.kEYMANDataGridViewTextBoxColumn.DataPropertyName = "KEY_MAN";
+            this.kEYMANDataGridViewTextBoxColumn.HeaderText = "登錄者";
+            this.kEYMANDataGridViewTextBoxColumn.Name = "kEYMANDataGridViewTextBoxColumn";
+            this.kEYMANDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // kEYDATEDataGridViewTextBoxColumn
+            // 
+            this.kEYDATEDataGridViewTextBoxColumn.DataPropertyName = "KEY_DATE";
+            this.kEYDATEDataGridViewTextBoxColumn.HeaderText = "登錄日期";
+            this.kEYDATEDataGridViewTextBoxColumn.Name = "kEYDATEDataGridViewTextBoxColumn";
+            this.kEYDATEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(538, 36);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 12);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "職災生效日";
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(538, 64);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(65, 12);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "職災失效日";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox9.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.textBox9.CaptionLabel = null;
+            this.textBox9.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.textBox9.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.iNSURLVBindingSource, "EFF_DATEJ", true));
+            this.textBox9.DecimalPlace = 2;
+            this.textBox9.IsEmpty = false;
+            this.textBox9.Location = new System.Drawing.Point(609, 31);
+            this.textBox9.Mask = "0000/00/00";
+            this.textBox9.MaxLength = -1;
+            this.textBox9.Name = "textBox9";
+            this.textBox9.PasswordChar = '\0';
+            this.textBox9.ReadOnly = false;
+            this.textBox9.ShowCalendarButton = true;
+            this.textBox9.Size = new System.Drawing.Size(100, 22);
+            this.textBox9.TabIndex = 6;
+            this.textBox9.ValidType = JBControls.TextBox.EValidType.Date;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox10.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.textBox10.CaptionLabel = null;
+            this.textBox10.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.textBox10.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.iNSURLVBindingSource, "LFF_DATEJ", true));
+            this.textBox10.DecimalPlace = 2;
+            this.textBox10.IsEmpty = false;
+            this.textBox10.Location = new System.Drawing.Point(609, 59);
+            this.textBox10.Mask = "0000/00/00";
+            this.textBox10.MaxLength = -1;
+            this.textBox10.Name = "textBox10";
+            this.textBox10.PasswordChar = '\0';
+            this.textBox10.ReadOnly = false;
+            this.textBox10.ShowCalendarButton = true;
+            this.textBox10.Size = new System.Drawing.Size(100, 22);
+            this.textBox10.TabIndex = 6;
+            this.textBox10.ValidType = JBControls.TextBox.EValidType.Date;
+            // 
             // FRM31
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(626, 440);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.splitContainer1);
+            this.FormSize = JBControls.JBForm.FormSizeType.Normal;
             this.KeyPreview = true;
             this.Name = "FRM31";
             this.Text = "FRM31";
@@ -644,7 +735,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn lFFDATEHDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eFFDATERDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lFFDATERDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EFF_DATEJ;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LFF_DATEJ;
         private System.Windows.Forms.DataGridViewTextBoxColumn kEYMANDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kEYDATEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private JBControls.TextBox textBox9;
+        private JBControls.TextBox textBox10;
     }
 }

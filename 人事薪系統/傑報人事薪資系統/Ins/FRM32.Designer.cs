@@ -33,12 +33,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new JBControls.DataGridView();
             this.nOBRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOBR = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.vBASEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.insDS = new JBHR.Ins.InsDS();
             this.fAIDNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FA_IDNO = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.fAMILYBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cODEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iNDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oUTDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +44,7 @@
             this.wBSPTYPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lAMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lRATECODEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.J_AMT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hAMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hRATECODEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rAMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +53,7 @@
             this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOSUP = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.iNSLABBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.insDS = new JBHR.Ins.InsDS();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -69,6 +66,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtNobr = new JBControls.PopupTextBox();
+            this.vBASEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtBdate = new JBControls.TextBox();
             this.txtEdate = new JBControls.TextBox();
             this.txtROutDate = new JBControls.TextBox();
@@ -96,12 +94,15 @@
             this.comboBoxWBSPTYP = new System.Windows.Forms.ComboBox();
             this.comboBoxLRATE_CODE = new System.Windows.Forms.ComboBox();
             this.comboBoxHRATE_CODE = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBoxJ_AMT = new JBControls.TextBox();
             this.checkBoxNSup = new System.Windows.Forms.CheckBox();
             this.bnView2 = new System.Windows.Forms.Button();
             this.bnView1 = new System.Windows.Forms.Button();
             this.bnOutIns = new System.Windows.Forms.Button();
             this.bnChange = new System.Windows.Forms.Button();
             this.fullDataCtrl1 = new JBControls.FullDataCtrl();
+            this.fAMILYBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iNSNAMEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iNSURCDBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iNSCOMPBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -125,16 +126,16 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vBASEBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.insDS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fAMILYBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSLABBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.insDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vBASEBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fAMILYBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSNAMEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSURCDBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSCOMPBindingSource)).BeginInit();
@@ -160,8 +161,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(784, 561);
-            this.splitContainer1.SplitterDistance = 242;
+            this.splitContainer1.Size = new System.Drawing.Size(1008, 641);
+            this.splitContainer1.SplitterDistance = 322;
             this.splitContainer1.TabIndex = 0;
             // 
             // dataGridView1
@@ -180,9 +181,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nOBRDataGridViewTextBoxColumn,
-            this.NOBR,
             this.fAIDNODataGridViewTextBoxColumn,
-            this.FA_IDNO,
             this.cODEDataGridViewTextBoxColumn,
             this.iNDATEDataGridViewTextBoxColumn,
             this.oUTDATEDataGridViewTextBoxColumn,
@@ -193,6 +192,7 @@
             this.wBSPTYPDataGridViewTextBoxColumn,
             this.lAMTDataGridViewTextBoxColumn,
             this.lRATECODEDataGridViewTextBoxColumn,
+            this.J_AMT,
             this.hAMTDataGridViewTextBoxColumn,
             this.hRATECODEDataGridViewTextBoxColumn,
             this.rAMTDataGridViewTextBoxColumn,
@@ -210,7 +210,7 @@
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(784, 242);
+            this.dataGridView1.Size = new System.Drawing.Size(1008, 322);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -223,31 +223,6 @@
             this.nOBRDataGridViewTextBoxColumn.ReadOnly = true;
             this.nOBRDataGridViewTextBoxColumn.Width = 150;
             // 
-            // NOBR
-            // 
-            this.NOBR.DataPropertyName = "NOBR";
-            this.NOBR.DataSource = this.vBASEBindingSource;
-            this.NOBR.DisplayMember = "NAME_C";
-            this.NOBR.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.NOBR.HeaderText = "員工姓名";
-            this.NOBR.MinimumWidth = 8;
-            this.NOBR.Name = "NOBR";
-            this.NOBR.ReadOnly = true;
-            this.NOBR.ValueMember = "NOBR";
-            this.NOBR.Width = 150;
-            // 
-            // vBASEBindingSource
-            // 
-            this.vBASEBindingSource.DataMember = "V_BASE";
-            this.vBASEBindingSource.DataSource = this.insDS;
-            // 
-            // insDS
-            // 
-            this.insDS.DataSetName = "InsDS";
-            this.insDS.Locale = new System.Globalization.CultureInfo("");
-            this.insDS.RemotingFormat = System.Data.SerializationFormat.Binary;
-            this.insDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // fAIDNODataGridViewTextBoxColumn
             // 
             this.fAIDNODataGridViewTextBoxColumn.DataPropertyName = "FA_IDNO";
@@ -256,26 +231,6 @@
             this.fAIDNODataGridViewTextBoxColumn.Name = "fAIDNODataGridViewTextBoxColumn";
             this.fAIDNODataGridViewTextBoxColumn.ReadOnly = true;
             this.fAIDNODataGridViewTextBoxColumn.Width = 150;
-            // 
-            // FA_IDNO
-            // 
-            this.FA_IDNO.DataPropertyName = "FA_IDNO";
-            this.FA_IDNO.DataSource = this.fAMILYBindingSource;
-            this.FA_IDNO.DisplayMember = "FA_NAME";
-            this.FA_IDNO.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.FA_IDNO.HeaderText = "眷屬姓名";
-            this.FA_IDNO.MinimumWidth = 8;
-            this.FA_IDNO.Name = "FA_IDNO";
-            this.FA_IDNO.ReadOnly = true;
-            this.FA_IDNO.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.FA_IDNO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.FA_IDNO.ValueMember = "FA_IDNO";
-            this.FA_IDNO.Width = 150;
-            // 
-            // fAMILYBindingSource
-            // 
-            this.fAMILYBindingSource.DataMember = "FAMILY";
-            this.fAMILYBindingSource.DataSource = this.insDS;
             // 
             // cODEDataGridViewTextBoxColumn
             // 
@@ -368,6 +323,13 @@
             this.lRATECODEDataGridViewTextBoxColumn.ReadOnly = true;
             this.lRATECODEDataGridViewTextBoxColumn.Width = 150;
             // 
+            // J_AMT
+            // 
+            this.J_AMT.DataPropertyName = "J_AMT";
+            this.J_AMT.HeaderText = "職災投保金額";
+            this.J_AMT.Name = "J_AMT";
+            this.J_AMT.ReadOnly = true;
+            // 
             // hAMTDataGridViewTextBoxColumn
             // 
             this.hAMTDataGridViewTextBoxColumn.DataPropertyName = "H_AMT";
@@ -435,6 +397,13 @@
             this.iNSLABBindingSource.DataSource = this.insDS;
             this.iNSLABBindingSource.CurrentChanged += new System.EventHandler(this.iNSLABBindingSource_CurrentChanged);
             // 
+            // insDS
+            // 
+            this.insDS.DataSetName = "InsDS";
+            this.insDS.Locale = new System.Globalization.CultureInfo("");
+            this.insDS.RemotingFormat = System.Data.SerializationFormat.Binary;
+            this.insDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -454,7 +423,7 @@
             this.splitContainer2.Panel2.Controls.Add(this.bnOutIns);
             this.splitContainer2.Panel2.Controls.Add(this.bnChange);
             this.splitContainer2.Panel2.Controls.Add(this.fullDataCtrl1);
-            this.splitContainer2.Size = new System.Drawing.Size(784, 315);
+            this.splitContainer2.Size = new System.Drawing.Size(1008, 315);
             this.splitContainer2.SplitterDistance = 231;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -465,12 +434,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 231);
+            this.panel1.Size = new System.Drawing.Size(1008, 231);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 7;
+            this.tableLayoutPanel1.ColumnCount = 9;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -514,6 +485,8 @@
             this.tableLayoutPanel1.Controls.Add(this.comboBoxWBSPTYP, 5, 1);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxLRATE_CODE, 5, 3);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxHRATE_CODE, 5, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label17, 6, 2);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxJ_AMT, 7, 2);
             this.tableLayoutPanel1.Controls.Add(this.checkBoxNSup, 6, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -527,7 +500,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(780, 227);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1004, 227);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -642,6 +615,11 @@
             this.txtNobr.ValueMember = "nobr";
             this.txtNobr.WhereCmd = "";
             this.txtNobr.QueryCompleted += new JBControls.PopupTextBox.QueryCompletedHandler(this.txtNobr_QueryCompleted);
+            // 
+            // vBASEBindingSource
+            // 
+            this.vBASEBindingSource.DataMember = "V_BASE";
+            this.vBASEBindingSource.DataSource = this.insDS;
             // 
             // txtBdate
             // 
@@ -787,7 +765,7 @@
             this.textBoxH_AMT.ReadOnly = false;
             this.textBoxH_AMT.ShowCalendarButton = true;
             this.textBoxH_AMT.Size = new System.Drawing.Size(100, 22);
-            this.textBoxH_AMT.TabIndex = 12;
+            this.textBoxH_AMT.TabIndex = 13;
             this.textBoxH_AMT.ValidType = JBControls.TextBox.EValidType.Decimal;
             this.textBoxH_AMT.Validated += new System.EventHandler(this.txtHamt_Leave);
             // 
@@ -830,7 +808,7 @@
             this.textBoxR_AMT.ReadOnly = false;
             this.textBoxR_AMT.ShowCalendarButton = true;
             this.textBoxR_AMT.Size = new System.Drawing.Size(100, 22);
-            this.textBoxR_AMT.TabIndex = 14;
+            this.textBoxR_AMT.TabIndex = 16;
             this.textBoxR_AMT.ValidType = JBControls.TextBox.EValidType.Decimal;
             this.textBoxR_AMT.Leave += new System.EventHandler(this.txtRamt_Leave);
             // 
@@ -850,7 +828,7 @@
             this.bnAddFamily.Location = new System.Drawing.Point(319, 32);
             this.bnAddFamily.Name = "bnAddFamily";
             this.bnAddFamily.Size = new System.Drawing.Size(90, 23);
-            this.bnAddFamily.TabIndex = 99;
+            this.bnAddFamily.TabIndex = 19;
             this.bnAddFamily.TabStop = false;
             this.bnAddFamily.Text = "加入眷屬資料";
             this.bnAddFamily.UseVisualStyleBackColor = true;
@@ -861,7 +839,7 @@
             this.bnToIndt.Location = new System.Drawing.Point(319, 61);
             this.bnToIndt.Name = "bnToIndt";
             this.bnToIndt.Size = new System.Drawing.Size(90, 23);
-            this.bnToIndt.TabIndex = 19;
+            this.bnToIndt.TabIndex = 20;
             this.bnToIndt.TabStop = false;
             this.bnToIndt.Text = "同到職日";
             this.bnToIndt.UseVisualStyleBackColor = true;
@@ -902,7 +880,7 @@
             this.textBox9.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.textBox9.CaptionLabel = null;
             this.textBox9.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.tableLayoutPanel1.SetColumnSpan(this.textBox9, 2);
+            this.tableLayoutPanel1.SetColumnSpan(this.textBox9, 4);
             this.textBox9.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.iNSLABBindingSource, "NOTE", true));
             this.textBox9.DecimalPlace = 2;
             this.textBox9.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -914,8 +892,8 @@
             this.textBox9.PasswordChar = '\0';
             this.textBox9.ReadOnly = false;
             this.textBox9.ShowCalendarButton = true;
-            this.textBox9.Size = new System.Drawing.Size(279, 22);
-            this.textBox9.TabIndex = 15;
+            this.textBox9.Size = new System.Drawing.Size(503, 22);
+            this.textBox9.TabIndex = 17;
             this.textBox9.ValidType = JBControls.TextBox.EValidType.String;
             // 
             // txtFaidno
@@ -944,7 +922,7 @@
             this.button1.Location = new System.Drawing.Point(319, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 23);
-            this.button1.TabIndex = 9;
+            this.button1.TabIndex = 18;
             this.button1.TabStop = false;
             this.button1.Text = "參考薪資";
             this.button1.UseVisualStyleBackColor = true;
@@ -1002,7 +980,7 @@
             this.comboBoxLRATE_CODE.Location = new System.Drawing.Point(498, 90);
             this.comboBoxLRATE_CODE.Name = "comboBoxLRATE_CODE";
             this.comboBoxLRATE_CODE.Size = new System.Drawing.Size(121, 20);
-            this.comboBoxLRATE_CODE.TabIndex = 11;
+            this.comboBoxLRATE_CODE.TabIndex = 12;
             // 
             // comboBoxHRATE_CODE
             // 
@@ -1011,7 +989,39 @@
             this.comboBoxHRATE_CODE.Location = new System.Drawing.Point(498, 146);
             this.comboBoxHRATE_CODE.Name = "comboBoxHRATE_CODE";
             this.comboBoxHRATE_CODE.Size = new System.Drawing.Size(121, 20);
-            this.comboBoxHRATE_CODE.TabIndex = 13;
+            this.comboBoxHRATE_CODE.TabIndex = 14;
+            // 
+            // label17
+            // 
+            this.label17.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.Black;
+            this.label17.Location = new System.Drawing.Point(644, 66);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(77, 12);
+            this.label17.TabIndex = 10;
+            this.label17.Text = "職災投保金額";
+            // 
+            // textBoxJ_AMT
+            // 
+            this.textBoxJ_AMT.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxJ_AMT.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.textBoxJ_AMT.CaptionLabel = null;
+            this.textBoxJ_AMT.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.textBoxJ_AMT.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.iNSLABBindingSource, "J_AMT", true));
+            this.textBoxJ_AMT.DecimalPlace = 2;
+            this.textBoxJ_AMT.IsEmpty = true;
+            this.textBoxJ_AMT.Location = new System.Drawing.Point(727, 61);
+            this.textBoxJ_AMT.Mask = "";
+            this.textBoxJ_AMT.MaxLength = -1;
+            this.textBoxJ_AMT.Name = "textBoxJ_AMT";
+            this.textBoxJ_AMT.PasswordChar = '\0';
+            this.textBoxJ_AMT.ReadOnly = false;
+            this.textBoxJ_AMT.ShowCalendarButton = true;
+            this.textBoxJ_AMT.Size = new System.Drawing.Size(100, 22);
+            this.textBoxJ_AMT.TabIndex = 11;
+            this.textBoxJ_AMT.ValidType = JBControls.TextBox.EValidType.Decimal;
+            this.textBoxJ_AMT.Leave += new System.EventHandler(this.textBoxJ_AMT_Leave);
             // 
             // checkBoxNSup
             // 
@@ -1021,7 +1031,7 @@
             this.checkBoxNSup.Location = new System.Drawing.Point(625, 148);
             this.checkBoxNSup.Name = "checkBoxNSup";
             this.checkBoxNSup.Size = new System.Drawing.Size(96, 16);
-            this.checkBoxNSup.TabIndex = 100;
+            this.checkBoxNSup.TabIndex = 15;
             this.checkBoxNSup.TabStop = false;
             this.checkBoxNSup.Text = "免收補充保費";
             this.checkBoxNSup.UseVisualStyleBackColor = true;
@@ -1117,6 +1127,11 @@
             this.fullDataCtrl1.AfterQuery += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterQuery);
             this.fullDataCtrl1.AfterShow += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterShow);
             // 
+            // fAMILYBindingSource
+            // 
+            this.fAMILYBindingSource.DataMember = "FAMILY";
+            this.fAMILYBindingSource.DataSource = this.insDS;
+            // 
             // iNSNAMEBindingSource
             // 
             this.iNSNAMEBindingSource.DataMember = "INSNAME";
@@ -1201,9 +1216,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(1008, 641);
             this.Controls.Add(this.splitContainer1);
-            this.FormSize = JBControls.JBForm.FormSizeType.Normal;
+            this.FormSize = JBControls.JBForm.FormSizeType.Large;
             this.KeyPreview = true;
             this.Name = "FRM32";
             this.Text = "FRM32";
@@ -1213,10 +1228,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vBASEBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.insDS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fAMILYBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSLABBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.insDS)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
@@ -1224,6 +1237,8 @@
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vBASEBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fAMILYBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSNAMEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSURCDBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSCOMPBindingSource)).EndInit();
@@ -1306,10 +1321,11 @@
         private System.Windows.Forms.ComboBox comboBoxHRATE_CODE;
         private System.Windows.Forms.BindingSource fAMILYBindingSource;
         private InsDSTableAdapters.FAMILYTableAdapter fAMILYTableAdapter;
+        private System.Windows.Forms.CheckBox checkBoxNSup;
+        private System.Windows.Forms.Label label17;
+        private JBControls.TextBox textBoxJ_AMT;
         private System.Windows.Forms.DataGridViewTextBoxColumn nOBRDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn NOBR;
         private System.Windows.Forms.DataGridViewTextBoxColumn fAIDNODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn FA_IDNO;
         private System.Windows.Forms.DataGridViewTextBoxColumn cODEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iNDATEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn oUTDATEDataGridViewTextBoxColumn;
@@ -1320,13 +1336,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn wBSPTYPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lAMTDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lRATECODEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn J_AMT;
         private System.Windows.Forms.DataGridViewTextBoxColumn hAMTDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hRATECODEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rAMTDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nOTEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kEYMANDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kEYDATEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.CheckBox checkBoxNSup;
         private System.Windows.Forms.DataGridViewCheckBoxColumn NOSUP;
     }
 }

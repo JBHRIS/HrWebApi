@@ -822,15 +822,23 @@ namespace JBHR.Sal.Core.Inslab
         }
         public static decimal GetLabAmtByInsurlv(decimal Salary)
         {
-            SalaryMDDataContext db = new SalaryMDDataContext();
+            JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
             var sql = from a in db.INSURLV where DateTime.Now.Date >= a.EFF_DATEL && DateTime.Now.Date <= a.LFF_DATEL select a;
+            var query = from a in sql where a.AMT >= Salary select a;
+            if (query.Any()) return query.First().AMT;
+            return sql.Max(p => p.AMT);
+        }
+        public static decimal GetJobAmtByInsurlv(decimal Salary)
+        {
+            JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
+            var sql = from a in db.INSURLV where DateTime.Now.Date >= a.EFF_DATEJ && DateTime.Now.Date <= a.LFF_DATEJ select a;
             var query = from a in sql where a.AMT >= Salary select a;
             if (query.Any()) return query.First().AMT;
             return sql.Max(p => p.AMT);
         }
         public static decimal GetHeaAmtByInsurlv(decimal Salary)
         {
-            SalaryMDDataContext db = new SalaryMDDataContext();
+            JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
             var sql = from a in db.INSURLV where DateTime.Now.Date >= a.EFF_DATEH && DateTime.Now.Date <= a.LFF_DATEH select a;
             var query = from a in sql where a.AMT >= Salary select a;
             if (query.Any()) return query.First().AMT;
@@ -838,7 +846,7 @@ namespace JBHR.Sal.Core.Inslab
         }
         public static decimal GetRetAmtByInsurlv(decimal Salary)
         {
-            SalaryMDDataContext db = new SalaryMDDataContext();
+            JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
             var sql = from a in db.INSURLV where DateTime.Now.Date >= a.EFF_DATER && DateTime.Now.Date <= a.LFF_DATER select a;
             var query = from a in sql where a.AMT >= Salary select a;
             if (query.Any()) return query.First().AMT;
