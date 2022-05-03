@@ -54,20 +54,20 @@
         </div>
         <div class="social-body">
             <p>
-                <label>標題 :</label>
+                <label><strong>標題 :</strong></label>
                 <telerik:RadLabel ID="lblTitle" runat="server" Text="" />
             </p>
             <p>
-                <label>回覆類型 :</label>
+                <label><strong>回覆類型 :</strong></label>
                 <telerik:RadLabel ID="lblQuestionCategory" runat="server" Text="" />
             </p>
             <p>
-                <label>內容 :</label>
+                <label><strong>內容 :</strong></label>
                 <telerik:RadLabel ID="lblContent" runat="server" Text="" />
             </p>
             <div id="iboxContent" class="ibox">
                 <div class="ibox-title">
-                    <h5>附件列表</h5>
+                    <h5>附件</h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
@@ -91,13 +91,13 @@
                                     </thead>
                                     <tbody id="Container" runat="server">
                                     </tbody>
-                                    <tfoot>
+                                    <%--<tfoot>
                                         <tr>
                                             <td colspan="5">
                                                 <ul class="pagination float-right"></ul>
                                             </td>
                                         </tr>
-                                    </tfoot>
+                                    </tfoot>--%>
                                 </table>
                             </LayoutTemplate>
                             <ItemTemplate>

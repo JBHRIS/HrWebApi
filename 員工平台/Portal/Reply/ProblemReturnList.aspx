@@ -30,9 +30,9 @@
                     </div>
                     </div>
               <div class="row">
-                    <div class="col-lg-6 ml-auto">
+                    <div class="col-lg-8 ml-auto">
                         <div class="row form-group">
-                             <div class="col-lg-4">
+                             <div class="col-lg-6">
                                     <%--<label>公司別 :</label> --%>
                                       <telerik:RadComboBox ID="txtReturnCompany" runat="server" class="txtReturnS" Skin="Bootstrap" AllowCustomText="True"
                                     AutoPostBack="true" EnableVirtualScrolling="True" ItemsPerRequest="10" Filter="Contains"
@@ -40,7 +40,7 @@
                                 </telerik:RadComboBox>
 
                              </div>
-                            <div class="col-lg-4  m-b-sm">
+                            <div class="col-lg-3  m-b-sm">
                                 
                                 <%--<label>回報類型 :</label> --%>
                                 <telerik:radcombobox id="txtReturnS" runat="server" class="txtReturnS"
@@ -50,7 +50,7 @@
                                     onselectedindexchanged="txtReturnS_SelectedIndexChanged" EmptyMessage="回報類型"> 
                                 </telerik:radcombobox>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <%-- <label>結單狀態 :</label> --%>
                                 <telerik:radcombobox id="txtReturnX" runat="server" class="txtReturnS"
                                     skin="Bootstrap" allowcustomtext="True" autopostback="true"

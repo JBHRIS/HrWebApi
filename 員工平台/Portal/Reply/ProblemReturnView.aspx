@@ -44,16 +44,16 @@
         </div>
         <div class="social-body">
             <p>
-                  <label>標題 :</label>
+                  <label><strong>標題 :</strong></label>
                 <telerik:RadLabel ID="lblTitle" runat="server" Text="" />
             </p>
             <p>
-                <label>回覆類型 :</label>
+                <label><strong>回覆類型 :</strong></label>
                 <telerik:RadLabel ID="lblQuestionCategory" runat="server" Text="" />
             </p>
 
             <p>
-                <label>內容 :</label>
+                <label><strong>內容 :</strong></label>
                 <telerik:RadLabel ID="lblContent" runat="server" Text="" />
             </p>
 
@@ -74,7 +74,7 @@
                     <telerik:RadAjaxPanel ID="RadAjaxPanel4" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
                         <telerik:RadListView ID="DataUpload" runat="server" ItemPlaceholderID="Container" RenderMode="Lightweight" OnNeedDataSource="DataUpload_NeedDataSource">
                             <LayoutTemplate>
-                                <table class="footable table table-stripped" data-page-size="10" data-filter="#filter">
+                                <table class="footable table table-stripped" data-page-size="10" data-filter="#filter" style="margin-bottom:0;">
                                     <thead>
                                         <tr>
                                             <th>檔名</th>
@@ -84,13 +84,13 @@
                                     </thead>
                                     <tbody id="Container" runat="server">
                                     </tbody>
-                                    <tfoot>
+                                    <!--<tfoot>
                                         <tr>
                                             <td colspan="5">
                                                 <ul class="pagination float-right"></ul>
                                             </td>
                                         </tr>
-                                    </tfoot>
+                                    </tfoot>-->
                                 </table>
                             </LayoutTemplate>
                             <ItemTemplate>

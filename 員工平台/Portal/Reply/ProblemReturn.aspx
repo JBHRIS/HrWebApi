@@ -18,12 +18,12 @@
 
         <div class="ibox-content">
             <div class="row">
-                <div class="col-lg-7 b-r">
+                <div class="col-lg-12">
                     <div class="alert alert-warning">
-                        <i class="fa fa-exclamation-circle"></i>本問題回報服務需3個工作天
+                        <i class="fa fa-exclamation-circle"></i> 本問題回報服務需3個工作天
                     </div>
                     <div class="form-group">
-                        <label>標題 <small id="titlelength" style="color: #1ab394">(0/30)</small></label>
+                        <label>標題 <small id="titlelength" class="text-navy">(0/30)</small></label>
 
                         <telerik:RadTextBox ID="txtTitle" runat="server" EmptyMessage="請輸入標題..." Skin="Bootstrap" Width="100%" />
                     </div>
@@ -35,7 +35,7 @@
                         </telerik:RadComboBox>
                     </div>
                     <div class="form-group">
-                        <label>內容 <small id="contentlength" style="color: #1ab394">(0/500)</small></label>
+                        <label>內容 <small class="text-navy" id="contentlength">(0/500)</small></label>
                         <telerik:RadTextBox ID="txtContent" runat="server" EmptyMessage="請填寫您想回報的內容..."
                             TextMode="MultiLine" Width="100%" Skin="Bootstrap" Rows="4">
                         </telerik:RadTextBox>
@@ -48,7 +48,7 @@
                         </div>
                     </div>--%>
                     <div class="form-group">
-                        <label>附件<span class="text-navy">檔案大小限制為10MB；一次請上傳一個附件</span></label>
+                        <label>附件<span class="text-navy"> *只能上傳一個附件；檔案大小限制為10MB</span></label>
                         <div id="dZUpload" class="dropzone" style="border: 1px solid #e5e6e7;">
                             <div class="dz-default dz-message text-center m-t-md">
                                 <i class="fa fa-cloud-upload fa-2x text-primary"></i>
@@ -73,13 +73,10 @@
                     </div>
                     <div id="iboxContent" class="ibox">
                         <div class="ibox-title">
-                            <h5>附件列表</h5>
+                            <h5>附件</h5>
                             <div class="ibox-tools">
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
-                                </a>
-                                <a class="fullscreen-link">
-                                    <i class="fa fa-expand"></i>
                                 </a>
                             </div>
                         </div>
@@ -97,13 +94,13 @@
                                             </thead>
                                             <tbody id="Container" runat="server">
                                             </tbody>
-                                            <tfoot>
+                                            <!--<tfoot>
                                                 <tr>
                                                     <td colspan="5">
                                                         <ul class="pagination float-right"></ul>
                                                     </td>
                                                 </tr>
-                                            </tfoot>
+                                            </tfoot>-->
                                         </table>
                                     </LayoutTemplate>
                                     <ItemTemplate>
@@ -145,7 +142,7 @@
                     <asp:Label ID="lblRoleKey" runat="server" Visible="False"></asp:Label>
                 </div>
 
-                <div class="col-lg-5">
+                <!--<div class="col-lg-5">
                     <h2>你可能還想知道....</h2>
                     <span class="keyword_tag">特殊假別</span>
                     <span class="keyword_tag">Scroll navbar</span>
@@ -158,7 +155,7 @@
                     <div class="row col-lg-12">
                         <span class="keyword_font">特殊假別相關問題</span>
                     </div>
-                </div>
+                </div>-->
 
             </div>
         </div>
