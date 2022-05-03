@@ -20,7 +20,13 @@ namespace Portal
             if (_User.RoleKey == 64)
             {
                 ProblemReturnListM.Visible = false;
+                MessageList.Visible = false;
             }
+            else if (_User.RoleKey == 8 || _User.RoleKey == 2)
+            {
+                ProblemReturnList.Visible= false;
+            }
+            
             var Path = System.IO.Path.GetFileName(Request.PhysicalPath);
             if (Path == "ProblemReturn.aspx")
                 ProblemReturn.Style.Add(HtmlTextWriterStyle.Color, "#1ab394");
@@ -32,6 +38,9 @@ namespace Portal
                 ProblemReturnListM.Style.Add(HtmlTextWriterStyle.Color, "#1ab394");
             if (Path == "MessageReturn.aspx")
                 ProblemReturnListM.Style.Add(HtmlTextWriterStyle.Color, "#1ab394");
+            if (Path == "MessageList.aspx")
+                ProblemReturnListM.Style.Add(HtmlTextWriterStyle.Color, "#1ab394");
+
             if (_User.EmpName == "未登入" )
             {
                 string strUrl_No = "../Reply/LoginBind.aspx";

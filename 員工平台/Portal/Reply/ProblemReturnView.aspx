@@ -110,7 +110,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <button id="btnWtReply" type="button" runat="server" data-toggle="show" data-target="#demo" class="btn btn-outline btn-primary btn-w-m m-b-xs" onclick="demofocus()">我要回覆</button>
+                <button id="btnWtReply" type="button" runat="server" data-toggle="show" data-target="#demo" class="btn btn-outline btn-primary btn-w-m m-b-xs">我要回覆</button>
             </div>
 
         </div>
@@ -303,12 +303,9 @@
     <script src="Templates/Inspinia/js/plugins/footable/footable.all.min.js"></script>
 
     <script>
-        function demofocus() {
-            $('#demo').collapse('show');
-            $('#demo').focus()
-
-        };
-
+        $('#demo').on('shown.bs.collapse', function () {
+            $('#demo').focus();
+        })
 
         function download(FileId) {
 

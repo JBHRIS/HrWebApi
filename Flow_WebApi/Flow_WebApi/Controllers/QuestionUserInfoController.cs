@@ -26,18 +26,19 @@ namespace Flow_WebApi.Controllers
         /// <summary>
         /// 根據Code取得使用者資料
         /// </summary>
-        /// <param name="Code"></param>
+        /// <param name="CompanyId"></param>
+        ///  /// <param name="AccountCode"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("GetQuestionUserInfoByCode")]
-        public ApiResult<List<QuestionUserInfoVdb>> GetQuestionUserInfoByQuestionMainCode(string Code)
+        [Route("GetQuestionUserInfoByCompanyIdAndAccountCode")]
+        public ApiResult<List<QuestionUserInfoVdb>> GetQuestionUserInfoByCompanyIdAndAccountCode(string CompanyId,string AccountCode)
         {
             ApiResult<List<QuestionUserInfoVdb>> mapiResult = new ApiResult<List<QuestionUserInfoVdb>>();
 
             mapiResult.State = false;
             try
             {
-                mapiResult.Result = this._QuestionUserInfoInterface.GetQuestionUserInfoByCode(Code);
+                mapiResult.Result = this._QuestionUserInfoInterface.GetQuestionUserInfoByCompanyIdAndAccountCode(CompanyId,AccountCode);
                 mapiResult.State = true;
             }
             catch (Exception ex)
