@@ -43,7 +43,8 @@
             this.iNDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oUTDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rOUTDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.S_NO = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.iNSCOMPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cODE1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sPTYPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wBSPTYPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -104,7 +105,6 @@
             this.fullDataCtrl1 = new JBControls.FullDataCtrl();
             this.iNSNAMEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iNSURCDBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.iNSCOMPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sPTYPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.wBSPTYPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lARCODEBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -128,6 +128,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.vBASEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.insDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fAMILYBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iNSCOMPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSLABBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -137,7 +138,6 @@
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iNSNAMEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSURCDBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iNSCOMPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sPTYPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wBSPTYPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lARCODEBindingSource)).BeginInit();
@@ -187,7 +187,7 @@
             this.iNDATEDataGridViewTextBoxColumn,
             this.oUTDATEDataGridViewTextBoxColumn,
             this.rOUTDATEDataGridViewTextBoxColumn,
-            this.sNODataGridViewTextBoxColumn,
+            this.S_NO,
             this.cODE1DataGridViewTextBoxColumn,
             this.sPTYPDataGridViewTextBoxColumn,
             this.wBSPTYPDataGridViewTextBoxColumn,
@@ -314,14 +314,25 @@
             this.rOUTDATEDataGridViewTextBoxColumn.ReadOnly = true;
             this.rOUTDATEDataGridViewTextBoxColumn.Width = 150;
             // 
-            // sNODataGridViewTextBoxColumn
+            // S_NO
             // 
-            this.sNODataGridViewTextBoxColumn.DataPropertyName = "S_NO";
-            this.sNODataGridViewTextBoxColumn.HeaderText = "投保單位";
-            this.sNODataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.sNODataGridViewTextBoxColumn.Name = "sNODataGridViewTextBoxColumn";
-            this.sNODataGridViewTextBoxColumn.ReadOnly = true;
-            this.sNODataGridViewTextBoxColumn.Width = 150;
+            this.S_NO.DataPropertyName = "S_NO";
+            this.S_NO.DataSource = this.iNSCOMPBindingSource;
+            this.S_NO.DisplayMember = "INSNAME";
+            this.S_NO.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.S_NO.HeaderText = "投保單位";
+            this.S_NO.MinimumWidth = 8;
+            this.S_NO.Name = "S_NO";
+            this.S_NO.ReadOnly = true;
+            this.S_NO.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.S_NO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.S_NO.ValueMember = "S_NO";
+            this.S_NO.Width = 150;
+            // 
+            // iNSCOMPBindingSource
+            // 
+            this.iNSCOMPBindingSource.DataMember = "INSCOMP";
+            this.iNSCOMPBindingSource.DataSource = this.insDS;
             // 
             // cODE1DataGridViewTextBoxColumn
             // 
@@ -1127,11 +1138,6 @@
             this.iNSURCDBindingSource.DataMember = "INSURCD";
             this.iNSURCDBindingSource.DataSource = this.insDS;
             // 
-            // iNSCOMPBindingSource
-            // 
-            this.iNSCOMPBindingSource.DataMember = "INSCOMP";
-            this.iNSCOMPBindingSource.DataSource = this.insDS;
-            // 
             // sPTYPBindingSource
             // 
             this.sPTYPBindingSource.DataMember = "SPTYP";
@@ -1216,6 +1222,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.vBASEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.insDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fAMILYBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iNSCOMPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSLABBindingSource)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
@@ -1226,7 +1233,6 @@
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iNSNAMEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSURCDBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iNSCOMPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sPTYPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wBSPTYPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lARCODEBindingSource)).EndInit();
@@ -1314,7 +1320,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn iNDATEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn oUTDATEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rOUTDATEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sNODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn sNODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cODE1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sPTYPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn wBSPTYPDataGridViewTextBoxColumn;
@@ -1328,5 +1334,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn kEYDATEDataGridViewTextBoxColumn;
         private System.Windows.Forms.CheckBox checkBoxNSup;
         private System.Windows.Forms.DataGridViewCheckBoxColumn NOSUP;
+        private System.Windows.Forms.DataGridViewComboBoxColumn S_NO;
     }
 }

@@ -35,21 +35,8 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.dataGridViewEx1 = new JBControls.DataGridView();
-            this.D_NO_DISP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.D_ENAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dEPTGROUPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dEPTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.basDS = new JBHR.Bas.BasDS();
-            this.aDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pNSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DEPT_TREE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOBR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EMAIL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RES = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -83,6 +70,19 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.dEPTTableAdapter = new JBHR.Bas.BasDSTableAdapters.DEPTTableAdapter();
             this.v_BASETableAdapter = new JBHR.Bas.BasDSTableAdapters.V_BASETableAdapter();
+            this.D_NO_DISP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.D_ENAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dEPTGROUPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.aDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pNSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DEPT_TREE = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.NOBR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EMAIL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RES = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -215,44 +215,6 @@
             this.dataGridViewEx1.Size = new System.Drawing.Size(612, 305);
             this.dataGridViewEx1.TabIndex = 9;
             // 
-            // D_NO_DISP
-            // 
-            this.D_NO_DISP.DataPropertyName = "D_NO_DISP";
-            this.D_NO_DISP.HeaderText = "編制部門代碼";
-            this.D_NO_DISP.Name = "D_NO_DISP";
-            this.D_NO_DISP.ReadOnly = true;
-            this.D_NO_DISP.Width = 102;
-            // 
-            // dNAMEDataGridViewTextBoxColumn
-            // 
-            this.dNAMEDataGridViewTextBoxColumn.DataPropertyName = "D_NAME";
-            this.dNAMEDataGridViewTextBoxColumn.HeaderText = "部門名稱";
-            this.dNAMEDataGridViewTextBoxColumn.Name = "dNAMEDataGridViewTextBoxColumn";
-            this.dNAMEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dNAMEDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // D_ENAME
-            // 
-            this.D_ENAME.DataPropertyName = "D_ENAME";
-            this.D_ENAME.HeaderText = "英文名稱";
-            this.D_ENAME.Name = "D_ENAME";
-            this.D_ENAME.ReadOnly = true;
-            this.D_ENAME.Width = 78;
-            // 
-            // dEPTGROUPDataGridViewTextBoxColumn
-            // 
-            this.dEPTGROUPDataGridViewTextBoxColumn.DataPropertyName = "DEPT_GROUP";
-            this.dEPTGROUPDataGridViewTextBoxColumn.DataSource = this.dEPTBindingSource;
-            this.dEPTGROUPDataGridViewTextBoxColumn.DisplayMember = "D_NO_DISP";
-            this.dEPTGROUPDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.dEPTGROUPDataGridViewTextBoxColumn.HeaderText = "部門群組";
-            this.dEPTGROUPDataGridViewTextBoxColumn.Name = "dEPTGROUPDataGridViewTextBoxColumn";
-            this.dEPTGROUPDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dEPTGROUPDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dEPTGROUPDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dEPTGROUPDataGridViewTextBoxColumn.ValueMember = "D_NO";
-            this.dEPTGROUPDataGridViewTextBoxColumn.Width = 78;
-            // 
             // dEPTBindingSource
             // 
             this.dEPTBindingSource.DataMember = "DEPT";
@@ -264,79 +226,6 @@
             this.basDS.Locale = new System.Globalization.CultureInfo("");
             this.basDS.RemotingFormat = System.Data.SerializationFormat.Binary;
             this.basDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // aDATEDataGridViewTextBoxColumn
-            // 
-            this.aDATEDataGridViewTextBoxColumn.DataPropertyName = "ADATE";
-            this.aDATEDataGridViewTextBoxColumn.HeaderText = "成立日期";
-            this.aDATEDataGridViewTextBoxColumn.Name = "aDATEDataGridViewTextBoxColumn";
-            this.aDATEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.aDATEDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // dDATEDataGridViewTextBoxColumn
-            // 
-            this.dDATEDataGridViewTextBoxColumn.DataPropertyName = "DDATE";
-            this.dDATEDataGridViewTextBoxColumn.HeaderText = "撤銷日期";
-            this.dDATEDataGridViewTextBoxColumn.Name = "dDATEDataGridViewTextBoxColumn";
-            this.dDATEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dDATEDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // pNSDataGridViewTextBoxColumn
-            // 
-            this.pNSDataGridViewTextBoxColumn.DataPropertyName = "PNS";
-            this.pNSDataGridViewTextBoxColumn.HeaderText = "編制人數";
-            this.pNSDataGridViewTextBoxColumn.Name = "pNSDataGridViewTextBoxColumn";
-            this.pNSDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pNSDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // DEPT_TREE
-            // 
-            this.DEPT_TREE.DataPropertyName = "DEPT_TREE";
-            this.DEPT_TREE.HeaderText = "部門樹";
-            this.DEPT_TREE.Name = "DEPT_TREE";
-            this.DEPT_TREE.ReadOnly = true;
-            this.DEPT_TREE.Width = 66;
-            // 
-            // NOBR
-            // 
-            this.NOBR.DataPropertyName = "NOBR";
-            this.NOBR.HeaderText = "主管工號";
-            this.NOBR.Name = "NOBR";
-            this.NOBR.ReadOnly = true;
-            this.NOBR.Width = 78;
-            // 
-            // EMAIL
-            // 
-            this.EMAIL.DataPropertyName = "EMAIL";
-            this.EMAIL.HeaderText = "異常通知信箱";
-            this.EMAIL.Name = "EMAIL";
-            this.EMAIL.ReadOnly = true;
-            this.EMAIL.Width = 102;
-            // 
-            // kEYMANDataGridViewTextBoxColumn
-            // 
-            this.kEYMANDataGridViewTextBoxColumn.DataPropertyName = "KEY_MAN";
-            this.kEYMANDataGridViewTextBoxColumn.HeaderText = "登錄者";
-            this.kEYMANDataGridViewTextBoxColumn.Name = "kEYMANDataGridViewTextBoxColumn";
-            this.kEYMANDataGridViewTextBoxColumn.ReadOnly = true;
-            this.kEYMANDataGridViewTextBoxColumn.Width = 66;
-            // 
-            // RES
-            // 
-            this.RES.DataPropertyName = "RES";
-            this.RES.HeaderText = "不計休息時間";
-            this.RES.Name = "RES";
-            this.RES.ReadOnly = true;
-            this.RES.Visible = false;
-            this.RES.Width = 83;
-            // 
-            // kEYDATEDataGridViewTextBoxColumn
-            // 
-            this.kEYDATEDataGridViewTextBoxColumn.DataPropertyName = "KEY_DATE";
-            this.kEYDATEDataGridViewTextBoxColumn.HeaderText = "登錄日期";
-            this.kEYDATEDataGridViewTextBoxColumn.Name = "kEYDATEDataGridViewTextBoxColumn";
-            this.kEYDATEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.kEYDATEDataGridViewTextBoxColumn.Width = 78;
             // 
             // panel1
             // 
@@ -815,6 +704,123 @@
             // 
             this.v_BASETableAdapter.ClearBeforeFill = true;
             // 
+            // D_NO_DISP
+            // 
+            this.D_NO_DISP.DataPropertyName = "D_NO_DISP";
+            this.D_NO_DISP.HeaderText = "編制部門代碼";
+            this.D_NO_DISP.Name = "D_NO_DISP";
+            this.D_NO_DISP.ReadOnly = true;
+            this.D_NO_DISP.Width = 102;
+            // 
+            // dNAMEDataGridViewTextBoxColumn
+            // 
+            this.dNAMEDataGridViewTextBoxColumn.DataPropertyName = "D_NAME";
+            this.dNAMEDataGridViewTextBoxColumn.HeaderText = "部門名稱";
+            this.dNAMEDataGridViewTextBoxColumn.Name = "dNAMEDataGridViewTextBoxColumn";
+            this.dNAMEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dNAMEDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // D_ENAME
+            // 
+            this.D_ENAME.DataPropertyName = "D_ENAME";
+            this.D_ENAME.HeaderText = "英文名稱";
+            this.D_ENAME.Name = "D_ENAME";
+            this.D_ENAME.ReadOnly = true;
+            this.D_ENAME.Width = 78;
+            // 
+            // dEPTGROUPDataGridViewTextBoxColumn
+            // 
+            this.dEPTGROUPDataGridViewTextBoxColumn.DataPropertyName = "DEPT_GROUP";
+            this.dEPTGROUPDataGridViewTextBoxColumn.DataSource = this.dEPTBindingSource;
+            this.dEPTGROUPDataGridViewTextBoxColumn.DisplayMember = "D_NO_DISP";
+            this.dEPTGROUPDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.dEPTGROUPDataGridViewTextBoxColumn.HeaderText = "部門群組";
+            this.dEPTGROUPDataGridViewTextBoxColumn.Name = "dEPTGROUPDataGridViewTextBoxColumn";
+            this.dEPTGROUPDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dEPTGROUPDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dEPTGROUPDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dEPTGROUPDataGridViewTextBoxColumn.ValueMember = "D_NO";
+            this.dEPTGROUPDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // aDATEDataGridViewTextBoxColumn
+            // 
+            this.aDATEDataGridViewTextBoxColumn.DataPropertyName = "ADATE";
+            this.aDATEDataGridViewTextBoxColumn.HeaderText = "成立日期";
+            this.aDATEDataGridViewTextBoxColumn.Name = "aDATEDataGridViewTextBoxColumn";
+            this.aDATEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.aDATEDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // dDATEDataGridViewTextBoxColumn
+            // 
+            this.dDATEDataGridViewTextBoxColumn.DataPropertyName = "DDATE";
+            this.dDATEDataGridViewTextBoxColumn.HeaderText = "撤銷日期";
+            this.dDATEDataGridViewTextBoxColumn.Name = "dDATEDataGridViewTextBoxColumn";
+            this.dDATEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dDATEDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // pNSDataGridViewTextBoxColumn
+            // 
+            this.pNSDataGridViewTextBoxColumn.DataPropertyName = "PNS";
+            this.pNSDataGridViewTextBoxColumn.HeaderText = "編制人數";
+            this.pNSDataGridViewTextBoxColumn.Name = "pNSDataGridViewTextBoxColumn";
+            this.pNSDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pNSDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // DEPT_TREE
+            // 
+            this.DEPT_TREE.DataPropertyName = "DEPT_TREE";
+            this.DEPT_TREE.DataSource = this.dEPTBindingSource;
+            this.DEPT_TREE.DisplayMember = "D_NO_DISP";
+            this.DEPT_TREE.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.DEPT_TREE.HeaderText = "部門樹";
+            this.DEPT_TREE.Name = "DEPT_TREE";
+            this.DEPT_TREE.ReadOnly = true;
+            this.DEPT_TREE.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DEPT_TREE.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.DEPT_TREE.ValueMember = "D_NO";
+            this.DEPT_TREE.Width = 66;
+            // 
+            // NOBR
+            // 
+            this.NOBR.DataPropertyName = "NOBR";
+            this.NOBR.HeaderText = "主管工號";
+            this.NOBR.Name = "NOBR";
+            this.NOBR.ReadOnly = true;
+            this.NOBR.Width = 78;
+            // 
+            // EMAIL
+            // 
+            this.EMAIL.DataPropertyName = "EMAIL";
+            this.EMAIL.HeaderText = "異常通知信箱";
+            this.EMAIL.Name = "EMAIL";
+            this.EMAIL.ReadOnly = true;
+            this.EMAIL.Width = 102;
+            // 
+            // kEYMANDataGridViewTextBoxColumn
+            // 
+            this.kEYMANDataGridViewTextBoxColumn.DataPropertyName = "KEY_MAN";
+            this.kEYMANDataGridViewTextBoxColumn.HeaderText = "登錄者";
+            this.kEYMANDataGridViewTextBoxColumn.Name = "kEYMANDataGridViewTextBoxColumn";
+            this.kEYMANDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kEYMANDataGridViewTextBoxColumn.Width = 66;
+            // 
+            // RES
+            // 
+            this.RES.DataPropertyName = "RES";
+            this.RES.HeaderText = "不計休息時間";
+            this.RES.Name = "RES";
+            this.RES.ReadOnly = true;
+            this.RES.Visible = false;
+            this.RES.Width = 83;
+            // 
+            // kEYDATEDataGridViewTextBoxColumn
+            // 
+            this.kEYDATEDataGridViewTextBoxColumn.DataPropertyName = "KEY_DATE";
+            this.kEYDATEDataGridViewTextBoxColumn.HeaderText = "登錄日期";
+            this.kEYDATEDataGridViewTextBoxColumn.Name = "kEYDATEDataGridViewTextBoxColumn";
+            this.kEYDATEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kEYDATEDataGridViewTextBoxColumn.Width = 78;
+            // 
             // FRM111
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -893,6 +899,8 @@
         private System.Windows.Forms.ComboBox cbDEPT_GROUP;
         private System.Windows.Forms.ComboBox cbxDeptTree;
         private System.Windows.Forms.Button btnMang;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.CheckBox cbxAvailableCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn D_NO_DISP;
         private System.Windows.Forms.DataGridViewTextBoxColumn dNAMEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn D_ENAME;
@@ -900,13 +908,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn aDATEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dDATEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pNSDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DEPT_TREE;
+        private System.Windows.Forms.DataGridViewComboBoxColumn DEPT_TREE;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOBR;
         private System.Windows.Forms.DataGridViewTextBoxColumn EMAIL;
         private System.Windows.Forms.DataGridViewTextBoxColumn kEYMANDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn RES;
         private System.Windows.Forms.DataGridViewTextBoxColumn kEYDATEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.CheckBox cbxAvailableCode;
     }
 }

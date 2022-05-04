@@ -37,8 +37,9 @@ namespace JBHR.Att
             chkSysCreate.Enabled = false;
             //checkBox1.Enabled = false;
             //checkBox2.Enabled = false;
-            //this.oTRCDTableAdapter.Fill(this.dsAtt.OTRCD, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN);
-            //this.dEPTSTableAdapter.Fill(this.dsBas.DEPTS);
+            this.rOTETTableAdapter.Fill(this.dsAtt.ROTET, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN);
+            this.oTRCDTableAdapter.Fill(this.dsAtt.OTRCD, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN);
+            this.dEPTSTableAdapter.Fill(this.dsBas.DEPTS);
             this.rOTETableAdapter.Fill(this.dsAtt.ROTE, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN);
             SystemFunction.SetComboBoxItems(cbxOtDepts, CodeFunction.GetDepts(), true, false, true);
             SystemFunction.SetComboBoxItems(cbxOtRCD, CodeFunction.GetOtrcd(), true, false, true);

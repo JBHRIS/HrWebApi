@@ -32,39 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new JBControls.DataGridView();
-            this.nAMECDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOBRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sALNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yYMMBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yYMMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dEPTNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sALCODEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sEQDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aTYPEDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.aPERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MIN_COST_LIVING = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fAMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pAMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tAMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mEMODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dISPATCHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dEDEPTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dEMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dETELDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dEADDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lAWDEPTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lAWMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lAWTELDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pPERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aCNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sALBASNDBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.salaryDS = new JBHR.Sal.SalaryDS();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -144,6 +111,41 @@
             this.sALBASNDTableAdapter = new JBHR.Sal.SalaryDSTableAdapters.SALBASNDTableAdapter();
             this.bASETableAdapter = new JBHR.Sal.SalaryDSTableAdapters.BASETableAdapter();
             this.sALCODETableAdapter = new JBHR.Sal.SalaryDSTableAdapters.SALCODETableAdapter();
+            this.basDS = new JBHR.Bas.BasDS();
+            this.dEPTTableAdapter1 = new JBHR.Bas.BasDSTableAdapters.DEPTTableAdapter();
+            this.nAMECDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nOBRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sALNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yYMMBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yYMMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dEPTNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sALCODEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sEQDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aTYPEDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.aPERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MIN_COST_LIVING = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fAMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pAMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tAMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mEMODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dISPATCHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dEDEPTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dEMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dETELDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dEADDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lAWDEPTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lAWMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lAWTELDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pPERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aCNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -167,6 +169,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.baseDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sALCODEBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.basDS)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -250,303 +253,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(784, 192);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
-            // 
-            // nAMECDataGridViewTextBoxColumn
-            // 
-            this.nAMECDataGridViewTextBoxColumn.DataPropertyName = "NAME_C";
-            this.nAMECDataGridViewTextBoxColumn.HeaderText = "員工姓名";
-            this.nAMECDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.nAMECDataGridViewTextBoxColumn.Name = "nAMECDataGridViewTextBoxColumn";
-            this.nAMECDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nAMECDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // nOBRDataGridViewTextBoxColumn
-            // 
-            this.nOBRDataGridViewTextBoxColumn.DataPropertyName = "NOBR";
-            this.nOBRDataGridViewTextBoxColumn.HeaderText = "員工編號";
-            this.nOBRDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.nOBRDataGridViewTextBoxColumn.Name = "nOBRDataGridViewTextBoxColumn";
-            this.nOBRDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nOBRDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // sALNAMEDataGridViewTextBoxColumn
-            // 
-            this.sALNAMEDataGridViewTextBoxColumn.DataPropertyName = "SAL_NAME";
-            this.sALNAMEDataGridViewTextBoxColumn.HeaderText = "薪資名稱";
-            this.sALNAMEDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.sALNAMEDataGridViewTextBoxColumn.Name = "sALNAMEDataGridViewTextBoxColumn";
-            this.sALNAMEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sALNAMEDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // yYMMBDataGridViewTextBoxColumn
-            // 
-            this.yYMMBDataGridViewTextBoxColumn.DataPropertyName = "YYMM_B";
-            this.yYMMBDataGridViewTextBoxColumn.HeaderText = "起扣年月";
-            this.yYMMBDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.yYMMBDataGridViewTextBoxColumn.Name = "yYMMBDataGridViewTextBoxColumn";
-            this.yYMMBDataGridViewTextBoxColumn.ReadOnly = true;
-            this.yYMMBDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // yYMMEDataGridViewTextBoxColumn
-            // 
-            this.yYMMEDataGridViewTextBoxColumn.DataPropertyName = "YYMM_E";
-            this.yYMMEDataGridViewTextBoxColumn.HeaderText = "截止年月";
-            this.yYMMEDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.yYMMEDataGridViewTextBoxColumn.Name = "yYMMEDataGridViewTextBoxColumn";
-            this.yYMMEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.yYMMEDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // dNODataGridViewTextBoxColumn
-            // 
-            this.dNODataGridViewTextBoxColumn.DataPropertyName = "D_NO";
-            this.dNODataGridViewTextBoxColumn.HeaderText = "部門編號";
-            this.dNODataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.dNODataGridViewTextBoxColumn.Name = "dNODataGridViewTextBoxColumn";
-            this.dNODataGridViewTextBoxColumn.ReadOnly = true;
-            this.dNODataGridViewTextBoxColumn.Width = 78;
-            // 
-            // dEPTNAMEDataGridViewTextBoxColumn
-            // 
-            this.dEPTNAMEDataGridViewTextBoxColumn.DataPropertyName = "DEPT_NAME";
-            this.dEPTNAMEDataGridViewTextBoxColumn.HeaderText = "部門名稱";
-            this.dEPTNAMEDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.dEPTNAMEDataGridViewTextBoxColumn.Name = "dEPTNAMEDataGridViewTextBoxColumn";
-            this.dEPTNAMEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dEPTNAMEDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // sALCODEDataGridViewTextBoxColumn
-            // 
-            this.sALCODEDataGridViewTextBoxColumn.DataPropertyName = "SAL_CODE";
-            this.sALCODEDataGridViewTextBoxColumn.HeaderText = "薪資代碼";
-            this.sALCODEDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.sALCODEDataGridViewTextBoxColumn.Name = "sALCODEDataGridViewTextBoxColumn";
-            this.sALCODEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sALCODEDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // sEQDataGridViewTextBoxColumn
-            // 
-            this.sEQDataGridViewTextBoxColumn.DataPropertyName = "SEQ";
-            this.sEQDataGridViewTextBoxColumn.HeaderText = "期數";
-            this.sEQDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.sEQDataGridViewTextBoxColumn.Name = "sEQDataGridViewTextBoxColumn";
-            this.sEQDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sEQDataGridViewTextBoxColumn.Width = 54;
-            // 
-            // aDATEDataGridViewTextBoxColumn
-            // 
-            this.aDATEDataGridViewTextBoxColumn.DataPropertyName = "A_DATE";
-            this.aDATEDataGridViewTextBoxColumn.HeaderText = "異動日期";
-            this.aDATEDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.aDATEDataGridViewTextBoxColumn.Name = "aDATEDataGridViewTextBoxColumn";
-            this.aDATEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.aDATEDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // aTYPEDataGridViewCheckBoxColumn
-            // 
-            this.aTYPEDataGridViewCheckBoxColumn.DataPropertyName = "A_TYPE";
-            this.aTYPEDataGridViewCheckBoxColumn.HeaderText = "法院強制扣款";
-            this.aTYPEDataGridViewCheckBoxColumn.MinimumWidth = 8;
-            this.aTYPEDataGridViewCheckBoxColumn.Name = "aTYPEDataGridViewCheckBoxColumn";
-            this.aTYPEDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.aTYPEDataGridViewCheckBoxColumn.Width = 83;
-            // 
-            // aPERDataGridViewTextBoxColumn
-            // 
-            this.aPERDataGridViewTextBoxColumn.DataPropertyName = "A_PER";
-            this.aPERDataGridViewTextBoxColumn.HeaderText = "強制扣款比率";
-            this.aPERDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.aPERDataGridViewTextBoxColumn.Name = "aPERDataGridViewTextBoxColumn";
-            this.aPERDataGridViewTextBoxColumn.ReadOnly = true;
-            this.aPERDataGridViewTextBoxColumn.Width = 102;
-            // 
-            // MIN_COST_LIVING
-            // 
-            this.MIN_COST_LIVING.DataPropertyName = "MIN_COST_LIVING";
-            this.MIN_COST_LIVING.HeaderText = "最低生活費";
-            this.MIN_COST_LIVING.MinimumWidth = 8;
-            this.MIN_COST_LIVING.Name = "MIN_COST_LIVING";
-            this.MIN_COST_LIVING.ReadOnly = true;
-            this.MIN_COST_LIVING.Width = 90;
-            // 
-            // fAMTDataGridViewTextBoxColumn
-            // 
-            this.fAMTDataGridViewTextBoxColumn.DataPropertyName = "F_AMT";
-            this.fAMTDataGridViewTextBoxColumn.HeaderText = "F_AMT";
-            this.fAMTDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.fAMTDataGridViewTextBoxColumn.Name = "fAMTDataGridViewTextBoxColumn";
-            this.fAMTDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fAMTDataGridViewTextBoxColumn.Width = 60;
-            // 
-            // pAMTDataGridViewTextBoxColumn
-            // 
-            this.pAMTDataGridViewTextBoxColumn.DataPropertyName = "P_AMT";
-            this.pAMTDataGridViewTextBoxColumn.HeaderText = "分期款";
-            this.pAMTDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.pAMTDataGridViewTextBoxColumn.Name = "pAMTDataGridViewTextBoxColumn";
-            this.pAMTDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pAMTDataGridViewTextBoxColumn.Width = 66;
-            // 
-            // tAMTDataGridViewTextBoxColumn
-            // 
-            this.tAMTDataGridViewTextBoxColumn.DataPropertyName = "T_AMT";
-            this.tAMTDataGridViewTextBoxColumn.HeaderText = "總金額";
-            this.tAMTDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.tAMTDataGridViewTextBoxColumn.Name = "tAMTDataGridViewTextBoxColumn";
-            this.tAMTDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tAMTDataGridViewTextBoxColumn.Width = 66;
-            // 
-            // kEYMANDataGridViewTextBoxColumn
-            // 
-            this.kEYMANDataGridViewTextBoxColumn.DataPropertyName = "KEY_MAN";
-            this.kEYMANDataGridViewTextBoxColumn.HeaderText = "登錄者";
-            this.kEYMANDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.kEYMANDataGridViewTextBoxColumn.Name = "kEYMANDataGridViewTextBoxColumn";
-            this.kEYMANDataGridViewTextBoxColumn.ReadOnly = true;
-            this.kEYMANDataGridViewTextBoxColumn.Width = 66;
-            // 
-            // kEYDATEDataGridViewTextBoxColumn
-            // 
-            this.kEYDATEDataGridViewTextBoxColumn.DataPropertyName = "KEY_DATE";
-            this.kEYDATEDataGridViewTextBoxColumn.HeaderText = "登錄日期";
-            this.kEYDATEDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.kEYDATEDataGridViewTextBoxColumn.Name = "kEYDATEDataGridViewTextBoxColumn";
-            this.kEYDATEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.kEYDATEDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // mEMODataGridViewTextBoxColumn
-            // 
-            this.mEMODataGridViewTextBoxColumn.DataPropertyName = "MEMO";
-            this.mEMODataGridViewTextBoxColumn.HeaderText = "備註";
-            this.mEMODataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.mEMODataGridViewTextBoxColumn.Name = "mEMODataGridViewTextBoxColumn";
-            this.mEMODataGridViewTextBoxColumn.ReadOnly = true;
-            this.mEMODataGridViewTextBoxColumn.Width = 54;
-            // 
-            // dISPATCHDataGridViewTextBoxColumn
-            // 
-            this.dISPATCHDataGridViewTextBoxColumn.DataPropertyName = "DISPATCH";
-            this.dISPATCHDataGridViewTextBoxColumn.HeaderText = "發文字號";
-            this.dISPATCHDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.dISPATCHDataGridViewTextBoxColumn.Name = "dISPATCHDataGridViewTextBoxColumn";
-            this.dISPATCHDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dISPATCHDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // dEDEPTDataGridViewTextBoxColumn
-            // 
-            this.dEDEPTDataGridViewTextBoxColumn.DataPropertyName = "DE_DEPT";
-            this.dEDEPTDataGridViewTextBoxColumn.HeaderText = "債權單位";
-            this.dEDEPTDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.dEDEPTDataGridViewTextBoxColumn.Name = "dEDEPTDataGridViewTextBoxColumn";
-            this.dEDEPTDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dEDEPTDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // dEMANDataGridViewTextBoxColumn
-            // 
-            this.dEMANDataGridViewTextBoxColumn.DataPropertyName = "DE_MAN";
-            this.dEMANDataGridViewTextBoxColumn.HeaderText = "戶名";
-            this.dEMANDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.dEMANDataGridViewTextBoxColumn.Name = "dEMANDataGridViewTextBoxColumn";
-            this.dEMANDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dEMANDataGridViewTextBoxColumn.Width = 54;
-            // 
-            // dETELDataGridViewTextBoxColumn
-            // 
-            this.dETELDataGridViewTextBoxColumn.DataPropertyName = "DE_TEL";
-            this.dETELDataGridViewTextBoxColumn.HeaderText = "債權電話";
-            this.dETELDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.dETELDataGridViewTextBoxColumn.Name = "dETELDataGridViewTextBoxColumn";
-            this.dETELDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dETELDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // dEADDDataGridViewTextBoxColumn
-            // 
-            this.dEADDDataGridViewTextBoxColumn.DataPropertyName = "DE_ADD";
-            this.dEADDDataGridViewTextBoxColumn.HeaderText = "債權地址";
-            this.dEADDDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.dEADDDataGridViewTextBoxColumn.Name = "dEADDDataGridViewTextBoxColumn";
-            this.dEADDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dEADDDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // lAWDEPTDataGridViewTextBoxColumn
-            // 
-            this.lAWDEPTDataGridViewTextBoxColumn.DataPropertyName = "LAW_DEPT";
-            this.lAWDEPTDataGridViewTextBoxColumn.HeaderText = "法院承辦單位";
-            this.lAWDEPTDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.lAWDEPTDataGridViewTextBoxColumn.Name = "lAWDEPTDataGridViewTextBoxColumn";
-            this.lAWDEPTDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lAWDEPTDataGridViewTextBoxColumn.Width = 102;
-            // 
-            // lAWMANDataGridViewTextBoxColumn
-            // 
-            this.lAWMANDataGridViewTextBoxColumn.DataPropertyName = "LAW_MAN";
-            this.lAWMANDataGridViewTextBoxColumn.HeaderText = "法院承辦人";
-            this.lAWMANDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.lAWMANDataGridViewTextBoxColumn.Name = "lAWMANDataGridViewTextBoxColumn";
-            this.lAWMANDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lAWMANDataGridViewTextBoxColumn.Width = 90;
-            // 
-            // lAWTELDataGridViewTextBoxColumn
-            // 
-            this.lAWTELDataGridViewTextBoxColumn.DataPropertyName = "LAW_TEL";
-            this.lAWTELDataGridViewTextBoxColumn.HeaderText = "法院聯絡電話";
-            this.lAWTELDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.lAWTELDataGridViewTextBoxColumn.Name = "lAWTELDataGridViewTextBoxColumn";
-            this.lAWTELDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lAWTELDataGridViewTextBoxColumn.Width = 102;
-            // 
-            // pDATEDataGridViewTextBoxColumn
-            // 
-            this.pDATEDataGridViewTextBoxColumn.DataPropertyName = "P_DATE";
-            this.pDATEDataGridViewTextBoxColumn.HeaderText = "發文日期";
-            this.pDATEDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.pDATEDataGridViewTextBoxColumn.Name = "pDATEDataGridViewTextBoxColumn";
-            this.pDATEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pDATEDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // fDATEDataGridViewTextBoxColumn
-            // 
-            this.fDATEDataGridViewTextBoxColumn.DataPropertyName = "F_DATE";
-            this.fDATEDataGridViewTextBoxColumn.HeaderText = "收文日期";
-            this.fDATEDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.fDATEDataGridViewTextBoxColumn.Name = "fDATEDataGridViewTextBoxColumn";
-            this.fDATEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fDATEDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // tDATEDataGridViewTextBoxColumn
-            // 
-            this.tDATEDataGridViewTextBoxColumn.DataPropertyName = "T_DATE";
-            this.tDATEDataGridViewTextBoxColumn.HeaderText = "聲明日期";
-            this.tDATEDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.tDATEDataGridViewTextBoxColumn.Name = "tDATEDataGridViewTextBoxColumn";
-            this.tDATEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tDATEDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // cDATEDataGridViewTextBoxColumn
-            // 
-            this.cDATEDataGridViewTextBoxColumn.DataPropertyName = "C_DATE";
-            this.cDATEDataGridViewTextBoxColumn.HeaderText = "結案日期";
-            this.cDATEDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.cDATEDataGridViewTextBoxColumn.Name = "cDATEDataGridViewTextBoxColumn";
-            this.cDATEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cDATEDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // pPERDataGridViewTextBoxColumn
-            // 
-            this.pPERDataGridViewTextBoxColumn.DataPropertyName = "P_PER";
-            this.pPERDataGridViewTextBoxColumn.HeaderText = "併案百分比";
-            this.pPERDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.pPERDataGridViewTextBoxColumn.Name = "pPERDataGridViewTextBoxColumn";
-            this.pPERDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pPERDataGridViewTextBoxColumn.Width = 90;
-            // 
-            // aCNODataGridViewTextBoxColumn
-            // 
-            this.aCNODataGridViewTextBoxColumn.DataPropertyName = "ACNO";
-            this.aCNODataGridViewTextBoxColumn.HeaderText = "編號";
-            this.aCNODataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.aCNODataGridViewTextBoxColumn.Name = "aCNODataGridViewTextBoxColumn";
-            this.aCNODataGridViewTextBoxColumn.ReadOnly = true;
-            this.aCNODataGridViewTextBoxColumn.Width = 54;
             // 
             // sALBASNDBindingSource
             // 
@@ -1051,7 +757,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.03704F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.96296F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146F));
             this.tableLayoutPanel2.Controls.Add(this.label28, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label29, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtPayed, 1, 0);
@@ -1069,7 +775,7 @@
             this.label28.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label28.AutoSize = true;
             this.label28.ForeColor = System.Drawing.Color.Black;
-            this.label28.Location = new System.Drawing.Point(13, 9);
+            this.label28.Location = new System.Drawing.Point(12, 9);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(29, 12);
             this.label28.TabIndex = 17;
@@ -1080,7 +786,7 @@
             this.label29.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label29.AutoSize = true;
             this.label29.ForeColor = System.Drawing.Color.Black;
-            this.label29.Location = new System.Drawing.Point(161, 9);
+            this.label29.Location = new System.Drawing.Point(160, 9);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(29, 12);
             this.label29.TabIndex = 17;
@@ -1089,7 +795,7 @@
             // txtPayed
             // 
             this.txtPayed.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtPayed.Location = new System.Drawing.Point(58, 4);
+            this.txtPayed.Location = new System.Drawing.Point(57, 4);
             this.txtPayed.Name = "txtPayed";
             this.txtPayed.Size = new System.Drawing.Size(77, 22);
             this.txtPayed.TabIndex = 18;
@@ -1097,7 +803,7 @@
             // txtHasToPay
             // 
             this.txtHasToPay.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtHasToPay.Location = new System.Drawing.Point(207, 4);
+            this.txtHasToPay.Location = new System.Drawing.Point(206, 4);
             this.txtHasToPay.Name = "txtHasToPay";
             this.txtHasToPay.Size = new System.Drawing.Size(100, 22);
             this.txtHasToPay.TabIndex = 19;
@@ -1642,7 +1348,7 @@
             // dEPTBindingSource
             // 
             this.dEPTBindingSource.DataMember = "DEPT";
-            this.dEPTBindingSource.DataSource = this.baseDS;
+            this.dEPTBindingSource.DataSource = this.basDS;
             // 
             // baseDS
             // 
@@ -1675,6 +1381,319 @@
             // sALCODETableAdapter
             // 
             this.sALCODETableAdapter.ClearBeforeFill = true;
+            // 
+            // basDS
+            // 
+            this.basDS.DataSetName = "BasDS";
+            this.basDS.Locale = new System.Globalization.CultureInfo("");
+            this.basDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dEPTTableAdapter1
+            // 
+            this.dEPTTableAdapter1.ClearBeforeFill = true;
+            // 
+            // nAMECDataGridViewTextBoxColumn
+            // 
+            this.nAMECDataGridViewTextBoxColumn.DataPropertyName = "NAME_C";
+            this.nAMECDataGridViewTextBoxColumn.HeaderText = "員工姓名";
+            this.nAMECDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.nAMECDataGridViewTextBoxColumn.Name = "nAMECDataGridViewTextBoxColumn";
+            this.nAMECDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nAMECDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // nOBRDataGridViewTextBoxColumn
+            // 
+            this.nOBRDataGridViewTextBoxColumn.DataPropertyName = "NOBR";
+            this.nOBRDataGridViewTextBoxColumn.HeaderText = "員工編號";
+            this.nOBRDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.nOBRDataGridViewTextBoxColumn.Name = "nOBRDataGridViewTextBoxColumn";
+            this.nOBRDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nOBRDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // sALNAMEDataGridViewTextBoxColumn
+            // 
+            this.sALNAMEDataGridViewTextBoxColumn.DataPropertyName = "SAL_NAME";
+            this.sALNAMEDataGridViewTextBoxColumn.HeaderText = "薪資名稱";
+            this.sALNAMEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.sALNAMEDataGridViewTextBoxColumn.Name = "sALNAMEDataGridViewTextBoxColumn";
+            this.sALNAMEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sALNAMEDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // yYMMBDataGridViewTextBoxColumn
+            // 
+            this.yYMMBDataGridViewTextBoxColumn.DataPropertyName = "YYMM_B";
+            this.yYMMBDataGridViewTextBoxColumn.HeaderText = "起扣年月";
+            this.yYMMBDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.yYMMBDataGridViewTextBoxColumn.Name = "yYMMBDataGridViewTextBoxColumn";
+            this.yYMMBDataGridViewTextBoxColumn.ReadOnly = true;
+            this.yYMMBDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // yYMMEDataGridViewTextBoxColumn
+            // 
+            this.yYMMEDataGridViewTextBoxColumn.DataPropertyName = "YYMM_E";
+            this.yYMMEDataGridViewTextBoxColumn.HeaderText = "截止年月";
+            this.yYMMEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.yYMMEDataGridViewTextBoxColumn.Name = "yYMMEDataGridViewTextBoxColumn";
+            this.yYMMEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.yYMMEDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // dNODataGridViewTextBoxColumn
+            // 
+            this.dNODataGridViewTextBoxColumn.DataPropertyName = "D_NO";
+            this.dNODataGridViewTextBoxColumn.DataSource = this.dEPTBindingSource;
+            this.dNODataGridViewTextBoxColumn.DisplayMember = "D_NO_DISP";
+            this.dNODataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.dNODataGridViewTextBoxColumn.HeaderText = "部門編號";
+            this.dNODataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.dNODataGridViewTextBoxColumn.Name = "dNODataGridViewTextBoxColumn";
+            this.dNODataGridViewTextBoxColumn.ReadOnly = true;
+            this.dNODataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dNODataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dNODataGridViewTextBoxColumn.ValueMember = "D_NO";
+            this.dNODataGridViewTextBoxColumn.Width = 78;
+            // 
+            // dEPTNAMEDataGridViewTextBoxColumn
+            // 
+            this.dEPTNAMEDataGridViewTextBoxColumn.DataPropertyName = "DEPT_NAME";
+            this.dEPTNAMEDataGridViewTextBoxColumn.HeaderText = "部門名稱";
+            this.dEPTNAMEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.dEPTNAMEDataGridViewTextBoxColumn.Name = "dEPTNAMEDataGridViewTextBoxColumn";
+            this.dEPTNAMEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dEPTNAMEDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // sALCODEDataGridViewTextBoxColumn
+            // 
+            this.sALCODEDataGridViewTextBoxColumn.DataPropertyName = "SAL_CODE";
+            this.sALCODEDataGridViewTextBoxColumn.HeaderText = "薪資代碼";
+            this.sALCODEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.sALCODEDataGridViewTextBoxColumn.Name = "sALCODEDataGridViewTextBoxColumn";
+            this.sALCODEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sALCODEDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // sEQDataGridViewTextBoxColumn
+            // 
+            this.sEQDataGridViewTextBoxColumn.DataPropertyName = "SEQ";
+            this.sEQDataGridViewTextBoxColumn.HeaderText = "期數";
+            this.sEQDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.sEQDataGridViewTextBoxColumn.Name = "sEQDataGridViewTextBoxColumn";
+            this.sEQDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sEQDataGridViewTextBoxColumn.Width = 54;
+            // 
+            // aDATEDataGridViewTextBoxColumn
+            // 
+            this.aDATEDataGridViewTextBoxColumn.DataPropertyName = "A_DATE";
+            this.aDATEDataGridViewTextBoxColumn.HeaderText = "異動日期";
+            this.aDATEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.aDATEDataGridViewTextBoxColumn.Name = "aDATEDataGridViewTextBoxColumn";
+            this.aDATEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.aDATEDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // aTYPEDataGridViewCheckBoxColumn
+            // 
+            this.aTYPEDataGridViewCheckBoxColumn.DataPropertyName = "A_TYPE";
+            this.aTYPEDataGridViewCheckBoxColumn.HeaderText = "法院強制扣款";
+            this.aTYPEDataGridViewCheckBoxColumn.MinimumWidth = 8;
+            this.aTYPEDataGridViewCheckBoxColumn.Name = "aTYPEDataGridViewCheckBoxColumn";
+            this.aTYPEDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.aTYPEDataGridViewCheckBoxColumn.Width = 83;
+            // 
+            // aPERDataGridViewTextBoxColumn
+            // 
+            this.aPERDataGridViewTextBoxColumn.DataPropertyName = "A_PER";
+            this.aPERDataGridViewTextBoxColumn.HeaderText = "強制扣款比率";
+            this.aPERDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.aPERDataGridViewTextBoxColumn.Name = "aPERDataGridViewTextBoxColumn";
+            this.aPERDataGridViewTextBoxColumn.ReadOnly = true;
+            this.aPERDataGridViewTextBoxColumn.Width = 102;
+            // 
+            // MIN_COST_LIVING
+            // 
+            this.MIN_COST_LIVING.DataPropertyName = "MIN_COST_LIVING";
+            this.MIN_COST_LIVING.HeaderText = "最低生活費";
+            this.MIN_COST_LIVING.MinimumWidth = 8;
+            this.MIN_COST_LIVING.Name = "MIN_COST_LIVING";
+            this.MIN_COST_LIVING.ReadOnly = true;
+            this.MIN_COST_LIVING.Width = 90;
+            // 
+            // fAMTDataGridViewTextBoxColumn
+            // 
+            this.fAMTDataGridViewTextBoxColumn.DataPropertyName = "F_AMT";
+            this.fAMTDataGridViewTextBoxColumn.HeaderText = "F_AMT";
+            this.fAMTDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.fAMTDataGridViewTextBoxColumn.Name = "fAMTDataGridViewTextBoxColumn";
+            this.fAMTDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fAMTDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // pAMTDataGridViewTextBoxColumn
+            // 
+            this.pAMTDataGridViewTextBoxColumn.DataPropertyName = "P_AMT";
+            this.pAMTDataGridViewTextBoxColumn.HeaderText = "分期款";
+            this.pAMTDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.pAMTDataGridViewTextBoxColumn.Name = "pAMTDataGridViewTextBoxColumn";
+            this.pAMTDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pAMTDataGridViewTextBoxColumn.Width = 66;
+            // 
+            // tAMTDataGridViewTextBoxColumn
+            // 
+            this.tAMTDataGridViewTextBoxColumn.DataPropertyName = "T_AMT";
+            this.tAMTDataGridViewTextBoxColumn.HeaderText = "總金額";
+            this.tAMTDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.tAMTDataGridViewTextBoxColumn.Name = "tAMTDataGridViewTextBoxColumn";
+            this.tAMTDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tAMTDataGridViewTextBoxColumn.Width = 66;
+            // 
+            // kEYMANDataGridViewTextBoxColumn
+            // 
+            this.kEYMANDataGridViewTextBoxColumn.DataPropertyName = "KEY_MAN";
+            this.kEYMANDataGridViewTextBoxColumn.HeaderText = "登錄者";
+            this.kEYMANDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.kEYMANDataGridViewTextBoxColumn.Name = "kEYMANDataGridViewTextBoxColumn";
+            this.kEYMANDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kEYMANDataGridViewTextBoxColumn.Width = 66;
+            // 
+            // kEYDATEDataGridViewTextBoxColumn
+            // 
+            this.kEYDATEDataGridViewTextBoxColumn.DataPropertyName = "KEY_DATE";
+            this.kEYDATEDataGridViewTextBoxColumn.HeaderText = "登錄日期";
+            this.kEYDATEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.kEYDATEDataGridViewTextBoxColumn.Name = "kEYDATEDataGridViewTextBoxColumn";
+            this.kEYDATEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kEYDATEDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // mEMODataGridViewTextBoxColumn
+            // 
+            this.mEMODataGridViewTextBoxColumn.DataPropertyName = "MEMO";
+            this.mEMODataGridViewTextBoxColumn.HeaderText = "備註";
+            this.mEMODataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.mEMODataGridViewTextBoxColumn.Name = "mEMODataGridViewTextBoxColumn";
+            this.mEMODataGridViewTextBoxColumn.ReadOnly = true;
+            this.mEMODataGridViewTextBoxColumn.Width = 54;
+            // 
+            // dISPATCHDataGridViewTextBoxColumn
+            // 
+            this.dISPATCHDataGridViewTextBoxColumn.DataPropertyName = "DISPATCH";
+            this.dISPATCHDataGridViewTextBoxColumn.HeaderText = "發文字號";
+            this.dISPATCHDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.dISPATCHDataGridViewTextBoxColumn.Name = "dISPATCHDataGridViewTextBoxColumn";
+            this.dISPATCHDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dISPATCHDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // dEDEPTDataGridViewTextBoxColumn
+            // 
+            this.dEDEPTDataGridViewTextBoxColumn.DataPropertyName = "DE_DEPT";
+            this.dEDEPTDataGridViewTextBoxColumn.HeaderText = "債權單位";
+            this.dEDEPTDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.dEDEPTDataGridViewTextBoxColumn.Name = "dEDEPTDataGridViewTextBoxColumn";
+            this.dEDEPTDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dEDEPTDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // dEMANDataGridViewTextBoxColumn
+            // 
+            this.dEMANDataGridViewTextBoxColumn.DataPropertyName = "DE_MAN";
+            this.dEMANDataGridViewTextBoxColumn.HeaderText = "戶名";
+            this.dEMANDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.dEMANDataGridViewTextBoxColumn.Name = "dEMANDataGridViewTextBoxColumn";
+            this.dEMANDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dEMANDataGridViewTextBoxColumn.Width = 54;
+            // 
+            // dETELDataGridViewTextBoxColumn
+            // 
+            this.dETELDataGridViewTextBoxColumn.DataPropertyName = "DE_TEL";
+            this.dETELDataGridViewTextBoxColumn.HeaderText = "債權電話";
+            this.dETELDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.dETELDataGridViewTextBoxColumn.Name = "dETELDataGridViewTextBoxColumn";
+            this.dETELDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dETELDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // dEADDDataGridViewTextBoxColumn
+            // 
+            this.dEADDDataGridViewTextBoxColumn.DataPropertyName = "DE_ADD";
+            this.dEADDDataGridViewTextBoxColumn.HeaderText = "債權地址";
+            this.dEADDDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.dEADDDataGridViewTextBoxColumn.Name = "dEADDDataGridViewTextBoxColumn";
+            this.dEADDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dEADDDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // lAWDEPTDataGridViewTextBoxColumn
+            // 
+            this.lAWDEPTDataGridViewTextBoxColumn.DataPropertyName = "LAW_DEPT";
+            this.lAWDEPTDataGridViewTextBoxColumn.HeaderText = "法院承辦單位";
+            this.lAWDEPTDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.lAWDEPTDataGridViewTextBoxColumn.Name = "lAWDEPTDataGridViewTextBoxColumn";
+            this.lAWDEPTDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lAWDEPTDataGridViewTextBoxColumn.Width = 102;
+            // 
+            // lAWMANDataGridViewTextBoxColumn
+            // 
+            this.lAWMANDataGridViewTextBoxColumn.DataPropertyName = "LAW_MAN";
+            this.lAWMANDataGridViewTextBoxColumn.HeaderText = "法院承辦人";
+            this.lAWMANDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.lAWMANDataGridViewTextBoxColumn.Name = "lAWMANDataGridViewTextBoxColumn";
+            this.lAWMANDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lAWMANDataGridViewTextBoxColumn.Width = 90;
+            // 
+            // lAWTELDataGridViewTextBoxColumn
+            // 
+            this.lAWTELDataGridViewTextBoxColumn.DataPropertyName = "LAW_TEL";
+            this.lAWTELDataGridViewTextBoxColumn.HeaderText = "法院聯絡電話";
+            this.lAWTELDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.lAWTELDataGridViewTextBoxColumn.Name = "lAWTELDataGridViewTextBoxColumn";
+            this.lAWTELDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lAWTELDataGridViewTextBoxColumn.Width = 102;
+            // 
+            // pDATEDataGridViewTextBoxColumn
+            // 
+            this.pDATEDataGridViewTextBoxColumn.DataPropertyName = "P_DATE";
+            this.pDATEDataGridViewTextBoxColumn.HeaderText = "發文日期";
+            this.pDATEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.pDATEDataGridViewTextBoxColumn.Name = "pDATEDataGridViewTextBoxColumn";
+            this.pDATEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pDATEDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // fDATEDataGridViewTextBoxColumn
+            // 
+            this.fDATEDataGridViewTextBoxColumn.DataPropertyName = "F_DATE";
+            this.fDATEDataGridViewTextBoxColumn.HeaderText = "收文日期";
+            this.fDATEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.fDATEDataGridViewTextBoxColumn.Name = "fDATEDataGridViewTextBoxColumn";
+            this.fDATEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fDATEDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // tDATEDataGridViewTextBoxColumn
+            // 
+            this.tDATEDataGridViewTextBoxColumn.DataPropertyName = "T_DATE";
+            this.tDATEDataGridViewTextBoxColumn.HeaderText = "聲明日期";
+            this.tDATEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.tDATEDataGridViewTextBoxColumn.Name = "tDATEDataGridViewTextBoxColumn";
+            this.tDATEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tDATEDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // cDATEDataGridViewTextBoxColumn
+            // 
+            this.cDATEDataGridViewTextBoxColumn.DataPropertyName = "C_DATE";
+            this.cDATEDataGridViewTextBoxColumn.HeaderText = "結案日期";
+            this.cDATEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.cDATEDataGridViewTextBoxColumn.Name = "cDATEDataGridViewTextBoxColumn";
+            this.cDATEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cDATEDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // pPERDataGridViewTextBoxColumn
+            // 
+            this.pPERDataGridViewTextBoxColumn.DataPropertyName = "P_PER";
+            this.pPERDataGridViewTextBoxColumn.HeaderText = "併案百分比";
+            this.pPERDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.pPERDataGridViewTextBoxColumn.Name = "pPERDataGridViewTextBoxColumn";
+            this.pPERDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pPERDataGridViewTextBoxColumn.Width = 90;
+            // 
+            // aCNODataGridViewTextBoxColumn
+            // 
+            this.aCNODataGridViewTextBoxColumn.DataPropertyName = "ACNO";
+            this.aCNODataGridViewTextBoxColumn.HeaderText = "編號";
+            this.aCNODataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.aCNODataGridViewTextBoxColumn.Name = "aCNODataGridViewTextBoxColumn";
+            this.aCNODataGridViewTextBoxColumn.ReadOnly = true;
+            this.aCNODataGridViewTextBoxColumn.Width = 54;
             // 
             // FRM46B
             // 
@@ -1716,6 +1735,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.baseDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sALCODEBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.basDS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1802,12 +1822,15 @@
         private System.Windows.Forms.ComboBox ptxDept;
         private System.Windows.Forms.Label label30;
         private JBControls.TextBox textBoxMinCostLiving;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private Bas.BasDS basDS;
+        private Bas.BasDSTableAdapters.DEPTTableAdapter dEPTTableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nAMECDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nOBRDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sALNAMEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn yYMMBDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn yYMMEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dNODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dNODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dEPTNAMEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sALCODEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sEQDataGridViewTextBoxColumn;
@@ -1835,6 +1858,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cDATEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pPERDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn aCNODataGridViewTextBoxColumn;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
     }
 }

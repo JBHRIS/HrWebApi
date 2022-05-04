@@ -26,8 +26,11 @@ namespace JBHR.Sal
             SystemFunction.SetComboBoxItems(cbxOtRateCD, CodeFunction.GetOtRatecd(), true, false, true);
             this.oTTableAdapter.FillByInit(this.salaryDS.FRM47);
             this.rOTETableAdapter.Fill(this.attendDS.ROTE);
-            //this.oTRCDTableAdapter.Fill(this.attendDS.OTRCD);
+            this.oTRCDTableAdapter.Fill(this.attendDS.OTRCD);
             //this.dEPTTableAdapter.Fill(this.baseDS.DEPT);
+            this.dEPTTableAdapter1.Fill(this.basDS.DEPT, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN);
+            this.dEPTSTableAdapter.Fill(this.basDS.DEPTS, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN);
+
 
             BasDataClassesDataContext db = new BasDataClassesDataContext();
             var u_prg = (from c in db.U_PRGID where c.USER_ID.Trim() == MainForm.USER_ID && c.PROG.Trim().ToLower() == this.Name.ToLower() select c).FirstOrDefault();
