@@ -35,7 +35,8 @@
             this.txtYYMM = new System.Windows.Forms.TextBox();
             this.txtSeq = new System.Windows.Forms.TextBox();
             this.ptxNobr = new JBControls.PopupTextBox();
-            this.lbMessage = new System.Windows.Forms.Label();
+            this.tBASEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.medDS = new JBHR.Med.MedDS();
             this.lbNote1 = new System.Windows.Forms.Label();
             this.lbNote2 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
@@ -49,9 +50,8 @@
             this.txtD_AMT = new JBControls.TextBox();
             this.lbWCode = new System.Windows.Forms.Label();
             this.cbxWCode = new System.Windows.Forms.ComboBox();
-            this.tBASEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.medDS = new JBHR.Med.MedDS();
             this.tBASETableAdapter = new JBHR.Med.MedDSTableAdapters.TBASETableAdapter();
+            this.lbMessage = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tBASEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medDS)).BeginInit();
@@ -75,7 +75,6 @@
             this.tableLayoutPanel1.Controls.Add(this.txtYYMM, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtSeq, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.ptxNobr, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lbMessage, 4, 3);
             this.tableLayoutPanel1.Controls.Add(this.lbNote1, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.lbNote2, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.btnSave, 2, 4);
@@ -89,6 +88,7 @@
             this.tableLayoutPanel1.Controls.Add(this.txtD_AMT, 5, 2);
             this.tableLayoutPanel1.Controls.Add(this.lbWCode, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.cbxWCode, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lbMessage, 6, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 13);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -163,15 +163,17 @@
             this.ptxNobr.WhereCmd = "";
             this.ptxNobr.QueryCompleted += new JBControls.PopupTextBox.QueryCompletedHandler(this.ptxNobr_QueryCompleted);
             // 
-            // lbMessage
+            // tBASEBindingSource
             // 
-            this.lbMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbMessage.AutoSize = true;
-            this.lbMessage.ForeColor = System.Drawing.Color.Red;
-            this.lbMessage.Location = new System.Drawing.Point(289, 92);
-            this.lbMessage.Name = "lbMessage";
-            this.lbMessage.Size = new System.Drawing.Size(54, 12);
-            this.lbMessage.TabIndex = 74;
+            this.tBASEBindingSource.DataMember = "TBASE";
+            this.tBASEBindingSource.DataSource = this.medDS;
+            // 
+            // medDS
+            // 
+            this.medDS.DataSetName = "MedDS";
+            this.medDS.Locale = new System.Globalization.CultureInfo("zh-TW");
+            this.medDS.RemotingFormat = System.Data.SerializationFormat.Binary;
+            this.medDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lbNote1
             // 
@@ -328,21 +330,19 @@
             this.cbxWCode.Size = new System.Drawing.Size(120, 20);
             this.cbxWCode.TabIndex = 79;
             // 
-            // tBASEBindingSource
-            // 
-            this.tBASEBindingSource.DataMember = "TBASE";
-            this.tBASEBindingSource.DataSource = this.medDS;
-            // 
-            // medDS
-            // 
-            this.medDS.DataSetName = "MedDS";
-            this.medDS.Locale = new System.Globalization.CultureInfo("zh-TW");
-            this.medDS.RemotingFormat = System.Data.SerializationFormat.Binary;
-            this.medDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tBASETableAdapter
             // 
             this.tBASETableAdapter.ClearBeforeFill = true;
+            // 
+            // lbMessage
+            // 
+            this.lbMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbMessage.AutoSize = true;
+            this.lbMessage.ForeColor = System.Drawing.Color.Red;
+            this.lbMessage.Location = new System.Drawing.Point(429, 64);
+            this.lbMessage.Name = "lbMessage";
+            this.lbMessage.Size = new System.Drawing.Size(71, 12);
+            this.lbMessage.TabIndex = 80;
             // 
             // FRM62N_ADD
             // 
@@ -378,12 +378,12 @@
         private System.Windows.Forms.Label lbNote2;
         private System.Windows.Forms.Label lbFormat;
         private System.Windows.Forms.ComboBox cbxFormat;
-        private System.Windows.Forms.Label lbMessage;
         private System.Windows.Forms.Button btnCopy;
         private System.Windows.Forms.Label lbWCode;
         private System.Windows.Forms.ComboBox cbxWCode;
         private System.Windows.Forms.BindingSource tBASEBindingSource;
         private Med.MedDS medDS;
         private Med.MedDSTableAdapters.TBASETableAdapter tBASETableAdapter;
+        private System.Windows.Forms.Label lbMessage;
     }
 }

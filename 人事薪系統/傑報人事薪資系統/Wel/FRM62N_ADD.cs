@@ -43,7 +43,13 @@ namespace JBHR.Wel
         private void FRM62N_ADD_Load(object sender, EventArgs e)
         {
             this.tBASETableAdapter.Fill(this.medDS.TBASE);
-            SystemFunction.SetComboBoxItems(cbxFormat, CodeFunction.GetFormat(), false, true);
+            //SystemFunction.SetComboBoxItems(cbxFormat, CodeFunction.GetFormat(), false, true);
+            Dictionary<string, string> formatList = new Dictionary<string, string>
+            {
+                { "91", "91-競技競賽及機會中獎獎金" },
+                { "92", "92 8A-職工福利金" }
+            };
+            SystemFunction.SetComboBoxItems(cbxFormat, formatList, false, true);
             SystemFunction.SetComboBoxItems(cbxWCode, CodeFunction.GetWcode(), true, true);
 
             initialNoteControls();
@@ -71,7 +77,10 @@ namespace JBHR.Wel
                     Note2 = string.Empty,
                     KEY_DATE = DateTime.Now,
                     KEY_MAN = MainForm.USER_NAME,
-                    SALADR =String.Empty,
+                    SALADR = String.Empty,
+                    COMP = String.Empty,
+                    DATE_B = new DateTime(1900, 1, 1),
+                    DATE_E = new DateTime(1900, 1, 1),
                 };
             }
             else
@@ -222,19 +231,26 @@ namespace JBHR.Wel
             string SEQ = txtSeq.Text;
             string FORMAT = cbxFormat.SelectedValue.ToString();
             string SAL_CODE = cbxWCode.SelectedValue.ToString();
-            DateTime CheckDate = new DateTime(YYYY, MM, 1).AddMonths(1).AddDays(-1);
+            SalaryDate sd = new SalaryDate(YYMM);
+            //DateTime CheckDate = new DateTime(YYYY, MM, 1).AddMonths(1).AddDays(-1);
+            DateTime CheckDate = sd.LastDayOfSalary;
             decimal AMT = JBModule.Data.CEncrypt.Number(Convert.ToDecimal(txtAMT.Text));
             decimal D_AMT = JBModule.Data.CEncrypt.Number(Convert.ToDecimal(txtD_AMT.Text));
             string Note1 = Note1Type == "COMBOBOX" ? cbxNote1.SelectedValue.ToString() : txtNote1.Text;
             string Note2 = Note2Type == "COMBOBOX" ? cbxNote2.SelectedValue.ToString() : txtNote2.Text;
             string SALADR = string.Empty;
-            var sql = from a in db.BASETTS where a.NOBR == ptxNobr.Text && CheckDate >= a.ADATE && CheckDate <= a.DDATE.Value select a;
+            var sql = from a in db.BASETTS where a.NOBR == Nobr && CheckDate >= a.ADATE && CheckDate <= a.DDATE.Value select a;
+            string COMP = MainForm.COMPANY;
             if (sql.Any())
+            {
                 SALADR = sql.First().SALADR;
+                COMP = sql.First().COMP;
+            }
             if (!MainForm.WriteDataGroups.Contains(SALADR.ToString()))
                 SALADR = MainForm.WriteDataGroups.First();
             string action = "Update";
-
+            DateTime DATE_B = sd.FirstDayOfSalary;
+            DateTime DATE_E = sd.LastDayOfSalary;
             //bool changed = false;
             //if (Welf_ID != -1)
             //{
@@ -275,6 +291,9 @@ namespace JBHR.Wel
             instance.KEY_MAN = MainForm.USER_NAME;
             instance.KEY_DATE = DateTime.Now;
             instance.SALADR = SALADR;
+            instance.COMP = COMP;
+            instance.DATE_B = DATE_B;
+            instance.DATE_E = DATE_E;
             instanceCopy = instance.Clone();
             db.SubmitChanges();
             JBModule.Message.DbLog.WriteLog(action, instance, this.Name, instance.AUTO);
@@ -286,7 +305,7 @@ namespace JBHR.Wel
             else
             {
                 lbMessage.Text = "存檔完成!";
-                SalaryDate sd = new SalaryDate(DateTime.Today);
+                sd = new SalaryDate(DateTime.Today);
                 instance = new JBModule.Data.Linq.WELF
                 {
                     NOBR = string.Empty,
@@ -296,13 +315,16 @@ namespace JBHR.Wel
                     SAL_CODE = string.Empty,
                     AMT = 0,
                     D_AMT = 0,
-                    TR_TYPE = string.Empty,
+                    TR_TYPE = "1",
                     Note1 = string.Empty,
                     Note2 = string.Empty,
                     KEY_DATE = DateTime.Now,
                     KEY_MAN = MainForm.USER_NAME,
                     SALADR = String.Empty,
                     AUTO = Welf_ID,
+                    COMP = String.Empty,
+                    DATE_B = new DateTime(1900, 1, 1),
+                    DATE_E = new DateTime(1900, 1, 1),
                 };
                 ptxNobr.Text = instance.NOBR;
                 txtYYMM.Text = instance.YYMM;

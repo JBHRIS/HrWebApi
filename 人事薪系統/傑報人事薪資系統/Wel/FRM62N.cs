@@ -88,9 +88,9 @@ namespace JBHR.Wel
                            where db.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Select(p => p.DATAGROUP).Contains(bts.SALADR)
                            select bts).ToList(),
             };
-
+            List<string> FormatList = new List<string>() { "91", "92" };
             frm.DataTransfer.CheckData.Add("員工編號", db.TBASE.Select(p => new JBControls.CheckImportData { DisplayCode = p.NOBR, RealCode = p.NOBR, DisplayName = p.NAME_C }).ToList());
-            frm.DataTransfer.CheckData.Add("所得格式", db.YRFORMAT.Select(p => new JBControls.CheckImportData { DisplayCode = p.M_FORMAT, RealCode = p.M_FORMAT, DisplayName = p.M_FMT_NAME }).ToList());
+            frm.DataTransfer.CheckData.Add("所得格式", db.YRFORMAT.Where(p=> FormatList.Contains(p.M_FORMAT)).Select(p => new JBControls.CheckImportData { DisplayCode = p.M_FORMAT, RealCode = p.M_FORMAT, DisplayName = p.M_FMT_NAME }).ToList());
             frm.DataTransfer.CheckData.Add("福利金代號", db.WCODE.Select(p => new JBControls.CheckImportData { DisplayCode = p.W_CODE, RealCode = p.W_CODE, DisplayName = p.W_NAME }).ToList());
             if (Note1Enable && Note1Type == "COMBOBOX" && !string.IsNullOrEmpty(Note1DataSource))
                 frm.DataTransfer.CheckData.Add(Note1Label, (Med.FRM71N1.GetDataSource(db, Note1DataSource, true) as DataTable).AsEnumerable().Select(p => new JBControls.CheckImportData { DisplayCode = p.Field<string>(2), RealCode = p.Field<string>(0), DisplayName = p.Field<string>(3) }).ToList());

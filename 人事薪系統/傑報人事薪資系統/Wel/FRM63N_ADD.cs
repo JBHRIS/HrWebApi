@@ -60,6 +60,7 @@ namespace JBHR.Wel
             else instance.RelaseDate = null;
             instance.Key_Date = DateTime.Now;
             instance.Key_Man = MainForm.USER_ID;
+            instance.TAX_Type = "Wel";
             db.SubmitChanges();
             this.Close();
         }

@@ -1883,6 +1883,9 @@
     <EmbeddedResource Include="Wel\FRM63N2_RepeatIDNO.resx">
       <DependentUpon>FRM63N2_RepeatIDNO.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Wel\FRM63N_ADD.resx">
+      <DependentUpon>FRM63N_ADD.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="AnnualBonus\HunyaCustom\Hunya_AnnualBonus.xsc">
       <DependentUpon>Hunya_AnnualBonus.xsd</DependentUpon>
     </None>
@@ -2413,6 +2416,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlStorage\sql\2022041803_Create_View_Welf.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022042701_AlterTW_TAXAddTAX_TypeAndAlterView_TW_TAX.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlStorage\sql\AlterSalcode.sql">
@@ -5432,6 +5438,12 @@
     <Content Include="SqlStorage\jq\2021101201_假日班別批次調整.jq">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="SqlStorage\jq\2022042701_福利金資料維護.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\2022042702_福利金年度申報.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="TRA\traDS1.xsc">
       <DependentUpon>traDS1.xsd</DependentUpon>
     </None>
@@ -7636,6 +7648,12 @@
     </Compile>
     <Compile Include="Wel\FRM63N2_RepeatIDNO.Designer.cs">
       <DependentUpon>FRM63N2_RepeatIDNO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wel\FRM63N_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wel\FRM63N_ADD.designer.cs">
+      <DependentUpon>FRM63N_ADD.cs</DependentUpon>
     </Compile>
     <Compile Include="Wel\WelDS.Designer.cs">
       <AutoGen>True</AutoGen>

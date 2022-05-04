@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JBHR.Sal.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -212,12 +213,21 @@ namespace JBHR.Wel
                 item.YYMM = TransferRow["所得年月"].ToString();
                 int YYYY = int.Parse(item.YYMM.Substring(0, 4));
                 int MM = int.Parse(item.YYMM.Substring(4, 2));
-                DateTime CheckDate = new DateTime(YYYY, MM, 1).AddMonths(1).AddDays(-1);
+                SalaryDate sd = new SalaryDate(item.YYMM);
+                //DateTime CheckDate = new DateTime(YYYY, MM, 1).AddMonths(1).AddDays(-1);
+                DateTime CheckDate = sd.LastDayOfSalary;
+                item.SALADR = string.Empty;
                 var sql = from a in bASETTs where a.NOBR == item.NOBR && CheckDate >= a.ADATE && CheckDate <= a.DDATE.Value select a;
+                string COMP = MainForm.COMPANY;
                 if (sql.Any())
+                {
                     item.SALADR = sql.First().SALADR;
+                    item.COMP = sql.First().COMP;
+                }
                 if (!MainForm.WriteDataGroups.Contains(item.SALADR.ToString()))
                     item.SALADR = MainForm.WriteDataGroups.First();
+                DateTime DATE_B = sd.FirstDayOfSalary;
+                DateTime DATE_E = sd.LastDayOfSalary;
                 item.SEQ = TransferRow["期別"].ToString();
                 item.FORMAT = TransferRow["所得格式"].ToString();
                 item.AMT = JBModule.Data.CEncrypt.Number(Convert.ToDecimal(TransferRow["給付總額"]));
@@ -227,6 +237,9 @@ namespace JBHR.Wel
                 item.KEY_DATE = DateTime.Now;
                 item.KEY_MAN = MainForm.USER_NAME;
                 //item.PID = TW_TAX_AUTO;
+                item.COMP = COMP;
+                item.DATE_B = DATE_B;
+                item.DATE_E = DATE_E;
                 JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
                 db.WELF.InsertOnSubmit(item);
                 db.SubmitChanges();

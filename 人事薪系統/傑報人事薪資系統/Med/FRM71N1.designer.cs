@@ -111,7 +111,7 @@
             // 
             // btnConfig
             // 
-            this.btnConfig.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnConfig.BackgroundImage = global::JBHR.Properties.Resources.Settings_icon;
             this.btnConfig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnConfig.Location = new System.Drawing.Point(971, 65);

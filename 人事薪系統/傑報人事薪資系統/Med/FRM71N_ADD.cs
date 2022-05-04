@@ -60,6 +60,7 @@ namespace JBHR.Med
             else instance.RelaseDate = null;
             instance.Key_Date = DateTime.Now;
             instance.Key_Man = MainForm.USER_ID;
+            instance.TAX_Type = "Med";
             db.SubmitChanges();
             this.Close();
         }

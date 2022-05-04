@@ -119,6 +119,7 @@
             this.btnSave.TabIndex = 66;
             this.btnSave.Text = "存檔";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -129,6 +130,7 @@
             this.btnCancel.TabIndex = 67;
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lbNote1
             // 
@@ -260,6 +262,7 @@
             this.btnCopy.TabIndex = 77;
             this.btnCopy.Text = "複製";
             this.btnCopy.UseVisualStyleBackColor = true;
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
             // TW_TAX_ITEMbindingSource
             // 
@@ -478,6 +481,7 @@
             this.cbxFormat.Name = "cbxFormat";
             this.cbxFormat.Size = new System.Drawing.Size(120, 20);
             this.cbxFormat.TabIndex = 5;
+            this.cbxFormat.SelectedIndexChanged += new System.EventHandler(this.cbxFormat_SelectedValueChanged);
             // 
             // lbSubcode
             // 
@@ -507,6 +511,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormSize = JBControls.JBForm.FormSizeType.Custom;
             this.Name = "FRM63N1_ADD";
+            this.Load += new System.EventHandler(this.FRM63N1_ADD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.TW_TAX_ITEMbindingSource)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

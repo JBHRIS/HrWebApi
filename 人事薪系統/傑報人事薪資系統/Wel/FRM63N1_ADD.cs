@@ -45,7 +45,13 @@ namespace JBHR.Wel
         {
             this.tBASETableAdapter.Fill(this.medDS.TBASE);
             SystemFunction.SetComboBoxItems(cbxComp, CodeFunction.GetComp(), false, true);
-            SystemFunction.SetComboBoxItems(cbxFormat, CodeFunction.GetFormat(), false, true);
+            //SystemFunction.SetComboBoxItems(cbxFormat, CodeFunction.GetFormat(), false, true);
+            Dictionary<string, string> formatList = new Dictionary<string, string>
+            {
+                { "91", "91-競技競賽及機會中獎獎金" },
+                { "92", "92-其他" }
+            };
+            SystemFunction.SetComboBoxItems(cbxFormat, formatList, false, true);
 
             initialNoteControls();
 
@@ -65,8 +71,8 @@ namespace JBHR.Wel
                     YYMM = sd.YYMM,
                     SEQ = "2",
                     COMP = string.Empty,
-                    FORMAT = "50",
-                    SUBCODE = 0,
+                    FORMAT = "92",
+                    SUBCODE = int.Parse(CodeFunction.GetForsub("92").Where(p => p.Value.Contains("8A")).First().Key),//0,
                     SAL_CODE = string.Empty,
                     FORSUB = string.Empty,
                     AMT = 0,
@@ -219,7 +225,7 @@ namespace JBHR.Wel
         }
         private void cbxFormat_SelectedValueChanged(object sender, EventArgs e)
         {
-            var source = CodeFunction.GetForsub(cbxFormat.SelectedValue.ToString());
+            var source = CodeFunction.GetForsub(cbxFormat.SelectedValue.ToString()).Where(p => p.Value.Contains("8A")).ToDictionary(p => p.Key, p => p.Value);
             SystemFunction.SetComboBoxItems(cbxForsub, source, source.Count > 0 ? false : true);
             cbxForsub.SelectedIndex = 0;
         }
@@ -323,8 +329,8 @@ namespace JBHR.Wel
                     YYMM = sd.YYMM,
                     SEQ = "2",
                     COMP = string.Empty,
-                    FORMAT = "50",
-                    SUBCODE = 0,
+                    FORMAT = "92",
+                    SUBCODE = int.Parse(CodeFunction.GetForsub("92").Where(p => p.Value.Contains("8A")).First().Key),//0,
                     SAL_CODE = string.Empty,
                     FORSUB = string.Empty,
                     AMT = 0,

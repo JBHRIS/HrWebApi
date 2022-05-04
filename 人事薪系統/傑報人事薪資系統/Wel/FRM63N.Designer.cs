@@ -109,7 +109,7 @@
             this.jbQuery1.Location = new System.Drawing.Point(12, 11);
             this.jbQuery1.Margin = new System.Windows.Forms.Padding(4);
             this.jbQuery1.Name = "jbQuery1";
-            this.jbQuery1.QuerySettingString = "TW_TAX";
+            this.jbQuery1.QuerySettingString = "TW_TAX_Wel";
             this.jbQuery1.RadDataGrid = null;
             this.jbQuery1.Size = new System.Drawing.Size(642, 77);
             this.jbQuery1.SortString = "";
