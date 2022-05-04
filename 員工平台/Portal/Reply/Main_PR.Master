@@ -86,13 +86,15 @@
                                 <li class="dropdown">
                                     <a aria-expanded="false" id="ProblemReturn" runat="server" role="button" href="ProblemReturn.aspx">我要回報</a>
                                 </li>
-                                <li class="dropdown">
+                               <li class="dropdown">
                                     <a aria-expanded="false" id="ProblemReturnList" runat="server"  role="button" href="ProblemReturnList.aspx">回報記錄</a>
                                 </li>
                                 <li class="dropdown">
                                     <a aria-expanded="false" id="ProblemReturnListM" runat="server"  role="button" href="ProblemReturnListM.aspx">回覆管理</a>
                                 </li>
-
+                                <li class="dropdown">
+                                    <a aria-expanded="false" id="MessageList" runat="server"  role="button" href="MessageList.aspx">預設訊息管理</a>
+                                </li>
                             </ul>
                             <ul class="nav navbar-top-links navbar-right">
                                 <li>

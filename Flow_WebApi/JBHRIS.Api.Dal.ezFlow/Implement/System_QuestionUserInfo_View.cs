@@ -22,10 +22,10 @@ namespace JBHRIS.Api.Dal.ezFlow.Implement
 
 
 
-        public List<QuestionUserInfoVdb> GetQuestionUserInfoByCode(string Code)
+        public List<QuestionUserInfoVdb> GetQuestionUserInfoByCompanyIdAndAccountCode(string CompnayId,string AccountCode)
         {
             List<QuestionUserInfoVdb> result = (from bn in this._context.QuestionUserInfos
-                                                where bn.Code == Code
+                                                where bn.CompanyId == CompnayId && bn.AccountCode == AccountCode
                                                 select new QuestionUserInfoVdb
                                                 {
                                                     AutoKey = bn.AutoKey,

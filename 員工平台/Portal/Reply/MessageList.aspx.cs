@@ -52,7 +52,7 @@ namespace Portal
                     {
 
                         var rsQM = rsGetQuestionMain.Data as List<ShareGetQuestionDefaultMessageByCompanyIdRow>;
-                        lvMain.DataSource = rsQM;
+                        lvMain.DataSource = rsQM.OrderByDescending(x => x.InsertDate);
                         var Script = "$(document).ready(function() {$('.footable').footable();});";
                         ScriptManager.RegisterStartupScript(this, typeof(UpdatePanel), "footable", Script, true);
                     }

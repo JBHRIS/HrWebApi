@@ -44,16 +44,16 @@
         </div>
         <div class="social-body">
             <p>
-                  <label>標題 :</label>
+                  <label><strong>標題 :</strong></label>
                 <telerik:RadLabel ID="lblTitle" runat="server" Text="" />
             </p>
             <p>
-                <label>回覆類型 :</label>
+                <label><strong>回覆類型 :</strong></label>
                 <telerik:RadLabel ID="lblQuestionCategory" runat="server" Text="" />
             </p>
 
             <p>
-                <label>內容 :</label>
+                <label><strong>內容 :</strong></label>
                 <telerik:RadLabel ID="lblContent" runat="server" Text="" />
             </p>
 
@@ -74,7 +74,7 @@
                     <telerik:RadAjaxPanel ID="RadAjaxPanel4" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
                         <telerik:RadListView ID="DataUpload" runat="server" ItemPlaceholderID="Container" RenderMode="Lightweight" OnNeedDataSource="DataUpload_NeedDataSource">
                             <LayoutTemplate>
-                                <table class="footable table table-stripped" data-page-size="10" data-filter="#filter">
+                                <table class="footable table table-stripped" data-page-size="10" data-filter="#filter" style="margin-bottom:0;">
                                     <thead>
                                         <tr>
                                             <th>檔名</th>
@@ -84,13 +84,13 @@
                                     </thead>
                                     <tbody id="Container" runat="server">
                                     </tbody>
-                                    <tfoot>
+                                    <!--<tfoot>
                                         <tr>
                                             <td colspan="5">
                                                 <ul class="pagination float-right"></ul>
                                             </td>
                                         </tr>
-                                    </tfoot>
+                                    </tfoot>-->
                                 </table>
                             </LayoutTemplate>
                             <ItemTemplate>
@@ -110,7 +110,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <button id="btnWtReply" type="button" runat="server" data-toggle="show" data-target="#demo" class="btn btn-outline btn-primary btn-w-m m-b-xs" onclick="demofocus()">我要回覆</button>
+                <button id="btnWtReply" type="button" runat="server" data-toggle="show" data-target="#demo" class="btn btn-outline btn-primary btn-w-m m-b-xs">我要回覆</button>
             </div>
 
         </div>
@@ -295,6 +295,7 @@
     <asp:Label ID="lblUserCode" runat="server" Visible="False"></asp:Label>
     <asp:Label ID="lblEmpID" runat="server" Visible="False"></asp:Label>
     <asp:Label ID="lblCompanyId" runat="server" Visible="False"></asp:Label>
+      <asp:Label ID="lblEmpEmail" runat="server" Visible="False"></asp:Label>
     <asp:Label ID="lblEmpName" runat="server" Visible="False"></asp:Label>
     <asp:Label ID="lblRoleKey" runat="server" Visible="False"></asp:Label>
 </asp:Content>
@@ -302,12 +303,9 @@
     <script src="Templates/Inspinia/js/plugins/footable/footable.all.min.js"></script>
 
     <script>
-        function demofocus() {
-            $('#demo').collapse('show');
-            $('#demo').focus()
-
-        };
-
+        $('#demo').on('shown.bs.collapse', function () {
+            $('#demo').focus();
+        })
 
         function download(FileId) {
 

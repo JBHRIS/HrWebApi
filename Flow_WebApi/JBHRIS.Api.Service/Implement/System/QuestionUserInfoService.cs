@@ -15,9 +15,9 @@ namespace JBHRIS.Api.Service.Implement.System
             this._ISystem_QuestionUserInfo_View = system_QuestionUserInfo_View;
         }
 
-        public List<QuestionUserInfoVdb> GetQuestionUserInfoByCode(string Code)
+        public List<QuestionUserInfoVdb> GetQuestionUserInfoByCompanyIdAndAccountCode(string CompnayId,string AccountCode)
         {
-            return this._ISystem_QuestionUserInfo_View.GetQuestionUserInfoByCode(Code);
+            return this._ISystem_QuestionUserInfo_View.GetQuestionUserInfoByCompanyIdAndAccountCode(CompnayId, AccountCode);
         }
      
 

@@ -9,17 +9,17 @@
 
                 <div class="row">
                     <div class="col-lg-7">
-                        <h2>預設訊息設定</h2>
+                        <h2>預設訊息管理</h2>
                     </div>
                     <div class="col-lg-5">
                         <div class="row">
                             <div class="col-lg-4 text-right m-b-xs">
-                                <telerik:RadButton ID="btnAdd" runat="server" Text="建立" OnClick="btnAdd_Click" CssClass="btn btn-primary btn-md m-t-xs">
+                                <telerik:RadButton ID="btnAdd" runat="server" Text="建立" OnClick="btnAdd_Click" CssClass="btn btn-primary btn-md">
                                     <Icon PrimaryIconCssClass="rbAdd" />
                                 </telerik:RadButton>
                             </div>
                             <div class="col-lg-8">
-                                 <input type="text" class="form-control form-control-sm m-b-xs" id="filter"
+                                 <input type="text" class="form-control form-control-sm m-b-xs"  id="filter" style="background-color:#FFFFFF;"
                                     placeholder="搜尋表格內的字串">
                                 <!--<select class="form-control m-b" name="account">
                                  <option>未回覆</option>
@@ -98,13 +98,13 @@
                     </div>
                 </div>
             </div>
-             <div class="ibox-content">
+            <%-- <div class="ibox-content">
             <telerik:RadButton ID="btnPage" runat="server" Text="上一頁" CssClass="btn btn-primary btn-md btn-outline" OnClick="btnPage_Click">
                 <Icon PrimaryIconCssClass="rbPrevious" />
             </telerik:RadButton>
 
 
-        </div>
+        </div>--%>
         </telerik:RadAjaxPanel>
     </div>
 </asp:Content>

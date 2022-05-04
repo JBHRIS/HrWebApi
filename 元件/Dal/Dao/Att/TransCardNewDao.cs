@@ -505,7 +505,7 @@ namespace Dal.Dao.Att
                                        where c.NOBR == sNobr
                                        && c.ADATE.Date >= oCond.dDateB.AddDays(-2).Date
                                        && c.ADATE.Date <= oCond.dDateE.AddDays(10).Date
-                                       orderby r.WK_HRS descending, c.NOBR, c.ADATE
+                                       orderby r.WK_HRS descending, c.ROTE, c.NOBR, c.ADATE
                                        select c).ToList());
 
                     rsATTCARD.AddRange((from c in dcHr.ATTCARD
@@ -528,7 +528,7 @@ namespace Dal.Dao.Att
                                        where lsNobr.Contains(c.NOBR)
                                        && c.ADATE.Date >= oCond.dDateB.AddDays(-2).Date
                                        && c.ADATE.Date <= oCond.dDateE.AddDays(10).Date
-                                       orderby r.WK_HRS descending, c.NOBR, c.ADATE
+                                       orderby r.WK_HRS descending , c.ROTE, c.NOBR, c.ADATE
                                        select c).ToList());
 
                     rsATTCARD.AddRange((from c in dcHr.ATTCARD

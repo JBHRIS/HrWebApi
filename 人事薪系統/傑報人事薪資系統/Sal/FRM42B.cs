@@ -493,7 +493,7 @@ namespace JBHR.Sal
                             comboBox5.Enabled = false;
                         }
 
-                    if (comboBox1.SelectedValue.ToString() != "String" && comboBox1.SelectedValue.ToString() != "Fixed")
+                    if (comboBox1.SelectedValue.ToString() != "String" && comboBox1.SelectedValue.ToString() != "Fixed" && comboBox1.SelectedValue.ToString() != "Date")
                     {
                         comboBox2.SelectedIndex = 0;
                         comboBox2.Enabled = false;

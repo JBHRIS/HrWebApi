@@ -41,6 +41,7 @@ namespace Portal
        
         private void SetUserInfo()
         {
+            lblEmpEmail.Text = _User.EmpEmail;
             lblUserCode.Text = _User.UserCode;
             lblCompanyId.Text = _User.CompanyId;
             lblEmpID.Text = _User.EmpId;
@@ -133,7 +134,8 @@ namespace Portal
                 if (result.Status)
                 {
                     lblAddStatus.InnerText = "送出成功!";
-
+                    var oGetQuestionUserInfoByCode = new ShareGetQuestionUserInfoByCodeDao();
+                    var oGetQuestionUserInfoByCodeCond = new ShareGetQuestionUserInfoByCodeConditions();
                     var oSendMail = new ShareSendQueueDao();
                     if (_User.EmpEmail != "" && _User.EmpEmail != null)
                     {

@@ -8,7 +8,7 @@ namespace JBHRIS.Api.Dal.Interface
     public interface ISystem_QuestionUserInfo_View
     {
 
-        List<QuestionUserInfoVdb> GetQuestionUserInfoByCode(string Code);
+        List<QuestionUserInfoVdb> GetQuestionUserInfoByCompanyIdAndAccountCode(string CompanyId,string AccountCode);
 
       
 
