@@ -31,18 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new JBControls.DataGridView();
-            this.nOBRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nAMECDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sALNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yYMMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sEQDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sALCODEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aCNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wAGEDDBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.salaryDS = new JBHR.Sal.SalaryDS();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -74,6 +62,20 @@
             this.sALBASNDTableAdapter = new JBHR.Sal.SalaryDSTableAdapters.SALBASNDTableAdapter();
             this.bASETableAdapter = new JBHR.Sal.SalaryDSTableAdapters.BASETableAdapter();
             this.sALCODETableAdapter = new JBHR.Sal.SalaryDSTableAdapters.SALCODETableAdapter();
+            this.basDS = new JBHR.Bas.BasDS();
+            this.dEPTTableAdapter1 = new JBHR.Bas.BasDSTableAdapters.DEPTTableAdapter();
+            this.nOBRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nAMECDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sALNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yYMMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sEQDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sALCODEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aCNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -93,6 +95,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.baseDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sALCODEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.basDS)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -141,90 +144,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(626, 160);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // nOBRDataGridViewTextBoxColumn
-            // 
-            this.nOBRDataGridViewTextBoxColumn.DataPropertyName = "NOBR";
-            this.nOBRDataGridViewTextBoxColumn.HeaderText = "員工編號";
-            this.nOBRDataGridViewTextBoxColumn.Name = "nOBRDataGridViewTextBoxColumn";
-            this.nOBRDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nAMECDataGridViewTextBoxColumn
-            // 
-            this.nAMECDataGridViewTextBoxColumn.DataPropertyName = "NAME_C";
-            this.nAMECDataGridViewTextBoxColumn.HeaderText = "員工姓名";
-            this.nAMECDataGridViewTextBoxColumn.Name = "nAMECDataGridViewTextBoxColumn";
-            this.nAMECDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dNODataGridViewTextBoxColumn
-            // 
-            this.dNODataGridViewTextBoxColumn.DataPropertyName = "D_NO";
-            this.dNODataGridViewTextBoxColumn.HeaderText = "部門編號";
-            this.dNODataGridViewTextBoxColumn.Name = "dNODataGridViewTextBoxColumn";
-            this.dNODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dNAMEDataGridViewTextBoxColumn
-            // 
-            this.dNAMEDataGridViewTextBoxColumn.DataPropertyName = "D_NAME";
-            this.dNAMEDataGridViewTextBoxColumn.HeaderText = "部門名稱";
-            this.dNAMEDataGridViewTextBoxColumn.Name = "dNAMEDataGridViewTextBoxColumn";
-            this.dNAMEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sALNAMEDataGridViewTextBoxColumn
-            // 
-            this.sALNAMEDataGridViewTextBoxColumn.DataPropertyName = "SAL_NAME";
-            this.sALNAMEDataGridViewTextBoxColumn.HeaderText = "薪資名稱";
-            this.sALNAMEDataGridViewTextBoxColumn.Name = "sALNAMEDataGridViewTextBoxColumn";
-            this.sALNAMEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // yYMMDataGridViewTextBoxColumn
-            // 
-            this.yYMMDataGridViewTextBoxColumn.DataPropertyName = "YYMM";
-            this.yYMMDataGridViewTextBoxColumn.HeaderText = "計薪年月";
-            this.yYMMDataGridViewTextBoxColumn.Name = "yYMMDataGridViewTextBoxColumn";
-            this.yYMMDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sEQDataGridViewTextBoxColumn
-            // 
-            this.sEQDataGridViewTextBoxColumn.DataPropertyName = "SEQ";
-            this.sEQDataGridViewTextBoxColumn.HeaderText = "計薪期別";
-            this.sEQDataGridViewTextBoxColumn.Name = "sEQDataGridViewTextBoxColumn";
-            this.sEQDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sALCODEDataGridViewTextBoxColumn
-            // 
-            this.sALCODEDataGridViewTextBoxColumn.DataPropertyName = "SAL_CODE";
-            this.sALCODEDataGridViewTextBoxColumn.HeaderText = "薪資代碼";
-            this.sALCODEDataGridViewTextBoxColumn.Name = "sALCODEDataGridViewTextBoxColumn";
-            this.sALCODEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // aMTDataGridViewTextBoxColumn
-            // 
-            this.aMTDataGridViewTextBoxColumn.DataPropertyName = "AMT";
-            this.aMTDataGridViewTextBoxColumn.HeaderText = "金額";
-            this.aMTDataGridViewTextBoxColumn.Name = "aMTDataGridViewTextBoxColumn";
-            this.aMTDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // aCNODataGridViewTextBoxColumn
-            // 
-            this.aCNODataGridViewTextBoxColumn.DataPropertyName = "ACNO";
-            this.aCNODataGridViewTextBoxColumn.HeaderText = "編碼";
-            this.aCNODataGridViewTextBoxColumn.Name = "aCNODataGridViewTextBoxColumn";
-            this.aCNODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // kEYMANDataGridViewTextBoxColumn
-            // 
-            this.kEYMANDataGridViewTextBoxColumn.DataPropertyName = "KEY_MAN";
-            this.kEYMANDataGridViewTextBoxColumn.HeaderText = "登錄者";
-            this.kEYMANDataGridViewTextBoxColumn.Name = "kEYMANDataGridViewTextBoxColumn";
-            this.kEYMANDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // kEYDATEDataGridViewTextBoxColumn
-            // 
-            this.kEYDATEDataGridViewTextBoxColumn.DataPropertyName = "KEY_DATE";
-            this.kEYDATEDataGridViewTextBoxColumn.HeaderText = "登錄日期";
-            this.kEYDATEDataGridViewTextBoxColumn.Name = "kEYDATEDataGridViewTextBoxColumn";
-            this.kEYDATEDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // wAGEDDBindingSource
             // 
@@ -554,7 +473,7 @@
             // dEPTBindingSource
             // 
             this.dEPTBindingSource.DataMember = "DEPT";
-            this.dEPTBindingSource.DataSource = this.baseDS;
+            this.dEPTBindingSource.DataSource = this.basDS;
             // 
             // baseDS
             // 
@@ -592,6 +511,106 @@
             // 
             this.sALCODETableAdapter.ClearBeforeFill = true;
             // 
+            // basDS
+            // 
+            this.basDS.DataSetName = "BasDS";
+            this.basDS.Locale = new System.Globalization.CultureInfo("");
+            this.basDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dEPTTableAdapter1
+            // 
+            this.dEPTTableAdapter1.ClearBeforeFill = true;
+            // 
+            // nOBRDataGridViewTextBoxColumn
+            // 
+            this.nOBRDataGridViewTextBoxColumn.DataPropertyName = "NOBR";
+            this.nOBRDataGridViewTextBoxColumn.HeaderText = "員工編號";
+            this.nOBRDataGridViewTextBoxColumn.Name = "nOBRDataGridViewTextBoxColumn";
+            this.nOBRDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nAMECDataGridViewTextBoxColumn
+            // 
+            this.nAMECDataGridViewTextBoxColumn.DataPropertyName = "NAME_C";
+            this.nAMECDataGridViewTextBoxColumn.HeaderText = "員工姓名";
+            this.nAMECDataGridViewTextBoxColumn.Name = "nAMECDataGridViewTextBoxColumn";
+            this.nAMECDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dNODataGridViewTextBoxColumn
+            // 
+            this.dNODataGridViewTextBoxColumn.DataPropertyName = "D_NO";
+            this.dNODataGridViewTextBoxColumn.DataSource = this.dEPTBindingSource;
+            this.dNODataGridViewTextBoxColumn.DisplayMember = "D_NO_DISP";
+            this.dNODataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.dNODataGridViewTextBoxColumn.HeaderText = "部門編號";
+            this.dNODataGridViewTextBoxColumn.Name = "dNODataGridViewTextBoxColumn";
+            this.dNODataGridViewTextBoxColumn.ReadOnly = true;
+            this.dNODataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dNODataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dNODataGridViewTextBoxColumn.ValueMember = "D_NO";
+            // 
+            // dNAMEDataGridViewTextBoxColumn
+            // 
+            this.dNAMEDataGridViewTextBoxColumn.DataPropertyName = "D_NAME";
+            this.dNAMEDataGridViewTextBoxColumn.HeaderText = "部門名稱";
+            this.dNAMEDataGridViewTextBoxColumn.Name = "dNAMEDataGridViewTextBoxColumn";
+            this.dNAMEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sALNAMEDataGridViewTextBoxColumn
+            // 
+            this.sALNAMEDataGridViewTextBoxColumn.DataPropertyName = "SAL_NAME";
+            this.sALNAMEDataGridViewTextBoxColumn.HeaderText = "薪資名稱";
+            this.sALNAMEDataGridViewTextBoxColumn.Name = "sALNAMEDataGridViewTextBoxColumn";
+            this.sALNAMEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // yYMMDataGridViewTextBoxColumn
+            // 
+            this.yYMMDataGridViewTextBoxColumn.DataPropertyName = "YYMM";
+            this.yYMMDataGridViewTextBoxColumn.HeaderText = "計薪年月";
+            this.yYMMDataGridViewTextBoxColumn.Name = "yYMMDataGridViewTextBoxColumn";
+            this.yYMMDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sEQDataGridViewTextBoxColumn
+            // 
+            this.sEQDataGridViewTextBoxColumn.DataPropertyName = "SEQ";
+            this.sEQDataGridViewTextBoxColumn.HeaderText = "計薪期別";
+            this.sEQDataGridViewTextBoxColumn.Name = "sEQDataGridViewTextBoxColumn";
+            this.sEQDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sALCODEDataGridViewTextBoxColumn
+            // 
+            this.sALCODEDataGridViewTextBoxColumn.DataPropertyName = "SAL_CODE";
+            this.sALCODEDataGridViewTextBoxColumn.HeaderText = "薪資代碼";
+            this.sALCODEDataGridViewTextBoxColumn.Name = "sALCODEDataGridViewTextBoxColumn";
+            this.sALCODEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // aMTDataGridViewTextBoxColumn
+            // 
+            this.aMTDataGridViewTextBoxColumn.DataPropertyName = "AMT";
+            this.aMTDataGridViewTextBoxColumn.HeaderText = "金額";
+            this.aMTDataGridViewTextBoxColumn.Name = "aMTDataGridViewTextBoxColumn";
+            this.aMTDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // aCNODataGridViewTextBoxColumn
+            // 
+            this.aCNODataGridViewTextBoxColumn.DataPropertyName = "ACNO";
+            this.aCNODataGridViewTextBoxColumn.HeaderText = "編碼";
+            this.aCNODataGridViewTextBoxColumn.Name = "aCNODataGridViewTextBoxColumn";
+            this.aCNODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // kEYMANDataGridViewTextBoxColumn
+            // 
+            this.kEYMANDataGridViewTextBoxColumn.DataPropertyName = "KEY_MAN";
+            this.kEYMANDataGridViewTextBoxColumn.HeaderText = "登錄者";
+            this.kEYMANDataGridViewTextBoxColumn.Name = "kEYMANDataGridViewTextBoxColumn";
+            this.kEYMANDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // kEYDATEDataGridViewTextBoxColumn
+            // 
+            this.kEYDATEDataGridViewTextBoxColumn.DataPropertyName = "KEY_DATE";
+            this.kEYDATEDataGridViewTextBoxColumn.HeaderText = "登錄日期";
+            this.kEYDATEDataGridViewTextBoxColumn.Name = "kEYDATEDataGridViewTextBoxColumn";
+            this.kEYDATEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // FRM46C
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -622,6 +641,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.baseDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sALCODEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.basDS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -648,18 +668,6 @@
         private SalaryDS salaryDS;
         private System.Windows.Forms.BindingSource wAGEDDBindingSource;
         private JBHR.Sal.SalaryDSTableAdapters.WAGEDDTableAdapter wAGEDDTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nOBRDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nAMECDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dNODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dNAMEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sALNAMEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn yYMMDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sEQDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sALCODEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn aMTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn aCNODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kEYMANDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kEYDATEDataGridViewTextBoxColumn;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private JBControls.PopupTextBox ptxAcno;
         private System.Windows.Forms.BindingSource sALBASNDBindingSource;
@@ -673,5 +681,19 @@
         private JBHR.Sal.SalaryDSTableAdapters.SALCODETableAdapter sALCODETableAdapter;
         private System.Windows.Forms.ComboBox ptxDept;
         protected System.Windows.Forms.ComboBox ptxSalcode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nOBRDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nAMECDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dNODataGridViewTextBoxColumn;
+        private Bas.BasDS basDS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dNAMEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sALNAMEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn yYMMDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sEQDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sALCODEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aMTDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aCNODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kEYMANDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kEYDATEDataGridViewTextBoxColumn;
+        private Bas.BasDSTableAdapters.DEPTTableAdapter dEPTTableAdapter1;
     }
 }

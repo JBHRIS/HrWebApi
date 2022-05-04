@@ -28,7 +28,7 @@ namespace JBHR.Sal
             //this.hCODETableAdapter.Fill(this.attendDS.HCODE);
             this.sALCODETableAdapter.Fill(this.salaryDS.SALCODE, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN);
             this.sALABSTableAdapter.FillByInit(this.salaryDS.SALABS);
-
+            this.hCODETableAdapter1.Fill(this.dsAtt.HCODE, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN);
             BasDataClassesDataContext db = new BasDataClassesDataContext();
             var u_prg = (from c in db.U_PRGID where c.USER_ID.Trim() == MainForm.USER_ID && c.PROG.Trim().ToLower() == this.Name.ToLower() select c).FirstOrDefault();
             if (u_prg != null)
