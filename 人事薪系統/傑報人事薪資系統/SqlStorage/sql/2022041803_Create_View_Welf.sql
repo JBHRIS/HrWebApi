@@ -13,7 +13,6 @@ SELECT  TOP (100) PERCENT w.AUTO AS AUTOKEY, w.NOBR AS ­û¤u½s¸¹, t.NAME_C AS ­û¤
 FROM     dbo.WELF AS w INNER JOIN
                dbo.TBASE AS t ON w.NOBR = t.NOBR LEFT OUTER JOIN
                dbo.WCODE AS wc ON w.SAL_CODE = wc.W_CODE
-ORDER BY ­û¤u½s¸¹, ©Ò±o¦~¤ë
 GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]

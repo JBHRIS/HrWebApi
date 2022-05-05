@@ -67,6 +67,7 @@
             this.buttonReport.TabIndex = 13;
             this.buttonReport.Text = "產生報表";
             this.buttonReport.UseVisualStyleBackColor = true;
+            this.buttonReport.Visible = false;
             this.buttonReport.Click += new System.EventHandler(this.buttonReport_Click);
             // 
             // button2

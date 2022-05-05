@@ -314,7 +314,9 @@ namespace JBHR.Med
             Reports.SalForm.ZZ51B frm = new Reports.SalForm.ZZ51B();
             frm.yrtaxList = yrtaxList;
             frm.yrparameters = new Dictionary<string, object>();
-            frm.ShowDialog();
+            //frm.ShowDialog();
+            frm.ZZ51B_Load(sender, e);
+            frm.Create_Report_Click(sender, e);
         }
     }
     //public class TBaseRepeatIDNO

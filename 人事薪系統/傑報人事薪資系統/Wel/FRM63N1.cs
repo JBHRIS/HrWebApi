@@ -55,7 +55,7 @@ namespace JBHR.Wel
             frm.DataTransfer.CheckData = new Dictionary<string, List<JBControls.CheckImportData>>();
 
             frm.DataTransfer.CheckData.Add("員工編號", db.TBASE.Select(p => new JBControls.CheckImportData { DisplayCode = p.NOBR, RealCode = p.NOBR, DisplayName = p.NAME_C }).ToList());
-            frm.DataTransfer.CheckData.Add("所得格式", db.YRFORMAT.Select(p => new JBControls.CheckImportData { DisplayCode = p.M_FORMAT, RealCode = p.M_FORMAT, DisplayName = p.M_FMT_NAME }).ToList());
+            frm.DataTransfer.CheckData.Add("所得格式", db.YRFORMAT.Where(p => new string[] { "91", "92" }.Contains(p.M_FORMAT)).Select(p => new JBControls.CheckImportData { DisplayCode = p.M_FORMAT, RealCode = p.M_FORMAT, DisplayName = p.M_FMT_NAME }).ToList());
             frm.DataTransfer.CheckData.Add("公司", db.COMP.Select(p => new JBControls.CheckImportData { DisplayCode = p.COMP1, RealCode = p.COMP1, DisplayName = p.COMPNAME }).ToList());
             frm.DataTransfer.CheckData.Add("所得註記FULL", db.TW_TAX_SUBCODE.Select(p => new JBControls.CheckImportData { DisplayCode = p.M_FORSUB, RealCode = p.AUTO.ToString(), DisplayName = p.M_SUB_NAME, CheckValue1 = p.M_FORMAT }).ToList());
             if (Note1Enable && Note1Type == "COMBOBOX" && !string.IsNullOrEmpty(Note1DataSource))

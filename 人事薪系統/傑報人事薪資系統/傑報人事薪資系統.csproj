@@ -2421,6 +2421,12 @@
     <Content Include="SqlStorage\sql\2022042701_AlterTW_TAXAddTAX_TypeAndAlterView_TW_TAX.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="SqlStorage\sql\2022050301_AlterWelfAddComp_Date_B_Date_E.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022050501_AlterJqsettingCustomerWhereForVIEW_TW_TAXsql.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="SqlStorage\sql\AlterSalcode.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
