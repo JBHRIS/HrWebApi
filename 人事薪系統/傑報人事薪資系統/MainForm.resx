@@ -438,7 +438,7 @@
     <value>黑名單資料</value>
   </data>
   <data name="人事資料AToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="人事資料AToolStripMenuItem.Text" xml:space="preserve">
     <value>人事資料(&amp;A)</value>
@@ -705,7 +705,7 @@
     <value>延休作業</value>
   </data>
   <data name="考勤資料BToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="考勤資料BToolStripMenuItem.Text" xml:space="preserve">
     <value>考勤資料(&amp;B)</value>
@@ -801,7 +801,7 @@
     <value>團保投保資料</value>
   </data>
   <data name="保險資料CToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="保險資料CToolStripMenuItem.Text" xml:space="preserve">
     <value>保險資料(&amp;C)</value>
@@ -1014,7 +1014,7 @@
     <value>計算薪資</value>
   </data>
   <data name="薪資資料DToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="薪資資料DToolStripMenuItem.Text" xml:space="preserve">
     <value>薪資資料(&amp;D)</value>
@@ -1044,25 +1044,31 @@
     <value>年度所得作業</value>
   </data>
   <data name="媒體申報EToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="媒體申報EToolStripMenuItem.Text" xml:space="preserve">
     <value>媒體申報(&amp;E)</value>
   </data>
   <data name="福利金代號ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="福利金代號ToolStripMenuItem.Text" xml:space="preserve">
     <value>福利金代號</value>
   </data>
   <data name="福利金資料ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="福利金資料ToolStripMenuItem1.Text" xml:space="preserve">
     <value>福利金資料</value>
   </data>
+  <data name="福利金年度作業ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="福利金年度作業ToolStripMenuItem.Text" xml:space="preserve">
+    <value>福利金年度作業</value>
+  </data>
   <data name="福利金資料toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="福利金資料toolStripMenuItem.Text" xml:space="preserve">
     <value>福利金資料(&amp;F)</value>
@@ -1104,7 +1110,7 @@
     <value>個人考核資料</value>
   </data>
   <data name="考核資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="考核資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>考核資料</value>
@@ -1146,7 +1152,7 @@
     <value>訓練人員資料</value>
   </data>
   <data name="教育訓練ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="教育訓練ToolStripMenuItem.Text" xml:space="preserve">
     <value>教育訓練</value>
@@ -1170,7 +1176,7 @@
     <value>分流組別資料</value>
   </data>
   <data name="防疫分流班ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="防疫分流班ToolStripMenuItem.Text" xml:space="preserve">
     <value>防疫分流班</value>
@@ -3766,6 +3772,12 @@
     <value>福利金資料ToolStripMenuItem1</value>
   </data>
   <data name="&gt;&gt;福利金資料ToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;福利金年度作業ToolStripMenuItem.Name" xml:space="preserve">
+    <value>福利金年度作業ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;福利金年度作業ToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;考核資料ToolStripMenuItem.Name" xml:space="preserve">

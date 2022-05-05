@@ -8,11 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace JBHR.Med
+namespace JBHR.Wel
 {
-    public partial class FRM71N2 : JBControls.JBForm
+    public partial class FRM63N2 : JBControls.JBForm
     {
-        public FRM71N2()
+        public FRM63N2()
         {
             InitializeComponent();
         }
@@ -71,7 +71,7 @@ namespace JBHR.Med
                                            }).ToList();
                     foreach (var item in RepeatTaxDataGP)
                     {
-                        FRM71N2_RepeatIDNO frm = new FRM71N2_RepeatIDNO();
+                        FRM63N2_RepeatIDNO frm = new FRM63N2_RepeatIDNO();
                         frm.COMP = item.COMP;
                         frm.COMPNAME = item.COMPNAME;
                         frm.IDNO = item.IDNO;
@@ -249,7 +249,7 @@ namespace JBHR.Med
             }
         }
 
-        private void FRM71N2_Load(object sender, EventArgs e)
+        private void FRM63N2_Load(object sender, EventArgs e)
         {
             jbQuery1.Parameters.Add("TW_TAX_AUTO", TW_TAX_Auto.ToString());
         }
@@ -316,7 +316,7 @@ namespace JBHR.Med
             frm.yrparameters = new Dictionary<string, object>();
             //frm.ShowDialog();
             frm.ZZ51B_Load(sender, e);
-            frm.Create_Report_Click(sender, e);
+            frm.Create_Report_Click(sender,e);
         }
     }
     //public class TBaseRepeatIDNO

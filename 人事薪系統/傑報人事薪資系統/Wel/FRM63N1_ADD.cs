@@ -8,11 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace JBHR.Med
+namespace JBHR.Wel
 {
-    public partial class FRM71N1_ADD : JBControls.JBForm
+    public partial class FRM63N1_ADD : JBControls.JBForm
     {
-        public FRM71N1_ADD()
+        public FRM63N1_ADD()
         {
             InitializeComponent();
         }
@@ -24,7 +24,7 @@ namespace JBHR.Med
         JBModule.Data.Linq.TW_TAX_ITEM instance = new JBModule.Data.Linq.TW_TAX_ITEM();
         JBModule.Data.Linq.TW_TAX_ITEM instanceCopy = null;
         JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
-        JBModule.Data.ApplicationConfigSettings acg = new JBModule.Data.ApplicationConfigSettings("FRM71N1", MainForm.COMPANY);
+        JBModule.Data.ApplicationConfigSettings acg = new JBModule.Data.ApplicationConfigSettings("FRM63N1", MainForm.COMPANY);
         bool Note1Enable = false;
         bool Note2Enable = false;
         string Note1Label = "Note1";
@@ -41,12 +41,18 @@ namespace JBHR.Med
         ComboBox cbxNote2 = new ComboBox();
         bool CloseOnSave = true;
 
-        private void FRM71N1_ADD_Load(object sender, EventArgs e)
+        private void FRM63N1_ADD_Load(object sender, EventArgs e)
         {
             this.tBASETableAdapter.Fill(this.medDS.TBASE);
             SystemFunction.SetComboBoxItems(cbxComp, CodeFunction.GetComp(), false, true);
-            SystemFunction.SetComboBoxItems(cbxFormat, CodeFunction.GetFormat(), false, true);
-           
+            //SystemFunction.SetComboBoxItems(cbxFormat, CodeFunction.GetFormat(), false, true);
+            Dictionary<string, string> formatList = new Dictionary<string, string>
+            {
+                { "91", "91-競技競賽及機會中獎獎金" },
+                { "92", "92-其他" }
+            };
+            SystemFunction.SetComboBoxItems(cbxFormat, formatList, false, true);
+
             initialNoteControls();
 
             CYYMMFC.AddControl(txtYYMM, true);
@@ -65,8 +71,8 @@ namespace JBHR.Med
                     YYMM = sd.YYMM,
                     SEQ = "2",
                     COMP = string.Empty,
-                    FORMAT = "50",
-                    SUBCODE = 0,
+                    FORMAT = "92",
+                    SUBCODE = int.Parse(CodeFunction.GetForsub("92").Where(p => p.Value.Contains("8A")).First().Key),//0,
                     SAL_CODE = string.Empty,
                     FORSUB = string.Empty,
                     AMT = 0,
@@ -91,7 +97,7 @@ namespace JBHR.Med
                 instance = db.TW_TAX_ITEM.SingleOrDefault(p => p.AUTO == TW_TAX_ITEM_AUTO);
                 ptxNobr.Enabled = false;
             }
-                
+
 
             if (instance == null)
             {
@@ -121,7 +127,7 @@ namespace JBHR.Med
 
         private void initialNoteControls()
         {
-            CloseOnSave = acg.GetConfig("FRM71N1_ADD_CloseOnSave").Value.ToUpper() == "FALSE" ? false : true;
+            CloseOnSave = acg.GetConfig("FRM63N1_ADD_CloseOnSave").Value.ToUpper() == "FALSE" ? false : true;
             Note1Enable = acg.GetConfig("Note1Enable").Value.ToUpper() == "TRUE" ? true : false;
             Note2Enable = acg.GetConfig("Note2Enable").Value.ToUpper() == "TRUE" ? true : false;
             Note1Label = acg.GetConfig("Note1Label").Value;
@@ -131,11 +137,11 @@ namespace JBHR.Med
             Note1DefaultBinding = acg.GetConfig("Note1DefaultBinding").GetString(string.Empty);
             Note2DefaultBinding = acg.GetConfig("Note2DefaultBinding").GetString(string.Empty);
             Note1DataSource = acg.GetConfig("Note1DataSource").GetString(string.Empty);
-            if (!string.IsNullOrEmpty(Note1DataSource)) 
-                SystemFunction.SetComboBoxItems(cbxNote1, (FRM71N1.GetDataSource(db, Note1DataSource) as Dictionary<string, string>), true, true, true);
+            if (!string.IsNullOrEmpty(Note1DataSource))
+                SystemFunction.SetComboBoxItems(cbxNote1, (FRM63N1.GetDataSource(db, Note1DataSource) as Dictionary<string, string>), true, true, true);
             Note2DataSource = acg.GetConfig("Note2DataSource").GetString(string.Empty);
-            if (!string.IsNullOrEmpty(Note2DataSource)) 
-                SystemFunction.SetComboBoxItems(cbxNote2, (FRM71N1.GetDataSource(db, Note2DataSource) as Dictionary<string, string>), true, true, true);
+            if (!string.IsNullOrEmpty(Note2DataSource))
+                SystemFunction.SetComboBoxItems(cbxNote2, (FRM63N1.GetDataSource(db, Note2DataSource) as Dictionary<string, string>), true, true, true);
             lbNote1.Text = Note1Label;
             lbNote2.Text = Note2Label;
             lbNote1.Visible = Note1Enable;
@@ -187,7 +193,7 @@ namespace JBHR.Med
                     txtNote2.Dock = DockStyle.Fill;
                     tableLayoutPanel1.Controls.Add(txtNote2, 4, 6);
                     tableLayoutPanel1.SetColumnSpan(txtNote2, 3);
-                    
+
                 }
             }
         }
@@ -219,7 +225,7 @@ namespace JBHR.Med
         }
         private void cbxFormat_SelectedValueChanged(object sender, EventArgs e)
         {
-            var source = CodeFunction.GetForsub(cbxFormat.SelectedValue.ToString());
+            var source = CodeFunction.GetForsub(cbxFormat.SelectedValue.ToString()).Where(p => p.Value.Contains("8A")).ToDictionary(p => p.Key, p => p.Value);
             SystemFunction.SetComboBoxItems(cbxForsub, source, source.Count > 0 ? false : true);
             cbxForsub.SelectedIndex = 0;
         }
@@ -313,7 +319,7 @@ namespace JBHR.Med
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
-            else 
+            else
             {
                 lbMessage.Text = "存檔完成!";
                 SalaryDate sd = new SalaryDate(DateTime.Today);
@@ -323,8 +329,8 @@ namespace JBHR.Med
                     YYMM = sd.YYMM,
                     SEQ = "2",
                     COMP = string.Empty,
-                    FORMAT = "50",
-                    SUBCODE = 0,
+                    FORMAT = "92",
+                    SUBCODE = int.Parse(CodeFunction.GetForsub("92").Where(p => p.Value.Contains("8A")).First().Key),//0,
                     SAL_CODE = string.Empty,
                     FORSUB = string.Empty,
                     AMT = 0,
@@ -374,16 +380,16 @@ namespace JBHR.Med
             if (TW_TAX_ITEM_AUTO == -1 && Note1Enable)
             {
                 if (Note1Type == "COMBOBOX")
-                    cbxNote1.SelectedValue = FRM71N1.GetDefaultBinding(db, Note1DefaultBinding, ptxNobr.Text);
+                    cbxNote1.SelectedValue = FRM63N1.GetDefaultBinding(db, Note1DefaultBinding, ptxNobr.Text);
                 else
-                    txtNote1.Text = FRM71N1.GetDefaultBinding(db, Note1DefaultBinding, ptxNobr.Text);
+                    txtNote1.Text = FRM63N1.GetDefaultBinding(db, Note1DefaultBinding, ptxNobr.Text);
             }
             if (TW_TAX_ITEM_AUTO == -1 && Note2Enable)
             {
                 if (Note2Type == "COMBOBOX")
-                    cbxNote2.SelectedValue = FRM71N1.GetDefaultBinding(db, Note2DefaultBinding, ptxNobr.Text);
+                    cbxNote2.SelectedValue = FRM63N1.GetDefaultBinding(db, Note2DefaultBinding, ptxNobr.Text);
                 else
-                    txtNote2.Text = FRM71N1.GetDefaultBinding(db, Note2DefaultBinding, ptxNobr.Text);
+                    txtNote2.Text = FRM63N1.GetDefaultBinding(db, Note2DefaultBinding, ptxNobr.Text);
             }
         }
 
