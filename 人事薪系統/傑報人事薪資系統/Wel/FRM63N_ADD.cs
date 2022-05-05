@@ -8,11 +8,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace JBHR.Med
+namespace JBHR.Wel
 {
-    public partial class FRM71N_ADD : JBControls.JBForm
+    public partial class FRM63N_ADD : JBControls.JBForm
     {
-        public FRM71N_ADD()
+        public FRM63N_ADD()
         {
             InitializeComponent();
         }
@@ -60,7 +60,7 @@ namespace JBHR.Med
             else instance.RelaseDate = null;
             instance.Key_Date = DateTime.Now;
             instance.Key_Man = MainForm.USER_ID;
-            instance.TAX_Type = "Med";
+            instance.TAX_Type = "Wel";
             db.SubmitChanges();
             this.Close();
         }
