@@ -39,7 +39,7 @@ namespace JBHR.Reports.SalForm
             InitializeComponent();
         }
 
-        private void ZZ51B_Load(object sender, EventArgs e)
+        public void ZZ51B_Load(object sender, EventArgs e)
         {
             year.Text = Convert.ToString(DateTime.Now.Year-1);
             Sal.Function.SetAvaliableBase(this.salaryDS.BASE);
@@ -57,7 +57,7 @@ namespace JBHR.Reports.SalForm
             ser_noe.Text = "Z999999";
         }
 
-        private void Create_Report_Click(object sender, EventArgs e)
+        public void Create_Report_Click(object sender, EventArgs e)
         {
             try
             {               

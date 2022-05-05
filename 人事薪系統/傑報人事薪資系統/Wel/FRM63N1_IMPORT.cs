@@ -6,14 +6,14 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace JBHR.Med
+namespace JBHR.Wel
 {
-    public partial class FRM71N1_IMPORT : JBControls.U_FIELD
+    public partial class FRM63N1_IMPORT : JBControls.U_FIELD
     {
         int RowIndex = 6;
-        JBModule.Data.ApplicationConfigSettings acg = new JBModule.Data.ApplicationConfigSettings("FRM71N1", MainForm.COMPANY);
+        JBModule.Data.ApplicationConfigSettings acg = new JBModule.Data.ApplicationConfigSettings("FRM63N1", MainForm.COMPANY);
         CheckControl cc;//必填欄位
-        public FRM71N1_IMPORT()
+        public FRM63N1_IMPORT()
         {
             InitializeComponent();
             BindingControls.Add(cbAmt);
@@ -100,7 +100,7 @@ namespace JBHR.Med
             this.Close();
         }
 
-        private void FRM71N1_IMPORT_Load(object sender, EventArgs e)
+        private void FRM63N1_IMPORT_Load(object sender, EventArgs e)
         {
             cc = new CheckControl();
             cc.AddControl(cbxNobr);

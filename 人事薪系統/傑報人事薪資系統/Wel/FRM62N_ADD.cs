@@ -8,23 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace JBHR.Med
+namespace JBHR.Wel
 {
-    public partial class FRM71N1_ADD : JBControls.JBForm
+    public partial class FRM62N_ADD : JBControls.JBForm
     {
-        public FRM71N1_ADD()
+        public FRM62N_ADD()
         {
             InitializeComponent();
         }
-        int RowIndex = 6;//動態欄位的Row Index
+        int RowIndex = 3;//動態欄位的Row Index
         CheckYYMMFormatControl CYYMMFC = new CheckYYMMFormatControl();
         CheckControl cc;//必填欄位
-        public int TW_TAX_ITEM_AUTO = -1;
-        public int TW_TAX_AUTO = -1;
-        JBModule.Data.Linq.TW_TAX_ITEM instance = new JBModule.Data.Linq.TW_TAX_ITEM();
-        JBModule.Data.Linq.TW_TAX_ITEM instanceCopy = null;
+        public int Welf_ID = -1;
+        public JBModule.Data.Linq.WELF instance = new JBModule.Data.Linq.WELF();
+        JBModule.Data.Linq.WELF instanceCopy = null;
         JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
-        JBModule.Data.ApplicationConfigSettings acg = new JBModule.Data.ApplicationConfigSettings("FRM71N1", MainForm.COMPANY);
+        JBModule.Data.ApplicationConfigSettings acg = new JBModule.Data.ApplicationConfigSettings("FRM62N", MainForm.COMPANY);
         bool Note1Enable = false;
         bool Note2Enable = false;
         string Note1Label = "Note1";
@@ -41,57 +40,54 @@ namespace JBHR.Med
         ComboBox cbxNote2 = new ComboBox();
         bool CloseOnSave = true;
 
-        private void FRM71N1_ADD_Load(object sender, EventArgs e)
+        private void FRM62N_ADD_Load(object sender, EventArgs e)
         {
             this.tBASETableAdapter.Fill(this.medDS.TBASE);
-            SystemFunction.SetComboBoxItems(cbxComp, CodeFunction.GetComp(), false, true);
-            SystemFunction.SetComboBoxItems(cbxFormat, CodeFunction.GetFormat(), false, true);
-           
+            //SystemFunction.SetComboBoxItems(cbxFormat, CodeFunction.GetFormat(), false, true);
+            Dictionary<string, string> formatList = new Dictionary<string, string>
+            {
+                { "91", "91-競技競賽及機會中獎獎金" },
+                { "92", "92 8A-職工福利金" }
+            };
+            SystemFunction.SetComboBoxItems(cbxFormat, formatList, false, true);
+            SystemFunction.SetComboBoxItems(cbxWCode, CodeFunction.GetWcode(), true, true);
+
             initialNoteControls();
 
             CYYMMFC.AddControl(txtYYMM, true);
             cc = new CheckControl();
             cc.AddControl(ptxNobr);
             cc.AddControl(txtSeq);
-            cc.AddControl(cbxComp);
             cc.AddControl(cbxFormat);
 
-            if (TW_TAX_ITEM_AUTO == -1)
+            if (Welf_ID == -1)
             {
                 SalaryDate sd = new SalaryDate(DateTime.Today);
-                instance = new JBModule.Data.Linq.TW_TAX_ITEM
+                instance = new JBModule.Data.Linq.WELF
                 {
                     NOBR = string.Empty,
                     YYMM = sd.YYMM,
                     SEQ = "2",
-                    COMP = string.Empty,
-                    FORMAT = "50",
-                    SUBCODE = 0,
+                    FORMAT = "92",
                     SAL_CODE = string.Empty,
-                    FORSUB = string.Empty,
                     AMT = 0,
                     D_AMT = 0,
-                    RET_AMT = 0,
-                    MEMO = string.Empty,
-                    IMPORT = false,
-                    SUP_AMT = 0,
-                    TAXNO = string.Empty,
                     TR_TYPE = string.Empty,
-                    INA_ID = string.Empty,
-                    IS_FILE = false,
                     Note1 = string.Empty,
                     Note2 = string.Empty,
                     KEY_DATE = DateTime.Now,
                     KEY_MAN = MainForm.USER_NAME,
-                    PID = TW_TAX_AUTO,
+                    SALADR = String.Empty,
+                    COMP = String.Empty,
+                    DATE_B = new DateTime(1900, 1, 1),
+                    DATE_E = new DateTime(1900, 1, 1),
                 };
             }
             else
             {
-                instance = db.TW_TAX_ITEM.SingleOrDefault(p => p.AUTO == TW_TAX_ITEM_AUTO);
+                instance = db.WELF.SingleOrDefault(p => p.AUTO == Welf_ID);
                 ptxNobr.Enabled = false;
             }
-                
 
             if (instance == null)
             {
@@ -102,26 +98,20 @@ namespace JBHR.Med
             ptxNobr.Text = instance.NOBR;
             txtYYMM.Text = instance.YYMM;
             txtSeq.Text = instance.SEQ;
-            cbxComp.SelectedValue = instance.COMP;
             cbxFormat.SelectedValue = instance.FORMAT;
-            cbxForsub.SelectedValue = instance.SUBCODE == 0 ? "" : instance.SUBCODE.ToString();
             txtAMT.Text = JBModule.Data.CDecryp.Number(instance.AMT).ToString();
             txtD_AMT.Text = JBModule.Data.CDecryp.Number(instance.D_AMT).ToString();
-            txtSUP_AMT.Text = JBModule.Data.CDecryp.Number(instance.SUP_AMT).ToString();
-            txtRET_AMT.Text = JBModule.Data.CDecryp.Number(instance.RET_AMT).ToString();
-            chkIS_FILE.Checked = instance.IS_FILE;
-            txtMemo.Text = instance.MEMO;
-            txtTAXNO.Text = instance.TAXNO;
+            cbxWCode.SelectedValue = instance.SAL_CODE;
             txtNote1.Text = instance.Note1;
             txtNote2.Text = instance.Note2;
             cbxNote1.SelectedValue = instance.Note1;
             cbxNote2.SelectedValue = instance.Note2;
             btnCopy.Visible = !CloseOnSave;
         }
-
+        //動態Note initial Function
         private void initialNoteControls()
         {
-            CloseOnSave = acg.GetConfig("FRM71N1_ADD_CloseOnSave").Value.ToUpper() == "FALSE" ? false : true;
+            CloseOnSave = acg.GetConfig("FRM62N_ADD_CloseOnSave").Value.ToUpper() == "FALSE" ? false : true;
             Note1Enable = acg.GetConfig("Note1Enable").Value.ToUpper() == "TRUE" ? true : false;
             Note2Enable = acg.GetConfig("Note2Enable").Value.ToUpper() == "TRUE" ? true : false;
             Note1Label = acg.GetConfig("Note1Label").Value;
@@ -131,11 +121,11 @@ namespace JBHR.Med
             Note1DefaultBinding = acg.GetConfig("Note1DefaultBinding").GetString(string.Empty);
             Note2DefaultBinding = acg.GetConfig("Note2DefaultBinding").GetString(string.Empty);
             Note1DataSource = acg.GetConfig("Note1DataSource").GetString(string.Empty);
-            if (!string.IsNullOrEmpty(Note1DataSource)) 
-                SystemFunction.SetComboBoxItems(cbxNote1, (FRM71N1.GetDataSource(db, Note1DataSource) as Dictionary<string, string>), true, true, true);
+            if (!string.IsNullOrEmpty(Note1DataSource))
+                SystemFunction.SetComboBoxItems(cbxNote1, (Med.FRM71N1.GetDataSource(db, Note1DataSource) as Dictionary<string, string>), true, true, true);
             Note2DataSource = acg.GetConfig("Note2DataSource").GetString(string.Empty);
-            if (!string.IsNullOrEmpty(Note2DataSource)) 
-                SystemFunction.SetComboBoxItems(cbxNote2, (FRM71N1.GetDataSource(db, Note2DataSource) as Dictionary<string, string>), true, true, true);
+            if (!string.IsNullOrEmpty(Note2DataSource))
+                SystemFunction.SetComboBoxItems(cbxNote2, (Med.FRM71N1.GetDataSource(db, Note2DataSource) as Dictionary<string, string>), true, true, true);
             lbNote1.Text = Note1Label;
             lbNote2.Text = Note2Label;
             lbNote1.Visible = Note1Enable;
@@ -167,27 +157,27 @@ namespace JBHR.Med
                 if (Note1Type == "COMBOBOX")
                 {
                     cbxNote1.Dock = DockStyle.Fill;
-                    tableLayoutPanel1.Controls.Add(cbxNote1, 1, 6);
+                    tableLayoutPanel1.Controls.Add(cbxNote1, 1, RowIndex);
                     tableLayoutPanel1.SetColumnSpan(cbxNote1, 2);
                 }
                 else
                 {
                     txtNote1.Dock = DockStyle.Fill;
-                    tableLayoutPanel1.Controls.Add(txtNote1, 1, 6);
+                    tableLayoutPanel1.Controls.Add(txtNote1, 1, RowIndex);
                     tableLayoutPanel1.SetColumnSpan(txtNote1, 2);
                 }
                 if (Note2Type == "COMBOBOX")
                 {
                     cbxNote2.Dock = DockStyle.Fill;
-                    tableLayoutPanel1.Controls.Add(cbxNote2, 4, 6);
+                    tableLayoutPanel1.Controls.Add(cbxNote2, 4, RowIndex);
                     tableLayoutPanel1.SetColumnSpan(cbxNote2, 3);
                 }
                 else
                 {
                     txtNote2.Dock = DockStyle.Fill;
-                    tableLayoutPanel1.Controls.Add(txtNote2, 4, 6);
+                    tableLayoutPanel1.Controls.Add(txtNote2, 4, RowIndex);
                     tableLayoutPanel1.SetColumnSpan(txtNote2, 3);
-                    
+
                 }
             }
         }
@@ -217,12 +207,6 @@ namespace JBHR.Med
             }
             return eValidType;
         }
-        private void cbxFormat_SelectedValueChanged(object sender, EventArgs e)
-        {
-            var source = CodeFunction.GetForsub(cbxFormat.SelectedValue.ToString());
-            SystemFunction.SetComboBoxItems(cbxForsub, source, source.Count > 0 ? false : true);
-            cbxForsub.SelectedIndex = 0;
-        }
         private void btnSave_Click(object sender, EventArgs e)
         {
             var ctrl = cc.CheckText();//必要欄位檢查
@@ -242,120 +226,111 @@ namespace JBHR.Med
             }
             string Nobr = ptxNobr.Text;
             string YYMM = txtYYMM.Text;
+            int YYYY = int.Parse(YYMM.Substring(0, 4));
+            int MM = int.Parse(YYMM.Substring(4,2));
             string SEQ = txtSeq.Text;
-            string COMP = cbxComp.SelectedValue.ToString();
             string FORMAT = cbxFormat.SelectedValue.ToString();
-            var subcode = db.TW_TAX_SUBCODE.Where(p => p.AUTO == instance.SUBCODE).FirstOrDefault();
-            string M_FORSUB = string.Empty;
-            if (subcode != null)
-                M_FORSUB = subcode.M_FORSUB;
-            int subcodekey = Convert.ToInt32(string.IsNullOrEmpty(cbxForsub.SelectedValue.ToString()) ? "0" : cbxForsub.SelectedValue.ToString());
+            string SAL_CODE = cbxWCode.SelectedValue.ToString();
+            SalaryDate sd = new SalaryDate(YYMM);
+            //DateTime CheckDate = new DateTime(YYYY, MM, 1).AddMonths(1).AddDays(-1);
+            DateTime CheckDate = sd.LastDayOfSalary;
             decimal AMT = JBModule.Data.CEncrypt.Number(Convert.ToDecimal(txtAMT.Text));
             decimal D_AMT = JBModule.Data.CEncrypt.Number(Convert.ToDecimal(txtD_AMT.Text));
-            decimal SUP_AMT = JBModule.Data.CEncrypt.Number(Convert.ToDecimal(txtSUP_AMT.Text));
-            decimal RET_AMT = JBModule.Data.CEncrypt.Number(Convert.ToDecimal(txtRET_AMT.Text));
-            bool IS_FILE = chkIS_FILE.Checked;
-            string TAXNO = txtTAXNO.Text;
-            string MEMO = txtMemo.Text;
             string Note1 = Note1Type == "COMBOBOX" ? cbxNote1.SelectedValue.ToString() : txtNote1.Text;
             string Note2 = Note2Type == "COMBOBOX" ? cbxNote2.SelectedValue.ToString() : txtNote2.Text;
-            string action = "Insert";
-
-            bool changed = false;
-            if (TW_TAX_ITEM_AUTO != -1)
+            string SALADR = string.Empty;
+            var sql = from a in db.BASETTS where a.NOBR == Nobr && CheckDate >= a.ADATE && CheckDate <= a.DDATE.Value select a;
+            string COMP = MainForm.COMPANY;
+            if (sql.Any())
             {
-                changed = instance.NOBR != Nobr || changed;
-                changed = instance.YYMM != YYMM || changed;
-                changed = instance.SEQ != SEQ || changed;
-                changed = instance.FORMAT != FORMAT || changed;
-                changed = instance.SUBCODE != subcodekey || changed;
+                SALADR = sql.First().SALADR;
+                COMP = sql.First().COMP;
             }
-            else
-                changed = true;
-
-            var re_instance = db.TW_TAX_ITEM.Where(p => p.PID == TW_TAX_AUTO && p.AUTO != TW_TAX_ITEM_AUTO && p.NOBR == Nobr && p.YYMM == YYMM && p.SEQ == SEQ && p.FORMAT == FORMAT && p.SUBCODE == subcodekey);
-            if (changed && re_instance.Any())
+            if (!MainForm.WriteDataGroups.Contains(SALADR.ToString()))
+                SALADR = MainForm.WriteDataGroups.First();
+            string action = "Update";
+            DateTime DATE_B = sd.FirstDayOfSalary;
+            DateTime DATE_E = sd.LastDayOfSalary;
+            //bool changed = false;
+            //if (Welf_ID != -1)
+            //{
+            //    changed = instance.NOBR != Nobr || changed;
+            //    changed = instance.YYMM != YYMM || changed;
+            //    changed = instance.SEQ != SEQ || changed;
+            //    changed = instance.FORMAT != FORMAT || changed;
+            //}
+            //else
+            //    changed = true;
+            //var re_instance = db.WELF.Where(p => p.AUTO != Welf_ID && p.NOBR == Nobr && p.YYMM == YYMM && p.SEQ == SEQ && p.FORMAT == FORMAT);
+            //if (changed && re_instance.Any())
+            //{
+            //    //string re_string1 = string.Format("員工編號{0}已有計薪年月{1}期別{2}所得格式{3}", Nobr, YYMM, SEQ, FORMAT);
+            //    ////string re_string2 = instance.SUBCODE != 0 ? string.Format("所得註記{0}", M_FORSUB) : string.Empty;
+            //    //string re_string3 = string.Format("的資料,是否要進行覆蓋.");
+            //    //if (MessageBox.Show(re_string1 + re_string3, "資料重覆", MessageBoxButtons.YesNo) == DialogResult.No)
+            //    //    return;
+            //    instance = re_instance.FirstOrDefault();
+            //    action = "Update";
+            //}
+            //else 
+            if (Welf_ID == -1)
             {
-                string re_string1 = string.Format("員工編號{0}已有計薪年月{1}期別{2}所得格式{3}", Nobr, YYMM, SEQ, FORMAT);
-                string re_string2 = instance.SUBCODE != 0 ? string.Format("所得註記{0}", M_FORSUB) : string.Empty;
-                string re_string3 = string.Format("的資料,是否要進行覆蓋.");
-                if (MessageBox.Show(re_string1 + re_string2 + re_string3, "資料重覆", MessageBoxButtons.YesNo) == DialogResult.No)
-                    return;
-                instance = re_instance.FirstOrDefault();
-                action = "Update";
+                db.WELF.InsertOnSubmit(instance);
+                action = "Insert";
             }
-            else if (TW_TAX_ITEM_AUTO == -1)
-                db.TW_TAX_ITEM.InsertOnSubmit(instance);
 
             instance.NOBR = Nobr;
             instance.YYMM = YYMM;
             instance.SEQ = SEQ;
-            instance.COMP = COMP;
             instance.FORMAT = FORMAT;
-            instance.SUBCODE = subcodekey;
-            instance.FORSUB = M_FORSUB;
             instance.AMT = AMT;
             instance.D_AMT = D_AMT;
-            instance.SUP_AMT = SUP_AMT;
-            instance.RET_AMT = RET_AMT;
-            instance.IS_FILE = IS_FILE;
-            instance.TAXNO = TAXNO;
-            instance.MEMO = MEMO;
+            instance.SAL_CODE = SAL_CODE;
             instance.Note1 = Note1;
             instance.Note2 = Note2;
             instance.KEY_MAN = MainForm.USER_NAME;
             instance.KEY_DATE = DateTime.Now;
+            instance.SALADR = SALADR;
+            instance.COMP = COMP;
+            instance.DATE_B = DATE_B;
+            instance.DATE_E = DATE_E;
             instanceCopy = instance.Clone();
             db.SubmitChanges();
             JBModule.Message.DbLog.WriteLog(action, instance, this.Name, instance.AUTO);
-            if (CloseOnSave || TW_TAX_ITEM_AUTO != -1)
+            if (CloseOnSave || Welf_ID != -1)
             {
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
-            else 
+            else
             {
                 lbMessage.Text = "存檔完成!";
-                SalaryDate sd = new SalaryDate(DateTime.Today);
-                instance = new JBModule.Data.Linq.TW_TAX_ITEM
+                sd = new SalaryDate(DateTime.Today);
+                instance = new JBModule.Data.Linq.WELF
                 {
                     NOBR = string.Empty,
                     YYMM = sd.YYMM,
                     SEQ = "2",
-                    COMP = string.Empty,
-                    FORMAT = "50",
-                    SUBCODE = 0,
+                    FORMAT = "92",
                     SAL_CODE = string.Empty,
-                    FORSUB = string.Empty,
                     AMT = 0,
                     D_AMT = 0,
-                    RET_AMT = 0,
-                    MEMO = string.Empty,
-                    IMPORT = false,
-                    SUP_AMT = 0,
-                    TAXNO = string.Empty,
-                    TR_TYPE = string.Empty,
-                    INA_ID = string.Empty,
-                    IS_FILE = false,
+                    TR_TYPE = "1",
                     Note1 = string.Empty,
                     Note2 = string.Empty,
                     KEY_DATE = DateTime.Now,
                     KEY_MAN = MainForm.USER_NAME,
-                    PID = TW_TAX_AUTO,
+                    SALADR = String.Empty,
+                    AUTO = Welf_ID,
+                    COMP = String.Empty,
+                    DATE_B = new DateTime(1900, 1, 1),
+                    DATE_E = new DateTime(1900, 1, 1),
                 };
                 ptxNobr.Text = instance.NOBR;
                 txtYYMM.Text = instance.YYMM;
                 txtSeq.Text = instance.SEQ;
-                cbxComp.SelectedValue = instance.COMP;
-                cbxFormat.SelectedValue = instance.FORMAT;
-                cbxForsub.SelectedValue = instance.SUBCODE == 0 ? "" : instance.SUBCODE.ToString();
                 txtAMT.Text = JBModule.Data.CDecryp.Number(instance.AMT).ToString();
                 txtD_AMT.Text = JBModule.Data.CDecryp.Number(instance.D_AMT).ToString();
-                txtSUP_AMT.Text = JBModule.Data.CDecryp.Number(instance.SUP_AMT).ToString();
-                txtRET_AMT.Text = JBModule.Data.CDecryp.Number(instance.RET_AMT).ToString();
-                chkIS_FILE.Checked = instance.IS_FILE;
-                txtMemo.Text = instance.MEMO;
-                txtTAXNO.Text = instance.TAXNO;
                 txtNote1.Text = instance.Note1;
                 txtNote2.Text = instance.Note2;
                 cbxNote1.SelectedValue = instance.Note1;
@@ -367,26 +342,24 @@ namespace JBHR.Med
         {
             this.Close();
         }
-
         private void ptxNobr_QueryCompleted(object sender, JBControls.PopupTextBox.QueryCompletedArgs e)
         {
             lbMessage.Text = string.Empty;
-            if (TW_TAX_ITEM_AUTO == -1 && Note1Enable)
+            if (Welf_ID == -1 && Note1Enable)
             {
                 if (Note1Type == "COMBOBOX")
-                    cbxNote1.SelectedValue = FRM71N1.GetDefaultBinding(db, Note1DefaultBinding, ptxNobr.Text);
+                    cbxNote1.SelectedValue = Med.FRM71N1.GetDefaultBinding(db, Note1DefaultBinding, ptxNobr.Text);
                 else
-                    txtNote1.Text = FRM71N1.GetDefaultBinding(db, Note1DefaultBinding, ptxNobr.Text);
+                    txtNote1.Text = Med.FRM71N1.GetDefaultBinding(db, Note1DefaultBinding, ptxNobr.Text);
             }
-            if (TW_TAX_ITEM_AUTO == -1 && Note2Enable)
+            if (Welf_ID == -1 && Note2Enable)
             {
                 if (Note2Type == "COMBOBOX")
-                    cbxNote2.SelectedValue = FRM71N1.GetDefaultBinding(db, Note2DefaultBinding, ptxNobr.Text);
+                    cbxNote2.SelectedValue = Med.FRM71N1.GetDefaultBinding(db, Note2DefaultBinding, ptxNobr.Text);
                 else
-                    txtNote2.Text = FRM71N1.GetDefaultBinding(db, Note2DefaultBinding, ptxNobr.Text);
+                    txtNote2.Text = Med.FRM71N1.GetDefaultBinding(db, Note2DefaultBinding, ptxNobr.Text);
             }
         }
-
         private void btnCopy_Click(object sender, EventArgs e)
         {
             if (instanceCopy != null)
@@ -394,16 +367,9 @@ namespace JBHR.Med
                 //ptxNobr.Text = instanceCopy.NOBR;
                 txtYYMM.Text = instanceCopy.YYMM;
                 txtSeq.Text = instanceCopy.SEQ;
-                cbxComp.SelectedValue = instanceCopy.COMP;
                 cbxFormat.SelectedValue = instanceCopy.FORMAT;
-                cbxForsub.SelectedValue = instanceCopy.SUBCODE == 0 ? "" : instanceCopy.SUBCODE.ToString();
                 txtAMT.Text = JBModule.Data.CDecryp.Number(instanceCopy.AMT).ToString();
                 txtD_AMT.Text = JBModule.Data.CDecryp.Number(instanceCopy.D_AMT).ToString();
-                txtSUP_AMT.Text = JBModule.Data.CDecryp.Number(instanceCopy.SUP_AMT).ToString();
-                txtRET_AMT.Text = JBModule.Data.CDecryp.Number(instanceCopy.RET_AMT).ToString();
-                chkIS_FILE.Checked = instanceCopy.IS_FILE;
-                txtMemo.Text = instanceCopy.MEMO;
-                txtTAXNO.Text = instanceCopy.TAXNO;
                 txtNote1.Text = instanceCopy.Note1;
                 txtNote2.Text = instanceCopy.Note2;
                 cbxNote1.SelectedValue = instanceCopy.Note1;

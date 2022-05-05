@@ -7,19 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace JBHR.Med
+namespace JBHR.Wel
 {
-    public partial class FRM71N1 : JBControls.JBForm
+    public partial class FRM63N1 : JBControls.JBForm
     {
-        public FRM71N1()
+        public FRM63N1()
         {
             InitializeComponent();
         }
         public int TW_TAX_Auto = -1;
-        JBModule.Data.ApplicationConfigSettings acg = new JBModule.Data.ApplicationConfigSettings("FRM71N1", MainForm.COMPANY);
+        JBModule.Data.ApplicationConfigSettings acg = new JBModule.Data.ApplicationConfigSettings("FRM63N1", MainForm.COMPANY);
         private void buttonImportFromPayRoll_Click(object sender, EventArgs e)
         {
-            FRM71N1_T frm = new FRM71N1_T();
+            FRM63N1_T frm = new FRM63N1_T();
             frm.TW_TAX_Auto = TW_TAX_Auto;
             frm.ShowDialog();
         }
@@ -48,14 +48,14 @@ namespace JBHR.Med
             frm.TemplateButtonVisible = true;
             //frm.AutoMatchMode = true;
 
-            frm.FieldForm = new FRM71N1_IMPORT();
+            frm.FieldForm = new FRM63N1_IMPORT();
             var import = new TwYearTaxImport();
             import.TW_TAX_AUTO = this.TW_TAX_Auto;
             frm.DataTransfer = import;
             frm.DataTransfer.CheckData = new Dictionary<string, List<JBControls.CheckImportData>>();
 
             frm.DataTransfer.CheckData.Add("員工編號", db.TBASE.Select(p => new JBControls.CheckImportData { DisplayCode = p.NOBR, RealCode = p.NOBR, DisplayName = p.NAME_C }).ToList());
-            frm.DataTransfer.CheckData.Add("所得格式", db.YRFORMAT.Select(p => new JBControls.CheckImportData { DisplayCode = p.M_FORMAT, RealCode = p.M_FORMAT, DisplayName = p.M_FMT_NAME }).ToList());
+            frm.DataTransfer.CheckData.Add("所得格式", db.YRFORMAT.Where(p => new string[] { "91", "92" }.Contains(p.M_FORMAT)).Select(p => new JBControls.CheckImportData { DisplayCode = p.M_FORMAT, RealCode = p.M_FORMAT, DisplayName = p.M_FMT_NAME }).ToList());
             frm.DataTransfer.CheckData.Add("公司", db.COMP.Select(p => new JBControls.CheckImportData { DisplayCode = p.COMP1, RealCode = p.COMP1, DisplayName = p.COMPNAME }).ToList());
             frm.DataTransfer.CheckData.Add("所得註記FULL", db.TW_TAX_SUBCODE.Select(p => new JBControls.CheckImportData { DisplayCode = p.M_FORSUB, RealCode = p.AUTO.ToString(), DisplayName = p.M_SUB_NAME, CheckValue1 = p.M_FORMAT }).ToList());
             if (Note1Enable && Note1Type == "COMBOBOX" && !string.IsNullOrEmpty(Note1DataSource))
@@ -142,7 +142,7 @@ namespace JBHR.Med
             }
         }
 
-        private void FRM71N1_Load(object sender, EventArgs e)
+        private void FRM63N1_Load(object sender, EventArgs e)
         {
             jbQuery1.Parameters.Add("TW_TAX_AUTO", TW_TAX_Auto.ToString());
 
@@ -157,7 +157,7 @@ namespace JBHR.Med
             acg.CheckParameterAndSetDefault("Note2Type", "Note2的型態", "String", "設定Note2的型態提供簡易檢核", "ComboBox", "select CODE,CODE+'-'+NAME from MTCODE where CATEGORY = 'ValidType'", "String");
             acg.CheckParameterAndSetDefault("Note2DefaultBinding", "Note2的預設值來源", "", "設定Note2預設值的資料來源(只接受單一值回傳:select top(1) value from table where IDcolumn = @nobr)", "TextBox", "", "String");
             acg.CheckParameterAndSetDefault("Note2DataSource", "Note2的資料來源", "", "設定Note2下拉選單的資料來源(需符合:select code,code + '-' +name,code_disp,name from table)", "TextBox", "", "String");
-            acg.CheckParameterAndSetDefault("FRM71N1_ADD_CloseOnSave", "存檔後是否關閉頁面", "True", "FRM71N1_ADD當存檔後是否要關閉視窗", "ComboBox", "select 'True' value , 'True' union select 'False', 'False'", "String");
+            acg.CheckParameterAndSetDefault("FRM63N1_ADD_CloseOnSave", "存檔後是否關閉頁面", "True", "FRM63N1_ADD當存檔後是否要關閉視窗", "ComboBox", "select 'True' value , 'True' union select 'False', 'False'", "String");
 
 
             Sys.SysDS.U_USERDataTable u_loignDataTable = new JBHR.Sys.SysDS.U_USERDataTable();
@@ -176,9 +176,9 @@ namespace JBHR.Med
 
         private void jbQuery1_RowInsert(object sender, JBControls.JBQuery.RowInsertEventArgs e)
         {
-            FRM71N1_ADD frm = new FRM71N1_ADD();
+            FRM63N1_ADD frm = new FRM63N1_ADD();
             frm.TW_TAX_AUTO = TW_TAX_Auto;
-            frm.Text = "FRM71N1-新增";
+            frm.Text = "FRM63N1-新增";
             frm.ShowDialog();
             //if (frm.ShowDialog() == DialogResult.OK)
             //    jbQuery1.Query();
@@ -186,9 +186,9 @@ namespace JBHR.Med
 
         private void jbQuery1_RowUpdate(object sender, JBControls.JBQuery.RowUpdateEventArgs e)
         {
-            FRM71N1_ADD frm = new FRM71N1_ADD();
+            FRM63N1_ADD frm = new FRM63N1_ADD();
             frm.TW_TAX_AUTO = TW_TAX_Auto;
-            frm.Text = "FRM71N1-修改";
+            frm.Text = "FRM63N1-修改";
             frm.TW_TAX_ITEM_AUTO = Convert.ToInt32(jbQuery1.SelectedKey);
             frm.ShowDialog();
             //if (frm.ShowDialog() == DialogResult.OK)
@@ -201,7 +201,7 @@ namespace JBHR.Med
             JBModule.Message.DbLog.WriteLog("Delete", instance, this.Name, instance.AUTO);
             db.ExecuteCommand("DELETE TW_TAX_ITEM WHERE AUTO={0}", e.PrimaryKey);
         }
-        public static string GetDefaultBinding(JBModule.Data.Linq.HrDBDataContext db, string conf,string nobr) //Dictionary<string, string>
+        public static string GetDefaultBinding(JBModule.Data.Linq.HrDBDataContext db, string conf, string nobr) //Dictionary<string, string>
         {
             var cmd = db.Connection.CreateCommand();
             string outstring = string.Empty;
@@ -233,11 +233,11 @@ namespace JBHR.Med
                 db.Connection.Close();
                 outstring = dt.AsEnumerable().Select(p => p.Field<string>(0)).FirstOrDefault();
                 if (outstring == null)
-                    outstring = string.Empty; 
+                    outstring = string.Empty;
             }
             return outstring;
         }
-        public static object GetDataSource(JBModule.Data.Linq.HrDBDataContext db, string conf,bool import = false) //Dictionary<string, string>
+        public static object GetDataSource(JBModule.Data.Linq.HrDBDataContext db, string conf, bool import = false) //Dictionary<string, string>
         {
             var cmd = db.Connection.CreateCommand();
             cmd.CommandText = conf;
@@ -266,7 +266,7 @@ namespace JBHR.Med
     public class TwYearTaxImport : JBControls.ImportTransfer
     {
         public int TW_TAX_AUTO = -1;
-        JBModule.Data.ApplicationConfigSettings acg = new JBModule.Data.ApplicationConfigSettings("FRM71N1", MainForm.COMPANY);
+        JBModule.Data.ApplicationConfigSettings acg = new JBModule.Data.ApplicationConfigSettings("FRM63N1", MainForm.COMPANY);
         public override bool TransferToRow(DataRow SourceRow, DataRow TargetRow)
         {
             string Msg = "";
@@ -289,7 +289,7 @@ namespace JBHR.Med
                 if (ColumnValidate(TargetRow, Note1Label, TransferCheckDataField.RealCode, out Msg))
                 {
                     TargetRow[Note1Label] = Msg;
-                }    
+                }
                 else
                 {
                     if (TargetRow.Table != null && TargetRow.Table.Columns.Contains("錯誤註記"))
