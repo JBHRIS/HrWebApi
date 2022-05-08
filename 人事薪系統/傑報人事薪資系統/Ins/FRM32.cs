@@ -121,8 +121,53 @@ namespace JBHR.Ins
                 txtBdate.Text = Adate.ToShortDateString();
                 txtFaidno.Text = Fa_idno;
             }
+            if (DateTime.Today <= Convert.ToDateTime("2022/6/30"))
+            {
+                CheckJobAmtUpdate();
+            }
         }
 
+        private void CheckJobAmtUpdate()
+        {
+            JBModule.Data.ApplicationConfigSettings config = new JBModule.Data.ApplicationConfigSettings(this.Name + "_Register", MainForm.COMPANY);
+            var jobAmtUpdate = config.GetConfig("JobAmtUpdate").GetString("");
+            if (jobAmtUpdate.Trim().Length == 0)
+            {
+                var dialogResult = (MessageBox.Show("是否要執行植栽級距逕調，是-調整，否-不調整，忽略-略過此次", "重要", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning));
+                if (dialogResult == DialogResult.Yes)
+                {
+                    RunJobAmtUpdate();
+                    config.CheckParameterAndSetDefault("JobAmtUpdate", "職災金額逕調更新", "Y", "", "", "", "");
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    return;
+                    config.CheckParameterAndSetDefault("JobAmtUpdate", "職災金額逕調更新", "N", "", "", "", "");
+                }
+
+            }
+        }
+
+        private void RunJobAmtUpdate()
+        {
+            var db = new JBModule.Data.Linq.HrDBDataContext();
+            var setupDate = new DateTime(2022, 5, 1);
+            var inslabList = from ins in db.INSLAB
+                             where db.GetFilterByNobr(ins.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                             && setupDate <= ins.OUT_DATE
+                             select ins;
+            Sal.Core.Inslab.Inslab inslab = new Sal.Core.Inslab.Inslab();
+            foreach (var ins in inslabList)
+            {
+                if (ins.J_AMT <= 10 && ins.L_AMT > 10 && ins.FA_IDNO.Trim().Length == 0)//職災等於0(未設定)，勞保大於0(有加保勞保)，必須是員工(眷屬沒有)
+                {
+                    decimal retAmt = JBModule.Data.CDecryp.Number(ins.R_AMT);
+                    decimal jobAmt = inslab.GetJobAmt(retAmt, new DateTime(2022, 5, 1));
+                    ins.J_AMT = JBModule.Data.CEncrypt.Number(jobAmt);
+                }
+            }
+            db.SubmitChanges();
+        }
         private void filterData()
         {
             //if (!MainForm.MANGSUPER)
@@ -465,7 +510,7 @@ namespace JBHR.Ins
                 MessageBox.Show(Resources.Ins.OutDateLessThenInDateErr, Resources.All.DialogTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
+
             if (!checkSavePower(EmployeeId))
             {
                 e.Cancel = true;
@@ -577,7 +622,7 @@ namespace JBHR.Ins
                             //新增眷屬調整資料
                             foreach (string key in fa_idno.Keys)
                             {
-                               JBModule.Data.Linq.INSLAB newInsLab = new JBModule.Data.Linq.INSLAB();
+                                JBModule.Data.Linq.INSLAB newInsLab = new JBModule.Data.Linq.INSLAB();
                                 newInsLab.NOBR = EmployeeId.ToString().Trim();
                                 newInsLab.FA_IDNO = key;
                                 newInsLab.CODE = "2";
@@ -968,7 +1013,7 @@ namespace JBHR.Ins
                     decimal amt = 0;
                     if (decimal.TryParse(textBoxH_AMT.Text, out amt))
                     {
-                        decimal amt_compare = Sal.Core.Inslab.Inslab.GetHeaAmtByInsurlv(amt);
+                        decimal amt_compare = Sal.Core.Inslab.Inslab.GetHeaAmtByInsurlv(amt, Convert.ToDateTime(txtBdate.Text));
                         if (amt != amt_compare)
                         {
                             if (MessageBox.Show(Resources.Ins.AmtLvNotFound + Environment.NewLine + "按下確定自動修正投保金額",
@@ -998,7 +1043,7 @@ namespace JBHR.Ins
                     decimal amt = 0;
                     if (decimal.TryParse(textBoxR_AMT.Text, out amt))
                     {
-                        decimal amt_compare = Sal.Core.Inslab.Inslab.GetRetAmtByInsurlv(amt);
+                        decimal amt_compare = Sal.Core.Inslab.Inslab.GetRetAmtByInsurlv(amt, Convert.ToDateTime(txtBdate.Text));
                         if (amt != amt_compare)
                         {
                             if (MessageBox.Show(Resources.Ins.AmtLvNotFound + Environment.NewLine + "按下確定自動修正投保金額",
@@ -1028,14 +1073,14 @@ namespace JBHR.Ins
                     decimal amt = 0;
                     if (decimal.TryParse(textBoxL_AMT.Text, out amt))
                     {
-                        decimal amt_compare = Sal.Core.Inslab.Inslab.GetLabAmtByInsurlv(amt);
+                        decimal amt_compare = Sal.Core.Inslab.Inslab.GetLabAmtByInsurlv(amt, Convert.ToDateTime(txtBdate.Text));
                         if (amt != amt_compare)
                         {
                             if (MessageBox.Show(Resources.Ins.AmtLvNotFound + Environment.NewLine + "按下確定自動修正投保金額", Resources.All.DialogTitle, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.OK)
                             {
                                 textBoxL_AMT.Text = amt_compare.ToString();
                             }
-                            else if (textBoxL_AMT.Enabled != false && textBoxL_AMT.ReadOnly != true) 
+                            else if (textBoxL_AMT.Enabled != false && textBoxL_AMT.ReadOnly != true)
                                 textBoxL_AMT.Focus();
                         }
                     }
@@ -1152,22 +1197,22 @@ namespace JBHR.Ins
                             if (txtFaidno.Text != "")
                                 textBoxL_AMT.Text = "0";
                             else
-                                textBoxL_AMT.Text = Sal.Core.Inslab.Inslab.GetLabAmtByInsurlv(amt).ToString();
+                                textBoxL_AMT.Text = Sal.Core.Inslab.Inslab.GetLabAmtByInsurlv(amt, date).ToString();
                             textBoxL_AMT.Focus();
 
                             if (txtFaidno.Text != "")
                                 textBoxJ_AMT.Text = "0";
                             else
-                                textBoxJ_AMT.Text = Sal.Core.Inslab.Inslab.GetJobAmtByInsurlv(amt).ToString();
+                                textBoxJ_AMT.Text = Sal.Core.Inslab.Inslab.GetJobAmtByInsurlv(amt, date).ToString();
                             textBoxJ_AMT.Focus();
-                            
-                            textBoxH_AMT.Text = Sal.Core.Inslab.Inslab.GetHeaAmtByInsurlv(amt).ToString();
+
+                            textBoxH_AMT.Text = Sal.Core.Inslab.Inslab.GetHeaAmtByInsurlv(amt, date).ToString();
                             textBoxH_AMT.Focus();
-                            
+
                             if (txtFaidno.Text != "")
                                 textBoxR_AMT.Text = "0";
                             else
-                                textBoxR_AMT.Text = Sal.Core.Inslab.Inslab.GetRetAmtByInsurlv(amt).ToString();
+                                textBoxR_AMT.Text = Sal.Core.Inslab.Inslab.GetRetAmtByInsurlv(amt, date).ToString();
                             textBoxR_AMT.Focus();
                             button1.Focus();
                         }
@@ -1252,7 +1297,7 @@ namespace JBHR.Ins
                             else amt = value;
                         }
                         if (amt > 0)
-                            textBoxH_AMT.Text = Sal.Core.Inslab.Inslab.GetHeaAmtByInsurlv(amt).ToString();
+                            textBoxH_AMT.Text = Sal.Core.Inslab.Inslab.GetHeaAmtByInsurlv(amt, dd).ToString();
                     }
                 }
             }
@@ -1267,7 +1312,7 @@ namespace JBHR.Ins
                     decimal amt = 0;
                     if (decimal.TryParse(textBoxJ_AMT.Text, out amt))
                     {
-                        decimal amt_compare = Sal.Core.Inslab.Inslab.GetJobAmtByInsurlv(amt);
+                        decimal amt_compare = Sal.Core.Inslab.Inslab.GetJobAmtByInsurlv(amt, Convert.ToDateTime(txtBdate.Text));
                         if (amt != amt_compare)
                         {
                             if (MessageBox.Show(Resources.Ins.AmtLvNotFound + Environment.NewLine + "按下確定自動修正投保金額", Resources.All.DialogTitle, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.OK)

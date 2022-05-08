@@ -2407,6 +2407,12 @@
     <Content Include="SqlStorage\sql\20220421_假別代碼_Add_Remark.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="SqlStorage\sql\20220501_INSLAB_ADD_JAMT.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\20220501_INSURLV_ADD_JOB.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="SqlStorage\sql\AlterSalcode.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

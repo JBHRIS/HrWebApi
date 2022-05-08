@@ -10,17 +10,17 @@ namespace JBHR.Sal.Core.Inslab
         public static System.ComponentModel.BackgroundWorker backgroundWorker;
         public static Guid guid = Guid.Empty;
         #region 勞健保類別
-        INSLAB ri;
+        JBModule.Data.Linq.INSLAB ri;
         DateTime date_ins_b;
         DateTime date_ins_e;
         decimal _JOBACCRATE = 0;
-        List<INSURLV> insurlvList = new List<INSURLV>();
+        List<JBModule.Data.Linq.INSURLV> insurlvList = new List<JBModule.Data.Linq.INSURLV>();
         public Inslab()
         {
-            SalaryMDDataContext db = new SalaryMDDataContext();
+            JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
             insurlvList = db.INSURLV.ToList();
         }
-        public Inslab(INSLAB row, DateTime ins_b, DateTime ins_e, decimal JOBACCRATE)
+        public Inslab(JBModule.Data.Linq.INSLAB row, DateTime ins_b, DateTime ins_e, decimal JOBACCRATE)
         {
             this.ri = row;
             date_ins_b = ins_b;
@@ -127,6 +127,9 @@ namespace JBHR.Sal.Core.Inslab
                     return "4";
             }
         }
+
+
+
         public int r_adays()
         {
             int total_days = 0;
@@ -215,7 +218,7 @@ namespace JBHR.Sal.Core.Inslab
             get
             {//投保金額*職災比率*勞保天數/30
                 if (larcode.NODISASTER) return 0;
-                return JBModule.Data.CDecryp.Number(ri.L_AMT) * _JOBACCRATE * this.l_adays / 30;//(投保金額*職災比率*身分別)*有效天數/30
+                return JBModule.Data.CDecryp.Number(ri.J_AMT) * _JOBACCRATE * this.l_adays / 30;//(投保金額*職災比率*身分別)*有效天數/30
             }
         }
         /// <summary>
@@ -326,7 +329,7 @@ namespace JBHR.Sal.Core.Inslab
             //DateTime Lastdate_e = Lastdate_b.AddMonths(1).AddDays(-1);
             DateTime date_b = new DateTime(int.Parse(yymm.Substring(0, 4)), int.Parse(yymm.Substring(4, 2)), 1);
             DateTime date_e = date_b.AddMonths(1).AddDays(-1);
-            SalaryMDDataContext smd = new SalaryMDDataContext();
+            JBModule.Data.Linq.HrDBDataContext smd = new JBModule.Data.Linq.HrDBDataContext();
             var sql = from a in smd.INSLAB
                       join b in smd.BASETTS on a.NOBR equals b.NOBR
                       join c in smd.DEPT on b.DEPT equals c.D_NO
@@ -359,8 +362,8 @@ namespace JBHR.Sal.Core.Inslab
                              && smd.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Select(p => p.DATAGROUP).Contains(a.SALADR)
                              select new { a.NOBR, BASETTSs };
             var RV_INSLAB = from rv in sql group rv by rv.inslab.NOBR into g1 select g1;
-            EXPLAB re = null;
-            List<EXPLAB> explabList = new List<EXPLAB>();
+            JBModule.Data.Linq.EXPLAB re = null;
+            List<JBModule.Data.Linq.EXPLAB> explabList = new List<JBModule.Data.Linq.EXPLAB>();
             decimal total_count = RV_INSLAB.Count();
             decimal current_count = 0;
             foreach (var gp in RV_INSLAB)//以每個人來跑回圈
@@ -371,7 +374,7 @@ namespace JBHR.Sal.Core.Inslab
                 int percentage = Convert.ToInt32(current_count / total_count * 100);
                 if (backgroundWorker != null)
                     backgroundWorker.ReportProgress(percentage, Resources.Sal.StatusComputing + gp.Key.ToString());
-                List<EXPLAB> dt = new List<EXPLAB>();
+                List<JBModule.Data.Linq.EXPLAB> dt = new List<JBModule.Data.Linq.EXPLAB>();
                 foreach (var ri in gp)
                 {
                     //i++;
@@ -379,7 +382,7 @@ namespace JBHR.Sal.Core.Inslab
                     if (ri.inslab.LRATE_CODE.Trim() != "" && ri.inslab.FA_IDNO.Trim().Length == 0)//不計眷屬
                     {
                         //勞保
-                        re = new EXPLAB();
+                        re = new JBModule.Data.Linq.EXPLAB();
                         re.ADATE = date_b;
                         re.COMP = JBModule.Data.CEncrypt.Number(ins.lab_amt_comp);
                         re.DAYS = ins.l_adays;
@@ -446,9 +449,9 @@ namespace JBHR.Sal.Core.Inslab
                                 if (bdate <= edate)
                                     rate += itm.RETRATE * ins.r_adays(bdate, edate) / 100;
                             }
-                            self = Math.Round(r_amt / 30 * rate , MidpointRounding.AwayFromZero);
+                            self = Math.Round(r_amt / 30 * rate, MidpointRounding.AwayFromZero);
                         }
-                        re = new EXPLAB();
+                        re = new JBModule.Data.Linq.EXPLAB();
                         re.ADATE = date_e;
                         re.COMP = ri.basetts.RETCHOO == "2" ? JBModule.Data.CEncrypt.Number(comp) : 10;//選擇新制公司才會提撥
                         if (ri.basetts.NORET) re.COMP = 10;//如果設定不計算退休金
@@ -488,7 +491,7 @@ namespace JBHR.Sal.Core.Inslab
                     //健保
                     if (ins.isNeedHea)
                     {
-                        re = new EXPLAB();
+                        re = new JBModule.Data.Linq.EXPLAB();
                         re.ADATE = date_e;
                         re.COMP = JBModule.Data.CEncrypt.Number(ins.hea_amt_comp);
                         re.DAYS = 1;
@@ -594,7 +597,7 @@ namespace JBHR.Sal.Core.Inslab
                     int percentage = Convert.ToInt32(current_count / total_count * 100);
                     if (backgroundWorker != null)
                         backgroundWorker.ReportProgress(percentage, Resources.Sal.StatusComputing + gp.Key.ToString());
-                    List<EXPLAB> dt = new List<EXPLAB>();
+                    List<JBModule.Data.Linq.EXPLAB> dt = new List<JBModule.Data.Linq.EXPLAB>();
                     foreach (var ri in gp)
                     {
                         //i++;
@@ -602,7 +605,7 @@ namespace JBHR.Sal.Core.Inslab
                         if (ri.inslab.FA_IDNO.Trim().Length == 0)//不計眷屬
                         {
                             //勞保
-                            re = new EXPLAB();
+                            re = new JBModule.Data.Linq.EXPLAB();
                             re.ADATE = date_b;
                             re.COMP = JBModule.Data.CEncrypt.Number(ins.lab_amt_comp);
                             re.DAYS = ins.l_adays;
@@ -667,7 +670,7 @@ namespace JBHR.Sal.Core.Inslab
                                 }
                                 self = Math.Round(r_amt * rate / 30, MidpointRounding.AwayFromZero);
                             }
-                            re = new EXPLAB();
+                            re = new JBModule.Data.Linq.EXPLAB();
                             re.ADATE = date_e;
                             re.COMP = ri.basetts.RETCHOO == "2" ? JBModule.Data.CEncrypt.Number(comp) : 10;//選擇新制公司才會提撥
                             re.DAYS = ins.l_adays;
@@ -701,7 +704,7 @@ namespace JBHR.Sal.Core.Inslab
                         //健保
                         if (ins.isNeedHea)
                         {
-                            re = new EXPLAB();
+                            re = new JBModule.Data.Linq.EXPLAB();
                             re.ADATE = date_e;
                             re.COMP = JBModule.Data.CEncrypt.Number(ins.hea_amt_comp);
                             re.DAYS = 1;
@@ -820,56 +823,63 @@ namespace JBHR.Sal.Core.Inslab
                                 + " AND exists(select 1 from BASETTS x where x.NOBR=EXPLAB.NOBR and dbo.Today() between x.ADATE and x.DDATE and x.SALADR in (select DATAGROUP from dbo.UserReadDataGroupList({8},{9},{10})))"
                                 + " AND (EXPLAB.SAL_YYMM = {0}) AND SAL_CODE<>{7}", parms);
         }
-        public static decimal GetLabAmtByInsurlv(decimal Salary)
+        public static decimal GetLabAmtByInsurlv(decimal Salary, DateTime checkDate)
         {
             JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
-            var sql = from a in db.INSURLV where DateTime.Now.Date >= a.EFF_DATEL && DateTime.Now.Date <= a.LFF_DATEL select a;
+            var sql = from a in db.INSURLV where checkDate >= a.EFF_DATEL && checkDate <= a.LFF_DATEL select a;
             var query = from a in sql where a.AMT >= Salary select a;
             if (query.Any()) return query.First().AMT;
             return sql.Max(p => p.AMT);
         }
-        public static decimal GetJobAmtByInsurlv(decimal Salary)
+        public static decimal GetJobAmtByInsurlv(decimal Salary, DateTime checkDate)
         {
             JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
-            var sql = from a in db.INSURLV where DateTime.Now.Date >= a.EFF_DATEJ && DateTime.Now.Date <= a.LFF_DATEJ select a;
+            var sql = from a in db.INSURLV where checkDate >= a.EFF_DATEJ && checkDate <= a.LFF_DATEJ select a;
             var query = from a in sql where a.AMT >= Salary select a;
             if (query.Any()) return query.First().AMT;
             return sql.Max(p => p.AMT);
         }
-        public static decimal GetHeaAmtByInsurlv(decimal Salary)
+        public static decimal GetHeaAmtByInsurlv(decimal Salary, DateTime checkDate)
         {
             JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
-            var sql = from a in db.INSURLV where DateTime.Now.Date >= a.EFF_DATEH && DateTime.Now.Date <= a.LFF_DATEH select a;
+            var sql = from a in db.INSURLV where checkDate >= a.EFF_DATEH && checkDate <= a.LFF_DATEH select a;
             var query = from a in sql where a.AMT >= Salary select a;
             if (query.Any()) return query.First().AMT;
             return sql.Max(p => p.AMT);
         }
-        public static decimal GetRetAmtByInsurlv(decimal Salary)
+        public static decimal GetRetAmtByInsurlv(decimal Salary, DateTime checkDate)
         {
             JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
-            var sql = from a in db.INSURLV where DateTime.Now.Date >= a.EFF_DATER && DateTime.Now.Date <= a.LFF_DATER select a;
+            var sql = from a in db.INSURLV where checkDate >= a.EFF_DATER && checkDate <= a.LFF_DATER select a;
             var query = from a in sql where a.AMT >= Salary select a;
             if (query.Any()) return query.First().AMT;
             return sql.Max(p => p.AMT);
         }
-        public decimal GetLabAmt(decimal Salary)
+        public decimal GetLabAmt(decimal Salary, DateTime checkDate)
         {
-            var sql = from a in insurlvList where DateTime.Now.Date >= a.EFF_DATEL && DateTime.Now.Date <= a.LFF_DATEL select a;
+            var sql = from a in insurlvList where checkDate >= a.EFF_DATEL && checkDate <= a.LFF_DATEL select a;
             var query = from a in sql where a.AMT >= Salary select a;
             if (query.Any()) return query.First().AMT;
             return sql.Max(p => p.AMT);
         }
-        public decimal GetHeaAmt(decimal Salary)
+        public decimal GetJobAmt(decimal Salary, DateTime checkDate)
+        {
+            var sql = from a in insurlvList where checkDate >= a.EFF_DATEJ && checkDate <= a.LFF_DATEJ select a;
+            var query = from a in sql where a.AMT >= Salary select a;
+            if (query.Any()) return query.First().AMT;
+            return sql.Max(p => p.AMT);
+        }
+        public decimal GetHeaAmt(decimal Salary, DateTime checkDate)
         {
 
-            var sql = from a in insurlvList where DateTime.Now.Date >= a.EFF_DATEH && DateTime.Now.Date <= a.LFF_DATEH select a;
+            var sql = from a in insurlvList where checkDate >= a.EFF_DATEH && checkDate <= a.LFF_DATEH select a;
             var query = from a in sql where a.AMT >= Salary select a;
             if (query.Any()) return query.First().AMT;
             return sql.Max(p => p.AMT);
         }
-        public decimal GetRetAmt(decimal Salary)
+        public decimal GetRetAmt(decimal Salary, DateTime checkDate)
         {
-            var sql = from a in insurlvList where DateTime.Now.Date >= a.EFF_DATER && DateTime.Now.Date <= a.LFF_DATER select a;
+            var sql = from a in insurlvList where checkDate >= a.EFF_DATER && checkDate <= a.LFF_DATER select a;
             var query = from a in sql where a.AMT >= Salary select a;
             if (query.Any()) return query.First().AMT;
             return sql.Max(p => p.AMT);

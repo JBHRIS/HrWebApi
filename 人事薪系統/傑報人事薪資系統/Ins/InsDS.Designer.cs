@@ -9272,6 +9272,8 @@ namespace JBHR.Ins {
             
             private global::System.Data.DataColumn columnNAME_C;
             
+            private global::System.Data.DataColumn columnREASON;
+            
             private global::System.Data.DataColumn columnRETCHOO;
             
             private global::System.Data.DataColumn columnNOTTRAN;
@@ -9281,6 +9283,10 @@ namespace JBHR.Ins {
             private global::System.Data.DataColumn columnL_AMT;
             
             private global::System.Data.DataColumn columnL_AMT1;
+            
+            private global::System.Data.DataColumn columnJ_AMT;
+            
+            private global::System.Data.DataColumn columnJ_AMT1;
             
             private global::System.Data.DataColumn columnH_AMT;
             
@@ -9298,11 +9304,23 @@ namespace JBHR.Ins {
             
             private global::System.Data.DataColumn columnAMT3;
             
+            private global::System.Data.DataColumn columnAMT4;
+            
+            private global::System.Data.DataColumn columnAMT5;
+            
+            private global::System.Data.DataColumn columnAMT6;
+            
             private global::System.Data.DataColumn columnAMTA;
             
             private global::System.Data.DataColumn columnAMTB;
             
             private global::System.Data.DataColumn columnAMTC;
+            
+            private global::System.Data.DataColumn columnAMTD;
+            
+            private global::System.Data.DataColumn columnAMTE;
+            
+            private global::System.Data.DataColumn columnAMTF;
             
             private global::System.Data.DataColumn columnInsComp;
             
@@ -9359,6 +9377,14 @@ namespace JBHR.Ins {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn REASONColumn {
+                get {
+                    return this.columnREASON;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn RETCHOOColumn {
                 get {
                     return this.columnRETCHOO;
@@ -9394,6 +9420,22 @@ namespace JBHR.Ins {
             public global::System.Data.DataColumn L_AMT1Column {
                 get {
                     return this.columnL_AMT1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn J_AMTColumn {
+                get {
+                    return this.columnJ_AMT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn J_AMT1Column {
+                get {
+                    return this.columnJ_AMT1;
                 }
             }
             
@@ -9463,6 +9505,30 @@ namespace JBHR.Ins {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AMT4Column {
+                get {
+                    return this.columnAMT4;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AMT5Column {
+                get {
+                    return this.columnAMT5;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AMT6Column {
+                get {
+                    return this.columnAMT6;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn AMTAColumn {
                 get {
                     return this.columnAMTA;
@@ -9482,6 +9548,30 @@ namespace JBHR.Ins {
             public global::System.Data.DataColumn AMTCColumn {
                 get {
                     return this.columnAMTC;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AMTDColumn {
+                get {
+                    return this.columnAMTD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AMTEColumn {
+                get {
+                    return this.columnAMTE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AMTFColumn {
+                get {
+                    return this.columnAMTF;
                 }
             }
             
@@ -9541,11 +9631,14 @@ namespace JBHR.Ins {
             public FRM3AZRow AddFRM3AZRow(
                         string NOBR, 
                         string NAME_C, 
+                        string REASON, 
                         string RETCHOO, 
                         bool NOTTRAN, 
                         decimal SALARY, 
                         decimal L_AMT, 
                         decimal L_AMT1, 
+                        decimal J_AMT, 
+                        decimal J_AMT1, 
                         decimal H_AMT, 
                         decimal H_AMT1, 
                         decimal SALARYA, 
@@ -9554,20 +9647,29 @@ namespace JBHR.Ins {
                         decimal AMT1, 
                         decimal AMT2, 
                         decimal AMT3, 
+                        decimal AMT4, 
+                        decimal AMT5, 
+                        decimal AMT6, 
                         decimal AMTA, 
                         decimal AMTB, 
                         decimal AMTC, 
+                        decimal AMTD, 
+                        decimal AMTE, 
+                        decimal AMTF, 
                         string InsComp, 
                         string REMARK) {
                 FRM3AZRow rowFRM3AZRow = ((FRM3AZRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NOBR,
                         NAME_C,
+                        REASON,
                         RETCHOO,
                         NOTTRAN,
                         SALARY,
                         L_AMT,
                         L_AMT1,
+                        J_AMT,
+                        J_AMT1,
                         H_AMT,
                         H_AMT1,
                         SALARYA,
@@ -9576,9 +9678,15 @@ namespace JBHR.Ins {
                         AMT1,
                         AMT2,
                         AMT3,
+                        AMT4,
+                        AMT5,
+                        AMT6,
                         AMTA,
                         AMTB,
                         AMTC,
+                        AMTD,
+                        AMTE,
+                        AMTF,
                         InsComp,
                         REMARK};
                 rowFRM3AZRow.ItemArray = columnValuesArray;
@@ -9605,11 +9713,14 @@ namespace JBHR.Ins {
             internal void InitVars() {
                 this.columnNOBR = base.Columns["NOBR"];
                 this.columnNAME_C = base.Columns["NAME_C"];
+                this.columnREASON = base.Columns["REASON"];
                 this.columnRETCHOO = base.Columns["RETCHOO"];
                 this.columnNOTTRAN = base.Columns["NOTTRAN"];
                 this.columnSALARY = base.Columns["SALARY"];
                 this.columnL_AMT = base.Columns["L_AMT"];
                 this.columnL_AMT1 = base.Columns["L_AMT1"];
+                this.columnJ_AMT = base.Columns["J_AMT"];
+                this.columnJ_AMT1 = base.Columns["J_AMT1"];
                 this.columnH_AMT = base.Columns["H_AMT"];
                 this.columnH_AMT1 = base.Columns["H_AMT1"];
                 this.columnSALARYA = base.Columns["SALARYA"];
@@ -9618,9 +9729,15 @@ namespace JBHR.Ins {
                 this.columnAMT1 = base.Columns["AMT1"];
                 this.columnAMT2 = base.Columns["AMT2"];
                 this.columnAMT3 = base.Columns["AMT3"];
+                this.columnAMT4 = base.Columns["AMT4"];
+                this.columnAMT5 = base.Columns["AMT5"];
+                this.columnAMT6 = base.Columns["AMT6"];
                 this.columnAMTA = base.Columns["AMTA"];
                 this.columnAMTB = base.Columns["AMTB"];
                 this.columnAMTC = base.Columns["AMTC"];
+                this.columnAMTD = base.Columns["AMTD"];
+                this.columnAMTE = base.Columns["AMTE"];
+                this.columnAMTF = base.Columns["AMTF"];
                 this.columnInsComp = base.Columns["InsComp"];
                 this.columnREMARK = base.Columns["REMARK"];
             }
@@ -9632,6 +9749,8 @@ namespace JBHR.Ins {
                 base.Columns.Add(this.columnNOBR);
                 this.columnNAME_C = new global::System.Data.DataColumn("NAME_C", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNAME_C);
+                this.columnREASON = new global::System.Data.DataColumn("REASON", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnREASON);
                 this.columnRETCHOO = new global::System.Data.DataColumn("RETCHOO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRETCHOO);
                 this.columnNOTTRAN = new global::System.Data.DataColumn("NOTTRAN", typeof(bool), null, global::System.Data.MappingType.Element);
@@ -9642,6 +9761,10 @@ namespace JBHR.Ins {
                 base.Columns.Add(this.columnL_AMT);
                 this.columnL_AMT1 = new global::System.Data.DataColumn("L_AMT1", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnL_AMT1);
+                this.columnJ_AMT = new global::System.Data.DataColumn("J_AMT", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnJ_AMT);
+                this.columnJ_AMT1 = new global::System.Data.DataColumn("J_AMT1", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnJ_AMT1);
                 this.columnH_AMT = new global::System.Data.DataColumn("H_AMT", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnH_AMT);
                 this.columnH_AMT1 = new global::System.Data.DataColumn("H_AMT1", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -9658,23 +9781,38 @@ namespace JBHR.Ins {
                 base.Columns.Add(this.columnAMT2);
                 this.columnAMT3 = new global::System.Data.DataColumn("AMT3", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAMT3);
+                this.columnAMT4 = new global::System.Data.DataColumn("AMT4", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAMT4);
+                this.columnAMT5 = new global::System.Data.DataColumn("AMT5", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAMT5);
+                this.columnAMT6 = new global::System.Data.DataColumn("AMT6", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAMT6);
                 this.columnAMTA = new global::System.Data.DataColumn("AMTA", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAMTA);
                 this.columnAMTB = new global::System.Data.DataColumn("AMTB", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAMTB);
                 this.columnAMTC = new global::System.Data.DataColumn("AMTC", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAMTC);
+                this.columnAMTD = new global::System.Data.DataColumn("AMTD", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAMTD);
+                this.columnAMTE = new global::System.Data.DataColumn("AMTE", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAMTE);
+                this.columnAMTF = new global::System.Data.DataColumn("AMTF", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAMTF);
                 this.columnInsComp = new global::System.Data.DataColumn("InsComp", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnInsComp);
                 this.columnREMARK = new global::System.Data.DataColumn("REMARK", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnREMARK);
                 this.columnNOBR.Caption = "員工編號";
                 this.columnNAME_C.Caption = "員工姓名";
+                this.columnREASON.Caption = "異動原因";
                 this.columnRETCHOO.Caption = "勞退";
                 this.columnNOTTRAN.Caption = "不新增";
                 this.columnSALARY.Caption = "勞健保薪資";
                 this.columnL_AMT.Caption = "目前勞保金額";
                 this.columnL_AMT1.Caption = "應該勞保金額";
+                this.columnJ_AMT.Caption = "目前職災金額";
+                this.columnJ_AMT1.Caption = "應該職災金額";
                 this.columnH_AMT.Caption = "目前健保金額";
                 this.columnH_AMT1.Caption = "應該健保金額";
                 this.columnSALARYA.Caption = "勞退薪資";
@@ -9683,9 +9821,15 @@ namespace JBHR.Ins {
                 this.columnAMT1.Caption = "勞健月份1";
                 this.columnAMT2.Caption = "勞健月份2";
                 this.columnAMT3.Caption = "勞健月份3";
+                this.columnAMT4.Caption = "勞健月份4";
+                this.columnAMT5.Caption = "勞健月份5";
+                this.columnAMT6.Caption = "勞健月份6";
                 this.columnAMTA.Caption = "勞退月份1";
                 this.columnAMTB.Caption = "勞退月份2";
                 this.columnAMTC.Caption = "勞退月份3";
+                this.columnAMTD.Caption = "勞退月份4";
+                this.columnAMTE.Caption = "勞退月份5";
+                this.columnAMTF.Caption = "勞退月份6";
                 this.columnInsComp.Caption = "投保單位";
                 this.columnREMARK.Caption = "錯誤註記";
             }
@@ -12917,6 +13061,22 @@ namespace JBHR.Ins {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string REASON {
+                get {
+                    try {
+                        return ((string)(this[this.tableFRM3AZ.REASONColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'FRM3AZ\' 中資料行 \'REASON\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableFRM3AZ.REASONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string RETCHOO {
                 get {
                     try {
@@ -12992,6 +13152,38 @@ namespace JBHR.Ins {
                 }
                 set {
                     this[this.tableFRM3AZ.L_AMT1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal J_AMT {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableFRM3AZ.J_AMTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'FRM3AZ\' 中資料行 \'J_AMT\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableFRM3AZ.J_AMTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal J_AMT1 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableFRM3AZ.J_AMT1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'FRM3AZ\' 中資料行 \'J_AMT1\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableFRM3AZ.J_AMT1Column] = value;
                 }
             }
             
@@ -13125,6 +13317,54 @@ namespace JBHR.Ins {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal AMT4 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableFRM3AZ.AMT4Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'FRM3AZ\' 中資料行 \'AMT4\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableFRM3AZ.AMT4Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal AMT5 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableFRM3AZ.AMT5Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'FRM3AZ\' 中資料行 \'AMT5\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableFRM3AZ.AMT5Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal AMT6 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableFRM3AZ.AMT6Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'FRM3AZ\' 中資料行 \'AMT6\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableFRM3AZ.AMT6Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public decimal AMTA {
                 get {
                     try {
@@ -13168,6 +13408,54 @@ namespace JBHR.Ins {
                 }
                 set {
                     this[this.tableFRM3AZ.AMTCColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal AMTD {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableFRM3AZ.AMTDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'FRM3AZ\' 中資料行 \'AMTD\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableFRM3AZ.AMTDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal AMTE {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableFRM3AZ.AMTEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'FRM3AZ\' 中資料行 \'AMTE\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableFRM3AZ.AMTEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal AMTF {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableFRM3AZ.AMTFColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'FRM3AZ\' 中資料行 \'AMTF\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableFRM3AZ.AMTFColumn] = value;
                 }
             }
             
@@ -13229,6 +13517,18 @@ namespace JBHR.Ins {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsREASONNull() {
+                return this.IsNull(this.tableFRM3AZ.REASONColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetREASONNull() {
+                this[this.tableFRM3AZ.REASONColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsRETCHOONull() {
                 return this.IsNull(this.tableFRM3AZ.RETCHOOColumn);
             }
@@ -13285,6 +13585,30 @@ namespace JBHR.Ins {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetL_AMT1Null() {
                 this[this.tableFRM3AZ.L_AMT1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsJ_AMTNull() {
+                return this.IsNull(this.tableFRM3AZ.J_AMTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetJ_AMTNull() {
+                this[this.tableFRM3AZ.J_AMTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsJ_AMT1Null() {
+                return this.IsNull(this.tableFRM3AZ.J_AMT1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetJ_AMT1Null() {
+                this[this.tableFRM3AZ.J_AMT1Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13385,6 +13709,42 @@ namespace JBHR.Ins {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsAMT4Null() {
+                return this.IsNull(this.tableFRM3AZ.AMT4Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetAMT4Null() {
+                this[this.tableFRM3AZ.AMT4Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsAMT5Null() {
+                return this.IsNull(this.tableFRM3AZ.AMT5Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetAMT5Null() {
+                this[this.tableFRM3AZ.AMT5Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsAMT6Null() {
+                return this.IsNull(this.tableFRM3AZ.AMT6Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetAMT6Null() {
+                this[this.tableFRM3AZ.AMT6Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsAMTANull() {
                 return this.IsNull(this.tableFRM3AZ.AMTAColumn);
             }
@@ -13417,6 +13777,42 @@ namespace JBHR.Ins {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetAMTCNull() {
                 this[this.tableFRM3AZ.AMTCColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsAMTDNull() {
+                return this.IsNull(this.tableFRM3AZ.AMTDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetAMTDNull() {
+                this[this.tableFRM3AZ.AMTDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsAMTENull() {
+                return this.IsNull(this.tableFRM3AZ.AMTEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetAMTENull() {
+                this[this.tableFRM3AZ.AMTEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsAMTFNull() {
+                return this.IsNull(this.tableFRM3AZ.AMTFColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetAMTFNull() {
+                this[this.tableFRM3AZ.AMTFColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
