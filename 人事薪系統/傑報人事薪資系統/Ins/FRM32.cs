@@ -161,8 +161,11 @@ namespace JBHR.Ins
             {
                 if (ins.J_AMT <= 10 && ins.L_AMT > 10 && ins.FA_IDNO.Trim().Length == 0)//職災等於0(未設定)，勞保大於0(有加保勞保)，必須是員工(眷屬沒有)
                 {
-                    decimal retAmt = JBModule.Data.CDecryp.Number(ins.R_AMT);
-                    decimal jobAmt = inslab.GetJobAmt(retAmt, new DateTime(2022, 5, 1));
+                    decimal baseAmt = JBModule.Data.CDecryp.Number(ins.R_AMT);
+                    if (baseAmt == 0)//沒有勞退抓健保，但是需要再和勞保局核對確認，因為代表勞保局沒有參考資料
+                        baseAmt = JBModule.Data.CDecryp.Number(ins.H_AMT);
+
+                    decimal jobAmt = inslab.GetJobAmt(baseAmt, new DateTime(2022, 5, 1));
                     ins.J_AMT = JBModule.Data.CEncrypt.Number(jobAmt);
                 }
             }
