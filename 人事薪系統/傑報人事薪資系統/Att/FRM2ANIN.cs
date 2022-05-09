@@ -154,6 +154,11 @@ namespace JBHR.Att
                     TargetRow["錯誤註記"] = "調班日期格式錯誤";
                 }
             }
+            else if (!db.BASETTS.Where(p => p.NOBR == TargetRow["員工編號"].ToString() && p.INDT.Value.CompareTo(Convert.ToDateTime(SourceRow["調班日期"]).Date) <= 0).Any())
+            {
+                TargetRow["錯誤註記"] = "調班起始日不可在入職日之前";
+            }
+
             JBModule.Data.Dto.ROTECHGDto rOTECHGDto = new JBModule.Data.Dto.ROTECHGDto
             {
                 ADATE = Convert.ToDateTime(TargetRow["調班日期"].ToString()),
