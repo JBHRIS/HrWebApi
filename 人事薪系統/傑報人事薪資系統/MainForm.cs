@@ -708,9 +708,52 @@ namespace JBHR
                 check_login(MainForm.USER_ID);
             }
             if (ret == DialogResult.Cancel) this.Close();
-            JBModule.Message.TextLog.path = @"C:\Temp\Error";
+            JBModule.Message.TextLog.path = @"C:\Temp\Error";            
         }
+        private void CheckJobAmtUpdate()
+        {
+            JBModule.Data.ApplicationConfigSettings config = new JBModule.Data.ApplicationConfigSettings(this.Name + "_Register", MainForm.COMPANY);
+            var jobAmtUpdate = config.GetConfig("JobAmtUpdate").GetString("");
+            if (jobAmtUpdate.Trim().Length == 0)
+            {
+                var dialogResult = (MessageBox.Show("是否要執行職災級距逕調，是-調整，否-不調整，取消-略過此次", "重要", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning));
+                if (dialogResult == DialogResult.Yes)
+                {
+                    RunJobAmtUpdate();
+                    config.CheckParameterAndSetDefault("JobAmtUpdate", "職災金額逕調更新", "Y", "", "", "", "");
+                    MessageBox.Show("更新完成");
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    return;
+                    config.CheckParameterAndSetDefault("JobAmtUpdate", "職災金額逕調更新", "N", "", "", "", "");
+                }
 
+            }
+        }
+        private void RunJobAmtUpdate()
+        {
+            var db = new JBModule.Data.Linq.HrDBDataContext();
+            var setupDate = new DateTime(2022, 5, 1);
+            var inslabList = from ins in db.INSLAB
+                             where db.GetFilterByNobr(ins.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                             && setupDate <= ins.OUT_DATE
+                             select ins;
+            Sal.Core.Inslab.Inslab inslab = new Sal.Core.Inslab.Inslab();
+            foreach (var ins in inslabList)
+            {
+                if (ins.J_AMT <= 10 && ins.L_AMT > 10 && ins.FA_IDNO.Trim().Length == 0)//職災等於0(未設定)，勞保大於0(有加保勞保)，必須是員工(眷屬沒有)
+                {
+                    decimal baseAmt = JBModule.Data.CDecryp.Number(ins.R_AMT);
+                    if (baseAmt == 0)//沒有勞退抓健保，但是需要再和勞保局核對確認，因為代表勞保局沒有參考資料
+                        baseAmt = JBModule.Data.CDecryp.Number(ins.H_AMT);
+
+                    decimal jobAmt = inslab.GetJobAmt(baseAmt, new DateTime(2022, 5, 1));
+                    ins.J_AMT = JBModule.Data.CEncrypt.Number(jobAmt);
+                }
+            }
+            db.SubmitChanges();
+        }
         private void check_login(string userid)
         {
             MainForm.USER_ID = userid;
@@ -812,7 +855,7 @@ namespace JBHR
                 SetTitle();
                 //報表參數
                 SetReport();
-                JBHR.Reports.NotifyParameter.SetAttendSetting();
+                JBHR.Reports.NotifyParameter.SetAttendSetting();               
             }
             if (frm.toolStripCbxCompany.Items.Count > 0)
             {
@@ -821,8 +864,13 @@ namespace JBHR
             }
             else
             {
-                MessageBox.Show("此使帳號無公司群組設定.");
+                MessageBox.Show("此使用者帳號無公司群組設定.");
                 this.MainMenuStrip.Items.Clear();
+            }
+            //職災徑調
+            if (DateTime.Today <= Convert.ToDateTime("2022/6/30"))
+            {
+                CheckJobAmtUpdate();
             }
         }
         private void SetNewMenuStrip()
@@ -1287,7 +1335,13 @@ namespace JBHR
                 if (control == null) return;//避免null錯誤
             }
             SetNewMenuStrip();
-            control.Focus(); 
+            control.Focus();
+
+            //職災徑調
+            if (DateTime.Today <= Convert.ToDateTime("2022/6/30"))
+            {
+                CheckJobAmtUpdate();
+            }
             #endregion
         }
         void SetRule()
