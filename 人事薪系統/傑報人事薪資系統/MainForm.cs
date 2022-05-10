@@ -867,11 +867,11 @@ namespace JBHR
                 MessageBox.Show("此使用者帳號無公司群組設定.");
                 this.MainMenuStrip.Items.Clear();
             }
-            //職災徑調
-            if (DateTime.Today <= Convert.ToDateTime("2022/6/30"))
-            {
-                CheckJobAmtUpdate();
-            }
+            ////職災徑調
+            //if (DateTime.Today <= Convert.ToDateTime("2022/6/30"))
+            //{
+            //    CheckJobAmtUpdate();
+            //}
         }
         private void SetNewMenuStrip()
         {
@@ -1336,7 +1336,6 @@ namespace JBHR
             }
             SetNewMenuStrip();
             control.Focus();
-
             //職災徑調
             if (DateTime.Today <= Convert.ToDateTime("2022/6/30"))
             {
