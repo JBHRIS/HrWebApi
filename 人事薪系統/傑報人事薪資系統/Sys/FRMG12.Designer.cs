@@ -149,7 +149,7 @@
             this.maskedTextBox2.DecimalPlace = 2;
             this.maskedTextBox2.IsEmpty = false;
             this.maskedTextBox2.Location = new System.Drawing.Point(75, 36);
-            this.maskedTextBox2.Mask = "99";
+            this.maskedTextBox2.Mask = "";
             this.maskedTextBox2.MaxLength = 2;
             this.maskedTextBox2.Name = "maskedTextBox2";
             this.maskedTextBox2.PasswordChar = '\0';
