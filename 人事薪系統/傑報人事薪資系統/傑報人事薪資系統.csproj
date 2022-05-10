@@ -33,7 +33,7 @@
     <SccProvider>
     </SccProvider>
     <TargetFrameworkProfile />
-    <PublishUrl>ftp://13.70.40.203/Publish/JBHR2/</PublishUrl>
+    <PublishUrl>ftp://192.168.1.24/JBHR2/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -43,13 +43,13 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://publishcn.jbhr.com.tw:23333/Publish/JBHR2/</InstallUrl>
+    <InstallUrl>http://publish.jbjob.com.tw/Publish/JBHR2/</InstallUrl>
     <ProductName>傑報人事薪資系統</ProductName>
     <PublisherName>傑報資訊</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>22.5.9.1</ApplicationVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>22.4.25.2</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -187,8 +187,6 @@
       <HintPath>..\..\..\..\Standard\ThirdPartyLib\Telerik\WinForm\Telerik.WinControls.UI.dll</HintPath>
     </Reference>
     <Reference Include="TelerikData, Version=2017.2.613.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="Xceed.Document.NET, Version=2.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL" />
-    <Reference Include="Xceed.Words.NET, Version=2.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnnualBonus\HunyaCustom\Code\Hunya_ABLevelCode.cs">
@@ -1871,30 +1869,6 @@
     <Content Include="Resources\ICON\favicon_C.ico" />
     <Content Include="Resources\ICON\傑報資訊_icon_01.png" />
     <Content Include="Resources\ICON\傑報資訊_icon_02.png" />
-    <EmbeddedResource Include="Wel\FRM63N.resx">
-      <DependentUpon>FRM63N.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wel\FRM63N1.resx">
-      <DependentUpon>FRM63N1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wel\FRM63N1_ADD.resx">
-      <DependentUpon>FRM63N1_ADD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wel\FRM63N1_IMPORT.resx">
-      <DependentUpon>FRM63N1_IMPORT.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wel\FRM63N1_T.resx">
-      <DependentUpon>FRM63N1_T.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wel\FRM63N2.resx">
-      <DependentUpon>FRM63N2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wel\FRM63N2_RepeatIDNO.resx">
-      <DependentUpon>FRM63N2_RepeatIDNO.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wel\FRM63N_ADD.resx">
-      <DependentUpon>FRM63N_ADD.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="AnnualBonus\HunyaCustom\Hunya_AnnualBonus.xsc">
       <DependentUpon>Hunya_AnnualBonus.xsd</DependentUpon>
     </None>
@@ -2157,9 +2131,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlStorage\sql\2020121501_RoteBonusConditionTypeInsertJOB.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlStorage\sql\2022041801_create_ENCODE_function.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlStorage\sql\2020121801_create_ENCODE_function.sql">
@@ -2436,19 +2407,13 @@
     <Content Include="SqlStorage\sql\20220421_假別代碼_Add_Remark.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\sql\2022041802_AlterWelfAddNote1Note2.sql">
+    <Content Include="SqlStorage\sql\20220501_INSLAB_ADD_JAMT.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\sql\2022041803_Create_View_Welf.sql">
+    <Content Include="SqlStorage\sql\20220501_INSURLV_ADD_JOB.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlStorage\sql\2022042701_AlterTW_TAXAddTAX_TypeAndAlterView_TW_TAX.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlStorage\sql\2022050301_AlterWelfAddComp_Date_B_Date_E.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlStorage\sql\2022050501_AlterJqsettingCustomerWhereForVIEW_TW_TAXsql.sql">
+    <Content Include="SqlStorage\sql\20220508_INSURLV_Update_JOB.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlStorage\sql\AlterSalcode.sql">
@@ -5391,15 +5356,6 @@
       <DependentUpon>FRM62I.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Wel\FRM62N.resx">
-      <DependentUpon>FRM62N.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wel\FRM62N_ADD.resx">
-      <DependentUpon>FRM62N_ADD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wel\FRM62N_IMPORT.resx">
-      <DependentUpon>FRM62N_IMPORT.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Wel\FRM63.resx">
       <DependentUpon>FRM63.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -5479,12 +5435,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlStorage\jq\2021101201_假日班別批次調整.jq">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlStorage\jq\2022042701_福利金資料維護.jq">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlStorage\jq\2022042702_福利金年度申報.jq">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="TRA\traDS1.xsc">
@@ -7620,24 +7570,6 @@
     <Compile Include="Wel\FRM62I.Designer.cs">
       <DependentUpon>FRM62I.cs</DependentUpon>
     </Compile>
-    <Compile Include="Wel\FRM62N.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Wel\FRM62N.Designer.cs">
-      <DependentUpon>FRM62N.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Wel\FRM62N_ADD.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Wel\FRM62N_ADD.Designer.cs">
-      <DependentUpon>FRM62N_ADD.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Wel\FRM62N_IMPORT.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Wel\FRM62N_IMPORT.Designer.cs">
-      <DependentUpon>FRM62N_IMPORT.cs</DependentUpon>
-    </Compile>
     <Compile Include="Wel\FRM63.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -7654,54 +7586,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FRM63DataClasses.dbml</DependentUpon>
-    </Compile>
-    <Compile Include="Wel\FRM63N.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Wel\FRM63N.Designer.cs">
-      <DependentUpon>FRM63N.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Wel\FRM63N1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Wel\FRM63N1.Designer.cs">
-      <DependentUpon>FRM63N1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Wel\FRM63N1_ADD.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Wel\FRM63N1_ADD.Designer.cs">
-      <DependentUpon>FRM63N1_ADD.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Wel\FRM63N1_IMPORT.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Wel\FRM63N1_IMPORT.Designer.cs">
-      <DependentUpon>FRM63N1_IMPORT.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Wel\FRM63N1_T.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Wel\FRM63N1_T.designer.cs">
-      <DependentUpon>FRM63N1_T.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Wel\FRM63N2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Wel\FRM63N2.designer.cs">
-      <DependentUpon>FRM63N2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Wel\FRM63N2_RepeatIDNO.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Wel\FRM63N2_RepeatIDNO.Designer.cs">
-      <DependentUpon>FRM63N2_RepeatIDNO.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Wel\FRM63N_ADD.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Wel\FRM63N_ADD.designer.cs">
-      <DependentUpon>FRM63N_ADD.cs</DependentUpon>
     </Compile>
     <Compile Include="Wel\WelDS.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -8036,122 +7920,122 @@
   <ItemGroup>
     <PublishFile Include="JBControls.pdb">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="JBHR.BLL.pdb">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="JBHR.Dll.pdb">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="JBHR.pdb">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="JBModule.Data.pdb">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="JBModule.Message.pdb">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="JBModule.pdb">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="JBTools.pdb">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.mshtml">
       <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="System.Net.Http">
       <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>

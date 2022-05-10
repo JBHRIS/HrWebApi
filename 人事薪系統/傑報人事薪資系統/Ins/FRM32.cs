@@ -77,9 +77,10 @@ namespace JBHR.Ins
                 row.L_AMT = JBModule.Data.CDecryp.Number(row.L_AMT);
                 row.H_AMT = JBModule.Data.CDecryp.Number(row.H_AMT);
                 row.R_AMT = JBModule.Data.CDecryp.Number(row.R_AMT);
+                row.J_AMT = JBModule.Data.CDecryp.Number(row.J_AMT);
             }
             this.insDS.INSLAB.AcceptChanges();
-            fullDataCtrl1.WhereCmd = Sal.Function.GetFilterCmdByNobr("INSLAB.nobr");
+            fullDataCtrl1.WhereCmd = Sal.Function.GetFilterCmdByNobr("INSLAB.NOBR");
             filterData();
 
             BasDataClassesDataContext db = new BasDataClassesDataContext();
@@ -120,8 +121,56 @@ namespace JBHR.Ins
                 txtBdate.Text = Adate.ToShortDateString();
                 txtFaidno.Text = Fa_idno;
             }
+            if (DateTime.Today <= Convert.ToDateTime("2022/6/30"))
+            {
+                CheckJobAmtUpdate();
+            }
         }
 
+        private void CheckJobAmtUpdate()
+        {
+            JBModule.Data.ApplicationConfigSettings config = new JBModule.Data.ApplicationConfigSettings(this.Name + "_Register", MainForm.COMPANY);
+            var jobAmtUpdate = config.GetConfig("JobAmtUpdate").GetString("");
+            if (jobAmtUpdate.Trim().Length == 0)
+            {
+                var dialogResult = (MessageBox.Show("是否要執行植栽級距逕調，是-調整，否-不調整，忽略-略過此次", "重要", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning));
+                if (dialogResult == DialogResult.Yes)
+                {
+                    RunJobAmtUpdate();
+                    config.CheckParameterAndSetDefault("JobAmtUpdate", "職災金額逕調更新", "Y", "", "", "", "");
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    return;
+                    config.CheckParameterAndSetDefault("JobAmtUpdate", "職災金額逕調更新", "N", "", "", "", "");
+                }
+
+            }
+        }
+
+        private void RunJobAmtUpdate()
+        {
+            var db = new JBModule.Data.Linq.HrDBDataContext();
+            var setupDate = new DateTime(2022, 5, 1);
+            var inslabList = from ins in db.INSLAB
+                             where db.GetFilterByNobr(ins.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                             && setupDate <= ins.OUT_DATE
+                             select ins;
+            Sal.Core.Inslab.Inslab inslab = new Sal.Core.Inslab.Inslab();
+            foreach (var ins in inslabList)
+            {
+                if (ins.J_AMT <= 10 && ins.L_AMT > 10 && ins.FA_IDNO.Trim().Length == 0)//職災等於0(未設定)，勞保大於0(有加保勞保)，必須是員工(眷屬沒有)
+                {
+                    decimal baseAmt = JBModule.Data.CDecryp.Number(ins.R_AMT);
+                    if (baseAmt == 0)//沒有勞退抓健保，但是需要再和勞保局核對確認，因為代表勞保局沒有參考資料
+                        baseAmt = JBModule.Data.CDecryp.Number(ins.H_AMT);
+
+                    decimal jobAmt = inslab.GetJobAmt(baseAmt, new DateTime(2022, 5, 1));
+                    ins.J_AMT = JBModule.Data.CEncrypt.Number(jobAmt);
+                }
+            }
+            db.SubmitChanges();
+        }
         private void filterData()
         {
             //if (!MainForm.MANGSUPER)
@@ -202,6 +251,7 @@ namespace JBHR.Ins
                 e.Values["l_amt"] = drv["l_amt"];
                 e.Values["h_amt"] = drv["h_amt"];
                 e.Values["r_amt"] = drv["r_amt"];
+                e.Values["j_amt"] = drv["j_amt"];
                 comboBoxS_NO.SelectedValue = drv["s_no"];
                 comboBoxLRATE_CODE.SelectedValue = drv["lrate_code"];
                 comboBoxHRATE_CODE.SelectedValue = drv["hrate_code"];
@@ -309,6 +359,7 @@ namespace JBHR.Ins
                 textBoxH_AMT.Enabled = false;
                 comboBoxHRATE_CODE.Enabled = false;
                 textBoxR_AMT.Enabled = false;
+                textBox9.Enabled = false;
             }
 
             bnChange.Enabled = false;
@@ -462,7 +513,7 @@ namespace JBHR.Ins
                 MessageBox.Show(Resources.Ins.OutDateLessThenInDateErr, Resources.All.DialogTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
+
             if (!checkSavePower(EmployeeId))
             {
                 e.Cancel = true;
@@ -538,8 +589,8 @@ namespace JBHR.Ins
             if (!e.Cancel)
             {
                 var conn = iNSLABTableAdapter.Connection;
-                InsDataClassesDataContext trans_db;
-                using (trans_db = new InsDataClassesDataContext(conn))
+                JBModule.Data.Linq.HrDBDataContext trans_db;
+                using (trans_db = new JBModule.Data.Linq.HrDBDataContext(conn))
                 {
                     try
                     {
@@ -574,7 +625,7 @@ namespace JBHR.Ins
                             //新增眷屬調整資料
                             foreach (string key in fa_idno.Keys)
                             {
-                                INSLAB newInsLab = new INSLAB();
+                                JBModule.Data.Linq.INSLAB newInsLab = new JBModule.Data.Linq.INSLAB();
                                 newInsLab.NOBR = EmployeeId.ToString().Trim();
                                 newInsLab.FA_IDNO = key;
                                 newInsLab.CODE = "2";
@@ -583,6 +634,7 @@ namespace JBHR.Ins
                                 newInsLab.ROUT_DATE = rout_date;
                                 newInsLab.LRATE_CODE = "";
                                 newInsLab.L_AMT = JBModule.Data.CEncrypt.Number(0);
+                                newInsLab.J_AMT = JBModule.Data.CEncrypt.Number(0);
                                 newInsLab.HRATE_CODE = fa_idno[key];
                                 newInsLab.H_AMT = JBModule.Data.CEncrypt.Number(Convert.ToDecimal(e.Values["h_amt"]));
                                 newInsLab.R_AMT = JBModule.Data.CEncrypt.Number(0);
@@ -618,6 +670,7 @@ namespace JBHR.Ins
                                     row.OUT_DATE = out_date;
                                     row.ROUT_DATE = rout_date;
                                     row.L_AMT = JBModule.Data.CEncrypt.Number(0);
+                                    row.J_AMT = JBModule.Data.CEncrypt.Number(0);
                                     row.H_AMT = JBModule.Data.CEncrypt.Number(row.H_AMT);
                                     row.R_AMT = JBModule.Data.CEncrypt.Number(0);
                                     iNSLABTableAdapter.Update(row);
@@ -647,6 +700,12 @@ namespace JBHR.Ins
                         else
                             textBoxL_AMT.Text = JBModule.Data.CEncrypt.Number(0).ToString();
                         e.Values["L_AMT"] = Convert.ToDecimal(textBoxL_AMT.Text);
+
+                        if (textBoxJ_AMT.Text != null && Convert.ToDecimal(textBoxJ_AMT.Text) != 0)
+                            textBoxJ_AMT.Text = JBModule.Data.CEncrypt.Number(Convert.ToDecimal(textBoxJ_AMT.Text)).ToString();
+                        else
+                            textBoxJ_AMT.Text = JBModule.Data.CEncrypt.Number(0).ToString();
+                        e.Values["J_AMT"] = Convert.ToDecimal(textBoxJ_AMT.Text);
 
                         if (textBoxH_AMT.Text != null && Convert.ToDecimal(textBoxH_AMT.Text) != 0)
                             textBoxH_AMT.Text = JBModule.Data.CEncrypt.Number(Convert.ToDecimal(textBoxH_AMT.Text)).ToString();
@@ -726,6 +785,7 @@ namespace JBHR.Ins
                     }
                 }
                 e.Values["L_AMT"] = JBModule.Data.CDecryp.Number(Convert.ToDecimal(e.Values["L_AMT"]));
+                e.Values["J_AMT"] = JBModule.Data.CDecryp.Number(Convert.ToDecimal(e.Values["J_AMT"]));
                 e.Values["H_AMT"] = JBModule.Data.CDecryp.Number(Convert.ToDecimal(e.Values["H_AMT"]));
                 e.Values["R_AMT"] = JBModule.Data.CDecryp.Number(Convert.ToDecimal(e.Values["R_AMT"]));
 
@@ -843,6 +903,10 @@ namespace JBHR.Ins
                     {
                         (iNSLABBindingSource[i] as DataRowView)["L_AMT"] = JBModule.Data.CDecryp.Number(Convert.ToDecimal((iNSLABBindingSource[i] as DataRowView)["L_AMT"]));
                     }
+                    if ((iNSLABBindingSource[i] as DataRowView)["J_AMT"] != null && Convert.ToDecimal((iNSLABBindingSource[i] as DataRowView)["J_AMT"]) != 0)
+                    {
+                        (iNSLABBindingSource[i] as DataRowView)["J_AMT"] = JBModule.Data.CDecryp.Number(Convert.ToDecimal((iNSLABBindingSource[i] as DataRowView)["J_AMT"]));
+                    }
                     if ((iNSLABBindingSource[i] as DataRowView)["H_AMT"] != null && Convert.ToDecimal((iNSLABBindingSource[i] as DataRowView)["H_AMT"]) != 0)
                     {
                         (iNSLABBindingSource[i] as DataRowView)["H_AMT"] = JBModule.Data.CDecryp.Number(Convert.ToDecimal((iNSLABBindingSource[i] as DataRowView)["H_AMT"]));
@@ -952,7 +1016,7 @@ namespace JBHR.Ins
                     decimal amt = 0;
                     if (decimal.TryParse(textBoxH_AMT.Text, out amt))
                     {
-                        decimal amt_compare = Sal.Core.Inslab.Inslab.GetHeaAmtByInsurlv(amt);
+                        decimal amt_compare = Sal.Core.Inslab.Inslab.GetHeaAmtByInsurlv(amt, Convert.ToDateTime(txtBdate.Text));
                         if (amt != amt_compare)
                         {
                             if (MessageBox.Show(Resources.Ins.AmtLvNotFound + Environment.NewLine + "按下確定自動修正投保金額",
@@ -982,7 +1046,7 @@ namespace JBHR.Ins
                     decimal amt = 0;
                     if (decimal.TryParse(textBoxR_AMT.Text, out amt))
                     {
-                        decimal amt_compare = Sal.Core.Inslab.Inslab.GetRetAmtByInsurlv(amt);
+                        decimal amt_compare = Sal.Core.Inslab.Inslab.GetRetAmtByInsurlv(amt, Convert.ToDateTime(txtBdate.Text));
                         if (amt != amt_compare)
                         {
                             if (MessageBox.Show(Resources.Ins.AmtLvNotFound + Environment.NewLine + "按下確定自動修正投保金額",
@@ -1012,14 +1076,14 @@ namespace JBHR.Ins
                     decimal amt = 0;
                     if (decimal.TryParse(textBoxL_AMT.Text, out amt))
                     {
-                        decimal amt_compare = Sal.Core.Inslab.Inslab.GetLabAmtByInsurlv(amt);
+                        decimal amt_compare = Sal.Core.Inslab.Inslab.GetLabAmtByInsurlv(amt, Convert.ToDateTime(txtBdate.Text));
                         if (amt != amt_compare)
                         {
                             if (MessageBox.Show(Resources.Ins.AmtLvNotFound + Environment.NewLine + "按下確定自動修正投保金額", Resources.All.DialogTitle, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.OK)
                             {
                                 textBoxL_AMT.Text = amt_compare.ToString();
                             }
-                            else if (textBoxL_AMT.Enabled != false && textBoxL_AMT.ReadOnly != true) 
+                            else if (textBoxL_AMT.Enabled != false && textBoxL_AMT.ReadOnly != true)
                                 textBoxL_AMT.Focus();
                         }
                     }
@@ -1136,14 +1200,22 @@ namespace JBHR.Ins
                             if (txtFaidno.Text != "")
                                 textBoxL_AMT.Text = "0";
                             else
-                                textBoxL_AMT.Text = Sal.Core.Inslab.Inslab.GetLabAmtByInsurlv(amt).ToString();
+                                textBoxL_AMT.Text = Sal.Core.Inslab.Inslab.GetLabAmtByInsurlv(amt, date).ToString();
                             textBoxL_AMT.Focus();
-                            textBoxH_AMT.Text = Sal.Core.Inslab.Inslab.GetHeaAmtByInsurlv(amt).ToString();
+
+                            if (txtFaidno.Text != "")
+                                textBoxJ_AMT.Text = "0";
+                            else
+                                textBoxJ_AMT.Text = Sal.Core.Inslab.Inslab.GetJobAmtByInsurlv(amt, date).ToString();
+                            textBoxJ_AMT.Focus();
+
+                            textBoxH_AMT.Text = Sal.Core.Inslab.Inslab.GetHeaAmtByInsurlv(amt, date).ToString();
                             textBoxH_AMT.Focus();
+
                             if (txtFaidno.Text != "")
                                 textBoxR_AMT.Text = "0";
                             else
-                                textBoxR_AMT.Text = Sal.Core.Inslab.Inslab.GetRetAmtByInsurlv(amt).ToString();
+                                textBoxR_AMT.Text = Sal.Core.Inslab.Inslab.GetRetAmtByInsurlv(amt, date).ToString();
                             textBoxR_AMT.Focus();
                             button1.Focus();
                         }
@@ -1228,9 +1300,37 @@ namespace JBHR.Ins
                             else amt = value;
                         }
                         if (amt > 0)
-                            textBoxH_AMT.Text = Sal.Core.Inslab.Inslab.GetHeaAmtByInsurlv(amt).ToString();
+                            textBoxH_AMT.Text = Sal.Core.Inslab.Inslab.GetHeaAmtByInsurlv(amt, dd).ToString();
                     }
                 }
+            }
+        }
+
+        private void textBoxJ_AMT_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Convert.ToDecimal(textBoxJ_AMT.Text) > 0)
+                {
+                    decimal amt = 0;
+                    if (decimal.TryParse(textBoxJ_AMT.Text, out amt))
+                    {
+                        decimal amt_compare = Sal.Core.Inslab.Inslab.GetJobAmtByInsurlv(amt, Convert.ToDateTime(txtBdate.Text));
+                        if (amt != amt_compare)
+                        {
+                            if (MessageBox.Show(Resources.Ins.AmtLvNotFound + Environment.NewLine + "按下確定自動修正投保金額", Resources.All.DialogTitle, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.OK)
+                            {
+                                textBoxJ_AMT.Text = amt_compare.ToString();
+                            }
+                            else if (textBoxJ_AMT.Enabled != false && textBoxJ_AMT.ReadOnly != true)
+                                textBoxJ_AMT.Focus();
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                textBoxL_AMT.Text = "0";
             }
         }
 

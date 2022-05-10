@@ -22,7 +22,9 @@ namespace JBHR.Sal
         public DateTime ddate;
         private void IP_FRM4L_Load(object sender, EventArgs e)
         {
+            this.iNSNAMETableAdapter.Fill(this.insDS.INSNAME);
             txtDdate.Text = Sal.Core.SalaryDate.DateString();
+            SystemFunction.SetComboBoxItems(comboBoxReason, CodeFunction.GetInsName());
         }
 
         private void btnBrowser_Click(object sender, EventArgs e)
@@ -74,7 +76,7 @@ namespace JBHR.Sal
         void setTable()
         {
             dtImport = new Ins.InsDS.FRM3AZDataTable();
-            Sal.Core.Inslab.Inslab ins=new Core.Inslab.Inslab();
+            Sal.Core.Inslab.Inslab ins = new Core.Inslab.Inslab();
             JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
             ddate = Convert.ToDateTime(txtDdate.Text);
             var inslabSQL = (from a in db.INSLAB
@@ -84,7 +86,7 @@ namespace JBHR.Sal
                              where
                                  (a.IN_DATE <= ddate && a.OUT_DATE >= ddate)
                                  && ddate >= c.ADATE && ddate <= c.DDATE.Value
-                             select new { BASE = b, BASETTS = c, INSLAB = a , INSCOMP = d}).ToList();
+                             select new { BASE = b, BASETTS = c, INSLAB = a, INSCOMP = d }).ToList();
             insDS.FRM3AZ.Clear();
             int total, current = 0;
             total = dt.Rows.Count;
@@ -92,7 +94,7 @@ namespace JBHR.Sal
             {
                 current++;
                 pbStatus.Value = current * 100 / total;
-                decimal lab, hea, ret;
+                decimal lab, hea, ret, job;
                 string memo, nobr;
                 try
                 {
@@ -106,7 +108,19 @@ namespace JBHR.Sal
                             return;
                         }
                     }
-                    lab = ins.GetLabAmt(lab);
+                    lab = ins.GetLabAmt(lab, ddate);
+
+                    if (dt.Columns.Contains(cbxJob.Text)) job = Convert.ToDecimal(r[cbxJob.Text.ToString()]);
+                    else
+                    {
+                        bool isDecimal = decimal.TryParse(cbxJob.Text, out job);
+                        if (!isDecimal && cbxJob.Text.Trim().Length > 0)
+                        {
+                            MessageBox.Show("轉換格式(Decimal)時發生錯誤，" + cbxJob.Text, Resources.All.DialogTitle, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            return;
+                        }
+                    }
+                    job = ins.GetJobAmt(job, ddate);
 
                     if (dt.Columns.Contains(cbxHea.Text)) hea = Convert.ToDecimal(r[cbxHea.Text.ToString()]);
                     else
@@ -116,9 +130,9 @@ namespace JBHR.Sal
                         {
                             MessageBox.Show("轉換格式(Decimal)時發生錯誤，" + cbxHea.Text, Resources.All.DialogTitle, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                             return;
-                        }                       
+                        }
                     }
-                    hea = ins.GetHeaAmt(hea);
+                    hea = ins.GetHeaAmt(hea, ddate);
                     if (dt.Columns.Contains(cbxRet.Text)) ret = Convert.ToDecimal(r[cbxRet.Text.ToString()]);
                     else
                     {
@@ -129,7 +143,7 @@ namespace JBHR.Sal
                             return;
                         }
                     }
-                    ret = ins.GetRetAmt(ret);
+                    ret = ins.GetRetAmt(ret, ddate);
 
                     if (dt.Columns.Contains(cbxNobr.Text)) nobr = r[cbxNobr.Text].ToString();
                     else nobr = cbxNobr.Text;
@@ -165,8 +179,11 @@ namespace JBHR.Sal
                 if (cbxHea.Text.Trim().Length == 0) rowImp.H_AMT1 = rowImp.H_AMT;//如果未選擇就是代表不變
 
                 else rowImp.H_AMT1 = hea;
+                rowImp.REASON = comboBoxReason.SelectedValue.ToString();
                 rowImp.L_AMT = -1;
-                rowImp.L_AMT1 = 0; 
+                rowImp.L_AMT1 = 0;
+                rowImp.J_AMT = -1;
+                rowImp.J_AMT1 = 0;
                 rowImp.R_AMT = -1;
                 rowImp.R_AMT1 = 0;
                 rowImp.REMARK = "";
@@ -174,6 +191,7 @@ namespace JBHR.Sal
                 if (inslabSQCheck.Any())
                 {
                     rowImp.L_AMT = JBModule.Data.CDecryp.Number(inslabSQCheck.First().INSLAB.L_AMT);
+                    rowImp.J_AMT = JBModule.Data.CDecryp.Number(inslabSQCheck.First().INSLAB.J_AMT);
                     rowImp.H_AMT = JBModule.Data.CDecryp.Number(inslabSQCheck.First().INSLAB.H_AMT);
                     rowImp.R_AMT = JBModule.Data.CDecryp.Number(inslabSQCheck.First().INSLAB.R_AMT);
                     rowImp.NAME_C = inslabSQCheck.First().BASE.NAME_C;
@@ -189,9 +207,11 @@ namespace JBHR.Sal
                     rowImp.REMARK += "找不到投保資料;";
                 if (cbxLab.Text.Trim().Length == 0) rowImp.L_AMT1 = rowImp.L_AMT;//如果未選擇就是代表不變
                 else rowImp.L_AMT1 = lab;
+                if (cbxJob.Text.Trim().Length == 0) rowImp.J_AMT1 = rowImp.J_AMT;//如果未選擇就是代表不變
+                else rowImp.J_AMT1 = job;
 
                 rowImp.NOTTRAN = false;
-               
+
                 if (cbxRet.Text.Trim().Length == 0) rowImp.R_AMT1 = rowImp.R_AMT;//如果未選擇就是代表不變
                 else
                 {
@@ -269,6 +289,7 @@ namespace JBHR.Sal
 
             cbxNobr.Items.Clear();
             cbxLab.Items.Clear();
+            cbxJob.Items.Clear();
             cbxHea.Items.Clear();
             cbxRet.Items.Clear();
             cbMemo.Items.Clear();
@@ -276,6 +297,7 @@ namespace JBHR.Sal
             {
                 cbxNobr.Items.Add(col.ColumnName);
                 cbxLab.Items.Add(col.ColumnName);
+                cbxJob.Items.Add(col.ColumnName);
                 cbxHea.Items.Add(col.ColumnName);
                 cbxRet.Items.Add(col.ColumnName);
                 cbMemo.Items.Add(col.ColumnName);
@@ -304,6 +326,11 @@ namespace JBHR.Sal
             if (dd.Day != 1)
             {
                 MessageBox.Show("調整日期必須在月初，請重新確認一次調整日期", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (comboBoxReason.SelectedValue == null)
+            {
+                MessageBox.Show("請選擇異動原因", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

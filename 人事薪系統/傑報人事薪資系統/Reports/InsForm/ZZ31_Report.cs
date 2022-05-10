@@ -220,6 +220,7 @@ namespace JBHR.Reports.InsForm
                             Row["birdt"] = DateTime.Parse(row["birdt"].ToString());
                             Row["retrate"] = decimal.Parse(row["retrate"].ToString());
                             Row["l_amt"] = JBModule.Data.CDecryp.Number(Convert.ToDecimal(Row["l_amt"].ToString()));
+                            Row["j_amt"] = JBModule.Data.CDecryp.Number(Convert.ToDecimal(Row["j_amt"].ToString()));
                             Row["h_amt"] = JBModule.Data.CDecryp.Number(Convert.ToDecimal(Row["h_amt"].ToString()));
                             Row["r_amt"] = JBModule.Data.CDecryp.Number(Convert.ToDecimal(Row["r_amt"].ToString()));
                             string sqlCmda = "select amt,eff_rate from insurlv where";
@@ -250,6 +251,7 @@ namespace JBHR.Reports.InsForm
                             Row["idno"] = row["idno"].ToString();
                             Row["birdt"] = DateTime.Parse(row["birdt"].ToString());
                             Row["l_amt"] = JBModule.Data.CDecryp.Number(Convert.ToDecimal(Row["l_amt"].ToString()));
+                            Row["j_amt"] = JBModule.Data.CDecryp.Number(Convert.ToDecimal(Row["j_amt"].ToString()));
                             Row["h_amt"] = JBModule.Data.CDecryp.Number(Convert.ToDecimal(Row["h_amt"].ToString()));
                             Row["r_amt"] = JBModule.Data.CDecryp.Number(Convert.ToDecimal(Row["r_amt"].ToString()));
                             string sqlCmdb = "select amt,eff_rate from insurlv where";

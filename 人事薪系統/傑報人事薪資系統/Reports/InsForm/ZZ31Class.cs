@@ -32,6 +32,7 @@ namespace JBHR.Reports.InsForm
                     aRow["in_date"] = DateTime.Parse(Row["in_date"].ToString());
                     aRow["out_date"] = DateTime.Parse(Row["out_date"].ToString());
                     aRow["l_amt"] = decimal.Round(decimal.Parse(Row["l_amt"].ToString()), 0);
+                    aRow["j_amt"] = decimal.Round(decimal.Parse(Row["j_amt"].ToString()), 0);
                     if (row != null)
                     {
                         aRow["lrate_name"] = row["rate_name"].ToString();
@@ -97,6 +98,7 @@ namespace JBHR.Reports.InsForm
                 decimal str_compcharge = 0;
                 decimal str_jobaccrate = 0;              
                 decimal str_lamt = decimal.Parse(Row["l_amt"].ToString());
+                decimal str_jamt = decimal.Parse(Row["j_amt"].ToString());
                 decimal str_insday=decimal.Parse(Row["insday"].ToString());
                 if (Row["fa_idno"].ToString().Trim() == "")
                 {
@@ -113,6 +115,7 @@ namespace JBHR.Reports.InsForm
                     aRow["in_date"] = DateTime.Parse(Row["in_date"].ToString());
                     aRow["out_date"] = DateTime.Parse(Row["out_date"].ToString());
                     aRow["l_amt"] = decimal.Round(decimal.Parse(Row["l_amt"].ToString()), 0);
+                    aRow["j_amt"] = decimal.Round(decimal.Parse(Row["j_amt"].ToString()), 0);
                     aRow["insday"] = int.Parse(Row["insday"].ToString());
                     if (row != null)
                     {
@@ -268,6 +271,7 @@ namespace JBHR.Reports.InsForm
                     aRow["in_date"] = DateTime.Parse(Row["in_date"].ToString());
                     aRow["out_date"] = DateTime.Parse(Row["out_date"].ToString());
                     aRow["l_amt"] = decimal.Round(decimal.Parse(Row["l_amt"].ToString()), 0);
+                    aRow["j_amt"] = decimal.Round(decimal.Parse(Row["j_amt"].ToString()), 0);
                     aRow["h_amt"] = decimal.Round(decimal.Parse(Row["h_amt"].ToString()), 0);
                     aRow["r_amt"] = decimal.Round(decimal.Parse(Row["r_amt"].ToString()), 0);                   
                     if (row != null) aRow["lrate_name"] = row["rate_name"].ToString();
@@ -280,7 +284,7 @@ namespace JBHR.Reports.InsForm
         public static void ExPort1(DataTable DT, string FileName, string reporttype)
         {
             DataTable ExporDt = new DataTable();
-            if (reporttype == "1") ExporDt.Columns.Add("投保金額", typeof(int));
+            if (reporttype == "1") ExporDt.Columns.Add("勞保投保金額", typeof(int));
             ExporDt.Columns.Add("部門代碼", typeof(string));
             ExporDt.Columns.Add("部門名稱", typeof(string));
             ExporDt.Columns.Add("英文部門名稱", typeof(string));
@@ -290,7 +294,8 @@ namespace JBHR.Reports.InsForm
             ExporDt.Columns.Add("身分證號", typeof(string));
             ExporDt.Columns.Add("加保日期", typeof(DateTime));
             ExporDt.Columns.Add("退保日期", typeof(DateTime));
-            if (reporttype=="0") ExporDt.Columns.Add("投保金額", typeof(int));
+            if (reporttype=="0") ExporDt.Columns.Add("勞保投保金額", typeof(int));
+            ExporDt.Columns.Add("職災投保金額", typeof(int));
             ExporDt.Columns.Add("負擔比率", typeof(string));
             ExporDt.Columns.Add("普通事故", typeof(decimal));
             ExporDt.Columns.Add("失業給付", typeof(decimal));
@@ -302,7 +307,7 @@ namespace JBHR.Reports.InsForm
             foreach (DataRow Row01 in SRow)
             {
                 DataRow aRow1 = ExporDt.NewRow();
-                if (reporttype == "1") aRow1["投保金額"] = int.Parse(Row01["l_amt"].ToString());
+                if (reporttype == "1") aRow1["勞保投保金額"] = int.Parse(Row01["l_amt"].ToString());
                 aRow1["部門代碼"] = Row01["dept"].ToString();
                 aRow1["部門名稱"] = Row01["d_name"].ToString();
                 aRow1["英文部門名稱"] = Row01["d_ename"].ToString();
@@ -312,7 +317,8 @@ namespace JBHR.Reports.InsForm
                 aRow1["身分證號"] = Row01["idno"].ToString();
                 aRow1["加保日期"] =  DateTime.Parse(Row01["in_date"].ToString());
                 aRow1["退保日期"] = DateTime.Parse(Row01["out_date"].ToString());
-                if (reporttype == "0") aRow1["投保金額"] = int.Parse(Row01["l_amt"].ToString());
+                if (reporttype == "0") aRow1["勞保投保金額"] = int.Parse(Row01["l_amt"].ToString());
+                aRow1["職災投保金額"] = int.Parse(Row01["j_amt"].ToString());
                 aRow1["負擔比率"] = Row01["lrate_name"].ToString();
                 aRow1["普通事故"] = (Row01.IsNull("normalrate")) ? 0 : decimal.Parse(Row01["normalrate"].ToString());
                 aRow1["失業給付"] = (Row01.IsNull("losjobrate")) ? 0 : decimal.Parse(Row01["losjobrate"].ToString());
@@ -382,7 +388,8 @@ namespace JBHR.Reports.InsForm
             ExporDt.Columns.Add("身分證號", typeof(string));
             ExporDt.Columns.Add("加保日期", typeof(DateTime));
             ExporDt.Columns.Add("退保日期", typeof(DateTime));
-            ExporDt.Columns.Add("投保金額", typeof(int));
+            ExporDt.Columns.Add("勞保投保金額", typeof(int));
+            ExporDt.Columns.Add("職災投保金額", typeof(int));
             ExporDt.Columns.Add("投保天數", typeof(int));
             ExporDt.Columns.Add("負擔比率", typeof(string));
             ExporDt.Columns.Add("個人負擔", typeof(int));
@@ -402,7 +409,8 @@ namespace JBHR.Reports.InsForm
                 aRow1["身分證號"] = Row01["idno"].ToString();
                 aRow1["加保日期"] = DateTime.Parse(Row01["in_date"].ToString());
                 aRow1["退保日期"] = DateTime.Parse(Row01["out_date"].ToString());
-                aRow1["投保金額"] = int.Parse(Row01["l_amt"].ToString());
+                aRow1["勞保投保金額"] = int.Parse(Row01["l_amt"].ToString());
+                aRow1["職災投保金額"] = int.Parse(Row01["j_amt"].ToString());
                 aRow1["投保天數"] = int.Parse(Row01["insday"].ToString());
                 aRow1["負擔比率"] = Row01["lrate_name"].ToString();
                 aRow1["個人負擔"] = (Row01.IsNull("perexp")) ? 0 : int.Parse(Row01["perexp"].ToString());
@@ -471,6 +479,7 @@ namespace JBHR.Reports.InsForm
             ExporDt.Columns.Add("加保日期", typeof(DateTime));
             ExporDt.Columns.Add("退保日期", typeof(DateTime));
             ExporDt.Columns.Add("勞保金額", typeof(int));
+            ExporDt.Columns.Add("職災金額", typeof(int));
             ExporDt.Columns.Add("勞保負擔比率", typeof(string));
             ExporDt.Columns.Add("健保金額", typeof(int));
             ExporDt.Columns.Add("健保負擔比率", typeof(string));
@@ -488,6 +497,7 @@ namespace JBHR.Reports.InsForm
                 aRow1["加保日期"] = DateTime.Parse(Row01["in_date"].ToString());
                 aRow1["退保日期"] = DateTime.Parse(Row01["out_date"].ToString());
                 aRow1["勞保金額"] = int.Parse(Row01["l_amt"].ToString());
+                aRow1["職災金額"] = int.Parse(Row01["j_amt"].ToString());
                 aRow1["勞保負擔比率"] = Row01["lrate_name"].ToString();
                 aRow1["健保金額"] = int.Parse(Row01["h_amt"].ToString());
                 aRow1["健保負擔比率"] = Row01["hrate_name"].ToString();

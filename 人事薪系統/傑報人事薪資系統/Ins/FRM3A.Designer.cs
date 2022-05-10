@@ -73,6 +73,8 @@
             this.sALARYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lAMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lAMT1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.J_AMT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.J_AMT1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hAMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hAMT1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sALARYADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,9 +83,15 @@
             this.aMT1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aMT2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aMT3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AMT4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AMT5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AMT6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aMTADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aMTBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aMTCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AMTD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AMTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AMTF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.REMARK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fRM3AZBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.insDS = new JBHR.Ins.InsDS();
@@ -116,7 +124,9 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -128,7 +138,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(784, 560);
+            this.splitContainer1.Size = new System.Drawing.Size(784, 561);
             this.splitContainer1.SplitterDistance = 142;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -179,7 +189,6 @@
             this.tableLayoutPanel1.Controls.Add(this.lbMaxName_C, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtInDate, 5, 4);
             this.tableLayoutPanel1.Controls.Add(this.label11, 4, 4);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -597,7 +606,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.panel1);
-            this.splitContainer2.Size = new System.Drawing.Size(784, 414);
+            this.splitContainer2.Size = new System.Drawing.Size(784, 415);
             this.splitContainer2.SplitterDistance = 368;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -616,6 +625,8 @@
             this.sALARYDataGridViewTextBoxColumn,
             this.lAMTDataGridViewTextBoxColumn,
             this.lAMT1DataGridViewTextBoxColumn,
+            this.J_AMT,
+            this.J_AMT1,
             this.hAMTDataGridViewTextBoxColumn,
             this.hAMT1DataGridViewTextBoxColumn,
             this.sALARYADataGridViewTextBoxColumn,
@@ -624,9 +635,15 @@
             this.aMT1DataGridViewTextBoxColumn,
             this.aMT2DataGridViewTextBoxColumn,
             this.aMT3DataGridViewTextBoxColumn,
+            this.AMT4,
+            this.AMT5,
+            this.AMT6,
             this.aMTADataGridViewTextBoxColumn,
             this.aMTBDataGridViewTextBoxColumn,
             this.aMTCDataGridViewTextBoxColumn,
+            this.AMTD,
+            this.AMTE,
+            this.AMTF,
             this.REMARK});
             this.dataGridView1.DataSource = this.fRM3AZBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -693,6 +710,18 @@
             this.lAMT1DataGridViewTextBoxColumn.Name = "lAMT1DataGridViewTextBoxColumn";
             this.lAMT1DataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // J_AMT
+            // 
+            this.J_AMT.DataPropertyName = "J_AMT";
+            this.J_AMT.HeaderText = "目前職災金額";
+            this.J_AMT.Name = "J_AMT";
+            // 
+            // J_AMT1
+            // 
+            this.J_AMT1.DataPropertyName = "J_AMT1";
+            this.J_AMT1.HeaderText = "應該職災金額";
+            this.J_AMT1.Name = "J_AMT1";
+            // 
             // hAMTDataGridViewTextBoxColumn
             // 
             this.hAMTDataGridViewTextBoxColumn.DataPropertyName = "H_AMT";
@@ -749,6 +778,24 @@
             this.aMT3DataGridViewTextBoxColumn.Name = "aMT3DataGridViewTextBoxColumn";
             this.aMT3DataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // AMT4
+            // 
+            this.AMT4.DataPropertyName = "AMT4";
+            this.AMT4.HeaderText = "勞健月份4";
+            this.AMT4.Name = "AMT4";
+            // 
+            // AMT5
+            // 
+            this.AMT5.DataPropertyName = "AMT5";
+            this.AMT5.HeaderText = "勞健月份5";
+            this.AMT5.Name = "AMT5";
+            // 
+            // AMT6
+            // 
+            this.AMT6.DataPropertyName = "AMT6";
+            this.AMT6.HeaderText = "勞健月份6";
+            this.AMT6.Name = "AMT6";
+            // 
             // aMTADataGridViewTextBoxColumn
             // 
             this.aMTADataGridViewTextBoxColumn.DataPropertyName = "AMTA";
@@ -769,6 +816,24 @@
             this.aMTCDataGridViewTextBoxColumn.HeaderText = "勞退月份3";
             this.aMTCDataGridViewTextBoxColumn.Name = "aMTCDataGridViewTextBoxColumn";
             this.aMTCDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // AMTD
+            // 
+            this.AMTD.DataPropertyName = "AMTD";
+            this.AMTD.HeaderText = "勞退月份4";
+            this.AMTD.Name = "AMTD";
+            // 
+            // AMTE
+            // 
+            this.AMTE.DataPropertyName = "AMTE";
+            this.AMTE.HeaderText = "勞退月份5";
+            this.AMTE.Name = "AMTE";
+            // 
+            // AMTF
+            // 
+            this.AMTF.DataPropertyName = "AMTF";
+            this.AMTF.HeaderText = "勞退月份6";
+            this.AMTF.Name = "AMTF";
             // 
             // REMARK
             // 
@@ -799,12 +864,12 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 42);
+            this.panel1.Size = new System.Drawing.Size(784, 43);
             this.panel1.TabIndex = 0;
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(30, 3);
+            this.btnImport.Location = new System.Drawing.Point(30, 10);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(75, 23);
             this.btnImport.TabIndex = 6;
@@ -814,7 +879,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(355, 3);
+            this.button4.Location = new System.Drawing.Point(355, 10);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 5;
@@ -824,7 +889,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(451, 3);
+            this.button5.Location = new System.Drawing.Point(451, 10);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 4;
@@ -834,7 +899,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(274, 3);
+            this.button3.Location = new System.Drawing.Point(274, 10);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 2;
@@ -844,7 +909,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(192, 3);
+            this.button2.Location = new System.Drawing.Point(192, 10);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
@@ -854,7 +919,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(111, 3);
+            this.button1.Location = new System.Drawing.Point(111, 10);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -887,7 +952,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 560);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.splitContainer1);
             this.FormSize = JBControls.JBForm.FormSizeType.Normal;
             this.Name = "FRM3A";
@@ -972,6 +1037,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sALARYDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lAMTDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lAMT1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn J_AMT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn J_AMT1;
         private System.Windows.Forms.DataGridViewTextBoxColumn hAMTDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hAMT1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sALARYADataGridViewTextBoxColumn;
@@ -980,9 +1047,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn aMT1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn aMT2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn aMT3DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AMT4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AMT5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AMT6;
         private System.Windows.Forms.DataGridViewTextBoxColumn aMTADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn aMTBDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn aMTCDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AMTD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AMTE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AMTF;
         private System.Windows.Forms.DataGridViewTextBoxColumn REMARK;
     }
 }

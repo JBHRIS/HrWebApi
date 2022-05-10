@@ -12,7 +12,7 @@ namespace JBHR.Ins
 {
     public partial class FRM3A : JBControls.JBForm
     {
-        InsDataClassesDataContext db = new InsDataClassesDataContext();
+        JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
 
         class param
         {
@@ -128,575 +128,605 @@ namespace JBHR.Ins
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            this.insDS.FRM3AZ.Clear();
-
-            param p = e.Argument as param;
-
-            //以最後一個月份做為基準日期
-            string yy2, mm2;
-
-            yy2 = p.YYMM2.Trim().Substring(0, 4);
-            mm2 = p.YYMM2.Trim().Substring(4, 2);
-
-            string date2 = yy2 + "/" + mm2 + "/" + DateTime.DaysInMonth(Convert.ToInt32(yy2), Convert.ToInt32(mm2)).ToString();
-
-            //以基準日期挑出有效的級距
-            INSURLV[] L_INSLV_ARRAY = (from c in db.INSURLV where Convert.ToDateTime(date2) >= c.EFF_DATEL && Convert.ToDateTime(date2) <= c.LFF_DATEL select c).ToArray();
-            INSURLV[] H_INSLV_ARRAY = (from c in db.INSURLV where Convert.ToDateTime(date2) >= c.EFF_DATEH && Convert.ToDateTime(date2) <= c.LFF_DATEH select c).ToArray();
-            INSURLV[] R_INSLV_ARRAY = (from c in db.INSURLV where Convert.ToDateTime(date2) >= c.EFF_DATER && Convert.ToDateTime(date2) <= c.LFF_DATER select c).ToArray();
-
-            InsDataClassesDataContext db1 = new InsDataClassesDataContext();
-            InsDataClassesDataContext db2 = new InsDataClassesDataContext();
-
-            WAGED[] tbWaged_INS = null;
-            WAGED[] tbWaged_RET = null;
-            //全部
-            if (radioButton1.Checked)
+            try
             {
-                if (ckBASIC.Checked)
-                {
-                    tbWaged_INS = (from c in db1.WAGED
-                                   where c.SALCODE.INSLAB && c.SALCODE.SALATTR.BASIC &&
-                                   c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
-                                   c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
-                                   c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
-                                   c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
-                                   //&& db1.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
-                                   && (from bts in db1.BASETTS
-                                       where bts.NOBR == c.NOBR
-                                       && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
-                                       && (from urdg in db1.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
-                                       select 1).Any()
-                                   select c).ToArray();
-                    tbWaged_RET = (from c in db2.WAGED
-                                   where c.SALCODE.RETIRE && c.SALCODE.SALATTR.BASIC &&
-                                   c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
-                                   c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
-                                   c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
-                                   c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
-                                   //&& db2.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
-                                   && (from bts in db2.BASETTS
-                                       where bts.NOBR == c.NOBR
-                                       && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
-                                       && (from urdg in db2.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
-                                       select 1).Any()
-                                   select c).ToArray();
-                }
-                else
-                {
-                    tbWaged_INS = (from c in db1.WAGED
-                                   where c.SALCODE.INSLAB &&
-                                   c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
-                                   c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
-                                   c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
-                                   c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
-                                   && (from bts in db1.BASETTS
-                                       where bts.NOBR == c.NOBR
-                                       && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
-                                       && (from urdg in db1.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
-                                       select 1).Any()
-                                   select c).ToArray();
-                    tbWaged_RET = (from c in db2.WAGED
-                                   where c.SALCODE.RETIRE &&
-                                   c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
-                                   c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
-                                   c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
-                                   c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
-                                   //&& db2.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
-                                   && (from bts in db2.BASETTS
-                                       where bts.NOBR == c.NOBR
-                                       && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
-                                       && (from urdg in db2.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
-                                       select 1).Any()
-                                   select c).ToArray();
-                }
-            }
-            //間接
-            if (radioButton2.Checked)
-            {
-                if (ckBASIC.Checked)
-                {
-                    tbWaged_INS = (from c in db1.WAGED
-                                   where c.SALCODE.INSLAB && c.SALCODE.SALATTR.BASIC &&
-                                   c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
-                                   c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
-                                   c.BASE.COUNT_MA == false &&
-                                   c.BASE.BASETTS.Any(rBaseTTS => Convert.ToDateTime(date2) >= rBaseTTS.ADATE && Convert.ToDateTime(date2) <= rBaseTTS.DDATE && rBaseTTS.DI.Trim().ToUpper() == "I") &&
-                                   c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
-                                   c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
-                                   //&& db1.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
-                                   && (from bts in db1.BASETTS
-                                       where bts.NOBR == c.NOBR
-                                       && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
-                                       && (from urdg in db1.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
-                                       select 1).Any()
-                                   select c).ToArray();
-                    tbWaged_RET = (from c in db2.WAGED
-                                   where c.SALCODE.RETIRE && c.SALCODE.SALATTR.BASIC &&
-                                   c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
-                                   c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
-                                   c.BASE.COUNT_MA == false &&
-                                   c.BASE.BASETTS.Any(rBaseTTS => Convert.ToDateTime(date2) >= rBaseTTS.ADATE && Convert.ToDateTime(date2) <= rBaseTTS.DDATE && rBaseTTS.DI.Trim().ToUpper() == "I") &&
-                                   c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
-                                   c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
-                                   && (from bts in db2.BASETTS
-                                       where bts.NOBR == c.NOBR
-                                       && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
-                                       && (from urdg in db2.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
-                                       select 1).Any()
-                                   select c).ToArray();
-                }
-                else
-                {
-                    tbWaged_INS = (from c in db1.WAGED
-                                   where c.SALCODE.INSLAB &&
-                                   c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
-                                   c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
-                                   c.BASE.COUNT_MA == false &&
-                                   c.BASE.BASETTS.Any(rBaseTTS => Convert.ToDateTime(date2) >= rBaseTTS.ADATE && Convert.ToDateTime(date2) <= rBaseTTS.DDATE && rBaseTTS.DI.Trim().ToUpper() == "I") &&
-                                   c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
-                                   c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
-                                   //&& db1.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
-                                   && (from bts in db1.BASETTS
-                                       where bts.NOBR == c.NOBR
-                                       && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
-                                       && (from urdg in db1.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
-                                       select 1).Any()
-                                   select c).ToArray();
-                    tbWaged_RET = (from c in db2.WAGED
-                                   where c.SALCODE.RETIRE &&
-                                   c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
-                                   c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
-                                   c.BASE.COUNT_MA == false &&
-                                   c.BASE.BASETTS.Any(rBaseTTS => Convert.ToDateTime(date2) >= rBaseTTS.ADATE && Convert.ToDateTime(date2) <= rBaseTTS.DDATE && rBaseTTS.DI.Trim().ToUpper() == "I") &&
-                                   c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
-                                   c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
-                                   //&& db2.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
-                                   && (from bts in db2.BASETTS
-                                       where bts.NOBR == c.NOBR
-                                       && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
-                                       && (from urdg in db2.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
-                                       select 1).Any()
-                                   select c).ToArray();
-                }
-            }
-            //直接
-            if (radioButton3.Checked)
-            {
-                if (ckBASIC.Checked)
-                {
-                    tbWaged_INS = (from c in db1.WAGED
-                                   where c.SALCODE.INSLAB && c.SALCODE.SALATTR.BASIC &&
-                                   c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
-                                   c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
-                                   c.BASE.COUNT_MA == false &&
-                                   c.BASE.BASETTS.Any(rBaseTTS => Convert.ToDateTime(date2) >= rBaseTTS.ADATE && Convert.ToDateTime(date2) <= rBaseTTS.DDATE && rBaseTTS.DI.Trim().ToUpper() == "D") &&
-                                   c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
-                                   c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
-                                   //&& db1.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
-                                   && (from bts in db1.BASETTS
-                                       where bts.NOBR == c.NOBR
-                                       && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
-                                       && (from urdg in db1.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
-                                       select 1).Any()
-                                   select c).ToArray();
-                    tbWaged_RET = (from c in db2.WAGED
-                                   where c.SALCODE.RETIRE && c.SALCODE.SALATTR.BASIC &&
-                                   c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
-                                   c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
-                                   c.BASE.COUNT_MA == false &&
-                                   c.BASE.BASETTS.Any(rBaseTTS => Convert.ToDateTime(date2) >= rBaseTTS.ADATE && Convert.ToDateTime(date2) <= rBaseTTS.DDATE && rBaseTTS.DI.Trim().ToUpper() == "D") &&
-                                   c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
-                                   c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
-                                   //&& db2.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
-                                   && (from bts in db2.BASETTS
-                                       where bts.NOBR == c.NOBR
-                                       && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
-                                       && (from urdg in db2.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
-                                       select 1).Any()
-                                   select c).ToArray();
-                }
-                else
-                {
-                    tbWaged_INS = (from c in db1.WAGED
-                                   where c.SALCODE.INSLAB &&
-                                   c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
-                                   c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
-                                   c.BASE.COUNT_MA == false &&
-                                   c.BASE.BASETTS.Any(rBaseTTS => Convert.ToDateTime(date2) >= rBaseTTS.ADATE && Convert.ToDateTime(date2) <= rBaseTTS.DDATE && rBaseTTS.DI.Trim().ToUpper() == "D") &&
-                                   c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
-                                   c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
-                                   //&& db1.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
-                                   && (from bts in db1.BASETTS
-                                       where bts.NOBR == c.NOBR
-                                       && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
-                                       && (from urdg in db1.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
-                                       select 1).Any()
-                                   select c).ToArray();
-                    tbWaged_RET = (from c in db2.WAGED
-                                   where c.SALCODE.RETIRE &&
-                                   c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
-                                   c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
-                                   c.BASE.COUNT_MA == false &&
-                                   c.BASE.BASETTS.Any(rBaseTTS => Convert.ToDateTime(date2) >= rBaseTTS.ADATE && Convert.ToDateTime(date2) <= rBaseTTS.DDATE && rBaseTTS.DI.Trim().ToUpper() == "D") &&
-                                   c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
-                                   c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
-                                   //&& db2.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
-                                   && (from bts in db2.BASETTS
-                                       where bts.NOBR == c.NOBR
-                                       && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
-                                       && (from urdg in db2.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
-                                       select 1).Any()
-                                   select c).ToArray();
-                }
-            }
-            //外勞
-            if (radioButton4.Checked)
-            {
-                if (ckBASIC.Checked)
-                {
-                    tbWaged_INS = (from c in db1.WAGED
-                                   where c.SALCODE.INSLAB && c.SALCODE.SALATTR.BASIC &&
-                                   c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 && c.BASE.COUNT_MA &&
-                                   c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
-                                   c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
-                                   c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
-                                   //&& db1.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
-                                   && (from bts in db1.BASETTS
-                                       where bts.NOBR == c.NOBR
-                                       && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
-                                       && (from urdg in db1.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
-                                       select 1).Any()
-                                   select c).ToArray();
-                    tbWaged_RET = (from c in db2.WAGED
-                                   where c.SALCODE.RETIRE && c.SALCODE.SALATTR.BASIC &&
-                                   c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 && c.BASE.COUNT_MA &&
-                                   c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
-                                   c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
-                                   c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
-                                   //&& db2.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
-                                   && (from bts in db2.BASETTS
-                                       where bts.NOBR == c.NOBR
-                                       && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
-                                       && (from urdg in db2.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
-                                       select 1).Any()
-                                   select c).ToArray();
-                }
-                else
-                {
-                    tbWaged_INS = (from c in db1.WAGED
-                                   where c.SALCODE.INSLAB &&
-                                   c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 && c.BASE.COUNT_MA &&
-                                   c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
-                                   c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
-                                   c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
-                                   //&& db1.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
-                                   && (from bts in db1.BASETTS
-                                       where bts.NOBR == c.NOBR
-                                       && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
-                                       && (from urdg in db1.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
-                                       select 1).Any()
-                                   select c).ToArray();
-                    tbWaged_RET = (from c in db2.WAGED
-                                   where c.SALCODE.RETIRE &&
-                                   c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 && c.BASE.COUNT_MA &&
-                                   c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
-                                   c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
-                                   c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
-                                   //&& db2.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
-                                   && (from bts in db2.BASETTS
-                                       where bts.NOBR == c.NOBR
-                                       && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
-                                       && (from urdg in db2.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
-                                       select 1).Any()
-                                   select c).ToArray();
-                }
-            }
-            //本勞
-            if (radioButton5.Checked)
-            {
-                if (ckBASIC.Checked)
-                {
-                    tbWaged_INS = (from c in db1.WAGED
-                                   where c.SALCODE.INSLAB && c.SALCODE.SALATTR.BASIC &&
-                                   c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 && !c.BASE.COUNT_MA &&
-                                   c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
-                                   c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
-                                   c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
-                                   //&& db1.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
-                                   && (from bts in db1.BASETTS
-                                       where bts.NOBR == c.NOBR
-                                       && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
-                                       && (from urdg in db1.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
-                                       select 1).Any()
-                                   select c).ToArray();
-                    tbWaged_RET = (from c in db2.WAGED
-                                   where c.SALCODE.RETIRE && c.SALCODE.SALATTR.BASIC &&
-                                   c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 && !c.BASE.COUNT_MA &&
-                                   c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
-                                   c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
-                                   c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
-                                   //&& db2.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
-                                   && (from bts in db2.BASETTS
-                                       where bts.NOBR == c.NOBR
-                                       && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
-                                       && (from urdg in db2.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
-                                       select 1).Any()
-                                   select c).ToArray();
-                }
-                else
-                {
-                    tbWaged_INS = (from c in db1.WAGED
-                                   where c.SALCODE.INSLAB &&
-                                   c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 && !c.BASE.COUNT_MA &&
-                                   c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
-                                   c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
-                                   c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
-                                   //&& db1.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
-                                   && (from bts in db1.BASETTS
-                                       where bts.NOBR == c.NOBR
-                                       && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
-                                       && (from urdg in db1.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
-                                       select 1).Any()
-                                   select c).ToArray();
-                    tbWaged_RET = (from c in db2.WAGED
-                                   where c.SALCODE.RETIRE &&
-                                   c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 && !c.BASE.COUNT_MA &&
-                                   c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
-                                   c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
-                                   c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
-                                   //&& db2.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
-                                   && (from bts in db2.BASETTS
-                                       where bts.NOBR == c.NOBR
-                                       && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
-                                       && (from urdg in db2.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
-                                       select 1).Any()
-                                   select c).ToArray();
-                }
-            }
+                this.insDS.FRM3AZ.Clear();
 
-            backgroundWorker1.ReportProgress(10);
+                param p = e.Argument as param;
 
-            //若有取得期間薪資的話
-            if (tbWaged_INS != null || tbWaged_RET != null)
-            {
-                //將勞健保相關薪資解密
-                foreach (var waged in tbWaged_INS)
+                //以最後一個月份做為基準日期
+                string yy2, mm2;
+
+                yy2 = p.YYMM2.Trim().Substring(0, 4);
+                mm2 = p.YYMM2.Trim().Substring(4, 2);
+
+                //string date2 = yy2 + "/" + mm2 + "/" + DateTime.DaysInMonth(Convert.ToInt32(yy2), Convert.ToInt32(mm2)).ToString();
+
+                //以基準日期挑出有效的級距
+                var L_INSLV_ARRAY = (from c in db.INSURLV where p.DDATE >= c.EFF_DATEL && p.DDATE <= c.LFF_DATEL select c).ToArray();
+                var J_INSLV_ARRAY = (from c in db.INSURLV where p.DDATE >= c.EFF_DATEJ && p.DDATE <= c.LFF_DATEJ select c).ToArray();
+                var H_INSLV_ARRAY = (from c in db.INSURLV where p.DDATE >= c.EFF_DATEH && p.DDATE <= c.LFF_DATEH select c).ToArray();
+                var R_INSLV_ARRAY = (from c in db.INSURLV where p.DDATE >= c.EFF_DATER && p.DDATE <= c.LFF_DATER select c).ToArray();
+
+                InsDataClassesDataContext db1 = new InsDataClassesDataContext();
+                InsDataClassesDataContext db2 = new InsDataClassesDataContext();
+
+                WAGED[] tbWaged_INS = null;
+                WAGED[] tbWaged_RET = null;
+                //全部
+                if (radioButton1.Checked)
                 {
-                    if (waged.AMT != 0)
+                    if (ckBASIC.Checked)
                     {
-                        waged.AMT = JBModule.Data.CDecryp.Number(waged.AMT);
-                        if (waged.SALCODE.SALATTR.FLAG.Trim() == "-") waged.AMT *= -1;
+                        tbWaged_INS = (from c in db1.WAGED
+                                       where c.SALCODE.INSLAB && c.SALCODE.SALATTR.BASIC &&
+                                       c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
+                                       c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
+                                       c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
+                                       c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
+                                       //&& db1.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                                       && (from bts in db1.BASETTS
+                                           where bts.NOBR == c.NOBR
+                                           && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
+                                           && (from urdg in db1.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
+                                           select 1).Any()
+                                       select c).ToArray();
+                        tbWaged_RET = (from c in db2.WAGED
+                                       where c.SALCODE.RETIRE && c.SALCODE.SALATTR.BASIC &&
+                                       c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
+                                       c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
+                                       c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
+                                       c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
+                                       //&& db2.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                                       && (from bts in db2.BASETTS
+                                           where bts.NOBR == c.NOBR
+                                           && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
+                                           && (from urdg in db2.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
+                                           select 1).Any()
+                                       select c).ToArray();
+                    }
+                    else
+                    {
+                        tbWaged_INS = (from c in db1.WAGED
+                                       where c.SALCODE.INSLAB &&
+                                       c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
+                                       c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
+                                       c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
+                                       c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
+                                       && (from bts in db1.BASETTS
+                                           where bts.NOBR == c.NOBR
+                                           && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
+                                           && (from urdg in db1.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
+                                           select 1).Any()
+                                       select c).ToArray();
+                        tbWaged_RET = (from c in db2.WAGED
+                                       where c.SALCODE.RETIRE &&
+                                       c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
+                                       c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
+                                       c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
+                                       c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
+                                       //&& db2.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                                       && (from bts in db2.BASETTS
+                                           where bts.NOBR == c.NOBR
+                                           && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
+                                           && (from urdg in db2.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
+                                           select 1).Any()
+                                       select c).ToArray();
                     }
                 }
-                backgroundWorker1.ReportProgress(20);
-
-                //將勞退相關薪資解密
-                foreach (var waged in tbWaged_RET)
+                //間接
+                if (radioButton2.Checked)
                 {
-                    if (waged.AMT != 0)
+                    if (ckBASIC.Checked)
                     {
-                        waged.AMT = JBModule.Data.CDecryp.Number(waged.AMT);
-                        if (waged.SALCODE.SALATTR.FLAG.Trim() == "-") waged.AMT *= -1;
+                        tbWaged_INS = (from c in db1.WAGED
+                                       where c.SALCODE.INSLAB && c.SALCODE.SALATTR.BASIC &&
+                                       c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
+                                       c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
+                                       c.BASE.COUNT_MA == false &&
+                                       c.BASE.BASETTS.Any(rBaseTTS => p.DDATE >= rBaseTTS.ADATE && p.DDATE <= rBaseTTS.DDATE && rBaseTTS.DI.Trim().ToUpper() == "I") &&
+                                       c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
+                                       c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
+                                       //&& db1.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                                       && (from bts in db1.BASETTS
+                                           where bts.NOBR == c.NOBR
+                                           && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
+                                           && (from urdg in db1.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
+                                           select 1).Any()
+                                       select c).ToArray();
+                        tbWaged_RET = (from c in db2.WAGED
+                                       where c.SALCODE.RETIRE && c.SALCODE.SALATTR.BASIC &&
+                                       c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
+                                       c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
+                                       c.BASE.COUNT_MA == false &&
+                                       c.BASE.BASETTS.Any(rBaseTTS => p.DDATE >= rBaseTTS.ADATE && p.DDATE <= rBaseTTS.DDATE && rBaseTTS.DI.Trim().ToUpper() == "I") &&
+                                       c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
+                                       c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
+                                       && (from bts in db2.BASETTS
+                                           where bts.NOBR == c.NOBR
+                                           && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
+                                           && (from urdg in db2.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
+                                           select 1).Any()
+                                       select c).ToArray();
+                    }
+                    else
+                    {
+                        tbWaged_INS = (from c in db1.WAGED
+                                       where c.SALCODE.INSLAB &&
+                                       c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
+                                       c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
+                                       c.BASE.COUNT_MA == false &&
+                                       c.BASE.BASETTS.Any(rBaseTTS => p.DDATE >= rBaseTTS.ADATE && p.DDATE <= rBaseTTS.DDATE && rBaseTTS.DI.Trim().ToUpper() == "I") &&
+                                       c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
+                                       c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
+                                       //&& db1.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                                       && (from bts in db1.BASETTS
+                                           where bts.NOBR == c.NOBR
+                                           && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
+                                           && (from urdg in db1.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
+                                           select 1).Any()
+                                       select c).ToArray();
+                        tbWaged_RET = (from c in db2.WAGED
+                                       where c.SALCODE.RETIRE &&
+                                       c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
+                                       c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
+                                       c.BASE.COUNT_MA == false &&
+                                       c.BASE.BASETTS.Any(rBaseTTS => p.DDATE >= rBaseTTS.ADATE && p.DDATE <= rBaseTTS.DDATE && rBaseTTS.DI.Trim().ToUpper() == "I") &&
+                                       c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
+                                       c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
+                                       //&& db2.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                                       && (from bts in db2.BASETTS
+                                           where bts.NOBR == c.NOBR
+                                           && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
+                                           && (from urdg in db2.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
+                                           select 1).Any()
+                                       select c).ToArray();
                     }
                 }
-                backgroundWorker1.ReportProgress(30);
+                //直接
+                if (radioButton3.Checked)
+                {
+                    if (ckBASIC.Checked)
+                    {
+                        tbWaged_INS = (from c in db1.WAGED
+                                       where c.SALCODE.INSLAB && c.SALCODE.SALATTR.BASIC &&
+                                       c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
+                                       c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
+                                       c.BASE.COUNT_MA == false &&
+                                       c.BASE.BASETTS.Any(rBaseTTS => p.DDATE >= rBaseTTS.ADATE && p.DDATE <= rBaseTTS.DDATE && rBaseTTS.DI.Trim().ToUpper() == "D") &&
+                                       c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
+                                       c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
+                                       //&& db1.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                                       && (from bts in db1.BASETTS
+                                           where bts.NOBR == c.NOBR
+                                           && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
+                                           && (from urdg in db1.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
+                                           select 1).Any()
+                                       select c).ToArray();
+                        tbWaged_RET = (from c in db2.WAGED
+                                       where c.SALCODE.RETIRE && c.SALCODE.SALATTR.BASIC &&
+                                       c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
+                                       c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
+                                       c.BASE.COUNT_MA == false &&
+                                       c.BASE.BASETTS.Any(rBaseTTS => p.DDATE >= rBaseTTS.ADATE && p.DDATE <= rBaseTTS.DDATE && rBaseTTS.DI.Trim().ToUpper() == "D") &&
+                                       c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
+                                       c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
+                                       //&& db2.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                                       && (from bts in db2.BASETTS
+                                           where bts.NOBR == c.NOBR
+                                           && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
+                                           && (from urdg in db2.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
+                                           select 1).Any()
+                                       select c).ToArray();
+                    }
+                    else
+                    {
+                        tbWaged_INS = (from c in db1.WAGED
+                                       where c.SALCODE.INSLAB &&
+                                       c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
+                                       c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
+                                       c.BASE.COUNT_MA == false &&
+                                       c.BASE.BASETTS.Any(rBaseTTS => p.DDATE >= rBaseTTS.ADATE && p.DDATE <= rBaseTTS.DDATE && rBaseTTS.DI.Trim().ToUpper() == "D") &&
+                                       c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
+                                       c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
+                                       //&& db1.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                                       && (from bts in db1.BASETTS
+                                           where bts.NOBR == c.NOBR
+                                           && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
+                                           && (from urdg in db1.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
+                                           select 1).Any()
+                                       select c).ToArray();
+                        tbWaged_RET = (from c in db2.WAGED
+                                       where c.SALCODE.RETIRE &&
+                                       c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 &&
+                                       c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
+                                       c.BASE.COUNT_MA == false &&
+                                       c.BASE.BASETTS.Any(rBaseTTS => p.DDATE >= rBaseTTS.ADATE && p.DDATE <= rBaseTTS.DDATE && rBaseTTS.DI.Trim().ToUpper() == "D") &&
+                                       c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
+                                       c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
+                                       //&& db2.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                                       && (from bts in db2.BASETTS
+                                           where bts.NOBR == c.NOBR
+                                           && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
+                                           && (from urdg in db2.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
+                                           select 1).Any()
+                                       select c).ToArray();
+                    }
+                }
+                //外勞
+                if (radioButton4.Checked)
+                {
+                    if (ckBASIC.Checked)
+                    {
+                        tbWaged_INS = (from c in db1.WAGED
+                                       where c.SALCODE.INSLAB && c.SALCODE.SALATTR.BASIC &&
+                                       c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 && c.BASE.COUNT_MA &&
+                                       c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
+                                       c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
+                                       c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
+                                       //&& db1.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                                       && (from bts in db1.BASETTS
+                                           where bts.NOBR == c.NOBR
+                                           && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
+                                           && (from urdg in db1.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
+                                           select 1).Any()
+                                       select c).ToArray();
+                        tbWaged_RET = (from c in db2.WAGED
+                                       where c.SALCODE.RETIRE && c.SALCODE.SALATTR.BASIC &&
+                                       c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 && c.BASE.COUNT_MA &&
+                                       c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
+                                       c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
+                                       c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
+                                       //&& db2.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                                       && (from bts in db2.BASETTS
+                                           where bts.NOBR == c.NOBR
+                                           && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
+                                           && (from urdg in db2.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
+                                           select 1).Any()
+                                       select c).ToArray();
+                    }
+                    else
+                    {
+                        tbWaged_INS = (from c in db1.WAGED
+                                       where c.SALCODE.INSLAB &&
+                                       c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 && c.BASE.COUNT_MA &&
+                                       c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
+                                       c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
+                                       c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
+                                       //&& db1.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                                       && (from bts in db1.BASETTS
+                                           where bts.NOBR == c.NOBR
+                                           && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
+                                           && (from urdg in db1.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
+                                           select 1).Any()
+                                       select c).ToArray();
+                        tbWaged_RET = (from c in db2.WAGED
+                                       where c.SALCODE.RETIRE &&
+                                       c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 && c.BASE.COUNT_MA &&
+                                       c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
+                                       c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
+                                       c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
+                                       //&& db2.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                                       && (from bts in db2.BASETTS
+                                           where bts.NOBR == c.NOBR
+                                           && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
+                                           && (from urdg in db2.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
+                                           select 1).Any()
+                                       select c).ToArray();
+                    }
+                }
+                //本勞
+                if (radioButton5.Checked)
+                {
+                    if (ckBASIC.Checked)
+                    {
+                        tbWaged_INS = (from c in db1.WAGED
+                                       where c.SALCODE.INSLAB && c.SALCODE.SALATTR.BASIC &&
+                                       c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 && !c.BASE.COUNT_MA &&
+                                       c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
+                                       c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
+                                       c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
+                                       //&& db1.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                                       && (from bts in db1.BASETTS
+                                           where bts.NOBR == c.NOBR
+                                           && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
+                                           && (from urdg in db1.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
+                                           select 1).Any()
+                                       select c).ToArray();
+                        tbWaged_RET = (from c in db2.WAGED
+                                       where c.SALCODE.RETIRE && c.SALCODE.SALATTR.BASIC &&
+                                       c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 && !c.BASE.COUNT_MA &&
+                                       c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
+                                       c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
+                                       c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
+                                       //&& db2.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                                       && (from bts in db2.BASETTS
+                                           where bts.NOBR == c.NOBR
+                                           && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
+                                           && (from urdg in db2.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
+                                           select 1).Any()
+                                       select c).ToArray();
+                    }
+                    else
+                    {
+                        tbWaged_INS = (from c in db1.WAGED
+                                       where c.SALCODE.INSLAB &&
+                                       c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 && !c.BASE.COUNT_MA &&
+                                       c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
+                                       c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
+                                       c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
+                                       //&& db1.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                                       && (from bts in db1.BASETTS
+                                           where bts.NOBR == c.NOBR
+                                           && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
+                                           && (from urdg in db1.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
+                                           select 1).Any()
+                                       select c).ToArray();
+                        tbWaged_RET = (from c in db2.WAGED
+                                       where c.SALCODE.RETIRE &&
+                                       c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0 && !c.BASE.COUNT_MA &&
+                                       c.BASE.BASETTS.Any(basetts => DateTime.Now.Date >= basetts.ADATE && DateTime.Now.Date <= basetts.DDATE && new string[] { "1", "4", "6" }.Contains(basetts.TTSCODE.Trim())) &&
+                                       c.YYMM.Trim().CompareTo(p.YYMM1.Trim()) >= 0 && c.YYMM.Trim().CompareTo(p.YYMM2.Trim()) <= 0 &&
+                                       c.SEQ.Trim().CompareTo(p.SEQ1.Trim()) >= 0 && c.SEQ.Trim().CompareTo(p.SEQ2.Trim()) <= 0
+                                       //&& db2.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
+                                       && (from bts in db2.BASETTS
+                                           where bts.NOBR == c.NOBR
+                                           && DateTime.Now.Date >= bts.ADATE && DateTime.Now.Date <= bts.DDATE
+                                           && (from urdg in db2.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) select urdg.DATAGROUP).Contains(bts.SALADR)
+                                           select 1).Any()
+                                       select c).ToArray();
+                    }
+                }
 
-                //以計薪年月為群組，將勞健保相關的科目相加起來
-                var group1 = from c in tbWaged_INS
-                             group c by new { YYMM = c.YYMM.Trim(), NOBR = c.NOBR.Trim() } into g1
-                             orderby g1.Key.NOBR, g1.Key.YYMM
+                backgroundWorker1.ReportProgress(10);
+
+                //若有取得期間薪資的話
+                if (tbWaged_INS != null || tbWaged_RET != null)
+                {
+                    //將勞健保相關薪資解密
+                    foreach (var waged in tbWaged_INS)
+                    {
+                        if (waged.AMT != 0)
+                        {
+                            waged.AMT = JBModule.Data.CDecryp.Number(waged.AMT);
+                            if (waged.SALCODE.SALATTR.FLAG.Trim() == "-") waged.AMT *= -1;
+                        }
+                    }
+                    backgroundWorker1.ReportProgress(20);
+
+                    //將勞退相關薪資解密
+                    foreach (var waged in tbWaged_RET)
+                    {
+                        if (waged.AMT != 0)
+                        {
+                            waged.AMT = JBModule.Data.CDecryp.Number(waged.AMT);
+                            if (waged.SALCODE.SALATTR.FLAG.Trim() == "-") waged.AMT *= -1;
+                        }
+                    }
+                    backgroundWorker1.ReportProgress(30);
+
+                    //以計薪年月為群組，將勞健保相關的科目相加起來
+                    var group1 = from c in tbWaged_INS
+                                 group c by new { YYMM = c.YYMM.Trim(), NOBR = c.NOBR.Trim() } into g1
+                                 orderby g1.Key.NOBR, g1.Key.YYMM
+                                 select new
+                                 {
+                                     YYMM = g1.Key.YYMM,
+                                     NOBR = g1.Key.NOBR,
+                                     AMT = g1.Sum(r => r.AMT)
+                                 };
+                    //以計薪年月為群組，將勞退相關的科目相加起來
+                    var group2 = from c in tbWaged_RET
+                                 group c by new { YYMM = c.YYMM.Trim(), NOBR = c.NOBR.Trim() } into g1
+                                 orderby g1.Key.NOBR, g1.Key.YYMM
+                                 select new
+                                 {
+                                     YYMM = g1.Key.YYMM,
+                                     NOBR = g1.Key.NOBR,
+                                     AMT = g1.Sum(r => r.AMT)
+                                 };
+                    backgroundWorker1.ReportProgress(40);
+
+                    //取得勞健保相關的平均薪資
+                    var group3 = from c in group1
+                                 group c by c.NOBR into g1
+                                 select new
+                                 {
+                                     NOBR = g1.Key,
+                                     AMT = Decimal.Round(g1.Sum(r => r.AMT) / g1.Count(), 0)
+                                 };
+                    //取得勞退相關的平均薪資
+                    var group4 = from c in group2
+                                 group c by c.NOBR into g1
+                                 select new
+                                 {
+                                     NOBR = g1.Key,
+                                     AMT = Decimal.Round(g1.Sum(r => r.AMT) / g1.Count(), 0)
+                                 };
+                    backgroundWorker1.ReportProgress(50);
+
+                    //將勞健保與勞退合併
+                    var t1 = from c1 in group3
+                             join c2 in group4 on c1.NOBR.Trim() equals c2.NOBR.Trim()
                              select new
                              {
-                                 YYMM = g1.Key.YYMM,
+                                 NOBR = c1.NOBR,
+                                 SALARY = c1.AMT,
+                                 SALARYA = c2.AMT
+                             };
+                    //group by 後，就不會有重覆資料
+                    var t2 = from c in t1
+                             group c by new { NOBR = c.NOBR, SALARY = c.SALARY, SALARYA = c.SALARYA } into g1
+                             select new
+                             {
                                  NOBR = g1.Key.NOBR,
-                                 AMT = g1.Sum(r => r.AMT)
+                                 SALARY = g1.Key.SALARY,
+                                 SALARYA = g1.Key.SALARYA
                              };
-                //以計薪年月為群組，將勞退相關的科目相加起來
-                var group2 = from c in tbWaged_RET
-                             group c by new { YYMM = c.YYMM.Trim(), NOBR = c.NOBR.Trim() } into g1
-                             orderby g1.Key.NOBR, g1.Key.YYMM
+
+                    var sql = (from bs in db.BASE
+                               join bt in db.BASETTS on bs.NOBR equals bt.NOBR
+                               where p.DDATE >= bt.ADATE && p.DDATE <= bt.DDATE && bt.INDT <= p.INDATE && (bt.STINDT == null || bt.STINDT.Value < p.INDATE)
+                                && bs.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && bs.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0
+                               select new { Base = bs, BaseTTS = bt }).ToList();
+
+                    //加入 NAME_C, RETCHOO 的欄位
+                    var t3 = from c1 in t2
+                             join c2 in sql on c1.NOBR equals c2.Base.NOBR
+                             //where c2.BASETTS.Where(pp => p.DDATE >= pp.ADATE && p.DDATE <= pp.DDATE.Value && (pp.INDT <= p.INDATE && (pp.STINDT == null || pp.STINDT.Value < p.INDATE))).Any()
+                             where p.DDATE >= c2.BaseTTS.ADATE && p.DDATE <= c2.BaseTTS.DDATE
                              select new
                              {
-                                 YYMM = g1.Key.YYMM,
-                                 NOBR = g1.Key.NOBR,
-                                 AMT = g1.Sum(r => r.AMT)
+                                 NOBR = c1.NOBR,
+                                 NAME_C = c2.Base.NAME_C.Trim(),
+                                 RETCHOO = c2.BaseTTS.RETCHOO,
+                                 SALARY = c1.SALARY,
+                                 SALARYA = c1.SALARYA
                              };
-                backgroundWorker1.ReportProgress(40);
-
-                //取得勞健保相關的平均薪資
-                var group3 = from c in group1
-                             group c by c.NOBR into g1
+                    //加入每個人目前的投保資料
+                    var t4 = from c1 in t3
+                             join c2 in db.INSLAB.ToList() on c1.NOBR.Trim() equals c2.NOBR.Trim()
+                             join c3 in db.INSCOMP.ToList() on c2.S_NO.Trim() equals c3.S_NO.Trim()
+                             where p.DDATE >= c2.IN_DATE && p.DDATE <= c2.OUT_DATE && new string[] { "1", "2" }.Contains(c2.CODE.Trim()) && c2.FA_IDNO.Trim().Length == 0
+                             && c3.S_NO_DISP.Trim().CompareTo(p.INSCOMP1) >= 0 && c3.S_NO_DISP.Trim().CompareTo(p.INSCOMP2) <= 0
+                             && (c2.H_AMT > 10 || c2.L_AMT > 10 || c2.R_AMT > 10)//排除都是0的，表示未實際加保，只是作為補充保費減免的參考
                              select new
                              {
-                                 NOBR = g1.Key,
-                                 AMT = Decimal.Round(g1.Sum(r => r.AMT) / g1.Count(), 0)
+                                 NOBR = c1.NOBR,
+                                 NAME_C = c1.NAME_C,
+                                 RETCHOO = c1.RETCHOO,
+                                 SALARY = c1.SALARY,
+                                 SALARYA = c1.SALARYA,
+                                 L_AMT = (c2.L_AMT != 0) ? JBModule.Data.CDecryp.Number(c2.L_AMT) : 0,
+                                 J_AMT = (c2.J_AMT != 0) ? JBModule.Data.CDecryp.Number(c2.J_AMT) : 0,
+                                 H_AMT = (c2.H_AMT != 0) ? JBModule.Data.CDecryp.Number(c2.H_AMT) : 0,
+                                 R_AMT = (c2.R_AMT != 0) ? JBModule.Data.CDecryp.Number(c2.R_AMT) : 0,
+                                 INSCOMP = c3.INSNAME,
                              };
-                //取得勞退相關的平均薪資
-                var group4 = from c in group2
-                             group c by c.NOBR into g1
-                             select new
-                             {
-                                 NOBR = g1.Key,
-                                 AMT = Decimal.Round(g1.Sum(r => r.AMT) / g1.Count(), 0)
-                             };
-                backgroundWorker1.ReportProgress(50);
 
-                //將勞健保與勞退合併
-                var t1 = from c1 in group3
-                         join c2 in group4 on c1.NOBR.Trim() equals c2.NOBR.Trim()
-                         select new
-                         {
-                             NOBR = c1.NOBR,
-                             SALARY = c1.AMT,
-                             SALARYA = c2.AMT
-                         };
-                //group by 後，就不會有重覆資料
-                var t2 = from c in t1
-                         group c by new { NOBR = c.NOBR, SALARY = c.SALARY, SALARYA = c.SALARYA } into g1
-                         select new
-                         {
-                             NOBR = g1.Key.NOBR,
-                             SALARY = g1.Key.SALARY,
-                             SALARYA = g1.Key.SALARYA
-                         };
+                    backgroundWorker1.ReportProgress(60);
 
-                var sql = (from bs in db.BASE
-                           join bt in db.BASETTS on bs.NOBR equals bt.NOBR
-                           where p.DDATE >= bt.ADATE && p.DDATE <= bt.DDATE && bt.INDT <= p.INDATE && (bt.STINDT == null || bt.STINDT.Value < p.INDATE)
-                            && bs.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && bs.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0
-                           select new { Base = bs, BaseTTS = bt }).ToList();
+                    decimal L_MAX = L_INSLV_ARRAY.Max(r => r.AMT);
+                    decimal J_MAX = J_INSLV_ARRAY.Max(r => r.AMT);
+                    decimal H_MAX = H_INSLV_ARRAY.Max(r => r.AMT);
+                    decimal R_MAX = R_INSLV_ARRAY.Max(r => r.AMT);
 
-                 //加入 NAME_C, RETCHOO 的欄位
-                 var t3 = from c1 in t2
-                         join c2 in sql on c1.NOBR equals c2.Base.NOBR
-                         //where c2.BASETTS.Where(pp => p.DDATE >= pp.ADATE && p.DDATE <= pp.DDATE.Value && (pp.INDT <= p.INDATE && (pp.STINDT == null || pp.STINDT.Value < p.INDATE))).Any()
-                         where Convert.ToDateTime(date2) >= c2.BaseTTS.ADATE && Convert.ToDateTime(date2) <= c2.BaseTTS.DDATE
-                         select new
-                         {
-                             NOBR = c1.NOBR,
-                             NAME_C = c2.Base.NAME_C.Trim(),
-                             RETCHOO = c2.BaseTTS.RETCHOO,
-                             SALARY = c1.SALARY,
-                             SALARYA = c1.SALARYA
-                         };
-                //加入每個人目前的投保資料
-                var t4 = from c1 in t3
-                         join c2 in db.INSLAB.ToList() on c1.NOBR.Trim() equals c2.NOBR.Trim()
-                         join c3 in db.INSCOMP.ToList() on c2.S_NO.Trim() equals c3.S_NO.Trim()
-                         where Convert.ToDateTime(date2) >= c2.IN_DATE && Convert.ToDateTime(date2) <= c2.OUT_DATE && new string[] { "1", "2" }.Contains(c2.CODE.Trim()) && c2.FA_IDNO.Trim().Length == 0
-                         && c3.S_NO_DISP.Trim().CompareTo(p.INSCOMP1) >= 0 && c3.S_NO_DISP.Trim().CompareTo(p.INSCOMP2) <= 0
-                         && (c2.H_AMT > 10 || c2.L_AMT > 10 || c2.R_AMT > 10)//排除都是0的，表示未實際加保，只是作為補充保費減免的參考
-                         select new
-                         {
-                             NOBR = c1.NOBR,
-                             NAME_C = c1.NAME_C,
-                             RETCHOO = c1.RETCHOO,
-                             SALARY = c1.SALARY,
-                             SALARYA = c1.SALARYA,
-                             L_AMT = (c2.L_AMT != 0) ? JBModule.Data.CDecryp.Number(c2.L_AMT) : 0,
-                             H_AMT = (c2.H_AMT != 0) ? JBModule.Data.CDecryp.Number(c2.H_AMT) : 0,
-                             R_AMT = (c2.R_AMT != 0) ? JBModule.Data.CDecryp.Number(c2.R_AMT) : 0,
-                             INSCOMP = c3.INSNAME,
-                         };
+                    decimal i = 1;
+                    decimal t = t4.Count();
 
-                backgroundWorker1.ReportProgress(60);
-
-                decimal L_MAX = L_INSLV_ARRAY.Max(r => r.AMT);
-                decimal H_MAX = H_INSLV_ARRAY.Max(r => r.AMT);
-                decimal R_MAX = R_INSLV_ARRAY.Max(r => r.AMT);
-
-                decimal i = 1;
-                decimal t = t4.Count();
-
-                foreach (var dd in t4)
-                {
-                    InsDS.FRM3AZRow row = insDS.FRM3AZ.NewFRM3AZRow();
-                    row.NOTTRAN = false;
-                    row.NOBR = dd.NOBR;
-                    row.NAME_C = dd.NAME_C;
-                    row.RETCHOO = dd.RETCHOO;
-                    row.SALARY = dd.SALARY;
-                    row.SALARYA = dd.SALARYA;
-                    row.L_AMT = dd.L_AMT;
-                    row.H_AMT = dd.H_AMT;
-                    row.R_AMT = dd.R_AMT;
-                    row.InsComp = dd.INSCOMP;
-                    row.REMARK = "";
-                    //取得建議的投保級距
-                    if (dd.SALARY >= L_MAX) row.L_AMT1 = L_MAX;
-                    else
+                    foreach (var dd in t4)
                     {
-                        row.L_AMT1 = (from c in L_INSLV_ARRAY
-                                      where c.AMT >= dd.SALARY
-                                      select c).Min(r => r.AMT);
+                        InsDS.FRM3AZRow row = insDS.FRM3AZ.NewFRM3AZRow();
+                        row.NOTTRAN = false;
+                        row.NOBR = dd.NOBR;
+                        row.NAME_C = dd.NAME_C;
+                        row.RETCHOO = dd.RETCHOO;
+                        row.SALARY = dd.SALARY;
+                        row.SALARYA = dd.SALARYA;
+                        row.L_AMT = dd.L_AMT;
+                        row.J_AMT = dd.J_AMT;
+                        row.H_AMT = dd.H_AMT;
+                        row.R_AMT = dd.R_AMT;
+                        row.InsComp = dd.INSCOMP;
+                        row.REMARK = "";
+                        //取得建議的投保級距
+                        if (dd.SALARY >= L_MAX) row.L_AMT1 = L_MAX;
+                        else
+                        {
+                            row.L_AMT1 = (from c in L_INSLV_ARRAY
+                                          where c.AMT >= dd.SALARY
+                                          select c).Min(r => r.AMT);
+                        }
+                        //取得建議的投保級距
+                        if (dd.SALARY >= J_MAX) row.J_AMT1 = J_MAX;
+                        else
+                        {
+                            row.J_AMT1 = (from c in J_INSLV_ARRAY
+                                          where c.AMT >= dd.SALARY
+                                          select c).Min(r => r.AMT);
+                        }
+                        //取得建議的投保級距
+                        if (dd.SALARY >= H_MAX) row.H_AMT1 = H_MAX;
+                        else
+                        {
+                            row.H_AMT1 = (from c in H_INSLV_ARRAY
+                                          where c.AMT >= dd.SALARY
+                                          select c).Min(r => r.AMT);
+                        }
+
+                        //取得建議的投保級距
+                        if (dd.SALARY >= R_MAX) row.R_AMT1 = R_MAX;
+                        else
+                        {
+                            row.R_AMT1 = (from c in R_INSLV_ARRAY
+                                          where c.AMT >= dd.SALARYA
+                                          select c).Min(r => r.AMT);
+                        }
+
+                        //取得期間內的薪資
+                        var d1 = (from c in group1 where c.NOBR == row.NOBR orderby c.YYMM select c).ToArray();
+                        row.AMT1 = (d1.Count() >= 1) ? d1[0].AMT : 0;
+                        row.AMT2 = (d1.Count() >= 2) ? d1[1].AMT : 0;
+                        row.AMT3 = (d1.Count() >= 3) ? d1[2].AMT : 0;
+                        row.AMT4 = (d1.Count() >= 4) ? d1[3].AMT : 0;
+                        row.AMT5 = (d1.Count() >= 5) ? d1[4].AMT : 0;
+                        row.AMT6 = (d1.Count() >= 6) ? d1[5].AMT : 0;
+                        //取得期間內的薪資
+                        var d2 = (from c in group2 where c.NOBR == row.NOBR orderby c.YYMM select c).ToArray();
+                        row.AMTA = (d2.Count() >= 1) ? d2[0].AMT : 0;
+                        row.AMTB = (d2.Count() >= 2) ? d2[1].AMT : 0;
+                        row.AMTC = (d2.Count() >= 3) ? d2[2].AMT : 0;
+                        row.AMTD = (d2.Count() >= 4) ? d2[3].AMT : 0;
+                        row.AMTE = (d2.Count() >= 5) ? d2[4].AMT : 0;
+                        row.AMTF = (d2.Count() >= 6) ? d2[5].AMT : 0;
+
+                        if (row.RETCHOO.Trim() == "0" || row.RETCHOO.Trim() == "1")
+                        {
+                            row.SALARYA = 0;
+                            row.R_AMT = 0;
+                            row.R_AMT1 = 0;
+                            row.AMTA = 0;
+                            row.AMTB = 0;
+                            row.AMTC = 0;
+                            row.AMTD = 0;
+                            row.AMTE = 0;
+                            row.AMTF = 0;
+
+                        }
+
+                        var EMPBASE = (from c in db.BASE
+                                       where c.NOBR.Trim().ToLower() == row.NOBR.Trim().ToLower()
+                                       select c).FirstOrDefault();
+                        //if (EMPBASE != null && EMPBASE.COUNT_MA)
+                        //{
+                        //    row.SALARYA = 0;
+                        //    row.R_AMT = 0;
+                        //    row.R_AMT1 = 0;
+                        //    row.AMTA = 0;
+                        //    row.AMTB = 0;
+                        //    row.AMTC = 0;
+                        //}
+
+
+                        insDS.FRM3AZ.AddFRM3AZRow(row);
+
+                        int rr = Convert.ToInt32(decimal.Floor(Convert.ToDecimal(i / t * 40)));
+                        if (rr > 0 && rr % 2 == 0)
+                        {
+                            backgroundWorker1.ReportProgress(60 + rr);
+                        }
+
+                        i++;
                     }
-                    //取得建議的投保級距
-                    if (dd.SALARY >= H_MAX) row.H_AMT1 = H_MAX;
-                    else
-                    {
-                        row.H_AMT1 = (from c in H_INSLV_ARRAY
-                                      where c.AMT >= dd.SALARY
-                                      select c).Min(r => r.AMT);
-                    }
-
-                    //取得建議的投保級距
-                    if (dd.SALARY >= R_MAX) row.R_AMT1 = R_MAX;
-                    else
-                    {
-                        row.R_AMT1 = (from c in R_INSLV_ARRAY
-                                      where c.AMT >= dd.SALARYA
-                                      select c).Min(r => r.AMT);
-                    }
-
-                    //取得期間內的薪資
-                    var d1 = (from c in group1 where c.NOBR == row.NOBR orderby c.YYMM select c).ToArray();
-                    row.AMT1 = (d1.Count() >= 1) ? d1[0].AMT : 0;
-                    row.AMT2 = (d1.Count() >= 2) ? d1[1].AMT : 0;
-                    row.AMT3 = (d1.Count() >= 3) ? d1[2].AMT : 0;
-                    //取得期間內的薪資
-                    var d2 = (from c in group2 where c.NOBR == row.NOBR orderby c.YYMM select c).ToArray();
-                    row.AMTA = (d2.Count() >= 1) ? d2[0].AMT : 0;
-                    row.AMTB = (d2.Count() >= 2) ? d2[1].AMT : 0;
-                    row.AMTC = (d2.Count() >= 3) ? d2[2].AMT : 0;
-
-                    if (row.RETCHOO.Trim() == "0" || row.RETCHOO.Trim() == "1")
-                    {
-                        row.SALARYA = 0;
-                        row.R_AMT = 0;
-                        row.R_AMT1 = 0;
-                        row.AMTA = 0;
-                        row.AMTB = 0;
-                        row.AMTC = 0;
-                    }
-
-                    var EMPBASE = (from c in db.BASE
-                                   where c.NOBR.Trim().ToLower() == row.NOBR.Trim().ToLower()
-                                   select c).FirstOrDefault();
-                    //if (EMPBASE != null && EMPBASE.COUNT_MA)
-                    //{
-                    //    row.SALARYA = 0;
-                    //    row.R_AMT = 0;
-                    //    row.R_AMT1 = 0;
-                    //    row.AMTA = 0;
-                    //    row.AMTB = 0;
-                    //    row.AMTC = 0;
-                    //}
-
-
-                    insDS.FRM3AZ.AddFRM3AZRow(row);
-
-                    int rr = Convert.ToInt32(decimal.Floor(Convert.ToDecimal(i / t * 40)));
-                    if (rr > 0 && rr % 2 == 0)
-                    {
-                        backgroundWorker1.ReportProgress(60 + rr);
-                    }
-
-                    i++;
                 }
-            }
 
-            backgroundWorker1.ReportProgress(100);
+                backgroundWorker1.ReportProgress(100);
+            }
+            catch (Exception ex)
+            {
+                JBModule.Message.TextLog.WriteLog(ex);
+                backgroundWorker1.ReportProgress(90, ex.Message);
+            }
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -1046,7 +1076,7 @@ namespace JBHR.Ins
                             //&& db.GetFilterByNobr(a.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
                             && db.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Select(q => q.DATAGROUP).Contains(c.SALADR)
                              && d.S_NO_DISP.CompareTo(p.INSCOMP1) >= 0 && d.S_NO_DISP.CompareTo(p.INSCOMP2) <= 0
-                            select new { INSLAB = a, BASE = b, BASETTS = c ,INSCOMP = d};
+                            select new { INSLAB = a, BASE = b, BASETTS = c, INSCOMP = d };
 
             if (radioButton2.Checked)
             {
@@ -1088,6 +1118,7 @@ namespace JBHR.Ins
                 var qq2 = salbasdOfNobr.Where(q => q.SALCODE.RETIRE);
                 row.SALARYA = qq2.Any() ? qq2.Sum(q => q.SALATTR.FLAG != "-" ? JBModule.Data.CDecryp.Number(q.SALBASD.AMT) : JBModule.Data.CDecryp.Number(q.SALBASD.AMT) * -1) : 0;
                 row.L_AMT = JBModule.Data.CDecryp.Number(r.INSLAB.L_AMT);
+                row.J_AMT = JBModule.Data.CDecryp.Number(r.INSLAB.J_AMT);
                 row.H_AMT = JBModule.Data.CDecryp.Number(r.INSLAB.H_AMT);
                 row.R_AMT = JBModule.Data.CDecryp.Number(r.INSLAB.R_AMT);
                 row.InsComp = r.INSCOMP.INSNAME;
