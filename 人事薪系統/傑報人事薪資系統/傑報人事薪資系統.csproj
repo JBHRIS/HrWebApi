@@ -2404,13 +2404,31 @@
     <Content Include="SqlStorage\sql\2022033101_Create_Index_For_SALATT.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="SqlStorage\sql\2022041801_create_ENCODE_function.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022041802_AlterWelfAddNote1Note2.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022041803_Create_View_Welf.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="SqlStorage\sql\20220421_假別代碼_Add_Remark.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022042701_AlterTW_TAXAddTAX_TypeAndAlterView_TW_TAX.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlStorage\sql\20220501_INSLAB_ADD_JAMT.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlStorage\sql\20220501_INSURLV_ADD_JOB.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022050301_AlterWelfAddComp_Date_B_Date_E.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022050501_AlterJqsettingCustomerWhereForVIEW_TW_TAXsql.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlStorage\sql\20220508_INSURLV_Update_JOB.sql">

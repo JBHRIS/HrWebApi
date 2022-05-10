@@ -769,7 +769,7 @@ namespace JBHR.Ins
 
         private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
         {
-            InsDataClassesDataContext myDB1 = new InsDataClassesDataContext();
+            JBModule.Data.Linq.HrDBDataContext myDB1 = new JBModule.Data.Linq.HrDBDataContext();
             var INSLAB = from c in myDB1.INSLAB
                          where DateTime.Now.Date >= c.IN_DATE && DateTime.Now.Date <= c.OUT_DATE && new string[] { "1", "2" }.Contains(c.CODE.Trim())
                          && (c.H_AMT > 10 || c.L_AMT > 10 || c.R_AMT > 10)//排除都是0的，表示未實際加保，只是作為補充保費減免的參考
@@ -817,14 +817,14 @@ namespace JBHR.Ins
                         rowIns.OUT_DATE = Convert.ToDateTime(txtChDate.Text).AddDays(-1);
                         rowIns.ROUT_DATE = Convert.ToDateTime(txtChDate.Text).AddDays(-1);
 
-                        INSLAB newINS = new INSLAB();
+                        JBModule.Data.Linq.INSLAB newINS = new JBModule.Data.Linq.INSLAB();
                         newINS.NOBR = rowIns.NOBR;
                         newINS.CODE = "2";
                         newINS.IN_DATE = Convert.ToDateTime(e.Argument);
                         newINS.OUT_DATE = Convert.ToDateTime("9999/12/31");
                         newINS.ROUT_DATE = Convert.ToDateTime("9999/12/31");
                         newINS.SEQ = rowIns.SEQ;
-                        newINS.CODE1 = rowIns.CODE1;
+                        newINS.CODE1 = rowFRM3AZ.IsREASONNull() || rowFRM3AZ.REASON.Trim().Length == 0 ? rowIns.CODE1 : rowFRM3AZ.REASON;
                         newINS.NOTE = "";
                         newINS.S_NO = rowIns.S_NO;
                         newINS.SPTYP = rowIns.SPTYP;
@@ -841,6 +841,7 @@ namespace JBHR.Ins
                             newINS.FA_IDNO = "";
                             newINS.LRATE_CODE = rowIns.LRATE_CODE;
                             newINS.L_AMT = JBModule.Data.CEncrypt.Number(rowFRM3AZ.L_AMT1);
+                            newINS.J_AMT = JBModule.Data.CEncrypt.Number(rowFRM3AZ.J_AMT1);
                             newINS.HRATE_CODE = rowIns.HRATE_CODE;
                             newINS.H_AMT = JBModule.Data.CEncrypt.Number(rowFRM3AZ.H_AMT1);
                             newINS.R_AMT = JBModule.Data.CEncrypt.Number(rowFRM3AZ.R_AMT1);
@@ -850,6 +851,7 @@ namespace JBHR.Ins
                             newINS.FA_IDNO = rowIns.FA_IDNO.Trim();
                             newINS.LRATE_CODE = "";
                             newINS.L_AMT = JBModule.Data.CEncrypt.Number(0);
+                            newINS.J_AMT = JBModule.Data.CEncrypt.Number(0);
                             newINS.HRATE_CODE = rowIns.HRATE_CODE;
                             newINS.H_AMT = JBModule.Data.CEncrypt.Number(rowFRM3AZ.H_AMT1);
                             newINS.R_AMT = JBModule.Data.CEncrypt.Number(0);

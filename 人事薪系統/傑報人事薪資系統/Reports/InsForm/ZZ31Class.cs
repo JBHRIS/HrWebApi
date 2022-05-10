@@ -130,7 +130,7 @@ namespace JBHR.Reports.InsForm
                         aRow["perexp"] = Math.Round(str_lamt * str_normal * str_self * str_insday / 30, MidpointRounding.AwayFromZero) + Math.Round(str_lamt * str_losjob * str_self * str_insday / 30, MidpointRounding.AwayFromZero);
                         aRow["perexp"] = int.Parse(aRow["perexp"].ToString()) - Math.Round(str_lamt * str_normal * str_self * (1 - str_partial) * str_insday / 30, MidpointRounding.AwayFromZero) - Math.Round(str_lamt * str_losjob * str_self * (1 - str_partial) * str_insday / 30, MidpointRounding.AwayFromZero);
                         //ROUND(L_AMT*INSDAY*RV_LARCODE.JOBACCRATE/30,0)
-                        aRow["jobexp"] = Math.Round(str_lamt * str_insday * str_jobaccrate / 30, MidpointRounding.AwayFromZero);
+                        aRow["jobexp"] = Math.Round(str_jamt * str_insday * str_jobaccrate / 30, MidpointRounding.AwayFromZero);
                         //IIF(INSDAY>=28,ROUND(L_AMT*.00025,0),ROUND(ROUND(L_AMT*.00025,0)*INSDAY/30,0))
                         aRow["fundexp"] = (str_insday >= 28) ? Math.Round(str_lamt * Convert.ToDecimal(0.00025), MidpointRounding.AwayFromZero) : Math.Round(Math.Round(str_lamt * Convert.ToDecimal(0.00025), MidpointRounding.AwayFromZero) * str_insday / 30, MidpointRounding.AwayFromZero);
                         //ROUND(L_AMT*(RV_LARCODE.NORMALRATE+RV_LARCODE.LOSJOBRATE)*RV_LARCODE.COMPCHARGE*INSDAY/30,0)+
