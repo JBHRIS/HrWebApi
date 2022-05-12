@@ -161,8 +161,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1008, 641);
-            this.splitContainer1.SplitterDistance = 322;
+            this.splitContainer1.Size = new System.Drawing.Size(1008, 497);
+            this.splitContainer1.SplitterDistance = 178;
             this.splitContainer1.TabIndex = 0;
             // 
             // dataGridView1
@@ -210,7 +210,7 @@
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1008, 322);
+            this.dataGridView1.Size = new System.Drawing.Size(1008, 178);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -1216,9 +1216,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 641);
+            this.ClientSize = new System.Drawing.Size(1008, 497);
             this.Controls.Add(this.splitContainer1);
-            this.FormSize = JBControls.JBForm.FormSizeType.Large;
+            this.FormSize = JBControls.JBForm.FormSizeType.Custom;
             this.KeyPreview = true;
             this.Name = "FRM32";
             this.Text = "FRM32";
