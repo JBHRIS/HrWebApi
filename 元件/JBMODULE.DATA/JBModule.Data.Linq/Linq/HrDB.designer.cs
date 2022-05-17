@@ -23219,6 +23219,8 @@ namespace JBModule.Data.Linq
 		
 		private string _COMP;
 		
+		private string _FILE_YYMM;
+		
     #region 擴充性方法定義
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -23257,6 +23259,8 @@ namespace JBModule.Data.Linq
     partial void OnSALADRChanged();
     partial void OnCOMPChanging(string value);
     partial void OnCOMPChanged();
+    partial void OnFILE_YYMMChanging(string value);
+    partial void OnFILE_YYMMChanged();
     #endregion
 		
 		public WAGE()
@@ -23600,6 +23604,26 @@ namespace JBModule.Data.Linq
 					this._COMP = value;
 					this.SendPropertyChanged("COMP");
 					this.OnCOMPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FILE_YYMM", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string FILE_YYMM
+		{
+			get
+			{
+				return this._FILE_YYMM;
+			}
+			set
+			{
+				if ((this._FILE_YYMM != value))
+				{
+					this.OnFILE_YYMMChanging(value);
+					this.SendPropertyChanging();
+					this._FILE_YYMM = value;
+					this.SendPropertyChanged("FILE_YYMM");
+					this.OnFILE_YYMMChanged();
 				}
 			}
 		}
@@ -75891,6 +75915,8 @@ namespace JBModule.Data.Linq
 		
 		private string _TAX_Type;
 		
+		private bool _PreFile;
+		
     #region 擴充性方法定義
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -75917,6 +75943,8 @@ namespace JBModule.Data.Linq
     partial void OnRelaseDateChanged();
     partial void OnTAX_TypeChanging(string value);
     partial void OnTAX_TypeChanged();
+    partial void OnPreFileChanging(bool value);
+    partial void OnPreFileChanged();
     #endregion
 		
 		public TW_TAX()
@@ -76140,6 +76168,26 @@ namespace JBModule.Data.Linq
 					this._TAX_Type = value;
 					this.SendPropertyChanged("TAX_Type");
 					this.OnTAX_TypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PreFile", DbType="Bit NOT NULL")]
+		public bool PreFile
+		{
+			get
+			{
+				return this._PreFile;
+			}
+			set
+			{
+				if ((this._PreFile != value))
+				{
+					this.OnPreFileChanging(value);
+					this.SendPropertyChanging();
+					this._PreFile = value;
+					this.SendPropertyChanged("PreFile");
+					this.OnPreFileChanged();
 				}
 			}
 		}

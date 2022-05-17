@@ -262,6 +262,13 @@ namespace JBHR.Med
             else
                 return dt.AsEnumerable().ToDictionary(p => p.Field<string>(0), p => p.Field<string>(1));
         }
+
+        private void buttonPreFile_Click(object sender, EventArgs e)
+        {
+            Med.FRM71N1_T1 frm = new FRM71N1_T1();
+            frm.TW_TAX_Auto = TW_TAX_Auto;
+            frm.ShowDialog();
+        }
     }
     public class TwYearTaxImport : JBControls.ImportTransfer
     {

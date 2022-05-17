@@ -349,6 +349,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.lbUpdateError = new System.Windows.Forms.Label();
             this.cardTableAdapter1 = new JBHR.Dll.dsAttTableAdapters.CARDTableAdapter();
+            this.提前申報維護toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -1181,6 +1182,7 @@
             this.薪資代碼ToolStripMenuItem,
             this.薪資基本資料ToolStripMenuItem,
             this.發薪資料ToolStripMenuItem,
+            this.提前申報維護toolStripMenuItem,
             this.調薪資料ToolStripMenuItem,
             this.補扣發資料ToolStripMenuItem,
             this.補扣發資料批次作業toolStripMenuItem,
@@ -2587,6 +2589,12 @@
             // 
             this.cardTableAdapter1.ClearBeforeFill = true;
             // 
+            // 提前申報維護toolStripMenuItem
+            // 
+            this.提前申報維護toolStripMenuItem.Name = "提前申報維護toolStripMenuItem";
+            resources.ApplyResources(this.提前申報維護toolStripMenuItem, "提前申報維護toolStripMenuItem");
+            this.提前申報維護toolStripMenuItem.Tag = "SAL.FRM46W";
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -2934,6 +2942,7 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label lbUpdateError;
         private System.Windows.Forms.ToolStripMenuItem 福利金年度作業ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 提前申報維護toolStripMenuItem;
     }
 }
 

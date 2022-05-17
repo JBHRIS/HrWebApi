@@ -113,6 +113,15 @@ namespace JBHR.Med
             }
             string yy = TaxDataMain.YearMonth;
             string yearString = (int.Parse(yy) - 1911).ToString("000");
+            if (TaxDataMain.PreFile)
+            {
+                if (TaxDataMain.RelaseDate == null)
+                {
+                    MessageBox.Show("請先設定開放查詢日期");
+                    return;
+                }
+                yearString = (TaxDataMain.RelaseDate.Value.Year - 1911).ToString("000") + TaxDataMain.RelaseDate.Value.ToString("MMdd");
+            }
             string applyType = "";
             FormTool.InputBox("憑單填發方式", "請輸入憑單填發方式：(1)免填發(2)電子憑單(3)紙本憑單", ref applyType);
             if (!new string[] { "1", "2", "3" }.Contains(applyType))
@@ -174,6 +183,8 @@ namespace JBHR.Med
                     string BLANK_1 = "".GetFullLenStr(1);
                     string ERR_MARK = "".GetFullLenStr(1);
                     string YEAR = (Convert.ToInt32(TaxDataMain.YearMonth.Substring(0, 4)) - 1911).ToString("000");
+                    if (TaxDataMain.PreFile)
+                        YEAR = (TaxDataMain.RelaseDate.Value.Year - 1911).ToString();                    
                     string NAME_C = TYRTAXRow.NAME_C.Trim().GetFullLenStr(40);//所得人姓名/名稱(12->40)
                     string ADDR_2 = TYRTAXRow.ADDR2.Trim().GetFullLenStr(60);
                     //var Ybs = TYRTAXRow.YEAR_B.Split('/');
@@ -197,6 +208,8 @@ namespace JBHR.Med
                     string SPACE34 = "".GetFullLenStr(38);//(34) 空白(37->49)減掉勞退的10//2013年改成48
                     string FormInputType = "3".GetFullLenStr(1);
                     string DATE = DateTime.Now.Month.ToString().PadLeft(2, '0') + DateTime.Now.Day.ToString().PadLeft(2, '0');
+                    if (TaxDataMain.PreFile)
+                        DATE = TaxDataMain.RelaseDate.Value.Month.ToString().PadLeft(2, '0') + TaxDataMain.RelaseDate.Value.Day.ToString().PadLeft(2, '0');
                     string RENT = "".GetFullLenStr(2);
                     string SPACE = "".GetFullLenStr(2);
                     ADDR_2 = ADDR_2.Replace(" ", "");

@@ -335,13 +335,13 @@
     <value>殘障身分代碼</value>
   </data>
   <data name="代碼資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="代碼資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>代碼資料</value>
   </data>
   <data name="自定義欄位設定ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="自定義欄位設定ToolStripMenuItem.Text" xml:space="preserve">
     <value>自定義欄位設定</value>
@@ -351,88 +351,88 @@
     <value>F1</value>
   </data>
   <data name="員工資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="員工資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>員工資料</value>
   </data>
   <data name="人事異動資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="人事異動資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>人事異動資料</value>
   </data>
   <data name="員工資料查詢ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="員工資料查詢ToolStripMenuItem.Text" xml:space="preserve">
     <value>員工資料查詢</value>
   </data>
   <data name="眷屬資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="眷屬資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>眷屬資料</value>
   </data>
   <data name="獎懲資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="獎懲資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>獎懲資料</value>
   </data>
   <data name="教育程度資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="教育程度資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>教育程度資料</value>
   </data>
   <data name="經歷資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="經歷資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>經歷資料</value>
   </data>
   <data name="費用分攤資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="費用分攤資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>費用分攤資料</value>
   </data>
   <data name="專長與興趣ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="專長與興趣ToolStripMenuItem.Text" xml:space="preserve">
     <value>專長與興趣</value>
   </data>
   <data name="證照資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="證照資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>證照資料</value>
   </data>
   <data name="公司別資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="公司別資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>公司基本資料</value>
   </data>
   <data name="合同管理ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="合同管理ToolStripMenuItem.Text" xml:space="preserve">
     <value>合同管理</value>
   </data>
   <data name="員工規則設定ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="員工規則設定ToolStripMenuItem.Text" xml:space="preserve">
     <value>員工規則設定</value>
   </data>
   <data name="toolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 6</value>
+    <value>177, 6</value>
   </data>
   <data name="黑名單資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="黑名單資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>黑名單資料</value>
@@ -839,6 +839,12 @@
   <data name="發薪資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>發薪資料</value>
   </data>
+  <data name="提前申報維護toolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 22</value>
+  </data>
+  <data name="提前申報維護toolStripMenuItem.Text" xml:space="preserve">
+    <value>提前申報維護</value>
+  </data>
   <data name="調薪資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 22</value>
   </data>
@@ -1020,25 +1026,25 @@
     <value>薪資資料(&amp;D)</value>
   </data>
   <data name="格式代號ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="格式代號ToolStripMenuItem.Text" xml:space="preserve">
     <value>格式代號</value>
   </data>
   <data name="稽徵機關ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="稽徵機關ToolStripMenuItem.Text" xml:space="preserve">
     <value>稽徵機關</value>
   </data>
   <data name="所得人資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="所得人資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>所得人資料</value>
   </data>
   <data name="年度所得資料ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="年度所得資料ToolStripMenuItem.Text" xml:space="preserve">
     <value>年度所得作業</value>
@@ -4721,6 +4727,12 @@
   </data>
   <data name="&gt;&gt;cardTableAdapter1.Type" xml:space="preserve">
     <value>JBHR.Dll.dsAttTableAdapters.CARDTableAdapter, JBHR.Dll, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;提前申報維護toolStripMenuItem.Name" xml:space="preserve">
+    <value>提前申報維護toolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;提前申報維護toolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

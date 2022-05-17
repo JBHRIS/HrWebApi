@@ -980,6 +980,7 @@
       <Column Name="TAXRATE" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
       <Column Name="SALADR" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="COMP" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FILE_YYMM" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.WAGED" Member="WAGED">
@@ -3523,6 +3524,7 @@
       <Column Name="IsLock" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="RelaseDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="TAX_Type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PreFile" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.TW_TAX_SUBCODE" Member="TW_TAX_SUBCODE">
