@@ -112,7 +112,7 @@ namespace JBHR.Med
                 return;
             }
             string yy = TaxDataMain.YearMonth;
-            string yearString = (int.Parse(yy) - 1911).ToString("000");
+            string yearString = (int.Parse(yy.Substring(0, 4)) - 1911).ToString("000") + yy.Substring(4);
             if (TaxDataMain.PreFile)
             {
                 if (TaxDataMain.RelaseDate == null)
@@ -129,7 +129,7 @@ namespace JBHR.Med
                 MessageBox.Show("憑單填發方式輸入錯誤，請輸入1-3的數字");
                 return;
             }
-
+            var empData = db.BASE.Select(p => new { NOBR = p.NOBR.Trim(), p.COUNTRY, p.COUNT_MA }).ToList();
             var yrtaxGroup = from a in TaxData group a by a.COMP;
             foreach (var gpTax in yrtaxGroup)
             {
@@ -197,16 +197,18 @@ namespace JBHR.Med
                     string RET_AMT = Convert.ToInt32(JBModule.Data.CDecryp.Number(TYRTAXRow.RET_AMT)).ToString().PadLeft(10, '0');
                     string Over183 = "".GetFullLenStr(1);
                     string Country = TYRTAXRow.Country.GetFullLenStr(2);
-                    DateTime Bdate, Edate;
-                    Bdate = new DateTime(Convert.ToInt32(TaxDataMain.DateBegin.Year), 1, 1);
-                    Edate = new DateTime(Convert.ToInt32(TaxDataMain.DateBegin.Year), 12, 31);
+                    //DateTime Bdate, Edate;
+                    //Bdate = new DateTime(Convert.ToInt32(TaxDataMain.DateBegin.Year), 1, 1);
+                    //Edate = new DateTime(Convert.ToInt32(TaxDataMain.DateBegin.Year), 12, 31);
                     if (TYRTAXRow.IDCODE == "3") Over183 = "Y".GetFullLenStr(1);
                     else if (TYRTAXRow.IDCODE == "4") Over183 = "Y".GetFullLenStr(1);
                     else if (TYRTAXRow.IDCODE == "7") Over183 = "N".GetFullLenStr(1);
                     else Over183 = "".GetFullLenStr(1);
-
+                    var emp = empData.SingleOrDefault(p => p.NOBR == TYRTAXRow.NOBR);
+                    //if (emp != null && emp.COUNT_MA && TYRTAXRow.IDCODE == "7")
+                    //    Country = emp.COUNTRY;
                     string SPACE34 = "".GetFullLenStr(38);//(34) 空白(37->49)減掉勞退的10//2013年改成48
-                    string FormInputType = "3".GetFullLenStr(1);
+                    string FormInputType = "2".GetFullLenStr(1);
                     string DATE = DateTime.Now.Month.ToString().PadLeft(2, '0') + DateTime.Now.Day.ToString().PadLeft(2, '0');
                     if (TaxDataMain.PreFile)
                         DATE = TaxDataMain.RelaseDate.Value.Month.ToString().PadLeft(2, '0') + TaxDataMain.RelaseDate.Value.Day.ToString().PadLeft(2, '0');
