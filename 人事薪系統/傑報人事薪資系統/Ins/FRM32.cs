@@ -68,7 +68,7 @@ namespace JBHR.Ins
             //this.lARCODETableAdapter.Fill(this.insDS.LARCODE);
             //this.wBSPTYPTableAdapter.Fill(this.insDS.WBSPTYP);
             //this.sPTYPTableAdapter.Fill(this.insDS.SPTYP);
-            //this.iNSNAMETableAdapter.Fill(this.insDS.INSNAME);
+            this.iNSNAMETableAdapter.Fill(this.insDS.INSNAME);
             this.iNSCOMPTableAdapter.Fill(this.insDS.INSCOMP, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN);
             //this.iNSLABTableAdapter.Fill(this.insDS.INSLAB);
 

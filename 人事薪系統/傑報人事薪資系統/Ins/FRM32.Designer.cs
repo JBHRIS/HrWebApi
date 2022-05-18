@@ -32,28 +32,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new JBControls.DataGridView();
-            this.nOBRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fAIDNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cODEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iNDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.oUTDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rOUTDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cODE1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sPTYPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wBSPTYPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lAMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lRATECODEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.J_AMT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hAMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hRATECODEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rAMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOTEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOSUP = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.iNSLABBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iNSCOMPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.insDS = new JBHR.Ins.InsDS();
+            this.iNSLABBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -105,7 +86,6 @@
             this.fAMILYBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iNSNAMEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iNSURCDBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.iNSCOMPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sPTYPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.wBSPTYPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lARCODEBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -121,13 +101,34 @@
             this.iNSURCDTableAdapter = new JBHR.Ins.InsDSTableAdapters.INSURCDTableAdapter();
             this.v_BASETableAdapter = new JBHR.Ins.InsDSTableAdapters.V_BASETableAdapter();
             this.fAMILYTableAdapter = new JBHR.Ins.InsDSTableAdapters.FAMILYTableAdapter();
+            this.nOBRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fAIDNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cODEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iNDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oUTDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rOUTDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.cODE1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.sPTYPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wBSPTYPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lAMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lRATECODEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.J_AMT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hAMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hRATECODEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rAMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nOTEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOSUP = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iNSLABBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iNSCOMPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.insDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iNSLABBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -138,7 +139,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.fAMILYBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSNAMEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSURCDBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iNSCOMPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sPTYPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wBSPTYPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lARCODEBindingSource)).BeginInit();
@@ -214,188 +214,10 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
-            // nOBRDataGridViewTextBoxColumn
+            // iNSCOMPBindingSource
             // 
-            this.nOBRDataGridViewTextBoxColumn.DataPropertyName = "NOBR";
-            this.nOBRDataGridViewTextBoxColumn.HeaderText = "員工編號";
-            this.nOBRDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.nOBRDataGridViewTextBoxColumn.Name = "nOBRDataGridViewTextBoxColumn";
-            this.nOBRDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nOBRDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // fAIDNODataGridViewTextBoxColumn
-            // 
-            this.fAIDNODataGridViewTextBoxColumn.DataPropertyName = "FA_IDNO";
-            this.fAIDNODataGridViewTextBoxColumn.HeaderText = "眷屬身號";
-            this.fAIDNODataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.fAIDNODataGridViewTextBoxColumn.Name = "fAIDNODataGridViewTextBoxColumn";
-            this.fAIDNODataGridViewTextBoxColumn.ReadOnly = true;
-            this.fAIDNODataGridViewTextBoxColumn.Width = 150;
-            // 
-            // cODEDataGridViewTextBoxColumn
-            // 
-            this.cODEDataGridViewTextBoxColumn.DataPropertyName = "CODE";
-            this.cODEDataGridViewTextBoxColumn.HeaderText = "異動狀態";
-            this.cODEDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.cODEDataGridViewTextBoxColumn.Name = "cODEDataGridViewTextBoxColumn";
-            this.cODEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cODEDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cODEDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // iNDATEDataGridViewTextBoxColumn
-            // 
-            this.iNDATEDataGridViewTextBoxColumn.DataPropertyName = "IN_DATE";
-            this.iNDATEDataGridViewTextBoxColumn.HeaderText = "加保日期";
-            this.iNDATEDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.iNDATEDataGridViewTextBoxColumn.Name = "iNDATEDataGridViewTextBoxColumn";
-            this.iNDATEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iNDATEDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // oUTDATEDataGridViewTextBoxColumn
-            // 
-            this.oUTDATEDataGridViewTextBoxColumn.DataPropertyName = "OUT_DATE";
-            this.oUTDATEDataGridViewTextBoxColumn.HeaderText = "退保日期";
-            this.oUTDATEDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.oUTDATEDataGridViewTextBoxColumn.Name = "oUTDATEDataGridViewTextBoxColumn";
-            this.oUTDATEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.oUTDATEDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // rOUTDATEDataGridViewTextBoxColumn
-            // 
-            this.rOUTDATEDataGridViewTextBoxColumn.DataPropertyName = "ROUT_DATE";
-            this.rOUTDATEDataGridViewTextBoxColumn.HeaderText = "勞退停繳日期";
-            this.rOUTDATEDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.rOUTDATEDataGridViewTextBoxColumn.Name = "rOUTDATEDataGridViewTextBoxColumn";
-            this.rOUTDATEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.rOUTDATEDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // sNODataGridViewTextBoxColumn
-            // 
-            this.sNODataGridViewTextBoxColumn.DataPropertyName = "S_NO";
-            this.sNODataGridViewTextBoxColumn.HeaderText = "投保單位";
-            this.sNODataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.sNODataGridViewTextBoxColumn.Name = "sNODataGridViewTextBoxColumn";
-            this.sNODataGridViewTextBoxColumn.ReadOnly = true;
-            this.sNODataGridViewTextBoxColumn.Width = 150;
-            // 
-            // cODE1DataGridViewTextBoxColumn
-            // 
-            this.cODE1DataGridViewTextBoxColumn.DataPropertyName = "CODE1";
-            this.cODE1DataGridViewTextBoxColumn.HeaderText = "異動原因";
-            this.cODE1DataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.cODE1DataGridViewTextBoxColumn.Name = "cODE1DataGridViewTextBoxColumn";
-            this.cODE1DataGridViewTextBoxColumn.ReadOnly = true;
-            this.cODE1DataGridViewTextBoxColumn.Width = 150;
-            // 
-            // sPTYPDataGridViewTextBoxColumn
-            // 
-            this.sPTYPDataGridViewTextBoxColumn.DataPropertyName = "SPTYP";
-            this.sPTYPDataGridViewTextBoxColumn.HeaderText = "特殊身分別";
-            this.sPTYPDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.sPTYPDataGridViewTextBoxColumn.Name = "sPTYPDataGridViewTextBoxColumn";
-            this.sPTYPDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sPTYPDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // wBSPTYPDataGridViewTextBoxColumn
-            // 
-            this.wBSPTYPDataGridViewTextBoxColumn.DataPropertyName = "WBSPTYP";
-            this.wBSPTYPDataGridViewTextBoxColumn.HeaderText = "法特殊身分別";
-            this.wBSPTYPDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.wBSPTYPDataGridViewTextBoxColumn.Name = "wBSPTYPDataGridViewTextBoxColumn";
-            this.wBSPTYPDataGridViewTextBoxColumn.ReadOnly = true;
-            this.wBSPTYPDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // lAMTDataGridViewTextBoxColumn
-            // 
-            this.lAMTDataGridViewTextBoxColumn.DataPropertyName = "L_AMT";
-            this.lAMTDataGridViewTextBoxColumn.HeaderText = "勞保投保金額";
-            this.lAMTDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.lAMTDataGridViewTextBoxColumn.Name = "lAMTDataGridViewTextBoxColumn";
-            this.lAMTDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lAMTDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // lRATECODEDataGridViewTextBoxColumn
-            // 
-            this.lRATECODEDataGridViewTextBoxColumn.DataPropertyName = "LRATE_CODE";
-            this.lRATECODEDataGridViewTextBoxColumn.HeaderText = "勞保負擔比率";
-            this.lRATECODEDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.lRATECODEDataGridViewTextBoxColumn.Name = "lRATECODEDataGridViewTextBoxColumn";
-            this.lRATECODEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lRATECODEDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // J_AMT
-            // 
-            this.J_AMT.DataPropertyName = "J_AMT";
-            this.J_AMT.HeaderText = "職災投保金額";
-            this.J_AMT.Name = "J_AMT";
-            this.J_AMT.ReadOnly = true;
-            // 
-            // hAMTDataGridViewTextBoxColumn
-            // 
-            this.hAMTDataGridViewTextBoxColumn.DataPropertyName = "H_AMT";
-            this.hAMTDataGridViewTextBoxColumn.HeaderText = "健保投保金額";
-            this.hAMTDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.hAMTDataGridViewTextBoxColumn.Name = "hAMTDataGridViewTextBoxColumn";
-            this.hAMTDataGridViewTextBoxColumn.ReadOnly = true;
-            this.hAMTDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // hRATECODEDataGridViewTextBoxColumn
-            // 
-            this.hRATECODEDataGridViewTextBoxColumn.DataPropertyName = "HRATE_CODE";
-            this.hRATECODEDataGridViewTextBoxColumn.HeaderText = "健保負擔比率";
-            this.hRATECODEDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.hRATECODEDataGridViewTextBoxColumn.Name = "hRATECODEDataGridViewTextBoxColumn";
-            this.hRATECODEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.hRATECODEDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // rAMTDataGridViewTextBoxColumn
-            // 
-            this.rAMTDataGridViewTextBoxColumn.DataPropertyName = "R_AMT";
-            this.rAMTDataGridViewTextBoxColumn.HeaderText = "勞退月提工資";
-            this.rAMTDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.rAMTDataGridViewTextBoxColumn.Name = "rAMTDataGridViewTextBoxColumn";
-            this.rAMTDataGridViewTextBoxColumn.ReadOnly = true;
-            this.rAMTDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // nOTEDataGridViewTextBoxColumn
-            // 
-            this.nOTEDataGridViewTextBoxColumn.DataPropertyName = "NOTE";
-            this.nOTEDataGridViewTextBoxColumn.HeaderText = "備註";
-            this.nOTEDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.nOTEDataGridViewTextBoxColumn.Name = "nOTEDataGridViewTextBoxColumn";
-            this.nOTEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nOTEDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // kEYMANDataGridViewTextBoxColumn
-            // 
-            this.kEYMANDataGridViewTextBoxColumn.DataPropertyName = "KEY_MAN";
-            this.kEYMANDataGridViewTextBoxColumn.HeaderText = "登錄者";
-            this.kEYMANDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.kEYMANDataGridViewTextBoxColumn.Name = "kEYMANDataGridViewTextBoxColumn";
-            this.kEYMANDataGridViewTextBoxColumn.ReadOnly = true;
-            this.kEYMANDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // kEYDATEDataGridViewTextBoxColumn
-            // 
-            this.kEYDATEDataGridViewTextBoxColumn.DataPropertyName = "KEY_DATE";
-            this.kEYDATEDataGridViewTextBoxColumn.HeaderText = "登錄日期";
-            this.kEYDATEDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.kEYDATEDataGridViewTextBoxColumn.Name = "kEYDATEDataGridViewTextBoxColumn";
-            this.kEYDATEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.kEYDATEDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // NOSUP
-            // 
-            this.NOSUP.DataPropertyName = "NOSUP";
-            this.NOSUP.HeaderText = "免收補充保費";
-            this.NOSUP.Name = "NOSUP";
-            this.NOSUP.ReadOnly = true;
-            // 
-            // iNSLABBindingSource
-            // 
-            this.iNSLABBindingSource.DataMember = "INSLAB";
-            this.iNSLABBindingSource.DataSource = this.insDS;
-            this.iNSLABBindingSource.CurrentChanged += new System.EventHandler(this.iNSLABBindingSource_CurrentChanged);
+            this.iNSCOMPBindingSource.DataMember = "INSCOMP";
+            this.iNSCOMPBindingSource.DataSource = this.insDS;
             // 
             // insDS
             // 
@@ -403,6 +225,12 @@
             this.insDS.Locale = new System.Globalization.CultureInfo("");
             this.insDS.RemotingFormat = System.Data.SerializationFormat.Binary;
             this.insDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // iNSLABBindingSource
+            // 
+            this.iNSLABBindingSource.DataMember = "INSLAB";
+            this.iNSLABBindingSource.DataSource = this.insDS;
+            this.iNSLABBindingSource.CurrentChanged += new System.EventHandler(this.iNSLABBindingSource_CurrentChanged);
             // 
             // splitContainer2
             // 
@@ -1142,11 +970,6 @@
             this.iNSURCDBindingSource.DataMember = "INSURCD";
             this.iNSURCDBindingSource.DataSource = this.insDS;
             // 
-            // iNSCOMPBindingSource
-            // 
-            this.iNSCOMPBindingSource.DataMember = "INSCOMP";
-            this.iNSCOMPBindingSource.DataSource = this.insDS;
-            // 
             // sPTYPBindingSource
             // 
             this.sPTYPBindingSource.DataMember = "SPTYP";
@@ -1212,6 +1035,195 @@
             // 
             this.fAMILYTableAdapter.ClearBeforeFill = true;
             // 
+            // nOBRDataGridViewTextBoxColumn
+            // 
+            this.nOBRDataGridViewTextBoxColumn.DataPropertyName = "NOBR";
+            this.nOBRDataGridViewTextBoxColumn.HeaderText = "員工編號";
+            this.nOBRDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.nOBRDataGridViewTextBoxColumn.Name = "nOBRDataGridViewTextBoxColumn";
+            this.nOBRDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nOBRDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // fAIDNODataGridViewTextBoxColumn
+            // 
+            this.fAIDNODataGridViewTextBoxColumn.DataPropertyName = "FA_IDNO";
+            this.fAIDNODataGridViewTextBoxColumn.HeaderText = "眷屬身號";
+            this.fAIDNODataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.fAIDNODataGridViewTextBoxColumn.Name = "fAIDNODataGridViewTextBoxColumn";
+            this.fAIDNODataGridViewTextBoxColumn.ReadOnly = true;
+            this.fAIDNODataGridViewTextBoxColumn.Width = 150;
+            // 
+            // cODEDataGridViewTextBoxColumn
+            // 
+            this.cODEDataGridViewTextBoxColumn.DataPropertyName = "CODE";
+            this.cODEDataGridViewTextBoxColumn.HeaderText = "異動狀態";
+            this.cODEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.cODEDataGridViewTextBoxColumn.Name = "cODEDataGridViewTextBoxColumn";
+            this.cODEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cODEDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cODEDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // iNDATEDataGridViewTextBoxColumn
+            // 
+            this.iNDATEDataGridViewTextBoxColumn.DataPropertyName = "IN_DATE";
+            this.iNDATEDataGridViewTextBoxColumn.HeaderText = "加保日期";
+            this.iNDATEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.iNDATEDataGridViewTextBoxColumn.Name = "iNDATEDataGridViewTextBoxColumn";
+            this.iNDATEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iNDATEDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // oUTDATEDataGridViewTextBoxColumn
+            // 
+            this.oUTDATEDataGridViewTextBoxColumn.DataPropertyName = "OUT_DATE";
+            this.oUTDATEDataGridViewTextBoxColumn.HeaderText = "退保日期";
+            this.oUTDATEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.oUTDATEDataGridViewTextBoxColumn.Name = "oUTDATEDataGridViewTextBoxColumn";
+            this.oUTDATEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.oUTDATEDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // rOUTDATEDataGridViewTextBoxColumn
+            // 
+            this.rOUTDATEDataGridViewTextBoxColumn.DataPropertyName = "ROUT_DATE";
+            this.rOUTDATEDataGridViewTextBoxColumn.HeaderText = "勞退停繳日期";
+            this.rOUTDATEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.rOUTDATEDataGridViewTextBoxColumn.Name = "rOUTDATEDataGridViewTextBoxColumn";
+            this.rOUTDATEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.rOUTDATEDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // sNODataGridViewTextBoxColumn
+            // 
+            this.sNODataGridViewTextBoxColumn.DataPropertyName = "S_NO";
+            this.sNODataGridViewTextBoxColumn.DataSource = this.iNSCOMPBindingSource;
+            this.sNODataGridViewTextBoxColumn.DisplayMember = "INSNAME";
+            this.sNODataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.sNODataGridViewTextBoxColumn.HeaderText = "投保單位";
+            this.sNODataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.sNODataGridViewTextBoxColumn.Name = "sNODataGridViewTextBoxColumn";
+            this.sNODataGridViewTextBoxColumn.ReadOnly = true;
+            this.sNODataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.sNODataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.sNODataGridViewTextBoxColumn.ValueMember = "S_NO";
+            this.sNODataGridViewTextBoxColumn.Width = 150;
+            // 
+            // cODE1DataGridViewTextBoxColumn
+            // 
+            this.cODE1DataGridViewTextBoxColumn.DataPropertyName = "CODE1";
+            this.cODE1DataGridViewTextBoxColumn.DataSource = this.iNSNAMEBindingSource;
+            this.cODE1DataGridViewTextBoxColumn.DisplayMember = "NAME";
+            this.cODE1DataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.cODE1DataGridViewTextBoxColumn.HeaderText = "異動原因";
+            this.cODE1DataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.cODE1DataGridViewTextBoxColumn.Name = "cODE1DataGridViewTextBoxColumn";
+            this.cODE1DataGridViewTextBoxColumn.ReadOnly = true;
+            this.cODE1DataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cODE1DataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cODE1DataGridViewTextBoxColumn.ValueMember = "NO";
+            this.cODE1DataGridViewTextBoxColumn.Width = 150;
+            // 
+            // sPTYPDataGridViewTextBoxColumn
+            // 
+            this.sPTYPDataGridViewTextBoxColumn.DataPropertyName = "SPTYP";
+            this.sPTYPDataGridViewTextBoxColumn.HeaderText = "特殊身分別";
+            this.sPTYPDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.sPTYPDataGridViewTextBoxColumn.Name = "sPTYPDataGridViewTextBoxColumn";
+            this.sPTYPDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sPTYPDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // wBSPTYPDataGridViewTextBoxColumn
+            // 
+            this.wBSPTYPDataGridViewTextBoxColumn.DataPropertyName = "WBSPTYP";
+            this.wBSPTYPDataGridViewTextBoxColumn.HeaderText = "法特殊身分別";
+            this.wBSPTYPDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.wBSPTYPDataGridViewTextBoxColumn.Name = "wBSPTYPDataGridViewTextBoxColumn";
+            this.wBSPTYPDataGridViewTextBoxColumn.ReadOnly = true;
+            this.wBSPTYPDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // lAMTDataGridViewTextBoxColumn
+            // 
+            this.lAMTDataGridViewTextBoxColumn.DataPropertyName = "L_AMT";
+            this.lAMTDataGridViewTextBoxColumn.HeaderText = "勞保投保金額";
+            this.lAMTDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.lAMTDataGridViewTextBoxColumn.Name = "lAMTDataGridViewTextBoxColumn";
+            this.lAMTDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lAMTDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // lRATECODEDataGridViewTextBoxColumn
+            // 
+            this.lRATECODEDataGridViewTextBoxColumn.DataPropertyName = "LRATE_CODE";
+            this.lRATECODEDataGridViewTextBoxColumn.HeaderText = "勞保負擔比率";
+            this.lRATECODEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.lRATECODEDataGridViewTextBoxColumn.Name = "lRATECODEDataGridViewTextBoxColumn";
+            this.lRATECODEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lRATECODEDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // J_AMT
+            // 
+            this.J_AMT.DataPropertyName = "J_AMT";
+            this.J_AMT.HeaderText = "職災投保金額";
+            this.J_AMT.Name = "J_AMT";
+            this.J_AMT.ReadOnly = true;
+            // 
+            // hAMTDataGridViewTextBoxColumn
+            // 
+            this.hAMTDataGridViewTextBoxColumn.DataPropertyName = "H_AMT";
+            this.hAMTDataGridViewTextBoxColumn.HeaderText = "健保投保金額";
+            this.hAMTDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.hAMTDataGridViewTextBoxColumn.Name = "hAMTDataGridViewTextBoxColumn";
+            this.hAMTDataGridViewTextBoxColumn.ReadOnly = true;
+            this.hAMTDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // hRATECODEDataGridViewTextBoxColumn
+            // 
+            this.hRATECODEDataGridViewTextBoxColumn.DataPropertyName = "HRATE_CODE";
+            this.hRATECODEDataGridViewTextBoxColumn.HeaderText = "健保負擔比率";
+            this.hRATECODEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.hRATECODEDataGridViewTextBoxColumn.Name = "hRATECODEDataGridViewTextBoxColumn";
+            this.hRATECODEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.hRATECODEDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // rAMTDataGridViewTextBoxColumn
+            // 
+            this.rAMTDataGridViewTextBoxColumn.DataPropertyName = "R_AMT";
+            this.rAMTDataGridViewTextBoxColumn.HeaderText = "勞退月提工資";
+            this.rAMTDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.rAMTDataGridViewTextBoxColumn.Name = "rAMTDataGridViewTextBoxColumn";
+            this.rAMTDataGridViewTextBoxColumn.ReadOnly = true;
+            this.rAMTDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // nOTEDataGridViewTextBoxColumn
+            // 
+            this.nOTEDataGridViewTextBoxColumn.DataPropertyName = "NOTE";
+            this.nOTEDataGridViewTextBoxColumn.HeaderText = "備註";
+            this.nOTEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.nOTEDataGridViewTextBoxColumn.Name = "nOTEDataGridViewTextBoxColumn";
+            this.nOTEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nOTEDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // kEYMANDataGridViewTextBoxColumn
+            // 
+            this.kEYMANDataGridViewTextBoxColumn.DataPropertyName = "KEY_MAN";
+            this.kEYMANDataGridViewTextBoxColumn.HeaderText = "登錄者";
+            this.kEYMANDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.kEYMANDataGridViewTextBoxColumn.Name = "kEYMANDataGridViewTextBoxColumn";
+            this.kEYMANDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kEYMANDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // kEYDATEDataGridViewTextBoxColumn
+            // 
+            this.kEYDATEDataGridViewTextBoxColumn.DataPropertyName = "KEY_DATE";
+            this.kEYDATEDataGridViewTextBoxColumn.HeaderText = "登錄日期";
+            this.kEYDATEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.kEYDATEDataGridViewTextBoxColumn.Name = "kEYDATEDataGridViewTextBoxColumn";
+            this.kEYDATEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kEYDATEDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // NOSUP
+            // 
+            this.NOSUP.DataPropertyName = "NOSUP";
+            this.NOSUP.HeaderText = "免收補充保費";
+            this.NOSUP.Name = "NOSUP";
+            this.NOSUP.ReadOnly = true;
+            // 
             // FRM32
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1228,8 +1240,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iNSLABBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iNSCOMPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.insDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iNSLABBindingSource)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
@@ -1241,7 +1254,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.fAMILYBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSNAMEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSURCDBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iNSCOMPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sPTYPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wBSPTYPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lARCODEBindingSource)).EndInit();
@@ -1330,8 +1342,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn iNDATEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn oUTDATEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rOUTDATEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sNODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cODE1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn sNODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cODE1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sPTYPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn wBSPTYPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lAMTDataGridViewTextBoxColumn;
