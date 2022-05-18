@@ -39,6 +39,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Collections;
 using System.Globalization;
+using JBModule.Data.Linq;
 
 namespace JBHR.Reports
 {
@@ -3374,7 +3375,11 @@ namespace JBHR.Reports
         /// <param name="CompId"></param>
         /// <param name="loginuser"></param>
         /// <returns></returns>
-        public static DataTable Get_Abs3(string AnnualLeave_Type, string CompensatoryLeave_Type, string nobr_b, string nobr_e, string attdate_e, DataTable DT_wage, string CompId, string loginuser)
+        public static DataTable Get_Abs3(string AnnualLeave_Type, string CompensatoryLeave_Type
+            , string nobr_b, string nobr_e, string attdate_e
+            , DataTable DT_wage, string CompId, string loginuser
+            , string emp_b, string emp_e, string dept_b, string dept_e, string depts_b, string depts_e, string comp_b, string comp_e
+            , string user, string comp, bool isadmin)
         {
             //JBModule.Data.ApplicationConfigSettings AppConfig = new JBModule.Data.ApplicationConfigSettings("ZZ42", MainForm.COMPANY);
             //string AnnualHcodeType = AppConfig.GetConfig("Remain_AnnualType").Value;
@@ -3391,32 +3396,53 @@ namespace JBHR.Reports
             rq_abs1.Columns.Add("rest_hrs", typeof(decimal));
             rq_abs1.Columns.Add("leave_unit", typeof(string));
             rq_abs1.PrimaryKey = new DataColumn[] { rq_abs1.Columns["nobr"] };
-            string sqlCmd = "select a.nobr,b.htype,sum(a.balance) as tol_hours";
+
+            //string sqlCmd = "select a.nobr,b.htype,sum(a.balance) as tol_hours";
+            //sqlCmd += "  from abs a inner join hcode b on a.h_code =b.h_code ";
+            //sqlCmd += " where 1 = 1 ";
+            //sqlCmd += string.Format(@" and a.nobr between '{0}' and '{1}'", nobr_b, nobr_e);
+            ////sqlCmd += string.Format(@" and a.bdate between '{0}' and '{1}'", attdate_b, attdate_e);
+            //sqlCmd += string.Format(@" and '{0}' between a.bdate and a.edate", attdate_e);
+            //sqlCmd += string.Format(@" and b.htype in ('{0}','{1}')  and b.flag='+'", AnnualLeave_Type, CompensatoryLeave_Type);
+            //sqlCmd += " group by a.nobr,b.htype";
+            //DataTable rq_abs = Sql.GetDataTable(sqlCmd);
+
+            string sqlCmd = "select distinct a.nobr ";
             sqlCmd += "  from abs a inner join hcode b on a.h_code =b.h_code ";
             sqlCmd += " where 1 = 1 ";
             sqlCmd += string.Format(@" and a.nobr between '{0}' and '{1}'", nobr_b, nobr_e);
             //sqlCmd += string.Format(@" and a.bdate between '{0}' and '{1}'", attdate_b, attdate_e);
             sqlCmd += string.Format(@" and '{0}' between a.bdate and a.edate", attdate_e);
             sqlCmd += string.Format(@" and b.htype in ('{0}','{1}')  and b.flag='+'", AnnualLeave_Type, CompensatoryLeave_Type);
-            sqlCmd += " group by a.nobr,b.htype";
             DataTable rq_abs = Sql.GetDataTable(sqlCmd);
+
+            #region 特休剩餘時數
+            //string attdate_e, string type
+            //, string nobr_b, string nobr_e
+            //, string empcd_b, string empcd_e
+            //, string dept_b, string dept_e
+            //, string depts_b, string depts_e
+            //, string comp_b, string comp_e
+            //, string user, string comp, bool admin)
+            DataTable Leave_DT = GetTolHours(attdate_e, AnnualLeave_Type, nobr_b, nobr_e, emp_b, emp_e, dept_b, dept_e, depts_b, depts_e, comp_b, comp_e, user, comp, isadmin);
+            Leave_DT.PrimaryKey = new DataColumn[] { Leave_DT.Columns["NOBR"] };
+
+            #endregion
+
+            #region 補休剩餘時數
+
+            DataTable Rest_DT = GetTolHours(attdate_e, CompensatoryLeave_Type, nobr_b, nobr_e, emp_b, emp_e, dept_b, dept_e, depts_b, depts_e, comp_b, comp_e, user, comp, isadmin);
+            Rest_DT.PrimaryKey = new DataColumn[] { Rest_DT.Columns["NOBR"] };
+
+            #endregion
+
             foreach (DataRow Row in rq_abs.Rows)
             {
-                if (Row.IsNull("tol_hours"))
-                    Row["tol_hours"] = 0;
-                string htype = Row["htype"].ToString().Trim();
+
                 DataRow row = rq_abs1.Rows.Find(Row["nobr"].ToString());
-                if (row != null)
-                {
-                    if (row != null)
-                    {
-                        if (AnnualLeave_Type.Contains(htype))
-                            row["leave_hrs"] = decimal.Parse(row["leave_hrs"].ToString()) + decimal.Parse(Row["tol_hours"].ToString());
-                        else if (CompensatoryLeave_Type.Contains(htype))
-                            row["rest_hrs"] = decimal.Parse(row["rest_hrs"].ToString()) + decimal.Parse(Row["tol_hours"].ToString());
-                    }
-                }
-                else
+                DataRow row_leave = Leave_DT.Rows.Find(Row["nobr"].ToString());
+                DataRow row_rest = Rest_DT.Rows.Find(Row["nobr"].ToString());
+                if (row == null)
                 {
                     string unit = "時數";
                     DataRow row2 = rq_hcode.Rows.Find(AnnualLeave_Type);
@@ -3426,18 +3452,16 @@ namespace JBHR.Reports
                     aRow["rest_hrs"] = 0;
                     aRow["leave_unit"] = unit;
                     //aRow["rest_unit"] = unit;
-                    if (AnnualLeave_Type.Contains(htype))
-                    {
-                        aRow["leave_hrs"] = decimal.Parse(Row["tol_hours"].ToString());
+                        if (row_leave != null)
+                            aRow["leave_hrs"] = decimal.Parse(row_leave["Check_Balance"].ToString());
                         aRow["leave_unit"] = (row2 != null) ? row2["unit"].ToString() : "";
-                    }
-                    else if (CompensatoryLeave_Type.Contains(htype))
-                    {
-                        aRow["rest_hrs"] = decimal.Parse(Row["tol_hours"].ToString());
-                    }
+                    if(row_rest != null)
+                        aRow["rest_hrs"] = decimal.Parse(row_rest["Check_Balance"].ToString());
+                    
                     rq_abs1.Rows.Add(aRow);
                 }
             }
+
 
             foreach (DataRow Row in DT_wage.Rows)
             {
@@ -4833,6 +4857,102 @@ namespace JBHR.Reports
                 ExporDt.Rows.Add(aRow);
             }
             JBHR.Reports.ReportClass.Export(ExporDt, FileName);
+        }
+
+        public static DataTable GetTolHours(string attdate_e, string type
+            , string nobr_b, string nobr_e
+            , string empcd_b, string empcd_e
+            , string dept_b, string dept_e
+            , string depts_b, string depts_e
+            , string comp_b, string comp_e
+            , string user, string comp, bool isadmin)
+        {
+            var dbHR = new HrDBDataContext();
+
+            var GetTable = (from a in dbHR.ABS
+                                //inner join
+                            join b in dbHR.BASETTS on a.NOBR equals b.NOBR
+
+                            join c in dbHR.HCODE on a.H_CODE equals c.H_CODE
+
+                            join d in dbHR.DEPT on b.DEPT equals d.D_NO
+
+                            join ds in dbHR.DEPTS on b.DEPTS equals ds.D_NO
+
+                            let CheckTakens = (from aa in dbHR.ABSD
+                                               join bb in dbHR.ABS on aa.ABSSUBTRACT equals bb.Guid
+                                               where 1 == 1
+                                               && aa.ABSADD == a.Guid
+                                               && (DateTime.Compare(bb.BDATE, DateTime.Parse(attdate_e)) <= 0)
+                                               select new { USEHOUR = aa.USEHOUR }
+                            )
+                            where 1 == 1
+                            &&
+                            //員編起迄
+                            (string.Compare(a.NOBR, nobr_b) >= 0) && (string.Compare(a.NOBR, nobr_e) <= 0)
+                            &&
+                            //員別起迄
+                            (string.Compare(b.EMPCD, empcd_b) >= 0) && (string.Compare(b.EMPCD, empcd_e) <= 0)
+                            &&
+                            //編制部門起迄
+                            (string.Compare(d.D_NO_DISP, dept_b) >= 0) && (string.Compare(b.EMPCD, dept_e) <= 0)
+                            &&
+                            //成本部門起迄
+                            (string.Compare(ds.D_NO_DISP, depts_b) >= 0) && (string.Compare(b.EMPCD, depts_e) <= 0)
+                            &&
+                            //假別種類
+                            c.HTYPE == type
+                            &&
+                            //正負
+                            c.FLAG == "+"
+                            &&
+                            //公司別
+                            (string.Compare(b.COMP, comp_b) >= 0) && (string.Compare(b.COMP, comp_e) <= 0)
+                            &&
+                            //起迄日期
+                            (DateTime.Compare(DateTime.Parse(attdate_e), a.BDATE) >= 0) && (DateTime.Compare(DateTime.Parse(attdate_e), a.EDATE) <= 0)
+                            &&
+                            //權限
+                            (from p in dbHR.UserReadDataGroupList(user, comp, isadmin) select p.DATAGROUP).Contains(b.SALADR)
+
+                            //&&
+                            select new
+                            {
+                                //員工編號
+                                a.NOBR,
+                                //得假
+                                a.TOL_HOURS,
+                                //已請
+                                a.LeaveHours,
+                                //剩餘
+                                a.Balance,
+                                //GUID
+                                a.Guid,
+                                //排除後已請
+                                CHECK_HOURS = CheckTakens.Any() ?
+                                    CheckTakens.Select(s => s.USEHOUR).Sum(s => s) : 0
+                            }).ToList();
+
+            //Group
+            var GroupData = GetTable
+                .GroupBy(g => g.NOBR)
+                .Select(s => new
+                {
+                    //員工編號
+                    NOBR = s.Key,
+                    //得假
+                    TOL_HOURS = s.Sum(g => g.TOL_HOURS),
+                    //已請
+                    LeaveHours = s.Sum(g => g.LeaveHours),
+                    //剩餘
+                    Balance = s.Sum(g => g.Balance),
+                    //排除後已請
+                    CheckHours = s.Sum(g => g.CHECK_HOURS),
+                    //排除後剩餘
+                    Check_Balance = s.Sum(g => g.TOL_HOURS) - s.Sum(g => g.CHECK_HOURS),
+                }).ToList();
+
+            return GroupData.CopyToDataTable();
         }
     }
 }

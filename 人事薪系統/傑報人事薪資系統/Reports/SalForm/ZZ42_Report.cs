@@ -27,6 +27,7 @@
  * 2021/09/24    Daniel Chih        Ver 1.0.15                                      1. 先增加日翔用的薪資轉帳Excel
  * 2021/11/10    Daniel Chih        Ver 1.0.16                                      1. 修改【臨時人數】撈取規則，代碼讀自Appconfig，報表結果增加【公司名稱】欄位
  * 2022/03/16    Daniel Chih        Ver 1.0.17    ITCT-F01-220118-酷碼-20220316     1. 增加薪資單寄送的預約寄送欄位
+ * 2022/03/16    Daniel Chih        Ver 1.0.18    ITCT-F01-220193                   1. 修改薪資單特休、補休剩餘時數的計算，修改後會讀取截止日期
  * 
  * 
  * ======================================================================================================
@@ -2030,7 +2031,10 @@ namespace JBHR.Reports.SalForm
 
                             //特休及補休剩餘時數
                             attdate_b = year + "/01/01";
-                            DataTable rq_abs3 = JBHR.Reports.ZZ42Class.Get_Abs3(AnnualLeave_Type, CompensatoryLeave_Type, nobr_b, nobr_e, attdate_e, rq_wage, CompId, loginuser);
+                            DataTable rq_abs3 = JBHR.Reports.ZZ42Class.Get_Abs3(AnnualLeave_Type, CompensatoryLeave_Type
+                                , nobr_b, nobr_e, attdate_e, rq_wage, CompId, loginuser
+                                , emp_b, emp_e, dept_b, dept_e, depts_b, depts_e, comp_b, comp_e
+                                , MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN);
                             rq_abs3.PrimaryKey = new DataColumn[] { rq_abs3.Columns["nobr"] };
 
                             ds.Tables["zz4219"].PrimaryKey = new DataColumn[] { ds.Tables["zz4219"].Columns["nobr"] };
