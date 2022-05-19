@@ -312,7 +312,8 @@ namespace JBHR.Ins
                 textBoxH_AMT.Enabled = false;
                 comboBoxHRATE_CODE.Enabled = false;
                 textBoxR_AMT.Enabled = false;
-                textBox9.Enabled = false;
+                textBoxJ_AMT.Enabled = false;
+                textBox9.Enabled = true;
             }
 
             bnChange.Enabled = false;
@@ -1283,7 +1284,7 @@ namespace JBHR.Ins
             }
             catch
             {
-                textBoxL_AMT.Text = "0";
+                textBoxJ_AMT.Text = "0";
             }
         }
 

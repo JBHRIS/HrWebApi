@@ -1044,7 +1044,7 @@ namespace JBHR.Ins
                               where (d.INSLAB || d.RETIRE)
                               //&& db.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
                               && db.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Select(q => q.DATAGROUP).Contains(b.SALADR)
-                              && c.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0
+                              && c.NOBR.CompareTo(p.NOBR1.Trim()) >= 0 && c.NOBR.CompareTo(p.NOBR2.Trim()) <= 0
                               && p.DDATE >= c.ADATE && p.DDATE <= c.DDATE
                               && p.DDATE >= b.ADATE && p.DDATE <= b.DDATE
                               && b.INDT <= p.INDATE && (b.STINDT == null || b.STINDT.Value < p.INDATE)
@@ -1053,7 +1053,9 @@ namespace JBHR.Ins
                                   SALBASD = c,
                                   SALCODE = d,
                                   SALATTR = f,
-                                  BASE = a,
+                                  //BASE = a,
+                                  a.NOBR,
+                                  a.NAME_C,
                                   BASETTS = b
                               });
 
@@ -1078,7 +1080,16 @@ namespace JBHR.Ins
                             //&& db.GetFilterByNobr(a.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
                             && db.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Select(q => q.DATAGROUP).Contains(c.SALADR)
                              && d.S_NO_DISP.CompareTo(p.INSCOMP1) >= 0 && d.S_NO_DISP.CompareTo(p.INSCOMP2) <= 0
-                            select new { INSLAB = a, BASE = b, BASETTS = c, INSCOMP = d };
+                            select new
+                            {
+                                INSLAB = a,
+                                //BASE = b,
+                                b.NOBR,
+                                b.NAME_C,
+                                b.COUNT_MA,
+                                BASETTS = c,
+                                INSCOMP = d
+                            };
 
             if (radioButton2.Checked)
             {
@@ -1090,11 +1101,11 @@ namespace JBHR.Ins
             }
             else if (radioButton4.Checked)
             {
-                inslabSQL = from a in inslabSQL where a.BASE.COUNT_MA select a;
+                inslabSQL = from a in inslabSQL where a.COUNT_MA select a;
             }
             else if (radioButton5.Checked)
             {
-                inslabSQL = from a in inslabSQL where !a.BASE.COUNT_MA select a;
+                inslabSQL = from a in inslabSQL where !a.COUNT_MA select a;
             }
 
 
@@ -1109,11 +1120,11 @@ namespace JBHR.Ins
 
             foreach (var r in inslabSQL.ToList())
             {
-                var salbasdOfNobr = from a in salbasdList where a.BASE.NOBR == r.INSLAB.NOBR select a;
+                var salbasdOfNobr = from a in salbasdList where a.NOBR == r.INSLAB.NOBR select a;
                 InsDS.FRM3AZRow row = insDS.FRM3AZ.NewFRM3AZRow();
                 row.NOTTRAN = false;
-                row.NOBR = r.BASE.NOBR;
-                row.NAME_C = r.BASE.NAME_C;
+                row.NOBR = r.NOBR;
+                row.NAME_C = r.NAME_C;
                 row.RETCHOO = r.BASETTS.RETCHOO;
                 var qq1 = salbasdOfNobr.Where(q => q.SALCODE.INSLAB);
                 row.SALARY = qq1.Any() ? qq1.Sum(q => q.SALATTR.FLAG != "-" ? JBModule.Data.CDecryp.Number(q.SALBASD.AMT) : JBModule.Data.CDecryp.Number(q.SALBASD.AMT) * -1) : 0;

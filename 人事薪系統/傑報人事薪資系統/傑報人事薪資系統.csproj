@@ -2476,6 +2476,9 @@
     <Content Include="SqlStorage\sql\2022051701_AlterTableTW_TAXAddPreFile.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="SqlStorage\sql\20220517_INSURLV_Update_0_EFF_DATEJ.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="SqlStorage\sql\AlterSalcode.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
