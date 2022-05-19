@@ -215,7 +215,16 @@ namespace JBHR.Att
                 DateTime DT1 = BDate;
                 DateTime DT2 = Edate;
                 string RT = rote;
-
+                var sql = from bts in db.BASETTS
+                          where bts.NOBR == Nobr
+                          && bts.INDT.Value.CompareTo(DT1) <= 0
+                          select bts;
+                if (!sql.Any())
+                {
+                    DT1 = db.BASETTS.Where(p => p.NOBR == Nobr).First().INDT.Value;
+                    if (DT1 > DT2)
+                        DT2 = DT1;
+                }
                 WorkScheduleCheckGenerator WSCG = new WorkScheduleCheckGenerator(Nobr, DT1.AddDays(-7), DT1, DT2.AddDays(7));
 
                 var RoteCHG = db.ROTECHG.Where(p => p.NOBR == Nobr && (p.ADATE >= DT1.AddDays(-7) || p.ADATE <= DT2.AddDays(7))).ToList();

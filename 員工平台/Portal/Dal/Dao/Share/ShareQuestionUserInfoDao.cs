@@ -31,6 +31,15 @@ namespace Dal.Dao.Share
 
         }
 
+        public QuestionUserInfo GetQuestionUserInfo(string CompanyId, string UserId)
+        {
+            var oUserInfo = (from c in dcShare.QuestionUserInfo
+                             where c.CompanyId == CompanyId && c.UserId == UserId
+                             select c).FirstOrDefault();
+
+            return oUserInfo;
+        }
+
 
         /// <summary>
         /// 將使用者資料記入資料庫中

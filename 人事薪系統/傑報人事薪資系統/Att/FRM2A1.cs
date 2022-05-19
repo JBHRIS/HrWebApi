@@ -312,6 +312,14 @@ namespace JBHR.Att
                                 MessageBox.Show("偵測到\"A" + (row.RowNum + 1) + "\"欄位格式有誤，請確認格式為「西元年/月/日」\n例如: " + DateTime.Now.ToShortDateString(), "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 return false;
                             }
+                            JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
+                            string Nobr = row.GetCell(0).ToString().Trim();
+                            DateTime DT1 = Convert.ToDateTime(row.GetCell(1).ToString().Trim()).Date;
+                            if (!db.BASETTS.Where(p => p.NOBR == Nobr && p.INDT.Value.CompareTo(DT1) <= 0).Any())
+                            {
+                                MessageBox.Show(string.Format("員工{0}調班日{1}不可在入職日之前", Nobr, DT1.ToString("yyyy/MM/dd")), "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return false;
+                            }
                         }
 
                         else if(i==2)

@@ -26,7 +26,7 @@ namespace JBHR
             U_LOGIN.ConnectionName = cbxConnections.SelectedValue.ToString();
             ConfigSetting cs = new ConfigSetting(Program.SystemConfigPath);
             //ConfigSetting cs1 = new ConfigSetting();//覆蓋程式設定檔(解密)
-            U_LOGIN.ConnectionString = JBModule.Data.CDecryp.ConnectString(cs.GetConnValue(U_LOGIN.ConnectionName));
+            U_LOGIN.ConnectionString = JBModule.Data.CDecryp.ConnectString(cs.GetConnValue(U_LOGIN.ConnectionName)) + ";Connection Timeout=60";
             JBModule.Data.Linq.DcHelper.JBHR_ConnectionString = U_LOGIN.ConnectionString;
             System.Configuration.Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             string connectionString = U_LOGIN.ConnectionString;

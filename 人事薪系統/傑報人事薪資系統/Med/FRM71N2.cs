@@ -33,6 +33,7 @@ namespace JBHR.Med
                     return;
                 }
                 db.ExecuteCommand(string.Format("DELETE TW_TAX_SUMMARY WHERE PID={0}", TW_TAX_Auto));
+                var twTax = db.TW_TAX.SingleOrDefault(p => p.AUTO == TW_TAX_Auto);
                 var TaxData = (from a in db.TW_TAX_ITEM
                                where a.PID == TW_TAX_Auto
                                select a).ToList();
@@ -124,6 +125,8 @@ namespace JBHR.Med
                             instance.POST2 = Emp.POSTCODE2;
                             instance.SERIES = StartChar + (i + iStartIndex).ToString("0000000");
                             instance.IDCODE = Emp.IDCODE;
+                            if (twTax.PreFile && instance.IDCODE.Trim() == "3")
+                                instance.IDCODE = "7";
                             instance.ID = Emp.IDNO;
                             if (instance.ID.Trim().Length == 0)
                                 instance.ERROR += "身分證號/統一編號未提供;";
@@ -314,7 +317,9 @@ namespace JBHR.Med
             Reports.SalForm.ZZ51B frm = new Reports.SalForm.ZZ51B();
             frm.yrtaxList = yrtaxList;
             frm.yrparameters = new Dictionary<string, object>();
-            frm.ShowDialog();
+            //frm.ShowDialog();
+            frm.ZZ51B_Load(sender, e);
+            frm.Create_Report_Click(sender, e);
         }
     }
     //public class TBaseRepeatIDNO

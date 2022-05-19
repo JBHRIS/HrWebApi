@@ -22,7 +22,7 @@ namespace JBModule.Data.Linq
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="KCRHR")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="BPBFHR")]
 	public partial class HrDBDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -69,9 +69,6 @@ namespace JBModule.Data.Linq
     partial void InsertHARCODE(HARCODE instance);
     partial void UpdateHARCODE(HARCODE instance);
     partial void DeleteHARCODE(HARCODE instance);
-    partial void InsertINSURLV(INSURLV instance);
-    partial void UpdateINSURLV(INSURLV instance);
-    partial void DeleteINSURLV(INSURLV instance);
     partial void InsertLARCODE(LARCODE instance);
     partial void UpdateLARCODE(LARCODE instance);
     partial void DeleteLARCODE(LARCODE instance);
@@ -117,9 +114,6 @@ namespace JBModule.Data.Linq
     partial void InsertSALABS(SALABS instance);
     partial void UpdateSALABS(SALABS instance);
     partial void DeleteSALABS(SALABS instance);
-    partial void InsertINSLAB(INSLAB instance);
-    partial void UpdateINSLAB(INSLAB instance);
-    partial void DeleteINSLAB(INSLAB instance);
     partial void InsertCOMP(COMP instance);
     partial void UpdateCOMP(COMP instance);
     partial void DeleteCOMP(COMP instance);
@@ -795,6 +789,15 @@ namespace JBModule.Data.Linq
     partial void InsertKCR_MealApplySetting(KCR_MealApplySetting instance);
     partial void UpdateKCR_MealApplySetting(KCR_MealApplySetting instance);
     partial void DeleteKCR_MealApplySetting(KCR_MealApplySetting instance);
+    partial void InsertWELF(WELF instance);
+    partial void UpdateWELF(WELF instance);
+    partial void DeleteWELF(WELF instance);
+    partial void InsertINSLAB(INSLAB instance);
+    partial void UpdateINSLAB(INSLAB instance);
+    partial void DeleteINSLAB(INSLAB instance);
+    partial void InsertINSURLV(INSURLV instance);
+    partial void UpdateINSURLV(INSURLV instance);
+    partial void DeleteINSURLV(INSURLV instance);
     #endregion
 		
 		public HrDBDataContext() : 
@@ -928,14 +931,6 @@ namespace JBModule.Data.Linq
 			get
 			{
 				return this.GetTable<HARCODE>();
-			}
-		}
-		
-		public System.Data.Linq.Table<INSURLV> INSURLV
-		{
-			get
-			{
-				return this.GetTable<INSURLV>();
 			}
 		}
 		
@@ -1104,14 +1099,6 @@ namespace JBModule.Data.Linq
 			get
 			{
 				return this.GetTable<SALABS>();
-			}
-		}
-		
-		public System.Data.Linq.Table<INSLAB> INSLAB
-		{
-			get
-			{
-				return this.GetTable<INSLAB>();
 			}
 		}
 		
@@ -2992,6 +2979,30 @@ namespace JBModule.Data.Linq
 			get
 			{
 				return this.GetTable<KCR_MealApplySetting>();
+			}
+		}
+		
+		public System.Data.Linq.Table<WELF> WELF
+		{
+			get
+			{
+				return this.GetTable<WELF>();
+			}
+		}
+		
+		public System.Data.Linq.Table<INSLAB> INSLAB
+		{
+			get
+			{
+				return this.GetTable<INSLAB>();
+			}
+		}
+		
+		public System.Data.Linq.Table<INSURLV> INSURLV
+		{
+			get
+			{
+				return this.GetTable<INSURLV>();
 			}
 		}
 		
@@ -12557,284 +12568,6 @@ namespace JBModule.Data.Linq
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.INSURLV")]
-	public partial class INSURLV : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private decimal _AMT;
-		
-		private System.DateTime _EFF_DATEL;
-		
-		private System.DateTime _LFF_DATEL;
-		
-		private System.DateTime _EFF_DATEH;
-		
-		private System.DateTime _LFF_DATEH;
-		
-		private string _KEY_MAN;
-		
-		private System.DateTime _KEY_DATE;
-		
-		private System.DateTime _EFF_DATER;
-		
-		private System.DateTime _LFF_DATER;
-		
-		private decimal _EFF_RATE;
-		
-    #region 擴充性方法定義
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnAMTChanging(decimal value);
-    partial void OnAMTChanged();
-    partial void OnEFF_DATELChanging(System.DateTime value);
-    partial void OnEFF_DATELChanged();
-    partial void OnLFF_DATELChanging(System.DateTime value);
-    partial void OnLFF_DATELChanged();
-    partial void OnEFF_DATEHChanging(System.DateTime value);
-    partial void OnEFF_DATEHChanged();
-    partial void OnLFF_DATEHChanging(System.DateTime value);
-    partial void OnLFF_DATEHChanged();
-    partial void OnKEY_MANChanging(string value);
-    partial void OnKEY_MANChanged();
-    partial void OnKEY_DATEChanging(System.DateTime value);
-    partial void OnKEY_DATEChanged();
-    partial void OnEFF_DATERChanging(System.DateTime value);
-    partial void OnEFF_DATERChanged();
-    partial void OnLFF_DATERChanging(System.DateTime value);
-    partial void OnLFF_DATERChanged();
-    partial void OnEFF_RATEChanging(decimal value);
-    partial void OnEFF_RATEChanged();
-    #endregion
-		
-		public INSURLV()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMT", DbType="Decimal(16,2) NOT NULL", IsPrimaryKey=true)]
-		public decimal AMT
-		{
-			get
-			{
-				return this._AMT;
-			}
-			set
-			{
-				if ((this._AMT != value))
-				{
-					this.OnAMTChanging(value);
-					this.SendPropertyChanging();
-					this._AMT = value;
-					this.SendPropertyChanged("AMT");
-					this.OnAMTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EFF_DATEL", DbType="DateTime NOT NULL")]
-		public System.DateTime EFF_DATEL
-		{
-			get
-			{
-				return this._EFF_DATEL;
-			}
-			set
-			{
-				if ((this._EFF_DATEL != value))
-				{
-					this.OnEFF_DATELChanging(value);
-					this.SendPropertyChanging();
-					this._EFF_DATEL = value;
-					this.SendPropertyChanged("EFF_DATEL");
-					this.OnEFF_DATELChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LFF_DATEL", DbType="DateTime NOT NULL")]
-		public System.DateTime LFF_DATEL
-		{
-			get
-			{
-				return this._LFF_DATEL;
-			}
-			set
-			{
-				if ((this._LFF_DATEL != value))
-				{
-					this.OnLFF_DATELChanging(value);
-					this.SendPropertyChanging();
-					this._LFF_DATEL = value;
-					this.SendPropertyChanged("LFF_DATEL");
-					this.OnLFF_DATELChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EFF_DATEH", DbType="DateTime NOT NULL")]
-		public System.DateTime EFF_DATEH
-		{
-			get
-			{
-				return this._EFF_DATEH;
-			}
-			set
-			{
-				if ((this._EFF_DATEH != value))
-				{
-					this.OnEFF_DATEHChanging(value);
-					this.SendPropertyChanging();
-					this._EFF_DATEH = value;
-					this.SendPropertyChanged("EFF_DATEH");
-					this.OnEFF_DATEHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LFF_DATEH", DbType="DateTime NOT NULL")]
-		public System.DateTime LFF_DATEH
-		{
-			get
-			{
-				return this._LFF_DATEH;
-			}
-			set
-			{
-				if ((this._LFF_DATEH != value))
-				{
-					this.OnLFF_DATEHChanging(value);
-					this.SendPropertyChanging();
-					this._LFF_DATEH = value;
-					this.SendPropertyChanged("LFF_DATEH");
-					this.OnLFF_DATEHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KEY_MAN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string KEY_MAN
-		{
-			get
-			{
-				return this._KEY_MAN;
-			}
-			set
-			{
-				if ((this._KEY_MAN != value))
-				{
-					this.OnKEY_MANChanging(value);
-					this.SendPropertyChanging();
-					this._KEY_MAN = value;
-					this.SendPropertyChanged("KEY_MAN");
-					this.OnKEY_MANChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KEY_DATE", DbType="DateTime NOT NULL")]
-		public System.DateTime KEY_DATE
-		{
-			get
-			{
-				return this._KEY_DATE;
-			}
-			set
-			{
-				if ((this._KEY_DATE != value))
-				{
-					this.OnKEY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._KEY_DATE = value;
-					this.SendPropertyChanged("KEY_DATE");
-					this.OnKEY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EFF_DATER", DbType="DateTime NOT NULL")]
-		public System.DateTime EFF_DATER
-		{
-			get
-			{
-				return this._EFF_DATER;
-			}
-			set
-			{
-				if ((this._EFF_DATER != value))
-				{
-					this.OnEFF_DATERChanging(value);
-					this.SendPropertyChanging();
-					this._EFF_DATER = value;
-					this.SendPropertyChanged("EFF_DATER");
-					this.OnEFF_DATERChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LFF_DATER", DbType="DateTime NOT NULL")]
-		public System.DateTime LFF_DATER
-		{
-			get
-			{
-				return this._LFF_DATER;
-			}
-			set
-			{
-				if ((this._LFF_DATER != value))
-				{
-					this.OnLFF_DATERChanging(value);
-					this.SendPropertyChanging();
-					this._LFF_DATER = value;
-					this.SendPropertyChanged("LFF_DATER");
-					this.OnLFF_DATERChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EFF_RATE", DbType="Decimal(10,5) NOT NULL")]
-		public decimal EFF_RATE
-		{
-			get
-			{
-				return this._EFF_RATE;
-			}
-			set
-			{
-				if ((this._EFF_RATE != value))
-				{
-					this.OnEFF_RATEChanging(value);
-					this.SendPropertyChanging();
-					this._EFF_RATE = value;
-					this.SendPropertyChanged("EFF_RATE");
-					this.OnEFF_RATEChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LARCODE")]
 	public partial class LARCODE : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -17457,500 +17190,6 @@ namespace JBModule.Data.Linq
 					this._SALSEQ = value;
 					this.SendPropertyChanged("SALSEQ");
 					this.OnSALSEQChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.INSLAB")]
-	public partial class INSLAB : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _NOBR;
-		
-		private string _FA_IDNO;
-		
-		private string _CODE;
-		
-		private System.DateTime _IN_DATE;
-		
-		private System.DateTime _OUT_DATE;
-		
-		private string _LRATE_CODE;
-		
-		private string _HRATE_CODE;
-		
-		private decimal _L_AMT;
-		
-		private decimal _H_AMT;
-		
-		private string _KEY_MAN;
-		
-		private System.DateTime _KEY_DATE;
-		
-		private string _SEQ;
-		
-		private string _CODE1;
-		
-		private string _NOTE;
-		
-		private string _S_NO;
-		
-		private decimal _R_AMT;
-		
-		private string _SPTYP;
-		
-		private string _WBSPTYP;
-		
-		private System.Nullable<System.DateTime> _ROUT_DATE;
-		
-    #region 擴充性方法定義
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnNOBRChanging(string value);
-    partial void OnNOBRChanged();
-    partial void OnFA_IDNOChanging(string value);
-    partial void OnFA_IDNOChanged();
-    partial void OnCODEChanging(string value);
-    partial void OnCODEChanged();
-    partial void OnIN_DATEChanging(System.DateTime value);
-    partial void OnIN_DATEChanged();
-    partial void OnOUT_DATEChanging(System.DateTime value);
-    partial void OnOUT_DATEChanged();
-    partial void OnLRATE_CODEChanging(string value);
-    partial void OnLRATE_CODEChanged();
-    partial void OnHRATE_CODEChanging(string value);
-    partial void OnHRATE_CODEChanged();
-    partial void OnL_AMTChanging(decimal value);
-    partial void OnL_AMTChanged();
-    partial void OnH_AMTChanging(decimal value);
-    partial void OnH_AMTChanged();
-    partial void OnKEY_MANChanging(string value);
-    partial void OnKEY_MANChanged();
-    partial void OnKEY_DATEChanging(System.DateTime value);
-    partial void OnKEY_DATEChanged();
-    partial void OnSEQChanging(string value);
-    partial void OnSEQChanged();
-    partial void OnCODE1Changing(string value);
-    partial void OnCODE1Changed();
-    partial void OnNOTEChanging(string value);
-    partial void OnNOTEChanged();
-    partial void OnS_NOChanging(string value);
-    partial void OnS_NOChanged();
-    partial void OnR_AMTChanging(decimal value);
-    partial void OnR_AMTChanged();
-    partial void OnSPTYPChanging(string value);
-    partial void OnSPTYPChanged();
-    partial void OnWBSPTYPChanging(string value);
-    partial void OnWBSPTYPChanged();
-    partial void OnROUT_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnROUT_DATEChanged();
-    #endregion
-		
-		public INSLAB()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOBR", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string NOBR
-		{
-			get
-			{
-				return this._NOBR;
-			}
-			set
-			{
-				if ((this._NOBR != value))
-				{
-					this.OnNOBRChanging(value);
-					this.SendPropertyChanging();
-					this._NOBR = value;
-					this.SendPropertyChanged("NOBR");
-					this.OnNOBRChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FA_IDNO", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string FA_IDNO
-		{
-			get
-			{
-				return this._FA_IDNO;
-			}
-			set
-			{
-				if ((this._FA_IDNO != value))
-				{
-					this.OnFA_IDNOChanging(value);
-					this.SendPropertyChanging();
-					this._FA_IDNO = value;
-					this.SendPropertyChanged("FA_IDNO");
-					this.OnFA_IDNOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string CODE
-		{
-			get
-			{
-				return this._CODE;
-			}
-			set
-			{
-				if ((this._CODE != value))
-				{
-					this.OnCODEChanging(value);
-					this.SendPropertyChanging();
-					this._CODE = value;
-					this.SendPropertyChanged("CODE");
-					this.OnCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IN_DATE", DbType="DateTime NOT NULL", IsPrimaryKey=true)]
-		public System.DateTime IN_DATE
-		{
-			get
-			{
-				return this._IN_DATE;
-			}
-			set
-			{
-				if ((this._IN_DATE != value))
-				{
-					this.OnIN_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._IN_DATE = value;
-					this.SendPropertyChanged("IN_DATE");
-					this.OnIN_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OUT_DATE", DbType="DateTime NOT NULL")]
-		public System.DateTime OUT_DATE
-		{
-			get
-			{
-				return this._OUT_DATE;
-			}
-			set
-			{
-				if ((this._OUT_DATE != value))
-				{
-					this.OnOUT_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._OUT_DATE = value;
-					this.SendPropertyChanged("OUT_DATE");
-					this.OnOUT_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LRATE_CODE", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string LRATE_CODE
-		{
-			get
-			{
-				return this._LRATE_CODE;
-			}
-			set
-			{
-				if ((this._LRATE_CODE != value))
-				{
-					this.OnLRATE_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._LRATE_CODE = value;
-					this.SendPropertyChanged("LRATE_CODE");
-					this.OnLRATE_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HRATE_CODE", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string HRATE_CODE
-		{
-			get
-			{
-				return this._HRATE_CODE;
-			}
-			set
-			{
-				if ((this._HRATE_CODE != value))
-				{
-					this.OnHRATE_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._HRATE_CODE = value;
-					this.SendPropertyChanged("HRATE_CODE");
-					this.OnHRATE_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_L_AMT", DbType="Decimal(16,2) NOT NULL")]
-		public decimal L_AMT
-		{
-			get
-			{
-				return this._L_AMT;
-			}
-			set
-			{
-				if ((this._L_AMT != value))
-				{
-					this.OnL_AMTChanging(value);
-					this.SendPropertyChanging();
-					this._L_AMT = value;
-					this.SendPropertyChanged("L_AMT");
-					this.OnL_AMTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_H_AMT", DbType="Decimal(16,2) NOT NULL")]
-		public decimal H_AMT
-		{
-			get
-			{
-				return this._H_AMT;
-			}
-			set
-			{
-				if ((this._H_AMT != value))
-				{
-					this.OnH_AMTChanging(value);
-					this.SendPropertyChanging();
-					this._H_AMT = value;
-					this.SendPropertyChanged("H_AMT");
-					this.OnH_AMTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KEY_MAN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string KEY_MAN
-		{
-			get
-			{
-				return this._KEY_MAN;
-			}
-			set
-			{
-				if ((this._KEY_MAN != value))
-				{
-					this.OnKEY_MANChanging(value);
-					this.SendPropertyChanging();
-					this._KEY_MAN = value;
-					this.SendPropertyChanged("KEY_MAN");
-					this.OnKEY_MANChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KEY_DATE", DbType="DateTime NOT NULL")]
-		public System.DateTime KEY_DATE
-		{
-			get
-			{
-				return this._KEY_DATE;
-			}
-			set
-			{
-				if ((this._KEY_DATE != value))
-				{
-					this.OnKEY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._KEY_DATE = value;
-					this.SendPropertyChanged("KEY_DATE");
-					this.OnKEY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEQ", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string SEQ
-		{
-			get
-			{
-				return this._SEQ;
-			}
-			set
-			{
-				if ((this._SEQ != value))
-				{
-					this.OnSEQChanging(value);
-					this.SendPropertyChanging();
-					this._SEQ = value;
-					this.SendPropertyChanged("SEQ");
-					this.OnSEQChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE1", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string CODE1
-		{
-			get
-			{
-				return this._CODE1;
-			}
-			set
-			{
-				if ((this._CODE1 != value))
-				{
-					this.OnCODE1Changing(value);
-					this.SendPropertyChanging();
-					this._CODE1 = value;
-					this.SendPropertyChanged("CODE1");
-					this.OnCODE1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTE", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string NOTE
-		{
-			get
-			{
-				return this._NOTE;
-			}
-			set
-			{
-				if ((this._NOTE != value))
-				{
-					this.OnNOTEChanging(value);
-					this.SendPropertyChanging();
-					this._NOTE = value;
-					this.SendPropertyChanged("NOTE");
-					this.OnNOTEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_S_NO", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string S_NO
-		{
-			get
-			{
-				return this._S_NO;
-			}
-			set
-			{
-				if ((this._S_NO != value))
-				{
-					this.OnS_NOChanging(value);
-					this.SendPropertyChanging();
-					this._S_NO = value;
-					this.SendPropertyChanged("S_NO");
-					this.OnS_NOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_R_AMT", DbType="Decimal(16,2) NOT NULL")]
-		public decimal R_AMT
-		{
-			get
-			{
-				return this._R_AMT;
-			}
-			set
-			{
-				if ((this._R_AMT != value))
-				{
-					this.OnR_AMTChanging(value);
-					this.SendPropertyChanging();
-					this._R_AMT = value;
-					this.SendPropertyChanged("R_AMT");
-					this.OnR_AMTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPTYP", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string SPTYP
-		{
-			get
-			{
-				return this._SPTYP;
-			}
-			set
-			{
-				if ((this._SPTYP != value))
-				{
-					this.OnSPTYPChanging(value);
-					this.SendPropertyChanging();
-					this._SPTYP = value;
-					this.SendPropertyChanged("SPTYP");
-					this.OnSPTYPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WBSPTYP", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string WBSPTYP
-		{
-			get
-			{
-				return this._WBSPTYP;
-			}
-			set
-			{
-				if ((this._WBSPTYP != value))
-				{
-					this.OnWBSPTYPChanging(value);
-					this.SendPropertyChanging();
-					this._WBSPTYP = value;
-					this.SendPropertyChanged("WBSPTYP");
-					this.OnWBSPTYPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROUT_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ROUT_DATE
-		{
-			get
-			{
-				return this._ROUT_DATE;
-			}
-			set
-			{
-				if ((this._ROUT_DATE != value))
-				{
-					this.OnROUT_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._ROUT_DATE = value;
-					this.SendPropertyChanged("ROUT_DATE");
-					this.OnROUT_DATEChanged();
 				}
 			}
 		}
@@ -23980,6 +23219,8 @@ namespace JBModule.Data.Linq
 		
 		private string _COMP;
 		
+		private string _FILE_YYMM;
+		
     #region 擴充性方法定義
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -24018,6 +23259,8 @@ namespace JBModule.Data.Linq
     partial void OnSALADRChanged();
     partial void OnCOMPChanging(string value);
     partial void OnCOMPChanged();
+    partial void OnFILE_YYMMChanging(string value);
+    partial void OnFILE_YYMMChanged();
     #endregion
 		
 		public WAGE()
@@ -24361,6 +23604,26 @@ namespace JBModule.Data.Linq
 					this._COMP = value;
 					this.SendPropertyChanged("COMP");
 					this.OnCOMPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FILE_YYMM", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string FILE_YYMM
+		{
+			get
+			{
+				return this._FILE_YYMM;
+			}
+			set
+			{
+				if ((this._FILE_YYMM != value))
+				{
+					this.OnFILE_YYMMChanging(value);
+					this.SendPropertyChanging();
+					this._FILE_YYMM = value;
+					this.SendPropertyChanged("FILE_YYMM");
+					this.OnFILE_YYMMChanged();
 				}
 			}
 		}
@@ -76650,6 +75913,10 @@ namespace JBModule.Data.Linq
 		
 		private System.Nullable<System.DateTime> _RelaseDate;
 		
+		private string _TAX_Type;
+		
+		private bool _PreFile;
+		
     #region 擴充性方法定義
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -76674,6 +75941,10 @@ namespace JBModule.Data.Linq
     partial void OnIsLockChanged();
     partial void OnRelaseDateChanging(System.Nullable<System.DateTime> value);
     partial void OnRelaseDateChanged();
+    partial void OnTAX_TypeChanging(string value);
+    partial void OnTAX_TypeChanged();
+    partial void OnPreFileChanging(bool value);
+    partial void OnPreFileChanged();
     #endregion
 		
 		public TW_TAX()
@@ -76877,6 +76148,46 @@ namespace JBModule.Data.Linq
 					this._RelaseDate = value;
 					this.SendPropertyChanged("RelaseDate");
 					this.OnRelaseDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TAX_Type", DbType="NVarChar(50)")]
+		public string TAX_Type
+		{
+			get
+			{
+				return this._TAX_Type;
+			}
+			set
+			{
+				if ((this._TAX_Type != value))
+				{
+					this.OnTAX_TypeChanging(value);
+					this.SendPropertyChanging();
+					this._TAX_Type = value;
+					this.SendPropertyChanged("TAX_Type");
+					this.OnTAX_TypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PreFile", DbType="Bit NOT NULL")]
+		public bool PreFile
+		{
+			get
+			{
+				return this._PreFile;
+			}
+			set
+			{
+				if ((this._PreFile != value))
+				{
+					this.OnPreFileChanging(value);
+					this.SendPropertyChanging();
+					this._PreFile = value;
+					this.SendPropertyChanged("PreFile");
+					this.OnPreFileChanged();
 				}
 			}
 		}
@@ -100519,6 +99830,1320 @@ namespace JBModule.Data.Linq
 					this._Key_Date = value;
 					this.SendPropertyChanged("Key_Date");
 					this.OnKey_DateChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.WELF")]
+	public partial class WELF : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _NOBR;
+		
+		private string _YYMM;
+		
+		private string _SEQ;
+		
+		private string _SAL_CODE;
+		
+		private decimal _AMT;
+		
+		private decimal _D_AMT;
+		
+		private string _KEY_MAN;
+		
+		private System.DateTime _KEY_DATE;
+		
+		private string _FORMAT;
+		
+		private string _TR_TYPE;
+		
+		private string _SALADR;
+		
+		private int _AUTO;
+		
+		private string _Note1;
+		
+		private string _Note2;
+		
+		private string _COMP;
+		
+		private System.DateTime _DATE_B;
+		
+		private System.DateTime _DATE_E;
+		
+    #region 擴充性方法定義
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnNOBRChanging(string value);
+    partial void OnNOBRChanged();
+    partial void OnYYMMChanging(string value);
+    partial void OnYYMMChanged();
+    partial void OnSEQChanging(string value);
+    partial void OnSEQChanged();
+    partial void OnSAL_CODEChanging(string value);
+    partial void OnSAL_CODEChanged();
+    partial void OnAMTChanging(decimal value);
+    partial void OnAMTChanged();
+    partial void OnD_AMTChanging(decimal value);
+    partial void OnD_AMTChanged();
+    partial void OnKEY_MANChanging(string value);
+    partial void OnKEY_MANChanged();
+    partial void OnKEY_DATEChanging(System.DateTime value);
+    partial void OnKEY_DATEChanged();
+    partial void OnFORMATChanging(string value);
+    partial void OnFORMATChanged();
+    partial void OnTR_TYPEChanging(string value);
+    partial void OnTR_TYPEChanged();
+    partial void OnSALADRChanging(string value);
+    partial void OnSALADRChanged();
+    partial void OnAUTOChanging(int value);
+    partial void OnAUTOChanged();
+    partial void OnNote1Changing(string value);
+    partial void OnNote1Changed();
+    partial void OnNote2Changing(string value);
+    partial void OnNote2Changed();
+    partial void OnCOMPChanging(string value);
+    partial void OnCOMPChanged();
+    partial void OnDATE_BChanging(System.DateTime value);
+    partial void OnDATE_BChanged();
+    partial void OnDATE_EChanging(System.DateTime value);
+    partial void OnDATE_EChanged();
+    #endregion
+		
+		public WELF()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOBR", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string NOBR
+		{
+			get
+			{
+				return this._NOBR;
+			}
+			set
+			{
+				if ((this._NOBR != value))
+				{
+					this.OnNOBRChanging(value);
+					this.SendPropertyChanging();
+					this._NOBR = value;
+					this.SendPropertyChanged("NOBR");
+					this.OnNOBRChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YYMM", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string YYMM
+		{
+			get
+			{
+				return this._YYMM;
+			}
+			set
+			{
+				if ((this._YYMM != value))
+				{
+					this.OnYYMMChanging(value);
+					this.SendPropertyChanging();
+					this._YYMM = value;
+					this.SendPropertyChanged("YYMM");
+					this.OnYYMMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEQ", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string SEQ
+		{
+			get
+			{
+				return this._SEQ;
+			}
+			set
+			{
+				if ((this._SEQ != value))
+				{
+					this.OnSEQChanging(value);
+					this.SendPropertyChanging();
+					this._SEQ = value;
+					this.SendPropertyChanged("SEQ");
+					this.OnSEQChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SAL_CODE", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string SAL_CODE
+		{
+			get
+			{
+				return this._SAL_CODE;
+			}
+			set
+			{
+				if ((this._SAL_CODE != value))
+				{
+					this.OnSAL_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._SAL_CODE = value;
+					this.SendPropertyChanged("SAL_CODE");
+					this.OnSAL_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMT", DbType="Decimal(16,2) NOT NULL")]
+		public decimal AMT
+		{
+			get
+			{
+				return this._AMT;
+			}
+			set
+			{
+				if ((this._AMT != value))
+				{
+					this.OnAMTChanging(value);
+					this.SendPropertyChanging();
+					this._AMT = value;
+					this.SendPropertyChanged("AMT");
+					this.OnAMTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D_AMT", DbType="Decimal(16,2) NOT NULL")]
+		public decimal D_AMT
+		{
+			get
+			{
+				return this._D_AMT;
+			}
+			set
+			{
+				if ((this._D_AMT != value))
+				{
+					this.OnD_AMTChanging(value);
+					this.SendPropertyChanging();
+					this._D_AMT = value;
+					this.SendPropertyChanged("D_AMT");
+					this.OnD_AMTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KEY_MAN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string KEY_MAN
+		{
+			get
+			{
+				return this._KEY_MAN;
+			}
+			set
+			{
+				if ((this._KEY_MAN != value))
+				{
+					this.OnKEY_MANChanging(value);
+					this.SendPropertyChanging();
+					this._KEY_MAN = value;
+					this.SendPropertyChanged("KEY_MAN");
+					this.OnKEY_MANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KEY_DATE", DbType="DateTime NOT NULL")]
+		public System.DateTime KEY_DATE
+		{
+			get
+			{
+				return this._KEY_DATE;
+			}
+			set
+			{
+				if ((this._KEY_DATE != value))
+				{
+					this.OnKEY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._KEY_DATE = value;
+					this.SendPropertyChanged("KEY_DATE");
+					this.OnKEY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FORMAT", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string FORMAT
+		{
+			get
+			{
+				return this._FORMAT;
+			}
+			set
+			{
+				if ((this._FORMAT != value))
+				{
+					this.OnFORMATChanging(value);
+					this.SendPropertyChanging();
+					this._FORMAT = value;
+					this.SendPropertyChanged("FORMAT");
+					this.OnFORMATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TR_TYPE", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string TR_TYPE
+		{
+			get
+			{
+				return this._TR_TYPE;
+			}
+			set
+			{
+				if ((this._TR_TYPE != value))
+				{
+					this.OnTR_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._TR_TYPE = value;
+					this.SendPropertyChanged("TR_TYPE");
+					this.OnTR_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SALADR", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string SALADR
+		{
+			get
+			{
+				return this._SALADR;
+			}
+			set
+			{
+				if ((this._SALADR != value))
+				{
+					this.OnSALADRChanging(value);
+					this.SendPropertyChanging();
+					this._SALADR = value;
+					this.SendPropertyChanged("SALADR");
+					this.OnSALADRChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AUTO", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int AUTO
+		{
+			get
+			{
+				return this._AUTO;
+			}
+			set
+			{
+				if ((this._AUTO != value))
+				{
+					this.OnAUTOChanging(value);
+					this.SendPropertyChanging();
+					this._AUTO = value;
+					this.SendPropertyChanged("AUTO");
+					this.OnAUTOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note1", DbType="nvarchar(50) null")]
+		public string Note1
+		{
+			get
+			{
+				return this._Note1;
+			}
+			set
+			{
+				if ((this._Note1 != value))
+				{
+					this.OnNote1Changing(value);
+					this.SendPropertyChanging();
+					this._Note1 = value;
+					this.SendPropertyChanged("Note1");
+					this.OnNote1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note2", DbType="nvarchar(50)")]
+		public string Note2
+		{
+			get
+			{
+				return this._Note2;
+			}
+			set
+			{
+				if ((this._Note2 != value))
+				{
+					this.OnNote2Changing(value);
+					this.SendPropertyChanging();
+					this._Note2 = value;
+					this.SendPropertyChanged("Note2");
+					this.OnNote2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMP", DbType="nvarchar(50)", CanBeNull=false)]
+		public string COMP
+		{
+			get
+			{
+				return this._COMP;
+			}
+			set
+			{
+				if ((this._COMP != value))
+				{
+					this.OnCOMPChanging(value);
+					this.SendPropertyChanging();
+					this._COMP = value;
+					this.SendPropertyChanged("COMP");
+					this.OnCOMPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DATE_B", DbType="datetime")]
+		public System.DateTime DATE_B
+		{
+			get
+			{
+				return this._DATE_B;
+			}
+			set
+			{
+				if ((this._DATE_B != value))
+				{
+					this.OnDATE_BChanging(value);
+					this.SendPropertyChanging();
+					this._DATE_B = value;
+					this.SendPropertyChanged("DATE_B");
+					this.OnDATE_BChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DATE_E", DbType="datetime")]
+		public System.DateTime DATE_E
+		{
+			get
+			{
+				return this._DATE_E;
+			}
+			set
+			{
+				if ((this._DATE_E != value))
+				{
+					this.OnDATE_EChanging(value);
+					this.SendPropertyChanging();
+					this._DATE_E = value;
+					this.SendPropertyChanged("DATE_E");
+					this.OnDATE_EChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.INSLAB")]
+	public partial class INSLAB : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _NOBR;
+		
+		private string _FA_IDNO;
+		
+		private string _CODE;
+		
+		private System.DateTime _IN_DATE;
+		
+		private System.DateTime _OUT_DATE;
+		
+		private string _LRATE_CODE;
+		
+		private string _HRATE_CODE;
+		
+		private decimal _L_AMT;
+		
+		private decimal _H_AMT;
+		
+		private string _KEY_MAN;
+		
+		private System.DateTime _KEY_DATE;
+		
+		private string _SEQ;
+		
+		private string _CODE1;
+		
+		private string _NOTE;
+		
+		private string _S_NO;
+		
+		private decimal _R_AMT;
+		
+		private string _SPTYP;
+		
+		private string _WBSPTYP;
+		
+		private System.Nullable<System.DateTime> _ROUT_DATE;
+		
+		private bool _NOSUP;
+		
+		private decimal _J_AMT;
+		
+    #region 擴充性方法定義
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnNOBRChanging(string value);
+    partial void OnNOBRChanged();
+    partial void OnFA_IDNOChanging(string value);
+    partial void OnFA_IDNOChanged();
+    partial void OnCODEChanging(string value);
+    partial void OnCODEChanged();
+    partial void OnIN_DATEChanging(System.DateTime value);
+    partial void OnIN_DATEChanged();
+    partial void OnOUT_DATEChanging(System.DateTime value);
+    partial void OnOUT_DATEChanged();
+    partial void OnLRATE_CODEChanging(string value);
+    partial void OnLRATE_CODEChanged();
+    partial void OnHRATE_CODEChanging(string value);
+    partial void OnHRATE_CODEChanged();
+    partial void OnL_AMTChanging(decimal value);
+    partial void OnL_AMTChanged();
+    partial void OnH_AMTChanging(decimal value);
+    partial void OnH_AMTChanged();
+    partial void OnKEY_MANChanging(string value);
+    partial void OnKEY_MANChanged();
+    partial void OnKEY_DATEChanging(System.DateTime value);
+    partial void OnKEY_DATEChanged();
+    partial void OnSEQChanging(string value);
+    partial void OnSEQChanged();
+    partial void OnCODE1Changing(string value);
+    partial void OnCODE1Changed();
+    partial void OnNOTEChanging(string value);
+    partial void OnNOTEChanged();
+    partial void OnS_NOChanging(string value);
+    partial void OnS_NOChanged();
+    partial void OnR_AMTChanging(decimal value);
+    partial void OnR_AMTChanged();
+    partial void OnSPTYPChanging(string value);
+    partial void OnSPTYPChanged();
+    partial void OnWBSPTYPChanging(string value);
+    partial void OnWBSPTYPChanged();
+    partial void OnROUT_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnROUT_DATEChanged();
+    partial void OnNOSUPChanging(bool value);
+    partial void OnNOSUPChanged();
+    partial void OnJ_AMTChanging(decimal value);
+    partial void OnJ_AMTChanged();
+    #endregion
+		
+		public INSLAB()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOBR", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string NOBR
+		{
+			get
+			{
+				return this._NOBR;
+			}
+			set
+			{
+				if ((this._NOBR != value))
+				{
+					this.OnNOBRChanging(value);
+					this.SendPropertyChanging();
+					this._NOBR = value;
+					this.SendPropertyChanged("NOBR");
+					this.OnNOBRChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FA_IDNO", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string FA_IDNO
+		{
+			get
+			{
+				return this._FA_IDNO;
+			}
+			set
+			{
+				if ((this._FA_IDNO != value))
+				{
+					this.OnFA_IDNOChanging(value);
+					this.SendPropertyChanging();
+					this._FA_IDNO = value;
+					this.SendPropertyChanged("FA_IDNO");
+					this.OnFA_IDNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IN_DATE", DbType="DateTime NOT NULL", IsPrimaryKey=true)]
+		public System.DateTime IN_DATE
+		{
+			get
+			{
+				return this._IN_DATE;
+			}
+			set
+			{
+				if ((this._IN_DATE != value))
+				{
+					this.OnIN_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._IN_DATE = value;
+					this.SendPropertyChanged("IN_DATE");
+					this.OnIN_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OUT_DATE", DbType="DateTime NOT NULL")]
+		public System.DateTime OUT_DATE
+		{
+			get
+			{
+				return this._OUT_DATE;
+			}
+			set
+			{
+				if ((this._OUT_DATE != value))
+				{
+					this.OnOUT_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._OUT_DATE = value;
+					this.SendPropertyChanged("OUT_DATE");
+					this.OnOUT_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LRATE_CODE", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string LRATE_CODE
+		{
+			get
+			{
+				return this._LRATE_CODE;
+			}
+			set
+			{
+				if ((this._LRATE_CODE != value))
+				{
+					this.OnLRATE_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._LRATE_CODE = value;
+					this.SendPropertyChanged("LRATE_CODE");
+					this.OnLRATE_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HRATE_CODE", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string HRATE_CODE
+		{
+			get
+			{
+				return this._HRATE_CODE;
+			}
+			set
+			{
+				if ((this._HRATE_CODE != value))
+				{
+					this.OnHRATE_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._HRATE_CODE = value;
+					this.SendPropertyChanged("HRATE_CODE");
+					this.OnHRATE_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_L_AMT", DbType="Decimal(16,2) NOT NULL")]
+		public decimal L_AMT
+		{
+			get
+			{
+				return this._L_AMT;
+			}
+			set
+			{
+				if ((this._L_AMT != value))
+				{
+					this.OnL_AMTChanging(value);
+					this.SendPropertyChanging();
+					this._L_AMT = value;
+					this.SendPropertyChanged("L_AMT");
+					this.OnL_AMTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_H_AMT", DbType="Decimal(16,2) NOT NULL")]
+		public decimal H_AMT
+		{
+			get
+			{
+				return this._H_AMT;
+			}
+			set
+			{
+				if ((this._H_AMT != value))
+				{
+					this.OnH_AMTChanging(value);
+					this.SendPropertyChanging();
+					this._H_AMT = value;
+					this.SendPropertyChanged("H_AMT");
+					this.OnH_AMTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KEY_MAN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string KEY_MAN
+		{
+			get
+			{
+				return this._KEY_MAN;
+			}
+			set
+			{
+				if ((this._KEY_MAN != value))
+				{
+					this.OnKEY_MANChanging(value);
+					this.SendPropertyChanging();
+					this._KEY_MAN = value;
+					this.SendPropertyChanged("KEY_MAN");
+					this.OnKEY_MANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KEY_DATE", DbType="DateTime NOT NULL")]
+		public System.DateTime KEY_DATE
+		{
+			get
+			{
+				return this._KEY_DATE;
+			}
+			set
+			{
+				if ((this._KEY_DATE != value))
+				{
+					this.OnKEY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._KEY_DATE = value;
+					this.SendPropertyChanged("KEY_DATE");
+					this.OnKEY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEQ", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string SEQ
+		{
+			get
+			{
+				return this._SEQ;
+			}
+			set
+			{
+				if ((this._SEQ != value))
+				{
+					this.OnSEQChanging(value);
+					this.SendPropertyChanging();
+					this._SEQ = value;
+					this.SendPropertyChanged("SEQ");
+					this.OnSEQChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE1", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string CODE1
+		{
+			get
+			{
+				return this._CODE1;
+			}
+			set
+			{
+				if ((this._CODE1 != value))
+				{
+					this.OnCODE1Changing(value);
+					this.SendPropertyChanging();
+					this._CODE1 = value;
+					this.SendPropertyChanged("CODE1");
+					this.OnCODE1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTE", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string NOTE
+		{
+			get
+			{
+				return this._NOTE;
+			}
+			set
+			{
+				if ((this._NOTE != value))
+				{
+					this.OnNOTEChanging(value);
+					this.SendPropertyChanging();
+					this._NOTE = value;
+					this.SendPropertyChanged("NOTE");
+					this.OnNOTEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_S_NO", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string S_NO
+		{
+			get
+			{
+				return this._S_NO;
+			}
+			set
+			{
+				if ((this._S_NO != value))
+				{
+					this.OnS_NOChanging(value);
+					this.SendPropertyChanging();
+					this._S_NO = value;
+					this.SendPropertyChanged("S_NO");
+					this.OnS_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_R_AMT", DbType="Decimal(16,2) NOT NULL")]
+		public decimal R_AMT
+		{
+			get
+			{
+				return this._R_AMT;
+			}
+			set
+			{
+				if ((this._R_AMT != value))
+				{
+					this.OnR_AMTChanging(value);
+					this.SendPropertyChanging();
+					this._R_AMT = value;
+					this.SendPropertyChanged("R_AMT");
+					this.OnR_AMTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPTYP", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string SPTYP
+		{
+			get
+			{
+				return this._SPTYP;
+			}
+			set
+			{
+				if ((this._SPTYP != value))
+				{
+					this.OnSPTYPChanging(value);
+					this.SendPropertyChanging();
+					this._SPTYP = value;
+					this.SendPropertyChanged("SPTYP");
+					this.OnSPTYPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WBSPTYP", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string WBSPTYP
+		{
+			get
+			{
+				return this._WBSPTYP;
+			}
+			set
+			{
+				if ((this._WBSPTYP != value))
+				{
+					this.OnWBSPTYPChanging(value);
+					this.SendPropertyChanging();
+					this._WBSPTYP = value;
+					this.SendPropertyChanged("WBSPTYP");
+					this.OnWBSPTYPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROUT_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ROUT_DATE
+		{
+			get
+			{
+				return this._ROUT_DATE;
+			}
+			set
+			{
+				if ((this._ROUT_DATE != value))
+				{
+					this.OnROUT_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._ROUT_DATE = value;
+					this.SendPropertyChanged("ROUT_DATE");
+					this.OnROUT_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOSUP", DbType="Bit NOT NULL")]
+		public bool NOSUP
+		{
+			get
+			{
+				return this._NOSUP;
+			}
+			set
+			{
+				if ((this._NOSUP != value))
+				{
+					this.OnNOSUPChanging(value);
+					this.SendPropertyChanging();
+					this._NOSUP = value;
+					this.SendPropertyChanged("NOSUP");
+					this.OnNOSUPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_J_AMT", DbType="Decimal(16,2) NOT NULL")]
+		public decimal J_AMT
+		{
+			get
+			{
+				return this._J_AMT;
+			}
+			set
+			{
+				if ((this._J_AMT != value))
+				{
+					this.OnJ_AMTChanging(value);
+					this.SendPropertyChanging();
+					this._J_AMT = value;
+					this.SendPropertyChanged("J_AMT");
+					this.OnJ_AMTChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.INSURLV")]
+	public partial class INSURLV : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _AMT;
+		
+		private System.DateTime _EFF_DATEL;
+		
+		private System.DateTime _LFF_DATEL;
+		
+		private System.DateTime _EFF_DATEH;
+		
+		private System.DateTime _LFF_DATEH;
+		
+		private string _KEY_MAN;
+		
+		private System.DateTime _KEY_DATE;
+		
+		private System.DateTime _EFF_DATER;
+		
+		private System.DateTime _LFF_DATER;
+		
+		private decimal _EFF_RATE;
+		
+		private System.DateTime _EFF_DATEJ;
+		
+		private System.DateTime _LFF_DATEJ;
+		
+    #region 擴充性方法定義
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAMTChanging(decimal value);
+    partial void OnAMTChanged();
+    partial void OnEFF_DATELChanging(System.DateTime value);
+    partial void OnEFF_DATELChanged();
+    partial void OnLFF_DATELChanging(System.DateTime value);
+    partial void OnLFF_DATELChanged();
+    partial void OnEFF_DATEHChanging(System.DateTime value);
+    partial void OnEFF_DATEHChanged();
+    partial void OnLFF_DATEHChanging(System.DateTime value);
+    partial void OnLFF_DATEHChanged();
+    partial void OnKEY_MANChanging(string value);
+    partial void OnKEY_MANChanged();
+    partial void OnKEY_DATEChanging(System.DateTime value);
+    partial void OnKEY_DATEChanged();
+    partial void OnEFF_DATERChanging(System.DateTime value);
+    partial void OnEFF_DATERChanged();
+    partial void OnLFF_DATERChanging(System.DateTime value);
+    partial void OnLFF_DATERChanged();
+    partial void OnEFF_RATEChanging(decimal value);
+    partial void OnEFF_RATEChanged();
+    partial void OnEFF_DATEJChanging(System.DateTime value);
+    partial void OnEFF_DATEJChanged();
+    partial void OnLFF_DATEJChanging(System.DateTime value);
+    partial void OnLFF_DATEJChanged();
+    #endregion
+		
+		public INSURLV()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMT", DbType="Decimal(16,2) NOT NULL", IsPrimaryKey=true)]
+		public decimal AMT
+		{
+			get
+			{
+				return this._AMT;
+			}
+			set
+			{
+				if ((this._AMT != value))
+				{
+					this.OnAMTChanging(value);
+					this.SendPropertyChanging();
+					this._AMT = value;
+					this.SendPropertyChanged("AMT");
+					this.OnAMTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EFF_DATEL", DbType="DateTime NOT NULL")]
+		public System.DateTime EFF_DATEL
+		{
+			get
+			{
+				return this._EFF_DATEL;
+			}
+			set
+			{
+				if ((this._EFF_DATEL != value))
+				{
+					this.OnEFF_DATELChanging(value);
+					this.SendPropertyChanging();
+					this._EFF_DATEL = value;
+					this.SendPropertyChanged("EFF_DATEL");
+					this.OnEFF_DATELChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LFF_DATEL", DbType="DateTime NOT NULL")]
+		public System.DateTime LFF_DATEL
+		{
+			get
+			{
+				return this._LFF_DATEL;
+			}
+			set
+			{
+				if ((this._LFF_DATEL != value))
+				{
+					this.OnLFF_DATELChanging(value);
+					this.SendPropertyChanging();
+					this._LFF_DATEL = value;
+					this.SendPropertyChanged("LFF_DATEL");
+					this.OnLFF_DATELChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EFF_DATEH", DbType="DateTime NOT NULL")]
+		public System.DateTime EFF_DATEH
+		{
+			get
+			{
+				return this._EFF_DATEH;
+			}
+			set
+			{
+				if ((this._EFF_DATEH != value))
+				{
+					this.OnEFF_DATEHChanging(value);
+					this.SendPropertyChanging();
+					this._EFF_DATEH = value;
+					this.SendPropertyChanged("EFF_DATEH");
+					this.OnEFF_DATEHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LFF_DATEH", DbType="DateTime NOT NULL")]
+		public System.DateTime LFF_DATEH
+		{
+			get
+			{
+				return this._LFF_DATEH;
+			}
+			set
+			{
+				if ((this._LFF_DATEH != value))
+				{
+					this.OnLFF_DATEHChanging(value);
+					this.SendPropertyChanging();
+					this._LFF_DATEH = value;
+					this.SendPropertyChanged("LFF_DATEH");
+					this.OnLFF_DATEHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KEY_MAN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string KEY_MAN
+		{
+			get
+			{
+				return this._KEY_MAN;
+			}
+			set
+			{
+				if ((this._KEY_MAN != value))
+				{
+					this.OnKEY_MANChanging(value);
+					this.SendPropertyChanging();
+					this._KEY_MAN = value;
+					this.SendPropertyChanged("KEY_MAN");
+					this.OnKEY_MANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KEY_DATE", DbType="DateTime NOT NULL")]
+		public System.DateTime KEY_DATE
+		{
+			get
+			{
+				return this._KEY_DATE;
+			}
+			set
+			{
+				if ((this._KEY_DATE != value))
+				{
+					this.OnKEY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._KEY_DATE = value;
+					this.SendPropertyChanged("KEY_DATE");
+					this.OnKEY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EFF_DATER", DbType="DateTime NOT NULL")]
+		public System.DateTime EFF_DATER
+		{
+			get
+			{
+				return this._EFF_DATER;
+			}
+			set
+			{
+				if ((this._EFF_DATER != value))
+				{
+					this.OnEFF_DATERChanging(value);
+					this.SendPropertyChanging();
+					this._EFF_DATER = value;
+					this.SendPropertyChanged("EFF_DATER");
+					this.OnEFF_DATERChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LFF_DATER", DbType="DateTime NOT NULL")]
+		public System.DateTime LFF_DATER
+		{
+			get
+			{
+				return this._LFF_DATER;
+			}
+			set
+			{
+				if ((this._LFF_DATER != value))
+				{
+					this.OnLFF_DATERChanging(value);
+					this.SendPropertyChanging();
+					this._LFF_DATER = value;
+					this.SendPropertyChanged("LFF_DATER");
+					this.OnLFF_DATERChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EFF_RATE", DbType="Decimal(10,5) NOT NULL")]
+		public decimal EFF_RATE
+		{
+			get
+			{
+				return this._EFF_RATE;
+			}
+			set
+			{
+				if ((this._EFF_RATE != value))
+				{
+					this.OnEFF_RATEChanging(value);
+					this.SendPropertyChanging();
+					this._EFF_RATE = value;
+					this.SendPropertyChanged("EFF_RATE");
+					this.OnEFF_RATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EFF_DATEJ", DbType="DateTime NOT NULL")]
+		public System.DateTime EFF_DATEJ
+		{
+			get
+			{
+				return this._EFF_DATEJ;
+			}
+			set
+			{
+				if ((this._EFF_DATEJ != value))
+				{
+					this.OnEFF_DATEJChanging(value);
+					this.SendPropertyChanging();
+					this._EFF_DATEJ = value;
+					this.SendPropertyChanged("EFF_DATEJ");
+					this.OnEFF_DATEJChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LFF_DATEJ", DbType="DateTime NOT NULL")]
+		public System.DateTime LFF_DATEJ
+		{
+			get
+			{
+				return this._LFF_DATEJ;
+			}
+			set
+			{
+				if ((this._LFF_DATEJ != value))
+				{
+					this.OnLFF_DATEJChanging(value);
+					this.SendPropertyChanging();
+					this._LFF_DATEJ = value;
+					this.SendPropertyChanged("LFF_DATEJ");
+					this.OnLFF_DATEJChanged();
 				}
 			}
 		}

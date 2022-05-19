@@ -191,7 +191,7 @@
             this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gift = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.DEPT_TREE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DEPT_TREE = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.TREE_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CandidateWays = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AdditionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1666,9 +1666,15 @@
             // DEPT_TREE
             // 
             this.DEPT_TREE.DataPropertyName = "DEPT_TREE";
+            this.DEPT_TREE.DataSource = this.dEPTBindingSource;
+            this.DEPT_TREE.DisplayMember = "D_NO_DISP";
+            this.DEPT_TREE.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.DEPT_TREE.HeaderText = "報表分析群組代碼";
             this.DEPT_TREE.Name = "DEPT_TREE";
             this.DEPT_TREE.ReadOnly = true;
+            this.DEPT_TREE.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DEPT_TREE.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.DEPT_TREE.ValueMember = "D_NO";
             this.DEPT_TREE.Width = 126;
             // 
             // TREE_NAME
@@ -1946,7 +1952,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn kEYDATEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kEYMANDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn Gift;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DEPT_TREE;
+        private System.Windows.Forms.DataGridViewComboBoxColumn DEPT_TREE;
         private System.Windows.Forms.DataGridViewTextBoxColumn TREE_NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn CandidateWays;
         private System.Windows.Forms.DataGridViewTextBoxColumn AdditionDate;

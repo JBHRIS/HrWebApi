@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PROD" Class="CodeMDDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=192.168.1.12;Initial Catalog=ABLECOMHR;Persist Security Info=True;User ID=JB" SettingsObjectName="JBHR.Properties.Settings" SettingsPropertyName="JBHRConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=192.168.1.12;Initial Catalog=BPBFHR;Persist Security Info=True;User ID=JB" SettingsObjectName="JBHR.Properties.Settings" SettingsPropertyName="JBHRConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.SALTYCD" Member="SALTYCD">
     <Type Name="SALTYCD">
       <Column Name="SALTYCD" Member="SALTYCD1" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -274,66 +274,6 @@
       <Column Name="SMTPPW" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.U_SYS9" Member="U_SYS9">
-    <Type Name="U_SYS9">
-      <Column Name="AUTO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TAXTYPE" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="STDEDUETAMTNMAR" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="STDEDUETAMTMAR" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="TAXFREE70DOWN" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="TAXFREE70UP" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="SALARYDEDUTAMT" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="TAXSALCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="TAXAMTAMONTH" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="FIXTAXRATE" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="NETTAXAMT01" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="NETTAXAMT02" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="NETTAXAMT03" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="NETTAXAMT04" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="NETTAXAMT05" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="NETTAXAMT06" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="NETTAXAMT07" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="NETTAXAMT08" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="NETTAXAMT09" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="NETTAXAMT10" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="NETTAXRATE01" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="NETTAXRATE02" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="NETTAXRATE03" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="NETTAXRATE04" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="NETTAXRATE05" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="ADDUPAMT01" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="ADDUPAMT02" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="ADDUPAMT03" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="ADDUPAMT04" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="ADDUPAMT05" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="FORSALBASD" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="FORTAXRATE03" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="ENTRYDAY" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="FORTAXRATE01" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="FORTAXRATE02" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.U_SYS1" Member="U_SYS1">
-    <Type Name="U_SYS1">
-      <Column Name="AUTO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="COMPANY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="COMPADDR" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="COMPTEL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="COMPFAX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="COMPLABID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="COMPHELID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="COMPID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="COMPMAN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="HELORGNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="FF103" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="FF0407" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="COMPANYBANKAC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="COMPANYBANKNO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="COMPANY1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="COMPID1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="FF04071" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.U_SYS10" Member="U_SYS10">
     <Type Name="U_SYS10">
       <Column Name="AUTO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -354,21 +294,6 @@
       <Column Name="MALEMAXHRS" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
       <Column Name="FEMALEMAXHRS" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
       <Column Name="OTUNIT" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.U_SYS4" Member="U_SYS4">
-    <Type Name="U_SYS4">
-      <Column Name="AUTO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="LSALCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="LABOVERSALCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="LABREPAIRSALCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="LJOBPER" Type="System.Decimal" DbType="Decimal(16,3)" CanBeNull="true" />
-      <Column Name="LJOBPER1" Type="System.Decimal" DbType="Decimal(16,3)" CanBeNull="true" />
-      <Column Name="RETIRERATE" Type="System.Decimal" DbType="Decimal(16,3)" CanBeNull="true" />
-      <Column Name="RETIRERATE1" Type="System.Decimal" DbType="Decimal(16,3)" CanBeNull="true" />
-      <Column Name="NRETIRERATE" Type="System.Decimal" DbType="Decimal(16,3)" CanBeNull="true" />
-      <Column Name="NRETIRERATE1" Type="System.Decimal" DbType="Decimal(16,3)" CanBeNull="true" />
-      <Column Name="RETSALCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.U_SYS6" Member="U_SYS6">
@@ -660,36 +585,6 @@
       <Column Name="YEAR0EFFTYPE5" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.U_SYS2" Member="U_SYS2">
-    <Type Name="U_SYS2">
-      <Column Name="Comp" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="WELSALCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="WELPAY" Type="System.Decimal" DbType="Decimal(16,3)" CanBeNull="true" />
-      <Column Name="ATTMONTH" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SALMONTH" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="EATSALCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="FOODSALCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="EMPSALCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="INDAY" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ONDUTYSALCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ONDUTYAMT" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="ATTAWARDSALCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ATTMONAMT" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="ATTQTY" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="ATTQTY1" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="ATTAMT" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="ATTAMT1" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="LATTQTY" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="LATTQTY1" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="LATTAMT" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="LATTAMT1" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="FATTQTY" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="FATTQTY1" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="FATTAMT" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="FATTAMT1" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
-      <Column Name="Decimals" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.U_SYS5" Member="U_SYS5">
     <Type Name="U_SYS5">
       <Column Name="Comp" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -800,6 +695,110 @@
       <Column Name="ADATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="NOFUND" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="NODISASTER" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.U_SYS9" Member="U_SYS9">
+    <Type Name="U_SYS9">
+      <Column Name="Comp" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TAXTYPE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STDEDUETAMTNMAR" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="STDEDUETAMTMAR" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="TAXFREE70DOWN" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="TAXFREE70UP" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="SALARYDEDUTAMT" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="TAXSALCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TAXAMTAMONTH" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="FIXTAXRATE" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="NETTAXAMT01" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="NETTAXAMT02" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="NETTAXAMT03" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="NETTAXAMT04" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="NETTAXAMT05" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="NETTAXAMT06" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="NETTAXAMT07" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="NETTAXAMT08" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="NETTAXAMT09" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="NETTAXAMT10" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="NETTAXRATE01" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="NETTAXRATE02" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="NETTAXRATE03" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="NETTAXRATE04" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="NETTAXRATE05" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="ADDUPAMT01" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="ADDUPAMT02" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="ADDUPAMT03" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="ADDUPAMT04" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="ADDUPAMT05" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="FORSALBASD" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="FORTAXRATE03" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="ENTRYDAY" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="FORTAXRATE01" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="FORTAXRATE02" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.U_SYS4" Member="U_SYS4">
+    <Type Name="U_SYS4">
+      <Column Name="Comp" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LSALCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LABOVERSALCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LABREPAIRSALCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LJOBPER" Type="System.Decimal" DbType="Decimal(16,3)" CanBeNull="true" />
+      <Column Name="LJOBPER1" Type="System.Decimal" DbType="Decimal(16,3)" CanBeNull="true" />
+      <Column Name="RETIRERATE" Type="System.Decimal" DbType="Decimal(16,3)" CanBeNull="true" />
+      <Column Name="RETIRERATE1" Type="System.Decimal" DbType="Decimal(16,3)" CanBeNull="true" />
+      <Column Name="NRETIRERATE" Type="System.Decimal" DbType="Decimal(16,3)" CanBeNull="true" />
+      <Column Name="NRETIRERATE1" Type="System.Decimal" DbType="Decimal(16,3)" CanBeNull="true" />
+      <Column Name="RETSALCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.U_SYS2" Member="U_SYS2">
+    <Type Name="U_SYS2">
+      <Column Name="Comp" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WELSALCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="WELPAY" Type="System.Decimal" DbType="Decimal(16,3)" CanBeNull="true" />
+      <Column Name="ATTMONTH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SALMONTH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EATSALCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FOODSALCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EMPSALCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="INDAY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ONDUTYSALCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ONDUTYAMT" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="ATTAWARDSALCODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ATTMONAMT" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="ATTQTY" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="ATTQTY1" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="ATTAMT" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="ATTAMT1" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="LATTQTY" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="LATTQTY1" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="LATTAMT" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="LATTAMT1" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="FATTQTY" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="FATTQTY1" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="FATTAMT" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="FATTAMT1" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.U_SYS1" Member="U_SYS1">
+    <Type Name="U_SYS1">
+      <Column Name="Comp" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="COMPANY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="COMPADDR" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="COMPTEL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="COMPFAX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="COMPLABID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="COMPHELID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="COMPID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="COMPMAN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HELORGNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FF103" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FF0407" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="COMPANYBANKAC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="COMPANYBANKNO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="COMPANY1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="COMPID1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FF04071" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

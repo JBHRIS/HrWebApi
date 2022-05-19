@@ -30,6 +30,7 @@ namespace Portal
                
             }
             SetDefault();
+            SetUserInfo();
         }
 
         private void SetUserInfo()
@@ -46,6 +47,7 @@ namespace Portal
 
         private void SetDefault()
         {
+
             if (_User.RoleKey == 8)
             {
                 RadioSecond.Text = "系統商";
@@ -63,8 +65,30 @@ namespace Portal
                 RadioFourth.Visible = true;
                 txtReturnS.Visible = true;
             }
+            if (Request.QueryString["Code"] != null)
+            {
+                try
+                {
+                    var oGetQuestionMain = new ShareGetQuestionMainByCodeDao();
+                    var GetQuestionMainCond = new ShareGetQuestionMainByCodeConditions();
+                    GetQuestionMainCond.AccessToken = _User.AccessToken;
+                    GetQuestionMainCond.RefreshToken = _User.RefreshToken;
+                    GetQuestionMainCond.CompanySetting = CompanySetting;
+                    GetQuestionMainCond.Code = Request.QueryString["Code"];
+                    var rsGQM = oGetQuestionMain.GetData(GetQuestionMainCond);
+                    var Data = (rsGQM.Data as List<ShareGetQuestionMainByCodeRow>).FirstOrDefault();
+                    lblName.Text = Data.InsertMan;
+                    lblDate.Text = Data.InsertDate.Value.ToString("yyyy/MM/dd");
+                    lblTime.Text = Data.InsertDate.Value.ToString("HH:mm");
+                    lblTitle.Text = Data.TitleContent;
+                    lblQuestionCategory.Text = Data.QuestionCategoryName;
+                    lblContent.Text = Data.Content;                
+                }
+                catch (Exception ex)
+                {
 
-
+                }
+            }
         }
 
         private void txtReturnS_DataBind()
@@ -179,12 +203,10 @@ namespace Portal
                 //var dataview = rsViewrsQM.GroupBy(x => x.ParentCode);
                 Reply = Reply.Where(x => Security.GetRoleKeyToBinaryKey(x.RoleKey).Contains(_User.RoleKey));
 
-
-
                 QuestionReplyData.DataSource = Reply;
                 if (QuestionMain.Complete)
                 {
-                    
+                    MessageReturnDiv.Visible = false;
                     txtContent.Enabled = false;
                     txtContent.Text = "此回報單已結案，無法進行回覆";
                     btnDraft.Enabled = false;

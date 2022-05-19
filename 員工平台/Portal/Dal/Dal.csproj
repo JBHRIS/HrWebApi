@@ -245,6 +245,7 @@
     <Compile Include="Dao\Salary\SetSalaryPassWordDao.cs" />
     <Compile Include="Dao\Salary\SalaryLockDao.cs" />
     <Compile Include="Dao\Share\ShareGetQuestionDefaultMessageByCompanyIdVdbDao.cs" />
+    <Compile Include="Dao\Share\ShareGetQuestionUserInfoVdbDao.cs" />
     <Compile Include="Dao\Share\ShareGetShareCompanyVdbDao.cs" />
     <Compile Include="Dao\Share\ShareMailDao.cs" />
     <Compile Include="Dao\Share\ShareCodeDao.cs" />

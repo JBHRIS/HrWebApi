@@ -49,7 +49,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>22.4.27.1</ApplicationVersion>
+    <ApplicationVersion>22.5.18.1</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -1713,6 +1713,12 @@
     <Compile Include="Med\FRM71N1_T.designer.cs">
       <DependentUpon>FRM71N1_T.cs</DependentUpon>
     </Compile>
+    <Compile Include="Med\FRM71N1_T1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Med\FRM71N1_T1.designer.cs">
+      <DependentUpon>FRM71N1_T1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Med\FRM71N2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1869,6 +1875,30 @@
     <Content Include="Resources\ICON\favicon_C.ico" />
     <Content Include="Resources\ICON\傑報資訊_icon_01.png" />
     <Content Include="Resources\ICON\傑報資訊_icon_02.png" />
+    <EmbeddedResource Include="Wel\FRM63N.resx">
+      <DependentUpon>FRM63N.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wel\FRM63N1.resx">
+      <DependentUpon>FRM63N1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wel\FRM63N1_ADD.resx">
+      <DependentUpon>FRM63N1_ADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wel\FRM63N1_IMPORT.resx">
+      <DependentUpon>FRM63N1_IMPORT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wel\FRM63N1_T.resx">
+      <DependentUpon>FRM63N1_T.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wel\FRM63N2.resx">
+      <DependentUpon>FRM63N2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wel\FRM63N2_RepeatIDNO.resx">
+      <DependentUpon>FRM63N2_RepeatIDNO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wel\FRM63N_ADD.resx">
+      <DependentUpon>FRM63N_ADD.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="AnnualBonus\HunyaCustom\Hunya_AnnualBonus.xsc">
       <DependentUpon>Hunya_AnnualBonus.xsd</DependentUpon>
     </None>
@@ -2404,7 +2434,46 @@
     <Content Include="SqlStorage\sql\2022033101_Create_Index_For_SALATT.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="SqlStorage\sql\2022041801_create_ENCODE_function.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022041802_AlterWelfAddNote1Note2.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022041803_Create_View_Welf.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="SqlStorage\sql\20220421_假別代碼_Add_Remark.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022042701_AlterTW_TAXAddTAX_TypeAndAlterView_TW_TAX.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\20220501_INSLAB_ADD_JAMT.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\20220501_INSURLV_ADD_JOB.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022050301_AlterWelfAddComp_Date_B_Date_E.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022050501_AlterJqsettingCustomerWhereForVIEW_TW_TAXsql.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\20220508_INSURLV_Update_JOB.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022051301_AlterTableWageAddFILE_YYMM.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022051302_CreateView_WageDetailSummary.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022051303_CreateView_WageInfo.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022051701_AlterTableTW_TAXAddPreFile.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlStorage\sql\AlterSalcode.sql">
@@ -3354,6 +3423,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Med\FRM71N1_T.resx">
       <DependentUpon>FRM71N1_T.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Med\FRM71N1_T1.resx">
+      <DependentUpon>FRM71N1_T1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Med\FRM71N2.resx">
       <DependentUpon>FRM71N2.cs</DependentUpon>
@@ -5056,6 +5128,9 @@
     <EmbeddedResource Include="Sal\FRM46I.resx">
       <DependentUpon>FRM46I.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sal\FRM46W.resx">
+      <DependentUpon>FRM46W.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sal\FRM47.resx">
       <DependentUpon>FRM47.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -5347,6 +5422,15 @@
       <DependentUpon>FRM62I.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Wel\FRM62N.resx">
+      <DependentUpon>FRM62N.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wel\FRM62N_ADD.resx">
+      <DependentUpon>FRM62N_ADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wel\FRM62N_IMPORT.resx">
+      <DependentUpon>FRM62N_IMPORT.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Wel\FRM63.resx">
       <DependentUpon>FRM63.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -5426,6 +5510,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlStorage\jq\2021101201_假日班別批次調整.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\2022042701_福利金資料維護.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\2022042702_福利金年度申報.jq">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\jq\2022051601_提前申報維護.jq">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="TRA\traDS1.xsc">
@@ -7002,6 +7095,12 @@
     <Compile Include="Sal\FRM46I.Designer.cs">
       <DependentUpon>FRM46I.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sal\FRM46W.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sal\FRM46W.designer.cs">
+      <DependentUpon>FRM46W.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sal\FRM47.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -7561,6 +7660,24 @@
     <Compile Include="Wel\FRM62I.Designer.cs">
       <DependentUpon>FRM62I.cs</DependentUpon>
     </Compile>
+    <Compile Include="Wel\FRM62N.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wel\FRM62N.Designer.cs">
+      <DependentUpon>FRM62N.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wel\FRM62N_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wel\FRM62N_ADD.Designer.cs">
+      <DependentUpon>FRM62N_ADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wel\FRM62N_IMPORT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wel\FRM62N_IMPORT.Designer.cs">
+      <DependentUpon>FRM62N_IMPORT.cs</DependentUpon>
+    </Compile>
     <Compile Include="Wel\FRM63.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -7577,6 +7694,54 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FRM63DataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Wel\FRM63N.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wel\FRM63N.Designer.cs">
+      <DependentUpon>FRM63N.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wel\FRM63N1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wel\FRM63N1.Designer.cs">
+      <DependentUpon>FRM63N1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wel\FRM63N1_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wel\FRM63N1_ADD.Designer.cs">
+      <DependentUpon>FRM63N1_ADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wel\FRM63N1_IMPORT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wel\FRM63N1_IMPORT.Designer.cs">
+      <DependentUpon>FRM63N1_IMPORT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wel\FRM63N1_T.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wel\FRM63N1_T.designer.cs">
+      <DependentUpon>FRM63N1_T.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wel\FRM63N2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wel\FRM63N2.designer.cs">
+      <DependentUpon>FRM63N2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wel\FRM63N2_RepeatIDNO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wel\FRM63N2_RepeatIDNO.Designer.cs">
+      <DependentUpon>FRM63N2_RepeatIDNO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wel\FRM63N_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wel\FRM63N_ADD.designer.cs">
+      <DependentUpon>FRM63N_ADD.cs</DependentUpon>
     </Compile>
     <Compile Include="Wel\WelDS.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -7,7 +7,7 @@ namespace JBHRIS.Api.Service.Interface.System
 {
     public interface QuestionUserInfoInterFace
     {
-        List<QuestionUserInfoVdb> GetQuestionUserInfoByCode(string Code);
+        List<QuestionUserInfoVdb> GetQuestionUserInfoByCompanyIdAndAccountCode(string CompanyId,string AccountCode);
         
 
 

@@ -31,52 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new JBControls.DataGridView();
-            this.nOBRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nAMECDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yYMMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bTIMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eTIMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tOTHOURSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.oTHRSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rESTHRSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.oTCARDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.oTDEPTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dEPTNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dEPTSNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.oTFOODDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOTEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOTW133DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOTW167DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOTW200DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOTH133DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOTH167DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOTH200DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tOTW133DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tOTW167DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tOTW200DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOTEXPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tOTEXPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sALARYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOTMODIDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.oTRCDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOFOODDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.oTROTEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.oTFOOD1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.oTFOODHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.oTFOODH1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sYSCREATDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.oTRATECODEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOFOOD1DataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.jOBNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dEPTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isHoliDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.oTTYPEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cOUNTMADataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.sYSOTDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.hOLITYPEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fRM47BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.salaryDS = new JBHR.Sal.SalaryDS();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -164,6 +118,56 @@
             this.rOTETableAdapter = new JBHR.Sal.AttendDSTableAdapters.ROTETableAdapter();
             this.bASETableAdapter = new JBHR.Sal.SalaryDSTableAdapters.BASETableAdapter();
             this.oTTableAdapter = new JBHR.Sal.SalaryDSTableAdapters.FRM47TableAdapter();
+            this.basDS = new JBHR.Bas.BasDS();
+            this.dEPTTableAdapter1 = new JBHR.Bas.BasDSTableAdapters.DEPTTableAdapter();
+            this.dEPTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dEPTSTableAdapter = new JBHR.Bas.BasDSTableAdapters.DEPTSTableAdapter();
+            this.nOBRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nAMECDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yYMMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bTIMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eTIMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tOTHOURSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oTHRSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rESTHRSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oTCARDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oTDEPTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dEPTSNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dEPTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dEPTNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oTFOODDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nOTEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nOTW133DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nOTW167DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nOTW200DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nOTH133DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nOTH167DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nOTH200DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tOTW133DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tOTW167DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tOTW200DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nOTEXPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tOTEXPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sALARYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oTRCDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.oTROTEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.oTFOOD1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oTFOODHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jOBNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oTFOODH1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oTTYPEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hOLITYPEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isHoliDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oTRATECODEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nOTMODIDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.nOFOODDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.sYSCREATDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.nOFOOD1DataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.cOUNTMADataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.sYSOTDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -189,6 +193,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dEPTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.baseDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.oTRCDBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.basDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dEPTSBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -227,8 +233,9 @@
             this.rESTHRSDataGridViewTextBoxColumn,
             this.oTCARDataGridViewTextBoxColumn,
             this.oTDEPTDataGridViewTextBoxColumn,
-            this.dEPTNAMEDataGridViewTextBoxColumn,
             this.dEPTSNAMEDataGridViewTextBoxColumn,
+            this.dEPTDataGridViewTextBoxColumn,
+            this.dEPTNAMEDataGridViewTextBoxColumn,
             this.kEYMANDataGridViewTextBoxColumn,
             this.kEYDATEDataGridViewTextBoxColumn,
             this.oTFOODDataGridViewTextBoxColumn,
@@ -245,23 +252,22 @@
             this.nOTEXPDataGridViewTextBoxColumn,
             this.tOTEXPDataGridViewTextBoxColumn,
             this.sALARYDataGridViewTextBoxColumn,
-            this.nOTMODIDataGridViewCheckBoxColumn,
             this.oTRCDDataGridViewTextBoxColumn,
-            this.nOFOODDataGridViewCheckBoxColumn,
             this.oTROTEDataGridViewTextBoxColumn,
             this.oTFOOD1DataGridViewTextBoxColumn,
             this.oTFOODHDataGridViewTextBoxColumn,
-            this.oTFOODH1DataGridViewTextBoxColumn,
-            this.sYSCREATDataGridViewCheckBoxColumn,
-            this.oTRATECODEDataGridViewTextBoxColumn,
-            this.nOFOOD1DataGridViewCheckBoxColumn,
             this.jOBNAMEDataGridViewTextBoxColumn,
-            this.dEPTDataGridViewTextBoxColumn,
-            this.isHoliDataGridViewTextBoxColumn,
+            this.oTFOODH1DataGridViewTextBoxColumn,
             this.oTTYPEDataGridViewTextBoxColumn,
+            this.hOLITYPEDataGridViewTextBoxColumn,
+            this.isHoliDataGridViewTextBoxColumn,
+            this.oTRATECODEDataGridViewTextBoxColumn,
+            this.nOTMODIDataGridViewCheckBoxColumn,
+            this.nOFOODDataGridViewCheckBoxColumn,
+            this.sYSCREATDataGridViewCheckBoxColumn,
+            this.nOFOOD1DataGridViewCheckBoxColumn,
             this.cOUNTMADataGridViewCheckBoxColumn,
-            this.sYSOTDataGridViewCheckBoxColumn,
-            this.hOLITYPEDataGridViewTextBoxColumn});
+            this.sYSOTDataGridViewCheckBoxColumn});
             this.dataGridView1.DataSource = this.fRM47BindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -275,328 +281,6 @@
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
-            // 
-            // nOBRDataGridViewTextBoxColumn
-            // 
-            this.nOBRDataGridViewTextBoxColumn.DataPropertyName = "NOBR";
-            this.nOBRDataGridViewTextBoxColumn.HeaderText = "工號";
-            this.nOBRDataGridViewTextBoxColumn.Name = "nOBRDataGridViewTextBoxColumn";
-            this.nOBRDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nAMECDataGridViewTextBoxColumn
-            // 
-            this.nAMECDataGridViewTextBoxColumn.DataPropertyName = "NAME_C";
-            this.nAMECDataGridViewTextBoxColumn.HeaderText = "姓名";
-            this.nAMECDataGridViewTextBoxColumn.Name = "nAMECDataGridViewTextBoxColumn";
-            this.nAMECDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // yYMMDataGridViewTextBoxColumn
-            // 
-            this.yYMMDataGridViewTextBoxColumn.DataPropertyName = "YYMM";
-            this.yYMMDataGridViewTextBoxColumn.HeaderText = "計薪年月";
-            this.yYMMDataGridViewTextBoxColumn.Name = "yYMMDataGridViewTextBoxColumn";
-            this.yYMMDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bDATEDataGridViewTextBoxColumn
-            // 
-            this.bDATEDataGridViewTextBoxColumn.DataPropertyName = "BDATE";
-            this.bDATEDataGridViewTextBoxColumn.HeaderText = "加班日期";
-            this.bDATEDataGridViewTextBoxColumn.Name = "bDATEDataGridViewTextBoxColumn";
-            this.bDATEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bTIMEDataGridViewTextBoxColumn
-            // 
-            this.bTIMEDataGridViewTextBoxColumn.DataPropertyName = "BTIME";
-            this.bTIMEDataGridViewTextBoxColumn.HeaderText = "加班起";
-            this.bTIMEDataGridViewTextBoxColumn.Name = "bTIMEDataGridViewTextBoxColumn";
-            this.bTIMEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // eTIMEDataGridViewTextBoxColumn
-            // 
-            this.eTIMEDataGridViewTextBoxColumn.DataPropertyName = "ETIME";
-            this.eTIMEDataGridViewTextBoxColumn.HeaderText = "加班迄";
-            this.eTIMEDataGridViewTextBoxColumn.Name = "eTIMEDataGridViewTextBoxColumn";
-            this.eTIMEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tOTHOURSDataGridViewTextBoxColumn
-            // 
-            this.tOTHOURSDataGridViewTextBoxColumn.DataPropertyName = "TOT_HOURS";
-            this.tOTHOURSDataGridViewTextBoxColumn.HeaderText = "加班時數";
-            this.tOTHOURSDataGridViewTextBoxColumn.Name = "tOTHOURSDataGridViewTextBoxColumn";
-            this.tOTHOURSDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // oTHRSDataGridViewTextBoxColumn
-            // 
-            this.oTHRSDataGridViewTextBoxColumn.DataPropertyName = "OT_HRS";
-            this.oTHRSDataGridViewTextBoxColumn.HeaderText = "加班費時數";
-            this.oTHRSDataGridViewTextBoxColumn.Name = "oTHRSDataGridViewTextBoxColumn";
-            this.oTHRSDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // rESTHRSDataGridViewTextBoxColumn
-            // 
-            this.rESTHRSDataGridViewTextBoxColumn.DataPropertyName = "REST_HRS";
-            this.rESTHRSDataGridViewTextBoxColumn.HeaderText = "補休時數";
-            this.rESTHRSDataGridViewTextBoxColumn.Name = "rESTHRSDataGridViewTextBoxColumn";
-            this.rESTHRSDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // oTCARDataGridViewTextBoxColumn
-            // 
-            this.oTCARDataGridViewTextBoxColumn.DataPropertyName = "OT_CAR";
-            this.oTCARDataGridViewTextBoxColumn.HeaderText = "Call-In津貼";
-            this.oTCARDataGridViewTextBoxColumn.Name = "oTCARDataGridViewTextBoxColumn";
-            this.oTCARDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // oTDEPTDataGridViewTextBoxColumn
-            // 
-            this.oTDEPTDataGridViewTextBoxColumn.DataPropertyName = "OT_DEPT";
-            this.oTDEPTDataGridViewTextBoxColumn.HeaderText = "加班部門";
-            this.oTDEPTDataGridViewTextBoxColumn.Name = "oTDEPTDataGridViewTextBoxColumn";
-            this.oTDEPTDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dEPTNAMEDataGridViewTextBoxColumn
-            // 
-            this.dEPTNAMEDataGridViewTextBoxColumn.DataPropertyName = "DEPT_NAME";
-            this.dEPTNAMEDataGridViewTextBoxColumn.HeaderText = "編制部門名稱";
-            this.dEPTNAMEDataGridViewTextBoxColumn.Name = "dEPTNAMEDataGridViewTextBoxColumn";
-            this.dEPTNAMEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dEPTSNAMEDataGridViewTextBoxColumn
-            // 
-            this.dEPTSNAMEDataGridViewTextBoxColumn.DataPropertyName = "DEPTS_NAME";
-            this.dEPTSNAMEDataGridViewTextBoxColumn.HeaderText = "成本部門名稱";
-            this.dEPTSNAMEDataGridViewTextBoxColumn.Name = "dEPTSNAMEDataGridViewTextBoxColumn";
-            this.dEPTSNAMEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // kEYMANDataGridViewTextBoxColumn
-            // 
-            this.kEYMANDataGridViewTextBoxColumn.DataPropertyName = "KEY_MAN";
-            this.kEYMANDataGridViewTextBoxColumn.HeaderText = "登錄者";
-            this.kEYMANDataGridViewTextBoxColumn.Name = "kEYMANDataGridViewTextBoxColumn";
-            this.kEYMANDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // kEYDATEDataGridViewTextBoxColumn
-            // 
-            this.kEYDATEDataGridViewTextBoxColumn.DataPropertyName = "KEY_DATE";
-            this.kEYDATEDataGridViewTextBoxColumn.HeaderText = "登錄日期";
-            this.kEYDATEDataGridViewTextBoxColumn.Name = "kEYDATEDataGridViewTextBoxColumn";
-            this.kEYDATEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // oTFOODDataGridViewTextBoxColumn
-            // 
-            this.oTFOODDataGridViewTextBoxColumn.DataPropertyName = "OT_FOOD";
-            this.oTFOODDataGridViewTextBoxColumn.HeaderText = "輪班津貼";
-            this.oTFOODDataGridViewTextBoxColumn.Name = "oTFOODDataGridViewTextBoxColumn";
-            this.oTFOODDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nOTEDataGridViewTextBoxColumn
-            // 
-            this.nOTEDataGridViewTextBoxColumn.DataPropertyName = "NOTE";
-            this.nOTEDataGridViewTextBoxColumn.HeaderText = "備註";
-            this.nOTEDataGridViewTextBoxColumn.Name = "nOTEDataGridViewTextBoxColumn";
-            this.nOTEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nOTW133DataGridViewTextBoxColumn
-            // 
-            this.nOTW133DataGridViewTextBoxColumn.DataPropertyName = "NOT_W_133";
-            this.nOTW133DataGridViewTextBoxColumn.HeaderText = "免稅一段";
-            this.nOTW133DataGridViewTextBoxColumn.Name = "nOTW133DataGridViewTextBoxColumn";
-            this.nOTW133DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nOTW167DataGridViewTextBoxColumn
-            // 
-            this.nOTW167DataGridViewTextBoxColumn.DataPropertyName = "NOT_W_167";
-            this.nOTW167DataGridViewTextBoxColumn.HeaderText = "免稅二段";
-            this.nOTW167DataGridViewTextBoxColumn.Name = "nOTW167DataGridViewTextBoxColumn";
-            this.nOTW167DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nOTW200DataGridViewTextBoxColumn
-            // 
-            this.nOTW200DataGridViewTextBoxColumn.DataPropertyName = "NOT_W_200";
-            this.nOTW200DataGridViewTextBoxColumn.HeaderText = "免稅三段";
-            this.nOTW200DataGridViewTextBoxColumn.Name = "nOTW200DataGridViewTextBoxColumn";
-            this.nOTW200DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nOTH133DataGridViewTextBoxColumn
-            // 
-            this.nOTH133DataGridViewTextBoxColumn.DataPropertyName = "NOT_H_133";
-            this.nOTH133DataGridViewTextBoxColumn.HeaderText = "假日一段";
-            this.nOTH133DataGridViewTextBoxColumn.Name = "nOTH133DataGridViewTextBoxColumn";
-            this.nOTH133DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nOTH167DataGridViewTextBoxColumn
-            // 
-            this.nOTH167DataGridViewTextBoxColumn.DataPropertyName = "NOT_H_167";
-            this.nOTH167DataGridViewTextBoxColumn.HeaderText = "假日二段";
-            this.nOTH167DataGridViewTextBoxColumn.Name = "nOTH167DataGridViewTextBoxColumn";
-            this.nOTH167DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nOTH200DataGridViewTextBoxColumn
-            // 
-            this.nOTH200DataGridViewTextBoxColumn.DataPropertyName = "NOT_H_200";
-            this.nOTH200DataGridViewTextBoxColumn.HeaderText = "假日三段";
-            this.nOTH200DataGridViewTextBoxColumn.Name = "nOTH200DataGridViewTextBoxColumn";
-            this.nOTH200DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tOTW133DataGridViewTextBoxColumn
-            // 
-            this.tOTW133DataGridViewTextBoxColumn.DataPropertyName = "TOT_W_133";
-            this.tOTW133DataGridViewTextBoxColumn.HeaderText = "應稅一段";
-            this.tOTW133DataGridViewTextBoxColumn.Name = "tOTW133DataGridViewTextBoxColumn";
-            this.tOTW133DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tOTW167DataGridViewTextBoxColumn
-            // 
-            this.tOTW167DataGridViewTextBoxColumn.DataPropertyName = "TOT_W_167";
-            this.tOTW167DataGridViewTextBoxColumn.HeaderText = "應稅二段";
-            this.tOTW167DataGridViewTextBoxColumn.Name = "tOTW167DataGridViewTextBoxColumn";
-            this.tOTW167DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tOTW200DataGridViewTextBoxColumn
-            // 
-            this.tOTW200DataGridViewTextBoxColumn.DataPropertyName = "TOT_W_200";
-            this.tOTW200DataGridViewTextBoxColumn.HeaderText = "應稅三段";
-            this.tOTW200DataGridViewTextBoxColumn.Name = "tOTW200DataGridViewTextBoxColumn";
-            this.tOTW200DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nOTEXPDataGridViewTextBoxColumn
-            // 
-            this.nOTEXPDataGridViewTextBoxColumn.DataPropertyName = "NOT_EXP";
-            this.nOTEXPDataGridViewTextBoxColumn.HeaderText = "免稅加班費";
-            this.nOTEXPDataGridViewTextBoxColumn.Name = "nOTEXPDataGridViewTextBoxColumn";
-            this.nOTEXPDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tOTEXPDataGridViewTextBoxColumn
-            // 
-            this.tOTEXPDataGridViewTextBoxColumn.DataPropertyName = "TOT_EXP";
-            this.tOTEXPDataGridViewTextBoxColumn.HeaderText = "應稅加班費";
-            this.tOTEXPDataGridViewTextBoxColumn.Name = "tOTEXPDataGridViewTextBoxColumn";
-            this.tOTEXPDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sALARYDataGridViewTextBoxColumn
-            // 
-            this.sALARYDataGridViewTextBoxColumn.DataPropertyName = "SALARY";
-            this.sALARYDataGridViewTextBoxColumn.HeaderText = "薪資";
-            this.sALARYDataGridViewTextBoxColumn.Name = "sALARYDataGridViewTextBoxColumn";
-            this.sALARYDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nOTMODIDataGridViewCheckBoxColumn
-            // 
-            this.nOTMODIDataGridViewCheckBoxColumn.DataPropertyName = "NOTMODI";
-            this.nOTMODIDataGridViewCheckBoxColumn.HeaderText = "不可修改";
-            this.nOTMODIDataGridViewCheckBoxColumn.Name = "nOTMODIDataGridViewCheckBoxColumn";
-            this.nOTMODIDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // oTRCDDataGridViewTextBoxColumn
-            // 
-            this.oTRCDDataGridViewTextBoxColumn.DataPropertyName = "OTRCD";
-            this.oTRCDDataGridViewTextBoxColumn.HeaderText = "加班原因";
-            this.oTRCDDataGridViewTextBoxColumn.Name = "oTRCDDataGridViewTextBoxColumn";
-            this.oTRCDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nOFOODDataGridViewCheckBoxColumn
-            // 
-            this.nOFOODDataGridViewCheckBoxColumn.DataPropertyName = "NOFOOD";
-            this.nOFOODDataGridViewCheckBoxColumn.HeaderText = "不計算津貼";
-            this.nOFOODDataGridViewCheckBoxColumn.Name = "nOFOODDataGridViewCheckBoxColumn";
-            this.nOFOODDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // oTROTEDataGridViewTextBoxColumn
-            // 
-            this.oTROTEDataGridViewTextBoxColumn.DataPropertyName = "OT_ROTE";
-            this.oTROTEDataGridViewTextBoxColumn.HeaderText = "加班班別";
-            this.oTROTEDataGridViewTextBoxColumn.Name = "oTROTEDataGridViewTextBoxColumn";
-            this.oTROTEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // oTFOOD1DataGridViewTextBoxColumn
-            // 
-            this.oTFOOD1DataGridViewTextBoxColumn.DataPropertyName = "OT_FOOD1";
-            this.oTFOOD1DataGridViewTextBoxColumn.HeaderText = "誤餐費";
-            this.oTFOOD1DataGridViewTextBoxColumn.Name = "oTFOOD1DataGridViewTextBoxColumn";
-            this.oTFOOD1DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // oTFOODHDataGridViewTextBoxColumn
-            // 
-            this.oTFOODHDataGridViewTextBoxColumn.DataPropertyName = "OT_FOODH";
-            this.oTFOODHDataGridViewTextBoxColumn.HeaderText = "輪班津貼時數";
-            this.oTFOODHDataGridViewTextBoxColumn.Name = "oTFOODHDataGridViewTextBoxColumn";
-            this.oTFOODHDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // oTFOODH1DataGridViewTextBoxColumn
-            // 
-            this.oTFOODH1DataGridViewTextBoxColumn.DataPropertyName = "OT_FOODH1";
-            this.oTFOODH1DataGridViewTextBoxColumn.HeaderText = "誤餐費時數";
-            this.oTFOODH1DataGridViewTextBoxColumn.Name = "oTFOODH1DataGridViewTextBoxColumn";
-            this.oTFOODH1DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sYSCREATDataGridViewCheckBoxColumn
-            // 
-            this.sYSCREATDataGridViewCheckBoxColumn.DataPropertyName = "SYSCREAT";
-            this.sYSCREATDataGridViewCheckBoxColumn.HeaderText = "固定加班";
-            this.sYSCREATDataGridViewCheckBoxColumn.Name = "sYSCREATDataGridViewCheckBoxColumn";
-            this.sYSCREATDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // oTRATECODEDataGridViewTextBoxColumn
-            // 
-            this.oTRATECODEDataGridViewTextBoxColumn.DataPropertyName = "OTRATE_CODE";
-            this.oTRATECODEDataGridViewTextBoxColumn.HeaderText = "加班比率代碼";
-            this.oTRATECODEDataGridViewTextBoxColumn.Name = "oTRATECODEDataGridViewTextBoxColumn";
-            this.oTRATECODEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nOFOOD1DataGridViewCheckBoxColumn
-            // 
-            this.nOFOOD1DataGridViewCheckBoxColumn.DataPropertyName = "NOFOOD1";
-            this.nOFOOD1DataGridViewCheckBoxColumn.HeaderText = "不計算誤餐費";
-            this.nOFOOD1DataGridViewCheckBoxColumn.Name = "nOFOOD1DataGridViewCheckBoxColumn";
-            this.nOFOOD1DataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // jOBNAMEDataGridViewTextBoxColumn
-            // 
-            this.jOBNAMEDataGridViewTextBoxColumn.DataPropertyName = "JOB_NAME";
-            this.jOBNAMEDataGridViewTextBoxColumn.HeaderText = "職稱";
-            this.jOBNAMEDataGridViewTextBoxColumn.Name = "jOBNAMEDataGridViewTextBoxColumn";
-            this.jOBNAMEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dEPTDataGridViewTextBoxColumn
-            // 
-            this.dEPTDataGridViewTextBoxColumn.DataPropertyName = "DEPT";
-            this.dEPTDataGridViewTextBoxColumn.HeaderText = "編制部門代碼";
-            this.dEPTDataGridViewTextBoxColumn.Name = "dEPTDataGridViewTextBoxColumn";
-            this.dEPTDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // isHoliDataGridViewTextBoxColumn
-            // 
-            this.isHoliDataGridViewTextBoxColumn.DataPropertyName = "isHoli";
-            this.isHoliDataGridViewTextBoxColumn.HeaderText = "假日加班";
-            this.isHoliDataGridViewTextBoxColumn.Name = "isHoliDataGridViewTextBoxColumn";
-            this.isHoliDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // oTTYPEDataGridViewTextBoxColumn
-            // 
-            this.oTTYPEDataGridViewTextBoxColumn.DataPropertyName = "OT_TYPE";
-            this.oTTYPEDataGridViewTextBoxColumn.HeaderText = "加班別";
-            this.oTTYPEDataGridViewTextBoxColumn.Name = "oTTYPEDataGridViewTextBoxColumn";
-            this.oTTYPEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cOUNTMADataGridViewCheckBoxColumn
-            // 
-            this.cOUNTMADataGridViewCheckBoxColumn.DataPropertyName = "COUNT_MA";
-            this.cOUNTMADataGridViewCheckBoxColumn.HeaderText = "外勞";
-            this.cOUNTMADataGridViewCheckBoxColumn.Name = "cOUNTMADataGridViewCheckBoxColumn";
-            this.cOUNTMADataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // sYSOTDataGridViewCheckBoxColumn
-            // 
-            this.sYSOTDataGridViewCheckBoxColumn.DataPropertyName = "SYS_OT";
-            this.sYSOTDataGridViewCheckBoxColumn.HeaderText = "系統假日加班";
-            this.sYSOTDataGridViewCheckBoxColumn.Name = "sYSOTDataGridViewCheckBoxColumn";
-            this.sYSOTDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // hOLITYPEDataGridViewTextBoxColumn
-            // 
-            this.hOLITYPEDataGridViewTextBoxColumn.DataPropertyName = "HOLI_TYPE";
-            this.hOLITYPEDataGridViewTextBoxColumn.HeaderText = "假日別";
-            this.hOLITYPEDataGridViewTextBoxColumn.Name = "hOLITYPEDataGridViewTextBoxColumn";
-            this.hOLITYPEDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // fRM47BindingSource
             // 
@@ -1765,7 +1449,7 @@
             // dEPTBindingSource
             // 
             this.dEPTBindingSource.DataMember = "DEPT";
-            this.dEPTBindingSource.DataSource = this.baseDS;
+            this.dEPTBindingSource.DataSource = this.basDS;
             // 
             // baseDS
             // 
@@ -1801,6 +1485,371 @@
             // oTTableAdapter
             // 
             this.oTTableAdapter.ClearBeforeFill = true;
+            // 
+            // basDS
+            // 
+            this.basDS.DataSetName = "BasDS";
+            this.basDS.Locale = new System.Globalization.CultureInfo("");
+            this.basDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dEPTTableAdapter1
+            // 
+            this.dEPTTableAdapter1.ClearBeforeFill = true;
+            // 
+            // dEPTSBindingSource
+            // 
+            this.dEPTSBindingSource.DataMember = "DEPTS";
+            this.dEPTSBindingSource.DataSource = this.basDS;
+            // 
+            // dEPTSTableAdapter
+            // 
+            this.dEPTSTableAdapter.ClearBeforeFill = true;
+            // 
+            // nOBRDataGridViewTextBoxColumn
+            // 
+            this.nOBRDataGridViewTextBoxColumn.DataPropertyName = "NOBR";
+            this.nOBRDataGridViewTextBoxColumn.HeaderText = "工號";
+            this.nOBRDataGridViewTextBoxColumn.Name = "nOBRDataGridViewTextBoxColumn";
+            this.nOBRDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nAMECDataGridViewTextBoxColumn
+            // 
+            this.nAMECDataGridViewTextBoxColumn.DataPropertyName = "NAME_C";
+            this.nAMECDataGridViewTextBoxColumn.HeaderText = "姓名";
+            this.nAMECDataGridViewTextBoxColumn.Name = "nAMECDataGridViewTextBoxColumn";
+            this.nAMECDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // yYMMDataGridViewTextBoxColumn
+            // 
+            this.yYMMDataGridViewTextBoxColumn.DataPropertyName = "YYMM";
+            this.yYMMDataGridViewTextBoxColumn.HeaderText = "計薪年月";
+            this.yYMMDataGridViewTextBoxColumn.Name = "yYMMDataGridViewTextBoxColumn";
+            this.yYMMDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bDATEDataGridViewTextBoxColumn
+            // 
+            this.bDATEDataGridViewTextBoxColumn.DataPropertyName = "BDATE";
+            this.bDATEDataGridViewTextBoxColumn.HeaderText = "加班日期";
+            this.bDATEDataGridViewTextBoxColumn.Name = "bDATEDataGridViewTextBoxColumn";
+            this.bDATEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bTIMEDataGridViewTextBoxColumn
+            // 
+            this.bTIMEDataGridViewTextBoxColumn.DataPropertyName = "BTIME";
+            this.bTIMEDataGridViewTextBoxColumn.HeaderText = "加班起";
+            this.bTIMEDataGridViewTextBoxColumn.Name = "bTIMEDataGridViewTextBoxColumn";
+            this.bTIMEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // eTIMEDataGridViewTextBoxColumn
+            // 
+            this.eTIMEDataGridViewTextBoxColumn.DataPropertyName = "ETIME";
+            this.eTIMEDataGridViewTextBoxColumn.HeaderText = "加班迄";
+            this.eTIMEDataGridViewTextBoxColumn.Name = "eTIMEDataGridViewTextBoxColumn";
+            this.eTIMEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tOTHOURSDataGridViewTextBoxColumn
+            // 
+            this.tOTHOURSDataGridViewTextBoxColumn.DataPropertyName = "TOT_HOURS";
+            this.tOTHOURSDataGridViewTextBoxColumn.HeaderText = "加班時數";
+            this.tOTHOURSDataGridViewTextBoxColumn.Name = "tOTHOURSDataGridViewTextBoxColumn";
+            this.tOTHOURSDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // oTHRSDataGridViewTextBoxColumn
+            // 
+            this.oTHRSDataGridViewTextBoxColumn.DataPropertyName = "OT_HRS";
+            this.oTHRSDataGridViewTextBoxColumn.HeaderText = "加班費時數";
+            this.oTHRSDataGridViewTextBoxColumn.Name = "oTHRSDataGridViewTextBoxColumn";
+            this.oTHRSDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // rESTHRSDataGridViewTextBoxColumn
+            // 
+            this.rESTHRSDataGridViewTextBoxColumn.DataPropertyName = "REST_HRS";
+            this.rESTHRSDataGridViewTextBoxColumn.HeaderText = "補休時數";
+            this.rESTHRSDataGridViewTextBoxColumn.Name = "rESTHRSDataGridViewTextBoxColumn";
+            this.rESTHRSDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // oTCARDataGridViewTextBoxColumn
+            // 
+            this.oTCARDataGridViewTextBoxColumn.DataPropertyName = "OT_CAR";
+            this.oTCARDataGridViewTextBoxColumn.HeaderText = "Call-In津貼";
+            this.oTCARDataGridViewTextBoxColumn.Name = "oTCARDataGridViewTextBoxColumn";
+            this.oTCARDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // oTDEPTDataGridViewTextBoxColumn
+            // 
+            this.oTDEPTDataGridViewTextBoxColumn.DataPropertyName = "OT_DEPT";
+            this.oTDEPTDataGridViewTextBoxColumn.DataSource = this.dEPTSBindingSource;
+            this.oTDEPTDataGridViewTextBoxColumn.DisplayMember = "D_NO_DISP";
+            this.oTDEPTDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.oTDEPTDataGridViewTextBoxColumn.HeaderText = "加班部門";
+            this.oTDEPTDataGridViewTextBoxColumn.Name = "oTDEPTDataGridViewTextBoxColumn";
+            this.oTDEPTDataGridViewTextBoxColumn.ReadOnly = true;
+            this.oTDEPTDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.oTDEPTDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.oTDEPTDataGridViewTextBoxColumn.ValueMember = "D_NO";
+            // 
+            // dEPTSNAMEDataGridViewTextBoxColumn
+            // 
+            this.dEPTSNAMEDataGridViewTextBoxColumn.DataPropertyName = "DEPTS_NAME";
+            this.dEPTSNAMEDataGridViewTextBoxColumn.HeaderText = "成本部門名稱";
+            this.dEPTSNAMEDataGridViewTextBoxColumn.Name = "dEPTSNAMEDataGridViewTextBoxColumn";
+            this.dEPTSNAMEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dEPTDataGridViewTextBoxColumn
+            // 
+            this.dEPTDataGridViewTextBoxColumn.DataPropertyName = "DEPT";
+            this.dEPTDataGridViewTextBoxColumn.DataSource = this.dEPTBindingSource;
+            this.dEPTDataGridViewTextBoxColumn.DisplayMember = "D_NO_DISP";
+            this.dEPTDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.dEPTDataGridViewTextBoxColumn.HeaderText = "編制部門代碼";
+            this.dEPTDataGridViewTextBoxColumn.Name = "dEPTDataGridViewTextBoxColumn";
+            this.dEPTDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dEPTDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dEPTDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dEPTDataGridViewTextBoxColumn.ValueMember = "D_NO";
+            // 
+            // dEPTNAMEDataGridViewTextBoxColumn
+            // 
+            this.dEPTNAMEDataGridViewTextBoxColumn.DataPropertyName = "DEPT_NAME";
+            this.dEPTNAMEDataGridViewTextBoxColumn.HeaderText = "編制部門名稱";
+            this.dEPTNAMEDataGridViewTextBoxColumn.Name = "dEPTNAMEDataGridViewTextBoxColumn";
+            this.dEPTNAMEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // kEYMANDataGridViewTextBoxColumn
+            // 
+            this.kEYMANDataGridViewTextBoxColumn.DataPropertyName = "KEY_MAN";
+            this.kEYMANDataGridViewTextBoxColumn.HeaderText = "登錄者";
+            this.kEYMANDataGridViewTextBoxColumn.Name = "kEYMANDataGridViewTextBoxColumn";
+            this.kEYMANDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // kEYDATEDataGridViewTextBoxColumn
+            // 
+            this.kEYDATEDataGridViewTextBoxColumn.DataPropertyName = "KEY_DATE";
+            this.kEYDATEDataGridViewTextBoxColumn.HeaderText = "登錄日期";
+            this.kEYDATEDataGridViewTextBoxColumn.Name = "kEYDATEDataGridViewTextBoxColumn";
+            this.kEYDATEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // oTFOODDataGridViewTextBoxColumn
+            // 
+            this.oTFOODDataGridViewTextBoxColumn.DataPropertyName = "OT_FOOD";
+            this.oTFOODDataGridViewTextBoxColumn.HeaderText = "輪班津貼";
+            this.oTFOODDataGridViewTextBoxColumn.Name = "oTFOODDataGridViewTextBoxColumn";
+            this.oTFOODDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nOTEDataGridViewTextBoxColumn
+            // 
+            this.nOTEDataGridViewTextBoxColumn.DataPropertyName = "NOTE";
+            this.nOTEDataGridViewTextBoxColumn.HeaderText = "備註";
+            this.nOTEDataGridViewTextBoxColumn.Name = "nOTEDataGridViewTextBoxColumn";
+            this.nOTEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nOTW133DataGridViewTextBoxColumn
+            // 
+            this.nOTW133DataGridViewTextBoxColumn.DataPropertyName = "NOT_W_133";
+            this.nOTW133DataGridViewTextBoxColumn.HeaderText = "免稅一段";
+            this.nOTW133DataGridViewTextBoxColumn.Name = "nOTW133DataGridViewTextBoxColumn";
+            this.nOTW133DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nOTW167DataGridViewTextBoxColumn
+            // 
+            this.nOTW167DataGridViewTextBoxColumn.DataPropertyName = "NOT_W_167";
+            this.nOTW167DataGridViewTextBoxColumn.HeaderText = "免稅二段";
+            this.nOTW167DataGridViewTextBoxColumn.Name = "nOTW167DataGridViewTextBoxColumn";
+            this.nOTW167DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nOTW200DataGridViewTextBoxColumn
+            // 
+            this.nOTW200DataGridViewTextBoxColumn.DataPropertyName = "NOT_W_200";
+            this.nOTW200DataGridViewTextBoxColumn.HeaderText = "免稅三段";
+            this.nOTW200DataGridViewTextBoxColumn.Name = "nOTW200DataGridViewTextBoxColumn";
+            this.nOTW200DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nOTH133DataGridViewTextBoxColumn
+            // 
+            this.nOTH133DataGridViewTextBoxColumn.DataPropertyName = "NOT_H_133";
+            this.nOTH133DataGridViewTextBoxColumn.HeaderText = "假日一段";
+            this.nOTH133DataGridViewTextBoxColumn.Name = "nOTH133DataGridViewTextBoxColumn";
+            this.nOTH133DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nOTH167DataGridViewTextBoxColumn
+            // 
+            this.nOTH167DataGridViewTextBoxColumn.DataPropertyName = "NOT_H_167";
+            this.nOTH167DataGridViewTextBoxColumn.HeaderText = "假日二段";
+            this.nOTH167DataGridViewTextBoxColumn.Name = "nOTH167DataGridViewTextBoxColumn";
+            this.nOTH167DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nOTH200DataGridViewTextBoxColumn
+            // 
+            this.nOTH200DataGridViewTextBoxColumn.DataPropertyName = "NOT_H_200";
+            this.nOTH200DataGridViewTextBoxColumn.HeaderText = "假日三段";
+            this.nOTH200DataGridViewTextBoxColumn.Name = "nOTH200DataGridViewTextBoxColumn";
+            this.nOTH200DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tOTW133DataGridViewTextBoxColumn
+            // 
+            this.tOTW133DataGridViewTextBoxColumn.DataPropertyName = "TOT_W_133";
+            this.tOTW133DataGridViewTextBoxColumn.HeaderText = "應稅一段";
+            this.tOTW133DataGridViewTextBoxColumn.Name = "tOTW133DataGridViewTextBoxColumn";
+            this.tOTW133DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tOTW167DataGridViewTextBoxColumn
+            // 
+            this.tOTW167DataGridViewTextBoxColumn.DataPropertyName = "TOT_W_167";
+            this.tOTW167DataGridViewTextBoxColumn.HeaderText = "應稅二段";
+            this.tOTW167DataGridViewTextBoxColumn.Name = "tOTW167DataGridViewTextBoxColumn";
+            this.tOTW167DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tOTW200DataGridViewTextBoxColumn
+            // 
+            this.tOTW200DataGridViewTextBoxColumn.DataPropertyName = "TOT_W_200";
+            this.tOTW200DataGridViewTextBoxColumn.HeaderText = "應稅三段";
+            this.tOTW200DataGridViewTextBoxColumn.Name = "tOTW200DataGridViewTextBoxColumn";
+            this.tOTW200DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nOTEXPDataGridViewTextBoxColumn
+            // 
+            this.nOTEXPDataGridViewTextBoxColumn.DataPropertyName = "NOT_EXP";
+            this.nOTEXPDataGridViewTextBoxColumn.HeaderText = "免稅加班費";
+            this.nOTEXPDataGridViewTextBoxColumn.Name = "nOTEXPDataGridViewTextBoxColumn";
+            this.nOTEXPDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tOTEXPDataGridViewTextBoxColumn
+            // 
+            this.tOTEXPDataGridViewTextBoxColumn.DataPropertyName = "TOT_EXP";
+            this.tOTEXPDataGridViewTextBoxColumn.HeaderText = "應稅加班費";
+            this.tOTEXPDataGridViewTextBoxColumn.Name = "tOTEXPDataGridViewTextBoxColumn";
+            this.tOTEXPDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sALARYDataGridViewTextBoxColumn
+            // 
+            this.sALARYDataGridViewTextBoxColumn.DataPropertyName = "SALARY";
+            this.sALARYDataGridViewTextBoxColumn.HeaderText = "薪資";
+            this.sALARYDataGridViewTextBoxColumn.Name = "sALARYDataGridViewTextBoxColumn";
+            this.sALARYDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // oTRCDDataGridViewTextBoxColumn
+            // 
+            this.oTRCDDataGridViewTextBoxColumn.DataPropertyName = "OTRCD";
+            this.oTRCDDataGridViewTextBoxColumn.DataSource = this.oTRCDBindingSource;
+            this.oTRCDDataGridViewTextBoxColumn.DisplayMember = "OTRNAME";
+            this.oTRCDDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.oTRCDDataGridViewTextBoxColumn.HeaderText = "加班原因";
+            this.oTRCDDataGridViewTextBoxColumn.Name = "oTRCDDataGridViewTextBoxColumn";
+            this.oTRCDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.oTRCDDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.oTRCDDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.oTRCDDataGridViewTextBoxColumn.ValueMember = "OTRCD";
+            // 
+            // oTROTEDataGridViewTextBoxColumn
+            // 
+            this.oTROTEDataGridViewTextBoxColumn.DataPropertyName = "OT_ROTE";
+            this.oTROTEDataGridViewTextBoxColumn.DataSource = this.rOTEBindingSource;
+            this.oTROTEDataGridViewTextBoxColumn.DisplayMember = "ROTENAME";
+            this.oTROTEDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.oTROTEDataGridViewTextBoxColumn.HeaderText = "加班班別";
+            this.oTROTEDataGridViewTextBoxColumn.Name = "oTROTEDataGridViewTextBoxColumn";
+            this.oTROTEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.oTROTEDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.oTROTEDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.oTROTEDataGridViewTextBoxColumn.ValueMember = "ROTE";
+            // 
+            // oTFOOD1DataGridViewTextBoxColumn
+            // 
+            this.oTFOOD1DataGridViewTextBoxColumn.DataPropertyName = "OT_FOOD1";
+            this.oTFOOD1DataGridViewTextBoxColumn.HeaderText = "誤餐費";
+            this.oTFOOD1DataGridViewTextBoxColumn.Name = "oTFOOD1DataGridViewTextBoxColumn";
+            this.oTFOOD1DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // oTFOODHDataGridViewTextBoxColumn
+            // 
+            this.oTFOODHDataGridViewTextBoxColumn.DataPropertyName = "OT_FOODH";
+            this.oTFOODHDataGridViewTextBoxColumn.HeaderText = "輪班津貼時數";
+            this.oTFOODHDataGridViewTextBoxColumn.Name = "oTFOODHDataGridViewTextBoxColumn";
+            this.oTFOODHDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // jOBNAMEDataGridViewTextBoxColumn
+            // 
+            this.jOBNAMEDataGridViewTextBoxColumn.DataPropertyName = "JOB_NAME";
+            this.jOBNAMEDataGridViewTextBoxColumn.HeaderText = "職稱";
+            this.jOBNAMEDataGridViewTextBoxColumn.Name = "jOBNAMEDataGridViewTextBoxColumn";
+            this.jOBNAMEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // oTFOODH1DataGridViewTextBoxColumn
+            // 
+            this.oTFOODH1DataGridViewTextBoxColumn.DataPropertyName = "OT_FOODH1";
+            this.oTFOODH1DataGridViewTextBoxColumn.HeaderText = "誤餐費時數";
+            this.oTFOODH1DataGridViewTextBoxColumn.Name = "oTFOODH1DataGridViewTextBoxColumn";
+            this.oTFOODH1DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // oTTYPEDataGridViewTextBoxColumn
+            // 
+            this.oTTYPEDataGridViewTextBoxColumn.DataPropertyName = "OT_TYPE";
+            this.oTTYPEDataGridViewTextBoxColumn.HeaderText = "加班別";
+            this.oTTYPEDataGridViewTextBoxColumn.Name = "oTTYPEDataGridViewTextBoxColumn";
+            this.oTTYPEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // hOLITYPEDataGridViewTextBoxColumn
+            // 
+            this.hOLITYPEDataGridViewTextBoxColumn.DataPropertyName = "HOLI_TYPE";
+            this.hOLITYPEDataGridViewTextBoxColumn.HeaderText = "假日別";
+            this.hOLITYPEDataGridViewTextBoxColumn.Name = "hOLITYPEDataGridViewTextBoxColumn";
+            this.hOLITYPEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // isHoliDataGridViewTextBoxColumn
+            // 
+            this.isHoliDataGridViewTextBoxColumn.DataPropertyName = "isHoli";
+            this.isHoliDataGridViewTextBoxColumn.HeaderText = "假日加班";
+            this.isHoliDataGridViewTextBoxColumn.Name = "isHoliDataGridViewTextBoxColumn";
+            this.isHoliDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // oTRATECODEDataGridViewTextBoxColumn
+            // 
+            this.oTRATECODEDataGridViewTextBoxColumn.DataPropertyName = "OTRATE_CODE";
+            this.oTRATECODEDataGridViewTextBoxColumn.HeaderText = "加班比率代碼";
+            this.oTRATECODEDataGridViewTextBoxColumn.Name = "oTRATECODEDataGridViewTextBoxColumn";
+            this.oTRATECODEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nOTMODIDataGridViewCheckBoxColumn
+            // 
+            this.nOTMODIDataGridViewCheckBoxColumn.DataPropertyName = "NOTMODI";
+            this.nOTMODIDataGridViewCheckBoxColumn.HeaderText = "不可修改";
+            this.nOTMODIDataGridViewCheckBoxColumn.Name = "nOTMODIDataGridViewCheckBoxColumn";
+            this.nOTMODIDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // nOFOODDataGridViewCheckBoxColumn
+            // 
+            this.nOFOODDataGridViewCheckBoxColumn.DataPropertyName = "NOFOOD";
+            this.nOFOODDataGridViewCheckBoxColumn.HeaderText = "不計算津貼";
+            this.nOFOODDataGridViewCheckBoxColumn.Name = "nOFOODDataGridViewCheckBoxColumn";
+            this.nOFOODDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // sYSCREATDataGridViewCheckBoxColumn
+            // 
+            this.sYSCREATDataGridViewCheckBoxColumn.DataPropertyName = "SYSCREAT";
+            this.sYSCREATDataGridViewCheckBoxColumn.HeaderText = "固定加班";
+            this.sYSCREATDataGridViewCheckBoxColumn.Name = "sYSCREATDataGridViewCheckBoxColumn";
+            this.sYSCREATDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // nOFOOD1DataGridViewCheckBoxColumn
+            // 
+            this.nOFOOD1DataGridViewCheckBoxColumn.DataPropertyName = "NOFOOD1";
+            this.nOFOOD1DataGridViewCheckBoxColumn.HeaderText = "不計算誤餐費";
+            this.nOFOOD1DataGridViewCheckBoxColumn.Name = "nOFOOD1DataGridViewCheckBoxColumn";
+            this.nOFOOD1DataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // cOUNTMADataGridViewCheckBoxColumn
+            // 
+            this.cOUNTMADataGridViewCheckBoxColumn.DataPropertyName = "COUNT_MA";
+            this.cOUNTMADataGridViewCheckBoxColumn.HeaderText = "外勞";
+            this.cOUNTMADataGridViewCheckBoxColumn.Name = "cOUNTMADataGridViewCheckBoxColumn";
+            this.cOUNTMADataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // sYSOTDataGridViewCheckBoxColumn
+            // 
+            this.sYSOTDataGridViewCheckBoxColumn.DataPropertyName = "SYS_OT";
+            this.sYSOTDataGridViewCheckBoxColumn.HeaderText = "系統假日加班";
+            this.sYSOTDataGridViewCheckBoxColumn.Name = "sYSOTDataGridViewCheckBoxColumn";
+            this.sYSOTDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // FRM47
             // 
@@ -1843,6 +1892,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dEPTBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.baseDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.oTRCDBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.basDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dEPTSBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1937,6 +1988,12 @@
         private System.Windows.Forms.Button btnReport1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxOtRateCD;
+        private System.Windows.Forms.Label label11;
+        private Bas.BasDS basDS;
+        private Bas.BasDSTableAdapters.DEPTTableAdapter dEPTTableAdapter1;
+        private System.Windows.Forms.BindingSource dEPTSBindingSource;
+        private Bas.BasDSTableAdapters.DEPTSTableAdapter dEPTSTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn nOBRDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nAMECDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn yYMMDataGridViewTextBoxColumn;
@@ -1947,9 +2004,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn oTHRSDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rESTHRSDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn oTCARDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn oTDEPTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dEPTNAMEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn oTDEPTDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dEPTSNAMEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dEPTDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dEPTNAMEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kEYMANDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kEYDATEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn oTFOODDataGridViewTextBoxColumn;
@@ -1966,24 +2024,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nOTEXPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tOTEXPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sALARYDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn nOTMODIDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn oTRCDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn nOFOODDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn oTROTEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn oTRCDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn oTROTEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn oTFOOD1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn oTFOODHDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn oTFOODH1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn sYSCREATDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn oTRATECODEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn nOFOOD1DataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn jOBNAMEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dEPTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn isHoliDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn oTFOODH1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn oTTYPEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hOLITYPEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn isHoliDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn oTRATECODEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn nOTMODIDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn nOFOODDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn sYSCREATDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn nOFOOD1DataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cOUNTMADataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn sYSOTDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hOLITYPEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ComboBox cbxOtRateCD;
-        private System.Windows.Forms.Label label11;
     }
 }

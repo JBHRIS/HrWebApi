@@ -213,7 +213,19 @@ namespace JBHR.Att
                 DateTime d1, d2;
                 d1 = Convert.ToDateTime(txtBdate.Text);
                 d2 = Convert.ToDateTime(txtEdate.Text);
-                if (d2 < d1) txtEdate.Text = Sal.Core.SalaryDate.DateString();
+                string Nobr = ptxNobr.Text;
+                JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
+                var sql = from bts in db.BASETTS
+                          where bts.NOBR == Nobr
+                          && bts.INDT.Value.CompareTo(d1) <= 0
+                          select bts;
+                if (!sql.Any())
+                {
+                    MessageBox.Show("調班起始日不可在入職日之前");
+                    txtBdate.Text = Sal.Core.SalaryDate.DateString(db.BASETTS.Where(p => p.NOBR == Nobr).First().INDT.Value);
+                }
+                if (d2 < d1) 
+                    txtEdate.Text = Sal.Core.SalaryDate.DateString(d1);
             }
             catch { }
         }

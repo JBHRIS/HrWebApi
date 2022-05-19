@@ -39,21 +39,12 @@ namespace JBHR.Sal
     partial void InsertU_SYS(U_SYS instance);
     partial void UpdateU_SYS(U_SYS instance);
     partial void DeleteU_SYS(U_SYS instance);
-    partial void InsertU_SYS9(U_SYS9 instance);
-    partial void UpdateU_SYS9(U_SYS9 instance);
-    partial void DeleteU_SYS9(U_SYS9 instance);
-    partial void InsertU_SYS1(U_SYS1 instance);
-    partial void UpdateU_SYS1(U_SYS1 instance);
-    partial void DeleteU_SYS1(U_SYS1 instance);
     partial void InsertU_SYS10(U_SYS10 instance);
     partial void UpdateU_SYS10(U_SYS10 instance);
     partial void DeleteU_SYS10(U_SYS10 instance);
     partial void InsertU_SYS3(U_SYS3 instance);
     partial void UpdateU_SYS3(U_SYS3 instance);
     partial void DeleteU_SYS3(U_SYS3 instance);
-    partial void InsertU_SYS4(U_SYS4 instance);
-    partial void UpdateU_SYS4(U_SYS4 instance);
-    partial void DeleteU_SYS4(U_SYS4 instance);
     partial void InsertU_SYS6(U_SYS6 instance);
     partial void UpdateU_SYS6(U_SYS6 instance);
     partial void DeleteU_SYS6(U_SYS6 instance);
@@ -72,9 +63,6 @@ namespace JBHR.Sal
     partial void InsertU_SYS8(U_SYS8 instance);
     partial void UpdateU_SYS8(U_SYS8 instance);
     partial void DeleteU_SYS8(U_SYS8 instance);
-    partial void InsertU_SYS2(U_SYS2 instance);
-    partial void UpdateU_SYS2(U_SYS2 instance);
-    partial void DeleteU_SYS2(U_SYS2 instance);
     partial void InsertU_SYS5(U_SYS5 instance);
     partial void UpdateU_SYS5(U_SYS5 instance);
     partial void DeleteU_SYS5(U_SYS5 instance);
@@ -84,6 +72,18 @@ namespace JBHR.Sal
     partial void InsertLARCODE(LARCODE instance);
     partial void UpdateLARCODE(LARCODE instance);
     partial void DeleteLARCODE(LARCODE instance);
+    partial void InsertU_SYS9(U_SYS9 instance);
+    partial void UpdateU_SYS9(U_SYS9 instance);
+    partial void DeleteU_SYS9(U_SYS9 instance);
+    partial void InsertU_SYS4(U_SYS4 instance);
+    partial void UpdateU_SYS4(U_SYS4 instance);
+    partial void DeleteU_SYS4(U_SYS4 instance);
+    partial void InsertU_SYS2(U_SYS2 instance);
+    partial void UpdateU_SYS2(U_SYS2 instance);
+    partial void DeleteU_SYS2(U_SYS2 instance);
+    partial void InsertU_SYS1(U_SYS1 instance);
+    partial void UpdateU_SYS1(U_SYS1 instance);
+    partial void DeleteU_SYS1(U_SYS1 instance);
     #endregion
 		
 		public CodeMDDataContext() : 
@@ -140,22 +140,6 @@ namespace JBHR.Sal
 			}
 		}
 		
-		public System.Data.Linq.Table<U_SYS9> U_SYS9
-		{
-			get
-			{
-				return this.GetTable<U_SYS9>();
-			}
-		}
-		
-		public System.Data.Linq.Table<U_SYS1> U_SYS1
-		{
-			get
-			{
-				return this.GetTable<U_SYS1>();
-			}
-		}
-		
 		public System.Data.Linq.Table<U_SYS10> U_SYS10
 		{
 			get
@@ -169,14 +153,6 @@ namespace JBHR.Sal
 			get
 			{
 				return this.GetTable<U_SYS3>();
-			}
-		}
-		
-		public System.Data.Linq.Table<U_SYS4> U_SYS4
-		{
-			get
-			{
-				return this.GetTable<U_SYS4>();
 			}
 		}
 		
@@ -236,14 +212,6 @@ namespace JBHR.Sal
 			}
 		}
 		
-		public System.Data.Linq.Table<U_SYS2> U_SYS2
-		{
-			get
-			{
-				return this.GetTable<U_SYS2>();
-			}
-		}
-		
 		public System.Data.Linq.Table<U_SYS5> U_SYS5
 		{
 			get
@@ -265,6 +233,38 @@ namespace JBHR.Sal
 			get
 			{
 				return this.GetTable<LARCODE>();
+			}
+		}
+		
+		public System.Data.Linq.Table<U_SYS9> U_SYS9
+		{
+			get
+			{
+				return this.GetTable<U_SYS9>();
+			}
+		}
+		
+		public System.Data.Linq.Table<U_SYS4> U_SYS4
+		{
+			get
+			{
+				return this.GetTable<U_SYS4>();
+			}
+		}
+		
+		public System.Data.Linq.Table<U_SYS2> U_SYS2
+		{
+			get
+			{
+				return this.GetTable<U_SYS2>();
+			}
+		}
+		
+		public System.Data.Linq.Table<U_SYS1> U_SYS1
+		{
+			get
+			{
+				return this.GetTable<U_SYS1>();
 			}
 		}
 	}
@@ -6671,1330 +6671,6 @@ namespace JBHR.Sal
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.U_SYS9")]
-	public partial class U_SYS9 : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _AUTO;
-		
-		private System.Nullable<int> _TAXTYPE;
-		
-		private System.Nullable<decimal> _STDEDUETAMTNMAR;
-		
-		private System.Nullable<decimal> _STDEDUETAMTMAR;
-		
-		private System.Nullable<decimal> _TAXFREE70DOWN;
-		
-		private System.Nullable<decimal> _TAXFREE70UP;
-		
-		private System.Nullable<decimal> _SALARYDEDUTAMT;
-		
-		private string _TAXSALCODE;
-		
-		private System.Nullable<decimal> _TAXAMTAMONTH;
-		
-		private System.Nullable<decimal> _FIXTAXRATE;
-		
-		private System.Nullable<decimal> _NETTAXAMT01;
-		
-		private System.Nullable<decimal> _NETTAXAMT02;
-		
-		private System.Nullable<decimal> _NETTAXAMT03;
-		
-		private System.Nullable<decimal> _NETTAXAMT04;
-		
-		private System.Nullable<decimal> _NETTAXAMT05;
-		
-		private System.Nullable<decimal> _NETTAXAMT06;
-		
-		private System.Nullable<decimal> _NETTAXAMT07;
-		
-		private System.Nullable<decimal> _NETTAXAMT08;
-		
-		private System.Nullable<decimal> _NETTAXAMT09;
-		
-		private System.Nullable<decimal> _NETTAXAMT10;
-		
-		private System.Nullable<decimal> _NETTAXRATE01;
-		
-		private System.Nullable<decimal> _NETTAXRATE02;
-		
-		private System.Nullable<decimal> _NETTAXRATE03;
-		
-		private System.Nullable<decimal> _NETTAXRATE04;
-		
-		private System.Nullable<decimal> _NETTAXRATE05;
-		
-		private System.Nullable<decimal> _ADDUPAMT01;
-		
-		private System.Nullable<decimal> _ADDUPAMT02;
-		
-		private System.Nullable<decimal> _ADDUPAMT03;
-		
-		private System.Nullable<decimal> _ADDUPAMT04;
-		
-		private System.Nullable<decimal> _ADDUPAMT05;
-		
-		private System.Nullable<decimal> _FORSALBASD;
-		
-		private System.Nullable<decimal> _FORTAXRATE03;
-		
-		private System.Nullable<decimal> _ENTRYDAY;
-		
-		private System.Nullable<decimal> _FORTAXRATE01;
-		
-		private System.Nullable<decimal> _FORTAXRATE02;
-		
-    #region 擴充性方法定義
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnAUTOChanging(int value);
-    partial void OnAUTOChanged();
-    partial void OnTAXTYPEChanging(System.Nullable<int> value);
-    partial void OnTAXTYPEChanged();
-    partial void OnSTDEDUETAMTNMARChanging(System.Nullable<decimal> value);
-    partial void OnSTDEDUETAMTNMARChanged();
-    partial void OnSTDEDUETAMTMARChanging(System.Nullable<decimal> value);
-    partial void OnSTDEDUETAMTMARChanged();
-    partial void OnTAXFREE70DOWNChanging(System.Nullable<decimal> value);
-    partial void OnTAXFREE70DOWNChanged();
-    partial void OnTAXFREE70UPChanging(System.Nullable<decimal> value);
-    partial void OnTAXFREE70UPChanged();
-    partial void OnSALARYDEDUTAMTChanging(System.Nullable<decimal> value);
-    partial void OnSALARYDEDUTAMTChanged();
-    partial void OnTAXSALCODEChanging(string value);
-    partial void OnTAXSALCODEChanged();
-    partial void OnTAXAMTAMONTHChanging(System.Nullable<decimal> value);
-    partial void OnTAXAMTAMONTHChanged();
-    partial void OnFIXTAXRATEChanging(System.Nullable<decimal> value);
-    partial void OnFIXTAXRATEChanged();
-    partial void OnNETTAXAMT01Changing(System.Nullable<decimal> value);
-    partial void OnNETTAXAMT01Changed();
-    partial void OnNETTAXAMT02Changing(System.Nullable<decimal> value);
-    partial void OnNETTAXAMT02Changed();
-    partial void OnNETTAXAMT03Changing(System.Nullable<decimal> value);
-    partial void OnNETTAXAMT03Changed();
-    partial void OnNETTAXAMT04Changing(System.Nullable<decimal> value);
-    partial void OnNETTAXAMT04Changed();
-    partial void OnNETTAXAMT05Changing(System.Nullable<decimal> value);
-    partial void OnNETTAXAMT05Changed();
-    partial void OnNETTAXAMT06Changing(System.Nullable<decimal> value);
-    partial void OnNETTAXAMT06Changed();
-    partial void OnNETTAXAMT07Changing(System.Nullable<decimal> value);
-    partial void OnNETTAXAMT07Changed();
-    partial void OnNETTAXAMT08Changing(System.Nullable<decimal> value);
-    partial void OnNETTAXAMT08Changed();
-    partial void OnNETTAXAMT09Changing(System.Nullable<decimal> value);
-    partial void OnNETTAXAMT09Changed();
-    partial void OnNETTAXAMT10Changing(System.Nullable<decimal> value);
-    partial void OnNETTAXAMT10Changed();
-    partial void OnNETTAXRATE01Changing(System.Nullable<decimal> value);
-    partial void OnNETTAXRATE01Changed();
-    partial void OnNETTAXRATE02Changing(System.Nullable<decimal> value);
-    partial void OnNETTAXRATE02Changed();
-    partial void OnNETTAXRATE03Changing(System.Nullable<decimal> value);
-    partial void OnNETTAXRATE03Changed();
-    partial void OnNETTAXRATE04Changing(System.Nullable<decimal> value);
-    partial void OnNETTAXRATE04Changed();
-    partial void OnNETTAXRATE05Changing(System.Nullable<decimal> value);
-    partial void OnNETTAXRATE05Changed();
-    partial void OnADDUPAMT01Changing(System.Nullable<decimal> value);
-    partial void OnADDUPAMT01Changed();
-    partial void OnADDUPAMT02Changing(System.Nullable<decimal> value);
-    partial void OnADDUPAMT02Changed();
-    partial void OnADDUPAMT03Changing(System.Nullable<decimal> value);
-    partial void OnADDUPAMT03Changed();
-    partial void OnADDUPAMT04Changing(System.Nullable<decimal> value);
-    partial void OnADDUPAMT04Changed();
-    partial void OnADDUPAMT05Changing(System.Nullable<decimal> value);
-    partial void OnADDUPAMT05Changed();
-    partial void OnFORSALBASDChanging(System.Nullable<decimal> value);
-    partial void OnFORSALBASDChanged();
-    partial void OnFORTAXRATE03Changing(System.Nullable<decimal> value);
-    partial void OnFORTAXRATE03Changed();
-    partial void OnENTRYDAYChanging(System.Nullable<decimal> value);
-    partial void OnENTRYDAYChanged();
-    partial void OnFORTAXRATE01Changing(System.Nullable<decimal> value);
-    partial void OnFORTAXRATE01Changed();
-    partial void OnFORTAXRATE02Changing(System.Nullable<decimal> value);
-    partial void OnFORTAXRATE02Changed();
-    #endregion
-		
-		public U_SYS9()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AUTO", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int AUTO
-		{
-			get
-			{
-				return this._AUTO;
-			}
-			set
-			{
-				if ((this._AUTO != value))
-				{
-					this.OnAUTOChanging(value);
-					this.SendPropertyChanging();
-					this._AUTO = value;
-					this.SendPropertyChanged("AUTO");
-					this.OnAUTOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TAXTYPE", DbType="Int")]
-		public System.Nullable<int> TAXTYPE
-		{
-			get
-			{
-				return this._TAXTYPE;
-			}
-			set
-			{
-				if ((this._TAXTYPE != value))
-				{
-					this.OnTAXTYPEChanging(value);
-					this.SendPropertyChanging();
-					this._TAXTYPE = value;
-					this.SendPropertyChanged("TAXTYPE");
-					this.OnTAXTYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STDEDUETAMTNMAR", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> STDEDUETAMTNMAR
-		{
-			get
-			{
-				return this._STDEDUETAMTNMAR;
-			}
-			set
-			{
-				if ((this._STDEDUETAMTNMAR != value))
-				{
-					this.OnSTDEDUETAMTNMARChanging(value);
-					this.SendPropertyChanging();
-					this._STDEDUETAMTNMAR = value;
-					this.SendPropertyChanged("STDEDUETAMTNMAR");
-					this.OnSTDEDUETAMTNMARChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STDEDUETAMTMAR", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> STDEDUETAMTMAR
-		{
-			get
-			{
-				return this._STDEDUETAMTMAR;
-			}
-			set
-			{
-				if ((this._STDEDUETAMTMAR != value))
-				{
-					this.OnSTDEDUETAMTMARChanging(value);
-					this.SendPropertyChanging();
-					this._STDEDUETAMTMAR = value;
-					this.SendPropertyChanged("STDEDUETAMTMAR");
-					this.OnSTDEDUETAMTMARChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TAXFREE70DOWN", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> TAXFREE70DOWN
-		{
-			get
-			{
-				return this._TAXFREE70DOWN;
-			}
-			set
-			{
-				if ((this._TAXFREE70DOWN != value))
-				{
-					this.OnTAXFREE70DOWNChanging(value);
-					this.SendPropertyChanging();
-					this._TAXFREE70DOWN = value;
-					this.SendPropertyChanged("TAXFREE70DOWN");
-					this.OnTAXFREE70DOWNChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TAXFREE70UP", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> TAXFREE70UP
-		{
-			get
-			{
-				return this._TAXFREE70UP;
-			}
-			set
-			{
-				if ((this._TAXFREE70UP != value))
-				{
-					this.OnTAXFREE70UPChanging(value);
-					this.SendPropertyChanging();
-					this._TAXFREE70UP = value;
-					this.SendPropertyChanged("TAXFREE70UP");
-					this.OnTAXFREE70UPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SALARYDEDUTAMT", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> SALARYDEDUTAMT
-		{
-			get
-			{
-				return this._SALARYDEDUTAMT;
-			}
-			set
-			{
-				if ((this._SALARYDEDUTAMT != value))
-				{
-					this.OnSALARYDEDUTAMTChanging(value);
-					this.SendPropertyChanging();
-					this._SALARYDEDUTAMT = value;
-					this.SendPropertyChanged("SALARYDEDUTAMT");
-					this.OnSALARYDEDUTAMTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TAXSALCODE", DbType="NVarChar(50)")]
-		public string TAXSALCODE
-		{
-			get
-			{
-				return this._TAXSALCODE;
-			}
-			set
-			{
-				if ((this._TAXSALCODE != value))
-				{
-					this.OnTAXSALCODEChanging(value);
-					this.SendPropertyChanging();
-					this._TAXSALCODE = value;
-					this.SendPropertyChanged("TAXSALCODE");
-					this.OnTAXSALCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TAXAMTAMONTH", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> TAXAMTAMONTH
-		{
-			get
-			{
-				return this._TAXAMTAMONTH;
-			}
-			set
-			{
-				if ((this._TAXAMTAMONTH != value))
-				{
-					this.OnTAXAMTAMONTHChanging(value);
-					this.SendPropertyChanging();
-					this._TAXAMTAMONTH = value;
-					this.SendPropertyChanged("TAXAMTAMONTH");
-					this.OnTAXAMTAMONTHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIXTAXRATE", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> FIXTAXRATE
-		{
-			get
-			{
-				return this._FIXTAXRATE;
-			}
-			set
-			{
-				if ((this._FIXTAXRATE != value))
-				{
-					this.OnFIXTAXRATEChanging(value);
-					this.SendPropertyChanging();
-					this._FIXTAXRATE = value;
-					this.SendPropertyChanged("FIXTAXRATE");
-					this.OnFIXTAXRATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXAMT01", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> NETTAXAMT01
-		{
-			get
-			{
-				return this._NETTAXAMT01;
-			}
-			set
-			{
-				if ((this._NETTAXAMT01 != value))
-				{
-					this.OnNETTAXAMT01Changing(value);
-					this.SendPropertyChanging();
-					this._NETTAXAMT01 = value;
-					this.SendPropertyChanged("NETTAXAMT01");
-					this.OnNETTAXAMT01Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXAMT02", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> NETTAXAMT02
-		{
-			get
-			{
-				return this._NETTAXAMT02;
-			}
-			set
-			{
-				if ((this._NETTAXAMT02 != value))
-				{
-					this.OnNETTAXAMT02Changing(value);
-					this.SendPropertyChanging();
-					this._NETTAXAMT02 = value;
-					this.SendPropertyChanged("NETTAXAMT02");
-					this.OnNETTAXAMT02Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXAMT03", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> NETTAXAMT03
-		{
-			get
-			{
-				return this._NETTAXAMT03;
-			}
-			set
-			{
-				if ((this._NETTAXAMT03 != value))
-				{
-					this.OnNETTAXAMT03Changing(value);
-					this.SendPropertyChanging();
-					this._NETTAXAMT03 = value;
-					this.SendPropertyChanged("NETTAXAMT03");
-					this.OnNETTAXAMT03Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXAMT04", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> NETTAXAMT04
-		{
-			get
-			{
-				return this._NETTAXAMT04;
-			}
-			set
-			{
-				if ((this._NETTAXAMT04 != value))
-				{
-					this.OnNETTAXAMT04Changing(value);
-					this.SendPropertyChanging();
-					this._NETTAXAMT04 = value;
-					this.SendPropertyChanged("NETTAXAMT04");
-					this.OnNETTAXAMT04Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXAMT05", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> NETTAXAMT05
-		{
-			get
-			{
-				return this._NETTAXAMT05;
-			}
-			set
-			{
-				if ((this._NETTAXAMT05 != value))
-				{
-					this.OnNETTAXAMT05Changing(value);
-					this.SendPropertyChanging();
-					this._NETTAXAMT05 = value;
-					this.SendPropertyChanged("NETTAXAMT05");
-					this.OnNETTAXAMT05Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXAMT06", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> NETTAXAMT06
-		{
-			get
-			{
-				return this._NETTAXAMT06;
-			}
-			set
-			{
-				if ((this._NETTAXAMT06 != value))
-				{
-					this.OnNETTAXAMT06Changing(value);
-					this.SendPropertyChanging();
-					this._NETTAXAMT06 = value;
-					this.SendPropertyChanged("NETTAXAMT06");
-					this.OnNETTAXAMT06Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXAMT07", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> NETTAXAMT07
-		{
-			get
-			{
-				return this._NETTAXAMT07;
-			}
-			set
-			{
-				if ((this._NETTAXAMT07 != value))
-				{
-					this.OnNETTAXAMT07Changing(value);
-					this.SendPropertyChanging();
-					this._NETTAXAMT07 = value;
-					this.SendPropertyChanged("NETTAXAMT07");
-					this.OnNETTAXAMT07Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXAMT08", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> NETTAXAMT08
-		{
-			get
-			{
-				return this._NETTAXAMT08;
-			}
-			set
-			{
-				if ((this._NETTAXAMT08 != value))
-				{
-					this.OnNETTAXAMT08Changing(value);
-					this.SendPropertyChanging();
-					this._NETTAXAMT08 = value;
-					this.SendPropertyChanged("NETTAXAMT08");
-					this.OnNETTAXAMT08Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXAMT09", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> NETTAXAMT09
-		{
-			get
-			{
-				return this._NETTAXAMT09;
-			}
-			set
-			{
-				if ((this._NETTAXAMT09 != value))
-				{
-					this.OnNETTAXAMT09Changing(value);
-					this.SendPropertyChanging();
-					this._NETTAXAMT09 = value;
-					this.SendPropertyChanged("NETTAXAMT09");
-					this.OnNETTAXAMT09Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXAMT10", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> NETTAXAMT10
-		{
-			get
-			{
-				return this._NETTAXAMT10;
-			}
-			set
-			{
-				if ((this._NETTAXAMT10 != value))
-				{
-					this.OnNETTAXAMT10Changing(value);
-					this.SendPropertyChanging();
-					this._NETTAXAMT10 = value;
-					this.SendPropertyChanged("NETTAXAMT10");
-					this.OnNETTAXAMT10Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXRATE01", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> NETTAXRATE01
-		{
-			get
-			{
-				return this._NETTAXRATE01;
-			}
-			set
-			{
-				if ((this._NETTAXRATE01 != value))
-				{
-					this.OnNETTAXRATE01Changing(value);
-					this.SendPropertyChanging();
-					this._NETTAXRATE01 = value;
-					this.SendPropertyChanged("NETTAXRATE01");
-					this.OnNETTAXRATE01Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXRATE02", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> NETTAXRATE02
-		{
-			get
-			{
-				return this._NETTAXRATE02;
-			}
-			set
-			{
-				if ((this._NETTAXRATE02 != value))
-				{
-					this.OnNETTAXRATE02Changing(value);
-					this.SendPropertyChanging();
-					this._NETTAXRATE02 = value;
-					this.SendPropertyChanged("NETTAXRATE02");
-					this.OnNETTAXRATE02Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXRATE03", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> NETTAXRATE03
-		{
-			get
-			{
-				return this._NETTAXRATE03;
-			}
-			set
-			{
-				if ((this._NETTAXRATE03 != value))
-				{
-					this.OnNETTAXRATE03Changing(value);
-					this.SendPropertyChanging();
-					this._NETTAXRATE03 = value;
-					this.SendPropertyChanged("NETTAXRATE03");
-					this.OnNETTAXRATE03Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXRATE04", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> NETTAXRATE04
-		{
-			get
-			{
-				return this._NETTAXRATE04;
-			}
-			set
-			{
-				if ((this._NETTAXRATE04 != value))
-				{
-					this.OnNETTAXRATE04Changing(value);
-					this.SendPropertyChanging();
-					this._NETTAXRATE04 = value;
-					this.SendPropertyChanged("NETTAXRATE04");
-					this.OnNETTAXRATE04Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXRATE05", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> NETTAXRATE05
-		{
-			get
-			{
-				return this._NETTAXRATE05;
-			}
-			set
-			{
-				if ((this._NETTAXRATE05 != value))
-				{
-					this.OnNETTAXRATE05Changing(value);
-					this.SendPropertyChanging();
-					this._NETTAXRATE05 = value;
-					this.SendPropertyChanged("NETTAXRATE05");
-					this.OnNETTAXRATE05Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADDUPAMT01", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> ADDUPAMT01
-		{
-			get
-			{
-				return this._ADDUPAMT01;
-			}
-			set
-			{
-				if ((this._ADDUPAMT01 != value))
-				{
-					this.OnADDUPAMT01Changing(value);
-					this.SendPropertyChanging();
-					this._ADDUPAMT01 = value;
-					this.SendPropertyChanged("ADDUPAMT01");
-					this.OnADDUPAMT01Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADDUPAMT02", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> ADDUPAMT02
-		{
-			get
-			{
-				return this._ADDUPAMT02;
-			}
-			set
-			{
-				if ((this._ADDUPAMT02 != value))
-				{
-					this.OnADDUPAMT02Changing(value);
-					this.SendPropertyChanging();
-					this._ADDUPAMT02 = value;
-					this.SendPropertyChanged("ADDUPAMT02");
-					this.OnADDUPAMT02Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADDUPAMT03", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> ADDUPAMT03
-		{
-			get
-			{
-				return this._ADDUPAMT03;
-			}
-			set
-			{
-				if ((this._ADDUPAMT03 != value))
-				{
-					this.OnADDUPAMT03Changing(value);
-					this.SendPropertyChanging();
-					this._ADDUPAMT03 = value;
-					this.SendPropertyChanged("ADDUPAMT03");
-					this.OnADDUPAMT03Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADDUPAMT04", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> ADDUPAMT04
-		{
-			get
-			{
-				return this._ADDUPAMT04;
-			}
-			set
-			{
-				if ((this._ADDUPAMT04 != value))
-				{
-					this.OnADDUPAMT04Changing(value);
-					this.SendPropertyChanging();
-					this._ADDUPAMT04 = value;
-					this.SendPropertyChanged("ADDUPAMT04");
-					this.OnADDUPAMT04Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADDUPAMT05", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> ADDUPAMT05
-		{
-			get
-			{
-				return this._ADDUPAMT05;
-			}
-			set
-			{
-				if ((this._ADDUPAMT05 != value))
-				{
-					this.OnADDUPAMT05Changing(value);
-					this.SendPropertyChanging();
-					this._ADDUPAMT05 = value;
-					this.SendPropertyChanged("ADDUPAMT05");
-					this.OnADDUPAMT05Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FORSALBASD", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> FORSALBASD
-		{
-			get
-			{
-				return this._FORSALBASD;
-			}
-			set
-			{
-				if ((this._FORSALBASD != value))
-				{
-					this.OnFORSALBASDChanging(value);
-					this.SendPropertyChanging();
-					this._FORSALBASD = value;
-					this.SendPropertyChanged("FORSALBASD");
-					this.OnFORSALBASDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FORTAXRATE03", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> FORTAXRATE03
-		{
-			get
-			{
-				return this._FORTAXRATE03;
-			}
-			set
-			{
-				if ((this._FORTAXRATE03 != value))
-				{
-					this.OnFORTAXRATE03Changing(value);
-					this.SendPropertyChanging();
-					this._FORTAXRATE03 = value;
-					this.SendPropertyChanged("FORTAXRATE03");
-					this.OnFORTAXRATE03Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ENTRYDAY", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> ENTRYDAY
-		{
-			get
-			{
-				return this._ENTRYDAY;
-			}
-			set
-			{
-				if ((this._ENTRYDAY != value))
-				{
-					this.OnENTRYDAYChanging(value);
-					this.SendPropertyChanging();
-					this._ENTRYDAY = value;
-					this.SendPropertyChanged("ENTRYDAY");
-					this.OnENTRYDAYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FORTAXRATE01", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> FORTAXRATE01
-		{
-			get
-			{
-				return this._FORTAXRATE01;
-			}
-			set
-			{
-				if ((this._FORTAXRATE01 != value))
-				{
-					this.OnFORTAXRATE01Changing(value);
-					this.SendPropertyChanging();
-					this._FORTAXRATE01 = value;
-					this.SendPropertyChanged("FORTAXRATE01");
-					this.OnFORTAXRATE01Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FORTAXRATE02", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> FORTAXRATE02
-		{
-			get
-			{
-				return this._FORTAXRATE02;
-			}
-			set
-			{
-				if ((this._FORTAXRATE02 != value))
-				{
-					this.OnFORTAXRATE02Changing(value);
-					this.SendPropertyChanging();
-					this._FORTAXRATE02 = value;
-					this.SendPropertyChanged("FORTAXRATE02");
-					this.OnFORTAXRATE02Changed();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.U_SYS1")]
-	public partial class U_SYS1 : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _AUTO;
-		
-		private string _COMPANY;
-		
-		private string _COMPADDR;
-		
-		private string _COMPTEL;
-		
-		private string _COMPFAX;
-		
-		private string _COMPLABID;
-		
-		private string _COMPHELID;
-		
-		private string _COMPID;
-		
-		private string _COMPMAN;
-		
-		private string _HELORGNAME;
-		
-		private string _FF103;
-		
-		private string _FF0407;
-		
-		private string _COMPANYBANKAC;
-		
-		private string _COMPANYBANKNO;
-		
-		private string _COMPANY1;
-		
-		private string _COMPID1;
-		
-		private string _FF04071;
-		
-    #region 擴充性方法定義
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnAUTOChanging(int value);
-    partial void OnAUTOChanged();
-    partial void OnCOMPANYChanging(string value);
-    partial void OnCOMPANYChanged();
-    partial void OnCOMPADDRChanging(string value);
-    partial void OnCOMPADDRChanged();
-    partial void OnCOMPTELChanging(string value);
-    partial void OnCOMPTELChanged();
-    partial void OnCOMPFAXChanging(string value);
-    partial void OnCOMPFAXChanged();
-    partial void OnCOMPLABIDChanging(string value);
-    partial void OnCOMPLABIDChanged();
-    partial void OnCOMPHELIDChanging(string value);
-    partial void OnCOMPHELIDChanged();
-    partial void OnCOMPIDChanging(string value);
-    partial void OnCOMPIDChanged();
-    partial void OnCOMPMANChanging(string value);
-    partial void OnCOMPMANChanged();
-    partial void OnHELORGNAMEChanging(string value);
-    partial void OnHELORGNAMEChanged();
-    partial void OnFF103Changing(string value);
-    partial void OnFF103Changed();
-    partial void OnFF0407Changing(string value);
-    partial void OnFF0407Changed();
-    partial void OnCOMPANYBANKACChanging(string value);
-    partial void OnCOMPANYBANKACChanged();
-    partial void OnCOMPANYBANKNOChanging(string value);
-    partial void OnCOMPANYBANKNOChanged();
-    partial void OnCOMPANY1Changing(string value);
-    partial void OnCOMPANY1Changed();
-    partial void OnCOMPID1Changing(string value);
-    partial void OnCOMPID1Changed();
-    partial void OnFF04071Changing(string value);
-    partial void OnFF04071Changed();
-    #endregion
-		
-		public U_SYS1()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AUTO", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int AUTO
-		{
-			get
-			{
-				return this._AUTO;
-			}
-			set
-			{
-				if ((this._AUTO != value))
-				{
-					this.OnAUTOChanging(value);
-					this.SendPropertyChanging();
-					this._AUTO = value;
-					this.SendPropertyChanged("AUTO");
-					this.OnAUTOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPANY", DbType="NVarChar(50)")]
-		public string COMPANY
-		{
-			get
-			{
-				return this._COMPANY;
-			}
-			set
-			{
-				if ((this._COMPANY != value))
-				{
-					this.OnCOMPANYChanging(value);
-					this.SendPropertyChanging();
-					this._COMPANY = value;
-					this.SendPropertyChanged("COMPANY");
-					this.OnCOMPANYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPADDR", DbType="NVarChar(50)")]
-		public string COMPADDR
-		{
-			get
-			{
-				return this._COMPADDR;
-			}
-			set
-			{
-				if ((this._COMPADDR != value))
-				{
-					this.OnCOMPADDRChanging(value);
-					this.SendPropertyChanging();
-					this._COMPADDR = value;
-					this.SendPropertyChanged("COMPADDR");
-					this.OnCOMPADDRChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPTEL", DbType="NVarChar(50)")]
-		public string COMPTEL
-		{
-			get
-			{
-				return this._COMPTEL;
-			}
-			set
-			{
-				if ((this._COMPTEL != value))
-				{
-					this.OnCOMPTELChanging(value);
-					this.SendPropertyChanging();
-					this._COMPTEL = value;
-					this.SendPropertyChanged("COMPTEL");
-					this.OnCOMPTELChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPFAX", DbType="NVarChar(50)")]
-		public string COMPFAX
-		{
-			get
-			{
-				return this._COMPFAX;
-			}
-			set
-			{
-				if ((this._COMPFAX != value))
-				{
-					this.OnCOMPFAXChanging(value);
-					this.SendPropertyChanging();
-					this._COMPFAX = value;
-					this.SendPropertyChanged("COMPFAX");
-					this.OnCOMPFAXChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPLABID", DbType="NVarChar(50)")]
-		public string COMPLABID
-		{
-			get
-			{
-				return this._COMPLABID;
-			}
-			set
-			{
-				if ((this._COMPLABID != value))
-				{
-					this.OnCOMPLABIDChanging(value);
-					this.SendPropertyChanging();
-					this._COMPLABID = value;
-					this.SendPropertyChanged("COMPLABID");
-					this.OnCOMPLABIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPHELID", DbType="NVarChar(50)")]
-		public string COMPHELID
-		{
-			get
-			{
-				return this._COMPHELID;
-			}
-			set
-			{
-				if ((this._COMPHELID != value))
-				{
-					this.OnCOMPHELIDChanging(value);
-					this.SendPropertyChanging();
-					this._COMPHELID = value;
-					this.SendPropertyChanged("COMPHELID");
-					this.OnCOMPHELIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPID", DbType="NVarChar(50)")]
-		public string COMPID
-		{
-			get
-			{
-				return this._COMPID;
-			}
-			set
-			{
-				if ((this._COMPID != value))
-				{
-					this.OnCOMPIDChanging(value);
-					this.SendPropertyChanging();
-					this._COMPID = value;
-					this.SendPropertyChanged("COMPID");
-					this.OnCOMPIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPMAN", DbType="NVarChar(50)")]
-		public string COMPMAN
-		{
-			get
-			{
-				return this._COMPMAN;
-			}
-			set
-			{
-				if ((this._COMPMAN != value))
-				{
-					this.OnCOMPMANChanging(value);
-					this.SendPropertyChanging();
-					this._COMPMAN = value;
-					this.SendPropertyChanged("COMPMAN");
-					this.OnCOMPMANChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HELORGNAME", DbType="NVarChar(50)")]
-		public string HELORGNAME
-		{
-			get
-			{
-				return this._HELORGNAME;
-			}
-			set
-			{
-				if ((this._HELORGNAME != value))
-				{
-					this.OnHELORGNAMEChanging(value);
-					this.SendPropertyChanging();
-					this._HELORGNAME = value;
-					this.SendPropertyChanged("HELORGNAME");
-					this.OnHELORGNAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FF103", DbType="NVarChar(50)")]
-		public string FF103
-		{
-			get
-			{
-				return this._FF103;
-			}
-			set
-			{
-				if ((this._FF103 != value))
-				{
-					this.OnFF103Changing(value);
-					this.SendPropertyChanging();
-					this._FF103 = value;
-					this.SendPropertyChanged("FF103");
-					this.OnFF103Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FF0407", DbType="NVarChar(50)")]
-		public string FF0407
-		{
-			get
-			{
-				return this._FF0407;
-			}
-			set
-			{
-				if ((this._FF0407 != value))
-				{
-					this.OnFF0407Changing(value);
-					this.SendPropertyChanging();
-					this._FF0407 = value;
-					this.SendPropertyChanged("FF0407");
-					this.OnFF0407Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPANYBANKAC", DbType="NVarChar(50)")]
-		public string COMPANYBANKAC
-		{
-			get
-			{
-				return this._COMPANYBANKAC;
-			}
-			set
-			{
-				if ((this._COMPANYBANKAC != value))
-				{
-					this.OnCOMPANYBANKACChanging(value);
-					this.SendPropertyChanging();
-					this._COMPANYBANKAC = value;
-					this.SendPropertyChanged("COMPANYBANKAC");
-					this.OnCOMPANYBANKACChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPANYBANKNO", DbType="NVarChar(50)")]
-		public string COMPANYBANKNO
-		{
-			get
-			{
-				return this._COMPANYBANKNO;
-			}
-			set
-			{
-				if ((this._COMPANYBANKNO != value))
-				{
-					this.OnCOMPANYBANKNOChanging(value);
-					this.SendPropertyChanging();
-					this._COMPANYBANKNO = value;
-					this.SendPropertyChanged("COMPANYBANKNO");
-					this.OnCOMPANYBANKNOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPANY1", DbType="NVarChar(50)")]
-		public string COMPANY1
-		{
-			get
-			{
-				return this._COMPANY1;
-			}
-			set
-			{
-				if ((this._COMPANY1 != value))
-				{
-					this.OnCOMPANY1Changing(value);
-					this.SendPropertyChanging();
-					this._COMPANY1 = value;
-					this.SendPropertyChanged("COMPANY1");
-					this.OnCOMPANY1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPID1", DbType="NVarChar(50)")]
-		public string COMPID1
-		{
-			get
-			{
-				return this._COMPID1;
-			}
-			set
-			{
-				if ((this._COMPID1 != value))
-				{
-					this.OnCOMPID1Changing(value);
-					this.SendPropertyChanging();
-					this._COMPID1 = value;
-					this.SendPropertyChanged("COMPID1");
-					this.OnCOMPID1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FF04071", DbType="NVarChar(50)")]
-		public string FF04071
-		{
-			get
-			{
-				return this._FF04071;
-			}
-			set
-			{
-				if ((this._FF04071 != value))
-				{
-					this.OnFF04071Changing(value);
-					this.SendPropertyChanging();
-					this._FF04071 = value;
-					this.SendPropertyChanged("FF04071");
-					this.OnFF04071Changed();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.U_SYS10")]
 	public partial class U_SYS10 : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -8382,308 +7058,6 @@ namespace JBHR.Sal
 					this._OTUNIT = value;
 					this.SendPropertyChanged("OTUNIT");
 					this.OnOTUNITChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.U_SYS4")]
-	public partial class U_SYS4 : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _AUTO;
-		
-		private string _LSALCODE;
-		
-		private string _LABOVERSALCODE;
-		
-		private string _LABREPAIRSALCODE;
-		
-		private System.Nullable<decimal> _LJOBPER;
-		
-		private System.Nullable<decimal> _LJOBPER1;
-		
-		private System.Nullable<decimal> _RETIRERATE;
-		
-		private System.Nullable<decimal> _RETIRERATE1;
-		
-		private System.Nullable<decimal> _NRETIRERATE;
-		
-		private System.Nullable<decimal> _NRETIRERATE1;
-		
-		private string _RETSALCODE;
-		
-    #region 擴充性方法定義
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnAUTOChanging(int value);
-    partial void OnAUTOChanged();
-    partial void OnLSALCODEChanging(string value);
-    partial void OnLSALCODEChanged();
-    partial void OnLABOVERSALCODEChanging(string value);
-    partial void OnLABOVERSALCODEChanged();
-    partial void OnLABREPAIRSALCODEChanging(string value);
-    partial void OnLABREPAIRSALCODEChanged();
-    partial void OnLJOBPERChanging(System.Nullable<decimal> value);
-    partial void OnLJOBPERChanged();
-    partial void OnLJOBPER1Changing(System.Nullable<decimal> value);
-    partial void OnLJOBPER1Changed();
-    partial void OnRETIRERATEChanging(System.Nullable<decimal> value);
-    partial void OnRETIRERATEChanged();
-    partial void OnRETIRERATE1Changing(System.Nullable<decimal> value);
-    partial void OnRETIRERATE1Changed();
-    partial void OnNRETIRERATEChanging(System.Nullable<decimal> value);
-    partial void OnNRETIRERATEChanged();
-    partial void OnNRETIRERATE1Changing(System.Nullable<decimal> value);
-    partial void OnNRETIRERATE1Changed();
-    partial void OnRETSALCODEChanging(string value);
-    partial void OnRETSALCODEChanged();
-    #endregion
-		
-		public U_SYS4()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AUTO", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int AUTO
-		{
-			get
-			{
-				return this._AUTO;
-			}
-			set
-			{
-				if ((this._AUTO != value))
-				{
-					this.OnAUTOChanging(value);
-					this.SendPropertyChanging();
-					this._AUTO = value;
-					this.SendPropertyChanged("AUTO");
-					this.OnAUTOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LSALCODE", DbType="NVarChar(50)")]
-		public string LSALCODE
-		{
-			get
-			{
-				return this._LSALCODE;
-			}
-			set
-			{
-				if ((this._LSALCODE != value))
-				{
-					this.OnLSALCODEChanging(value);
-					this.SendPropertyChanging();
-					this._LSALCODE = value;
-					this.SendPropertyChanged("LSALCODE");
-					this.OnLSALCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LABOVERSALCODE", DbType="NVarChar(50)")]
-		public string LABOVERSALCODE
-		{
-			get
-			{
-				return this._LABOVERSALCODE;
-			}
-			set
-			{
-				if ((this._LABOVERSALCODE != value))
-				{
-					this.OnLABOVERSALCODEChanging(value);
-					this.SendPropertyChanging();
-					this._LABOVERSALCODE = value;
-					this.SendPropertyChanged("LABOVERSALCODE");
-					this.OnLABOVERSALCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LABREPAIRSALCODE", DbType="NVarChar(50)")]
-		public string LABREPAIRSALCODE
-		{
-			get
-			{
-				return this._LABREPAIRSALCODE;
-			}
-			set
-			{
-				if ((this._LABREPAIRSALCODE != value))
-				{
-					this.OnLABREPAIRSALCODEChanging(value);
-					this.SendPropertyChanging();
-					this._LABREPAIRSALCODE = value;
-					this.SendPropertyChanged("LABREPAIRSALCODE");
-					this.OnLABREPAIRSALCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LJOBPER", DbType="Decimal(16,3)")]
-		public System.Nullable<decimal> LJOBPER
-		{
-			get
-			{
-				return this._LJOBPER;
-			}
-			set
-			{
-				if ((this._LJOBPER != value))
-				{
-					this.OnLJOBPERChanging(value);
-					this.SendPropertyChanging();
-					this._LJOBPER = value;
-					this.SendPropertyChanged("LJOBPER");
-					this.OnLJOBPERChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LJOBPER1", DbType="Decimal(16,3)")]
-		public System.Nullable<decimal> LJOBPER1
-		{
-			get
-			{
-				return this._LJOBPER1;
-			}
-			set
-			{
-				if ((this._LJOBPER1 != value))
-				{
-					this.OnLJOBPER1Changing(value);
-					this.SendPropertyChanging();
-					this._LJOBPER1 = value;
-					this.SendPropertyChanged("LJOBPER1");
-					this.OnLJOBPER1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RETIRERATE", DbType="Decimal(16,3)")]
-		public System.Nullable<decimal> RETIRERATE
-		{
-			get
-			{
-				return this._RETIRERATE;
-			}
-			set
-			{
-				if ((this._RETIRERATE != value))
-				{
-					this.OnRETIRERATEChanging(value);
-					this.SendPropertyChanging();
-					this._RETIRERATE = value;
-					this.SendPropertyChanged("RETIRERATE");
-					this.OnRETIRERATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RETIRERATE1", DbType="Decimal(16,3)")]
-		public System.Nullable<decimal> RETIRERATE1
-		{
-			get
-			{
-				return this._RETIRERATE1;
-			}
-			set
-			{
-				if ((this._RETIRERATE1 != value))
-				{
-					this.OnRETIRERATE1Changing(value);
-					this.SendPropertyChanging();
-					this._RETIRERATE1 = value;
-					this.SendPropertyChanged("RETIRERATE1");
-					this.OnRETIRERATE1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRETIRERATE", DbType="Decimal(16,3)")]
-		public System.Nullable<decimal> NRETIRERATE
-		{
-			get
-			{
-				return this._NRETIRERATE;
-			}
-			set
-			{
-				if ((this._NRETIRERATE != value))
-				{
-					this.OnNRETIRERATEChanging(value);
-					this.SendPropertyChanging();
-					this._NRETIRERATE = value;
-					this.SendPropertyChanged("NRETIRERATE");
-					this.OnNRETIRERATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRETIRERATE1", DbType="Decimal(16,3)")]
-		public System.Nullable<decimal> NRETIRERATE1
-		{
-			get
-			{
-				return this._NRETIRERATE1;
-			}
-			set
-			{
-				if ((this._NRETIRERATE1 != value))
-				{
-					this.OnNRETIRERATE1Changing(value);
-					this.SendPropertyChanging();
-					this._NRETIRERATE1 = value;
-					this.SendPropertyChanged("NRETIRERATE1");
-					this.OnNRETIRERATE1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RETSALCODE", DbType="NVarChar(50)")]
-		public string RETSALCODE
-		{
-			get
-			{
-				return this._RETSALCODE;
-			}
-			set
-			{
-				if ((this._RETSALCODE != value))
-				{
-					this.OnRETSALCODEChanging(value);
-					this.SendPropertyChanging();
-					this._RETSALCODE = value;
-					this.SendPropertyChanged("RETSALCODE");
-					this.OnRETSALCODEChanged();
 				}
 			}
 		}
@@ -15180,668 +13554,6 @@ namespace JBHR.Sal
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.U_SYS2")]
-	public partial class U_SYS2 : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _Comp;
-		
-		private string _WELSALCODE;
-		
-		private System.Nullable<decimal> _WELPAY;
-		
-		private System.Nullable<int> _ATTMONTH;
-		
-		private System.Nullable<int> _SALMONTH;
-		
-		private string _EATSALCODE;
-		
-		private string _FOODSALCODE;
-		
-		private string _EMPSALCODE;
-		
-		private System.Nullable<int> _INDAY;
-		
-		private string _ONDUTYSALCODE;
-		
-		private System.Nullable<decimal> _ONDUTYAMT;
-		
-		private string _ATTAWARDSALCODE;
-		
-		private System.Nullable<decimal> _ATTMONAMT;
-		
-		private System.Nullable<decimal> _ATTQTY;
-		
-		private System.Nullable<decimal> _ATTQTY1;
-		
-		private System.Nullable<decimal> _ATTAMT;
-		
-		private System.Nullable<decimal> _ATTAMT1;
-		
-		private System.Nullable<decimal> _LATTQTY;
-		
-		private System.Nullable<decimal> _LATTQTY1;
-		
-		private System.Nullable<decimal> _LATTAMT;
-		
-		private System.Nullable<decimal> _LATTAMT1;
-		
-		private System.Nullable<decimal> _FATTQTY;
-		
-		private System.Nullable<decimal> _FATTQTY1;
-		
-		private System.Nullable<decimal> _FATTAMT;
-		
-		private System.Nullable<decimal> _FATTAMT1;
-		
-		private System.Nullable<int> _Decimals;
-		
-    #region 擴充性方法定義
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCompChanging(string value);
-    partial void OnCompChanged();
-    partial void OnWELSALCODEChanging(string value);
-    partial void OnWELSALCODEChanged();
-    partial void OnWELPAYChanging(System.Nullable<decimal> value);
-    partial void OnWELPAYChanged();
-    partial void OnATTMONTHChanging(System.Nullable<int> value);
-    partial void OnATTMONTHChanged();
-    partial void OnSALMONTHChanging(System.Nullable<int> value);
-    partial void OnSALMONTHChanged();
-    partial void OnEATSALCODEChanging(string value);
-    partial void OnEATSALCODEChanged();
-    partial void OnFOODSALCODEChanging(string value);
-    partial void OnFOODSALCODEChanged();
-    partial void OnEMPSALCODEChanging(string value);
-    partial void OnEMPSALCODEChanged();
-    partial void OnINDAYChanging(System.Nullable<int> value);
-    partial void OnINDAYChanged();
-    partial void OnONDUTYSALCODEChanging(string value);
-    partial void OnONDUTYSALCODEChanged();
-    partial void OnONDUTYAMTChanging(System.Nullable<decimal> value);
-    partial void OnONDUTYAMTChanged();
-    partial void OnATTAWARDSALCODEChanging(string value);
-    partial void OnATTAWARDSALCODEChanged();
-    partial void OnATTMONAMTChanging(System.Nullable<decimal> value);
-    partial void OnATTMONAMTChanged();
-    partial void OnATTQTYChanging(System.Nullable<decimal> value);
-    partial void OnATTQTYChanged();
-    partial void OnATTQTY1Changing(System.Nullable<decimal> value);
-    partial void OnATTQTY1Changed();
-    partial void OnATTAMTChanging(System.Nullable<decimal> value);
-    partial void OnATTAMTChanged();
-    partial void OnATTAMT1Changing(System.Nullable<decimal> value);
-    partial void OnATTAMT1Changed();
-    partial void OnLATTQTYChanging(System.Nullable<decimal> value);
-    partial void OnLATTQTYChanged();
-    partial void OnLATTQTY1Changing(System.Nullable<decimal> value);
-    partial void OnLATTQTY1Changed();
-    partial void OnLATTAMTChanging(System.Nullable<decimal> value);
-    partial void OnLATTAMTChanged();
-    partial void OnLATTAMT1Changing(System.Nullable<decimal> value);
-    partial void OnLATTAMT1Changed();
-    partial void OnFATTQTYChanging(System.Nullable<decimal> value);
-    partial void OnFATTQTYChanged();
-    partial void OnFATTQTY1Changing(System.Nullable<decimal> value);
-    partial void OnFATTQTY1Changed();
-    partial void OnFATTAMTChanging(System.Nullable<decimal> value);
-    partial void OnFATTAMTChanged();
-    partial void OnFATTAMT1Changing(System.Nullable<decimal> value);
-    partial void OnFATTAMT1Changed();
-    partial void OnDecimalsChanging(System.Nullable<int> value);
-    partial void OnDecimalsChanged();
-    #endregion
-		
-		public U_SYS2()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comp", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string Comp
-		{
-			get
-			{
-				return this._Comp;
-			}
-			set
-			{
-				if ((this._Comp != value))
-				{
-					this.OnCompChanging(value);
-					this.SendPropertyChanging();
-					this._Comp = value;
-					this.SendPropertyChanged("Comp");
-					this.OnCompChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WELSALCODE", DbType="NVarChar(50)")]
-		public string WELSALCODE
-		{
-			get
-			{
-				return this._WELSALCODE;
-			}
-			set
-			{
-				if ((this._WELSALCODE != value))
-				{
-					this.OnWELSALCODEChanging(value);
-					this.SendPropertyChanging();
-					this._WELSALCODE = value;
-					this.SendPropertyChanged("WELSALCODE");
-					this.OnWELSALCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WELPAY", DbType="Decimal(16,3)")]
-		public System.Nullable<decimal> WELPAY
-		{
-			get
-			{
-				return this._WELPAY;
-			}
-			set
-			{
-				if ((this._WELPAY != value))
-				{
-					this.OnWELPAYChanging(value);
-					this.SendPropertyChanging();
-					this._WELPAY = value;
-					this.SendPropertyChanged("WELPAY");
-					this.OnWELPAYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTMONTH", DbType="Int")]
-		public System.Nullable<int> ATTMONTH
-		{
-			get
-			{
-				return this._ATTMONTH;
-			}
-			set
-			{
-				if ((this._ATTMONTH != value))
-				{
-					this.OnATTMONTHChanging(value);
-					this.SendPropertyChanging();
-					this._ATTMONTH = value;
-					this.SendPropertyChanged("ATTMONTH");
-					this.OnATTMONTHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SALMONTH", DbType="Int")]
-		public System.Nullable<int> SALMONTH
-		{
-			get
-			{
-				return this._SALMONTH;
-			}
-			set
-			{
-				if ((this._SALMONTH != value))
-				{
-					this.OnSALMONTHChanging(value);
-					this.SendPropertyChanging();
-					this._SALMONTH = value;
-					this.SendPropertyChanged("SALMONTH");
-					this.OnSALMONTHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EATSALCODE", DbType="NVarChar(50)")]
-		public string EATSALCODE
-		{
-			get
-			{
-				return this._EATSALCODE;
-			}
-			set
-			{
-				if ((this._EATSALCODE != value))
-				{
-					this.OnEATSALCODEChanging(value);
-					this.SendPropertyChanging();
-					this._EATSALCODE = value;
-					this.SendPropertyChanged("EATSALCODE");
-					this.OnEATSALCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOODSALCODE", DbType="NVarChar(50)")]
-		public string FOODSALCODE
-		{
-			get
-			{
-				return this._FOODSALCODE;
-			}
-			set
-			{
-				if ((this._FOODSALCODE != value))
-				{
-					this.OnFOODSALCODEChanging(value);
-					this.SendPropertyChanging();
-					this._FOODSALCODE = value;
-					this.SendPropertyChanged("FOODSALCODE");
-					this.OnFOODSALCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPSALCODE", DbType="NVarChar(50)")]
-		public string EMPSALCODE
-		{
-			get
-			{
-				return this._EMPSALCODE;
-			}
-			set
-			{
-				if ((this._EMPSALCODE != value))
-				{
-					this.OnEMPSALCODEChanging(value);
-					this.SendPropertyChanging();
-					this._EMPSALCODE = value;
-					this.SendPropertyChanged("EMPSALCODE");
-					this.OnEMPSALCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INDAY", DbType="Int")]
-		public System.Nullable<int> INDAY
-		{
-			get
-			{
-				return this._INDAY;
-			}
-			set
-			{
-				if ((this._INDAY != value))
-				{
-					this.OnINDAYChanging(value);
-					this.SendPropertyChanging();
-					this._INDAY = value;
-					this.SendPropertyChanged("INDAY");
-					this.OnINDAYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ONDUTYSALCODE", DbType="NVarChar(50)")]
-		public string ONDUTYSALCODE
-		{
-			get
-			{
-				return this._ONDUTYSALCODE;
-			}
-			set
-			{
-				if ((this._ONDUTYSALCODE != value))
-				{
-					this.OnONDUTYSALCODEChanging(value);
-					this.SendPropertyChanging();
-					this._ONDUTYSALCODE = value;
-					this.SendPropertyChanged("ONDUTYSALCODE");
-					this.OnONDUTYSALCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ONDUTYAMT", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> ONDUTYAMT
-		{
-			get
-			{
-				return this._ONDUTYAMT;
-			}
-			set
-			{
-				if ((this._ONDUTYAMT != value))
-				{
-					this.OnONDUTYAMTChanging(value);
-					this.SendPropertyChanging();
-					this._ONDUTYAMT = value;
-					this.SendPropertyChanged("ONDUTYAMT");
-					this.OnONDUTYAMTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTAWARDSALCODE", DbType="NVarChar(50)")]
-		public string ATTAWARDSALCODE
-		{
-			get
-			{
-				return this._ATTAWARDSALCODE;
-			}
-			set
-			{
-				if ((this._ATTAWARDSALCODE != value))
-				{
-					this.OnATTAWARDSALCODEChanging(value);
-					this.SendPropertyChanging();
-					this._ATTAWARDSALCODE = value;
-					this.SendPropertyChanged("ATTAWARDSALCODE");
-					this.OnATTAWARDSALCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTMONAMT", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> ATTMONAMT
-		{
-			get
-			{
-				return this._ATTMONAMT;
-			}
-			set
-			{
-				if ((this._ATTMONAMT != value))
-				{
-					this.OnATTMONAMTChanging(value);
-					this.SendPropertyChanging();
-					this._ATTMONAMT = value;
-					this.SendPropertyChanged("ATTMONAMT");
-					this.OnATTMONAMTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTQTY", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> ATTQTY
-		{
-			get
-			{
-				return this._ATTQTY;
-			}
-			set
-			{
-				if ((this._ATTQTY != value))
-				{
-					this.OnATTQTYChanging(value);
-					this.SendPropertyChanging();
-					this._ATTQTY = value;
-					this.SendPropertyChanged("ATTQTY");
-					this.OnATTQTYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTQTY1", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> ATTQTY1
-		{
-			get
-			{
-				return this._ATTQTY1;
-			}
-			set
-			{
-				if ((this._ATTQTY1 != value))
-				{
-					this.OnATTQTY1Changing(value);
-					this.SendPropertyChanging();
-					this._ATTQTY1 = value;
-					this.SendPropertyChanged("ATTQTY1");
-					this.OnATTQTY1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTAMT", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> ATTAMT
-		{
-			get
-			{
-				return this._ATTAMT;
-			}
-			set
-			{
-				if ((this._ATTAMT != value))
-				{
-					this.OnATTAMTChanging(value);
-					this.SendPropertyChanging();
-					this._ATTAMT = value;
-					this.SendPropertyChanged("ATTAMT");
-					this.OnATTAMTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTAMT1", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> ATTAMT1
-		{
-			get
-			{
-				return this._ATTAMT1;
-			}
-			set
-			{
-				if ((this._ATTAMT1 != value))
-				{
-					this.OnATTAMT1Changing(value);
-					this.SendPropertyChanging();
-					this._ATTAMT1 = value;
-					this.SendPropertyChanged("ATTAMT1");
-					this.OnATTAMT1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LATTQTY", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> LATTQTY
-		{
-			get
-			{
-				return this._LATTQTY;
-			}
-			set
-			{
-				if ((this._LATTQTY != value))
-				{
-					this.OnLATTQTYChanging(value);
-					this.SendPropertyChanging();
-					this._LATTQTY = value;
-					this.SendPropertyChanged("LATTQTY");
-					this.OnLATTQTYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LATTQTY1", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> LATTQTY1
-		{
-			get
-			{
-				return this._LATTQTY1;
-			}
-			set
-			{
-				if ((this._LATTQTY1 != value))
-				{
-					this.OnLATTQTY1Changing(value);
-					this.SendPropertyChanging();
-					this._LATTQTY1 = value;
-					this.SendPropertyChanged("LATTQTY1");
-					this.OnLATTQTY1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LATTAMT", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> LATTAMT
-		{
-			get
-			{
-				return this._LATTAMT;
-			}
-			set
-			{
-				if ((this._LATTAMT != value))
-				{
-					this.OnLATTAMTChanging(value);
-					this.SendPropertyChanging();
-					this._LATTAMT = value;
-					this.SendPropertyChanged("LATTAMT");
-					this.OnLATTAMTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LATTAMT1", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> LATTAMT1
-		{
-			get
-			{
-				return this._LATTAMT1;
-			}
-			set
-			{
-				if ((this._LATTAMT1 != value))
-				{
-					this.OnLATTAMT1Changing(value);
-					this.SendPropertyChanging();
-					this._LATTAMT1 = value;
-					this.SendPropertyChanged("LATTAMT1");
-					this.OnLATTAMT1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FATTQTY", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> FATTQTY
-		{
-			get
-			{
-				return this._FATTQTY;
-			}
-			set
-			{
-				if ((this._FATTQTY != value))
-				{
-					this.OnFATTQTYChanging(value);
-					this.SendPropertyChanging();
-					this._FATTQTY = value;
-					this.SendPropertyChanged("FATTQTY");
-					this.OnFATTQTYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FATTQTY1", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> FATTQTY1
-		{
-			get
-			{
-				return this._FATTQTY1;
-			}
-			set
-			{
-				if ((this._FATTQTY1 != value))
-				{
-					this.OnFATTQTY1Changing(value);
-					this.SendPropertyChanging();
-					this._FATTQTY1 = value;
-					this.SendPropertyChanged("FATTQTY1");
-					this.OnFATTQTY1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FATTAMT", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> FATTAMT
-		{
-			get
-			{
-				return this._FATTAMT;
-			}
-			set
-			{
-				if ((this._FATTAMT != value))
-				{
-					this.OnFATTAMTChanging(value);
-					this.SendPropertyChanging();
-					this._FATTAMT = value;
-					this.SendPropertyChanged("FATTAMT");
-					this.OnFATTAMTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FATTAMT1", DbType="Decimal(16,2)")]
-		public System.Nullable<decimal> FATTAMT1
-		{
-			get
-			{
-				return this._FATTAMT1;
-			}
-			set
-			{
-				if ((this._FATTAMT1 != value))
-				{
-					this.OnFATTAMT1Changing(value);
-					this.SendPropertyChanging();
-					this._FATTAMT1 = value;
-					this.SendPropertyChanged("FATTAMT1");
-					this.OnFATTAMT1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Decimals", DbType="Int")]
-		public System.Nullable<int> Decimals
-		{
-			get
-			{
-				return this._Decimals;
-			}
-			set
-			{
-				if ((this._Decimals != value))
-				{
-					this.OnDecimalsChanging(value);
-					this.SendPropertyChanging();
-					this._Decimals = value;
-					this.SendPropertyChanged("Decimals");
-					this.OnDecimalsChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.U_SYS5")]
 	public partial class U_SYS5 : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -18331,6 +16043,2270 @@ namespace JBHR.Sal
 					this._NODISASTER = value;
 					this.SendPropertyChanged("NODISASTER");
 					this.OnNODISASTERChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.U_SYS9")]
+	public partial class U_SYS9 : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Comp;
+		
+		private System.Nullable<int> _TAXTYPE;
+		
+		private System.Nullable<decimal> _STDEDUETAMTNMAR;
+		
+		private System.Nullable<decimal> _STDEDUETAMTMAR;
+		
+		private System.Nullable<decimal> _TAXFREE70DOWN;
+		
+		private System.Nullable<decimal> _TAXFREE70UP;
+		
+		private System.Nullable<decimal> _SALARYDEDUTAMT;
+		
+		private string _TAXSALCODE;
+		
+		private System.Nullable<decimal> _TAXAMTAMONTH;
+		
+		private System.Nullable<decimal> _FIXTAXRATE;
+		
+		private System.Nullable<decimal> _NETTAXAMT01;
+		
+		private System.Nullable<decimal> _NETTAXAMT02;
+		
+		private System.Nullable<decimal> _NETTAXAMT03;
+		
+		private System.Nullable<decimal> _NETTAXAMT04;
+		
+		private System.Nullable<decimal> _NETTAXAMT05;
+		
+		private System.Nullable<decimal> _NETTAXAMT06;
+		
+		private System.Nullable<decimal> _NETTAXAMT07;
+		
+		private System.Nullable<decimal> _NETTAXAMT08;
+		
+		private System.Nullable<decimal> _NETTAXAMT09;
+		
+		private System.Nullable<decimal> _NETTAXAMT10;
+		
+		private System.Nullable<decimal> _NETTAXRATE01;
+		
+		private System.Nullable<decimal> _NETTAXRATE02;
+		
+		private System.Nullable<decimal> _NETTAXRATE03;
+		
+		private System.Nullable<decimal> _NETTAXRATE04;
+		
+		private System.Nullable<decimal> _NETTAXRATE05;
+		
+		private System.Nullable<decimal> _ADDUPAMT01;
+		
+		private System.Nullable<decimal> _ADDUPAMT02;
+		
+		private System.Nullable<decimal> _ADDUPAMT03;
+		
+		private System.Nullable<decimal> _ADDUPAMT04;
+		
+		private System.Nullable<decimal> _ADDUPAMT05;
+		
+		private System.Nullable<decimal> _FORSALBASD;
+		
+		private System.Nullable<decimal> _FORTAXRATE03;
+		
+		private System.Nullable<decimal> _ENTRYDAY;
+		
+		private System.Nullable<decimal> _FORTAXRATE01;
+		
+		private System.Nullable<decimal> _FORTAXRATE02;
+		
+    #region 擴充性方法定義
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCompChanging(string value);
+    partial void OnCompChanged();
+    partial void OnTAXTYPEChanging(System.Nullable<int> value);
+    partial void OnTAXTYPEChanged();
+    partial void OnSTDEDUETAMTNMARChanging(System.Nullable<decimal> value);
+    partial void OnSTDEDUETAMTNMARChanged();
+    partial void OnSTDEDUETAMTMARChanging(System.Nullable<decimal> value);
+    partial void OnSTDEDUETAMTMARChanged();
+    partial void OnTAXFREE70DOWNChanging(System.Nullable<decimal> value);
+    partial void OnTAXFREE70DOWNChanged();
+    partial void OnTAXFREE70UPChanging(System.Nullable<decimal> value);
+    partial void OnTAXFREE70UPChanged();
+    partial void OnSALARYDEDUTAMTChanging(System.Nullable<decimal> value);
+    partial void OnSALARYDEDUTAMTChanged();
+    partial void OnTAXSALCODEChanging(string value);
+    partial void OnTAXSALCODEChanged();
+    partial void OnTAXAMTAMONTHChanging(System.Nullable<decimal> value);
+    partial void OnTAXAMTAMONTHChanged();
+    partial void OnFIXTAXRATEChanging(System.Nullable<decimal> value);
+    partial void OnFIXTAXRATEChanged();
+    partial void OnNETTAXAMT01Changing(System.Nullable<decimal> value);
+    partial void OnNETTAXAMT01Changed();
+    partial void OnNETTAXAMT02Changing(System.Nullable<decimal> value);
+    partial void OnNETTAXAMT02Changed();
+    partial void OnNETTAXAMT03Changing(System.Nullable<decimal> value);
+    partial void OnNETTAXAMT03Changed();
+    partial void OnNETTAXAMT04Changing(System.Nullable<decimal> value);
+    partial void OnNETTAXAMT04Changed();
+    partial void OnNETTAXAMT05Changing(System.Nullable<decimal> value);
+    partial void OnNETTAXAMT05Changed();
+    partial void OnNETTAXAMT06Changing(System.Nullable<decimal> value);
+    partial void OnNETTAXAMT06Changed();
+    partial void OnNETTAXAMT07Changing(System.Nullable<decimal> value);
+    partial void OnNETTAXAMT07Changed();
+    partial void OnNETTAXAMT08Changing(System.Nullable<decimal> value);
+    partial void OnNETTAXAMT08Changed();
+    partial void OnNETTAXAMT09Changing(System.Nullable<decimal> value);
+    partial void OnNETTAXAMT09Changed();
+    partial void OnNETTAXAMT10Changing(System.Nullable<decimal> value);
+    partial void OnNETTAXAMT10Changed();
+    partial void OnNETTAXRATE01Changing(System.Nullable<decimal> value);
+    partial void OnNETTAXRATE01Changed();
+    partial void OnNETTAXRATE02Changing(System.Nullable<decimal> value);
+    partial void OnNETTAXRATE02Changed();
+    partial void OnNETTAXRATE03Changing(System.Nullable<decimal> value);
+    partial void OnNETTAXRATE03Changed();
+    partial void OnNETTAXRATE04Changing(System.Nullable<decimal> value);
+    partial void OnNETTAXRATE04Changed();
+    partial void OnNETTAXRATE05Changing(System.Nullable<decimal> value);
+    partial void OnNETTAXRATE05Changed();
+    partial void OnADDUPAMT01Changing(System.Nullable<decimal> value);
+    partial void OnADDUPAMT01Changed();
+    partial void OnADDUPAMT02Changing(System.Nullable<decimal> value);
+    partial void OnADDUPAMT02Changed();
+    partial void OnADDUPAMT03Changing(System.Nullable<decimal> value);
+    partial void OnADDUPAMT03Changed();
+    partial void OnADDUPAMT04Changing(System.Nullable<decimal> value);
+    partial void OnADDUPAMT04Changed();
+    partial void OnADDUPAMT05Changing(System.Nullable<decimal> value);
+    partial void OnADDUPAMT05Changed();
+    partial void OnFORSALBASDChanging(System.Nullable<decimal> value);
+    partial void OnFORSALBASDChanged();
+    partial void OnFORTAXRATE03Changing(System.Nullable<decimal> value);
+    partial void OnFORTAXRATE03Changed();
+    partial void OnENTRYDAYChanging(System.Nullable<decimal> value);
+    partial void OnENTRYDAYChanged();
+    partial void OnFORTAXRATE01Changing(System.Nullable<decimal> value);
+    partial void OnFORTAXRATE01Changed();
+    partial void OnFORTAXRATE02Changing(System.Nullable<decimal> value);
+    partial void OnFORTAXRATE02Changed();
+    #endregion
+		
+		public U_SYS9()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comp", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Comp
+		{
+			get
+			{
+				return this._Comp;
+			}
+			set
+			{
+				if ((this._Comp != value))
+				{
+					this.OnCompChanging(value);
+					this.SendPropertyChanging();
+					this._Comp = value;
+					this.SendPropertyChanged("Comp");
+					this.OnCompChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TAXTYPE", DbType="Int")]
+		public System.Nullable<int> TAXTYPE
+		{
+			get
+			{
+				return this._TAXTYPE;
+			}
+			set
+			{
+				if ((this._TAXTYPE != value))
+				{
+					this.OnTAXTYPEChanging(value);
+					this.SendPropertyChanging();
+					this._TAXTYPE = value;
+					this.SendPropertyChanged("TAXTYPE");
+					this.OnTAXTYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STDEDUETAMTNMAR", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> STDEDUETAMTNMAR
+		{
+			get
+			{
+				return this._STDEDUETAMTNMAR;
+			}
+			set
+			{
+				if ((this._STDEDUETAMTNMAR != value))
+				{
+					this.OnSTDEDUETAMTNMARChanging(value);
+					this.SendPropertyChanging();
+					this._STDEDUETAMTNMAR = value;
+					this.SendPropertyChanged("STDEDUETAMTNMAR");
+					this.OnSTDEDUETAMTNMARChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STDEDUETAMTMAR", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> STDEDUETAMTMAR
+		{
+			get
+			{
+				return this._STDEDUETAMTMAR;
+			}
+			set
+			{
+				if ((this._STDEDUETAMTMAR != value))
+				{
+					this.OnSTDEDUETAMTMARChanging(value);
+					this.SendPropertyChanging();
+					this._STDEDUETAMTMAR = value;
+					this.SendPropertyChanged("STDEDUETAMTMAR");
+					this.OnSTDEDUETAMTMARChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TAXFREE70DOWN", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> TAXFREE70DOWN
+		{
+			get
+			{
+				return this._TAXFREE70DOWN;
+			}
+			set
+			{
+				if ((this._TAXFREE70DOWN != value))
+				{
+					this.OnTAXFREE70DOWNChanging(value);
+					this.SendPropertyChanging();
+					this._TAXFREE70DOWN = value;
+					this.SendPropertyChanged("TAXFREE70DOWN");
+					this.OnTAXFREE70DOWNChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TAXFREE70UP", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> TAXFREE70UP
+		{
+			get
+			{
+				return this._TAXFREE70UP;
+			}
+			set
+			{
+				if ((this._TAXFREE70UP != value))
+				{
+					this.OnTAXFREE70UPChanging(value);
+					this.SendPropertyChanging();
+					this._TAXFREE70UP = value;
+					this.SendPropertyChanged("TAXFREE70UP");
+					this.OnTAXFREE70UPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SALARYDEDUTAMT", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> SALARYDEDUTAMT
+		{
+			get
+			{
+				return this._SALARYDEDUTAMT;
+			}
+			set
+			{
+				if ((this._SALARYDEDUTAMT != value))
+				{
+					this.OnSALARYDEDUTAMTChanging(value);
+					this.SendPropertyChanging();
+					this._SALARYDEDUTAMT = value;
+					this.SendPropertyChanged("SALARYDEDUTAMT");
+					this.OnSALARYDEDUTAMTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TAXSALCODE", DbType="NVarChar(50)")]
+		public string TAXSALCODE
+		{
+			get
+			{
+				return this._TAXSALCODE;
+			}
+			set
+			{
+				if ((this._TAXSALCODE != value))
+				{
+					this.OnTAXSALCODEChanging(value);
+					this.SendPropertyChanging();
+					this._TAXSALCODE = value;
+					this.SendPropertyChanged("TAXSALCODE");
+					this.OnTAXSALCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TAXAMTAMONTH", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> TAXAMTAMONTH
+		{
+			get
+			{
+				return this._TAXAMTAMONTH;
+			}
+			set
+			{
+				if ((this._TAXAMTAMONTH != value))
+				{
+					this.OnTAXAMTAMONTHChanging(value);
+					this.SendPropertyChanging();
+					this._TAXAMTAMONTH = value;
+					this.SendPropertyChanged("TAXAMTAMONTH");
+					this.OnTAXAMTAMONTHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIXTAXRATE", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> FIXTAXRATE
+		{
+			get
+			{
+				return this._FIXTAXRATE;
+			}
+			set
+			{
+				if ((this._FIXTAXRATE != value))
+				{
+					this.OnFIXTAXRATEChanging(value);
+					this.SendPropertyChanging();
+					this._FIXTAXRATE = value;
+					this.SendPropertyChanged("FIXTAXRATE");
+					this.OnFIXTAXRATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXAMT01", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> NETTAXAMT01
+		{
+			get
+			{
+				return this._NETTAXAMT01;
+			}
+			set
+			{
+				if ((this._NETTAXAMT01 != value))
+				{
+					this.OnNETTAXAMT01Changing(value);
+					this.SendPropertyChanging();
+					this._NETTAXAMT01 = value;
+					this.SendPropertyChanged("NETTAXAMT01");
+					this.OnNETTAXAMT01Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXAMT02", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> NETTAXAMT02
+		{
+			get
+			{
+				return this._NETTAXAMT02;
+			}
+			set
+			{
+				if ((this._NETTAXAMT02 != value))
+				{
+					this.OnNETTAXAMT02Changing(value);
+					this.SendPropertyChanging();
+					this._NETTAXAMT02 = value;
+					this.SendPropertyChanged("NETTAXAMT02");
+					this.OnNETTAXAMT02Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXAMT03", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> NETTAXAMT03
+		{
+			get
+			{
+				return this._NETTAXAMT03;
+			}
+			set
+			{
+				if ((this._NETTAXAMT03 != value))
+				{
+					this.OnNETTAXAMT03Changing(value);
+					this.SendPropertyChanging();
+					this._NETTAXAMT03 = value;
+					this.SendPropertyChanged("NETTAXAMT03");
+					this.OnNETTAXAMT03Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXAMT04", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> NETTAXAMT04
+		{
+			get
+			{
+				return this._NETTAXAMT04;
+			}
+			set
+			{
+				if ((this._NETTAXAMT04 != value))
+				{
+					this.OnNETTAXAMT04Changing(value);
+					this.SendPropertyChanging();
+					this._NETTAXAMT04 = value;
+					this.SendPropertyChanged("NETTAXAMT04");
+					this.OnNETTAXAMT04Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXAMT05", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> NETTAXAMT05
+		{
+			get
+			{
+				return this._NETTAXAMT05;
+			}
+			set
+			{
+				if ((this._NETTAXAMT05 != value))
+				{
+					this.OnNETTAXAMT05Changing(value);
+					this.SendPropertyChanging();
+					this._NETTAXAMT05 = value;
+					this.SendPropertyChanged("NETTAXAMT05");
+					this.OnNETTAXAMT05Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXAMT06", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> NETTAXAMT06
+		{
+			get
+			{
+				return this._NETTAXAMT06;
+			}
+			set
+			{
+				if ((this._NETTAXAMT06 != value))
+				{
+					this.OnNETTAXAMT06Changing(value);
+					this.SendPropertyChanging();
+					this._NETTAXAMT06 = value;
+					this.SendPropertyChanged("NETTAXAMT06");
+					this.OnNETTAXAMT06Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXAMT07", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> NETTAXAMT07
+		{
+			get
+			{
+				return this._NETTAXAMT07;
+			}
+			set
+			{
+				if ((this._NETTAXAMT07 != value))
+				{
+					this.OnNETTAXAMT07Changing(value);
+					this.SendPropertyChanging();
+					this._NETTAXAMT07 = value;
+					this.SendPropertyChanged("NETTAXAMT07");
+					this.OnNETTAXAMT07Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXAMT08", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> NETTAXAMT08
+		{
+			get
+			{
+				return this._NETTAXAMT08;
+			}
+			set
+			{
+				if ((this._NETTAXAMT08 != value))
+				{
+					this.OnNETTAXAMT08Changing(value);
+					this.SendPropertyChanging();
+					this._NETTAXAMT08 = value;
+					this.SendPropertyChanged("NETTAXAMT08");
+					this.OnNETTAXAMT08Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXAMT09", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> NETTAXAMT09
+		{
+			get
+			{
+				return this._NETTAXAMT09;
+			}
+			set
+			{
+				if ((this._NETTAXAMT09 != value))
+				{
+					this.OnNETTAXAMT09Changing(value);
+					this.SendPropertyChanging();
+					this._NETTAXAMT09 = value;
+					this.SendPropertyChanged("NETTAXAMT09");
+					this.OnNETTAXAMT09Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXAMT10", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> NETTAXAMT10
+		{
+			get
+			{
+				return this._NETTAXAMT10;
+			}
+			set
+			{
+				if ((this._NETTAXAMT10 != value))
+				{
+					this.OnNETTAXAMT10Changing(value);
+					this.SendPropertyChanging();
+					this._NETTAXAMT10 = value;
+					this.SendPropertyChanged("NETTAXAMT10");
+					this.OnNETTAXAMT10Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXRATE01", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> NETTAXRATE01
+		{
+			get
+			{
+				return this._NETTAXRATE01;
+			}
+			set
+			{
+				if ((this._NETTAXRATE01 != value))
+				{
+					this.OnNETTAXRATE01Changing(value);
+					this.SendPropertyChanging();
+					this._NETTAXRATE01 = value;
+					this.SendPropertyChanged("NETTAXRATE01");
+					this.OnNETTAXRATE01Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXRATE02", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> NETTAXRATE02
+		{
+			get
+			{
+				return this._NETTAXRATE02;
+			}
+			set
+			{
+				if ((this._NETTAXRATE02 != value))
+				{
+					this.OnNETTAXRATE02Changing(value);
+					this.SendPropertyChanging();
+					this._NETTAXRATE02 = value;
+					this.SendPropertyChanged("NETTAXRATE02");
+					this.OnNETTAXRATE02Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXRATE03", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> NETTAXRATE03
+		{
+			get
+			{
+				return this._NETTAXRATE03;
+			}
+			set
+			{
+				if ((this._NETTAXRATE03 != value))
+				{
+					this.OnNETTAXRATE03Changing(value);
+					this.SendPropertyChanging();
+					this._NETTAXRATE03 = value;
+					this.SendPropertyChanged("NETTAXRATE03");
+					this.OnNETTAXRATE03Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXRATE04", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> NETTAXRATE04
+		{
+			get
+			{
+				return this._NETTAXRATE04;
+			}
+			set
+			{
+				if ((this._NETTAXRATE04 != value))
+				{
+					this.OnNETTAXRATE04Changing(value);
+					this.SendPropertyChanging();
+					this._NETTAXRATE04 = value;
+					this.SendPropertyChanged("NETTAXRATE04");
+					this.OnNETTAXRATE04Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NETTAXRATE05", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> NETTAXRATE05
+		{
+			get
+			{
+				return this._NETTAXRATE05;
+			}
+			set
+			{
+				if ((this._NETTAXRATE05 != value))
+				{
+					this.OnNETTAXRATE05Changing(value);
+					this.SendPropertyChanging();
+					this._NETTAXRATE05 = value;
+					this.SendPropertyChanged("NETTAXRATE05");
+					this.OnNETTAXRATE05Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADDUPAMT01", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> ADDUPAMT01
+		{
+			get
+			{
+				return this._ADDUPAMT01;
+			}
+			set
+			{
+				if ((this._ADDUPAMT01 != value))
+				{
+					this.OnADDUPAMT01Changing(value);
+					this.SendPropertyChanging();
+					this._ADDUPAMT01 = value;
+					this.SendPropertyChanged("ADDUPAMT01");
+					this.OnADDUPAMT01Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADDUPAMT02", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> ADDUPAMT02
+		{
+			get
+			{
+				return this._ADDUPAMT02;
+			}
+			set
+			{
+				if ((this._ADDUPAMT02 != value))
+				{
+					this.OnADDUPAMT02Changing(value);
+					this.SendPropertyChanging();
+					this._ADDUPAMT02 = value;
+					this.SendPropertyChanged("ADDUPAMT02");
+					this.OnADDUPAMT02Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADDUPAMT03", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> ADDUPAMT03
+		{
+			get
+			{
+				return this._ADDUPAMT03;
+			}
+			set
+			{
+				if ((this._ADDUPAMT03 != value))
+				{
+					this.OnADDUPAMT03Changing(value);
+					this.SendPropertyChanging();
+					this._ADDUPAMT03 = value;
+					this.SendPropertyChanged("ADDUPAMT03");
+					this.OnADDUPAMT03Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADDUPAMT04", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> ADDUPAMT04
+		{
+			get
+			{
+				return this._ADDUPAMT04;
+			}
+			set
+			{
+				if ((this._ADDUPAMT04 != value))
+				{
+					this.OnADDUPAMT04Changing(value);
+					this.SendPropertyChanging();
+					this._ADDUPAMT04 = value;
+					this.SendPropertyChanged("ADDUPAMT04");
+					this.OnADDUPAMT04Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADDUPAMT05", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> ADDUPAMT05
+		{
+			get
+			{
+				return this._ADDUPAMT05;
+			}
+			set
+			{
+				if ((this._ADDUPAMT05 != value))
+				{
+					this.OnADDUPAMT05Changing(value);
+					this.SendPropertyChanging();
+					this._ADDUPAMT05 = value;
+					this.SendPropertyChanged("ADDUPAMT05");
+					this.OnADDUPAMT05Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FORSALBASD", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> FORSALBASD
+		{
+			get
+			{
+				return this._FORSALBASD;
+			}
+			set
+			{
+				if ((this._FORSALBASD != value))
+				{
+					this.OnFORSALBASDChanging(value);
+					this.SendPropertyChanging();
+					this._FORSALBASD = value;
+					this.SendPropertyChanged("FORSALBASD");
+					this.OnFORSALBASDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FORTAXRATE03", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> FORTAXRATE03
+		{
+			get
+			{
+				return this._FORTAXRATE03;
+			}
+			set
+			{
+				if ((this._FORTAXRATE03 != value))
+				{
+					this.OnFORTAXRATE03Changing(value);
+					this.SendPropertyChanging();
+					this._FORTAXRATE03 = value;
+					this.SendPropertyChanged("FORTAXRATE03");
+					this.OnFORTAXRATE03Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ENTRYDAY", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> ENTRYDAY
+		{
+			get
+			{
+				return this._ENTRYDAY;
+			}
+			set
+			{
+				if ((this._ENTRYDAY != value))
+				{
+					this.OnENTRYDAYChanging(value);
+					this.SendPropertyChanging();
+					this._ENTRYDAY = value;
+					this.SendPropertyChanged("ENTRYDAY");
+					this.OnENTRYDAYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FORTAXRATE01", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> FORTAXRATE01
+		{
+			get
+			{
+				return this._FORTAXRATE01;
+			}
+			set
+			{
+				if ((this._FORTAXRATE01 != value))
+				{
+					this.OnFORTAXRATE01Changing(value);
+					this.SendPropertyChanging();
+					this._FORTAXRATE01 = value;
+					this.SendPropertyChanged("FORTAXRATE01");
+					this.OnFORTAXRATE01Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FORTAXRATE02", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> FORTAXRATE02
+		{
+			get
+			{
+				return this._FORTAXRATE02;
+			}
+			set
+			{
+				if ((this._FORTAXRATE02 != value))
+				{
+					this.OnFORTAXRATE02Changing(value);
+					this.SendPropertyChanging();
+					this._FORTAXRATE02 = value;
+					this.SendPropertyChanged("FORTAXRATE02");
+					this.OnFORTAXRATE02Changed();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.U_SYS4")]
+	public partial class U_SYS4 : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Comp;
+		
+		private string _LSALCODE;
+		
+		private string _LABOVERSALCODE;
+		
+		private string _LABREPAIRSALCODE;
+		
+		private System.Nullable<decimal> _LJOBPER;
+		
+		private System.Nullable<decimal> _LJOBPER1;
+		
+		private System.Nullable<decimal> _RETIRERATE;
+		
+		private System.Nullable<decimal> _RETIRERATE1;
+		
+		private System.Nullable<decimal> _NRETIRERATE;
+		
+		private System.Nullable<decimal> _NRETIRERATE1;
+		
+		private string _RETSALCODE;
+		
+    #region 擴充性方法定義
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCompChanging(string value);
+    partial void OnCompChanged();
+    partial void OnLSALCODEChanging(string value);
+    partial void OnLSALCODEChanged();
+    partial void OnLABOVERSALCODEChanging(string value);
+    partial void OnLABOVERSALCODEChanged();
+    partial void OnLABREPAIRSALCODEChanging(string value);
+    partial void OnLABREPAIRSALCODEChanged();
+    partial void OnLJOBPERChanging(System.Nullable<decimal> value);
+    partial void OnLJOBPERChanged();
+    partial void OnLJOBPER1Changing(System.Nullable<decimal> value);
+    partial void OnLJOBPER1Changed();
+    partial void OnRETIRERATEChanging(System.Nullable<decimal> value);
+    partial void OnRETIRERATEChanged();
+    partial void OnRETIRERATE1Changing(System.Nullable<decimal> value);
+    partial void OnRETIRERATE1Changed();
+    partial void OnNRETIRERATEChanging(System.Nullable<decimal> value);
+    partial void OnNRETIRERATEChanged();
+    partial void OnNRETIRERATE1Changing(System.Nullable<decimal> value);
+    partial void OnNRETIRERATE1Changed();
+    partial void OnRETSALCODEChanging(string value);
+    partial void OnRETSALCODEChanged();
+    #endregion
+		
+		public U_SYS4()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comp", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Comp
+		{
+			get
+			{
+				return this._Comp;
+			}
+			set
+			{
+				if ((this._Comp != value))
+				{
+					this.OnCompChanging(value);
+					this.SendPropertyChanging();
+					this._Comp = value;
+					this.SendPropertyChanged("Comp");
+					this.OnCompChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LSALCODE", DbType="NVarChar(50)")]
+		public string LSALCODE
+		{
+			get
+			{
+				return this._LSALCODE;
+			}
+			set
+			{
+				if ((this._LSALCODE != value))
+				{
+					this.OnLSALCODEChanging(value);
+					this.SendPropertyChanging();
+					this._LSALCODE = value;
+					this.SendPropertyChanged("LSALCODE");
+					this.OnLSALCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LABOVERSALCODE", DbType="NVarChar(50)")]
+		public string LABOVERSALCODE
+		{
+			get
+			{
+				return this._LABOVERSALCODE;
+			}
+			set
+			{
+				if ((this._LABOVERSALCODE != value))
+				{
+					this.OnLABOVERSALCODEChanging(value);
+					this.SendPropertyChanging();
+					this._LABOVERSALCODE = value;
+					this.SendPropertyChanged("LABOVERSALCODE");
+					this.OnLABOVERSALCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LABREPAIRSALCODE", DbType="NVarChar(50)")]
+		public string LABREPAIRSALCODE
+		{
+			get
+			{
+				return this._LABREPAIRSALCODE;
+			}
+			set
+			{
+				if ((this._LABREPAIRSALCODE != value))
+				{
+					this.OnLABREPAIRSALCODEChanging(value);
+					this.SendPropertyChanging();
+					this._LABREPAIRSALCODE = value;
+					this.SendPropertyChanged("LABREPAIRSALCODE");
+					this.OnLABREPAIRSALCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LJOBPER", DbType="Decimal(16,3)")]
+		public System.Nullable<decimal> LJOBPER
+		{
+			get
+			{
+				return this._LJOBPER;
+			}
+			set
+			{
+				if ((this._LJOBPER != value))
+				{
+					this.OnLJOBPERChanging(value);
+					this.SendPropertyChanging();
+					this._LJOBPER = value;
+					this.SendPropertyChanged("LJOBPER");
+					this.OnLJOBPERChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LJOBPER1", DbType="Decimal(16,3)")]
+		public System.Nullable<decimal> LJOBPER1
+		{
+			get
+			{
+				return this._LJOBPER1;
+			}
+			set
+			{
+				if ((this._LJOBPER1 != value))
+				{
+					this.OnLJOBPER1Changing(value);
+					this.SendPropertyChanging();
+					this._LJOBPER1 = value;
+					this.SendPropertyChanged("LJOBPER1");
+					this.OnLJOBPER1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RETIRERATE", DbType="Decimal(16,3)")]
+		public System.Nullable<decimal> RETIRERATE
+		{
+			get
+			{
+				return this._RETIRERATE;
+			}
+			set
+			{
+				if ((this._RETIRERATE != value))
+				{
+					this.OnRETIRERATEChanging(value);
+					this.SendPropertyChanging();
+					this._RETIRERATE = value;
+					this.SendPropertyChanged("RETIRERATE");
+					this.OnRETIRERATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RETIRERATE1", DbType="Decimal(16,3)")]
+		public System.Nullable<decimal> RETIRERATE1
+		{
+			get
+			{
+				return this._RETIRERATE1;
+			}
+			set
+			{
+				if ((this._RETIRERATE1 != value))
+				{
+					this.OnRETIRERATE1Changing(value);
+					this.SendPropertyChanging();
+					this._RETIRERATE1 = value;
+					this.SendPropertyChanged("RETIRERATE1");
+					this.OnRETIRERATE1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRETIRERATE", DbType="Decimal(16,3)")]
+		public System.Nullable<decimal> NRETIRERATE
+		{
+			get
+			{
+				return this._NRETIRERATE;
+			}
+			set
+			{
+				if ((this._NRETIRERATE != value))
+				{
+					this.OnNRETIRERATEChanging(value);
+					this.SendPropertyChanging();
+					this._NRETIRERATE = value;
+					this.SendPropertyChanged("NRETIRERATE");
+					this.OnNRETIRERATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRETIRERATE1", DbType="Decimal(16,3)")]
+		public System.Nullable<decimal> NRETIRERATE1
+		{
+			get
+			{
+				return this._NRETIRERATE1;
+			}
+			set
+			{
+				if ((this._NRETIRERATE1 != value))
+				{
+					this.OnNRETIRERATE1Changing(value);
+					this.SendPropertyChanging();
+					this._NRETIRERATE1 = value;
+					this.SendPropertyChanged("NRETIRERATE1");
+					this.OnNRETIRERATE1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RETSALCODE", DbType="NVarChar(50)")]
+		public string RETSALCODE
+		{
+			get
+			{
+				return this._RETSALCODE;
+			}
+			set
+			{
+				if ((this._RETSALCODE != value))
+				{
+					this.OnRETSALCODEChanging(value);
+					this.SendPropertyChanging();
+					this._RETSALCODE = value;
+					this.SendPropertyChanged("RETSALCODE");
+					this.OnRETSALCODEChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.U_SYS2")]
+	public partial class U_SYS2 : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Comp;
+		
+		private string _WELSALCODE;
+		
+		private System.Nullable<decimal> _WELPAY;
+		
+		private System.Nullable<int> _ATTMONTH;
+		
+		private System.Nullable<int> _SALMONTH;
+		
+		private string _EATSALCODE;
+		
+		private string _FOODSALCODE;
+		
+		private string _EMPSALCODE;
+		
+		private System.Nullable<int> _INDAY;
+		
+		private string _ONDUTYSALCODE;
+		
+		private System.Nullable<decimal> _ONDUTYAMT;
+		
+		private string _ATTAWARDSALCODE;
+		
+		private System.Nullable<decimal> _ATTMONAMT;
+		
+		private System.Nullable<decimal> _ATTQTY;
+		
+		private System.Nullable<decimal> _ATTQTY1;
+		
+		private System.Nullable<decimal> _ATTAMT;
+		
+		private System.Nullable<decimal> _ATTAMT1;
+		
+		private System.Nullable<decimal> _LATTQTY;
+		
+		private System.Nullable<decimal> _LATTQTY1;
+		
+		private System.Nullable<decimal> _LATTAMT;
+		
+		private System.Nullable<decimal> _LATTAMT1;
+		
+		private System.Nullable<decimal> _FATTQTY;
+		
+		private System.Nullable<decimal> _FATTQTY1;
+		
+		private System.Nullable<decimal> _FATTAMT;
+		
+		private System.Nullable<decimal> _FATTAMT1;
+		
+    #region 擴充性方法定義
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCompChanging(string value);
+    partial void OnCompChanged();
+    partial void OnWELSALCODEChanging(string value);
+    partial void OnWELSALCODEChanged();
+    partial void OnWELPAYChanging(System.Nullable<decimal> value);
+    partial void OnWELPAYChanged();
+    partial void OnATTMONTHChanging(System.Nullable<int> value);
+    partial void OnATTMONTHChanged();
+    partial void OnSALMONTHChanging(System.Nullable<int> value);
+    partial void OnSALMONTHChanged();
+    partial void OnEATSALCODEChanging(string value);
+    partial void OnEATSALCODEChanged();
+    partial void OnFOODSALCODEChanging(string value);
+    partial void OnFOODSALCODEChanged();
+    partial void OnEMPSALCODEChanging(string value);
+    partial void OnEMPSALCODEChanged();
+    partial void OnINDAYChanging(System.Nullable<int> value);
+    partial void OnINDAYChanged();
+    partial void OnONDUTYSALCODEChanging(string value);
+    partial void OnONDUTYSALCODEChanged();
+    partial void OnONDUTYAMTChanging(System.Nullable<decimal> value);
+    partial void OnONDUTYAMTChanged();
+    partial void OnATTAWARDSALCODEChanging(string value);
+    partial void OnATTAWARDSALCODEChanged();
+    partial void OnATTMONAMTChanging(System.Nullable<decimal> value);
+    partial void OnATTMONAMTChanged();
+    partial void OnATTQTYChanging(System.Nullable<decimal> value);
+    partial void OnATTQTYChanged();
+    partial void OnATTQTY1Changing(System.Nullable<decimal> value);
+    partial void OnATTQTY1Changed();
+    partial void OnATTAMTChanging(System.Nullable<decimal> value);
+    partial void OnATTAMTChanged();
+    partial void OnATTAMT1Changing(System.Nullable<decimal> value);
+    partial void OnATTAMT1Changed();
+    partial void OnLATTQTYChanging(System.Nullable<decimal> value);
+    partial void OnLATTQTYChanged();
+    partial void OnLATTQTY1Changing(System.Nullable<decimal> value);
+    partial void OnLATTQTY1Changed();
+    partial void OnLATTAMTChanging(System.Nullable<decimal> value);
+    partial void OnLATTAMTChanged();
+    partial void OnLATTAMT1Changing(System.Nullable<decimal> value);
+    partial void OnLATTAMT1Changed();
+    partial void OnFATTQTYChanging(System.Nullable<decimal> value);
+    partial void OnFATTQTYChanged();
+    partial void OnFATTQTY1Changing(System.Nullable<decimal> value);
+    partial void OnFATTQTY1Changed();
+    partial void OnFATTAMTChanging(System.Nullable<decimal> value);
+    partial void OnFATTAMTChanged();
+    partial void OnFATTAMT1Changing(System.Nullable<decimal> value);
+    partial void OnFATTAMT1Changed();
+    #endregion
+		
+		public U_SYS2()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comp", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Comp
+		{
+			get
+			{
+				return this._Comp;
+			}
+			set
+			{
+				if ((this._Comp != value))
+				{
+					this.OnCompChanging(value);
+					this.SendPropertyChanging();
+					this._Comp = value;
+					this.SendPropertyChanged("Comp");
+					this.OnCompChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WELSALCODE", DbType="NVarChar(50)")]
+		public string WELSALCODE
+		{
+			get
+			{
+				return this._WELSALCODE;
+			}
+			set
+			{
+				if ((this._WELSALCODE != value))
+				{
+					this.OnWELSALCODEChanging(value);
+					this.SendPropertyChanging();
+					this._WELSALCODE = value;
+					this.SendPropertyChanged("WELSALCODE");
+					this.OnWELSALCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WELPAY", DbType="Decimal(16,3)")]
+		public System.Nullable<decimal> WELPAY
+		{
+			get
+			{
+				return this._WELPAY;
+			}
+			set
+			{
+				if ((this._WELPAY != value))
+				{
+					this.OnWELPAYChanging(value);
+					this.SendPropertyChanging();
+					this._WELPAY = value;
+					this.SendPropertyChanged("WELPAY");
+					this.OnWELPAYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTMONTH", DbType="Int")]
+		public System.Nullable<int> ATTMONTH
+		{
+			get
+			{
+				return this._ATTMONTH;
+			}
+			set
+			{
+				if ((this._ATTMONTH != value))
+				{
+					this.OnATTMONTHChanging(value);
+					this.SendPropertyChanging();
+					this._ATTMONTH = value;
+					this.SendPropertyChanged("ATTMONTH");
+					this.OnATTMONTHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SALMONTH", DbType="Int")]
+		public System.Nullable<int> SALMONTH
+		{
+			get
+			{
+				return this._SALMONTH;
+			}
+			set
+			{
+				if ((this._SALMONTH != value))
+				{
+					this.OnSALMONTHChanging(value);
+					this.SendPropertyChanging();
+					this._SALMONTH = value;
+					this.SendPropertyChanged("SALMONTH");
+					this.OnSALMONTHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EATSALCODE", DbType="NVarChar(50)")]
+		public string EATSALCODE
+		{
+			get
+			{
+				return this._EATSALCODE;
+			}
+			set
+			{
+				if ((this._EATSALCODE != value))
+				{
+					this.OnEATSALCODEChanging(value);
+					this.SendPropertyChanging();
+					this._EATSALCODE = value;
+					this.SendPropertyChanged("EATSALCODE");
+					this.OnEATSALCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOODSALCODE", DbType="NVarChar(50)")]
+		public string FOODSALCODE
+		{
+			get
+			{
+				return this._FOODSALCODE;
+			}
+			set
+			{
+				if ((this._FOODSALCODE != value))
+				{
+					this.OnFOODSALCODEChanging(value);
+					this.SendPropertyChanging();
+					this._FOODSALCODE = value;
+					this.SendPropertyChanged("FOODSALCODE");
+					this.OnFOODSALCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPSALCODE", DbType="NVarChar(50)")]
+		public string EMPSALCODE
+		{
+			get
+			{
+				return this._EMPSALCODE;
+			}
+			set
+			{
+				if ((this._EMPSALCODE != value))
+				{
+					this.OnEMPSALCODEChanging(value);
+					this.SendPropertyChanging();
+					this._EMPSALCODE = value;
+					this.SendPropertyChanged("EMPSALCODE");
+					this.OnEMPSALCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INDAY", DbType="Int")]
+		public System.Nullable<int> INDAY
+		{
+			get
+			{
+				return this._INDAY;
+			}
+			set
+			{
+				if ((this._INDAY != value))
+				{
+					this.OnINDAYChanging(value);
+					this.SendPropertyChanging();
+					this._INDAY = value;
+					this.SendPropertyChanged("INDAY");
+					this.OnINDAYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ONDUTYSALCODE", DbType="NVarChar(50)")]
+		public string ONDUTYSALCODE
+		{
+			get
+			{
+				return this._ONDUTYSALCODE;
+			}
+			set
+			{
+				if ((this._ONDUTYSALCODE != value))
+				{
+					this.OnONDUTYSALCODEChanging(value);
+					this.SendPropertyChanging();
+					this._ONDUTYSALCODE = value;
+					this.SendPropertyChanged("ONDUTYSALCODE");
+					this.OnONDUTYSALCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ONDUTYAMT", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> ONDUTYAMT
+		{
+			get
+			{
+				return this._ONDUTYAMT;
+			}
+			set
+			{
+				if ((this._ONDUTYAMT != value))
+				{
+					this.OnONDUTYAMTChanging(value);
+					this.SendPropertyChanging();
+					this._ONDUTYAMT = value;
+					this.SendPropertyChanged("ONDUTYAMT");
+					this.OnONDUTYAMTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTAWARDSALCODE", DbType="NVarChar(50)")]
+		public string ATTAWARDSALCODE
+		{
+			get
+			{
+				return this._ATTAWARDSALCODE;
+			}
+			set
+			{
+				if ((this._ATTAWARDSALCODE != value))
+				{
+					this.OnATTAWARDSALCODEChanging(value);
+					this.SendPropertyChanging();
+					this._ATTAWARDSALCODE = value;
+					this.SendPropertyChanged("ATTAWARDSALCODE");
+					this.OnATTAWARDSALCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTMONAMT", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> ATTMONAMT
+		{
+			get
+			{
+				return this._ATTMONAMT;
+			}
+			set
+			{
+				if ((this._ATTMONAMT != value))
+				{
+					this.OnATTMONAMTChanging(value);
+					this.SendPropertyChanging();
+					this._ATTMONAMT = value;
+					this.SendPropertyChanged("ATTMONAMT");
+					this.OnATTMONAMTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTQTY", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> ATTQTY
+		{
+			get
+			{
+				return this._ATTQTY;
+			}
+			set
+			{
+				if ((this._ATTQTY != value))
+				{
+					this.OnATTQTYChanging(value);
+					this.SendPropertyChanging();
+					this._ATTQTY = value;
+					this.SendPropertyChanged("ATTQTY");
+					this.OnATTQTYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTQTY1", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> ATTQTY1
+		{
+			get
+			{
+				return this._ATTQTY1;
+			}
+			set
+			{
+				if ((this._ATTQTY1 != value))
+				{
+					this.OnATTQTY1Changing(value);
+					this.SendPropertyChanging();
+					this._ATTQTY1 = value;
+					this.SendPropertyChanged("ATTQTY1");
+					this.OnATTQTY1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTAMT", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> ATTAMT
+		{
+			get
+			{
+				return this._ATTAMT;
+			}
+			set
+			{
+				if ((this._ATTAMT != value))
+				{
+					this.OnATTAMTChanging(value);
+					this.SendPropertyChanging();
+					this._ATTAMT = value;
+					this.SendPropertyChanged("ATTAMT");
+					this.OnATTAMTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTAMT1", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> ATTAMT1
+		{
+			get
+			{
+				return this._ATTAMT1;
+			}
+			set
+			{
+				if ((this._ATTAMT1 != value))
+				{
+					this.OnATTAMT1Changing(value);
+					this.SendPropertyChanging();
+					this._ATTAMT1 = value;
+					this.SendPropertyChanged("ATTAMT1");
+					this.OnATTAMT1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LATTQTY", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> LATTQTY
+		{
+			get
+			{
+				return this._LATTQTY;
+			}
+			set
+			{
+				if ((this._LATTQTY != value))
+				{
+					this.OnLATTQTYChanging(value);
+					this.SendPropertyChanging();
+					this._LATTQTY = value;
+					this.SendPropertyChanged("LATTQTY");
+					this.OnLATTQTYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LATTQTY1", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> LATTQTY1
+		{
+			get
+			{
+				return this._LATTQTY1;
+			}
+			set
+			{
+				if ((this._LATTQTY1 != value))
+				{
+					this.OnLATTQTY1Changing(value);
+					this.SendPropertyChanging();
+					this._LATTQTY1 = value;
+					this.SendPropertyChanged("LATTQTY1");
+					this.OnLATTQTY1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LATTAMT", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> LATTAMT
+		{
+			get
+			{
+				return this._LATTAMT;
+			}
+			set
+			{
+				if ((this._LATTAMT != value))
+				{
+					this.OnLATTAMTChanging(value);
+					this.SendPropertyChanging();
+					this._LATTAMT = value;
+					this.SendPropertyChanged("LATTAMT");
+					this.OnLATTAMTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LATTAMT1", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> LATTAMT1
+		{
+			get
+			{
+				return this._LATTAMT1;
+			}
+			set
+			{
+				if ((this._LATTAMT1 != value))
+				{
+					this.OnLATTAMT1Changing(value);
+					this.SendPropertyChanging();
+					this._LATTAMT1 = value;
+					this.SendPropertyChanged("LATTAMT1");
+					this.OnLATTAMT1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FATTQTY", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> FATTQTY
+		{
+			get
+			{
+				return this._FATTQTY;
+			}
+			set
+			{
+				if ((this._FATTQTY != value))
+				{
+					this.OnFATTQTYChanging(value);
+					this.SendPropertyChanging();
+					this._FATTQTY = value;
+					this.SendPropertyChanged("FATTQTY");
+					this.OnFATTQTYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FATTQTY1", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> FATTQTY1
+		{
+			get
+			{
+				return this._FATTQTY1;
+			}
+			set
+			{
+				if ((this._FATTQTY1 != value))
+				{
+					this.OnFATTQTY1Changing(value);
+					this.SendPropertyChanging();
+					this._FATTQTY1 = value;
+					this.SendPropertyChanged("FATTQTY1");
+					this.OnFATTQTY1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FATTAMT", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> FATTAMT
+		{
+			get
+			{
+				return this._FATTAMT;
+			}
+			set
+			{
+				if ((this._FATTAMT != value))
+				{
+					this.OnFATTAMTChanging(value);
+					this.SendPropertyChanging();
+					this._FATTAMT = value;
+					this.SendPropertyChanged("FATTAMT");
+					this.OnFATTAMTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FATTAMT1", DbType="Decimal(16,2)")]
+		public System.Nullable<decimal> FATTAMT1
+		{
+			get
+			{
+				return this._FATTAMT1;
+			}
+			set
+			{
+				if ((this._FATTAMT1 != value))
+				{
+					this.OnFATTAMT1Changing(value);
+					this.SendPropertyChanging();
+					this._FATTAMT1 = value;
+					this.SendPropertyChanged("FATTAMT1");
+					this.OnFATTAMT1Changed();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.U_SYS1")]
+	public partial class U_SYS1 : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Comp;
+		
+		private string _COMPANY;
+		
+		private string _COMPADDR;
+		
+		private string _COMPTEL;
+		
+		private string _COMPFAX;
+		
+		private string _COMPLABID;
+		
+		private string _COMPHELID;
+		
+		private string _COMPID;
+		
+		private string _COMPMAN;
+		
+		private string _HELORGNAME;
+		
+		private string _FF103;
+		
+		private string _FF0407;
+		
+		private string _COMPANYBANKAC;
+		
+		private string _COMPANYBANKNO;
+		
+		private string _COMPANY1;
+		
+		private string _COMPID1;
+		
+		private string _FF04071;
+		
+    #region 擴充性方法定義
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCompChanging(string value);
+    partial void OnCompChanged();
+    partial void OnCOMPANYChanging(string value);
+    partial void OnCOMPANYChanged();
+    partial void OnCOMPADDRChanging(string value);
+    partial void OnCOMPADDRChanged();
+    partial void OnCOMPTELChanging(string value);
+    partial void OnCOMPTELChanged();
+    partial void OnCOMPFAXChanging(string value);
+    partial void OnCOMPFAXChanged();
+    partial void OnCOMPLABIDChanging(string value);
+    partial void OnCOMPLABIDChanged();
+    partial void OnCOMPHELIDChanging(string value);
+    partial void OnCOMPHELIDChanged();
+    partial void OnCOMPIDChanging(string value);
+    partial void OnCOMPIDChanged();
+    partial void OnCOMPMANChanging(string value);
+    partial void OnCOMPMANChanged();
+    partial void OnHELORGNAMEChanging(string value);
+    partial void OnHELORGNAMEChanged();
+    partial void OnFF103Changing(string value);
+    partial void OnFF103Changed();
+    partial void OnFF0407Changing(string value);
+    partial void OnFF0407Changed();
+    partial void OnCOMPANYBANKACChanging(string value);
+    partial void OnCOMPANYBANKACChanged();
+    partial void OnCOMPANYBANKNOChanging(string value);
+    partial void OnCOMPANYBANKNOChanged();
+    partial void OnCOMPANY1Changing(string value);
+    partial void OnCOMPANY1Changed();
+    partial void OnCOMPID1Changing(string value);
+    partial void OnCOMPID1Changed();
+    partial void OnFF04071Changing(string value);
+    partial void OnFF04071Changed();
+    #endregion
+		
+		public U_SYS1()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comp", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Comp
+		{
+			get
+			{
+				return this._Comp;
+			}
+			set
+			{
+				if ((this._Comp != value))
+				{
+					this.OnCompChanging(value);
+					this.SendPropertyChanging();
+					this._Comp = value;
+					this.SendPropertyChanged("Comp");
+					this.OnCompChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPANY", DbType="NVarChar(50)")]
+		public string COMPANY
+		{
+			get
+			{
+				return this._COMPANY;
+			}
+			set
+			{
+				if ((this._COMPANY != value))
+				{
+					this.OnCOMPANYChanging(value);
+					this.SendPropertyChanging();
+					this._COMPANY = value;
+					this.SendPropertyChanged("COMPANY");
+					this.OnCOMPANYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPADDR", DbType="NVarChar(50)")]
+		public string COMPADDR
+		{
+			get
+			{
+				return this._COMPADDR;
+			}
+			set
+			{
+				if ((this._COMPADDR != value))
+				{
+					this.OnCOMPADDRChanging(value);
+					this.SendPropertyChanging();
+					this._COMPADDR = value;
+					this.SendPropertyChanged("COMPADDR");
+					this.OnCOMPADDRChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPTEL", DbType="NVarChar(50)")]
+		public string COMPTEL
+		{
+			get
+			{
+				return this._COMPTEL;
+			}
+			set
+			{
+				if ((this._COMPTEL != value))
+				{
+					this.OnCOMPTELChanging(value);
+					this.SendPropertyChanging();
+					this._COMPTEL = value;
+					this.SendPropertyChanged("COMPTEL");
+					this.OnCOMPTELChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPFAX", DbType="NVarChar(50)")]
+		public string COMPFAX
+		{
+			get
+			{
+				return this._COMPFAX;
+			}
+			set
+			{
+				if ((this._COMPFAX != value))
+				{
+					this.OnCOMPFAXChanging(value);
+					this.SendPropertyChanging();
+					this._COMPFAX = value;
+					this.SendPropertyChanged("COMPFAX");
+					this.OnCOMPFAXChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPLABID", DbType="NVarChar(50)")]
+		public string COMPLABID
+		{
+			get
+			{
+				return this._COMPLABID;
+			}
+			set
+			{
+				if ((this._COMPLABID != value))
+				{
+					this.OnCOMPLABIDChanging(value);
+					this.SendPropertyChanging();
+					this._COMPLABID = value;
+					this.SendPropertyChanged("COMPLABID");
+					this.OnCOMPLABIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPHELID", DbType="NVarChar(50)")]
+		public string COMPHELID
+		{
+			get
+			{
+				return this._COMPHELID;
+			}
+			set
+			{
+				if ((this._COMPHELID != value))
+				{
+					this.OnCOMPHELIDChanging(value);
+					this.SendPropertyChanging();
+					this._COMPHELID = value;
+					this.SendPropertyChanged("COMPHELID");
+					this.OnCOMPHELIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPID", DbType="NVarChar(50)")]
+		public string COMPID
+		{
+			get
+			{
+				return this._COMPID;
+			}
+			set
+			{
+				if ((this._COMPID != value))
+				{
+					this.OnCOMPIDChanging(value);
+					this.SendPropertyChanging();
+					this._COMPID = value;
+					this.SendPropertyChanged("COMPID");
+					this.OnCOMPIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPMAN", DbType="NVarChar(50)")]
+		public string COMPMAN
+		{
+			get
+			{
+				return this._COMPMAN;
+			}
+			set
+			{
+				if ((this._COMPMAN != value))
+				{
+					this.OnCOMPMANChanging(value);
+					this.SendPropertyChanging();
+					this._COMPMAN = value;
+					this.SendPropertyChanged("COMPMAN");
+					this.OnCOMPMANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HELORGNAME", DbType="NVarChar(50)")]
+		public string HELORGNAME
+		{
+			get
+			{
+				return this._HELORGNAME;
+			}
+			set
+			{
+				if ((this._HELORGNAME != value))
+				{
+					this.OnHELORGNAMEChanging(value);
+					this.SendPropertyChanging();
+					this._HELORGNAME = value;
+					this.SendPropertyChanged("HELORGNAME");
+					this.OnHELORGNAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FF103", DbType="NVarChar(50)")]
+		public string FF103
+		{
+			get
+			{
+				return this._FF103;
+			}
+			set
+			{
+				if ((this._FF103 != value))
+				{
+					this.OnFF103Changing(value);
+					this.SendPropertyChanging();
+					this._FF103 = value;
+					this.SendPropertyChanged("FF103");
+					this.OnFF103Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FF0407", DbType="NVarChar(50)")]
+		public string FF0407
+		{
+			get
+			{
+				return this._FF0407;
+			}
+			set
+			{
+				if ((this._FF0407 != value))
+				{
+					this.OnFF0407Changing(value);
+					this.SendPropertyChanging();
+					this._FF0407 = value;
+					this.SendPropertyChanged("FF0407");
+					this.OnFF0407Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPANYBANKAC", DbType="NVarChar(50)")]
+		public string COMPANYBANKAC
+		{
+			get
+			{
+				return this._COMPANYBANKAC;
+			}
+			set
+			{
+				if ((this._COMPANYBANKAC != value))
+				{
+					this.OnCOMPANYBANKACChanging(value);
+					this.SendPropertyChanging();
+					this._COMPANYBANKAC = value;
+					this.SendPropertyChanged("COMPANYBANKAC");
+					this.OnCOMPANYBANKACChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPANYBANKNO", DbType="NVarChar(50)")]
+		public string COMPANYBANKNO
+		{
+			get
+			{
+				return this._COMPANYBANKNO;
+			}
+			set
+			{
+				if ((this._COMPANYBANKNO != value))
+				{
+					this.OnCOMPANYBANKNOChanging(value);
+					this.SendPropertyChanging();
+					this._COMPANYBANKNO = value;
+					this.SendPropertyChanged("COMPANYBANKNO");
+					this.OnCOMPANYBANKNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPANY1", DbType="NVarChar(50)")]
+		public string COMPANY1
+		{
+			get
+			{
+				return this._COMPANY1;
+			}
+			set
+			{
+				if ((this._COMPANY1 != value))
+				{
+					this.OnCOMPANY1Changing(value);
+					this.SendPropertyChanging();
+					this._COMPANY1 = value;
+					this.SendPropertyChanged("COMPANY1");
+					this.OnCOMPANY1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMPID1", DbType="NVarChar(50)")]
+		public string COMPID1
+		{
+			get
+			{
+				return this._COMPID1;
+			}
+			set
+			{
+				if ((this._COMPID1 != value))
+				{
+					this.OnCOMPID1Changing(value);
+					this.SendPropertyChanging();
+					this._COMPID1 = value;
+					this.SendPropertyChanged("COMPID1");
+					this.OnCOMPID1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FF04071", DbType="NVarChar(50)")]
+		public string FF04071
+		{
+			get
+			{
+				return this._FF04071;
+			}
+			set
+			{
+				if ((this._FF04071 != value))
+				{
+					this.OnFF04071Changing(value);
+					this.SendPropertyChanging();
+					this._FF04071 = value;
+					this.SendPropertyChanged("FF04071");
+					this.OnFF04071Changed();
 				}
 			}
 		}
