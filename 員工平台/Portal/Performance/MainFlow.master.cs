@@ -2,6 +2,7 @@
 using Bll.Tools;
 using Dal;
 using Dal.Dao;
+using Dal.Dao.Share;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -115,12 +116,28 @@ namespace Performance
             r.Text = "全部";
             rs.Add(r);
 
-            //取得有該產生者有權限的名單
-            var ListEmpId = dcHr.WriteRuleTable1ByNobr(_User.UserCode, "A", true, DateTime.Now.ToShortDateString()).Select(p => p.NOBR.Trim()).ToList();
+            var oShareDefault = new ShareDefaultDao(WebPage.dcShare);
+            var rDefaultSystem = oShareDefault.DefaultSystem;
+            var CompanyId = rDefaultSystem.CompanyId;
 
-            rsBase = (from c in rsBase
-                      where ListEmpId.Contains(c.EmpId)
-                      select c).ToList();
+            //取得有該產生者有權限的名單
+            if (CompanyId == "Emc")
+            {
+                var ListEmpId = dcHr.WriteRuleTable1ByNobr(_User.UserCode, "A", true, DateTime.Now.ToShortDateString()).Select(p => p.NOBR.Trim()).ToList();
+
+                rsBase = (from c in rsBase
+                          where ListEmpId.Contains(c.EmpId)
+                          select c).ToList();
+            }
+
+            if (CompanyId == "Emccn")
+            {
+                var CompCode = rsBase.FirstOrDefault(p => p.EmpId == _User.EmpId)?.CompCode ?? "";
+
+                rsBase = (from c in rsBase
+                          where c.CompCode == CompCode
+                          select c).ToList();
+            }
 
             foreach (var rDept in ListDept)
             {
@@ -139,21 +156,26 @@ namespace Performance
                 //統計人數
                 var rsBaseByDeptCode = rsBase.Where(p => p.PerformanceDeptCode == rDept.Code).ToList();
                 if (rsBaseByDeptCode.Count > 0)
+                {
                     r.Text += "(" + rsBaseByDeptCode.Count + ")";
 
-                if (DeptTree >= rDept.DeptTreeB)
-                {
-                    //計算部門及其向下可用獎金
-                    ListDeptCode = rsDept.Where(p => p.PathCode.IndexOf("/" + rDept.Code + "/") >= 0).Select(p => p.Code).ToList();
-                    var BonusAdjust = -rsBase.Where(p => ListDeptCode.Contains(p.PerformanceDeptCode)).Sum(p => p.BonusAdjust);
-                    r.Text += "｜";
-                    r.Text += String.Format("${0:N0}", BonusAdjust);
+                    if (DeptTree >= rDept.DeptTreeB)
+                    {
+                        if (CompanyId == "Emc" || CompanyId == "Emccn")
+                        {
+                            //計算部門及其向下可用獎金
+                            ListDeptCode = rsDept.Where(p => p.PathCode.IndexOf("/" + rDept.Code + "/") >= 0).Select(p => p.Code).ToList();
+                            var BonusAdjust = -rsBase.Where(p => ListDeptCode.Contains(p.PerformanceDeptCode)).Sum(p => p.BonusAdjust);
+                            r.Text += "｜";
+                            r.Text += String.Format("${0:N0}", BonusAdjust);
 
-                    //計算部門及其向下實發總獎金
-                    r.Text += "｜";
-                    r.Text += String.Format("${0:N0}", rsBase.Where(p => ListDeptCode.Contains(p.PerformanceDeptCode)).Sum(p => p.BonusReal));
+                            //計算部門及其向下實發總獎金
+                            r.Text += "｜";
+                            r.Text += String.Format("${0:N0}", rsBase.Where(p => ListDeptCode.Contains(p.PerformanceDeptCode)).Sum(p => p.BonusReal));
+                        }
+                    }
+                    rs.Add(r);
                 }
-                rs.Add(r);
             }
 
             ddlDept.DataSource = rs;

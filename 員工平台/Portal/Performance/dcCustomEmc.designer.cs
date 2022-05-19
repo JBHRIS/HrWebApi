@@ -42,6 +42,9 @@ namespace Performance
     partial void InsertEFFAVERAGE(EFFAVERAGE instance);
     partial void UpdateEFFAVERAGE(EFFAVERAGE instance);
     partial void DeleteEFFAVERAGE(EFFAVERAGE instance);
+    partial void InsertMERTRATE(MERTRATE instance);
+    partial void UpdateMERTRATE(MERTRATE instance);
+    partial void DeleteMERTRATE(MERTRATE instance);
     #endregion
 		
 		public dcCustomEmcDataContext() : 
@@ -103,6 +106,14 @@ namespace Performance
 			get
 			{
 				return this.GetTable<EFFAVERAGE>();
+			}
+		}
+		
+		public System.Data.Linq.Table<MERTRATE> MERTRATE
+		{
+			get
+			{
+				return this.GetTable<MERTRATE>();
 			}
 		}
 	}
@@ -1962,6 +1973,212 @@ namespace Performance
 					this._STATE_NOTE = value;
 					this.SendPropertyChanged("STATE_NOTE");
 					this.OnSTATE_NOTEChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MERTRATE")]
+	public partial class MERTRATE : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _AUTO;
+		
+		private string _DEPT;
+		
+		private string _RYEAR;
+		
+		private string _RMONTH;
+		
+		private decimal _BONUS_P;
+		
+		private string _KEY_MAN;
+		
+		private System.DateTime _KEY_DATE;
+		
+    #region 擴充性方法定義
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAUTOChanging(int value);
+    partial void OnAUTOChanged();
+    partial void OnDEPTChanging(string value);
+    partial void OnDEPTChanged();
+    partial void OnRYEARChanging(string value);
+    partial void OnRYEARChanged();
+    partial void OnRMONTHChanging(string value);
+    partial void OnRMONTHChanged();
+    partial void OnBONUS_PChanging(decimal value);
+    partial void OnBONUS_PChanged();
+    partial void OnKEY_MANChanging(string value);
+    partial void OnKEY_MANChanged();
+    partial void OnKEY_DATEChanging(System.DateTime value);
+    partial void OnKEY_DATEChanged();
+    #endregion
+		
+		public MERTRATE()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AUTO", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int AUTO
+		{
+			get
+			{
+				return this._AUTO;
+			}
+			set
+			{
+				if ((this._AUTO != value))
+				{
+					this.OnAUTOChanging(value);
+					this.SendPropertyChanging();
+					this._AUTO = value;
+					this.SendPropertyChanged("AUTO");
+					this.OnAUTOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPT", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string DEPT
+		{
+			get
+			{
+				return this._DEPT;
+			}
+			set
+			{
+				if ((this._DEPT != value))
+				{
+					this.OnDEPTChanging(value);
+					this.SendPropertyChanging();
+					this._DEPT = value;
+					this.SendPropertyChanged("DEPT");
+					this.OnDEPTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RYEAR", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string RYEAR
+		{
+			get
+			{
+				return this._RYEAR;
+			}
+			set
+			{
+				if ((this._RYEAR != value))
+				{
+					this.OnRYEARChanging(value);
+					this.SendPropertyChanging();
+					this._RYEAR = value;
+					this.SendPropertyChanged("RYEAR");
+					this.OnRYEARChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RMONTH", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string RMONTH
+		{
+			get
+			{
+				return this._RMONTH;
+			}
+			set
+			{
+				if ((this._RMONTH != value))
+				{
+					this.OnRMONTHChanging(value);
+					this.SendPropertyChanging();
+					this._RMONTH = value;
+					this.SendPropertyChanged("RMONTH");
+					this.OnRMONTHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BONUS_P", DbType="Decimal(6,2) NOT NULL")]
+		public decimal BONUS_P
+		{
+			get
+			{
+				return this._BONUS_P;
+			}
+			set
+			{
+				if ((this._BONUS_P != value))
+				{
+					this.OnBONUS_PChanging(value);
+					this.SendPropertyChanging();
+					this._BONUS_P = value;
+					this.SendPropertyChanged("BONUS_P");
+					this.OnBONUS_PChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KEY_MAN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string KEY_MAN
+		{
+			get
+			{
+				return this._KEY_MAN;
+			}
+			set
+			{
+				if ((this._KEY_MAN != value))
+				{
+					this.OnKEY_MANChanging(value);
+					this.SendPropertyChanging();
+					this._KEY_MAN = value;
+					this.SendPropertyChanged("KEY_MAN");
+					this.OnKEY_MANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KEY_DATE", DbType="DateTime NOT NULL")]
+		public System.DateTime KEY_DATE
+		{
+			get
+			{
+				return this._KEY_DATE;
+			}
+			set
+			{
+				if ((this._KEY_DATE != value))
+				{
+					this.OnKEY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._KEY_DATE = value;
+					this.SendPropertyChanged("KEY_DATE");
+					this.OnKEY_DATEChanged();
 				}
 			}
 		}
