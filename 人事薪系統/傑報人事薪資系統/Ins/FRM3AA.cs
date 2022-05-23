@@ -86,7 +86,16 @@ namespace JBHR.Sal
                              where
                                  (a.IN_DATE <= ddate && a.OUT_DATE >= ddate)
                                  && ddate >= c.ADATE && ddate <= c.DDATE.Value
-                             select new { BASE = b, BASETTS = c, INSLAB = a, INSCOMP = d }).ToList();
+                             select new
+                             {
+                                 //BASE = b,
+                                 b.NOBR,
+                                 b.NAME_C,
+                                 b.IDNO,
+                                 BASETTS = c,
+                                 INSLAB = a,
+                                 INSCOMP = d
+                             }).ToList();
             insDS.FRM3AZ.Clear();
             int total, current = 0;
             total = dt.Rows.Count;
@@ -156,10 +165,10 @@ namespace JBHR.Sal
                     MessageBox.Show(Resources.Sal.ExcelDataMaping, Resources.All.DialogTitle, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     return;
                 }
-                var inslabSQCheck = from a in inslabSQL where (a.INSLAB.IN_DATE <= ddate && a.INSLAB.OUT_DATE >= ddate) && a.BASE.NOBR == nobr select a;
+                var inslabSQCheck = from a in inslabSQL where (a.INSLAB.IN_DATE <= ddate && a.INSLAB.OUT_DATE >= ddate) && a.NOBR == nobr select a;
                 if (!inslabSQCheck.Any())//找不到工號就找身分證號
                 {
-                    inslabSQCheck = from a in inslabSQL where (a.INSLAB.IN_DATE <= ddate && a.INSLAB.OUT_DATE >= ddate) && a.BASE.IDNO == nobr select a;
+                    inslabSQCheck = from a in inslabSQL where (a.INSLAB.IN_DATE <= ddate && a.INSLAB.OUT_DATE >= ddate) && a.IDNO == nobr select a;
                 }
                 //var inslabSQLofHea = from a in inslabSQL where (a.INSLAB.HBDATE <= ddate && a.INSLAB.HEDATE >= ddate) && a.BASE.NOBR == nobr select a;
                 //var inslabSQLofRet = from a in inslabSQL where (a.INSLAB.RBDATE <= ddate && a.INSLAB.REDATE >= ddate) && a.BASE.NOBR == nobr select a;
@@ -194,9 +203,9 @@ namespace JBHR.Sal
                     rowImp.J_AMT = JBModule.Data.CDecryp.Number(inslabSQCheck.First().INSLAB.J_AMT);
                     rowImp.H_AMT = JBModule.Data.CDecryp.Number(inslabSQCheck.First().INSLAB.H_AMT);
                     rowImp.R_AMT = JBModule.Data.CDecryp.Number(inslabSQCheck.First().INSLAB.R_AMT);
-                    rowImp.NAME_C = inslabSQCheck.First().BASE.NAME_C;
+                    rowImp.NAME_C = inslabSQCheck.First().NAME_C;
                     rowImp.RETCHOO = inslabSQCheck.First().BASETTS.RETCHOO;
-                    rowImp.NOBR = inslabSQCheck.First().BASE.NOBR;
+                    rowImp.NOBR = inslabSQCheck.First().NOBR;
                     if (inslabSQCheck.First().INSLAB.OUT_DATE.Date < new DateTime(9999, 12, 31))
                         rowImp.REMARK += "調整必須為最新的投保資料;";//代表不是最後一筆資料(已異動)
                     if (inslabSQCheck.First().INSLAB.IN_DATE == ddate)
@@ -226,10 +235,15 @@ namespace JBHR.Sal
                                    join b in db.BASETTS on a.NOBR equals b.NOBR
                                    where ddate >= b.ADATE && ddate <= b.DDATE.Value
                                    && a.NOBR == nobr
-                                   select new { BASE = a, BASETTS = b };
+                                   select new
+                                   {
+                                       //BASE = a,
+                                       a.NAME_C,
+                                       BASETTS = b
+                                   };
                     if (baseData.Any())
                     {
-                        rowImp.NAME_C = baseData.First().BASE.NAME_C;
+                        rowImp.NAME_C = baseData.First().NAME_C;
                         rowImp.RETCHOO = baseData.First().BASETTS.RETCHOO;
                     }
                 }
