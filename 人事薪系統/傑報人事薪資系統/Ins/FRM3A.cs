@@ -568,17 +568,17 @@ namespace JBHR.Ins
                                join bt in db.BASETTS on bs.NOBR equals bt.NOBR
                                where p.DDATE >= bt.ADATE && p.DDATE <= bt.DDATE && bt.INDT <= p.INDATE && (bt.STINDT == null || bt.STINDT.Value < p.INDATE)
                                 && bs.NOBR.Trim().CompareTo(p.NOBR1.Trim()) >= 0 && bs.NOBR.Trim().CompareTo(p.NOBR2.Trim()) <= 0
-                               select new { Base = bs, BaseTTS = bt }).ToList();
+                               select new { bs.NOBR, bs.NAME_C, BaseTTS = bt }).ToList();
 
                     //加入 NAME_C, RETCHOO 的欄位
                     var t3 = from c1 in t2
-                             join c2 in sql on c1.NOBR equals c2.Base.NOBR
+                             join c2 in sql on c1.NOBR equals c2.NOBR
                              //where c2.BASETTS.Where(pp => p.DDATE >= pp.ADATE && p.DDATE <= pp.DDATE.Value && (pp.INDT <= p.INDATE && (pp.STINDT == null || pp.STINDT.Value < p.INDATE))).Any()
                              where p.DDATE >= c2.BaseTTS.ADATE && p.DDATE <= c2.BaseTTS.DDATE
                              select new
                              {
                                  NOBR = c1.NOBR,
-                                 NAME_C = c2.Base.NAME_C.Trim(),
+                                 NAME_C = c2.NAME_C.Trim(),
                                  RETCHOO = c2.BaseTTS.RETCHOO,
                                  SALARY = c1.SALARY,
                                  SALARYA = c1.SALARYA
