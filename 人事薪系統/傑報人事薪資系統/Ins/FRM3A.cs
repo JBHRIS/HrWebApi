@@ -813,7 +813,7 @@ namespace JBHR.Ins
                     foreach (var rowIns in FAMILYINS)
                     {
                         DateTime OUT_DATE_Bak = rowIns.OUT_DATE;
-                        DateTime ROUT_DATE_Bak = rowIns.ROUT_DATE.Value;
+                        DateTime ROUT_DATE_Bak = rowIns.ROUT_DATE.Value != null ? rowIns.ROUT_DATE.Value : new DateTime(9999, 12, 31);
                         rowIns.OUT_DATE = Convert.ToDateTime(txtChDate.Text).AddDays(-1);
                         rowIns.ROUT_DATE = Convert.ToDateTime(txtChDate.Text).AddDays(-1);
 
@@ -1035,7 +1035,8 @@ namespace JBHR.Ins
             var L_INSLV_ARRAY = (from c in db.INSURLV where Convert.ToDateTime(p.DDATE) >= c.EFF_DATEL && Convert.ToDateTime(p.DDATE) <= c.LFF_DATEL select c).ToArray();
             var H_INSLV_ARRAY = (from c in db.INSURLV where Convert.ToDateTime(p.DDATE) >= c.EFF_DATEH && Convert.ToDateTime(p.DDATE) <= c.LFF_DATEH select c).ToArray();
             var R_INSLV_ARRAY = (from c in db.INSURLV where Convert.ToDateTime(p.DDATE) >= c.EFF_DATER && Convert.ToDateTime(p.DDATE) <= c.LFF_DATER select c).ToArray();
-
+            var J_INSLV_ARRAY = (from c in db.INSURLV where Convert.ToDateTime(p.DDATE) >= c.EFF_DATEJ && Convert.ToDateTime(p.DDATE) <= c.LFF_DATEJ select c).ToArray();
+            
             var salbasdSQL = (from c in db.SALBASD
                               join d in db.SALCODE on c.SAL_CODE equals d.SAL_CODE
                               join f in db.SALATTR on d.SAL_ATTR equals f.SALATTR1
@@ -1116,6 +1117,7 @@ namespace JBHR.Ins
             decimal L_MAX = L_INSLV_ARRAY.Max(r => r.AMT);
             decimal H_MAX = H_INSLV_ARRAY.Max(r => r.AMT);
             decimal R_MAX = R_INSLV_ARRAY.Max(r => r.AMT);
+            decimal J_MAX = J_INSLV_ARRAY.Max(r => r.AMT);            
             var salbasdList = salbasdSQL.ToList();
 
             foreach (var r in inslabSQL.ToList())
@@ -1150,7 +1152,16 @@ namespace JBHR.Ins
                 //{
                 //    row.L_AMT1 = row.L_AMT;//如果不調整，就跟原本一樣
                 //}
-
+                
+                //取得建議的投保級距
+                if (row.SALARY >= J_MAX) row.J_AMT1 = J_MAX;
+                else
+                {
+                    row.J_AMT1 = (from c in J_INSLV_ARRAY
+                                  where c.AMT >= row.SALARY
+                                  select c).Min(q => q.AMT);
+                }
+                
                 //取得建議的投保級距
                 //if (p.isHea)
                 //{
