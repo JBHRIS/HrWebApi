@@ -813,7 +813,7 @@ namespace JBHR.Ins
                     foreach (var rowIns in FAMILYINS)
                     {
                         DateTime OUT_DATE_Bak = rowIns.OUT_DATE;
-                        DateTime ROUT_DATE_Bak = rowIns.ROUT_DATE.Value != null ? rowIns.ROUT_DATE.Value : new DateTime(9999, 12, 31);
+                        DateTime ROUT_DATE_Bak = rowIns.ROUT_DATE != null ? rowIns.ROUT_DATE.Value : new DateTime(9999, 12, 31);
                         rowIns.OUT_DATE = Convert.ToDateTime(txtChDate.Text).AddDays(-1);
                         rowIns.ROUT_DATE = Convert.ToDateTime(txtChDate.Text).AddDays(-1);
 
