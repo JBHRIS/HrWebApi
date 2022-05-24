@@ -32,10 +32,10 @@ namespace JBHR.Ins
             cbxInsCompE.SelectedValue = InsCompData.Last().Key;
             Sal.Function.SetAvaliableVBase(this.insDS.V_BASE);
             string minNobr = this.insDS.V_BASE.First().NOBR.Trim();
-            string minName_c = (from c in db.BASE where c.NOBR.Trim() == minNobr select c).First().NAME_C.Trim();
+            string minName_c = (from c in db.BASE where c.NOBR.Trim() == minNobr select c.NAME_C).First().Trim();
 
             string maxNobr = this.insDS.V_BASE.Last().NOBR.Trim();
-            string maxName_c = (from c in db.BASE where c.NOBR.Trim() == maxNobr select c).First().NAME_C.Trim();
+            string maxName_c = (from c in db.BASE where c.NOBR.Trim() == maxNobr select c.NAME_C).First().Trim();
 
             txtMinNobr.Text = minNobr;
             txtMaxNobr.Text = maxNobr;
@@ -52,10 +52,10 @@ namespace JBHR.Ins
 
         private void txtMinNobr_Leave(object sender, EventArgs e)
         {
-            var BASE = (from c in db.BASE where c.NOBR.Trim() == txtMinNobr.Text && db.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value select c).FirstOrDefault();
+            var BASE = (from c in db.BASE where c.NOBR.Trim() == txtMinNobr.Text && db.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value select c.NAME_C).FirstOrDefault();
             if (BASE != null)
             {
-                lbMinName_C.Text = BASE.NAME_C.Trim();
+                lbMinName_C.Text = BASE.Trim();
             }
             else
             {
@@ -66,10 +66,10 @@ namespace JBHR.Ins
 
         private void txtMaxNobr_Leave(object sender, EventArgs e)
         {
-            var BASE = (from c in db.BASE where c.NOBR.Trim() == txtMaxNobr.Text && db.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value select c).FirstOrDefault();
+            var BASE = (from c in db.BASE where c.NOBR.Trim() == txtMaxNobr.Text && db.GetFilterByNobr(c.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value select c.NAME_C).FirstOrDefault();
             if (BASE != null)
             {
-                lbMaxName_C.Text = BASE.NAME_C.Trim();
+                lbMaxName_C.Text = BASE.Trim();
             }
             else
             {
@@ -694,9 +694,9 @@ namespace JBHR.Ins
 
                         }
 
-                        var EMPBASE = (from c in db.BASE
-                                       where c.NOBR.Trim().ToLower() == row.NOBR.Trim().ToLower()
-                                       select c).FirstOrDefault();
+                        //var EMPBASE = (from c in db.BASE
+                        //               where c.NOBR.Trim().ToLower() == row.NOBR.Trim().ToLower()
+                        //               select c).FirstOrDefault();
                         //if (EMPBASE != null && EMPBASE.COUNT_MA)
                         //{
                         //    row.SALARYA = 0;
