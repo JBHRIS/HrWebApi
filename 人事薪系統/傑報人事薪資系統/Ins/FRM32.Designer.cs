@@ -34,6 +34,7 @@
             this.dataGridView1 = new JBControls.DataGridView();
             this.iNSCOMPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.insDS = new JBHR.Ins.InsDS();
+            this.iNSNAMEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iNSLABBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -84,7 +85,6 @@
             this.bnChange = new System.Windows.Forms.Button();
             this.fullDataCtrl1 = new JBControls.FullDataCtrl();
             this.fAMILYBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.iNSNAMEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iNSURCDBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sPTYPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.wBSPTYPBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -102,7 +102,9 @@
             this.v_BASETableAdapter = new JBHR.Ins.InsDSTableAdapters.V_BASETableAdapter();
             this.fAMILYTableAdapter = new JBHR.Ins.InsDSTableAdapters.FAMILYTableAdapter();
             this.nOBRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NAME_C = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.fAIDNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FA_NAME_C = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.cODEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iNDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oUTDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -128,6 +130,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSCOMPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.insDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iNSNAMEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSLABBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -137,7 +140,6 @@
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vBASEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fAMILYBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iNSNAMEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSURCDBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sPTYPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wBSPTYPBindingSource)).BeginInit();
@@ -181,7 +183,9 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nOBRDataGridViewTextBoxColumn,
+            this.NAME_C,
             this.fAIDNODataGridViewTextBoxColumn,
+            this.FA_NAME_C,
             this.cODEDataGridViewTextBoxColumn,
             this.iNDATEDataGridViewTextBoxColumn,
             this.oUTDATEDataGridViewTextBoxColumn,
@@ -225,6 +229,11 @@
             this.insDS.Locale = new System.Globalization.CultureInfo("");
             this.insDS.RemotingFormat = System.Data.SerializationFormat.Binary;
             this.insDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // iNSNAMEBindingSource
+            // 
+            this.iNSNAMEBindingSource.DataMember = "INSNAME";
+            this.iNSNAMEBindingSource.DataSource = this.insDS;
             // 
             // iNSLABBindingSource
             // 
@@ -960,11 +969,6 @@
             this.fAMILYBindingSource.DataMember = "FAMILY";
             this.fAMILYBindingSource.DataSource = this.insDS;
             // 
-            // iNSNAMEBindingSource
-            // 
-            this.iNSNAMEBindingSource.DataMember = "INSNAME";
-            this.iNSNAMEBindingSource.DataSource = this.insDS;
-            // 
             // iNSURCDBindingSource
             // 
             this.iNSURCDBindingSource.DataMember = "INSURCD";
@@ -1044,6 +1048,17 @@
             this.nOBRDataGridViewTextBoxColumn.ReadOnly = true;
             this.nOBRDataGridViewTextBoxColumn.Width = 150;
             // 
+            // NAME_C
+            // 
+            this.NAME_C.DataPropertyName = "NOBR";
+            this.NAME_C.DataSource = this.vBASEBindingSource;
+            this.NAME_C.DisplayMember = "NAME_C";
+            this.NAME_C.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.NAME_C.HeaderText = "員工姓名";
+            this.NAME_C.Name = "NAME_C";
+            this.NAME_C.ReadOnly = true;
+            this.NAME_C.ValueMember = "NOBR";
+            // 
             // fAIDNODataGridViewTextBoxColumn
             // 
             this.fAIDNODataGridViewTextBoxColumn.DataPropertyName = "FA_IDNO";
@@ -1052,6 +1067,19 @@
             this.fAIDNODataGridViewTextBoxColumn.Name = "fAIDNODataGridViewTextBoxColumn";
             this.fAIDNODataGridViewTextBoxColumn.ReadOnly = true;
             this.fAIDNODataGridViewTextBoxColumn.Width = 150;
+            // 
+            // FA_NAME_C
+            // 
+            this.FA_NAME_C.DataPropertyName = "FA_IDNO";
+            this.FA_NAME_C.DataSource = this.fAMILYBindingSource;
+            this.FA_NAME_C.DisplayMember = "FA_NAME";
+            this.FA_NAME_C.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.FA_NAME_C.HeaderText = "眷屬姓名";
+            this.FA_NAME_C.Name = "FA_NAME_C";
+            this.FA_NAME_C.ReadOnly = true;
+            this.FA_NAME_C.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.FA_NAME_C.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.FA_NAME_C.ValueMember = "FA_IDNO";
             // 
             // cODEDataGridViewTextBoxColumn
             // 
@@ -1242,6 +1270,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSCOMPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.insDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iNSNAMEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSLABBindingSource)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
@@ -1252,7 +1281,6 @@
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vBASEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fAMILYBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iNSNAMEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iNSURCDBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sPTYPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wBSPTYPBindingSource)).EndInit();
@@ -1337,7 +1365,9 @@
         private System.Windows.Forms.Label label17;
         private JBControls.TextBox textBoxJ_AMT;
         private System.Windows.Forms.DataGridViewTextBoxColumn nOBRDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn NAME_C;
         private System.Windows.Forms.DataGridViewTextBoxColumn fAIDNODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn FA_NAME_C;
         private System.Windows.Forms.DataGridViewTextBoxColumn cODEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iNDATEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn oUTDATEDataGridViewTextBoxColumn;
