@@ -29,19 +29,19 @@
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnConfig = new System.Windows.Forms.Button();
             this.cbxAvailableCode = new System.Windows.Forms.CheckBox();
@@ -3347,7 +3347,6 @@
             this.basettstblayout2.Controls.Add(this.textBoxACCOUNT_NO, 6, 2);
             this.basettstblayout2.Controls.Add(this.label75, 5, 1);
             this.basettstblayout2.Controls.Add(this.cbxBanCode, 6, 1);
-            this.basettstblayout2.Controls.Add(this.checkBoxCOUNT_PASS, 5, 6);
             this.basettstblayout2.Controls.Add(this.checkBoxMANGE, 5, 7);
             this.basettstblayout2.Controls.Add(this.checkBoxMANG, 5, 8);
             this.basettstblayout2.Controls.Add(this.checkBoxMANG1, 5, 9);
@@ -3367,6 +3366,7 @@
             this.basettstblayout2.Controls.Add(this.checkBoxNOSPEC, 9, 5);
             this.basettstblayout2.Controls.Add(this.checkBoxNOSPAMT, 9, 6);
             this.basettstblayout2.Controls.Add(this.checkBoxFULATT, 8, 7);
+            this.basettstblayout2.Controls.Add(this.checkBoxCOUNT_PASS, 9, 7);
             this.basettstblayout2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.basettstblayout2.Location = new System.Drawing.Point(0, 0);
             this.basettstblayout2.Name = "basettstblayout2";
@@ -3759,14 +3759,13 @@
             this.checkBoxCOUNT_PASS.CaptionLabel = null;
             this.checkBoxCOUNT_PASS.CausesValidation = false;
             this.checkBoxCOUNT_PASS.IsImitateCaption = true;
-            this.checkBoxCOUNT_PASS.Location = new System.Drawing.Point(465, 174);
+            this.checkBoxCOUNT_PASS.Location = new System.Drawing.Point(916, 202);
             this.checkBoxCOUNT_PASS.Name = "checkBoxCOUNT_PASS";
-            this.checkBoxCOUNT_PASS.Size = new System.Drawing.Size(82, 16);
+            this.checkBoxCOUNT_PASS.Size = new System.Drawing.Size(84, 16);
             this.checkBoxCOUNT_PASS.TabIndex = 19;
             this.checkBoxCOUNT_PASS.TabStop = false;
             this.checkBoxCOUNT_PASS.Text = "可線上刷卡";
             this.checkBoxCOUNT_PASS.UseVisualStyleBackColor = true;
-            this.checkBoxCOUNT_PASS.Visible = false;
             // 
             // checkBoxMANGE
             // 
@@ -5217,14 +5216,14 @@
             this.dataGridViewCost.AllowUserToResizeRows = false;
             this.dataGridViewCost.AutoGenerateColumns = false;
             this.dataGridViewCost.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("細明體", 9F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewCost.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("細明體", 9F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewCost.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewCost.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCost.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dEPTSDataGridViewTextBoxColumn,
@@ -5327,14 +5326,14 @@
             this.dataGridViewFamily.AllowUserToResizeRows = false;
             this.dataGridViewFamily.AutoGenerateColumns = false;
             this.dataGridViewFamily.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("細明體", 9F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewFamily.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("細明體", 9F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewFamily.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridViewFamily.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFamily.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.fAIDNODataGridViewTextBoxColumn,
@@ -5395,8 +5394,8 @@
             // fABIRDTDataGridViewTextBoxColumn
             // 
             this.fABIRDTDataGridViewTextBoxColumn.DataPropertyName = "FA_BIRDT";
-            dataGridViewCellStyle3.Format = "yyyy/MM/dd";
-            this.fABIRDTDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle16.Format = "yyyy/MM/dd";
+            this.fABIRDTDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle16;
             this.fABIRDTDataGridViewTextBoxColumn.HeaderText = "眷屬生日";
             this.fABIRDTDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.fABIRDTDataGridViewTextBoxColumn.Name = "fABIRDTDataGridViewTextBoxColumn";
@@ -5472,14 +5471,14 @@
             this.dataGridViewSCHL.AllowUserToResizeRows = false;
             this.dataGridViewSCHL.AutoGenerateColumns = false;
             this.dataGridViewSCHL.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("細明體", 9F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewSCHL.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("細明體", 9F);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewSCHL.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridViewSCHL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSCHL.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EDUCCODE,
@@ -5665,14 +5664,14 @@
             this.dataGridViewWork.AllowUserToResizeRows = false;
             this.dataGridViewWork.AutoGenerateColumns = false;
             this.dataGridViewWork.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("細明體", 9F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewWork.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("細明體", 9F);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewWork.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridViewWork.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewWork.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cOMPANYDataGridViewTextBoxColumn,
@@ -5719,8 +5718,8 @@
             // bDATEDataGridViewTextBoxColumn
             // 
             this.bDATEDataGridViewTextBoxColumn.DataPropertyName = "BDATE";
-            dataGridViewCellStyle6.Format = "yyyy/MM/dd";
-            this.bDATEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle19.Format = "yyyy/MM/dd";
+            this.bDATEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle19;
             this.bDATEDataGridViewTextBoxColumn.HeaderText = "開始日期";
             this.bDATEDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.bDATEDataGridViewTextBoxColumn.Name = "bDATEDataGridViewTextBoxColumn";
@@ -5728,8 +5727,8 @@
             // eDATEDataGridViewTextBoxColumn
             // 
             this.eDATEDataGridViewTextBoxColumn.DataPropertyName = "EDATE";
-            dataGridViewCellStyle7.Format = "yyyy/MM/dd";
-            this.eDATEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle20.Format = "yyyy/MM/dd";
+            this.eDATEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle20;
             this.eDATEDataGridViewTextBoxColumn.HeaderText = "結束日期";
             this.eDATEDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.eDATEDataGridViewTextBoxColumn.Name = "eDATEDataGridViewTextBoxColumn";
@@ -5794,14 +5793,14 @@
             this.dataGridViewLican.AllowUserToResizeRows = false;
             this.dataGridViewLican.AutoGenerateColumns = false;
             this.dataGridViewLican.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("細明體", 9F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewLican.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("細明體", 9F);
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewLican.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dataGridViewLican.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewLican.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cOMPDataGridViewTextBoxColumn,
@@ -5849,8 +5848,8 @@
             // mDATEDataGridViewTextBoxColumn
             // 
             this.mDATEDataGridViewTextBoxColumn.DataPropertyName = "MDATE";
-            dataGridViewCellStyle9.Format = "yyyy/MM/dd";
-            this.mDATEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle22.Format = "yyyy/MM/dd";
+            this.mDATEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle22;
             this.mDATEDataGridViewTextBoxColumn.HeaderText = "生效日期";
             this.mDATEDataGridViewTextBoxColumn.MinimumWidth = 85;
             this.mDATEDataGridViewTextBoxColumn.Name = "mDATEDataGridViewTextBoxColumn";
@@ -5859,8 +5858,8 @@
             // eDATEDataGridViewTextBoxColumn1
             // 
             this.eDATEDataGridViewTextBoxColumn1.DataPropertyName = "EDATE";
-            dataGridViewCellStyle10.Format = "yyyy/MM/dd";
-            this.eDATEDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle23.Format = "yyyy/MM/dd";
+            this.eDATEDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle23;
             this.eDATEDataGridViewTextBoxColumn1.HeaderText = "有效日期";
             this.eDATEDataGridViewTextBoxColumn1.MinimumWidth = 85;
             this.eDATEDataGridViewTextBoxColumn1.Name = "eDATEDataGridViewTextBoxColumn1";
@@ -6487,14 +6486,14 @@
             // 
             this.dataGridViewMaster.AllowUserToResizeRows = false;
             this.dataGridViewMaster.AutoGenerateColumns = false;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("細明體", 9F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewMaster.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("細明體", 9F);
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewMaster.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridViewMaster.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMaster.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MASTER1,
@@ -6915,14 +6914,14 @@
             this.dataGridViewEx7.AllowUserToDeleteRows = false;
             this.dataGridViewEx7.AllowUserToResizeRows = false;
             this.dataGridViewEx7.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("細明體", 9F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewEx7.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("細明體", 9F);
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewEx7.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.dataGridViewEx7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEx7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewEx7.Location = new System.Drawing.Point(0, 0);
@@ -7044,14 +7043,14 @@
             this.dgvPayDoc.AllowUserToResizeRows = false;
             this.dgvPayDoc.AutoGenerateColumns = false;
             this.dgvPayDoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("細明體", 9F);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPayDoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("細明體", 9F);
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPayDoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
             this.dgvPayDoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPayDoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnDel,
