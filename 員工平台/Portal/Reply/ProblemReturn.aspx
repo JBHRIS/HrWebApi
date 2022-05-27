@@ -48,7 +48,7 @@
                         </div>
                     </div>--%>
                     <div class="form-group">
-                        <label>附件<span class="text-navy"> *只能上傳一個附件；檔案大小限制為10MB</span></label>
+                        <label>附件<span class="text-navy"> *單次僅能上傳一個檔案；檔案大小限制為10MB</span></label>
                         <div id="dZUpload" class="dropzone" style="border: 1px solid #e5e6e7;">
                             <div class="dz-default dz-message text-center m-t-md">
                                 <i class="fa fa-cloud-upload fa-2x text-primary"></i>

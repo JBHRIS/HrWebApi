@@ -323,6 +323,8 @@ namespace Portal
                         UpdateQuestionMainCond.CompanySetting = CompanySetting;
                         UpdateQuestionMainCond.Code = Request.QueryString["Code"];
                         oUpdateQuestionMain.GetData(UpdateQuestionMainCond);
+                        QuestionReplyData.Rebind();
+
                     }
                     if (Result.Status)
                     {

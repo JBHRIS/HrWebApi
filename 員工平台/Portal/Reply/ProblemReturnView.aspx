@@ -44,7 +44,7 @@
         </div>
         <div class="social-body">
             <p>
-                  <label><strong>標題 :</strong></label>
+                <label><strong>標題 :</strong></label>
                 <telerik:RadLabel ID="lblTitle" runat="server" Text="" />
             </p>
             <p>
@@ -74,7 +74,7 @@
                     <telerik:RadAjaxPanel ID="RadAjaxPanel4" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
                         <telerik:RadListView ID="DataUpload" runat="server" ItemPlaceholderID="Container" RenderMode="Lightweight" OnNeedDataSource="DataUpload_NeedDataSource">
                             <LayoutTemplate>
-                                <table class="footable table table-stripped" data-page-size="10" data-filter="#filter" style="margin-bottom:0;">
+                                <table class="footable table table-stripped" data-page-size="10" data-filter="#filter" style="margin-bottom: 0;">
                                     <thead>
                                         <tr>
                                             <th>檔名</th>
@@ -110,7 +110,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <button id="btnWtReply" type="button" runat="server" data-toggle="show" data-target="#demo" class="btn btn-outline btn-primary btn-w-m m-b-xs">我要回覆</button>
+                <button id="btnWtReply" type="button" runat="server" data-toggle="collapse" data-target="#demo" class="btn btn-outline btn-primary btn-w-m m-b-xs">我要回覆</button>
             </div>
 
         </div>
@@ -295,7 +295,7 @@
     <asp:Label ID="lblUserCode" runat="server" Visible="False"></asp:Label>
     <asp:Label ID="lblEmpID" runat="server" Visible="False"></asp:Label>
     <asp:Label ID="lblCompanyId" runat="server" Visible="False"></asp:Label>
-      <asp:Label ID="lblEmpEmail" runat="server" Visible="False"></asp:Label>
+    <asp:Label ID="lblEmpEmail" runat="server" Visible="False"></asp:Label>
     <asp:Label ID="lblEmpName" runat="server" Visible="False"></asp:Label>
     <asp:Label ID="lblRoleKey" runat="server" Visible="False"></asp:Label>
 </asp:Content>

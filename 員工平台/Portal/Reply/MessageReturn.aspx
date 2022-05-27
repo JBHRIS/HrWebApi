@@ -458,7 +458,33 @@
             $('.footable').footable();
         });
 
+        function download(FileId) {
 
+            //檔案下載網址
+            var url = "Download.ashx?openExternalBrowser=1";
+
+            //產生 form
+            var form = document.createElement("form");
+
+            form.method = "GET";
+            form.action = url;
+
+            //如果想要另開視窗可加上target
+            //form.target = "_blank";
+
+            //index為要下載的檔案編號，存入hidden跟表單一起送出
+            var input = document.createElement("input");
+            input.type = "hidden";
+            input.name = "index";
+            input.value = FileId;
+            form.appendChild(input);
+
+            //送出表單並移除 form
+            var body = document.getElementsByTagName("body")[0];
+            body.appendChild(form);
+            form.submit();
+            form.remove();
+        };
     </script>
 
 </asp:Content>
