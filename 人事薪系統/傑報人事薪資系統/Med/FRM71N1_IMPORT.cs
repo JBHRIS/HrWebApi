@@ -10,7 +10,7 @@ namespace JBHR.Med
 {
     public partial class FRM71N1_IMPORT : JBControls.U_FIELD
     {
-
+        int RowIndex = 6;
         JBModule.Data.ApplicationConfigSettings acg = new JBModule.Data.ApplicationConfigSettings("FRM71N1", MainForm.COMPANY);
         CheckControl cc;//必填欄位
         public FRM71N1_IMPORT()
@@ -41,12 +41,13 @@ namespace JBHR.Med
                 cbxNote1.Enabled = Note1Enable;
                 cbxNote2.Visible = Note2Enable;
                 cbxNote2.Enabled = Note2Enable;
-                var RowStyles = tableLayoutPanel1.RowStyles;
-                RowStyles.RemoveAt(6);
-                tableLayoutPanel1.RowStyles.Clear();
-                foreach (RowStyle item in RowStyles)
+                float percent = 100f / tableLayoutPanel1.RowStyles.Count;
+                for (int i = 0; i < tableLayoutPanel1.RowStyles.Count; i++)
                 {
-                    tableLayoutPanel1.RowStyles.Add(item);
+                    if (i != RowIndex)
+                        tableLayoutPanel1.RowStyles[i].Height = percent;
+                    else
+                        tableLayoutPanel1.RowStyles[i].Height = 0;
                 }
                 this.Size = new Size(this.Size.Width, tableLayoutPanel1.Size.Height + 20);
             }

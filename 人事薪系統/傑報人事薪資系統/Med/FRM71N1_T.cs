@@ -128,7 +128,7 @@ namespace JBHR.Med
                             && a.DATE_E >= d.ADATE && a.DATE_E <= d.DDATE.Value
                             && f.FORMAL//20180118台光只抓正式員工
                             && MainForm.ReadSalaryGroups.Contains(c.SALADR)
-                            select new { a.NOBR, c.TTSCODE, a.ADATE, a.YYMM, a.SEQ, a.COMP, a.FORMAT, a.NOTE, b.COUNT_MA, a.SALADR }).ToList();
+                            select new { a.NOBR, c.TTSCODE, a.ADATE, a.YYMM, a.SEQ, a.COMP, a.FORMAT, a.NOTE, b.COUNT_MA, a.SALADR, a.FILE_YYMM }).ToList();
             var WagedData = (from a in db.WAGE
                              join b in db.WAGED on new { a.NOBR, a.YYMM, a.SEQ } equals new { b.NOBR, b.YYMM, b.SEQ }
                              join c in db.SALCODE on b.SAL_CODE equals c.SAL_CODE
@@ -164,7 +164,7 @@ namespace JBHR.Med
                     FORSUB = "",
                     IMPORT = true,
                     INA_ID = "",
-                    IS_FILE = false,
+                    IS_FILE = it.FILE_YYMM.Trim().Length > 0,
                     KEY_DATE = DateTime.Now,
                     KEY_MAN = MainForm.USER_NAME,
                     MEMO = it.NOTE,
@@ -182,43 +182,43 @@ namespace JBHR.Med
                     RET_AMT = JBModule.Data.CEncrypt.Number(RetAmt),
                 };
 
-                if (it.COUNT_MA)
-                {
-                    var EmpTax = EmpDataTax.Where(p => p.NOBR == it.NOBR);
-                    var ForeingerOut = EmpTax.Where(p => p.OUDT != null && p.OUDT.Value > it.ADATE);
-                    if (it.TTSCODE == "2")//最後已經離職
-                    {
-                        item.IS_FILE = true;
-                    }
-                    else if (ForeingerOut.Any())//中途離境前薪資
-                    {
-                        item.IS_FILE = true;
-                    }
-                    else//未滿183
-                    {
-                        var DateList = new List<Tuple<DateTime, DateTime>>();
-                        foreach (var dd in EmpTax)
-                        {
-                            DateTime d1, d2;
-                            if (dd.TAX_DATE == null) d1 = Convert.ToDateTime(txtPayDateB.Text);
-                            else d1 = dd.TAX_DATE.Value;
-                            if (dd.TAX_EDATE == null) d2 = Convert.ToDateTime(txtPayDateE.Text);
-                            else d2 = dd.TAX_EDATE.Value;
-                            DateList.Add(new Tuple<DateTime, DateTime>(d1, d2));
-                        }
-                        var FixDateList = JBTools.DataTransform.ReBindAttend(DateList);
-                        int FullYearDay = 0;
-                        foreach (var dd in FixDateList)
-                        {
-                            JBTools.Intersection its = new JBTools.Intersection();
-                            its.Inert(Convert.ToDateTime(txtPayDateB.Text), Convert.ToDateTime(txtPayDateE.Text));
-                            its.Inert(dd.Item1, dd.Item2);
-                            FullYearDay += its.GetDays();
-                        }
-                        if (FullYearDay < 183)
-                            item.IS_FILE = true;
-                    }
-                }
+                //if (it.COUNT_MA)
+                //{
+                //    var EmpTax = EmpDataTax.Where(p => p.NOBR == it.NOBR);
+                //    var ForeingerOut = EmpTax.Where(p => p.OUDT != null && p.OUDT.Value > it.ADATE);
+                //    if (it.TTSCODE == "2")//最後已經離職
+                //    {
+                //        item.IS_FILE = true;
+                //    }
+                //    else if (ForeingerOut.Any())//中途離境前薪資
+                //    {
+                //        item.IS_FILE = true;
+                //    }
+                //    else//未滿183
+                //    {
+                //        var DateList = new List<Tuple<DateTime, DateTime>>();
+                //        foreach (var dd in EmpTax)
+                //        {
+                //            DateTime d1, d2;
+                //            if (dd.TAX_DATE == null) d1 = Convert.ToDateTime(txtPayDateB.Text);
+                //            else d1 = dd.TAX_DATE.Value;
+                //            if (dd.TAX_EDATE == null) d2 = Convert.ToDateTime(txtPayDateE.Text);
+                //            else d2 = dd.TAX_EDATE.Value;
+                //            DateList.Add(new Tuple<DateTime, DateTime>(d1, d2));
+                //        }
+                //        var FixDateList = JBTools.DataTransform.ReBindAttend(DateList);
+                //        int FullYearDay = 0;
+                //        foreach (var dd in FixDateList)
+                //        {
+                //            JBTools.Intersection its = new JBTools.Intersection();
+                //            its.Inert(Convert.ToDateTime(txtPayDateB.Text), Convert.ToDateTime(txtPayDateE.Text));
+                //            its.Inert(dd.Item1, dd.Item2);
+                //            FullYearDay += its.GetDays();
+                //        }
+                //        if (FullYearDay < 183)
+                //            item.IS_FILE = true;
+                //    }
+                //}
                 db.TW_TAX_ITEM.InsertOnSubmit(item);
             }
             db.SubmitChanges();

@@ -16,6 +16,7 @@ namespace JBHR.Med
         {
             InitializeComponent();
         }
+        int RowIndex = 6;//動態欄位的Row Index
         CheckYYMMFormatControl CYYMMFC = new CheckYYMMFormatControl();
         CheckControl cc;//必填欄位
         public int TW_TAX_ITEM_AUTO = -1;
@@ -151,12 +152,13 @@ namespace JBHR.Med
             cbxNote2.TabIndex = 15;
             if (!(Note1Enable || Note2Enable))
             {
-                var RowStyles = tableLayoutPanel1.RowStyles;
-                RowStyles.RemoveAt(6);
-                tableLayoutPanel1.RowStyles.Clear();
-                foreach (RowStyle item in RowStyles)
+                float percent = 100f / tableLayoutPanel1.RowStyles.Count;
+                for (int i = 0; i < tableLayoutPanel1.RowStyles.Count; i++)
                 {
-                    tableLayoutPanel1.RowStyles.Add(item);
+                    if (i != RowIndex)
+                        tableLayoutPanel1.RowStyles[i].Height = percent;
+                    else
+                        tableLayoutPanel1.RowStyles[i].Height = 0;
                 }
                 this.Size = new Size(this.Size.Width, tableLayoutPanel1.Size.Height + 20);
             }
@@ -262,16 +264,16 @@ namespace JBHR.Med
             bool changed = false;
             if (TW_TAX_ITEM_AUTO != -1)
             {
-                changed = instance.NOBR != Nobr ? true : changed;
-                changed = instance.YYMM != YYMM ? true : changed;
-                changed = instance.SEQ != SEQ ? true : changed;
-                changed = instance.FORMAT != FORMAT ? true : changed;
-                changed = instance.SUBCODE != subcodekey ? true : changed;
+                changed = instance.NOBR != Nobr || changed;
+                changed = instance.YYMM != YYMM || changed;
+                changed = instance.SEQ != SEQ || changed;
+                changed = instance.FORMAT != FORMAT || changed;
+                changed = instance.SUBCODE != subcodekey || changed;
             }
             else
                 changed = true;
 
-            var re_instance = db.TW_TAX_ITEM.Where(p => p.PID == TW_TAX_AUTO && p.NOBR == Nobr && p.YYMM == YYMM && p.SEQ == SEQ && p.FORMAT == FORMAT && p.SUBCODE == subcodekey);
+            var re_instance = db.TW_TAX_ITEM.Where(p => p.PID == TW_TAX_AUTO && p.AUTO != TW_TAX_ITEM_AUTO && p.NOBR == Nobr && p.YYMM == YYMM && p.SEQ == SEQ && p.FORMAT == FORMAT && p.SUBCODE == subcodekey);
             if (changed && re_instance.Any())
             {
                 string re_string1 = string.Format("員工編號{0}已有計薪年月{1}期別{2}所得格式{3}", Nobr, YYMM, SEQ, FORMAT);

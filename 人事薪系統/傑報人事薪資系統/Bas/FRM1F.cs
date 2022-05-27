@@ -33,7 +33,7 @@ namespace JBHR.Bas
                 fullDataCtrl1.bnDelEnable = u_prg.DELE;
                 fullDataCtrl1.bnExportEnable = u_prg.PRINT_;
             }
-            fullDataCtrl1.WhereCmd = Sal.Function.GetFilterCmdByNobr("lican.nobr");
+            fullDataCtrl1.WhereCmd = "(CONVERT(nvarchar(50), GETDATE(), 111) BETWEEN BASETTS.ADATE AND BASETTS.DDATE) and" + Sal.Function.GetFilterCmdByNobr("lican.nobr");
             fullDataCtrl1.Init_Ctrls();
         }
 

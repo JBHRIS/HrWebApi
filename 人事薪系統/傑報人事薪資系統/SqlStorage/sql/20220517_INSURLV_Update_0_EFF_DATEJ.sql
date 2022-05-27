@@ -1,0 +1,1 @@
+update INSURLV set EFF_DATEJ='19000101' where AMT = 0

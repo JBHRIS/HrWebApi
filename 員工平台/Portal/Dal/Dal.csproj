@@ -220,6 +220,7 @@
     <Compile Include="Dao\PageApiVoid\DeletePageApiVoidDao.cs" />
     <Compile Include="Dao\PageApiVoid\InsertPageApiVoidDao.cs" />
     <Compile Include="Dao\PageApiVoid\PageToApiVoidViewDao.cs" />
+    <Compile Include="Dao\Performance\PerformanceDao.cs" />
     <Compile Include="Dao\RolePage\DeleteRolePageDao.cs" />
     <Compile Include="Dao\RolePage\InsertRolePageDao.cs" />
     <Compile Include="Dao\RolePage\RoleToPageViewDao.cs" />
@@ -499,7 +500,6 @@
     <Folder Include="bin\Debug\Data\" />
     <Folder Include="bin\Debug\SQL\" />
     <Folder Include="bin\Release\" />
-    <Folder Include="Dao\Performance\" />
     <Folder Include="Dao\Resume\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

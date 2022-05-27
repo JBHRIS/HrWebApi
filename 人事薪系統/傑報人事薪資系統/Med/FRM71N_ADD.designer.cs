@@ -44,6 +44,8 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxReleaseDate = new JBControls.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.tWTAXBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -171,7 +173,7 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "開放查詢日期";
             // 
-            // textBox3
+            // textBoxReleaseDate
             // 
             this.textBoxReleaseDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxReleaseDate.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
@@ -182,7 +184,7 @@
             this.textBoxReleaseDate.Location = new System.Drawing.Point(104, 144);
             this.textBoxReleaseDate.Mask = "0000/00/00";
             this.textBoxReleaseDate.MaxLength = 50;
-            this.textBoxReleaseDate.Name = "textBox3";
+            this.textBoxReleaseDate.Name = "textBoxReleaseDate";
             this.textBoxReleaseDate.PasswordChar = '\0';
             this.textBoxReleaseDate.ReadOnly = false;
             this.textBoxReleaseDate.ShowCalendarButton = true;
@@ -190,9 +192,32 @@
             this.textBoxReleaseDate.TabIndex = 8;
             this.textBoxReleaseDate.ValidType = JBControls.TextBox.EValidType.Date;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(210, 151);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(101, 12);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "提前申報給付日期";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tWTAXBindingSource, "PreFile", true));
+            this.checkBox2.Location = new System.Drawing.Point(188, 44);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(72, 16);
+            this.checkBox2.TabIndex = 10;
+            this.checkBox2.Text = "提前申報";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
             // FRM71N_ADD
             // 
             this.ClientSize = new System.Drawing.Size(488, 216);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.textBoxReleaseDate);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.datePickEnd);
@@ -233,5 +258,7 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label5;
         private JBControls.TextBox textBoxReleaseDate;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }

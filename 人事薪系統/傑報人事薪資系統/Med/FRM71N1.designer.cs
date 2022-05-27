@@ -35,6 +35,7 @@
             this.buttonIsFile = new System.Windows.Forms.Button();
             this.buttonIsNotFile = new System.Windows.Forms.Button();
             this.btnConfig = new System.Windows.Forms.Button();
+            this.buttonPreFile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,7 +112,7 @@
             // 
             // btnConfig
             // 
-            this.btnConfig.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnConfig.BackgroundImage = global::JBHR.Properties.Resources.Settings_icon;
             this.btnConfig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnConfig.Location = new System.Drawing.Point(971, 65);
@@ -121,11 +122,22 @@
             this.btnConfig.Tag = "FRM71N1";
             this.btnConfig.UseVisualStyleBackColor = true;
             // 
+            // buttonPreFile
+            // 
+            this.buttonPreFile.Location = new System.Drawing.Point(840, 13);
+            this.buttonPreFile.Name = "buttonPreFile";
+            this.buttonPreFile.Size = new System.Drawing.Size(75, 23);
+            this.buttonPreFile.TabIndex = 1021;
+            this.buttonPreFile.Text = "提前申報";
+            this.buttonPreFile.UseVisualStyleBackColor = true;
+            this.buttonPreFile.Click += new System.EventHandler(this.buttonPreFile_Click);
+            // 
             // FRM71N1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 641);
+            this.Controls.Add(this.buttonPreFile);
             this.Controls.Add(this.btnConfig);
             this.Controls.Add(this.buttonIsNotFile);
             this.Controls.Add(this.buttonIsFile);
@@ -151,5 +163,6 @@
         private System.Windows.Forms.Button buttonIsFile;
         private System.Windows.Forms.Button buttonIsNotFile;
         private System.Windows.Forms.Button btnConfig;
+        private System.Windows.Forms.Button buttonPreFile;
     }
 }

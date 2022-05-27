@@ -1,0 +1,1 @@
+update INSURLV set EFF_DATEJ='20220501' where AMT between 25250 and 72800

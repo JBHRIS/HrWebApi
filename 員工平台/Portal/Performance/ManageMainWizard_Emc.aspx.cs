@@ -6,6 +6,7 @@ using Bll.Salary;
 using Bll.Tools;
 using Dal;
 using Dal.Dao;
+using JBTools.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -246,9 +247,9 @@ namespace Performance
                         var rsJobl = (from c in dcHr.ViewJobl
                                       select c).ToList();
 
-                        var rsDept = oPerformanceDao.GetDept(DateBase , 999);
+                        var rsDept = oPerformanceDao.GetDept(DateBase, 999);
 
-                        var rsDepta = oPerformanceDao.GetDepta(DateBase , 999);
+                        var rsDepta = oPerformanceDao.GetDepta(DateBase, 999);
 
                         //以基準日抓出所有員工基本資料
                         //以基準日抓出所有員工基本資料
@@ -475,8 +476,8 @@ namespace Performance
                                         var rGetmertamt = rsGetmertamt.FirstOrDefault(p => p.EmpId == rSource.EmpId);
                                         if (rGetmertamt != null)
                                         {
-                                            BonusTotalTemp = se.Decode(rGetmertamt.BonusTotal); //可得獎金
-                                            BonusCardinalTemp = se.Decode(rGetmertamt.BonusTotal);// se.Decode(rGetmertamt.BonusCardinal);   //可給獎金                                               
+                                            BonusCardinalTemp = se.Decode(rGetmertamt.BonusTotal);// se.Decode(rGetmertamt.BonusCardinal);   //可給獎金    
+                                            BonusTotalTemp = se.Decode(rGetmertamt.BonusTotal); //可得獎金                                           
                                             BonusAdjustTemp = se.Decode(rGetmertamt.BonusAdjust);    //考績加減
                                             AvgIntegrateTemp = rGetmertamt.AvgIntegrate;
                                         }
@@ -485,7 +486,7 @@ namespace Performance
                                         rTarget.PerformanceMainCode = Code;
                                         rTarget.Code = Guid.NewGuid().ToString();
                                         rTarget.EmpId = rSource.EmpId;
-                                        rTarget.PerformanceDeptCode = rSource.DeptCode; //這個部門是編制部門 應該是錯的
+                                        rTarget.PerformanceDeptCode = rSource.DeptCode; //這個部門是編制部門 應該是錯的 應該要放簽核部門 後面會置換
                                         rTarget.DeptCode = rSource.DeptCode;
                                         rTarget.DeptName = DeptName;
                                         rTarget.WorkPerformance = 0;    //工作績效
@@ -494,7 +495,7 @@ namespace Performance
                                         rTarget.Encourage = 0;  //激勵
                                         rTarget.TotalIntegrate = 0; //總積分
                                         rTarget.RatingCode = RatingCode;    //評等
-                                        rTarget.BonusCardinal = BonusCardinal;   //分配獎金
+                                        rTarget.BonusCardinal = BonusCardinalTemp;   //分配獎金
                                         rTarget.InWorkSpecific = InWorkSpecificTemp; //在職比
                                         rTarget.BonusTotal = BonusTotalTemp; //獎金基數
                                         rTarget.BonusDeduct = 0;    //可扣獎金
@@ -519,9 +520,9 @@ namespace Performance
                                         rTarget.ExceptionNote = false;
                                         rTarget.Note = "";
                                         rTarget.EmpCategoryCode = EmpCategoryCode;
-                                        rTarget.InsertMan = lblUserCode.Text;
+                                        rTarget.InsertMan = _User.UserCode;
                                         rTarget.InsertDate = DateTime.Now;
-                                        rTarget.UpdateMan = lblUserCode.Text;
+                                        rTarget.UpdateMan = _User.UserCode;
                                         rTarget.UpdateDate = DateTime.Now;
 
                                         rTarget.EmpName = "";
@@ -536,7 +537,7 @@ namespace Performance
 
                                         {
                                             rTarget.EmpName = rBase.NameC;
-                                            rTarget.PerformanceDeptCode = rBase.DeptmCode;    
+                                            rTarget.PerformanceDeptCode = rBase.DeptmCode;
                                             rTarget.JobCode = rBase.JobCode;
                                             rTarget.JobName = rsJob.FirstOrDefault(p => p.Code == rTarget.JobCode)?.Name ?? "";
                                             rTarget.JoblCode = rBase.JoblCode;
@@ -659,9 +660,9 @@ namespace Performance
                                         rTarget.BonusMax = BonusCardinalTemp;
                                         rTarget.BonusUse = rTarget.BonusMax;
                                         rTarget.BonusBalance = 0;
-                                        rTarget.InsertMan = lblUserCode.Text;
+                                        rTarget.InsertMan = _User.UserCode;
                                         rTarget.InsertDate = DateTime.Now;
-                                        rTarget.UpdateMan = lblUserCode.Text;
+                                        rTarget.UpdateMan = _User.UserCode;
                                         rTarget.UpdateDate = DateTime.Now;
                                         rTarget.PathCode = rSource.PathCode;
                                         rTarget.PathName = rSource.PathName;
@@ -689,15 +690,14 @@ namespace Performance
                                             rTarget.Mail = rBase.Email;
                                         }
 
-                                        dcMain.PerformanceDept.InsertOnSubmit(rTarget);
+                                        //dcMain.PerformanceDept.InsertOnSubmit(rTarget);
 
                                         //新增暫存資料
-                                        rsPerformanceDept.Add(rTarget);                                     
+                                        rsPerformanceDept.Add(rTarget);
                                     }
                                 }
                             }
-                        }
-
+                        }                      
 
                         //考核部門暫存資料
                         var rsPerformanceJob = new List<PerformanceJob>();
@@ -714,12 +714,12 @@ namespace Performance
                                 rTarget.Code = rSource.Code;
                                 rTarget.DisplayCode = rSource.Code;
                                 rTarget.Name = rSource.Name;
-                                rTarget.InsertMan = lblUserCode.Text;
+                                rTarget.InsertMan = _User.UserCode;
                                 rTarget.InsertDate = DateTime.Now;
-                                rTarget.UpdateMan = lblUserCode.Text;
+                                rTarget.UpdateMan = _User.UserCode;
                                 rTarget.UpdateDate = DateTime.Now;
 
-                                dcMain.PerformanceJob.InsertOnSubmit(rTarget);
+                                //dcMain.PerformanceJob.InsertOnSubmit(rTarget);
 
                                 //新增暫存資料
                                 rsPerformanceJob.Add(rTarget);
@@ -771,9 +771,9 @@ namespace Performance
                                                     rf.DeptTree = rDept.DeptTree;
                                                     rf.DeptTreeB = rDept.DeptTreeB;
                                                     rf.DeptTreeE = rDept.DeptTreeE;// rPerformanceMain.DeptTreeE;
-                                                    rf.InsertMan = lblUserCode.Text;
+                                                    rf.InsertMan = _User.UserCode;
                                                     rf.InsertDate = DateTime.Now;
-                                                    rf.UpdateMan = lblUserCode.Text;
+                                                    rf.UpdateMan = _User.UserCode;
                                                     rf.UpdateDate = DateTime.Now;
                                                     rsPerformanceFlow.Add(rf);
 
@@ -790,9 +790,9 @@ namespace Performance
                                                     rn.DeptSort = 1;
                                                     rn.ActiveCode = "00";
                                                     rn.Sort = 1;
-                                                    rn.InsertMan = lblUserCode.Text;
+                                                    rn.InsertMan = _User.UserCode;
                                                     rn.InsertDate = DateTime.Now;
-                                                    rn.UpdateMan = lblUserCode.Text;
+                                                    rn.UpdateMan = _User.UserCode;
                                                     rn.UpdateDate = DateTime.Now;
                                                     rsPerformanceFlowNode.Add(rn);
 
@@ -908,7 +908,7 @@ namespace Performance
 
             var r = new PerformanceMain();
             r.Code = Code;
-            r.InsertMan = lblUserCode.Text;
+            r.InsertMan = _User.UserCode;
             r.InsertDate = DateTime.Now;
             r.Name = txtName.Text;
             r.ReportName = txtReportName.Text;
@@ -928,7 +928,7 @@ namespace Performance
             r.DeptTreeB = ddlDeptTreeB.SelectedItem.Value.ParseInt(60);
             r.DeptTreeE = ddlDeptTreeE.SelectedItem.Value.ParseInt(90);
             r.Note = txtNote.Text;
-            r.UpdateMan = lblUserCode.Text;
+            r.UpdateMan = _User.UserCode;
             r.UpdateDate = DateTime.Now;
             dcMain.PerformanceMain.InsertOnSubmit(r);
 
@@ -1047,15 +1047,63 @@ namespace Performance
                         rPerformanceDeptRating.PerformanceMainCode = Code;
                         rPerformanceDeptRating.PerformanceDeptCode = PerformanceDeptCode;
                         rPerformanceDeptRating.PerformanceRatingCode = PerformanceRatingCode;
-                        rPerformanceDeptRating.InsertMan = lblUserCode.Text;
+                        rPerformanceDeptRating.InsertMan = _User.UserCode;
                         rPerformanceDeptRating.InsertDate = DateTime.Now;
                         dcMain.PerformanceDeptRating.InsertOnSubmit(rPerformanceDeptRating);
                     }
 
                     rPerformanceDeptRating.NumPer = rPerformanceRating.NumPer;
-                    rPerformanceDeptRating.UpdateMan = lblUserCode.Text;
+                    rPerformanceDeptRating.UpdateMan = _User.UserCode;
                     rPerformanceDeptRating.UpdateDate = DateTime.Now;
                 }
+
+            //用料將金 部門的獎金比例 
+            if (r.TypeCode == "03")
+            {
+                var rsMertrate = (from c in dcCustom.MERTRATE
+                                  where c.RYEAR == Year
+                                  && c.RMONTH == Convert.ToInt32(Month).ToString()
+                                  select new
+                                  {
+                                      Year = c.RYEAR,
+                                      Month = c.RMONTH,
+                                      DeptCode = c.DEPT,
+                                      BonusPer = c.BONUS_P,
+                                  }).ToList();
+
+                var rsDeptPer = (from c in dcMain.PerformanceDeptPer
+                                 where c.Year == Year
+                                 && c.Month == Month
+                                 select c).ToList();
+
+                var rsDept1 = oPerformanceDao.GetDept(r.DateBase, 999);
+
+                foreach (var rMertrate in rsMertrate)
+                {
+                    var DeptCode = rMertrate.DeptCode;
+
+                    var rDept = rsDept1.FirstOrDefault(p => p.Code == DeptCode);
+                    var DeptName = rDept?.Name ?? string.Empty;
+
+                    var rTarget = rsDeptPer.FirstOrDefault(p => p.Code == DeptCode);
+                    if (rTarget == null)
+                    {
+                        rTarget = new PerformanceDeptPer();
+                        dcMain.PerformanceDeptPer.InsertOnSubmit(rTarget);
+
+                        rTarget.Code = DeptCode;                       
+                        rTarget.Year = Year;
+                        rTarget.Month = Month;
+                        rTarget.InsertMan = _User.UserCode;
+                        rTarget.InsertDate = DateTime.Now;
+                    }
+
+                    rTarget.Name = DeptName;
+                    rTarget.BonusPer = (rMertrate.BonusPer / 100M);
+                    rTarget.UpdateMan = _User.UserCode;
+                    rTarget.UpdateDate = DateTime.Now;
+                }
+            }
 
             dcMain.SubmitChanges();
 

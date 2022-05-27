@@ -2142,6 +2142,10 @@
     <Folder Include="UserControls\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Standard\JBTools\JBTools.csproj">
+      <Project>{9a891671-4fc7-4ddf-a21d-21e3d563cee6}</Project>
+      <Name>JBTools</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bll\Bll.csproj">
       <Project>{5e9851c3-e912-41d8-8c31-7dab17deb92a}</Project>
       <Name>Bll</Name>
@@ -2188,7 +2192,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

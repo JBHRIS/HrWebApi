@@ -78,7 +78,7 @@ namespace JBHR.Med
             frm.DataTransfer.ColumnList.Add("已申報", typeof(string));
             frm.DataTransfer.ColumnList.Add("稅籍編號", typeof(string));
             frm.DataTransfer.ColumnList.Add("備註", typeof(string));
-            frm.DataTransfer.ColumnList.Add("警告", typeof(string));
+            frm.DataTransfer.ColumnList.Add("警告註記", typeof(string));
             frm.DataTransfer.ColumnList.Add("錯誤註記", typeof(string));
 
             frm.DataTransfer.UnMustColumnList = new List<string>();
@@ -261,6 +261,13 @@ namespace JBHR.Med
                 return dt;
             else
                 return dt.AsEnumerable().ToDictionary(p => p.Field<string>(0), p => p.Field<string>(1));
+        }
+
+        private void buttonPreFile_Click(object sender, EventArgs e)
+        {
+            Med.FRM71N1_T1 frm = new FRM71N1_T1();
+            frm.TW_TAX_Auto = TW_TAX_Auto;
+            frm.ShowDialog();
         }
     }
     public class TwYearTaxImport : JBControls.ImportTransfer

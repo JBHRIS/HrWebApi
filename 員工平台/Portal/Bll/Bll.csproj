@@ -109,8 +109,10 @@
     <Compile Include="Attendance\Vdb\AttendDetailVdb.cs" />
     <Compile Include="Attendance\Vdb\AttendTypeVdb.cs" />
     <Compile Include="Attendance\Vdb\CalendarVdb.cs" />
+    <Compile Include="Base\Vdb\BaseVdb.cs" />
     <Compile Include="BillBoard\Vdb\BillboardsByIdVdb .cs" />
     <Compile Include="BillBoard\Vdb\BillboardsVdb.cs" />
+    <Compile Include="Dept\Vdb\DeptVdb.cs" />
     <Compile Include="Employee\Vdb\EffEmployeeViewVdb.cs" />
     <Compile Include="Employee\Vdb\EmployeeJobStatusAddChangeVdb.cs" />
     <Compile Include="Employee\Vdb\EmployeeRuleVdb.cs" />
@@ -190,6 +192,7 @@
     <Compile Include="PageApiVoid\Vdb\DeletePageApiVoidVdb.cs" />
     <Compile Include="PageApiVoid\Vdb\InsertPageApiVoidVdb.cs" />
     <Compile Include="PageApiVoid\Vdb\PageToApiVoidViewVdb.cs" />
+    <Compile Include="Performance\Vdb\PerformanceVdb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resume\Account\Vdb\ResumeDeleteAccountsVdb.cs" />
     <Compile Include="Resume\Account\Vdb\ResumeUpdateAccountsVdb.cs" />
@@ -383,7 +386,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
-    <Folder Include="Performance\Vdb\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
