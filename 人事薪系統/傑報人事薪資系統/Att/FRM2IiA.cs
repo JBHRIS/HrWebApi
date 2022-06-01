@@ -47,7 +47,7 @@ namespace JBHR.Att
             string CalcMode = AppConfig.GetConfig("CalcMode").GetString();
             string LastRangeMode = AppConfig.GetConfig("LastRangeMode").GetString();
             JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
-            DateTime t1, t2, ddate,WorkYearEndDate;
+            DateTime t1, t2, ddate, WorkYearEndDate;
             t1 = DateTime.Now;
             string nobr_b, nobr_e, dept_b, dept_e;
             int year = 0;
@@ -106,6 +106,9 @@ namespace JBHR.Att
             foreach (var itm in sql)
             {
                 JBHR.BLL.Att.Holiday holi = new BLL.Att.Holiday(itm.NOBR, ddate);
+                if (AppConfig.GetConfig("CalcType").GetString("1") == "1")
+                    holi = new BLL.Att.BPBF.Holiday_BPBF_Union(itm.NOBR, ddate);
+
                 if (CalcMode == "Floor")
                     holi.CalculationMode = BLL.Att.CalcMode.Floor;
                 else
@@ -127,7 +130,7 @@ namespace JBHR.Att
                 }
                 HoliDayIndt = HoliDayIndt.AddDays(stopDays);
                 if (AppConfig.GetConfig("CalcType").GetString("1") == "1")
-                    holi.CreateYearHolidayAB(HoliDayIndt, itm.BASETTS.DEPT, itm.BASETTS.STDT, itm.BASETTS.STINDT, year, itm.TotalYears, itm.TotalLeaveWithoutPay, itm.ROTET.YRREST_HRS, itm.BASETTSs.Count(), false, hcode);
+                    holi.CreateYearUnionHoliday(HoliDayIndt, itm.BASETTS.DEPT, itm.BASETTS.STDT, itm.BASETTS.STINDT, year, itm.TotalYears, itm.TotalLeaveWithoutPay, itm.ROTET.YRREST_HRS, itm.BASETTSs.Count(), false, hcode);
                 else
                     holi.CreateYearHoliday(HoliDayIndt, itm.BASETTS.DEPT, itm.BASETTS.STDT, itm.BASETTS.STINDT, year, itm.TotalYears, itm.TotalLeaveWithoutPay, itm.ROTET.YRREST_HRS, itm.BASETTSs.Count(), false, hcode);
             }

@@ -59,12 +59,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ptxDeptB = new System.Windows.Forms.ComboBox();
             this.ptxDeptE = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBoxWorkYearEndDate = new JBControls.TextBox();
             this.hCODEBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.hCODEBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.hCODEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hCODETableAdapter = new JBHR.Att.dsAttTableAdapters.HCODETableAdapter();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBoxWorkYearEndDate = new JBControls.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dEPTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsBas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bASEBindingSource)).BeginInit();
@@ -182,7 +182,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(58, -185);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 12);
+            this.label7.Size = new System.Drawing.Size(80, 18);
             this.label7.TabIndex = 1;
             this.label7.Text = "員工編號";
             // 
@@ -200,7 +200,7 @@
             this.txtYear.PasswordChar = '\0';
             this.txtYear.ReadOnly = false;
             this.txtYear.ShowCalendarButton = true;
-            this.txtYear.Size = new System.Drawing.Size(59, 22);
+            this.txtYear.Size = new System.Drawing.Size(59, 29);
             this.txtYear.TabIndex = 0;
             this.txtYear.ValidType = JBControls.TextBox.EValidType.String;
             this.txtYear.Leave += new System.EventHandler(this.txtYear_Leave);
@@ -212,7 +212,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(51, 20);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.Size = new System.Drawing.Size(80, 18);
             this.label4.TabIndex = 1;
             this.label4.Text = "特休年度";
             // 
@@ -260,9 +260,9 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 35);
+            this.label3.Location = new System.Drawing.Point(57, 32);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.Size = new System.Drawing.Size(80, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "部門代碼";
             // 
@@ -270,9 +270,9 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 8);
+            this.label2.Location = new System.Drawing.Point(57, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.Size = new System.Drawing.Size(80, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "員工編號";
             // 
@@ -287,7 +287,7 @@
             this.ptxNobrB.IsEmptyToQuery = true;
             this.ptxNobrB.IsMustBeFound = true;
             this.ptxNobrB.LabelText = "";
-            this.ptxNobrB.Location = new System.Drawing.Point(98, 3);
+            this.ptxNobrB.Location = new System.Drawing.Point(143, 3);
             this.ptxNobrB.Name = "ptxNobrB";
             this.ptxNobrB.ReadOnly = false;
             this.ptxNobrB.ShowDisplayName = true;
@@ -300,9 +300,9 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(228, 35);
+            this.label6.Location = new System.Drawing.Point(273, 32);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(17, 12);
+            this.label6.Size = new System.Drawing.Size(26, 18);
             this.label6.TabIndex = 5;
             this.label6.Text = "至";
             // 
@@ -310,9 +310,9 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(228, 8);
+            this.label5.Location = new System.Drawing.Point(273, 5);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(17, 12);
+            this.label5.Size = new System.Drawing.Size(26, 18);
             this.label5.TabIndex = 4;
             this.label5.Text = "至";
             // 
@@ -327,7 +327,7 @@
             this.ptxNobrE.IsEmptyToQuery = true;
             this.ptxNobrE.IsMustBeFound = true;
             this.ptxNobrE.LabelText = "";
-            this.ptxNobrE.Location = new System.Drawing.Point(251, 3);
+            this.ptxNobrE.Location = new System.Drawing.Point(305, 3);
             this.ptxNobrE.Name = "ptxNobrE";
             this.ptxNobrE.ReadOnly = false;
             this.ptxNobrE.ShowDisplayName = true;
@@ -343,14 +343,14 @@
             this.txtDdate.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtDdate.DecimalPlace = 2;
             this.txtDdate.IsEmpty = true;
-            this.txtDdate.Location = new System.Drawing.Point(98, 58);
+            this.txtDdate.Location = new System.Drawing.Point(143, 58);
             this.txtDdate.Mask = "0000/00/00";
             this.txtDdate.MaxLength = -1;
             this.txtDdate.Name = "txtDdate";
             this.txtDdate.PasswordChar = '\0';
             this.txtDdate.ReadOnly = false;
             this.txtDdate.ShowCalendarButton = true;
-            this.txtDdate.Size = new System.Drawing.Size(71, 22);
+            this.txtDdate.Size = new System.Drawing.Size(71, 29);
             this.txtDdate.TabIndex = 6;
             this.txtDdate.ValidType = JBControls.TextBox.EValidType.Date;
             // 
@@ -358,9 +358,9 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 63);
+            this.label1.Location = new System.Drawing.Point(39, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.Size = new System.Drawing.Size(98, 18);
             this.label1.TabIndex = 2;
             this.label1.Text = "異動截止日";
             // 
@@ -368,18 +368,46 @@
             // 
             this.ptxDeptB.DropDownWidth = 121;
             this.ptxDeptB.FormattingEnabled = true;
-            this.ptxDeptB.Location = new System.Drawing.Point(98, 31);
+            this.ptxDeptB.Location = new System.Drawing.Point(143, 31);
             this.ptxDeptB.Name = "ptxDeptB";
-            this.ptxDeptB.Size = new System.Drawing.Size(121, 20);
+            this.ptxDeptB.Size = new System.Drawing.Size(121, 26);
             this.ptxDeptB.TabIndex = 4;
             // 
             // ptxDeptE
             // 
             this.ptxDeptE.FormattingEnabled = true;
-            this.ptxDeptE.Location = new System.Drawing.Point(251, 31);
+            this.ptxDeptE.Location = new System.Drawing.Point(305, 31);
             this.ptxDeptE.Name = "ptxDeptE";
-            this.ptxDeptE.Size = new System.Drawing.Size(121, 20);
+            this.ptxDeptE.Size = new System.Drawing.Size(121, 26);
             this.ptxDeptE.TabIndex = 5;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 90);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(134, 18);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "特休年資截止日";
+            // 
+            // textBoxWorkYearEndDate
+            // 
+            this.textBoxWorkYearEndDate.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.textBoxWorkYearEndDate.CaptionLabel = null;
+            this.textBoxWorkYearEndDate.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.textBoxWorkYearEndDate.DecimalPlace = 2;
+            this.textBoxWorkYearEndDate.IsEmpty = true;
+            this.textBoxWorkYearEndDate.Location = new System.Drawing.Point(143, 87);
+            this.textBoxWorkYearEndDate.Mask = "0000/00/00";
+            this.textBoxWorkYearEndDate.MaxLength = -1;
+            this.textBoxWorkYearEndDate.Name = "textBoxWorkYearEndDate";
+            this.textBoxWorkYearEndDate.PasswordChar = '\0';
+            this.textBoxWorkYearEndDate.ReadOnly = false;
+            this.textBoxWorkYearEndDate.ShowCalendarButton = true;
+            this.textBoxWorkYearEndDate.Size = new System.Drawing.Size(71, 29);
+            this.textBoxWorkYearEndDate.TabIndex = 4;
+            this.textBoxWorkYearEndDate.ValidType = JBControls.TextBox.EValidType.Date;
             // 
             // hCODEBindingSource2
             // 
@@ -400,37 +428,9 @@
             // 
             this.hCODETableAdapter.ClearBeforeFill = true;
             // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 93);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(89, 12);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "特休年資截止日";
-            // 
-            // textBoxWorkYearEndDate
-            // 
-            this.textBoxWorkYearEndDate.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.textBoxWorkYearEndDate.CaptionLabel = null;
-            this.textBoxWorkYearEndDate.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.textBoxWorkYearEndDate.DecimalPlace = 2;
-            this.textBoxWorkYearEndDate.IsEmpty = true;
-            this.textBoxWorkYearEndDate.Location = new System.Drawing.Point(98, 87);
-            this.textBoxWorkYearEndDate.Mask = "0000/00/00";
-            this.textBoxWorkYearEndDate.MaxLength = -1;
-            this.textBoxWorkYearEndDate.Name = "textBoxWorkYearEndDate";
-            this.textBoxWorkYearEndDate.PasswordChar = '\0';
-            this.textBoxWorkYearEndDate.ReadOnly = false;
-            this.textBoxWorkYearEndDate.ShowCalendarButton = true;
-            this.textBoxWorkYearEndDate.Size = new System.Drawing.Size(71, 22);
-            this.textBoxWorkYearEndDate.TabIndex = 4;
-            this.textBoxWorkYearEndDate.ValidType = JBControls.TextBox.EValidType.Date;
-            // 
             // FRM2IiA
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(395, 216);
             this.Controls.Add(this.panel1);
