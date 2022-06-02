@@ -2202,8 +2202,8 @@ namespace JBHR.Sal.Core
                           join a in smd.DEPT on basetts.DEPT equals a.D_NO
 						  //join wrnt in smd.WriteRuleNobrTable.Where(p => p.GUID == guid) on basetts.NOBR equals wrnt.EMPID																							  
                           where rowEnrich.YYMM == this.YYMM && rowEnrich.SEQ == SEQ
-                          && basetts.NOBR.Trim().CompareTo(NOBR_B.Trim()) >= 0 && basetts.NOBR.Trim().CompareTo(NOBR_E.Trim()) <= 0
-                          && a.D_NO_DISP.Trim().CompareTo(DEPT_B.Trim()) >= 0 && a.D_NO_DISP.Trim().CompareTo(DEPT_E.Trim()) <= 0
+                          && basetts.NOBR.CompareTo(NOBR_B) >= 0 && basetts.NOBR.CompareTo(NOBR_E) <= 0
+                          && a.D_NO_DISP.CompareTo(DEPT_B) >= 0 && a.D_NO_DISP.CompareTo(DEPT_E) <= 0
                           && DATE_E >= basetts.ADATE && DATE_E <= basetts.DDATE.Value
                           //&& smd.GetFilterByNobr(rowEnrich.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
                           && rowEnrich.MEMO.Trim().Length > 0
@@ -2721,8 +2721,8 @@ namespace JBHR.Sal.Core
                          join a in smd.DEPT on basetts.DEPT equals a.D_NO
 						 //join wrnt in smd.WriteRuleNobrTable.Where(p => p.GUID == guid) on rowEnrich.NOBR equals wrnt.EMPID																								   
                          where rowEnrich.YYMM == this.YYMM && rowEnrich.SEQ == SEQ
-                         && basetts.NOBR.Trim().CompareTo(NOBR_B.Trim()) >= 0 && basetts.NOBR.Trim().CompareTo(NOBR_E.Trim()) <= 0
-                         && a.D_NO_DISP.Trim().CompareTo(DEPT_B.Trim()) >= 0 && a.D_NO_DISP.Trim().CompareTo(DEPT_E.Trim()) <= 0
+                         && basetts.NOBR.CompareTo(NOBR_B) >= 0 && basetts.NOBR.CompareTo(NOBR_E) <= 0
+                         && a.D_NO_DISP.CompareTo(DEPT_B) >= 0 && a.D_NO_DISP.CompareTo(DEPT_E) <= 0
                          && DATE_E >= basetts.ADATE && DATE_E <= basetts.DDATE.Value
                          && smd.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Select(p => p.DATAGROUP).Contains(basetts.SALADR)
                          select rowEnrich;
@@ -2745,8 +2745,8 @@ namespace JBHR.Sal.Core
                             join basetts in smd.BASETTS on rowEnrich.NOBR equals basetts.NOBR
                             join a in smd.DEPT on basetts.DEPT equals a.D_NO
                             where rowEnrich.YYMM == this.YYMM && rowEnrich.SEQ == SEQ
-                            && rowEnrich.NOBR.Trim().CompareTo(NOBR_B.Trim()) >= 0 && rowEnrich.NOBR.Trim().CompareTo(NOBR_E.Trim()) <= 0
-                            && a.D_NO_DISP.Trim().CompareTo(DEPT_B.Trim()) >= 0 && a.D_NO_DISP.Trim().CompareTo(DEPT_E.Trim()) <= 0
+                            && rowEnrich.NOBR.CompareTo(NOBR_B) >= 0 && rowEnrich.NOBR.CompareTo(NOBR_E) <= 0
+                            && a.D_NO_DISP.CompareTo(DEPT_B) >= 0 && a.D_NO_DISP.CompareTo(DEPT_E) <= 0
                             && DATE_E >= basetts.ADATE && DATE_E <= basetts.DDATE.Value
                             && smd.GetFilterByNobr(rowEnrich.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
                             select rowEnrich;

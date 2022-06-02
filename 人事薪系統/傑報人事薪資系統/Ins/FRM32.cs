@@ -548,6 +548,31 @@ namespace JBHR.Ins
                 {
                     try
                     {
+                        if (textBoxL_AMT.Text != null && Convert.ToDecimal(textBoxL_AMT.Text) != 0)
+                            textBoxL_AMT.Text = JBModule.Data.CEncrypt.Number(Convert.ToDecimal(textBoxL_AMT.Text)).ToString();
+                        else
+                            textBoxL_AMT.Text = JBModule.Data.CEncrypt.Number(0).ToString();
+                        e.Values["L_AMT"] = Convert.ToDecimal(textBoxL_AMT.Text);
+
+                        if (textBoxJ_AMT.Text != null && Convert.ToDecimal(textBoxJ_AMT.Text) != 0)
+                            textBoxJ_AMT.Text = JBModule.Data.CEncrypt.Number(Convert.ToDecimal(textBoxJ_AMT.Text)).ToString();
+                        else
+                            textBoxJ_AMT.Text = JBModule.Data.CEncrypt.Number(0).ToString();
+                        e.Values["J_AMT"] = Convert.ToDecimal(textBoxJ_AMT.Text);
+
+                        if (textBoxH_AMT.Text != null && Convert.ToDecimal(textBoxH_AMT.Text) != 0)
+                            textBoxH_AMT.Text = JBModule.Data.CEncrypt.Number(Convert.ToDecimal(textBoxH_AMT.Text)).ToString();
+                        else
+                            textBoxH_AMT.Text = JBModule.Data.CEncrypt.Number(0).ToString();
+                        e.Values["H_AMT"] = Convert.ToDecimal(textBoxH_AMT.Text);
+
+                        if (textBoxR_AMT.Text != null && Convert.ToDecimal(textBoxR_AMT.Text) != 0)
+                            textBoxR_AMT.Text = JBModule.Data.CEncrypt.Number(Convert.ToDecimal(textBoxR_AMT.Text)).ToString();
+                        else
+                            textBoxR_AMT.Text = JBModule.Data.CEncrypt.Number(0).ToString();
+                        e.Values["R_AMT"] = Convert.ToDecimal(textBoxH_AMT.Text);
+
+
                         if (trans_db.Connection.State != ConnectionState.Open) trans_db.Connection.Open();
                         trans = trans_db.Connection.BeginTransaction();
                         iNSLABTableAdapter.Transaction = trans as SqlTransaction;
@@ -590,7 +615,7 @@ namespace JBHR.Ins
                                 newInsLab.L_AMT = JBModule.Data.CEncrypt.Number(0);
                                 newInsLab.J_AMT = JBModule.Data.CEncrypt.Number(0);
                                 newInsLab.HRATE_CODE = fa_idno[key];
-                                newInsLab.H_AMT = JBModule.Data.CEncrypt.Number(Convert.ToDecimal(e.Values["h_amt"]));
+                                newInsLab.H_AMT = Convert.ToDecimal(e.Values["h_amt"]);
                                 newInsLab.R_AMT = JBModule.Data.CEncrypt.Number(0);
                                 newInsLab.KEY_MAN = MainForm.USER_NAME;
                                 newInsLab.KEY_DATE = DateTime.Now;
@@ -649,30 +674,6 @@ namespace JBHR.Ins
                             trans_db.SubmitChanges();
 
                         }
-                        if (textBoxL_AMT.Text != null && Convert.ToDecimal(textBoxL_AMT.Text) != 0)
-                            textBoxL_AMT.Text = JBModule.Data.CEncrypt.Number(Convert.ToDecimal(textBoxL_AMT.Text)).ToString();
-                        else
-                            textBoxL_AMT.Text = JBModule.Data.CEncrypt.Number(0).ToString();
-                        e.Values["L_AMT"] = Convert.ToDecimal(textBoxL_AMT.Text);
-
-                        if (textBoxJ_AMT.Text != null && Convert.ToDecimal(textBoxJ_AMT.Text) != 0)
-                            textBoxJ_AMT.Text = JBModule.Data.CEncrypt.Number(Convert.ToDecimal(textBoxJ_AMT.Text)).ToString();
-                        else
-                            textBoxJ_AMT.Text = JBModule.Data.CEncrypt.Number(0).ToString();
-                        e.Values["J_AMT"] = Convert.ToDecimal(textBoxJ_AMT.Text);
-
-                        if (textBoxH_AMT.Text != null && Convert.ToDecimal(textBoxH_AMT.Text) != 0)
-                            textBoxH_AMT.Text = JBModule.Data.CEncrypt.Number(Convert.ToDecimal(textBoxH_AMT.Text)).ToString();
-                        else
-                            textBoxH_AMT.Text = JBModule.Data.CEncrypt.Number(0).ToString();
-                        e.Values["H_AMT"] = Convert.ToDecimal(textBoxH_AMT.Text);
-
-                        if (textBoxR_AMT.Text != null && Convert.ToDecimal(textBoxR_AMT.Text) != 0)
-                            textBoxR_AMT.Text = JBModule.Data.CEncrypt.Number(Convert.ToDecimal(textBoxR_AMT.Text)).ToString();
-                        else
-                            textBoxR_AMT.Text = JBModule.Data.CEncrypt.Number(0).ToString();
-                        e.Values["R_AMT"] = Convert.ToDecimal(textBoxH_AMT.Text);
-
                         e.Values["key_man"] = MainForm.USER_NAME;
                         e.Values["key_date"] = DateTime.Now;
                     }
