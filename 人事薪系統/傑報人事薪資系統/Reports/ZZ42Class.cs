@@ -3424,14 +3424,14 @@ namespace JBHR.Reports
             //, string depts_b, string depts_e
             //, string comp_b, string comp_e
             //, string user, string comp, bool admin)
-            DataTable Leave_DT = GetTolHours(attdate_e, AnnualLeave_Type, nobr_b, nobr_e, emp_b, emp_e, dept_b, dept_e, depts_b, depts_e, comp_b, comp_e, user, comp, isadmin);
+            DataTable Leave_DT = GetTolHours(attdate_e, AnnualLeave_Type, "LEAVE".ToString(), nobr_b, nobr_e, emp_b, emp_e, dept_b, dept_e, depts_b, depts_e, comp_b, comp_e, user, comp, isadmin);
             Leave_DT.PrimaryKey = new DataColumn[] { Leave_DT.Columns["NOBR"] };
 
             #endregion
 
             #region 補休剩餘時數
 
-            DataTable Rest_DT = GetTolHours(attdate_e, CompensatoryLeave_Type, nobr_b, nobr_e, emp_b, emp_e, dept_b, dept_e, depts_b, depts_e, comp_b, comp_e, user, comp, isadmin);
+            DataTable Rest_DT = GetTolHours(attdate_e, CompensatoryLeave_Type, "REST".ToString(), nobr_b, nobr_e, emp_b, emp_e, dept_b, dept_e, depts_b, depts_e, comp_b, comp_e, user, comp, isadmin);
             Rest_DT.PrimaryKey = new DataColumn[] { Rest_DT.Columns["NOBR"] };
 
             #endregion
@@ -4859,13 +4859,14 @@ namespace JBHR.Reports
             JBHR.Reports.ReportClass.Export(ExporDt, FileName);
         }
 
-        public static DataTable GetTolHours(string attdate_e, string type
+        public static DataTable GetTolHours(string attdate_e, string type, string DT_Type
             , string nobr_b, string nobr_e
             , string empcd_b, string empcd_e
             , string dept_b, string dept_e
             , string depts_b, string depts_e
             , string comp_b, string comp_e
-            , string user, string comp, bool isadmin)
+            , string user, string comp, bool isadmin
+            )
         {
             var dbHR = new HrDBDataContext();
 
@@ -4932,25 +4933,62 @@ namespace JBHR.Reports
                                 CHECK_HOURS = CheckTakens.Any() ?
                                     CheckTakens.Select(s => s.USEHOUR).Sum(s => s) : 0
                             }).ToList();
+            #region 特休
+            var DistinctDT = (from a in GetTable
+                             select new
+                             {
+                                 NOBR = a.NOBR,
+                                 TOL_HOURS = a.TOL_HOURS,
+                                 LeaveHours = a.LeaveHours,
+                                 Balance = a.Balance,
+                                 CheckHours = a.CHECK_HOURS,
+                                 Check_Balance = a.TOL_HOURS - a.CHECK_HOURS,
+                             }).Distinct().ToList();
 
             //Group
-            var GroupData = GetTable
-                .GroupBy(g => g.NOBR)
-                .Select(s => new
-                {
-                    //員工編號
-                    NOBR = s.Key,
-                    //得假
-                    TOL_HOURS = s.Sum(g => g.TOL_HOURS),
-                    //已請
-                    LeaveHours = s.Sum(g => g.LeaveHours),
-                    //剩餘
-                    Balance = s.Sum(g => g.Balance),
-                    //排除後已請
-                    CheckHours = s.Sum(g => g.CHECK_HOURS),
-                    //排除後剩餘
-                    Check_Balance = s.Sum(g => g.TOL_HOURS) - s.Sum(g => g.CHECK_HOURS),
-                }).ToList();
+            var GroupData = DistinctDT
+                        .GroupBy(g => g.NOBR)
+                        .Select(s => new
+                        {
+                                //員工編號
+                                NOBR = s.Key,
+                                //得假
+                                TOL_HOURS = s.Sum(g => g.TOL_HOURS),
+                                //已請
+                                LeaveHours = s.Sum(g => g.LeaveHours),
+                                //剩餘
+                                Balance = s.Sum(g => g.Balance),
+                                //排除後已請
+                                CheckHours = s.Sum(g => g.CheckHours),
+                                //排除後剩餘
+                                Check_Balance = s.Sum(g => g.Check_Balance),
+                        }).ToList();
+            #endregion
+
+            #region 補休
+            //若為補休
+            if (DT_Type == "REST")
+            {
+                //Group
+                GroupData = GetTable
+                            .GroupBy(g => g.NOBR)
+                            .Select(s => new
+                            {
+                                //員工編號
+                                NOBR = s.Key,
+                                //得假
+                                TOL_HOURS = s.Sum(g => g.TOL_HOURS),
+                                //已請
+                                LeaveHours = s.Sum(g => g.LeaveHours),
+                                //剩餘
+                                Balance = s.Sum(g => g.Balance),
+                                //排除後已請
+                                CheckHours = s.Sum(g => g.CHECK_HOURS),
+                                //排除後剩餘
+                                Check_Balance = s.Sum(g => g.TOL_HOURS) - s.Sum(g => g.CHECK_HOURS),
+                            }).ToList();
+            }
+            #endregion
 
             return GroupData.CopyToDataTable();
         }
