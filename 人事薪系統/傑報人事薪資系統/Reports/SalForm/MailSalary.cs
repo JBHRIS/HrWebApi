@@ -47,6 +47,7 @@ namespace JBHR.Reports.SalForm
         {
             JBModule.Data.ApplicationConfigSettings AppConfig = new JBModule.Data.ApplicationConfigSettings("ZZ42", MainForm.COMPANY);
             string SendMailBWSW = AppConfig.GetConfig("SendMailBWSW").GetString("N");
+            string SendMailType = AppConfig.GetConfig("SendMailType").GetString("1");
             if (SendMailBWSW == "Y")
             {
                 if (sendMailBW == null)
@@ -143,12 +144,25 @@ namespace JBHR.Reports.SalForm
                         Attachment AttFild = new Attachment(TranFile1, System.Net.Mime.MediaTypeNames.Application.Octet);
                         List<Attachment> listFild = new List<Attachment>();
                         listFild.Add(AttFild);
-                        ////由排程發送
-                        //Smail.AddMailQueueWithFileService(Row["email"].ToString().Trim(), mailtitle, mailtitle, listFild);
 
-                        //直接發送
-                        //Email內容部分改成讀Note欄位的文字 - Modified By Daniel Chih - 2021/08/13
-                        Smail.SendMailWithQueue(new MailAddress(MailFrom), new MailAddress(Row["email"].ToString().Trim()), mailtitle, note, listFild, SendDate);
+                        if (SendMailType == "2")
+                        {
+                            //由排程發送
+                            Smail.AddMailQueueWithFileService(Row["email"].ToString().Trim(), mailtitle, mailtitle, listFild, SendDate);
+                        }
+                        else if(SendMailType == "1")
+                        {
+                            //直接發送
+                            //Email內容部分改成讀Note欄位的文字 - Modified By Daniel Chih - 2021/08/13
+                            Smail.SendMailWithQueue(new MailAddress(MailFrom), new MailAddress(Row["email"].ToString().Trim()), mailtitle, note, listFild, SendDate);
+                        }
+                        else
+                        {
+                            //直接發送
+                            //Email內容部分改成讀Note欄位的文字 - Modified By Daniel Chih - 2021/08/13
+                            Smail.SendMailWithQueue(new MailAddress(MailFrom), new MailAddress(Row["email"].ToString().Trim()), mailtitle, note, listFild, SendDate);
+                        }
+
                         JBModule.Message.TextLog.WriteLog("薪資單發送至員工編號：" + Row["nobr"].ToString() + "->" + Row["email"].ToString());
                         //os.Close();
                         //os.Dispose();
