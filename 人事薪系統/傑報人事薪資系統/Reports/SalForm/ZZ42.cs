@@ -132,7 +132,7 @@ namespace JBHR.Reports.SalForm
             AppConfig.CheckParameterAndSetDefault("CHBMemo", "彰銀轉帳摘要", "050", "彰銀轉帳存摺摘要", "TextBox", "", "String");
             AppConfig.CheckParameterAndSetDefault("SendMailBWSW", "是否在背景執行寄送薪資單", "N", "是否啟用背景程式執行寄送薪資單的工作", "TextBox", "", "String");
 
-            AppConfig.CheckParameterAndSetDefault("SendMailType", "調整寄送薪資單的模式", "1", "1.直接寄送  2.排程寄送", "TextBox", "", "String");
+            AppConfig.CheckParameterAndSetDefault("SendMailType", "調整寄送薪資單的模式", "2", "1.直接寄送  2.排程寄送", "TextBox", "", "String");
 
             //測試模式開關
             AppConfig.CheckParameterAndSetDefault("SalaryTransferMode", "自訂格式轉帳磁片 - 開關", "False"
