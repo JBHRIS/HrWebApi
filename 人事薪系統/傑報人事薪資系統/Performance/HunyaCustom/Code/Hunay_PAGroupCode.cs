@@ -57,10 +57,10 @@ namespace JBHR.Performance.HunyaCustom.Code
                 if (fdc.EditType == JBControls.FullDataCtrl.EEditType.Add)//**代碼權限設定**
                 {
                     e.Values["PAGroupCode"] = Guid.NewGuid().ToString();
+                    e.Values["GID"] = Guid.NewGuid();
                 }
                 e.Values["KEYMAN"] = MainForm.USER_NAME;
                 e.Values["KEYDATE"] = DateTime.Now;
-                e.Values["GID"] = Guid.NewGuid();
                 e.Values["PAFunction"] = string.Join(",", mdPAFunction.SelectedValues.Select(p => string.Format("{0}", p)));
                 if (CheckRepeat(e.Values["PAGroupCode"].ToString(), e.Values["PAGroupCode_DISP"].ToString()))//**代碼權限設定**
                 {
