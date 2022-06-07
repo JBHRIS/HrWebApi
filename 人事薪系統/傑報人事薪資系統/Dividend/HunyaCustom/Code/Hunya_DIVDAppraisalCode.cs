@@ -73,10 +73,10 @@ namespace JBHR.Dividend.HunyaCustom.Code
                 if (fdc.EditType == JBControls.FullDataCtrl.EEditType.Add)//**代碼權限設定**
                 {
                     e.Values["DIVDAppraisalCode"] = Guid.NewGuid().ToString();
+                    e.Values["GID"] = Guid.NewGuid();
                 }
                 e.Values["KEYMAN"] = MainForm.USER_NAME;
                 e.Values["KEYDATE"] = DateTime.Now;
-                e.Values["GID"] = Guid.NewGuid();
                 if (CheckRepeat(e.Values["DIVDAppraisalCode"].ToString(), e.Values["DIVDAppraisalCode_DISP"].ToString()))//**代碼權限設定**
                 {
                     MessageBox.Show(Resources.Sys.CodeRepeat, "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);

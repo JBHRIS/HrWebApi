@@ -71,10 +71,10 @@ namespace JBHR.AnnualBonus.HunyaCustom.Code
                 if (fdc.EditType == JBControls.FullDataCtrl.EEditType.Add)//**代碼權限設定**
                 {
                     e.Values["ABLevelCode"] = Guid.NewGuid().ToString();
+                    e.Values["GID"] = Guid.NewGuid();
                 }
                 e.Values["KEYMAN"] = MainForm.USER_NAME;
                 e.Values["KEYDATE"] = DateTime.Now;
-                e.Values["GID"] = Guid.NewGuid();
                 if (CheckRepeat(e.Values["ABLevelCode"].ToString(), e.Values["ABLevelCode_DISP"].ToString()))//**代碼權限設定**
                 {
                     MessageBox.Show(Resources.Sys.CodeRepeat, "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
