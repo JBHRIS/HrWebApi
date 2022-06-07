@@ -69,7 +69,10 @@ namespace JBHR.Dividend.HunyaCustom.Code
             {
                 e.Values["KEYMAN"] = MainForm.USER_NAME;
                 e.Values["KEYDATE"] = DateTime.Now;
-                e.Values["GID"] = Guid.NewGuid();
+                if (fdc.EditType == JBControls.FullDataCtrl.EEditType.Add)
+                {
+                    e.Values["GID"] = Guid.NewGuid();
+                }
             }
         }
 
