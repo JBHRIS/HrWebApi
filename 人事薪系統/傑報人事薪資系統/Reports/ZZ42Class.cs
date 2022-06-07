@@ -4896,10 +4896,10 @@ namespace JBHR.Reports
                             (string.Compare(b.EMPCD, empcd_b) >= 0) && (string.Compare(b.EMPCD, empcd_e) <= 0)
                             &&
                             //編制部門起迄
-                            (string.Compare(d.D_NO_DISP, dept_b) >= 0) && (string.Compare(b.EMPCD, dept_e) <= 0)
+                            (string.Compare(d.D_NO_DISP, dept_b) >= 0) && (string.Compare(d.D_NO_DISP, dept_e) <= 0)
                             &&
                             //成本部門起迄
-                            (string.Compare(ds.D_NO_DISP, depts_b) >= 0) && (string.Compare(b.EMPCD, depts_e) <= 0)
+                            (string.Compare(ds.D_NO_DISP, depts_b) >= 0) && (string.Compare(ds.D_NO_DISP, depts_e) <= 0)
                             &&
                             //假別種類
                             c.HTYPE == type
@@ -4935,7 +4935,7 @@ namespace JBHR.Reports
                                 //排除後已請
                                 CHECK_HOURS = CheckTakens.Any() ?
                                     CheckTakens.Select(s => s.USEHOUR).Sum(s => s) : 0
-                            }).ToList();
+                            });
 
             //Group
             var GroupData = GetTable
