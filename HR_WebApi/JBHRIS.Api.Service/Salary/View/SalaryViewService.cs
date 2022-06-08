@@ -167,18 +167,18 @@ namespace JBHRIS.Api.Service.Salary.View
                 .Where(a => a.Flag == "-" && a.Mang == false).ToList();
             abs.ForEach(p =>
             {
-                Dictionary.AddAbsDictionary(p.Htype, p.TolHours);
+                Dictionary.AddAbsDictionary(p.HCode, p.TolHours);
             });
             List<BlockDetailDto> blockDetailDtos = new List<BlockDetailDto>();
 
             foreach (var o in Dictionary)
             {
-                var keyName = abs.Where(a => o.Key == a.Htype).FirstOrDefault();
+                var keyName = abs.Where(a => o.Key == a.HCode).FirstOrDefault();
                 blockDetailDtos.Add(new BlockDetailDto
                 {
                     Title = keyName != null ? keyName.HName: "",
                     Number = o.Value.ToString(),
-                    Init = abs.Find(p=>p.Htype == o.Key).HtypeUnit,
+                    Init = abs.Find(p=>p.HCode == o.Key).HtypeUnit,
                     Memo = ""
                 });
             }
@@ -247,8 +247,13 @@ namespace JBHRIS.Api.Service.Salary.View
                           .ToList();
             var sumPayTaxe =  PayTaxe.Sum(p=>p.DecodeAmt);
 
-            string empSaladr = _employee_View_EmployeeJobStatus.GetCurrentJobStatus(Nobr, DateTime.Now.Date).Saladr;
-            string retSalCode = _salary_View_SalaryView.GetRetSalaryCode(empSaladr).FirstOrDefault().SalCode1;
+            string empComp = _employee_View_EmployeeJobStatus.GetCurrentJobStatus(Nobr, DateTime.Now.Date).Comp;
+            var salaryCode = _salary_View_SalaryView.GetRetSalaryCode(empComp).FirstOrDefault();
+            string retSalCode = null;
+            if (salaryCode != null)
+            {
+                retSalCode = salaryCode.SalCode1;
+            }
 
             var Pay = salary.Where(s => new string[] { "1", "2" }.Contains(s.Type) && s.SalCode != retSalCode)
                           .Select(p => new { DecodeAmt = p.Flag == "-"  ? _salaryEncrypt.Decode(p.Amt) * -1 : _salaryEncrypt.Decode(p.Amt) })
