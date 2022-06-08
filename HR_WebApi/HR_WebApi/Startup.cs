@@ -31,6 +31,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using NLog;
+using NLog.Config;
+using NLog.Targets;
 
 namespace HR_WebApi
 {
@@ -72,6 +75,7 @@ namespace HR_WebApi
             });
             services.AddControllers();
             services.Configure<ConfigurationDto>(Configuration);
+            CreateLogger();
             services.AddSingleton<NLog.ILogger>(NLog.LogManager.GetLogger("HR"));
             services.AddMemoryCache();
             ContainerBuilder containerBuilder = new ContainerBuilder();
@@ -321,6 +325,17 @@ namespace HR_WebApi
             builder.RegisterType<CheckAbsSex_AbsneceCheckModule>().Named("Sex", typeof(IAbsenceCheckModule));
             builder.RegisterType<CheckBalance_CheckAbsenceModule>().Named("Balance", typeof(IAbsenceCheckModule));
             //builder.RegisterType<JbhrUnitOfWork>().As<IUnitOfWork>();
+        }
+        private static void CreateLogger()
+        {
+            var config = new LoggingConfiguration();
+            var fileTarget = new FileTarget
+            {
+                FileName = "${basedir}/logs/${shortdate}.log",
+                Layout = "${date:format=yyyy-MM-dd HH\\:mm\\:ss} [${uppercase:${level}}] ${message}",
+            };
+            config.AddRule(NLog.LogLevel.Trace, NLog.LogLevel.Fatal, fileTarget);
+            LogManager.Configuration = config;
         }
     }
 }
