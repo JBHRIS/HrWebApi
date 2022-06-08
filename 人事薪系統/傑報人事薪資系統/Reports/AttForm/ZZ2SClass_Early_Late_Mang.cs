@@ -176,6 +176,12 @@ namespace JBHR.Reports.AttForm
                         {
                             if (TestSend)
                             {
+                                if (HRMail != "") Smail.SendMailWithQueue(MailFrom, HRMail, "部門:" + Row_dataid["d_no_disp"].ToString().Trim() + " " + Row_dataid["d_name"].ToString() + " " + _Subject + TestSubject, html);
+                                if (HRMail1 != "") Smail.SendMailWithQueue(MailFrom, HRMail1, "部門:" + Row_dataid["d_no_disp"].ToString().Trim() + " " + Row_dataid["d_name"].ToString() + " " + _Subject + TestSubject, html);
+                                if (HRMail2 != "") Smail.SendMailWithQueue(MailFrom, HRMail2, "部門:" + Row_dataid["d_no_disp"].ToString().Trim() + " " + Row_dataid["d_name"].ToString() + " " + _Subject + TestSubject, html);
+                            }
+                            else
+                            {
                                 if (Row_dataid["email"].ToString().Trim() != "")
                                 {
                                     string[] _deptemail = Row_dataid["email"].ToString().Split(';');
@@ -185,17 +191,12 @@ namespace JBHR.Reports.AttForm
                                         if (!string.IsNullOrWhiteSpace(mm))
                                         {
                                             Smail.SendMailWithQueue(MailFrom, _emaila, "部門:" + Row_dataid["d_no_disp"].ToString().Trim() + " " + Row_dataid["d_name"].ToString() + " " + _Subject + TestSubject, html);
-                                            
+
                                         }
                                         mm += "";
                                     }
                                 }
                             }
-                            //else
-                            //{
-                            //    Smail.AddMailQueueWithFileService(TestAccount, _Subject, html, listFild);                                
-                            //    ErrorUtility.WriteLog("刷卡時間異常寄發信件到：主管信箱" + Row0["d_no_disp"].ToString());
-                            //}
                         }
                         catch (Exception Ex)
                         {
