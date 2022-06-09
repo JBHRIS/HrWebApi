@@ -17,6 +17,16 @@ namespace JBHR.Sal.Core
         static decimal _avgFamily = MainForm.HealthConfig.COMPERSONCNT.Value;
         static decimal _funRate = 0.00025M;
         static decimal _retRate = MainForm.LabConfig.NRETIRERATE.Value;
+        public static void SetLarcodeNull()
+        {
+            if (_Larcode != null)
+                _Larcode = null;
+        }
+        public static void SetHarcodeNull()
+        {
+            if (_Harcode != null)
+                _Harcode = null;
+        }
         public static List<SALATTR> dtSalattr
         {
             get
