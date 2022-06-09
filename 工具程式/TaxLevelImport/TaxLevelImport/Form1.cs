@@ -311,7 +311,8 @@ namespace TaxLevelImport
         }
         private void BW_DoWork(object sender, DoWorkEventArgs e)
         {
-            string Title = "1. 111年所得稅級距表  2. 保險級距更新  3.非居住者基本工資";
+            string Title = "1. 新增健保級距";
+            //string Title = "1. 111年所得稅級距表  2. 保險級距更新  3.非居住者基本工資";
             //string Title = "1. 111年所得稅級距表  2. 50格式起扣點  3. 勞保普通事故保險費率  4. 保險級距更新  5. 健保費率  6. 補充保費費率";
             string version = "非安裝版本";
             JBModule.Message.TextLog.path = System.IO.Directory.GetCurrentDirectory() + @"\";
@@ -787,6 +788,27 @@ namespace TaxLevelImport
                                 RefreshState(eex.Message, percent);
                                 JBModule.Message.TextLog.WriteLog(eex);
                             } 
+                        }
+                    }
+                    #endregion
+
+                    #region 健保級距新增
+                    decimal[] SUPPLEMINs = new decimal[] { 189500, 197000, 204500, 212000, 219500 };
+                    if (ConfigSetting.AppSettingValue("InsertInsurlvH") == "1")
+                    {
+                        foreach(var SUPPLEMIN in SUPPLEMINs)
+                        {
+                            JBModule.Message.TextLog.WriteLog(string.Format("開始進行-健保級距{0}新增", SUPPLEMIN));
+
+                            InsurlvUpdate lu = new InsurlvUpdate(new SqlConnection(e.Argument.ToString()));
+                            bool b = lu.addNewInsurlv_H(SUPPLEMIN, EFF_RATE);
+                            JBModule.Message.TextLog.WriteLog("完成-健保級距{0}新增", SUPPLEMIN);
+                            RefreshState(string.Format("完成-新增健保級距{0}", SUPPLEMIN), 99);
+                            if (!b)
+                            {
+                                RefreshState(@"更新異常，請至 C:\TEMP\Error\Log\ 查閱相關訊息", 99);
+                                return;
+                            }
                         }
                     }
                     #endregion
