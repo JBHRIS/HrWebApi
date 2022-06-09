@@ -30,6 +30,7 @@ namespace JBHR.Ins
 			{
 				CDataLog.Save(this.Name, MainForm.USER_NAME, DateTime.Now, fullDataCtrl1.BackupDataTable);
 			}
+			Sal.Core.SalaryVar.SetLarcodeNull();
 		}
 
 		private void fullDataCtrl1_BeforeSave(object sender, JBControls.FullDataCtrl.BeforeEventArgs e)
@@ -47,6 +48,7 @@ namespace JBHR.Ins
 			{
 				CDataLog.Save(this.Name, MainForm.USER_NAME, DateTime.Now, fullDataCtrl1.BackupDataTable);
 			}
+			Sal.Core.SalaryVar.SetLarcodeNull();
 		}
 
 		private void fullDataCtrl1_AfterExport(object sender, JBControls.FullDataCtrl.AfterEventArgs e)
