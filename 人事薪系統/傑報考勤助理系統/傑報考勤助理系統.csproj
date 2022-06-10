@@ -33,7 +33,7 @@
     <SccProvider>
     </SccProvider>
     <TargetFrameworkProfile />
-    <PublishUrl>ftp://192.168.1.24/JBHR2_ASSIST/</PublishUrl>
+    <PublishUrl>ftp://13.70.40.203/Publish/JBHR2_ASSIST/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -43,13 +43,13 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://publish.jbjob.com.tw/Publish/JBHR2_ASSIST/</InstallUrl>
+    <InstallUrl>http://publishcn.jbhr.com.tw:23333/Publish/JBHR2_ASSIST/</InstallUrl>
     <ProductName>傑報出勤助理系統</ProductName>
     <PublisherName>傑報資訊</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>20.4.22.1</ApplicationVersion>
+    <ApplicationVersion>22.6.10.1</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -147,7 +147,6 @@
     </Compile>
     <Compile Include="Att\dsAtt.cs">
       <DependentUpon>dsAtt.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Att\dsAtt.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -321,7 +320,6 @@
     </Compile>
     <Compile Include="Bas\BasDS.cs">
       <DependentUpon>BasDS.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Bas\BasDS.Designer.cs">
       <DependentUpon>BasDS.cs</DependentUpon>
@@ -1189,7 +1187,6 @@
     </Compile>
     <Compile Include="Sys\SysDS.cs">
       <DependentUpon>SysDS.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Sys\SysDS.Designer.cs">
       <DependentUpon>SysDS.cs</DependentUpon>

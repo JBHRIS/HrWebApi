@@ -1009,13 +1009,14 @@ namespace JBHR.Att
             var sql2 = from a in dbCreateAbs.ATTEND
                        join b in dbCreateAbs.BASETTS on a.NOBR equals b.NOBR
                        join c in dbCreateAbs.DEPT on b.DEPT equals c.D_NO
+                       join r in dbCreateAbs.ROTE on a.ROTE equals r.ROTE1
                        where p.DateE >= b.ADATE && p.DateE <= b.DDATE.Value
                       && a.NOBR.CompareTo(p.NOBRB) >= 0 && a.NOBR.CompareTo(p.NOBRE) <= 0
                       && c.D_NO_DISP.CompareTo(p.DEPTB) >= 0 && c.D_NO_DISP.CompareTo(p.DEPTE) <= 0
                       && a.ADATE >= p.DateB && a.ADATE <= p.DateE
                       && (a.LATE_MINS > 0 || a.E_MINS > 0 || a.ABS)//有異常的部分
                       && dbCreateAbs.GetFilterByNobr(a.NOBR, MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Value
-                       select a;
+                       select new { Att = a, ROTE1 = r };
             int total = sql2.Count();
             int cc = 0;
             var hcodeList = dbCreateAbs.HCODE.ToList();
@@ -1031,26 +1032,26 @@ namespace JBHR.Att
             {
                 cc++;
                 //this.Report(cc * 100 / total, "正在執行..產生" + gp.Key + "的請假資料");
-                BW.ReportProgress(cc * 100 / total, "正在執行..產生" + it.NOBR + "的請假資料");
+                BW.ReportProgress(cc * 100 / total, "正在執行..產生" + it.Att.NOBR + "的請假資料");
                 //foreach (var it in gp)
                 //{
-                if (LateCodeSet != null && it.LATE_MINS >= LateMin && it.LATE_MINS > 0)//遲到
+                if (LateCodeSet != null && it.Att.LATE_MINS >= LateMin && it.Att.LATE_MINS > 0)//遲到
                 {
                     string time_b = it.ROTE1.ON_TIME;
-                    var tb = it.ADATE.AddTime(time_b);
+                    var tb = it.Att.ADATE.AddTime(time_b);
                     var miniMinute = LateCodeSet.MIN_NUM * 60;
-                    var minnteRate1 = decimal.Ceiling(it.LATE_MINS / miniMinute);
+                    var minnteRate1 = decimal.Ceiling(it.Att.LATE_MINS / miniMinute);
                     var te = tb.AddMinutes(Convert.ToInt32(minnteRate1 * miniMinute));
                     JBTools.Intersection its = new JBTools.Intersection();
                     its.Inert(tb, te);
 
                     JBModule.Data.Linq.ABS abs = new JBModule.Data.Linq.ABS();
-                    abs.NOBR = it.NOBR;
+                    abs.NOBR = it.Att.NOBR;
                     abs.A_NAME = "";
-                    abs.BDATE = it.ADATE;
+                    abs.BDATE = it.Att.ADATE;
                     abs.BTIME = time_b;
-                    abs.EDATE = it.ADATE;
-                    abs.ETIME = it.ADATE.Date < te.Date ? (te.Hour + 24).ToString() + te.Minute.ToString("00") : te.ToString("HHmm");
+                    abs.EDATE = it.Att.ADATE;
+                    abs.ETIME = it.Att.ADATE.Date < te.Date ? (te.Hour + 24).ToString() + te.Minute.ToString("00") : te.ToString("HHmm");
                     abs.H_CODE = LateCode;
                     abs.KEY_DATE = DateTime.Now;
                     abs.KEY_MAN = MainForm.USER_NAME;
@@ -1063,23 +1064,23 @@ namespace JBHR.Att
                     abs.TOL_HOURS = its.GetHours();
                     abs.YYMM = new Sal.Core.SalaryDate(abs.BDATE).YYMM;
                     dbCreateAbs.ABS.InsertOnSubmit(abs);
-                    it.LATE_MINS = 0;//請假後清空
+                    it.Att.LATE_MINS = 0;//請假後清空
                 }
-                if (EarilyCodeSet != null && it.E_MINS >= EarilyMin && it.E_MINS > 0)//早退
+                if (EarilyCodeSet != null && it.Att.E_MINS >= EarilyMin && it.Att.E_MINS > 0)//早退
                 {
                     string time_e = it.ROTE1.OFF_TIME;
-                    var te = it.ADATE.AddTime(time_e);
+                    var te = it.Att.ADATE.AddTime(time_e);
                     var miniMinute = EarilyCodeSet.MIN_NUM * 60;
-                    var minnteRate1 = decimal.Ceiling(it.E_MINS / miniMinute);
+                    var minnteRate1 = decimal.Ceiling(it.Att.E_MINS / miniMinute);
                     var tb = te.AddMinutes(Convert.ToInt32(minnteRate1 * miniMinute) * -1);
                     JBTools.Intersection its = new JBTools.Intersection();
                     its.Inert(tb, te);
                     JBModule.Data.Linq.ABS abs = new JBModule.Data.Linq.ABS();
-                    abs.NOBR = it.NOBR;
+                    abs.NOBR = it.Att.NOBR;
                     abs.A_NAME = "";
-                    abs.BDATE = it.ADATE;
-                    abs.BTIME = it.ADATE.Date < tb.Date ? (tb.Hour + 24).ToString() + tb.Minute.ToString("00") : tb.ToString("HHmm");
-                    abs.EDATE = it.ADATE;
+                    abs.BDATE = it.Att.ADATE;
+                    abs.BTIME = it.Att.ADATE.Date < tb.Date ? (tb.Hour + 24).ToString() + tb.Minute.ToString("00") : tb.ToString("HHmm");
+                    abs.EDATE = it.Att.ADATE;
                     abs.ETIME = time_e;
                     abs.H_CODE = EarilyCode;
                     abs.KEY_DATE = DateTime.Now;
@@ -1093,18 +1094,18 @@ namespace JBHR.Att
                     abs.TOL_HOURS = its.GetHours();
                     abs.YYMM = new Sal.Core.SalaryDate(abs.BDATE).YYMM;
                     dbCreateAbs.ABS.InsertOnSubmit(abs);
-                    it.E_MINS = 0;//請假後清空
+                    it.Att.E_MINS = 0;//請假後清空
                 }
-                if (AbsenceCodeSet != null && it.ABS)//曠職
+                if (AbsenceCodeSet != null && it.Att.ABS)//曠職
                 {
                     string time_b = it.ROTE1.ON_TIME;
                     string time_e = it.ROTE1.OFF_TIME;
                     JBModule.Data.Linq.ABS abs = new JBModule.Data.Linq.ABS();
-                    abs.NOBR = it.NOBR;
+                    abs.NOBR = it.Att.NOBR;
                     abs.A_NAME = "";
-                    abs.BDATE = it.ADATE;
+                    abs.BDATE = it.Att.ADATE;
                     abs.BTIME = time_b;
-                    abs.EDATE = it.ADATE;
+                    abs.EDATE = it.Att.ADATE;
                     abs.ETIME = time_e;
                     abs.H_CODE = AbsenceCode;
                     abs.KEY_DATE = DateTime.Now;
@@ -1118,7 +1119,7 @@ namespace JBHR.Att
                     abs.TOL_HOURS = it.ROTE1.WK_HRS;
                     abs.YYMM = new Sal.Core.SalaryDate(abs.BDATE).YYMM;
                     dbCreateAbs.ABS.InsertOnSubmit(abs);
-                    it.ABS = false;//請假後清空
+                    it.Att.ABS = false;//請假後清空
                 }
                 //}
             }
