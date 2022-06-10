@@ -93,8 +93,9 @@ namespace TaxLevelImport
         /// 新增健保級距
         /// </summary>
         /// <returns></returns>
-        public bool addNewInsurlv_H(decimal SUPPLEMIN, double EFF_RATE)
+        public bool addNewInsurlv_H(decimal SUPPLEMIN, double EFF_RATE, out bool haveData)
         {
+            haveData = false;
             string nowDateTime = DateTime.Now.ToString("yyyy-MM-dd");
             string updateDate = new DateTime(2022, 7, 1).ToString("yyyy-MM-dd");
             JBTools.Security.SalaryEncrypt se = new JBTools.Security.SalaryEncrypt();
@@ -115,6 +116,10 @@ namespace TaxLevelImport
                         sqlcmd = new SqlCommand(cmd1, conn);
                         sqlcmd.ExecuteNonQuery();
                     }
+                    else
+                    {
+                        haveData = true;
+                    }
                     //sqlcmd = new SqlCommand(cmd2, conn);
                     //sqlcmd.ExecuteNonQuery();
                 }
@@ -122,6 +127,44 @@ namespace TaxLevelImport
                 {
                     JBModule.Message.TextLog.path = @"C:\TEMP\Error\";
                     JBModule.Message.TextLog.WriteLog("執行新增健保級距時發生錯誤：" + ex.Message);
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// 預設啟用職災保險
+        /// </summary>
+        /// <returns></returns>
+        public bool setDefaultInsurlv_J()
+        {
+            decimal Amt = 0;
+            string nowDateTime = DateTime.Now.ToString("yyyy-MM-dd");
+            string updateDate = new DateTime(1900, 1, 1).ToString("yyyy-MM-dd");
+            SqlConnection conn = new SqlConnection(_conn.ConnectionString);
+            string cmd = string.Format("SELECT * FROM INSURLV WHERE AMT = '{0}'", Amt);
+            string cmd1 = string.Format("UPDATE INSURLV SET EFF_DATEJ = '{0}' , KEY_MAN = '{1}' , KEY_DATE = '{2}' WHERE AMT = '{3}'"
+                , updateDate,"JB", nowDateTime, Amt);
+            using (conn)
+            {
+                if (conn.State != ConnectionState.Open) conn.Open();
+                try
+                {
+                    SqlCommand sqlcmd = new SqlCommand(cmd, conn);
+                    var sql = sqlcmd.ExecuteScalar();
+                    if (sql != null)
+                    {
+                        sqlcmd = new SqlCommand(cmd1, conn);
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                    //sqlcmd = new SqlCommand(cmd2, conn);
+                    //sqlcmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    JBModule.Message.TextLog.path = @"C:\TEMP\Error\";
+                    JBModule.Message.TextLog.WriteLog("執行預設啟用職災保險時發生錯誤：" + ex.Message);
                     return false;
                 }
             }

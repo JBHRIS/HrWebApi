@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{2155a779-645f-4725-aafa-167886b2cf7a}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -3095,6 +3095,7 @@
   <ItemGroup>
     <None Include="HRDB_Schema.publish.xml" />
     <None Include="HRDB_Schema_Test01.publish.xml" />
+    <None Include="HRDB_Schema_1.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Script.PreDeployment1.sql" />
