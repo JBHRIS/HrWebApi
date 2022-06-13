@@ -1310,6 +1310,7 @@ namespace JBHR.Reports.EmpForm
                     ExporDt.Columns.Add("成本代碼", typeof(string));
                     ExporDt.Columns.Add("成本部門", typeof(string));
                     ExporDt.Columns.Add("成本", typeof(string));
+                    ExporDt.Columns.Add("職稱代碼", typeof(string));
                     ExporDt.Columns.Add("職稱", typeof(string));
                     ExporDt.Columns.Add("職等", typeof(string));
                     //ExporDt.Columns.Add("職級", typeof(string));
@@ -1363,6 +1364,7 @@ namespace JBHR.Reports.EmpForm
                         aRow["職等"] = Row["jobl_name"].ToString();
                         //aRow["職級"] = Row["jobo_name"].ToString();
                         aRow["隸屬獎金"] = (Row.IsNull("groupname")) ? "" : Row["groupname"].ToString();
+                        aRow["職稱代碼"] = Row["job"].ToString();
                         aRow["職稱"] = Row["job_name"].ToString();
                         //aRow["職類"] = Row["jobs_name"].ToString();
                         //aRow["進集團日"] = DateTime.Parse(Row["cindt"].ToString());

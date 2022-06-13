@@ -9,7 +9,7 @@
               <Width>0.8cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.04998cm</Width>
+              <Width>1.5311cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>3.99999cm</Width>
@@ -37,6 +37,9 @@
             </TablixColumn>
             <TablixColumn>
               <Width>2.25cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.76888cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.25cm</Width>
@@ -391,6 +394,47 @@
                       </Paragraphs>
                       <rd:DefaultName>textbox28</rd:DefaultName>
                       <ZIndex>55</ZIndex>
+                      <Style>
+                        <BottomBorder>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <VerticalAlign>Bottom</VerticalAlign>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox37">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>職稱</Value>
+                              <Style>
+                                <FontFamily>標楷體</FontFamily>
+                                <FontSize>9pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>代碼</Value>
+                              <Style>
+                                <FontFamily>標楷體</FontFamily>
+                                <FontSize>9pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox37</rd:DefaultName>
                       <Style>
                         <BottomBorder>
                           <Style>Solid</Style>
@@ -1000,6 +1044,35 @@
                       </Paragraphs>
                       <rd:DefaultName>addr1</rd:DefaultName>
                       <ZIndex>11</ZIndex>
+                      <Style>
+                        <PaddingLeft>1pt</PaddingLeft>
+                        <PaddingRight>1pt</PaddingRight>
+                        <PaddingTop>1pt</PaddingTop>
+                        <PaddingBottom>1pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox38">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!job.Value</Value>
+                              <Style>
+                                <FontFamily>標楷體</FontFamily>
+                                <FontSize>9pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox38</rd:DefaultName>
                       <Style>
                         <PaddingLeft>1pt</PaddingLeft>
                         <PaddingRight>1pt</PaddingRight>
@@ -1658,6 +1731,38 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="Textbox59">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>新細明體</FontFamily>
+                                <FontSize>9pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox59</rd:DefaultName>
+                      <Style>
+                        <TopBorder>
+                          <Style>Solid</Style>
+                        </TopBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="textbox18">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -1979,6 +2084,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -2008,7 +2114,7 @@
         <DataSetName>empdata_rq_zz11s3</DataSetName>
         <Left>0.5cm</Left>
         <Height>1.76984cm</Height>
-        <Width>28.50002cm</Width>
+        <Width>28.75002cm</Width>
         <Style>
           <FontFamily>新細明體</FontFamily>
           <FontSize>9pt</FontSize>
