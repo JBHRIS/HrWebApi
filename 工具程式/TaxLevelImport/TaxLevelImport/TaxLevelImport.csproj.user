@@ -3,8 +3,8 @@
   <PropertyGroup>
     <EnableSecurityDebugging>false</EnableSecurityDebugging>
     <ProjectView>ShowAllFiles</ProjectView>
-    <PublishUrlHistory>ftp://192.168.1.24/AutoUpdate/|ftp://192.168.1.24/d/JBHR/Publish/AutoUpdate/|\\192.168.1.24\d\JBHR\Publish\AutoUpdate\</PublishUrlHistory>
-    <InstallUrlHistory>http://publish.jbjob.com.tw/Publish/AutoUpdate/|\\192.168.1.24\d\JBHR\Publish\AutoUpdate\</InstallUrlHistory>
+    <PublishUrlHistory>ftp://13.70.40.203/Publish/AutoUpdate/|ftp://192.168.1.24/AutoUpdate/|ftp://13.70.40.203/AutoUpdate/|ftp://192.168.1.24/d/JBHR/Publish/AutoUpdate/|\\192.168.1.24\d\JBHR\Publish\AutoUpdate\</PublishUrlHistory>
+    <InstallUrlHistory>http://publishcn.jbhr.com.tw:23333/Publish/AutoUpdate/|http://publish.jbjob.com.tw/Publish/AutoUpdate/|\\192.168.1.24\d\JBHR\Publish\AutoUpdate\</InstallUrlHistory>
     <SupportUrlHistory />
     <UpdateUrlHistory />
     <BootstrapperUrlHistory />

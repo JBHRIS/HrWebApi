@@ -17,20 +17,20 @@ namespace JBHR.ImportC.SQL_Repo
             }
         }
 
-        public List<ATTEND> getByDateRangeDlo(DateTime dtMAX, DateTime dtMIN) {
-            using (JBModule.Data.Linq.HrDBDataContext HDDC = new JBModule.Data.Linq.HrDBDataContext()) {
-                DataLoadOptions dlo = new DataLoadOptions();
-                dlo.LoadWith<ATTEND>(l => l.ROTE1);
-                HDDC.LoadOptions = dlo;
+        //public List<ATTEND> getByDateRangeDlo(DateTime dtMAX, DateTime dtMIN) {
+        //    using (JBModule.Data.Linq.HrDBDataContext HDDC = new JBModule.Data.Linq.HrDBDataContext()) {
+        //        DataLoadOptions dlo = new DataLoadOptions();
+        //        dlo.LoadWith<ATTEND>(l => l.ROTE1);
+        //        HDDC.LoadOptions = dlo;
 
-                var attendList = (from c in HDDC.ATTEND
-                                 where
-                                 c.ADATE.CompareTo(dtMAX) <= 0
-                                 &&
-                                 c.ADATE.CompareTo(dtMIN) >= 0
-                                 select c).ToList();
-                return attendList;
-            }
-        }
+        //        var attendList = (from c in HDDC.ATTEND
+        //                         where
+        //                         c.ADATE.CompareTo(dtMAX) <= 0
+        //                         &&
+        //                         c.ADATE.CompareTo(dtMIN) >= 0
+        //                         select c).ToList();
+        //        return attendList;
+        //    }
+        //}
     }
 }

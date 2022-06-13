@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 # 這個 .gitignore 檔案由 Microsoft(R) Visual Studio 自動建立。
 ################################################################################
 
@@ -8,7 +8,6 @@ obj/
 /DynamicQRCode/DynamicQRCode/obj
 /Flow_WebApi
 /員工平台
-/工具程式
 /表單系統/ezFlow/SourceCode
 /考核系統/KPI/KPI/obj
 /考核系統/KPI/KPI/obj
@@ -41,3 +40,6 @@ obj/
 /元件/Dal/packages
 /人事薪系統/傑報人事薪資系統/packages
 /人事薪系統/傑報人事薪資系統/傑報人事薪資系統.v11.suo
+工具程式/TaxLevelImport/.vs/
+工具程式/SendAttend/.vs/
+工具程式/JBHR_CardCollector/.vs/

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <PublishUrlHistory>ftp://192.168.1.24/JBHR2_ASSIST/|ftp://192.168.1.24/SIXXON_ASSIST/|ftp://192.168.1.24/VIC_ASSIST/</PublishUrlHistory>
-    <InstallUrlHistory>http://publish.jbjob.com.tw/Publish/JBHR2_ASSIST/|http://publish.jbjob.com.tw/Publish/SIXXON_ASSIST/|http://publish.jbjob.com.tw/Publish/VIC_ASSIST/</InstallUrlHistory>
+    <PublishUrlHistory>ftp://13.70.40.203/Publish/JBHR2_ASSIST/|ftp://192.168.1.24/JBHR2_ASSIST/|ftp://192.168.1.24/SIXXON_ASSIST/|ftp://192.168.1.24/VIC_ASSIST/</PublishUrlHistory>
+    <InstallUrlHistory>http://publishcn.jbhr.com.tw:23333/Publish/JBHR2_ASSIST/|http://publish.jbjob.com.tw/Publish/JBHR2_ASSIST/|http://publish.jbjob.com.tw/Publish/SIXXON_ASSIST/|http://publish.jbjob.com.tw/Publish/VIC_ASSIST/</InstallUrlHistory>
     <SupportUrlHistory />
     <UpdateUrlHistory />
     <BootstrapperUrlHistory />
@@ -10,5 +10,8 @@
     <FallbackCulture>zh-TW</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
     <ProjectView>ShowAllFiles</ProjectView>
+  </PropertyGroup>
+  <PropertyGroup>
+    <EnableSecurityDebugging>false</EnableSecurityDebugging>
   </PropertyGroup>
 </Project>

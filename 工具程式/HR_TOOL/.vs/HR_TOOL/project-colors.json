@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "其他檔案",
+      "ColorIndex": -1
+    },
+    "18fcfdf6-00ef-4834-be8f-b0141db8d413": {
+      "ProjectGuid": "18fcfdf6-00ef-4834-be8f-b0141db8d413",
+      "DisplayName": "HR_TOOL",
+      "ColorIndex": 0
+    },
+    "f8b6389a-31d9-420e-8331-c18aa2562d0e": {
+      "ProjectGuid": "f8b6389a-31d9-420e-8331-c18aa2562d0e",
+      "DisplayName": "JBControls",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
