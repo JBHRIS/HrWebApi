@@ -44,9 +44,11 @@ namespace JBHR.Sal
         {
             bool AccumulationBase = AppConfig.GetConfig("AccumulationBase").GetString("True") == "True";
             List<CompensatoryLeaveCashDto> Results = new List<CompensatoryLeaveCashDto>();
+            List<string> RpData = new List<string>();
             //離職結算
             {
                 var data = AnnualOutList.Where(p => empOutSelection.SelectedValues.Contains(p.EmployeeID)).ToList();
+                RpData = data.Where(p => !string.IsNullOrEmpty(p.Guid)).Select(p => p.Guid).ToList();
                 //if (!checkBoxFull.Checked)
                 //    data = data.Where(p => p.Balance != 0).ToList();
                 var rp = new CompensatoryLeaveCashRepo();
@@ -123,7 +125,7 @@ namespace JBHR.Sal
                 string LastEmployeeID = string.Empty;
                 DateTime LastDate = new DateTime();
                 decimal LastTotalHours = 0;
-                var data = AnnualList.Where(p => empSelection.SelectedValues.Contains(p.EmployeeID)).ToList();
+                var data = AnnualList.Where(p => empSelection.SelectedValues.Contains(p.EmployeeID) && !RpData.Contains(p.Guid)).ToList();
                 var rp = new CompensatoryLeaveCashRepo();
                 var db = new JBModule.Data.Linq.HrDBDataContext();
                 var SqlOt = db.OT.Where(p => empSelection.SelectedValues.Contains(p.NOBR)).ToList();
@@ -207,10 +209,10 @@ namespace JBHR.Sal
             OutD2 = Convert.ToDateTime(textBoxOutEndDate.Text);
             AnnualOutList = rp.GetAnnualLeaveOutCashList(OutD1, OutD2);
             AnnualList = rp.GetAnnualLeaveCashList(Convert.ToDateTime(txtBdate.Text), Convert.ToDateTime(txtEdate.Text));
-            var AnnualListExceptOut = AnnualList.Where(p => !AnnualOutList.Select(pp => pp.EmployeeID).Contains(p.EmployeeID)).ToList();
-            AnnualList = AnnualListExceptOut;
+            //var AnnualListExceptOut = AnnualList.Where(p => !AnnualOutList.Select(pp => pp.EmployeeID).Contains(p.EmployeeID)).ToList();
+            //AnnualList = AnnualListExceptOut;
             empOutSelection.SetControl(buttonEmpOut, CompensatoryLeaveCashRepo.GetEmpOutAllWithDept(AnnualOutList.Select(p => p.EmployeeID).Distinct().ToList(), OutD1, OutD2), "員工編號");
-            empSelection.SetControl(buttonEmp, CompensatoryLeaveCashRepo.GetEmpAllWithDept(AnnualListExceptOut.Select(p => p.EmployeeID).Distinct().ToList()), "員工編號");
+            empSelection.SetControl(buttonEmp, CompensatoryLeaveCashRepo.GetEmpAllWithDept(AnnualList.Select(p => p.EmployeeID).Distinct().ToList()), "員工編號");
         }
 
         private void buttonGen_Click(object sender, EventArgs e)
@@ -308,7 +310,7 @@ namespace JBHR.Sal
                       //join d in db.WriteRuleTable(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) on a.NOBR equals d.NOBR
                       join e in db.MTCODE on b.TTSCODE equals e.CODE
                       let JobState = new string[] { "1", "4", "6" }.Contains(b.TTSCODE) ? "在職" : e.NAME
-                      where DateTime.Today >= b.ADATE && DateTime.Today <= b.DDATE.Value
+                      where DateTime.Today.AddYears(1) >= b.ADATE && DateTime.Today.AddYears(1) <= b.DDATE.Value
                       && e.CATEGORY == "TTSCODE"
                       && EmpList.Contains(a.NOBR)
                       && !b.NOSPEC
@@ -345,7 +347,9 @@ namespace JBHR.Sal
                        let JobState = new string[] { "1", "4", "6" }.Contains(b.TTSCODE) ? "在職" : e.NAME
                        where DateTime.Today.AddYears(1) >= b.ADATE && DateTime.Today.AddYears(1) <= b.DDATE.Value
                        && e.CATEGORY == "TTSCODE"
-                       && ((b.OUDT != null && b.OUDT >= OutBeginDate && b.OUDT <= OutEndDate) || (b.STDT != null && b.STDT >= OutBeginDate && b.STDT <= OutEndDate))
+                       && ((b.OUDT != null && b.OUDT >= OutBeginDate && b.OUDT <= OutEndDate)
+                       || (b.STDT != null && b.STDT >= OutBeginDate && b.STDT <= OutEndDate)
+                       || (b.STOUDT != null && b.STOUDT >= OutBeginDate && b.STOUDT <= OutEndDate))
                        && EmpList.Contains(a.NOBR)
                        && db.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Select(p => p.DATAGROUP).Contains(b.SALADR)
                        orderby a.NOBR
@@ -410,11 +414,13 @@ namespace JBHR.Sal
                       join c in db.HcodeType on b.HTYPE equals c.HTYPE
                       join d in db.BASE on a.NOBR equals d.NOBR
                       join f in db.BASETTS on a.NOBR equals f.NOBR
+                      join g in db.ATTEND on new { a.NOBR, ADATE = a.BDATE } equals new { g.NOBR, g.ADATE }
+                      join r in db.ROTE on g.ROTE equals r.ROTE1
                       //join e in db.WriteRuleTable(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) on a.NOBR equals e.NOBR
                       where c.HTYPE == AppConfig.GetConfig("LeaveTypeCode").GetString("2") && b.FLAG == "+"
                       && a.EDATE >= DateBegin && a.EDATE <= DateEnd
-                      && DateEnd.AddYears(1) >= f.ADATE && DateEnd.AddYears(1) <= f.DDATE.Value
-                      && db.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Select(p => p.DATAGROUP).Contains(f.SALADR)
+                      && a.EDATE >= f.ADATE && a.EDATE <= f.DDATE.Value
+                      && new string[] { "1", "4", "6" }.Contains(f.TTSCODE)
                       select new CompensatoryLeaveCashDto
                       {
                           CashType = "年度終結",
@@ -431,6 +437,11 @@ namespace JBHR.Sal
                           Unit = b.UNIT,
                           HoliName = b.H_NAME,
                           HoliCode = b.H_CODE,
+                          Rote = g.ROTE,
+                          RoteH = g.ROTE_H,
+                          RoteName = r.ROTENAME,
+                          OtRateCode = f.CALOT,
+                          OtRateName = "",
                           CalendarCode = f.HOLI_CODE,
                           BindingKey = a.Guid,
                       };
@@ -501,16 +512,15 @@ namespace JBHR.Sal
                        join g in db.ATTEND on new { a.NOBR, ADATE = a.BDATE } equals new { g.NOBR, g.ADATE }
                        join r in db.ROTE on g.ROTE equals r.ROTE1
                        //join e in db.WriteRuleTable(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) on a.NOBR equals e.NOBR
-                       let CheckDate = (f.OUDT!= null?f.OUDT : new DateTime(1753,1,1)) > (f.STDT != null ? f.STDT : new DateTime(1753, 1, 1)) ? f.OUDT : f.STDT
                        where c.HTYPE == AppConfig.GetConfig("LeaveTypeCode").GetString("2") && b.FLAG == "+"
-                       //&& ((f.OUDT != null && f.OUDT.Value >= DateBegin && f.OUDT.Value <= DateEnd)
-                       //|| (f.STDT != null && f.STDT.Value >= DateBegin && f.STDT.Value <= DateEnd)
-                       && DateEnd.AddYears(1) >= f.ADATE && DateEnd.AddYears(1) <= f.DDATE.Value//)
-                                                                                                //&& ((f.OUDT != null && f.OUDT.Value >= a.BDATE && f.OUDT.Value <= a.EDATE)
-                                                                                                //|| (f.STDT != null && f.STDT.Value >= a.BDATE && f.STDT.Value <= a.EDATE))
-                       && CheckDate >= DateBegin && CheckDate <= DateEnd
-                       && CheckDate >= a.BDATE && CheckDate <= a.EDATE
-                       && db.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Select(p => p.DATAGROUP).Contains(f.SALADR)
+                       && ((f.OUDT != null && f.OUDT.Value >= DateBegin && f.OUDT.Value <= DateEnd)
+                       || (f.STDT != null && f.STDT.Value >= DateBegin && f.STDT.Value <= DateEnd)
+                       || (f.STOUDT != null && f.STOUDT.Value >= DateBegin && f.STOUDT.Value <= DateEnd)
+                        && DateEnd.AddYears(1) >= f.ADATE && DateEnd.AddYears(1) <= f.DDATE.Value)
+                       && ((f.OUDT != null && f.OUDT.Value >= a.BDATE && f.OUDT.Value <= a.EDATE)
+                       || (f.STDT != null && f.STDT.Value >= a.BDATE && f.STDT.Value <= a.EDATE)
+                       || (f.STOUDT != null && f.STOUDT.Value >= a.BDATE && f.STOUDT.Value <= a.EDATE))
+                       //&& db.UserReadDataGroupList(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN).Select(p => p.DATAGROUP).Contains(f.SALADR)
                        select new CompensatoryLeaveCashDto
                        {
                            CashType = "離職結算",
@@ -530,6 +540,7 @@ namespace JBHR.Sal
                            HoliName = b.H_NAME,
                            HoliCode = b.H_CODE,
                            Rote = g.ROTE,
+                           RoteH = g.ROTE_H,
                            RoteName = r.ROTENAME,
                            OtRateCode = f.CALOT,
                            OtRateName = "",
