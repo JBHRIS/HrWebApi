@@ -86,6 +86,7 @@
             this.textBox3 = new JBControls.TextBox();
             this.fullDataCtrl1 = new JBControls.FullDataCtrl();
             this.tAXLVLTableAdapter = new JBHR.Sal.SalaryDSTableAdapters.TAXLVLTableAdapter();
+            this.btnImport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -116,7 +117,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(626, 441);
+            this.splitContainer1.Size = new System.Drawing.Size(734, 441);
             this.splitContainer1.SplitterDistance = 185;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -152,7 +153,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(626, 185);
+            this.dataGridView1.Size = new System.Drawing.Size(734, 185);
             this.dataGridView1.TabIndex = 0;
             // 
             // yEARDataGridViewTextBoxColumn
@@ -300,8 +301,9 @@
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.btnImport);
             this.splitContainer2.Panel2.Controls.Add(this.fullDataCtrl1);
-            this.splitContainer2.Size = new System.Drawing.Size(626, 252);
+            this.splitContainer2.Size = new System.Drawing.Size(734, 252);
             this.splitContainer2.SplitterDistance = 169;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -313,7 +315,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(626, 169);
+            this.panel1.Size = new System.Drawing.Size(734, 169);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -875,12 +877,23 @@
             // 
             this.tAXLVLTableAdapter.ClearBeforeFill = true;
             // 
+            // btnImport
+            // 
+            this.btnImport.Location = new System.Drawing.Point(645, 7);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(75, 23);
+            this.btnImport.TabIndex = 20;
+            this.btnImport.Text = "開始匯入";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
             // FRM4Z
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(626, 441);
+            this.ClientSize = new System.Drawing.Size(734, 441);
             this.Controls.Add(this.splitContainer1);
+            this.FormSize = JBControls.JBForm.FormSizeType.Custom;
             this.KeyPreview = true;
             this.Name = "FRM4Z";
             this.Text = "FRM4Z";
@@ -964,5 +977,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PER11;
         private System.Windows.Forms.DataGridViewTextBoxColumn kEYMANDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kEYDATEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnImport;
     }
 }

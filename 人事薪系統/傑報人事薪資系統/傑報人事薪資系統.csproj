@@ -1875,6 +1875,9 @@
     <Content Include="Resources\ICON\favicon_C.ico" />
     <Content Include="Resources\ICON\傑報資訊_icon_01.png" />
     <Content Include="Resources\ICON\傑報資訊_icon_02.png" />
+    <EmbeddedResource Include="Sal\FRM4Z_Import.resx">
+      <DependentUpon>FRM4Z_Import.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Wel\FRM63N.resx">
       <DependentUpon>FRM63N.cs</DependentUpon>
     </EmbeddedResource>
@@ -7293,6 +7296,12 @@
     </Compile>
     <Compile Include="Sal\FRM4Z.Designer.cs">
       <DependentUpon>FRM4Z.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sal\FRM4Z_Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sal\FRM4Z_Import.Designer.cs">
+      <DependentUpon>FRM4Z_Import.cs</DependentUpon>
     </Compile>
     <Compile Include="Sal\Function.cs" />
     <Compile Include="Sal\OtType.cs" />

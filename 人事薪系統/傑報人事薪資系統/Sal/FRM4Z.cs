@@ -77,5 +77,57 @@ namespace JBHR.Sal
             if (!e.Error)//發生錯誤就略過
                 CDataLog.Save(this.Name, MainForm.USER_ID, DateTime.Now, fullDataCtrl1.BackupDataTable);
         }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            JBModule.Data.Linq.HrDBDataContext db = new JBModule.Data.Linq.HrDBDataContext();
+            JBControls.U_IMPORT frm = new JBControls.U_IMPORT();
+            //frm.Allow_Repeat_Delete = true;
+            frm.Allow_Repeat_Ignore = true;
+            frm.Allow_Repeat_Override = true;
+            frm.TemplateButtonVisible = true;
+
+            frm.Text = "所得稅級距表資料批次匯入";
+            frm.FieldForm = new FRM4Z_Import();
+            FRM4Z_Import.FRM4Z_ImportData TAXLVL_ImportData = new FRM4Z_Import.FRM4Z_ImportData();
+            frm.DataTransfer = TAXLVL_ImportData;
+
+            frm.DataTransfer.ColumnList = new Dictionary<string, Type>();
+            frm.DataTransfer.ColumnList.Add("警告註記", typeof(string));
+            frm.DataTransfer.ColumnList.Add("錯誤註記", typeof(string));
+            frm.DataTransfer.ColumnList.Add("年度", typeof(int));
+            frm.DataTransfer.ColumnList.Add("薪資上限", typeof(decimal));
+            frm.DataTransfer.ColumnList.Add("薪資下限", typeof(decimal));
+            frm.DataTransfer.ColumnList.Add("扶養人數00", typeof(decimal));
+            frm.DataTransfer.ColumnList.Add("扶養人數01", typeof(decimal));
+            frm.DataTransfer.ColumnList.Add("扶養人數02", typeof(decimal));
+            frm.DataTransfer.ColumnList.Add("扶養人數03", typeof(decimal));
+            frm.DataTransfer.ColumnList.Add("扶養人數04", typeof(decimal));
+            frm.DataTransfer.ColumnList.Add("扶養人數05", typeof(decimal));
+            frm.DataTransfer.ColumnList.Add("扶養人數06", typeof(decimal));
+            frm.DataTransfer.ColumnList.Add("扶養人數07", typeof(decimal));
+            frm.DataTransfer.ColumnList.Add("扶養人數08", typeof(decimal));
+            frm.DataTransfer.ColumnList.Add("扶養人數09", typeof(decimal));
+            frm.DataTransfer.ColumnList.Add("扶養人數10", typeof(decimal));
+            frm.DataTransfer.ColumnList.Add("扶養人數11", typeof(decimal));
+
+
+
+            frm.DataTransfer.UnMustColumnList = new List<string>();
+            frm.DataTransfer.UnMustColumnList.Add("扶養人數00");
+            frm.DataTransfer.UnMustColumnList.Add("扶養人數01");
+            frm.DataTransfer.UnMustColumnList.Add("扶養人數02");
+            frm.DataTransfer.UnMustColumnList.Add("扶養人數03");
+            frm.DataTransfer.UnMustColumnList.Add("扶養人數04");
+            frm.DataTransfer.UnMustColumnList.Add("扶養人數05");
+            frm.DataTransfer.UnMustColumnList.Add("扶養人數06");
+            frm.DataTransfer.UnMustColumnList.Add("扶養人數07");
+            frm.DataTransfer.UnMustColumnList.Add("扶養人數08");
+            frm.DataTransfer.UnMustColumnList.Add("扶養人數09");
+            frm.DataTransfer.UnMustColumnList.Add("扶養人數10");
+            frm.DataTransfer.UnMustColumnList.Add("扶養人數11");
+
+            frm.ShowDialog();
+        }
     }
 }
