@@ -133,7 +133,7 @@ namespace WebApiAuthDemo.Controllers
             else
             {
                 status.Message = "驗證錯誤";
-                if (ValidateUser.Result.Length > 0)
+                if (ValidateUser.Result != null && ValidateUser.Result.Length > 0)
                     status.Message += $":{ValidateUser.Result}";
             }
 
