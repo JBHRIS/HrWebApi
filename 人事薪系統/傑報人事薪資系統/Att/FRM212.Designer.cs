@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgv = new JBControls.DataGridView();
             this.ROTE_DISP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,7 +74,6 @@
             this.label26 = new System.Windows.Forms.Label();
             this.textBox22 = new JBControls.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.checkBox1 = new JBControls.CheckBox();
             this.textBox24 = new JBControls.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -83,13 +82,14 @@
             this.label20 = new System.Windows.Forms.Label();
             this.textBox27 = new JBControls.TextBox();
             this.label28 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.textBox19 = new JBControls.TextBox();
             this.txtOFFTIME2 = new System.Windows.Forms.TextBox();
             this.txtOT_BEGIN = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new JBControls.CheckBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label14 = new System.Windows.Forms.Label();
             this.textBox20 = new JBControls.TextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.textBox14 = new JBControls.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.textBox18 = new JBControls.TextBox();
@@ -100,10 +100,10 @@
             this.textBox16 = new JBControls.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.textBox19 = new JBControls.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox14 = new JBControls.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new JBControls.TextBox();
@@ -196,14 +196,14 @@
             this.dgv.AllowUserToResizeRows = false;
             this.dgv.AutoGenerateColumns = false;
             this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("細明體", 9F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("細明體", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ROTE_DISP,
@@ -586,7 +586,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 114F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 121F));
             this.tableLayoutPanel3.Controls.Add(this.label15, 0, 12);
             this.tableLayoutPanel3.Controls.Add(this.textBox15, 1, 12);
             this.tableLayoutPanel3.Controls.Add(this.label26, 0, 1);
@@ -687,6 +687,7 @@
             this.textBox22.Size = new System.Drawing.Size(40, 22);
             this.textBox22.TabIndex = 1;
             this.textBox22.ValidType = JBControls.TextBox.EValidType.String;
+            this.textBox22.Visible = false;
             // 
             // label25
             // 
@@ -698,22 +699,6 @@
             this.label25.Size = new System.Drawing.Size(53, 12);
             this.label25.TabIndex = 0;
             this.label25.Text = "最晚下班";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.CaptionLabel = null;
-            this.tableLayoutPanel3.SetColumnSpan(this.checkBox1, 2);
-            this.checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bsROTE, "NIGHT", true));
-            this.checkBox1.IsImitateCaption = true;
-            this.checkBox1.Location = new System.Drawing.Point(86, 62);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(84, 16);
-            this.checkBox1.TabIndex = 3;
-            this.checkBox1.TabStop = false;
-            this.checkBox1.Text = "發班別津貼";
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // textBox24
             // 
@@ -844,6 +829,39 @@
             this.label28.Text = "加班伙食";
             this.label28.Visible = false;
             // 
+            // label22
+            // 
+            this.label22.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label22.AutoSize = true;
+            this.label22.ForeColor = System.Drawing.Color.Black;
+            this.label22.Location = new System.Drawing.Point(27, 204);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(53, 12);
+            this.label22.TabIndex = 11;
+            this.label22.Text = "超時時間";
+            this.label22.Visible = false;
+            // 
+            // textBox19
+            // 
+            this.textBox19.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox19.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.textBox19.CaptionLabel = this.label22;
+            this.textBox19.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.textBox19.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsROTE, "OVER_TIME", true));
+            this.textBox19.DecimalPlace = 2;
+            this.textBox19.IsEmpty = true;
+            this.textBox19.Location = new System.Drawing.Point(86, 199);
+            this.textBox19.Mask = "";
+            this.textBox19.MaxLength = 50;
+            this.textBox19.Name = "textBox19";
+            this.textBox19.PasswordChar = '\0';
+            this.textBox19.ReadOnly = false;
+            this.textBox19.ShowCalendarButton = true;
+            this.textBox19.Size = new System.Drawing.Size(40, 22);
+            this.textBox19.TabIndex = 7;
+            this.textBox19.ValidType = JBControls.TextBox.EValidType.String;
+            this.textBox19.Visible = false;
+            // 
             // txtOFFTIME2
             // 
             this.txtOFFTIME2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -860,6 +878,22 @@
             this.txtOT_BEGIN.Name = "txtOT_BEGIN";
             this.txtOT_BEGIN.Size = new System.Drawing.Size(64, 22);
             this.txtOT_BEGIN.TabIndex = 2;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.CaptionLabel = null;
+            this.tableLayoutPanel3.SetColumnSpan(this.checkBox1, 2);
+            this.checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bsROTE, "NIGHT", true));
+            this.checkBox1.IsImitateCaption = true;
+            this.checkBox1.Location = new System.Drawing.Point(86, 62);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(84, 16);
+            this.checkBox1.TabIndex = 3;
+            this.checkBox1.TabStop = false;
+            this.checkBox1.Text = "發班別津貼";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel2
             // 
@@ -900,17 +934,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(205, 253);
             this.tableLayoutPanel2.TabIndex = 37;
             // 
-            // label14
-            // 
-            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(9, 201);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(53, 12);
-            this.label14.TabIndex = 59;
-            this.label14.Text = "可遲到分";
-            // 
             // textBox20
             // 
             this.textBox20.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -941,26 +964,6 @@
             this.label24.Size = new System.Drawing.Size(53, 12);
             this.label24.TabIndex = 15;
             this.label24.Text = "固定加班";
-            // 
-            // textBox14
-            // 
-            this.textBox14.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox14.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.textBox14.CaptionLabel = this.label14;
-            this.textBox14.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.textBox14.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsROTE, "ALLLATES", true));
-            this.textBox14.DecimalPlace = 2;
-            this.textBox14.IsEmpty = true;
-            this.textBox14.Location = new System.Drawing.Point(68, 196);
-            this.textBox14.Mask = "";
-            this.textBox14.MaxLength = -1;
-            this.textBox14.Name = "textBox14";
-            this.textBox14.PasswordChar = '\0';
-            this.textBox14.ReadOnly = false;
-            this.textBox14.ShowCalendarButton = true;
-            this.textBox14.Size = new System.Drawing.Size(40, 22);
-            this.textBox14.TabIndex = 8;
-            this.textBox14.ValidType = JBControls.TextBox.EValidType.Decimal;
             // 
             // label21
             // 
@@ -1097,37 +1100,6 @@
             this.label23.TabIndex = 13;
             this.label23.Text = "班別津貼2";
             // 
-            // textBox19
-            // 
-            this.textBox19.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox19.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.textBox19.CaptionLabel = this.label22;
-            this.textBox19.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.textBox19.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsROTE, "OVER_TIME", true));
-            this.textBox19.DecimalPlace = 2;
-            this.textBox19.IsEmpty = true;
-            this.textBox19.Location = new System.Drawing.Point(86, 199);
-            this.textBox19.Mask = "";
-            this.textBox19.MaxLength = 50;
-            this.textBox19.Name = "textBox19";
-            this.textBox19.PasswordChar = '\0';
-            this.textBox19.ReadOnly = false;
-            this.textBox19.ShowCalendarButton = true;
-            this.textBox19.Size = new System.Drawing.Size(40, 22);
-            this.textBox19.TabIndex = 7;
-            this.textBox19.ValidType = JBControls.TextBox.EValidType.String;
-            // 
-            // label22
-            // 
-            this.label22.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label22.AutoSize = true;
-            this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(27, 204);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(53, 12);
-            this.label22.TabIndex = 11;
-            this.label22.Text = "超時時間";
-            // 
             // comboBox2
             // 
             this.comboBox2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsROTE, "SPECSALCD", true));
@@ -1145,6 +1117,37 @@
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(131, 20);
             this.comboBox3.TabIndex = 4;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(9, 201);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(53, 12);
+            this.label14.TabIndex = 59;
+            this.label14.Text = "可遲到分";
+            // 
+            // textBox14
+            // 
+            this.textBox14.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox14.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.textBox14.CaptionLabel = this.label14;
+            this.textBox14.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.textBox14.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsROTE, "ALLLATES", true));
+            this.textBox14.DecimalPlace = 2;
+            this.textBox14.IsEmpty = true;
+            this.textBox14.Location = new System.Drawing.Point(68, 196);
+            this.textBox14.Mask = "";
+            this.textBox14.MaxLength = -1;
+            this.textBox14.Name = "textBox14";
+            this.textBox14.PasswordChar = '\0';
+            this.textBox14.ReadOnly = false;
+            this.textBox14.ShowCalendarButton = true;
+            this.textBox14.Size = new System.Drawing.Size(40, 22);
+            this.textBox14.TabIndex = 8;
+            this.textBox14.ValidType = JBControls.TextBox.EValidType.Decimal;
             // 
             // tableLayoutPanel1
             // 

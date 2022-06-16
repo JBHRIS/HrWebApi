@@ -7071,7 +7071,9 @@
     <Compile Include="Sal\FRM46A.Designer.cs">
       <DependentUpon>FRM46A.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sal\FRM46A_Import.cs" />
+    <Compile Include="Sal\FRM46A_Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Sal\FRM46A_Import.Designer.cs">
       <DependentUpon>FRM46A_Import.cs</DependentUpon>
     </Compile>
