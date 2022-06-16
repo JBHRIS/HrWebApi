@@ -29,11 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new JBControls.DataGridView();
-            this.sALBASDBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nOBRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nAMECDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sALCODEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.sALCODEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.salaryDS = new JBHR.Sal.SalaryDS();
+            this.sALNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mENODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sALBASDBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnImport = new System.Windows.Forms.Button();
@@ -53,27 +64,17 @@
             this.txtMemo = new JBControls.TextBox();
             this.fullDataCtrl1 = new JBControls.FullDataCtrl();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.sALCODEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sALBASDTableAdapter = new JBHR.Sal.SalaryDSTableAdapters.SALBASDTableAdapter();
             this.sALCODETableAdapter = new JBHR.Sal.SalaryDSTableAdapters.SALCODETableAdapter();
             this.bASETableAdapter = new JBHR.Sal.SalaryDSTableAdapters.BASETableAdapter();
-            this.nOBRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nAMECDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sALCODEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.sALNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aMTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kEYMANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kEYDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mENODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sALBASDBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sALCODEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salaryDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sALBASDBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -82,7 +83,6 @@
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bASEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sALCODEBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -100,8 +100,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(620, 424);
-            this.splitContainer1.SplitterDistance = 178;
+            this.splitContainer1.Size = new System.Drawing.Size(626, 441);
+            this.splitContainer1.SplitterDistance = 185;
             this.splitContainer1.TabIndex = 0;
             // 
             // dataGridView1
@@ -111,14 +111,14 @@
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("細明體", 9F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("細明體", 9F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nOBRDataGridViewTextBoxColumn,
@@ -141,336 +141,8 @@
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(620, 178);
+            this.dataGridView1.Size = new System.Drawing.Size(626, 185);
             this.dataGridView1.TabIndex = 9;
-            // 
-            // sALBASDBindingSource
-            // 
-            this.sALBASDBindingSource.DataMember = "SALBASD";
-            this.sALBASDBindingSource.DataSource = this.salaryDS;
-            // 
-            // salaryDS
-            // 
-            this.salaryDS.DataSetName = "SalaryDS";
-            this.salaryDS.Locale = new System.Globalization.CultureInfo("zh-TW");
-            this.salaryDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.splitContainer2.IsSplitterFixed = true;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.panel1);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.fullDataCtrl1);
-            this.splitContainer2.Size = new System.Drawing.Size(620, 242);
-            this.splitContainer2.SplitterDistance = 162;
-            this.splitContainer2.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.btnImport);
-            this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(620, 162);
-            this.panel1.TabIndex = 0;
-            // 
-            // btnImport
-            // 
-            this.btnImport.Location = new System.Drawing.Point(528, 137);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(84, 23);
-            this.btnImport.TabStop = false;
-            this.btnImport.TabIndex = 1;
-            this.btnImport.Text = "匯入";
-            this.btnImport.UseVisualStyleBackColor = true;
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.ptxSalcode, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtDdate, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.txtAmt, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.ptxNobr, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txtAdate, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtMemo, 1, 4);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(446, 170);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // ptxSalcode
-            // 
-            this.ptxSalcode.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.sALBASDBindingSource, "SAL_CODE", true));
-            this.ptxSalcode.FormattingEnabled = true;
-            this.ptxSalcode.Location = new System.Drawing.Point(89, 66);
-            this.ptxSalcode.Name = "ptxSalcode";
-            this.ptxSalcode.Size = new System.Drawing.Size(121, 26);
-            this.ptxSalcode.TabIndex = 3;
-            // 
-            // txtDdate
-            // 
-            this.txtDdate.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.txtDdate.CaptionLabel = this.label6;
-            this.txtDdate.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtDdate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sALBASDBindingSource, "DDATE", true));
-            this.txtDdate.DecimalPlace = 2;
-            this.txtDdate.IsEmpty = true;
-            this.txtDdate.Location = new System.Drawing.Point(89, 168);
-            this.txtDdate.Mask = "0000/00/00";
-            this.txtDdate.MaxLength = -1;
-            this.txtDdate.Name = "txtDdate";
-            this.txtDdate.PasswordChar = '\0';
-            this.txtDdate.ReadOnly = true;
-            this.txtDdate.ShowCalendarButton = true;
-            this.txtDdate.Size = new System.Drawing.Size(94, 29);
-            this.txtDdate.TabIndex = 6;
-            this.txtDdate.ValidType = JBControls.TextBox.EValidType.Date;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(3, 173);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 18);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "失效日期";
-            // 
-            // txtAmt
-            // 
-            this.txtAmt.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.txtAmt.CaptionLabel = this.label4;
-            this.txtAmt.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtAmt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sALBASDBindingSource, "AMT", true));
-            this.txtAmt.DecimalPlace = 2;
-            this.txtAmt.IsEmpty = false;
-            this.txtAmt.Location = new System.Drawing.Point(89, 98);
-            this.txtAmt.Mask = "";
-            this.txtAmt.MaxLength = -1;
-            this.txtAmt.Name = "txtAmt";
-            this.txtAmt.PasswordChar = '\0';
-            this.txtAmt.ReadOnly = false;
-            this.txtAmt.ShowCalendarButton = true;
-            this.txtAmt.Size = new System.Drawing.Size(94, 29);
-            this.txtAmt.TabIndex = 4;
-            this.txtAmt.ValidType = JBControls.TextBox.EValidType.Decimal;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(39, 103);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 18);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "金額";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(3, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "員工編號";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(3, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 18);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "異動日期";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(3, 70);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 18);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "薪資代碼";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(39, 138);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 18);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "備註";
-            // 
-            // ptxNobr
-            // 
-            this.ptxNobr.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ptxNobr.CaptionLabel = this.label1;
-            this.ptxNobr.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.ptxNobr.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sALBASDBindingSource, "NOBR", true));
-            this.ptxNobr.DataBindings.Add(new System.Windows.Forms.Binding("LabelText", this.sALBASDBindingSource, "NAME_C", true));
-            this.ptxNobr.DataSource = this.bASEBindingSource;
-            this.ptxNobr.DisplayMember = "name_c";
-            this.ptxNobr.IsEmpty = false;
-            this.ptxNobr.IsEmptyToQuery = false;
-            this.ptxNobr.IsMustBeFound = true;
-            this.ptxNobr.LabelText = "";
-            this.ptxNobr.Location = new System.Drawing.Point(89, 3);
-            this.ptxNobr.Name = "ptxNobr";
-            this.ptxNobr.ReadOnly = false;
-            this.ptxNobr.ShowDisplayName = true;
-            this.ptxNobr.Size = new System.Drawing.Size(100, 22);
-            this.ptxNobr.TabIndex = 1;
-            this.ptxNobr.ValueMember = "nobr";
-            this.ptxNobr.WhereCmd = "";
-            this.ptxNobr.QueryCompleted += new JBControls.PopupTextBox.QueryCompletedHandler(this.ptxNobr_QueryCompleted);
-            // 
-            // bASEBindingSource
-            // 
-            this.bASEBindingSource.DataMember = "BASE";
-            this.bASEBindingSource.DataSource = this.salaryDS;
-            // 
-            // txtAdate
-            // 
-            this.txtAdate.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.txtAdate.CaptionLabel = this.label2;
-            this.txtAdate.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtAdate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sALBASDBindingSource, "ADATE", true));
-            this.txtAdate.DecimalPlace = 2;
-            this.txtAdate.IsEmpty = false;
-            this.txtAdate.Location = new System.Drawing.Point(89, 31);
-            this.txtAdate.Mask = "0000/00/00";
-            this.txtAdate.MaxLength = -1;
-            this.txtAdate.Name = "txtAdate";
-            this.txtAdate.PasswordChar = '\0';
-            this.txtAdate.ReadOnly = false;
-            this.txtAdate.ShowCalendarButton = true;
-            this.txtAdate.Size = new System.Drawing.Size(100, 29);
-            this.txtAdate.TabIndex = 2;
-            this.txtAdate.ValidType = JBControls.TextBox.EValidType.Date;
-            // 
-            // txtMemo
-            // 
-            this.txtMemo.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.txtMemo.CaptionLabel = this.label5;
-            this.txtMemo.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtMemo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sALBASDBindingSource, "MENO", true));
-            this.txtMemo.DecimalPlace = 2;
-            this.txtMemo.IsEmpty = true;
-            this.txtMemo.Location = new System.Drawing.Point(89, 133);
-            this.txtMemo.Mask = "";
-            this.txtMemo.MaxLength = 50;
-            this.txtMemo.Name = "txtMemo";
-            this.txtMemo.PasswordChar = '\0';
-            this.txtMemo.ReadOnly = false;
-            this.txtMemo.ShowCalendarButton = true;
-            this.txtMemo.Size = new System.Drawing.Size(348, 29);
-            this.txtMemo.TabIndex = 5;
-            this.txtMemo.ValidType = JBControls.TextBox.EValidType.String;
-            // 
-            // fullDataCtrl1
-            // 
-            this.fullDataCtrl1.AllowModifyPrimaryKey = false;
-            this.fullDataCtrl1.BindingCtrlsAutoInit = true;
-            this.fullDataCtrl1.bnAddEnable = true;
-            this.fullDataCtrl1.bnAddVisible = true;
-            this.fullDataCtrl1.bnCancelEnable = true;
-            this.fullDataCtrl1.bnCancelVisible = true;
-            this.fullDataCtrl1.bnDelEnable = true;
-            this.fullDataCtrl1.bnDelVisible = true;
-            this.fullDataCtrl1.bnEditEnable = true;
-            this.fullDataCtrl1.bnEditVisible = true;
-            this.fullDataCtrl1.bnExportEnable = true;
-            this.fullDataCtrl1.bnExportVisible = true;
-            this.fullDataCtrl1.bnQueryEnable = true;
-            this.fullDataCtrl1.bnQueryVisible = true;
-            this.fullDataCtrl1.bnSaveEnable = true;
-            this.fullDataCtrl1.bnSaveVisible = true;
-            this.fullDataCtrl1.CtrlType = JBControls.FullDataCtrl.ECtrlType.Full;
-            this.fullDataCtrl1.DataAdapter = null;
-            this.fullDataCtrl1.DataGrid = this.dataGridView1;
-            this.fullDataCtrl1.DataSource = this.sALBASDBindingSource;
-            this.fullDataCtrl1.DeleteType = JBControls.FullDataCtrl.EDeleteType.Delete;
-            this.fullDataCtrl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.fullDataCtrl1.EnableAutoClone = false;
-            this.fullDataCtrl1.GroupCmd = "";
-            this.fullDataCtrl1.Location = new System.Drawing.Point(0, 0);
-            this.fullDataCtrl1.Name = "fullDataCtrl1";
-            this.fullDataCtrl1.QueryFields = "adate,nobr,sal_code,meno";
-            this.fullDataCtrl1.RecentQuerySql = "";
-            this.fullDataCtrl1.SelectCmd = "";
-            this.fullDataCtrl1.ShowExceptionMsg = true;
-            this.fullDataCtrl1.Size = new System.Drawing.Size(620, 73);
-            this.fullDataCtrl1.SortFields = "adate,nobr,sal_code,meno";
-            this.fullDataCtrl1.TabIndex = 3;
-            this.fullDataCtrl1.WhereCmd = "";
-            this.fullDataCtrl1.AfterAdd += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterAdd);
-            this.fullDataCtrl1.AfterEdit += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterEdit);
-            this.fullDataCtrl1.BeforeDel += new JBControls.FullDataCtrl.BeforeEventHandler(this.fullDataCtrl1_BeforeDel);
-            this.fullDataCtrl1.AfterDel += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterDel);
-            this.fullDataCtrl1.BeforeSave += new JBControls.FullDataCtrl.BeforeEventHandler(this.fullDataCtrl1_BeforeSave);
-            this.fullDataCtrl1.AfterSave += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterSave);
-            this.fullDataCtrl1.AfterExport += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterExport);
-            this.fullDataCtrl1.AfterQuery += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterQuery);
-            this.fullDataCtrl1.AfterShow += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterShow);
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // sALCODEBindingSource
-            // 
-            this.sALCODEBindingSource.DataMember = "SALCODE";
-            this.sALCODEBindingSource.DataSource = this.salaryDS;
-            // 
-            // sALBASDTableAdapter
-            // 
-            this.sALBASDTableAdapter.ClearBeforeFill = true;
-            // 
-            // sALCODETableAdapter
-            // 
-            this.sALCODETableAdapter.ClearBeforeFill = true;
-            // 
-            // bASETableAdapter
-            // 
-            this.bASETableAdapter.ClearBeforeFill = true;
             // 
             // nOBRDataGridViewTextBoxColumn
             // 
@@ -501,6 +173,17 @@
             this.sALCODEDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.sALCODEDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.sALCODEDataGridViewTextBoxColumn.ValueMember = "SAL_CODE";
+            // 
+            // sALCODEBindingSource
+            // 
+            this.sALCODEBindingSource.DataMember = "SALCODE";
+            this.sALCODEBindingSource.DataSource = this.salaryDS;
+            // 
+            // salaryDS
+            // 
+            this.salaryDS.DataSetName = "SalaryDS";
+            this.salaryDS.Locale = new System.Globalization.CultureInfo("zh-TW");
+            this.salaryDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // sALNAMEDataGridViewTextBoxColumn
             // 
@@ -558,11 +241,328 @@
             this.mENODataGridViewTextBoxColumn.Name = "mENODataGridViewTextBoxColumn";
             this.mENODataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // sALBASDBindingSource
+            // 
+            this.sALBASDBindingSource.DataMember = "SALBASD";
+            this.sALBASDBindingSource.DataSource = this.salaryDS;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer2.IsSplitterFixed = true;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.panel1);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.fullDataCtrl1);
+            this.splitContainer2.Size = new System.Drawing.Size(626, 252);
+            this.splitContainer2.SplitterDistance = 172;
+            this.splitContainer2.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.btnImport);
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(626, 172);
+            this.panel1.TabIndex = 0;
+            // 
+            // btnImport
+            // 
+            this.btnImport.Location = new System.Drawing.Point(528, 137);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(84, 23);
+            this.btnImport.TabIndex = 1;
+            this.btnImport.TabStop = false;
+            this.btnImport.Text = "匯入";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.ptxSalcode, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txtDdate, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.txtAmt, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.ptxNobr, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtAdate, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtMemo, 1, 4);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(446, 170);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // ptxSalcode
+            // 
+            this.ptxSalcode.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.sALBASDBindingSource, "SAL_CODE", true));
+            this.ptxSalcode.FormattingEnabled = true;
+            this.ptxSalcode.Location = new System.Drawing.Point(62, 59);
+            this.ptxSalcode.Name = "ptxSalcode";
+            this.ptxSalcode.Size = new System.Drawing.Size(121, 20);
+            this.ptxSalcode.TabIndex = 3;
+            // 
+            // txtDdate
+            // 
+            this.txtDdate.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.txtDdate.CaptionLabel = this.label6;
+            this.txtDdate.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtDdate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sALBASDBindingSource, "DDATE", true));
+            this.txtDdate.DecimalPlace = 2;
+            this.txtDdate.IsEmpty = true;
+            this.txtDdate.Location = new System.Drawing.Point(62, 141);
+            this.txtDdate.Mask = "0000/00/00";
+            this.txtDdate.MaxLength = -1;
+            this.txtDdate.Name = "txtDdate";
+            this.txtDdate.PasswordChar = '\0';
+            this.txtDdate.ReadOnly = true;
+            this.txtDdate.ShowCalendarButton = true;
+            this.txtDdate.Size = new System.Drawing.Size(94, 22);
+            this.txtDdate.TabIndex = 6;
+            this.txtDdate.ValidType = JBControls.TextBox.EValidType.Date;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(3, 148);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "失效日期";
+            // 
+            // txtAmt
+            // 
+            this.txtAmt.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.txtAmt.CaptionLabel = this.label4;
+            this.txtAmt.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtAmt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sALBASDBindingSource, "AMT", true));
+            this.txtAmt.DecimalPlace = 2;
+            this.txtAmt.IsEmpty = false;
+            this.txtAmt.Location = new System.Drawing.Point(62, 85);
+            this.txtAmt.Mask = "";
+            this.txtAmt.MaxLength = -1;
+            this.txtAmt.Name = "txtAmt";
+            this.txtAmt.PasswordChar = '\0';
+            this.txtAmt.ReadOnly = false;
+            this.txtAmt.ShowCalendarButton = true;
+            this.txtAmt.Size = new System.Drawing.Size(94, 22);
+            this.txtAmt.TabIndex = 4;
+            this.txtAmt.ValidType = JBControls.TextBox.EValidType.Decimal;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(27, 90);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 12);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "金額";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(3, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "員工編號";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(3, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "異動日期";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(3, 63);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "薪資代碼";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(27, 118);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 12);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "備註";
+            // 
+            // ptxNobr
+            // 
+            this.ptxNobr.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.ptxNobr.CaptionLabel = this.label1;
+            this.ptxNobr.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.ptxNobr.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sALBASDBindingSource, "NOBR", true));
+            this.ptxNobr.DataBindings.Add(new System.Windows.Forms.Binding("LabelText", this.sALBASDBindingSource, "NAME_C", true));
+            this.ptxNobr.DataSource = this.bASEBindingSource;
+            this.ptxNobr.DisplayMember = "name_c";
+            this.ptxNobr.IsEmpty = false;
+            this.ptxNobr.IsEmptyToQuery = false;
+            this.ptxNobr.IsMustBeFound = true;
+            this.ptxNobr.LabelText = "";
+            this.ptxNobr.Location = new System.Drawing.Point(62, 3);
+            this.ptxNobr.Name = "ptxNobr";
+            this.ptxNobr.ReadOnly = false;
+            this.ptxNobr.ShowDisplayName = true;
+            this.ptxNobr.Size = new System.Drawing.Size(100, 22);
+            this.ptxNobr.TabIndex = 1;
+            this.ptxNobr.ValueMember = "nobr";
+            this.ptxNobr.WhereCmd = "";
+            this.ptxNobr.QueryCompleted += new JBControls.PopupTextBox.QueryCompletedHandler(this.ptxNobr_QueryCompleted);
+            // 
+            // bASEBindingSource
+            // 
+            this.bASEBindingSource.DataMember = "BASE";
+            this.bASEBindingSource.DataSource = this.salaryDS;
+            // 
+            // txtAdate
+            // 
+            this.txtAdate.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.txtAdate.CaptionLabel = this.label2;
+            this.txtAdate.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtAdate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sALBASDBindingSource, "ADATE", true));
+            this.txtAdate.DecimalPlace = 2;
+            this.txtAdate.IsEmpty = false;
+            this.txtAdate.Location = new System.Drawing.Point(62, 31);
+            this.txtAdate.Mask = "0000/00/00";
+            this.txtAdate.MaxLength = -1;
+            this.txtAdate.Name = "txtAdate";
+            this.txtAdate.PasswordChar = '\0';
+            this.txtAdate.ReadOnly = false;
+            this.txtAdate.ShowCalendarButton = true;
+            this.txtAdate.Size = new System.Drawing.Size(100, 22);
+            this.txtAdate.TabIndex = 2;
+            this.txtAdate.ValidType = JBControls.TextBox.EValidType.Date;
+            // 
+            // txtMemo
+            // 
+            this.txtMemo.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.txtMemo.CaptionLabel = this.label5;
+            this.txtMemo.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtMemo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sALBASDBindingSource, "MENO", true));
+            this.txtMemo.DecimalPlace = 2;
+            this.txtMemo.IsEmpty = true;
+            this.txtMemo.Location = new System.Drawing.Point(62, 113);
+            this.txtMemo.Mask = "";
+            this.txtMemo.MaxLength = 50;
+            this.txtMemo.Name = "txtMemo";
+            this.txtMemo.PasswordChar = '\0';
+            this.txtMemo.ReadOnly = false;
+            this.txtMemo.ShowCalendarButton = true;
+            this.txtMemo.Size = new System.Drawing.Size(348, 22);
+            this.txtMemo.TabIndex = 5;
+            this.txtMemo.ValidType = JBControls.TextBox.EValidType.String;
+            // 
+            // fullDataCtrl1
+            // 
+            this.fullDataCtrl1.AllowModifyPrimaryKey = false;
+            this.fullDataCtrl1.BindingCtrlsAutoInit = true;
+            this.fullDataCtrl1.bnAddEnable = true;
+            this.fullDataCtrl1.bnAddVisible = true;
+            this.fullDataCtrl1.bnCancelEnable = true;
+            this.fullDataCtrl1.bnCancelVisible = true;
+            this.fullDataCtrl1.bnDelEnable = true;
+            this.fullDataCtrl1.bnDelVisible = true;
+            this.fullDataCtrl1.bnEditEnable = true;
+            this.fullDataCtrl1.bnEditVisible = true;
+            this.fullDataCtrl1.bnExportEnable = true;
+            this.fullDataCtrl1.bnExportVisible = true;
+            this.fullDataCtrl1.bnQueryEnable = true;
+            this.fullDataCtrl1.bnQueryVisible = true;
+            this.fullDataCtrl1.bnSaveEnable = true;
+            this.fullDataCtrl1.bnSaveVisible = true;
+            this.fullDataCtrl1.CtrlType = JBControls.FullDataCtrl.ECtrlType.Full;
+            this.fullDataCtrl1.DataAdapter = null;
+            this.fullDataCtrl1.DataGrid = this.dataGridView1;
+            this.fullDataCtrl1.DataSource = this.sALBASDBindingSource;
+            this.fullDataCtrl1.DeleteType = JBControls.FullDataCtrl.EDeleteType.Delete;
+            this.fullDataCtrl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.fullDataCtrl1.EnableAutoClone = false;
+            this.fullDataCtrl1.GroupCmd = "";
+            this.fullDataCtrl1.Location = new System.Drawing.Point(0, 0);
+            this.fullDataCtrl1.Name = "fullDataCtrl1";
+            this.fullDataCtrl1.QueryFields = "adate,nobr,sal_code,meno";
+            this.fullDataCtrl1.RecentQuerySql = "";
+            this.fullDataCtrl1.SelectCmd = "";
+            this.fullDataCtrl1.ShowExceptionMsg = true;
+            this.fullDataCtrl1.Size = new System.Drawing.Size(626, 73);
+            this.fullDataCtrl1.SortFields = "adate,nobr,sal_code,meno";
+            this.fullDataCtrl1.TabIndex = 3;
+            this.fullDataCtrl1.WhereCmd = "";
+            this.fullDataCtrl1.AfterAdd += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterAdd);
+            this.fullDataCtrl1.AfterEdit += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterEdit);
+            this.fullDataCtrl1.BeforeDel += new JBControls.FullDataCtrl.BeforeEventHandler(this.fullDataCtrl1_BeforeDel);
+            this.fullDataCtrl1.AfterDel += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterDel);
+            this.fullDataCtrl1.BeforeSave += new JBControls.FullDataCtrl.BeforeEventHandler(this.fullDataCtrl1_BeforeSave);
+            this.fullDataCtrl1.AfterSave += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterSave);
+            this.fullDataCtrl1.AfterExport += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterExport);
+            this.fullDataCtrl1.AfterQuery += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterQuery);
+            this.fullDataCtrl1.AfterShow += new JBControls.FullDataCtrl.AfterEventHandler(this.fullDataCtrl1_AfterShow);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // sALBASDTableAdapter
+            // 
+            this.sALBASDTableAdapter.ClearBeforeFill = true;
+            // 
+            // sALCODETableAdapter
+            // 
+            this.sALCODETableAdapter.ClearBeforeFill = true;
+            // 
+            // bASETableAdapter
+            // 
+            this.bASETableAdapter.ClearBeforeFill = true;
+            // 
             // FRM46
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(620, 424);
+            this.ClientSize = new System.Drawing.Size(626, 441);
             this.Controls.Add(this.splitContainer1);
             this.KeyPreview = true;
             this.Name = "FRM46";
@@ -573,8 +573,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sALBASDBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sALCODEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.salaryDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sALBASDBindingSource)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
@@ -584,7 +585,6 @@
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bASEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sALCODEBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

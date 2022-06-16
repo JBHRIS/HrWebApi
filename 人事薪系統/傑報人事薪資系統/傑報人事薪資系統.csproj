@@ -1875,6 +1875,9 @@
     <Content Include="Resources\ICON\favicon_C.ico" />
     <Content Include="Resources\ICON\傑報資訊_icon_01.png" />
     <Content Include="Resources\ICON\傑報資訊_icon_02.png" />
+    <EmbeddedResource Include="Sal\FRM46A_Import.resx">
+      <DependentUpon>FRM46A_Import.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sal\FRM4Z_Import.resx">
       <DependentUpon>FRM4Z_Import.cs</DependentUpon>
     </EmbeddedResource>
@@ -5117,9 +5120,6 @@
       <DependentUpon>FRM46A.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sal\FRM46AI.resx">
-      <DependentUpon>FRM46AI.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Sal\FRM46B.resx">
       <DependentUpon>FRM46B.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -7071,11 +7071,9 @@
     <Compile Include="Sal\FRM46A.Designer.cs">
       <DependentUpon>FRM46A.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sal\FRM46AI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sal\FRM46AI.Designer.cs">
-      <DependentUpon>FRM46AI.cs</DependentUpon>
+    <Compile Include="Sal\FRM46A_Import.cs" />
+    <Compile Include="Sal\FRM46A_Import.Designer.cs">
+      <DependentUpon>FRM46A_Import.cs</DependentUpon>
     </Compile>
     <Compile Include="Sal\FRM46B.cs">
       <SubType>Form</SubType>
