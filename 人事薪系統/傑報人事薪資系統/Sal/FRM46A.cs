@@ -200,7 +200,29 @@ namespace JBHR.Sal
 
         private void btnImport_Click(object sender, EventArgs e)
         {
-            FRM46AI frm = new FRM46AI();
+            JBControls.U_IMPORT frm = new JBControls.U_IMPORT();
+            frm.Allow_Repeat_Delete = true;
+            frm.Allow_Repeat_Ignore = true;
+            frm.Allow_Repeat_Override = true;
+
+            frm.FieldForm = new FRM46A_Import();
+            frm.DataTransfer = new ImportTransferToSalbastd();
+
+            frm.DataTransfer.CheckData = new Dictionary<string, List<JBControls.CheckImportData>>();
+            frm.DataTransfer.CheckData.Add("薪資代碼", salaryDS.SALCODE.Where(p => new string[] { "A", "G" }.Contains(p.SAL_ATTR)).Select(p => new JBControls.CheckImportData { DisplayCode = p.SAL_CODE_DISP, RealCode = p.SAL_CODE, DisplayName = p.SAL_NAME }).ToList());
+            frm.DataTransfer.CheckData.Add("員工編號", this.salaryDS.BASE.Select(p => new JBControls.CheckImportData { DisplayCode = p.NOBR, RealCode = p.NOBR, DisplayName = p.NAME_C }).ToList());
+            frm.DataTransfer.ColumnList = new Dictionary<string, Type>();
+            frm.DataTransfer.ColumnList.Add("員工編號", typeof(string));
+            frm.DataTransfer.ColumnList.Add("員工姓名", typeof(string));
+            frm.DataTransfer.ColumnList.Add("異動日期", typeof(DateTime));
+            frm.DataTransfer.ColumnList.Add("薪資代碼", typeof(string));
+            frm.DataTransfer.ColumnList.Add("薪資名稱", typeof(string));
+            frm.DataTransfer.ColumnList.Add("異動前金額", typeof(decimal));
+            frm.DataTransfer.ColumnList.Add("異動後金額", typeof(decimal));
+            frm.DataTransfer.ColumnList.Add("差異金額", typeof(decimal));
+            frm.DataTransfer.ColumnList.Add("備註", typeof(string));
+            frm.DataTransfer.ColumnList.Add("錯誤註記", typeof(string));
+
             frm.ShowDialog();
         }
     }
