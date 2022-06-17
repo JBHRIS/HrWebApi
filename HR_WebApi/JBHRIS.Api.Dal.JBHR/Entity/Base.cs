@@ -88,6 +88,9 @@ namespace JBHRIS.Api.Dal.JBHR
         public bool? Aboriginal { get; set; }
         public bool? Disability { get; set; }
         public string Gift { get; set; }
+        public int AccessFailedCount { get; set; }
+        public bool LockoutEnabled { get; set; }
+        public DateTime? LockoutEnd { get; set; }
 
         public virtual ICollection<Contract> Contract { get; set; }
     }

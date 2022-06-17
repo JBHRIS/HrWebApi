@@ -1,6 +1,8 @@
 ﻿using HR_WebApi.Helpers;
 using JBHRIS.Api.Dal.JBHR;
 using JBHRIS.Api.Dto;
+using JBHRIS.Api.Dto._System;
+using JBHRIS.Api.Dto.Employee.Entry;
 using JBHRIS.Api.Dto.Login;
 using JBHRIS.Api.Service;
 using JBHRIS.Api.Service.Token;
@@ -70,6 +72,7 @@ namespace WebApiAuthDemo.Controllers
             return Ok(accessToken);
         }
 
+
         /// <summary>
         /// 登入並取得Token
         /// </summary>
@@ -103,16 +106,16 @@ namespace WebApiAuthDemo.Controllers
         [ApiExplorerSettings(IgnoreApi = true)] //Swagger不會產生給人呼叫
         private ApiResult<TokenResultDto> Login(ApiResult<string> ValidateUser)
         {
-            // 以下變數值應該透過 IConfiguration 取得
-            var issuer = _configuration["JWT:issuer"].ToString(); //"JwtAuthDemo";
-            var signKey = _configuration["JWT:signKey"].ToString(); // 請換成至少 16 字元以上的安全亂碼
-            var expires = Convert.ToInt32(_configuration["JWT:expires"]); // 單位: 分鐘
-            UserInfo userInfo = JBHRIS.Api.Bll.GetUserInfos.GetUserInfo(User);
-            TokenResultDto tokenResultDto;
             ApiResult<TokenResultDto> status = new ApiResult<TokenResultDto>();
             status.State = false;
             if (ValidateUser.State)
             {
+                // 以下變數值應該透過 IConfiguration 取得
+                var issuer = _configuration["JWT:issuer"].ToString(); //"JwtAuthDemo";
+                var signKey = _configuration["JWT:signKey"].ToString(); // 請換成至少 16 字元以上的安全亂碼
+                var expires = Convert.ToInt32(_configuration["JWT:expires"]); // 單位: 分鐘
+                UserInfo userInfo = JBHRIS.Api.Bll.GetUserInfos.GetUserInfo(User);
+                TokenResultDto tokenResultDto;
                 var UserId = ValidateUser.Result;
                 _userInfoService.SetPresetRole(UserId);//設定預設角色:管理者、主管、HR、員工
                 var refreshToken = Guid.NewGuid().ToString();
@@ -130,9 +133,71 @@ namespace WebApiAuthDemo.Controllers
             else
             {
                 status.Message = "驗證錯誤";
+                if (ValidateUser.Result != null && ValidateUser.Result.Length > 0)
+                    status.Message += $":{ValidateUser.Result}";
             }
 
             return status;
+        }
+
+        /// <summary>
+        /// 取得登入錯誤次數上限與解鎖時間設定
+        /// </summary>
+        /// <returns></returns>
+        [Route("GetLoginLimitConfig")]
+        [HttpGet]
+        [Authorize(Roles = "Token/GetLoginLimitConfig,Admin")]
+        public ApiResult<LoginLimitConfigDto> GetLoginLimitConfig()
+        {
+            ApiResult<LoginLimitConfigDto> apiResult = new ApiResult<LoginLimitConfigDto>();
+            apiResult.State = false;
+            try
+            {
+                apiResult.Result = _userValidateService.GetLoginLimitConfig();
+                apiResult.State = true;
+            }
+            catch(Exception ex)
+            {
+                apiResult.Message = ex.Message.ToString();
+            }
+            return apiResult;
+        }
+
+        /// <summary>
+        /// 修改登入錯誤次數上限與解鎖時間設定
+        /// </summary>
+        /// <returns></returns>
+        [Route("UpdateLoginLimitConfig")]
+        [HttpPost]
+        [Authorize(Roles = "Token/UpdateLoginLimitConfig,Admin")]
+        public ApiResult<UpdateLoginLimitConfigDto> UpdateLoginLimitConfig(UpdateLoginLimitConfigDto loginLimitConfigDto)
+        {
+            return _userValidateService.UpdateLoginLimitConfig(loginLimitConfigDto);
+        }
+
+        /// <summary>
+        /// 鎖定與解鎖帳戶設定
+        /// </summary>
+        /// <returns></returns>
+        [Route("SetLockEnable")]
+        [HttpPost]
+        [Authorize(Roles = "Token/SetLockEnable,Admin")]
+        public ApiResult<string> SetLockEnable(List<SetLockEnableDto> setLockEnableDtos)
+        {
+            ApiResult<string> apiResult = new ApiResult<string>();
+            apiResult.State = true;
+            foreach (var data in setLockEnableDtos)
+            {
+                try
+                {
+                    _userValidateService.SetLockEnable(data.UserId, data.Lockstate, data.LockoutEnd);
+                }catch(Exception ex)
+                {
+                    apiResult.State = false;
+                    apiResult.Result += ex.ToString()+"\n"+ "UserId:" + data.UserId + "Lockstate:" + data.Lockstate + "LockoutEnd:" + data.LockoutEnd + "\n";
+                }
+            }
+            return apiResult;
         }
 
         /// <summary>

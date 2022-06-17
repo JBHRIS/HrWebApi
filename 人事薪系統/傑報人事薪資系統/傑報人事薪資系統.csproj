@@ -49,7 +49,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>22.6.9.1</ApplicationVersion>
+    <ApplicationVersion>22.6.17.1</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -1875,6 +1875,12 @@
     <Content Include="Resources\ICON\favicon_C.ico" />
     <Content Include="Resources\ICON\傑報資訊_icon_01.png" />
     <Content Include="Resources\ICON\傑報資訊_icon_02.png" />
+    <EmbeddedResource Include="Sal\FRM46A_Import.resx">
+      <DependentUpon>FRM46A_Import.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sal\FRM4Z_Import.resx">
+      <DependentUpon>FRM4Z_Import.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Wel\FRM63N.resx">
       <DependentUpon>FRM63N.cs</DependentUpon>
     </EmbeddedResource>
@@ -2477,6 +2483,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlStorage\sql\20220517_INSURLV_Update_0_EFF_DATEJ.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022061601_base新增登入次數欄位.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022061602_base新增鎖帳號欄位.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022061603_新增登入記錄資料表.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlStorage\sql\2022061604_鎖定帳戶設定.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlStorage\sql\AlterSalcode.sql">
@@ -5114,9 +5132,6 @@
       <DependentUpon>FRM46A.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sal\FRM46AI.resx">
-      <DependentUpon>FRM46AI.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Sal\FRM46B.resx">
       <DependentUpon>FRM46B.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -7068,11 +7083,11 @@
     <Compile Include="Sal\FRM46A.Designer.cs">
       <DependentUpon>FRM46A.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sal\FRM46AI.cs">
+    <Compile Include="Sal\FRM46A_Import.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sal\FRM46AI.Designer.cs">
-      <DependentUpon>FRM46AI.cs</DependentUpon>
+    <Compile Include="Sal\FRM46A_Import.Designer.cs">
+      <DependentUpon>FRM46A_Import.cs</DependentUpon>
     </Compile>
     <Compile Include="Sal\FRM46B.cs">
       <SubType>Form</SubType>
@@ -7293,6 +7308,12 @@
     </Compile>
     <Compile Include="Sal\FRM4Z.Designer.cs">
       <DependentUpon>FRM4Z.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sal\FRM4Z_Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sal\FRM4Z_Import.Designer.cs">
+      <DependentUpon>FRM4Z_Import.cs</DependentUpon>
     </Compile>
     <Compile Include="Sal\Function.cs" />
     <Compile Include="Sal\OtType.cs" />

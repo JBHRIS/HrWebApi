@@ -43,9 +43,11 @@ namespace JBHR.Sal
         private void buttonRun_Click(object sender, EventArgs e)
         {
             List<AnnualLeaveCashDto> Results = new List<AnnualLeaveCashDto>();
+            List<string> RpData = new List<string>();
             //離職結算
             {
                 var data = AnnualOutList.Where(p => empOutSelection.SelectedValues.Contains(p.EmployeeID)).ToList();
+                RpData = data.Where(p => !string.IsNullOrEmpty(p.Guid)).Select(p => p.Guid).ToList();
                 var rp = new AnnualLeaveCashRepo();
                 var salaryData = rp.GetSalaryStructure(empOutSelection.SelectedValues, salcodeSelection.SelectedValues, Convert.ToDateTime(txtEdate.Text));
                 foreach (var it in data)
@@ -66,7 +68,7 @@ namespace JBHR.Sal
                 Results.AddRange(data);
             }
             {
-                var data = AnnualList.Where(p => empSelection.SelectedValues.Contains(p.EmployeeID)).ToList();
+                var data = AnnualList.Where(p => empSelection.SelectedValues.Contains(p.EmployeeID) && !RpData.Contains(p.Guid)).ToList();
                 var rp = new AnnualLeaveCashRepo();
                 var salaryData = rp.GetSalaryStructure(empSelection.SelectedValues, salcodeSelection.SelectedValues, Convert.ToDateTime(txtEdate.Text));
                 foreach (var it in data)
@@ -191,7 +193,7 @@ namespace JBHR.Sal
                       //join d in db.WriteRuleTable(MainForm.USER_ID, MainForm.COMPANY, MainForm.ADMIN) on a.NOBR equals d.NOBR
                       join e in db.MTCODE on b.TTSCODE equals e.CODE
                       let JobState = new string[] { "1", "4", "6" }.Contains(b.TTSCODE) ? "在職" : e.NAME
-                      where DateTime.Today >= b.ADATE && DateTime.Today <= b.DDATE.Value
+                      where DateTime.Today.AddYears(1) >= b.ADATE && DateTime.Today.AddYears(1) <= b.DDATE.Value
                       && e.CATEGORY == "TTSCODE"
                       && EmpList.Contains(a.NOBR)
                       && !b.NOSPEC

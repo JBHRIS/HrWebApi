@@ -1,0 +1,4 @@
+ALTER TABLE Base ADD LockoutEnabled bit DEFAULT 0 NOT NULL
+Go
+ALTER TABLE Base ADD LockoutEnd Datetime DEFAULT NULL
+Go

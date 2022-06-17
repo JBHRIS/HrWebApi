@@ -1484,6 +1484,24 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:WebApiAuthDemo.Controllers.TokenController.GetLoginLimitConfig">
+            <summary>
+            取得登入錯誤次數上限與解鎖時間設定
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiAuthDemo.Controllers.TokenController.UpdateLoginLimitConfig(JBHRIS.Api.Dto._System.UpdateLoginLimitConfigDto)">
+            <summary>
+            修改登入錯誤次數上限與解鎖時間設定
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiAuthDemo.Controllers.TokenController.SetLockEnable(System.Collections.Generic.List{JBHRIS.Api.Dto.Employee.Entry.SetLockEnableDto})">
+            <summary>
+            鎖定與解鎖帳戶設定
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:WebApiAuthDemo.Controllers.TokenController.RefreshToken(System.String)">
             <summary>
             重新取得Token

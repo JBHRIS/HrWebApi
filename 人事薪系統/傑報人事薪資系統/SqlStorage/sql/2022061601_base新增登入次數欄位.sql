@@ -1,0 +1,2 @@
+ALTER TABLE Base ADD AccessFailedCount int DEFAULT  0 NOT NULL
+Go

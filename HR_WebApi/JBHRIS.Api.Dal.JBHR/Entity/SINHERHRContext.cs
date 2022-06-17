@@ -640,6 +640,7 @@ namespace JBHRIS.Api.Dal.JBHR
         public virtual DbSet<TemperoturyReport> TemperoturyReport { get; set; }
         public virtual DbSet<DiversionAttendType> DiversionAttendType { get; set; }
         public virtual DbSet<EmployeeRule> EmployeeRule { get; set; }
+        public virtual DbSet<SecurityLogs> SecurityLogs { get; set; }
         private static UserInfo GetUserInfo(ClaimsPrincipal user)
         {
             UserInfo userInfo = new UserInfo();
@@ -3665,6 +3666,8 @@ namespace JBHRIS.Api.Dal.JBHR
                     .HasMaxLength(50)
                     .HasDefaultValueSql("('')");
 
+                entity.Property(e => e.LockoutEnd).HasColumnType("datetime");
+
                 entity.Property(e => e.Marry)
                     .IsRequired()
                     .HasColumnName("MARRY")
@@ -3863,6 +3866,21 @@ namespace JBHRIS.Api.Dal.JBHR
 
                 entity.Property(e => e.Up5Name)
                     .HasColumnName("up5_name")
+                    .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<SecurityLogs>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Action).HasMaxLength(96);
+
+                entity.Property(e => e.BrowserInfo).HasMaxLength(512);
+
+                entity.Property(e => e.ClientIpAddress).HasMaxLength(64);
+
+                entity.Property(e => e.Nobr)
+                    .IsRequired()
                     .HasMaxLength(50);
             });
 
