@@ -12677,6 +12677,41 @@ BEGIN
    END
 END
 
+ALTER TABLE Base ADD LockoutEnabled bit DEFAULT 0 NOT NULL
+Go
+ALTER TABLE Base ADD LockoutEnd Datetime DEFAULT NULL
+Go
+
+/****** Object:  Table [dbo].[SecurityLogs]    Script Date: 2022/6/14 上午 10:44:29 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SecurityLogs](
+	[Id] [uniqueidentifier] NOT NULL,
+	[Nobr] [nvarchar](50) NOT NULL,
+	[Action] [nvarchar](96) NULL,
+	[ClientIpAddress] [nvarchar](64) NULL,
+	[BrowserInfo] [nvarchar](512) NULL,
+	[CreationTime] [datetime2](7) NOT NULL,
+ CONSTRAINT [PK_SecurityLogs] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+INSERT [dbo].[sysApiVoid] ([Code], [Name], [RoutePath]) VALUES (N'Token/SetLockEnable', N'鎖定與解鎖帳戶設定', N'Token/SetLockEnable')
+GO
+
+INSERT [dbo].[sysApiVoid] ([Code], [Name], [RoutePath]) VALUES (N'Token/GetLoginLimitConfig', N'取得登入錯誤次數上限與解鎖時間設定', N'Token/GetLoginLimitConfig')
+GO
+
+INSERT [dbo].[sysApiVoid] ([Code], [Name], [RoutePath]) VALUES (N'Token/UpdateLoginLimitConfig', N'修改登入錯誤次數上限與解鎖時間設定', N'Token/UpdateLoginLimitConfig')
+GO
+
+ALTER TABLE Base ADD AccessFailedCount int DEFAULT  0 NOT NULL
+Go
 
 --更新key_man
 update CARD set KEY_MAN = 'JB'
