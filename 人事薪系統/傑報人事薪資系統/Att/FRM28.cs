@@ -116,6 +116,11 @@ namespace JBHR.Att
             //    return;
             //}
 
+            e.Values["nobr"] = ptxNobr.Text;
+            e.Values["bdate"] = Convert.ToDateTime(txtDateB.Text);
+            e.Values["edate"] = Convert.ToDateTime(txtDateE.Text);
+            e.Values["h_code"] = ptxHcode.SelectedValue.ToString();
+            e.Values["guid"] = txtGuid.Text;
             e.Values["btime"] = txtTimeB.Text;
             e.Values["etime"] = txtTimeE.Text;
 
