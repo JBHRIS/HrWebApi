@@ -32,8 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridViewEx1 = new JBControls.DataGridView();
-            this.cODEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mTCODEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.basDS = new JBHR.Bas.BasDS();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -45,6 +43,11 @@
             this.fullDataCtrl1 = new JBControls.FullDataCtrl();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.mTCODETableAdapter = new JBHR.Bas.BasDSTableAdapters.MTCODETableAdapter();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox4 = new JBControls.TextBox();
+            this.cODEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SORT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -75,8 +78,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(636, 452);
-            this.splitContainer1.SplitterDistance = 308;
+            this.splitContainer1.Size = new System.Drawing.Size(626, 441);
+            this.splitContainer1.SplitterDistance = 297;
             this.splitContainer1.TabIndex = 0;
             // 
             // dataGridViewEx1
@@ -97,7 +100,8 @@
             this.dataGridViewEx1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEx1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cODEDataGridViewTextBoxColumn,
-            this.nAMEDataGridViewTextBoxColumn});
+            this.nAMEDataGridViewTextBoxColumn,
+            this.SORT});
             this.dataGridViewEx1.DataSource = this.mTCODEBindingSource;
             this.dataGridViewEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewEx1.Location = new System.Drawing.Point(0, 0);
@@ -107,22 +111,8 @@
             this.dataGridViewEx1.RowHeadersVisible = false;
             this.dataGridViewEx1.RowTemplate.Height = 24;
             this.dataGridViewEx1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewEx1.Size = new System.Drawing.Size(636, 308);
+            this.dataGridViewEx1.Size = new System.Drawing.Size(626, 297);
             this.dataGridViewEx1.TabIndex = 7;
-            // 
-            // cODEDataGridViewTextBoxColumn
-            // 
-            this.cODEDataGridViewTextBoxColumn.DataPropertyName = "CODE";
-            this.cODEDataGridViewTextBoxColumn.HeaderText = "代碼";
-            this.cODEDataGridViewTextBoxColumn.Name = "cODEDataGridViewTextBoxColumn";
-            this.cODEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nAMEDataGridViewTextBoxColumn
-            // 
-            this.nAMEDataGridViewTextBoxColumn.DataPropertyName = "NAME";
-            this.nAMEDataGridViewTextBoxColumn.HeaderText = "名稱";
-            this.nAMEDataGridViewTextBoxColumn.Name = "nAMEDataGridViewTextBoxColumn";
-            this.nAMEDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // mTCODEBindingSource
             // 
@@ -151,13 +141,15 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.fullDataCtrl1);
-            this.splitContainer2.Size = new System.Drawing.Size(636, 140);
+            this.splitContainer2.Size = new System.Drawing.Size(626, 140);
             this.splitContainer2.SplitterDistance = 60;
             this.splitContainer2.TabIndex = 0;
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.textBox1);
@@ -165,7 +157,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(636, 60);
+            this.panel1.Size = new System.Drawing.Size(626, 60);
             this.panel1.TabIndex = 0;
             // 
             // textBox2
@@ -182,6 +174,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '\0';
             this.textBox2.ReadOnly = false;
+            this.textBox2.ShowCalendarButton = true;
             this.textBox2.Size = new System.Drawing.Size(262, 22);
             this.textBox2.TabIndex = 1;
             this.textBox2.ValidType = JBControls.TextBox.EValidType.String;
@@ -210,6 +203,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.PasswordChar = '\0';
             this.textBox1.ReadOnly = false;
+            this.textBox1.ShowCalendarButton = true;
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 0;
             this.textBox1.ValidType = JBControls.TextBox.EValidType.String;
@@ -248,6 +242,7 @@
             this.fullDataCtrl1.DataSource = this.mTCODEBindingSource;
             this.fullDataCtrl1.DeleteType = JBControls.FullDataCtrl.EDeleteType.Delete;
             this.fullDataCtrl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.fullDataCtrl1.EnableAutoClone = false;
             this.fullDataCtrl1.GroupCmd = "";
             this.fullDataCtrl1.Location = new System.Drawing.Point(0, 0);
             this.fullDataCtrl1.Name = "fullDataCtrl1";
@@ -255,7 +250,7 @@
             this.fullDataCtrl1.RecentQuerySql = "";
             this.fullDataCtrl1.SelectCmd = "";
             this.fullDataCtrl1.ShowExceptionMsg = true;
-            this.fullDataCtrl1.Size = new System.Drawing.Size(636, 73);
+            this.fullDataCtrl1.Size = new System.Drawing.Size(626, 73);
             this.fullDataCtrl1.SortFields = "relish_code,relish";
             this.fullDataCtrl1.TabIndex = 0;
             this.fullDataCtrl1.WhereCmd = "";
@@ -272,11 +267,64 @@
             // 
             this.mTCODETableAdapter.ClearBeforeFill = true;
             // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label4.Location = new System.Drawing.Point(364, 36);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 12);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "排序";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox4.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.textBox4.CaptionLabel = this.label4;
+            this.textBox4.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mTCODEBindingSource, "SORT", true));
+            this.textBox4.DecimalPlace = 2;
+            this.textBox4.IsEmpty = false;
+            this.textBox4.Location = new System.Drawing.Point(399, 31);
+            this.textBox4.Mask = "";
+            this.textBox4.MaxLength = -1;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.PasswordChar = '\0';
+            this.textBox4.ReadOnly = false;
+            this.textBox4.ShowCalendarButton = true;
+            this.textBox4.Size = new System.Drawing.Size(92, 22);
+            this.textBox4.TabIndex = 8;
+            this.textBox4.ValidType = JBControls.TextBox.EValidType.Integer;
+            // 
+            // cODEDataGridViewTextBoxColumn
+            // 
+            this.cODEDataGridViewTextBoxColumn.DataPropertyName = "CODE";
+            this.cODEDataGridViewTextBoxColumn.HeaderText = "代碼";
+            this.cODEDataGridViewTextBoxColumn.Name = "cODEDataGridViewTextBoxColumn";
+            this.cODEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nAMEDataGridViewTextBoxColumn
+            // 
+            this.nAMEDataGridViewTextBoxColumn.DataPropertyName = "NAME";
+            this.nAMEDataGridViewTextBoxColumn.HeaderText = "名稱";
+            this.nAMEDataGridViewTextBoxColumn.Name = "nAMEDataGridViewTextBoxColumn";
+            this.nAMEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // SORT
+            // 
+            this.SORT.DataPropertyName = "SORT";
+            this.SORT.HeaderText = "排序";
+            this.SORT.Name = "SORT";
+            this.SORT.ReadOnly = true;
+            // 
             // FRM11Z
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(636, 452);
+            this.ClientSize = new System.Drawing.Size(626, 441);
             this.Controls.Add(this.splitContainer1);
             this.KeyPreview = true;
             this.Name = "FRM11Z";
@@ -315,7 +363,10 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.BindingSource mTCODEBindingSource;
         private BasDSTableAdapters.MTCODETableAdapter mTCODETableAdapter;
+        private System.Windows.Forms.Label label4;
+        private JBControls.TextBox textBox4;
         private System.Windows.Forms.DataGridViewTextBoxColumn cODEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nAMEDataGridViewTextBoxColumn;
-	}
+        private System.Windows.Forms.DataGridViewTextBoxColumn SORT;
+    }
 }
