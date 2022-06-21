@@ -111,7 +111,7 @@ namespace JBHR.Reports.InsForm
                 rq_explab.Columns.Add("h_amt", typeof(int));
                 rq_explab.Columns.Add("l_amt", typeof(int));
                 rq_explab.Columns.Add("r_amt", typeof(int));
-
+                rq_explab.Columns.Add("j_amt", typeof(int));
                 //string sqlCmd3 = "select nobr,fa_idno,h_amt,l_amt,r_amt";
                 //sqlCmd3 += " from inslab where nobr+fa_idno+convert(char,in_date,112) in";
                 //sqlCmd3 += " (select nobr+fa_idno+max(convert(char,in_date,112)) from inslab  ";
@@ -120,7 +120,7 @@ namespace JBHR.Reports.InsForm
                 //sqlCmd3 += " group by nobr,fa_idno)";
                 //sqlCmd3 += string.Format(@" and s_no between '{0}' and '{1}'", sno_b, sno_e);
                 //sqlCmd3 += " order by nobr";
-                string sqlCmd3 = "select a.nobr,a.fa_idno,a.h_amt,a.l_amt,a.r_amt";
+                string sqlCmd3 = "select a.nobr,a.fa_idno,a.h_amt,a.l_amt,a.r_amt,j_amt";
                 sqlCmd3 += " from inscomp b,inslab a";
                 sqlCmd3 += " left outer join larcode c on a.lrate_code=c.rate_code";
                 sqlCmd3 += " where a.s_no=b.s_no";
@@ -159,6 +159,7 @@ namespace JBHR.Reports.InsForm
                         Row["h_amt"] = (row1 == null) ? 0 : JBModule.Data.CDecryp.Number(Convert.ToDecimal(row1["h_amt"].ToString()));
                         Row["l_amt"] = (row1 == null) ? 0 : JBModule.Data.CDecryp.Number(Convert.ToDecimal(row1["l_amt"].ToString()));
                         Row["r_amt"] = (row1 == null) ? 0 : JBModule.Data.CDecryp.Number(Convert.ToDecimal(row1["r_amt"].ToString()));
+                        Row["j_amt"] = (row1 == null) ? 0 : JBModule.Data.CDecryp.Number(Convert.ToDecimal(row1["j_amt"].ToString()));
                     }
                     else
                         Row.Delete();
@@ -254,6 +255,7 @@ namespace JBHR.Reports.InsForm
                         aRow["h_amt"] = int.Parse(Row["h_amt"].ToString());
                         aRow["l_amt"] = int.Parse(Row["l_amt"].ToString());
                         aRow["r_amt"] = int.Parse(Row["r_amt"].ToString());
+                        aRow["j_amt"] = int.Parse(Row["j_amt"].ToString());
                         ds.Tables["zz38"].Rows.Add(aRow);
                     }
                 }
@@ -377,6 +379,7 @@ namespace JBHR.Reports.InsForm
                             row["h_amt"] = int.Parse(row["h_amt"].ToString()) + int.Parse(Row["h_amt"].ToString());
                             row["l_amt"] = int.Parse(row["l_amt"].ToString()) + int.Parse(Row["l_amt"].ToString());
                             row["r_amt"] = int.Parse(row["r_amt"].ToString()) + int.Parse(Row["r_amt"].ToString());
+                            row["j_amt"] = int.Parse(row["j_amt"].ToString()) + int.Parse(Row["j_amt"].ToString());
                         }
                         else
                         {
@@ -419,6 +422,7 @@ namespace JBHR.Reports.InsForm
                             aRow["h_amt"] = int.Parse(Row["h_amt"].ToString());
                             aRow["l_amt"] = int.Parse(Row["l_amt"].ToString());
                             aRow["r_amt"] = int.Parse(Row["r_amt"].ToString());
+                            aRow["j_amt"] = int.Parse(Row["j_amt"].ToString());
                             ds.Tables["zz381"].Rows.Add(aRow);
                         }
                     }
@@ -513,6 +517,7 @@ namespace JBHR.Reports.InsForm
                 aRow["健保投保金額"] = int.Parse(Row01["h_amt"].ToString());
                 aRow["勞保投保金額"] = int.Parse(Row01["l_amt"].ToString());
                 aRow["勞退投保金額"] = int.Parse(Row01["r_amt"].ToString());
+                aRow["職災投保金額"] = int.Parse(Row01["j_amt"].ToString());
                 aRow["個人負擔勞保"] = int.Parse(Row01["l_exp"].ToString());
                 aRow["個人負擔健保"] = int.Parse(Row01["h_exp"].ToString());
                 aRow["個人負擔團保"] = int.Parse(Row01["g_exp"].ToString());
@@ -560,6 +565,7 @@ namespace JBHR.Reports.InsForm
                 aRow["健保投保金額"] = int.Parse(Row01["h_amt"].ToString());
                 aRow["勞保投保金額"] = int.Parse(Row01["l_amt"].ToString());
                 aRow["勞退投保金額"] = int.Parse(Row01["r_amt"].ToString());
+                aRow["職災投保金額"] = int.Parse(Row01["j_amt"].ToString());
                 aRow["個人負擔勞保"] = int.Parse(Row01["l_exp"].ToString());
                 aRow["個人負擔健保"] = int.Parse(Row01["h_exp"].ToString());
                 aRow["個人負擔團保"] = int.Parse(Row01["g_exp"].ToString());
