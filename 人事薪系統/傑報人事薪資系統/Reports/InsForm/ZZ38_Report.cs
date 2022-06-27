@@ -493,6 +493,7 @@ namespace JBHR.Reports.InsForm
             ExporDt.Columns.Add("健保投保金額", typeof(int));
             ExporDt.Columns.Add("勞保投保金額", typeof(int));
             ExporDt.Columns.Add("勞退投保金額", typeof(int));
+            ExporDt.Columns.Add("職災投保金額", typeof(int));
             ExporDt.Columns.Add("個人負擔勞保", typeof(int));
             ExporDt.Columns.Add("個人負擔健保", typeof(int));
             ExporDt.Columns.Add("個人負擔團保", typeof(int));
