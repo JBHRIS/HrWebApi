@@ -4884,6 +4884,8 @@ namespace JBHR.Reports.InsForm {
             
             private global::System.Data.DataColumn columnbonus;
             
+            private global::System.Data.DataColumn columnj_amt;
+            
             private global::System.Data.DataColumn columncnt;
             
             private global::System.Data.DataColumn columnh_amt;
@@ -5079,6 +5081,14 @@ namespace JBHR.Reports.InsForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn j_amtColumn {
+                get {
+                    return this.columnj_amt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn cntColumn {
                 get {
                     return this.columncnt;
@@ -5166,6 +5176,7 @@ namespace JBHR.Reports.InsForm {
                         int oldret, 
                         int totalbonus, 
                         int bonus, 
+                        int j_amt, 
                         int cnt, 
                         int h_amt, 
                         int l_amt, 
@@ -5191,6 +5202,7 @@ namespace JBHR.Reports.InsForm {
                         oldret,
                         totalbonus,
                         bonus,
+                        j_amt,
                         cnt,
                         h_amt,
                         l_amt,
@@ -5236,6 +5248,7 @@ namespace JBHR.Reports.InsForm {
                 this.columnoldret = base.Columns["oldret"];
                 this.columntotalbonus = base.Columns["totalbonus"];
                 this.columnbonus = base.Columns["bonus"];
+                this.columnj_amt = base.Columns["j_amt"];
                 this.columncnt = base.Columns["cnt"];
                 this.columnh_amt = base.Columns["h_amt"];
                 this.columnl_amt = base.Columns["l_amt"];
@@ -5283,6 +5296,8 @@ namespace JBHR.Reports.InsForm {
                 base.Columns.Add(this.columntotalbonus);
                 this.columnbonus = new global::System.Data.DataColumn("bonus", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbonus);
+                this.columnj_amt = new global::System.Data.DataColumn("j_amt", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnj_amt);
                 this.columncnt = new global::System.Data.DataColumn("cnt", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncnt);
                 this.columnh_amt = new global::System.Data.DataColumn("h_amt", typeof(int), null, global::System.Data.MappingType.Element);
@@ -18362,6 +18377,22 @@ namespace JBHR.Reports.InsForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int j_amt {
+                get {
+                    try {
+                        return ((int)(this[this.tablezz381.j_amtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'zz381\' 中資料行 \'j_amt\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tablezz381.j_amtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int cnt {
                 get {
                     try {
@@ -18650,6 +18681,18 @@ namespace JBHR.Reports.InsForm {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetbonusNull() {
                 this[this.tablezz381.bonusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isj_amtNull() {
+                return this.IsNull(this.tablezz381.j_amtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setj_amtNull() {
+                this[this.tablezz381.j_amtColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
