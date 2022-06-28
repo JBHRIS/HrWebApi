@@ -6188,6 +6188,9 @@
     <Compile Include="Reports\ExaForm\ZZ81_Report.Designer.cs">
       <DependentUpon>ZZ81_Report.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\InsForm\InsDataSet.cs">
+      <DependentUpon>InsDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reports\InsForm\InsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
