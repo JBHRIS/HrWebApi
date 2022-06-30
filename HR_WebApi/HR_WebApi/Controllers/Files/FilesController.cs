@@ -325,11 +325,10 @@ namespace HR_WebApi.Controllers
                 {
                     DataTable dataTable = _filesService.LoadExcelToDataTable(stream.BaseStream, file.FileName, sheetName);
                     tmtableImportDtos = _filesService.DataTableToTmtableImportDto(dataTable, KeyMan);
-                    var rotes = _attend_View_GetAttendRote.GetRotes();
                     #region 排班檢核
                     foreach (var import in tmtableImportDtos)
                     {
-
+                        var rotes = _attend_View_GetAttendRote.GetCodeFilterRotes(import.Nobr);
                         var DateBegin = new DateTime(int.Parse(import.Yymm.Substring(0, 4)), int.Parse(import.Yymm.Substring(4, 2)), 1);
                         var DateEnd = new DateTime(int.Parse(import.Yymm.Substring(0, 4)), int.Parse(import.Yymm.Substring(4, 2)), DateTime.DaysInMonth(int.Parse(import.Yymm.Substring(0, 4)), int.Parse(import.Yymm.Substring(4, 2))));
                         var workScheduleCheckEntry = new JBHRIS.Api.Dto.Attendance.WorkScheduleCheckEntry

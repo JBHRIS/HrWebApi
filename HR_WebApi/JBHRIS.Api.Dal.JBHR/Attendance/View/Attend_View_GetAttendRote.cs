@@ -466,6 +466,30 @@ namespace JBHRIS.Api.Dal.JBHR.Attendance.View
             return data.ToList();
         }
 
+        public List<RoteDto> GetCodeFilterRotes(string EmpId)
+        {
+            DateTime today = DateTime.Today;
+            var Saladr = _unitOfWork.Repository<Basetts>().Reads().Where(p => p.Nobr == EmpId && today >= p.Adate && today <= p.Ddate.Value
+                      && new string[] { "1", "4", "6" }.Contains(p.Ttscode)).First().Saladr;
+
+            var Repo = _unitOfWork.Repository<Rote>().Reads().Where(
+                p => _unitOfWork.Repository<CodeFilter>().Reads().Where(cp => cp.Source =="ROTE" && cp.Code == p.Rote1 && cp.Codegroup == Saladr).Any()).ToList();
+
+            var data = Repo.Select(x => new RoteDto()
+            {
+                RoteCode = x.Rote1,
+                RoteDisp = x.RoteDisp,
+                Rotename = x.Rotename,
+                OnTime = x.OnTime,
+                OffTime = x.OffTime,
+                OffTime2 = x.Offtime2,
+                AttEnd = x.AttEnd,
+                OtBegin = x.OtBegin,
+                Sort = x.Sort,
+            });
+            return data.ToList();
+        }
+
         public ApiResult<string> UpdateAttendRote(UpdateAttendRoteEntry updateAttendRoteEntry, string keyman)
         {
 
