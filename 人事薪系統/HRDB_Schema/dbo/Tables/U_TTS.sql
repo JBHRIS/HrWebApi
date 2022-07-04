@@ -1,9 +1,0 @@
-﻿CREATE TABLE [dbo].[U_TTS] (
-    [PRG_NAME] NVARCHAR (50) NOT NULL,
-    [KEY_MAN]  NVARCHAR (50) NOT NULL,
-    [KEY_DATE] DATETIME      NOT NULL,
-    [OP_CODE]  INT           NOT NULL,
-    [CONT]     TEXT          NOT NULL,
-    [KEY_TIME] NVARCHAR (50) NOT NULL
-);
-

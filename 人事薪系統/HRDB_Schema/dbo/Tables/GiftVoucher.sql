@@ -1,9 +1,0 @@
-﻿CREATE TABLE [dbo].[GiftVoucher] (
-    [Code]      NVARCHAR (50) NOT NULL,
-    [GiftName]  NVARCHAR (50) NOT NULL,
-    [KEY_DATE]  DATETIME      NOT NULL,
-    [KEY_MAN]   NVARCHAR (50) NOT NULL,
-    [CODE_DISP] NVARCHAR (50) NULL,
-    CONSTRAINT [PK_GiftVoucher] PRIMARY KEY CLUSTERED ([Code] ASC)
-);
-

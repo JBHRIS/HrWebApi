@@ -1,5 +1,0 @@
-﻿CREATE TABLE [dbo].[EFFS_LEARNPLAN] (
-    [ID]   NVARCHAR (50)  NOT NULL,
-    [note] NVARCHAR (255) NULL
-);
-

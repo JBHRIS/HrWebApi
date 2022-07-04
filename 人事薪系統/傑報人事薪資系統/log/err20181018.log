@@ -1,6 +1,0 @@
-2018/10/18 下午 02:45:14	Error:發生錯誤，請先檢查AppSetting名稱JBControls.ConnectionString是否存在
-已發生類型 'System.Exception' 的例外狀況。	   於 ConfigSetting.AppSettingValue(String name) 於 c:\JB-SVN\Standard\JBTools\ConfigSetting.cs: 行 141
-   於 JBControls.Properties.Settings.get_HrDBConnectionString() 於 c:\JB-SVN\Standard\JBControls\JBControls\Properties\Settings.Designer.cs: 行 41
-   於 JBControls.HrDBDataContext..ctor() 於 c:\JB-SVN\Standard\JBControls\JBControls\HrDB.designer.cs: 行 107
-   於 JBControls.JBForm.JBForm_Load(Object sender, EventArgs e) 於 c:\JB-SVN\Standard\JBControls\JBControls\JBForm.cs: 行 170	
-2018/10/18 下午 02:45:14	Layer1:已發生類型 'System.Exception' 的例外狀況。	   於 ConfigSetting.AppSettingValue(String name) 於 c:\JB-SVN\Standard\JBTools\ConfigSetting.cs: 行 135	

@@ -1,8 +1,0 @@
-﻿CREATE TABLE [dbo].[SALPW] (
-    [AutoKey] INT           IDENTITY (1, 1) NOT FOR REPLICATION NOT NULL,
-    [Nobr]    NVARCHAR (10) NULL,
-    [PW]      NVARCHAR (16) NULL,
-    [KeyDate] DATETIME      NULL,
-    CONSTRAINT [PK_SALPW] PRIMARY KEY CLUSTERED ([AutoKey] ASC)
-);
-

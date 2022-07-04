@@ -1,3 +1,0 @@
-Alter Table SQLUPDATETABLE
-ALTER COLUMN FILENAME nvarchar(200) not null
-go

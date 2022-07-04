@@ -1,2 +1,0 @@
-ALTER TABLE FOOD_CARD ADD temperature NVARCHAR(50) null;
-GO

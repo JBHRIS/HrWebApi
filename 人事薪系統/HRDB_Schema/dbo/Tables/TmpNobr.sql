@@ -1,6 +1,0 @@
-﻿CREATE TABLE [dbo].[TmpNobr] (
-    [Nobr] VARCHAR (50)  NOT NULL,
-    [Item] VARCHAR (200) CONSTRAINT [DF_TmpNobr_Item] DEFAULT ('') NOT NULL,
-    CONSTRAINT [PK_TmpNobr] PRIMARY KEY CLUSTERED ([Nobr] ASC)
-);
-

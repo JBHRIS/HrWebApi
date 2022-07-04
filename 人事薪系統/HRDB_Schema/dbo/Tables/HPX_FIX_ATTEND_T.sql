@@ -1,6 +1,0 @@
-﻿CREATE TABLE [dbo].[HPX_FIX_ATTEND_T] (
-    [NOBR]  NVARCHAR (50) NULL,
-    [ADATE] DATETIME      NULL,
-    [VER]   NVARCHAR (50) NULL
-);
-

@@ -1,9 +1,0 @@
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\ezSendMail.Form1.resources
-obj\Debug\ezSendMail.Properties.Resources.resources
-obj\Debug\ezSendMail.csproj.GenerateResource.Cache
-bin\Debug\ezSendMail.exe.config
-bin\Debug\ezSendMail.exe
-bin\Debug\ezSendMail.pdb
-obj\Debug\ezSendMail.exe
-obj\Debug\ezSendMail.pdb

@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="JBHR2Service.KCR_MealService" CodeBehind="KCR_MealService.svc.cs" %>

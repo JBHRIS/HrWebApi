@@ -1,8 +1,0 @@
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\ConfigUpdate.Form1.resources
-obj\Debug\ConfigUpdate.Properties.Resources.resources
-obj\Debug\ConfigUpdate.csproj.GenerateResource.Cache
-bin\Debug\ConfigUpdate.exe
-bin\Debug\ConfigUpdate.pdb
-obj\Debug\ConfigUpdate.exe
-obj\Debug\ConfigUpdate.pdb

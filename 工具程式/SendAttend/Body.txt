@@ -1,2 +1,0 @@
-AttTopA[個人發送頁首]#<font color=black size=3><BR>您【{Nobr}】{DateB}~{DateE}的出勤資料有異常，請查照下表</font><BR></B><BR>
-AttDeptTopA[部門主管發送頁首]#<font color=black size=5><BR><B>部門【{Dept}】{DateB}~{DateE}的出勤資料有異常，請查照下表</font><BR></B><BR>

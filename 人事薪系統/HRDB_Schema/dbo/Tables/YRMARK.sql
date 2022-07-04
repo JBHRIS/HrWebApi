@@ -1,5 +1,0 @@
-﻿CREATE TABLE [dbo].[YRMARK] (
-    [MARK]       NVARCHAR (50) NOT NULL,
-    [MARK_DESCR] NVARCHAR (50) NOT NULL
-);
-

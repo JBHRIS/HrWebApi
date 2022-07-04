@@ -1,1 +1,0 @@
-2013-09-11 13:12:00.8859|INFO|ASP.global_asax|dailyTimer excute

@@ -1,2 +1,0 @@
-﻿CREATE USER [jbclient] WITHOUT LOGIN;
-

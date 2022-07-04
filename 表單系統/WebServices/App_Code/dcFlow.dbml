@@ -1,3 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ASMLHR" Class="dcFlowDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=211.78.84.42;Initial Catalog=ezFlow_ASML;Persist Security Info=True;User ID=jb" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="FlowConnectionString" Provider="System.Data.SqlClient" />
-</Database>

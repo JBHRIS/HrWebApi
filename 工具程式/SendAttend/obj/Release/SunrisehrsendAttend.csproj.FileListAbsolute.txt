@@ -1,9 +1,0 @@
-D:\c#.net\Sunrise\SunrisehrsendAttend\bin\Release\sendAttendMail.exe.config
-D:\c#.net\Sunrise\SunrisehrsendAttend\bin\Release\sendAttendMail.exe
-D:\c#.net\Sunrise\SunrisehrsendAttend\bin\Release\sendAttendMail.pdb
-D:\c#.net\Sunrise\SunrisehrsendAttend\obj\Release\ResolveAssemblyReference.cache
-D:\c#.net\Sunrise\SunrisehrsendAttend\obj\Release\sendAttendMail.exe
-D:\c#.net\Sunrise\SunrisehrsendAttend\obj\Release\sendAttendMail.pdb
-D:\c#.net\ARBOR\SunrisehrsendAttend\bin\Release\sendAttendMail.exe.config
-D:\c#.net\ARBOR\SunrisehrsendAttend\obj\Release\sendAttendMail.exe
-D:\c#.net\ARBOR\SunrisehrsendAttend\obj\Release\sendAttendMail.pdb

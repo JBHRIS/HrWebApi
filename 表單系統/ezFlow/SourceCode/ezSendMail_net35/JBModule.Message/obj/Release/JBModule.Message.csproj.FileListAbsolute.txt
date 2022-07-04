@@ -1,9 +1,0 @@
-D:\程式專案\專案開發\JBHR\JBHR\JBModule.Message\bin\Release\JBModule.Message.dll
-D:\程式專案\專案開發\JBHR\JBHR\JBModule.Message\bin\Release\JBModule.Message.pdb
-D:\程式專案\專案開發\JBHR\JBHR\JBModule.Message\obj\Release\ResolveAssemblyReference.cache
-D:\程式專案\專案開發\JBHR\JBHR\JBModule.Message\obj\Release\JBModule.Message.dll
-D:\程式專案\專案開發\JBHR\JBHR\JBModule.Message\obj\Release\JBModule.Message.pdb
-D:\程式專案\專案開發\JBHR\JBHR\JBModule.Message\bin\Release\JBTools.dll
-D:\程式專案\專案開發\JBHR\JBHR\JBModule.Message\bin\Release\JBTools.pdb
-D:\程式專案\專案開發\JBHR\JBHR\JBModule.Message\obj\Release\JBModule.Message.Properties.Resources.resources
-D:\程式專案\專案開發\JBHR\JBHR\JBModule.Message\obj\Release\JBModule.Message.csproj.GenerateResource.Cache

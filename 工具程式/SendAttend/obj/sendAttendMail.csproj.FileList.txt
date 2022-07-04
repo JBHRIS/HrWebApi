@@ -1,6 +1,0 @@
-bin\Debug\sendAttendMail.exe
-bin\Debug\sendAttendMail.pdb
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\sendAttendMail.exe
-obj\Debug\sendAttendMail.pdb
-bin\Debug\sendAttendMail.exe.config

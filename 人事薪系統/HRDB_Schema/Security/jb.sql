@@ -1,2 +1,0 @@
-﻿CREATE USER [jb] WITHOUT LOGIN;
-

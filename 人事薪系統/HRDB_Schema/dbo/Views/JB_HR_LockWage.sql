@@ -1,4 +1,0 @@
-﻿CREATE VIEW [dbo].[JB_HR_LockWage]
-AS
-SELECT     RTRIM(YYMM) AS sYYMM, RTRIM(SEQ) AS sSeq, RTRIM(SALADR) AS sSaladr
-FROM         dbo.LOCK_WAGE

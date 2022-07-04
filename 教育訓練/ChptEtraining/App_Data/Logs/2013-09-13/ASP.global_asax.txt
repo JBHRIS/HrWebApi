@@ -1,3 +1,0 @@
-2013-09-13 12:31:43.4384|INFO|ASP.global_asax|dailyTimer excute
-2013-09-13 13:31:33.4397|INFO|ASP.global_asax|dailyTimer excute
-2013-09-13 15:06:24.2692|INFO|ASP.global_asax|dailyTimer excute
