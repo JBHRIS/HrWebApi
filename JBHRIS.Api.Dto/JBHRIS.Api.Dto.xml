@@ -982,6 +982,11 @@
             公司別
             </summary>
         </member>
+        <member name="P:JBHRIS.Api.Dto.Attendance.View.AbsenceTakenViewDto.YYMM">
+            <summary>
+            計薪年月
+            </summary>
+        </member>
         <member name="P:JBHRIS.Api.Dto.Attendance.View.AttentRoteViewDto.EmployeeId">
             <summary>
             工號

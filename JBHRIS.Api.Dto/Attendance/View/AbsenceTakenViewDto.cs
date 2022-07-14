@@ -63,5 +63,9 @@ namespace JBHRIS.Api.Dto.Attendance.View
         /// 公司別
         /// </summary>
         public string Comp { get; set; }
+        /// <summary>
+        /// 計薪年月
+        /// </summary>
+        public string YYMM { get; set; }
     }
 }
